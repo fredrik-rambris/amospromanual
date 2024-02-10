@@ -1,0 +1,955 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - App. A: Machine Code</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>App. A: Machine Code</h1>
+
+<br>
+
+
+<p>
+AMOS Professional Basic includes a range of commands that provide the advanced programmer
+with total access to the inner workings of the Amiga's hardware. In experienced hands these
+instructions can be invaluable. But be warned, if you are not completely sure what you are
+doing, these commands may be lethal for your programs!</p>
+
+<p>
+All the important hardware routines are built in to AMOS Professional Basic, allowing you to
+exploit the Amiga's full potential using the simple commands already detailed in this User
+Guide. In other words, if you prefer to opt for the simple life, you are free to ignore this machine
+code section altogether. You certainly do not need these functions to create superb computer
+games.</p>
+
+<p><b>Converting numbers</b><br>
+
+Human beings normally count in multiples of ten, based on the number of fingers most of us
+possess. These "decimal" numbers are expressed by a group of characters from 0 to 9, and the
+relative position of these "digits" determines whether a character represents the number of ones,
+or tens, or millions, and so on.</p>
+
+<p>So in the decimal system, the number 1234 is equivalent to:</p>
+
+<pre>
+1*1000 + 2*100 + 3*10 + 4
+</pre>
+
+<p>
+Computers do not posses ten fingers, but count in a "binary" system instead, which means that
+each digit can only be in one of two possible states, non-existent or existent. This is represented
+by either a 0 or a 1.</p>
+
+<p>
+As with the decimal system, the meaning of a binary digit depends entirely on its position in a
+binary number. Both systems rely on the fact that the value of digits change depending on their
+position from right to left in the number. The human system uses a base of ten, but the
+computer prefers a base of 2. So as you move from right to left, the values of binary numbers
+increase by a factor of two. In other words, the digit at the extreme right of a binary number
+represents the number of ones, the next one along represents the number of twos, then fours,
+eights, and so on.</p>
+
+<p>Examine the number 15. In the decimal system this is depicted as follows:</p>
+
+<pre>
+1*10 + 5
+</pre>
+
+<p>But in binary, the same number is stored like this:</p>
+
+<pre>
+1*8 + 1*4 + 1*2 + 1
+</pre>
+
+<p>Which can be written as follows:</p>
+
+<pre>
+1111
+</pre>
+
+<p><b>BIN$</b><br>
+  <i>function: convert a decimal value into a string of binary digits</i><br>
+  b$=<b>Bin$</b>(value)<br>
+  b$=<b>Bin$</b>(value,digits)</p>
+
+<p>
+  This is the function that converts a decimal number or expression into the equivalent string of
+  binary digits. The binary number that is returned will automatically have a leading % (per cent)
+  character added to it. This character acts as an introduction sign, to indicate that the number
+  which follows it is in binary notation, rather than the standard decimal system.</p>
+
+<p>
+  After the decimal value that is to be converted, an optional number between 1 and 31 can be
+  added which sets the number of digits to be returned in the binary string. If this parameter is
+  omitted, AMOS Professional will express the value in the fewest possible digits, with no leading
+  zeros. Here are a few examples:</p>
+
+<pre>
+E> Print Bin$(5)
+   Print Bin$(10)
+   Print Bin$(255)
+   X$=Bin$(100) : Print X$
+</pre>
+
+<p>
+  You may enter binary numbers directly, as part of an expression, providing that the % (per cent)
+  character is placed in front of your binary value. Such numbers will be converted into standard
+  decimal notation automatically. For example:</p>
+
+<pre>
+E> Print %101
+   Print %1010
+   Print %11111111
+   X$=Bin$(100) : Print Val(X$)
+</pre>
+
+<p>
+  Certain functions make use of yet another system of counting. The Hexadecimal system counts
+  in units of 16 rather than ten, so a total of 16 different digits is needed to represent all the
+  different numbers. The digits from 0 to 9 are used as normal, but the digits from 10 to 15 are
+  signified by the letters A to F, as shown in the following table:</p>
+
+
+<pre>
+<b>Hex digit</b> 0  1  2  3  4  5  6  7  8  9  A   B   C   D   E   F
+<b>Decimal</b>   0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+</pre>
+
+<p><b>HEX$</b><br>
+  <i>function: convert a decimal value into a string of hexadecimal digits</i><br>
+  h$=<b>Hex$</b>(value)<br>
+  h$=<b>Hex$</b>(value,digits)</p>
+
+<p>
+  HEX$ converts numbers from the decimal system into a string of hexadecimal (Hex) digits. The
+  decimal value to be converted is specified in brackets. The hex number that is returned will
+  automatically have a leading $ (dollar) character added to it.</p>
+
+<!-- section -->
+
+<p>
+  This character acts as an introduction sign, to indicate that the number which follows it is in
+  hexadecimal notation, rather than the standard decimal system.</p>
+
+<p>
+  After the decimal value that is to be converted, an optional number can be added which sets the
+  number of digits to be returned in the hex string. If this parameter is omitted, AMOS
+  Professional will return the value in the fewest possible digits needed to express the hex
+  number. For example:</p>
+
+<pre>
+E> Print Hex$(100)
+   Print Hex$(100,3)
+</pre>
+
+<p>
+  HEX$ is often used with the COLOUR function to display the precise mixture of Red, Green and
+  Blue components in a particular colour, as follows:</p>
+
+<pre>
+D> Print Hex$(Colour(2))
+</pre>
+
+<p>
+  Hexadecimal notation is ideal for handling large numbers such as addresses, and it may be
+  entered directly in any AMOS Professional Basic expression. The $ (dollar) character must be
+  placed in front of hex numbers, and they will be converted into standard decimal notation
+  automatically. For example:</p>
+
+<pre>
+E> Print $64
+   Print $A
+</pre>
+
+<p>
+  Do not confuse the use of the <b>leading</b> $ character for a hex number with the use of a <b>trailing</b> $
+  character for a string. $A is a hexadecimal number, but A$ is a variable!</p>
+
+<p><b>Manipulating memory</b><br>
+
+  A "byte" is a single unit of data, resident at an address in memory. If no unit of data exists at a
+  particular address, the address remains empty. Each byte can hold a number between 0 and 255.
+  Each byte is made up of eight smaller units of memory called "bits", and a bit is the smallest unit
+  of data that can be represented in a computer's memory by a 1 or a 0.</p>
+
+<p><b>PEEK</b><br>
+  <i>function: read a byte from an address</i><br>
+  byte=<b>Peek</b>(address)</p>
+
+<p>The PEEK function returns a single 8-bit byte from an address in memory.</p>
+
+<p><b>POKE</b><br>
+  <i>instruction: change a byte at an address</i><br>
+  <b>Poke</b> address,number</p>
+
+<p>
+  The POKE command moves a number from 0 to 255 into the memory location at the specified
+  address. Take great care with this instruction! Only POKE addresses that you completely
+  understand, such as the contents of an AMOS Professional memory bank. Random poking will
+  provoke your Amiga into taking horrible reprisals!</p>
+
+
+<!-- section -->
+
+<p><b>DEEK</b><br>
+  <i>function: read two bytes from an even address</i><br>
+  word=<b>Deek</b>(address)</p>
+
+<p>
+  DEEK reads a two-byte "word" at a specified address. This address must be even, or an address
+  error will be generated.</p>
+
+<p><b>DOKE</b><br>
+  <i>instruction: change a two-byte word at an even address</i><br>
+  <b>Doke</b> address,number</p>
+
+<p>
+  Use the DOKE command to copy a two-byte number between 0 and 65535 into the memory
+  location at a specified even address. Only DOKE into places where you are certain of safety,
+  because indiscriminate use of this command will almost certainly crash your Amiga!</p>
+
+<p><b>LEEK</b><br>
+  <i>function: read four bytes from an even address</i><br>
+  word=<b>Leek</b>(address)</p>
+
+<p>
+  The LEEK function returns a four-byte "long word" stored at the specified even address. The
+  result will be in exactly the same format as a standard AMOS Professional integer. This may
+  result in negative values being returned in certain circumstances, such as if bit 31 of your
+  number is set to 1. The correct value can be calculated by making use of DEEK, then loading the
+  result into a floating point number, like this:</p>
+
+<pre>
+E> A=$FFFFFFFE
+   Print Leek(Varptr(A))
+   A#=Deek(Varptr(A))*65535.0+Deek(Varptr(A)+2)
+   Print A#
+</pre>
+
+<p><b>LOKE</b><br>
+  <i>instruction: change a four-byte word at an even address</i><br>
+  <b>Loke</b> address,number</p>
+
+<p>
+  LOKE copies a four-byte number into the memory location at a specified address. As before, the
+  address must be an even location, and this command must be used with the greatest of care to
+  avoid crashing the computer.</p>
+
+<p><b>POKE$</b><br>
+  <i>instruction: poke a string of characters into memory</i><br>
+  <b>Poke$</b> address, string$</p>
+
+<p>
+  Use the POKE$ command to take a source string and copy it directly to a chosen memory
+  location, one character at a time. The address parameter holds the address of the first byte to be
+  loaded with the new string data.</p>
+
+<!-- section -->
+
+<p>
+  The copying operation will continue until the last character of the source string is reached, and
+  the end address will be as follows:</p>
+
+<pre>
+address+Len(string$)-1
+</pre>
+
+<p>
+  The address may be odd or even, and can be anywhere in the Amiga's memory space. As
+  always, mistakes with the address can crash your computer! Here is an example of the correct
+  technique:</p>
+
+<pre>
+X> Reserve As Data 10,1000: Rem Reserve a memory bank
+   NAME=Start(10)-8 : Rem Get the address of the name
+   T$="Testbank" : Rem Choose a new name of up to 8 characters
+   Poke$ NAME,Left$(T$,8) : Rem Poke the first 8 characters into the name
+</pre>
+
+<p><b>PEEK$</b><br>
+  <i>function: read a string of characters from memory</i><br>
+  string$=<b>Peek$</b>(address,length)<br>
+  string$=<b>Peek$</b>(address,length,stop$)</p>
+
+<p>
+  PEEK$ reads the maximum number of characters specified in the length parameter, into a new
+  string. If this is not a sensible value, the length is assumed to be 65500. The address parameter is
+  the location of the first character to be read.</p>
+
+<p>
+  There is an optional stop$ parameter, and if this is included, AMOS Professional will stop in its
+  tracks the moment a specified stop$ character is encountered in the memory area. You will then
+  be left with a string of characters up to the final stop$. Here is an example using PEEKS:</p>
+
+<pre>
+X> Reserve As Data 10,1000 : Rem Reserve a memory bank
+   NAME=Start(10)-8 : Rem Get the address of the name
+   Print Peek$(NAME,8)
+</pre>
+
+<p><b>COPY</b><br>
+  <i>instruction: copy a memory block</i><br>
+  <b>Copy</b> start,finish <b>To</b> destination</p>
+
+<p>
+  The COPY command is used to move large sections of the Amiga's memory rapidly from one
+  place to another. Specify the start and finish locations of the data to be moved, then give the
+  destination of the position of memory area which is to be loaded with the data. Addresses may
+  be odd or even, and special care should be taken to ensure that the destination area points to
+  somewhere safe!</p>
+
+<p><b>FILL</b><br>
+  <i>instruction: fill memory block with the contents of a variable</i><br>
+  <b>Fill</b> start <b>To</b> finish,pattern</p>
+
+<p>
+  The FILL instruction packs an area of memory specified from start to finish. This area is filled
+  with multiple copies of a specified four-byte pattern. The addresses of the start and finish
+  determine the size and position of the memory block, and they must both be even.</p>
+
+<!-- section -->
+
+<p>
+  The fill pattern is a standard four-byte integer, but if you need to fill the area with multiple
+  copies of a single byte, this value can be calculated as follows, where V will contain the required
+  value of your fill command:</p>
+
+<pre>
+E> BYTE=255 : Rem This can be any number from 0 to 255
+   V=0
+   Poke Varptr(V),BYTE : Poke Varptr(V)+1,BYTE
+   Poke Varptr(V)+2,BYTE : Poke Varptr(V)+3,BYTE
+   Print V
+</pre>
+
+<b>HUNT</b><br>
+<i>function: find a string of characters in memory</i><br>
+first=<b>Hunt</b>(start <b>To</b> finish,s$)</p>
+
+<p>
+  HUNT is really a low level version of the familiar INSTR$ command. It searches the memory
+  area defined by the given start and finish addresses, looking for the first occurrence of the
+  characters held in your specified string.</p>
+
+<p>
+  If the search is successful, the position of the first character in memory is returned, otherwise a
+  value of zero will be given. When using this function, take great care in selecting the start and
+  finish points for the search.</p>
+
+<p><b>Direct access to variables</b></p>
+
+<p><b>VARPTR</b><br>
+  <i>function: read the address of a variable</i><br>
+  address=<b>Varptr</b>(variable)</p>
+
+<p>
+  This useful function returns the location of any AMOS Professional variable in the Amiga's
+  memory. Programmers familiar with C should find it very similar to the & (ampersand) operator
+  in that language.</p>
+
+<p>
+  VARPTR provides back-door access to your variables, and with careful use you are able to get to
+  them directly, without having to rely on standard routines. This is especially valuable with
+  procedures, because if procedures are loaded with the <b>address</b> of a variable instead of its actual
+  value, that variable can be changed from <b>inside</b> the procedure. For example:</p>
+
+<pre>
+E> TEST=0
+   Rem Correct use of square brackets
+   ANSWER[Varptr(Test)] : Rem Load ADDRESS of variable into AD parameter
+   Print TEST
+   Procedure ANSWER[AD]
+    Loke AD,42 : Rem Copy new value into variable, by back door!
+   End Proc
+</pre>
+
+<p>
+  There should be few problems encountered when reading the variables, but changing them is a
+  very hazardous process!</p>
+
+<!-- section -->
+
+<p>
+  The slightest error made in your address calculations will crash AMOS Professional, so it is vital
+  to <b>save your programs before attempting to change your variables in this way</b>.</p>
+
+<p>
+  With machine code programs, VARPTR can also be used to manipulate entire strings or arrays
+  directly. Each type of variable is stored in its own individual format, as listed below.</p>
+
+<p>
+  <b>Integers</b> are held as a simple group of four bytes. They can be read from your Basic program
+  using LEEK, and altered by LOKE. Here is an example of this (dangerous) method:</p>
+
+<pre>
+E> ANSWER=43 : Rem Load a variable
+   AN=Varptr(ANSWER) : Rem Find address of variable
+   Loke AN,LEEK(AN)-1 : Rem Equivalent to ANSWER=ANSWER-1
+   Print ANSWER
+</pre>
+
+<p>
+  <b>Floating point numbers</b> are stored as four bytes, using the special Fast-Floating point format.
+  However, if DOUBLE PRECISION is being used, floating point numbers are held as a group of
+  eight bytes in IEEE double precision format.</p>
+
+<p>
+  <b>Strings</b> are stored' as a series of characters in standard Ascii format. The address given by
+  VARPTR points to the first character in the string, and this can be examined with PEEK or
+  replaced using POKE. Note that the length of the string is contained in two bytes immediately
+  before the string. This means that it can be loaded into Basic using a line like this:</p>
+
+<pre>
+X> Print Deek(Varptr(A$)-2) : Rem Equivalent to Print Len(A$)
+</pre>
+
+<p>
+  One application of this function is to return the Ascii value of a single character in an
+  AMOS Professional string. The standard method is to make use of the ASC and M1D$ functions,
+  like this:</p>
+
+<pre>
+X> A=Asc(Mid$(A$),C,1) : Rem Return Ascii code of character C in A$
+</pre>
+
+<p>Using VARPTR, that could be replaced by the following line:</p>
+
+<pre>
+X> A=Peek(Varptr(A$)+C)
+</pre>
+
+<p>
+  To avoid danger, special precautions must be taken before new values are poked into a string.
+  During the course of a program, the address of a string may change many times, so it is vital to
+  load the current address of a string using VARPTR immediately before that string is used.</p>
+
+<p>
+  AMOS Professional regularly reorganises all strings in memory, using a "garbage collection"
+  process. This frees valuable space needed for variables, and is essential for the smooth running
+  of the system. But if you wish to pass the address of a string as a procedure garbage collection
+  can play havoc. The obvious solution is to collect the garbage <b>before</b> the address is calculated,
+  using a simple line like this:</p>
+
+<pre>
+X> X=Free
+</pre>
+
+<!-- section -->
+
+<p>
+  The address of the string can now be established, and passed to the procedure. So providing
+  strings themselves are not used in the procedure, you should remain safe.</p>
+
+<p>Another hazard can be encountered if you try to POKE values straight into a string.<br>
+  Try</p>
+
+<pre>
+E> A$="123456789": Rem Define a string of characters
+   For C=0 To Len(A$)-1
+    AD=Varptr(A$) : Rem Get the address
+    V=Peek(AD+C) : Rem Get Ascii value of current element
+    Poke AD+C,V+1 : Rem Add 1 to it
+   Next C
+   Print A$
+</pre>
+
+<p>
+  When you return to the Editor, you will discover that your listing has been changed!- AMOS
+  Professional is trying to save space by storing your string in the program listing, rather than the
+  standard variable "buffer". This problem can be solved by loading the first character into the
+  start of the string, then adding the remaining characters later. Here is how:</p>
+
+<pre>
+E> A$="1" : Rem Set up the first character
+   A$=A$+"23456789" : Rem Now add remaining characters
+</pre>
+
+<p>This fools AMOS Professional into creating a separate copy of the string in the variable buffer.</p>
+
+<p>
+  <b>Numerical arrays</b> are stored as a simple list of values, with each dimension stored in turn. Look
+  at the following array:</p>
+
+<pre>
+X> Dim TEST(3,3)
+</pre>
+
+<p>That array is held in the following order:</p>
+
+<pre>
+0,0 0,1 0,2 0,3
+1,0 1,1 1,2 1,3
+2,0 2,1 2,2 2,3
+3,0 3,1 3,2 3,3
+</pre>
+
+<p>So to return the address of the first value of the array, you would use this:</p>
+
+<pre>
+X> Varptr TEST(0,0)
+</pre>
+
+<p>
+  <b>String arrays</b> are more complex, because their length needs to change whenever one of their
+  elements is assigned to a new value. The only way of ensuring total safety is to avoid them
+  altogether! If you ignore this advice and try to access them using VARPTR, you are risking real
+  danger.</p>
+
+<!-- section -->
+
+<p><b>Manipulating bits</b></p>
+
+<p><b>ROL</b><br>
+  <i>instruction: rotate left</i><br>
+  <b>Rol.B</b> number,bin value<br>
+  <b>Rol.W</b> number,bin value<br>
+  <b>Rol.L</b> number,bin value</p>
+
+<p>
+  ROL is the AMOS Professional Basic version of the ROL command available from 68000
+  assembly language. It takes the given binary value, and rotates it the specified number of places
+  to the left. The value can be a normal variable, or an expression. Expressions will be treated as a
+  memory location, and AMOS Professional will change the value at the address of the result.</p>
+
+<p>
+  This command allows instant rotation of any part of the Amiga's memory, and it must be used
+  with extreme caution! If variables are confused with bit numbers, your machine will crash. Take
+  heed of the next lines:</p>
+
+<pre>
+X> A=1
+   Rol.l 1,A : Rem This is fine
+   Rol.l A,1 : Rem This is lethal. DO NOT DO IT!
+</pre>
+
+<p>There are three forms of the ROL instruction:</p>
+
+<b>ROL.B</b> rotates the first eight bits of the value<br>
+<b>ROL.W</b> rotates the bottom 16 bits of the value<br>
+<b>ROL.L</b> rotates the entire number</p>
+
+<p>
+  The ROL command is invaluable as a rapid method of multiplying and positive number by a
+  power of two, like this:</p>
+
+<pre>
+E> B=1
+   Rol.l 2,B
+   Print B
+</pre>
+
+<p>Here is an example routine:</p>
+
+<pre>
+E> Curs Off : Locate 0,20 : Centre "Press a key to ROL the number"
+   Locate 0,0 : Print "Binary version"
+   Locate 0,4 : Print "Decimal version"
+   B=1 : Rem Set initial value
+   Do
+    Locate 0,2: Print Bin$(B,32) : Rem Display number in binary
+    Locate 0,6: Print B;"         "; : Rem Nine spaces
+    Wait Key
+    Rol.l 1,B : Rem Try ROL.W and ROL.B too
+   Loop
+</pre>
+
+<!-- section -->
+
+<p><b>ROR</b><br>
+  <i>instruction: rotate right</i><br>
+  <b>Ror.B</b> number,bin value<br>
+  <b>Ror.W</b> number,bin value<br>
+  <b>Ror.L</b> number,bin value</p>
+
+<p>
+  The ROR commands are similar to ROL, except they rotate numbers from left to right. As before,
+  the number of places to be moved must be set, followed by a variable or an expression. If an
+  expression is used, it will be treated as the address of your value. ROR can be used as a fast way
+  of dividing any positive number by a power of two, like this:</p>
+
+<pre>
+E> A=8
+   Ror.l 1,A
+   Print A
+</pre>
+
+<p><b>BTST</b><br>
+  <i>function: test a bit</i><br>
+  bit=<b>Btst</b>(number,value)</p>
+
+<p>
+  The BTST function tests a single binary bit in a given value. Specify the number of the bit to be
+  tested, from 0 to 31, then give the chosen variable or expression. If the given value is an
+  expression, it will be used as an address, so the bit will then be checked at LEEK(value) instead.
+  Note that only bits 0 to 7 can be tested by this system, and that AMOS Professional will take
+  your bit number and perform an automatic AND operation with 7, to ensure that it lies in the
+  correct range.</p>
+
+<p>
+  If the test is successful, a value of -1 (True) is returned, otherwise a zero (False) is given.
+  For example:</p>
+
+<pre>
+E> B=%1010
+   Print Btst(3,B)
+   Print Btst(2,B)
+</pre>
+
+<p><b>BSET</b><br>
+  <i>instruction: set a bit to 1</i><br>
+  <b>Bset</b> position,value</p>
+
+<p>
+  The BSET command sets a bit to 1. Specify the bit by giving its position in a variable or an
+  expression. If an expression is used, it will be treated as an address of a value in the Amiga's
+  memory. If the bit number and the variable are given in the wrong order, your computer will crash!</p>
+
+<p><b>BCHG</b><br>
+  <i>instruction: toggle a bit</i><br>
+  <b>Bchg</b> position,value</p>
+
+<p>This instruction flips a binary bit from 0 to 1, or from 1 to 0, as appropriate.</p>
+
+<!-- section -->
+
+<p>
+  As usual, the bit is specified by giving the number of its position, followed by either a variable or
+  expression. If the value is an expression, it is assumed to be an address, and great care should be
+  taken.</p>
+
+<p><b>BCLR</b><br>
+  <i>instruction: clear a bit</i><br>
+  <b>Bclr</b> number,value</p>
+
+<p>
+  The BCLR command clears a bit by setting it to zero. The bit number can be from 0 to 31, and
+  pinpoints the single binary digit to be cleared. If the value is an expression, it will be used as an
+  address in memory.</p>
+
+<p><b>Using assembly language</b></p>
+
+<p>
+  AMOS Professional exploits the most useful machine code routines and transforms them into
+  simple Basic commands. Even if you are an experienced machine code programmer, you will
+  have to work very hard to better the speed and range of AMOS Professional.</p>
+
+<p>
+  Even though assembly language is hazardous and you are best advised to avoid it, there are a
+  few routines which could be improved by its use. So for this reason, you are provided with
+  several methods of accessing machine code directly from AMOS Professional Basic. These
+  features are strictly for experts, and should be ignored by anyone not familiar with assembly
+  language.</p>
+
+<p><b>Machine code procedures</b><br>
+
+  The easiest option for exploiting assembly language is to install machine code directly into an
+  AMOS Professional procedure. These procedures can be saved and loaded using standard
+  commands, and then executed from the Basic program simply by typing their name! Apart from
+  the fact that it cannot be listed on screen, the only effective difference between a machine code
+  procedure and its Basic equivalent is speed.</p>
+
+<p>
+  Machine code procedures are completely compatible with the AMOS Compiler, which will not
+  only run most of your programs at double speed, but also compact them to a fraction of their
+  original size. This means that if you decide to compile your programs at a later date, you will not
+  need to alter your assembly language at all. The following points should be noted before using
+  an assembler:</p>
+
+<ul>
+  <li>Routines should be re-locatable, able to run under CLI and should end with a simple RTS
+    instruction.</li>
+  <li>The only limit to the size of the machine code is the amount of available memory. However,
+    only the <b>first</b> CODE segment should be used for programs. The contents of any other segment
+    will be completely ignored!</li>
+  <li>If memory is reserved using the Amiga system functions, remember to return reserved
+    memory to the memory pool after use. AMOS Professional cannot be expected to know or
+    care what you are doing!</li>
+  <li>A procedure <b>will be moved</b> in memory every time a line is entered via the Editor. This means
+    that if an interrupt is attached to the routine, it must be removed before anything in the Basic
+    program is changed, otherwise the Amiga will crash!</li>
+</ul>
+
+<!-- section -->
+
+<ul>
+  <li>When the routine i's called from AMOS Professional Basic, certain registers will contain
+    valuable information. Register <b>A3</b> will hold the parameter list. Register <b>A5</b> will contain the
+    AMOS Professional data zone, which allows access to many internal functions directly from
+    the machine code program.</li>
+  <li>Although routines can alter any register, the <b>A7</b> stack should be left unchanged. Also note that
+    registers <b>A3</b> to <b>A6</b> will not be returned in AREG functions.</li>
+</ul>
+
+<p><b>Creating a machine code language procedure</b><br>
+
+  Machine code procedures are installed using the [Inset Program] option from the
+  [Editor/Procedures] menu. The following steps should be followed:</p>
+
+<ul>
+  <li>Create a dummy procedure from the AMOS Professional Editor, like this:</li>
+</ul>
+
+<pre>
+X> Procedure _MACHINE[A,A$]
+   End Proc
+</pre>
+
+<p>
+  Existing closed procedures may also be used for this purpose, and it is perfectly legal to update a
+  routine after the machine code program has been re-assembled.</p>
+
+<ul>
+  <li>Position the text cursor inside the empty procedure.</li>
+</ul>
+
+<ul>
+  <li>Select [Insert Program] from the menu. You will now be prompted with a standard AMOS</li>
+  Professional file selector.</li>
+</ul>
+
+<ul>
+  <li>Select the machine language program from the disc. It must be a normally assembled machine
+    language which be run under CLI. A Workbench program or other commercial program
+    cannot be inserted into a procedure. If this advice is ignored, your Amiga will crash when
+    such a program is executed! The code must be PC relative, because AMOS Professional will
+    ignore any relocation information in the file. The code must use a single segment only,
+    because AMOS Professional will only load the first CODE segment into memory.</li>
+</ul>
+
+<ul>
+  <li>AMOS Professional will now close the procedure and insert the selected machine language
+    routine into memory. Any existing Basic instructions in the procedure will be removed!</li>
+</ul>
+
+<p>
+  Once the machine code is installed in this manner, it will be called automatically whenever the
+  new procedure is run from AMOS Professional Basic.</p>
+
+<p><b>Communicating with a machine code procedure</b><br>
+
+  There are two methods of exchanging information with a machine code procedure.</p>
+
+<p>
+  With the first method, values are loaded into the appropriate Address and Data registers, before
+  the procedure is called using the AREG and DREG functions. For example:</p>
+
+<pre>
+X> Dreg(0)=1 : Dreg(1)=Varptr(A$) : _MACHINE
+   Procedure _MACHINE
+</pre>
+
+<!-- section -->
+
+<p>
+  Note that AREG(3) to AREG(6) will <b>not</b> be transferred to the routine. These registers cannot be
+  changed, as they are used to store important system information. To return values to AMOS
+  Professional Basic, AREG and DREG can be used to read the contents of the Address and Data
+  registers, after the procedure has been called.</p>
+
+<p>
+  The second alternative method is much neater. Values are entered using normal parameters. As
+  usual, a list of parameters is specified as part of the procedure definition, like this:</p>
+
+<pre>
+X> Rem Use no parameters but take info directly from AREG and DREG values
+   Procedure _MACHINE°
+   Procedure _MACHINE1[A] : Rem Enter one integer into procedure
+   Procedure _MACH1NE2[A,B,C$] : Rem Get two integers and one string
+</pre>
+
+<p>
+  The values of the parameters are pushed onto the Parameter stack, pointed to by A3. These
+  parameters are stored in reverse order, and are four bytes in length.</p>
+
+<p>_MACHINE1 will grab the parameters like this:</p>
+
+
+<pre>
+Move.l (a3)+,d0
+</pre>
+
+<p>_MACHINE2 will grab the parameters as follows:</p>
+
+<pre>
+; Grab the string. Each string is stored at an EVEN address,
+; starting with the length of the string, and then the string itself
+
+Move.l (a3)+,a2             * Address of the string
+Move.w (a2)+,d2             * Length of the string
+
+; A2 now points to the first character
+
+; Grab the two integers
+
+Move.l (a3)+,d1             * Grab "B"
+Move.l (a3)+,d0             * Grab "A"
+</pre>
+
+<p>
+  The AMOS Professional stack works in the same way as a conventional stack, so although
+  anything <b>below</b> can be changed, do not touch any values above the base address contained in
+  A3. Also note that the space available for the routine depends on the level of the procedure, so if
+  it is called from the main program approximately 3k is available. This can be increased by a call
+  to the SET STACK command from AMOS Professional Basic.</p>
+
+<p>
+  To return values to AMOS Professional Basic, the value of DO is available from the PARAM
+  function automatically.</p>
+
+<p><b>Calling machine code from an address or bank</b><br>
+
+  There is another option for calling machine code directly from a memory bank or an address.</p>
+
+<!-- section -->
+
+<p><b>PLOAD</b><br>
+  <i>instruction: load machine code directly into memory</i><br>
+  <b>Pload</b> "filename",bank number</p>
+
+<p>
+  The PLOAD command reserves a memory bank and loads some machine code into it from disc.
+  Specify the filename that contains the machine code file on disc, followed by the number of a
+  new memory bank to be reserved for the program. If the bank number is negative, the number
+  will be multiplied by -1, and the bank will be allocated using Chip memory.</p>
+
+<p>
+  Once machine code is loaded in this way, it is installed as a permanent memory bank, so
+  whenever the current program is saved, the machine code is stored too. Also note that the
+  machine code file can be saved onto disc as a standard ".Abk" file, then loaded directly into
+  AMOS Professional Basic. After PLOAD has performed its work, the memory bank can be
+  executed immediately! The following factors should be noted:</p>
+
+<ul>
+  <li>This file must consist of a standard piece of machine code, that can be run under CLI.</li>
+  <li>The program must be terminated by an RTS instruction.</li>
+  <li>Only the first CODE segment of the routine will be installed into memory.</li>
+  <li>Any attempt to load a commercial program using this technique will probably crash your
+    Amiga</li>
+</ul>
+
+<p><b>CALL</b><br>
+  <i>instruction: execute a machine code program from memory</i><br>
+  <b>Call</b> address<br>
+  <b>Call</b> address,parameters<br>
+  <b>Call</b> bank<br>
+  <b>Call</b> bank,parameters</p>
+
+<p>
+  The CALL instruction is used to run a machine code program straight from the Amiga's
+  memory. You can specify either an absolute memory location or the number of a memory bank,
+  previously installed using the PLOAD command.</p>
+
+<p>
+  On entry to the program, registers D0 to D7 and A0 to A2 will be loaded from values stored in
+  the DREG and AREG functions. The assembly language program can change any 68000 registers
+  it chooses. At the start of the routine, register A3 will point to the optional parameter list, which
+  is explained next, and A5 will contain the address of the AMOS Professional data zone. When
+  the routine has completed its task, you can return to Basic with a RTS.</p>
+
+<p>
+  After the memory location or bank number, a list of optional parameters may be given in the
+  form of a list of values. These values will be taken from the AMOS Professional Basic program
+  and pushed onto the A3 stack by the CALL command. They must be removed in reverse order,
+  so the last value in the list will be the first on the stack. The format of a parameter depends on
+  what type of variable they are, as follows:</p>
+
+<!-- section -->
+
+<p>
+  <b>Integers</b>. The parameter holds a long word, containing a normal AMOS Professional number. It
+  can be grabbed with a line such as this:</p>
+
+<pre>
+Move.l (a3)+,d0
+</pre>
+
+<p>
+  <b>Single precision numbers</b>. These are stored in Fast Floating Point format, and are held in one
+  long word. To load such a number into register d0, use the following:</p>
+
+<pre>
+Move.l (a3)+,d0
+</pre>
+
+<p>
+  <b>Double precision numbers</b>. These are stored in IEEE double precision format, and are held as
+  two long words. To load a double precision variable into registers d0 and dl, you could use this:</p>
+
+<pre>
+Move.l (a3)+,d0   * Top half
+Move.l (a3)+,d1   * Bottom half
+</pre>
+
+<p>
+  <b>Strings</b>. The stack contains the Address of the string in memory. All strings begin with a single
+  word that holds their length. For example:</p>
+
+<pre>
+; Grab the string. Each string is stored at an EVEN address,
+; starting with the length of the string, and then the string itself
+
+Move.l (a3)+,a2    * Address of the string
+Move.w (a2)+,d2    * Length of the string
+</pre>
+
+<p><b>AREG</b><br>
+  <i>reserved variable: pass values to and from 68000 address register</i><br>
+  a=<b>Areg</b>(number)<br>
+  <b>Areg</b>(number)=a</p>
+
+<p>
+  AREG is a special array which is used to pass values to and from any of the 68000 processor's
+  address registers. Specify the number of the register from 0 to 6, selected from either of the
+  following two groups:</p>
+
+<p>
+  <b>A0, Al, A2</b>. These registers can be read from AMOS Professional Basic, and changed at will.
+  Whenever a machine code program is run, any new values will be transferred straight into the
+  relevant address register. For example:</p>
+
+<pre>
+X> Areg(0)=Varptr(A$) : Rem Load the address of A$ into A0
+   Areg(1)=Varptr(B(0,0)) : Rem Load the address of B(0,0) into Al
+</pre>
+
+<p>
+  <b>A3, A4, A5, A6</b>. These are read-only registers. Any attempt to change their current contents will
+  generate an "illegal function call" error message.</p>
+
+<p><b>DREG</b><br>
+  <i>reserved variable: pass value into 68000 data register</i><br>
+  d=<b>Dreg</b>(number)<br>
+  <b>Dreg</b>(number)=d</p>
+
+<p>
+  DREG can be used to move values back and forth between AMOS Professional
+  Basic and the 68000's Data registers, by specifying the number of
+  a data register from 0 to 7.</p>
+
+<!-- section -->
+
+<p>
+  This function can be thought of as an array which holds an exact copy of registers DO to D7. This
+  array is automatically moved into the Data registers, either by the CALL command or whenever
+  a machine code procedure is run. Once the routine has ended, the new contents of DO to D7 is
+  copied directly into the array, so that the results may be read directly from AMOS Professional
+  programs. For example:</p>
+
+<pre>
+E> Dreg(0)=10 : Rem Save 10 into DO
+   Print Dreg(0) : Rem Print the contents of DO
+</pre>
+
+</BODY>
+</HTML>
+

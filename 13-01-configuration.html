@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Configuration</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>Configuration</h1>
+
+<br>
+
+
+<p>
+Section 13 of this User Guide is devoted to AMOS Professional Accessories. This Chapter
+explains how to manipulate the Configuration files to change the default settings of AMOS
+Professional itself. The other Chapters in this Section each deal with a specific accessory
+program, allowing the editing, creation or management of various AMOS Professional features.</p>
+
+<p>
+Accessories are special utility programs that can be called up "over" another program that is
+being edited or tested, without disrupting anything that is "underneath". Any memory banks
+that are employed by the accessory program are totally independent of the main program.
+Existing data can be loaded from memory, disc or "grabbed" directly from other programs.
+Please see the BGRAB command, and the associated techniques as explained in <a href="5/577.html">Chapter 5.9</a>.</p>
+
+<p>
+When accessory programs are displayed over the current program screen, any music is
+suspended, and Objects are automatically removed from the screen. Your accessory program
+should check the suitability of the current screen during its initialisation, using the various
+SCREEN functions, or use the DEFAULT command to erase the existing screens altogether.</p>
+
+<p>
+The IFF Picture Compactor accessory is detailed in <a href="6/614.html">Chapter 6.2</a>, the Font Editor accessory is
+examined in <a href="11/1101.html">Chapter 11.1</a>, and the following Chapters cover the Object Editor, the Menu
+Editor, the Disc Manager, the AMAL Editor, the Sample Bank Maker and the Resource Creator,
+in that order.</p>
+
+<p>
+The use of the [AMOS] main menu, regarding loaded accessory programs is explained in
+<a href="4/401.html">Chapter 4.1</a>.</p>
+
+<p><b>Defining a new accessory</b><br>
+
+Additional Editor accessory programs can be defined, provided that the program to be defined
+as an accessory is a hidden program (with no window from the Editor), and that the program is
+called from the Editor via the [AMOS] main menu or via a "Program to Menu" operation.</p>
+
+<p>
+<i>SET ACCESSORY</i><br>
+<i>instruction: define an accessory program</i><br>
+<b>Set Accessory</b></p>
+
+<p>
+A program becomes an accessory by the simple inclusion of a SET ACCESSORY command in its
+listing, preferably immediately after a SET BUFFER instruction. The new accessory has the
+ability to communicate with the Editor, using the following two instructions.</p>
+
+<p>
+<b>CALL EDITOR</b><br>
+<i>instruction: send instructions to the Editor from an accessory program</i><br>
+<b>Call Editor</b> function<br>
+<b>Call Editor</b> function,parameter,parameter$</p>
+
+<p>
+Use this command to send instructions to the Editor. The function parameter refers to a special
+number, which is understood by the Editor to refer to a particular function. A list of all available
+functions, along with their code numbers, is featured in the [Editor] Help menu.</p>
+
+<!-- section -->
+
+<p>
+<b>ASK EDITOR</b><br>
+<i>instruction: return parameters from the Editor to an accessory program</i><br>
+<b>Ask Editor</b> function<br>
+<b>Ask Editor</b> function,parameter,parameter$</p>
+
+ASK EDITOR returns parameters from the Editor, including actual lines from the program
+listing! This means that source code that is currently being edited can be examined. Please refer
+to the Procedure List example on Productivity disc 2 for more details.
+
+<p><b>AMOS Professional Configuration Files</b><br>
+AMOS Professional can be tailored to suit your own needs and preferences. There are two
+configuration files which make this possible:</p>
+
+<p><b>AMOSPro.Interpreter_Config</b><br>
+
+The Interpreter configuration file relates to a large selection of features, such as the maximum
+number of Bobs, copper lists, the File Selector, and so on. Hard disc and floppy disc users must
+ensure that it is located in the S: folder, ensuring that the main configuration file can be found
+anywhere in the system.</p>
+
+<p><b>AMOSPro.Editor_Config</b><br>
+The Editor configuration file concerns the appearance and contents of screens, menus and
+messages.</p>
+
+<p>
+There are two programs available to set these configurations, appropriately named
+"Interpreter_Config.AMOS" and "Editor_Config.AMOS". The Interpreter configuration program
+is stand-alone, and can be loaded and run independently, or called automatically via the [Set
+Interpreter] option in the [Config] menu. The Editor configuration program can only be called
+from the [Config] sub-menu.</p>
+
+<p>
+Before continuing, be warned that making random changes to the AMOS Professional
+configurations can be a dangerous pass-time. Be sure you fully understand the implications of
+changing the default settings before experimenting. In actual fact, changing the configuration is
+quite simple and straightforward.</p>
+
+<p>
+The options in the [Config] menu were outlined in <a href="4/401.html">Chapter 4.1</a>. All of the configuration settings
+available via the [Set Editor] and [Set Interpreter] options will now be examined in detail.</p>
+
+<p><b>Setting the Editor configuration</b><br>
+
+From the main [Config] menu, select the [Set Editor] option. The Editor_Config.AMOS program
+can only be called from this sub-menu option, and a requester will be displayed if you attempt
+to run it independently.</p>
+
+<p>
+All loading and saving of the Editor configuration must be performed under the control of the
+Editor, because the Editor configuration program only affects the configuration within the
+Editor's data zone.</p>
+
+<!-- section -->
+
+
+<p>
+When the Editor configuration program is called, you can perform any required changes. The
+results of the new configuration can be seen as soon as you return to the Editor.
+When the [Set Editor] option is touched by the mouse pointer, a sub-menu is displayed, offering
+the following selection:</p>
+
+<p><b>[Editor Set-up]</b><br>
+When this heading is selected, a simple full-screen dialogue box appears, allowing a range of
+default settings to be changed. These are listed next.</p>
+
+<p>
+[Make backups of AMOS Programs?]
+If set to [Yes], AMOS Professional will rename the disc file from "name.AMOS" to "name.bak",
+and then save out the file as "name.AMOS"</p>
+
+<p>
+[Editor Screen Interlaced?]
+Similarly, you can toggle the default setting from [No] to [Yes] and engage the interlace
+function, which gives double-height resolution.</p>
+
+<p>
+[Set Editor Screen]
+A new working screen is displayed, allowing you to set the position and size of the Edit
+Window. Position and size buttons are available at the top of the screen, and when one of these
+is triggered, the active grid can be manipulated by the mouse. Screen coordinates are displayed
+automatically.</p>
+
+<p>
+Click on [Pos] to activate screen positioning, and then click somewhere in the screen grid to set
+the new position. Similarly, click the [Size] button before setting the size of the screen in the
+grid.</p>
+
+<p>
+An opening speed slider is also available, at the top of the screen. [Op. Speed] is used to set the
+number of pixels per Vbl. For example, an opening speed screen setting of 2 pixels for a screen
+height of 200 will take two seconds to open.</p>
+
+<p>After the new settings have been made, simply click on the [Exit] button.</p>
+
+<p>
+[Maximum number of UNDO movements]
+AMOS Professional will only remember (store) the number of Undo events that are specified
+here.</p>
+
+<p>
+[Undo buffer maximum length (K.bytes)]
+Drag the slider or click for single increments or decrements, one kilobyte at a time, ranging from
+zero to 256k. If your Undo events reach this buffer limit, the first stored events will be lost.</p>
+
+<p>
+Block Undo procedures may need big chunks of memory, so don't reduce this buffer too low if
+you want a decent block editing facility.</p>
+
+<p>
+[Direct Mode History, number of commands saved]
+The default setting of being able to recall 20 previous Direct Mode commands
+can be changed to a number from zero to 128, using the slider bar.</p>
+
+<!-- section -->
+
+<p>
+[Set Editor Files]
+This option allows you to rename system files that AMOS Professional is seeking, and should be
+used with caution.</p>
+
+<p><b>[Colour Palette]</b><br>
+This option allows the default colours used by the Edit window, Direct Mode window, and so
+on, to be changed.</p>
+
+<p>
+After choosing which window colours are to be affected, select the current colour to be changed
+using the mouse, and use the RGB sliders to adjust colours to your own preferences.</p>
+
+<p><b>[Menu Messages]</b><br>
+Any string can be changed for any of the existing menu messages. This may be necessary if you
+wish to translate the English wordings into another language, or adapt the existing menus to
+your own preferences. Simply use the slider to display the range of default messages, click on
+the one that is to be changed, and type in your new string of characters. The string will be set to
+the correct length automatically, or spaces will be added to pad the string to fit the existing size
+of the menu item.</p>
+
+<p><b>[Dialog messages]</b><br>
+Similarly, this option summons up every one of the system's dialogue messages, ready for
+modification. Please see <a href="1347.html">Chapter 13.7</a> for a comprehensive guide to the Interface Resource
+Editor.</p>
+
+<p><b>[Test-Time Messages]</b></p>
+
+<p><b>[Run-Time Messages]</b><br>
+The last two options in the [Editor set-up] menu operate in exactly the same way as the [Menu
+Messages] option. Error messages are examined in <a href="12/1211.html">Chapter 12.3</a>.</p>
+
+<p><b>Setting the Interpreter Configuration</b><br>
+The stand-alone Interpreter_Config.AMOS program can be called from the [Config] main menu,
+by selecting the [Set Interpreter] option. This program is an accessory, so the Edit Screen is not
+erased, but remains underneath.</p>
+
+<p>
+Here is a list of the options available in the Interpreter Configuration menu, called by [Set
+Interpreter].</p>
+
+<p><b>[Load Default Configuration]</b><br>
+This loads the existing configuration file from the APSystem folder, found on the
+AMOSPro_System disc.</p>
+
+<p><b>[Load Other Configuration]</b><br>
+A File Selector is displayed, inviting you to choose an Interpreter_Config file. It is perfectly
+acceptable to have several such files on your start-up disc. All configurations should be kept in
+the APSystem folder, and assigned individual names.</p>
+
+<!-- section -->
+
+<p><b>[Save Configuration]</b><br>
+This saves the current configuration settings onto the program disc. These settings will be
+installed in memory whenever AMOS Professional is loaded. Never change the configuration of
+your original AMOSPro_System disc!</p>
+
+<p><b>[Save Configuration As]</b><br>
+Use this option to store the new configuration settings as a separate file, leaving the current
+configuration unchanged.</p>
+
+<p><b>[Set Loaded Extensions]</b><br>
+Whenever a new extension file is added to the system, AMOS Professional must be informed of
+its exact location on the disc. This is achieved via the extension list, and you should move the
+cursor over the appropriate position, and click on the left mouse button. Enter the path and file
+names of the extension from the keyboard, and press [Return].</p>
+
+<p><b>[Set System Configuration Page 1]</b><br>
+When this option or the following [Set System Configuration Page 2] option is selected, a
+selection of configuration features is presented, ready to be set to your own preferences.</p>
+
+<p>[Printer]<br>
+This offers a simple toggle to disable the default setting of a carriage return with a line feed.</p>
+
+<p>
+[Close Workbench on loading]<br>
+This option tells AMOS Professional to attempt to close the Workbench after it is loaded. Please
+see CLOSE WORKBENCH and CLOSE EDITOR below.</p>
+
+<p>
+[Allow "Close Workbench" to work]<br>
+If this setting is toggled to [No], then the CLOSE WORKBENCH command will have no effect in
+a program. If there is sufficient available memory, you can prevent programs from affecting
+your Workbench in this way.</p>
+
+<p>
+[Allow "Close Editor" to work]<br>
+Similarly, the CLOSE EDITOR command can be permitted or made ineffective. CLOSE EDITOR
+will only close the main Editor screens and remove the immediate editing buffers, gaining about
+64k of memory.</p>
+
+<p>
+[Allow "Kill Editor" to work]<br>
+The KILL EDITOR command is explained at the beginning of <a href="14/1417.html">Appendix B</a>, and it is used to
+remove the entire Editor. This frees up the whole of the memory space allocated to the Editor,
+which is re-loaded when the program is over.</p>
+
+<p>
+[Save Icons]<br>
+If set to [Yes], "info" files will be saved along with any program saved via the [Project] menu.</p>
+
+<p>
+[File Selector: Sort, Files?]<br>
+If set to [Yes], files will be sorted as they are read from the current path name.</p>
+
+<p>
+[File Selector: Display File Size?]<br>
+The size of files can be removed from the File Selector display, revealing</p>
+
+<!-- section -->
+
+<p>
+[File Selector: Store Directories?]<br>
+You can choose if the File Selector is to remember (store) the five most recent directories that
+you viewed, when using it.</p>
+
+<p>
+[Set Text Reader screen]<br>
+A working screen is summoned as for the [Set Editor Screen] option. Please refer above for
+details.</p>
+
+<p>
+[Set File Selector screen]<br>
+Similarly, you are able to change the default settings for the File Selector screen, using this
+option. You are warned that bigger screens consume more memory!</p>
+
+<p><b>[Set System Configuration Page 2]</b><br>
+Here is a list of the options called up when this item is selected. The first five of these options are
+all operated by slider bars.</p>
+
+<p>
+[Maximum number of Bobs]<br>
+This number can be set from a maximum of 256, down to eight. Please refer to <a href="7/713.html">Chapter 7.2</a> for a
+full discussion of Blitter Objects.</p>
+
+<p>
+[Maximum Height of Sprites]<br>
+The maximum height of Sprites can be set from 16 Raster lines up to 312. Please see <a href="7/701.html">Chapter 7.1</a>
+for details.</p>
+
+<p>
+[Copper List Buffer size (K.Bytes)]<br>
+The available allocation ranges from 2k up to 32k. Full details of the Copper list are given in
+<a href="14/1442.html">Appendix F</a>.</p>
+
+<p>
+[Variable Name Buffer size (K.Bytes)]<br>
+This can be set in the range from 1k up to 32k.</p>
+
+<p>
+[Default Text Buffer size (K.Bytes)]<br>
+The allocation for the text buffer may be set from 1k, all the way up to 512k. There is also a [Set
+Text buffer] option available from the [Editor] main menu.</p>
+
+<p>
+[Default printer port]<br>
+[Default serial port]<br>
+Click on the [Prt:] or [Aux:] panel, and type in your preferences from the keyboard, then press
+[Return].</p>
+
+<p>
+When you have selected your new preferences, and quit these menus, a dialogue box will
+appear regarding saving and re-booting.</p>
+
+<p><b>Saving memory</b><br>
+
+If your system uses an external 3.5-inch disc drive, approximately 30k of memory can be saved
+by deactivating it <b>before</b> switching on and loading AMOS Professional.</p>
+
+<!-- section -->
+
+<p>
+Turning off this drive while the Amiga is operating will have <b>no</b> effect at all, because the
+memory is allocated to the external drive as part of the start-up sequence.</p>
+
+<p>
+Two powerful instructions are provided that allow you to maximise the available memory for
+your programs.</p>
+
+<p><b>CLOSE WORKBENCH</b><br>
+<i>instruction: close the Workbench</i><br>
+Close Workbench</p>
+
+<p>
+This command closes the Workbench screen, saving about 40k of memory, and freeing it for
+your own programs! Prove this now, as follows:</p>
+
+<pre>
+E> Print Chip Free, Fast free
+   Close Workbench
+   Print Chip Free, Fast Free
+</pre>
+
+<p>
+CLOSE WORKBENCH can be executed from inside an AMOS Professional program, or from
+Direct Mode, but it will not work if there is a CLI window opened. To solve this problem, ensure
+that AMOS Professional loads using the following CLI instruction:</p>
+
+<img alt="Run AmosPro in CLI"
+ src="images/1307endcli.jpg" /><br>
+
+<p><b>CLOSE EDITOR</b><br>
+<i>instruction: close the AMOS Professional Editor Window</i><br>
+<b>Close Editor</b></p>
+
+<p>
+To save more than 28k of memory, use the CLOSE EDITOR command in an AMOS Professional
+program. The program listing will be completely unaffected. If there is insufficient memory to
+re-open the Editor Window after the program has finished, AMOS Professional will
+automatically erase the current display and revert to the standard default screen. Simply press
+[Esc] to summon up the Editor as usual!</p>
+
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Multi-Tasking</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>Multi-Tasking</h1>
+
+<br>
+
+
+<p>
+AMOS Professional can be run at the same time as totally separate programs and utilities such as
+DPaint III. This allows the creation and testing of original AMOS Professional programs while
+drawing on the resources of your favourite audio, graphical and utility items.</p>
+
+<p>
+Provided that your system has at least one megabyte, multi-tasking is activated by pressing
+[Amiga]+[A] to flick between AMOS Professional and the CLI or Workbench environments.</p>
+
+<p>
+To make effective multi-tasking programs, most of the processing time should not be grabbed,
+leaving only a limited amount of processing power for other tasks, and the following command
+is provided to solve this problem.</p>
+
+<p>
+<b>MULTI WAIT</b><br>
+<i>instruction: force a multi-task wait vbl</i><br>
+<b>Multi Wait</b></p>
+
+<p>
+The MULTI WAIT instruction should be used in the main loop of an AMOS Professional
+program. It forces a multi-task WAIT VBL for situations such as waiting for a menu item to be
+selected.</p>
+
+<p>
+This command should not be used to achieve accurate screen synchronisation, as it has been
+specifically provided for multi-tasking and may skip several vertical blank periods, depending
+on the number of tasks being run simultaneously.</p>
+
+<p>
+The following simple commands are provided to allow complete control over multi-tasking
+facilities.</p>
+
+<p>
+<b>AMOS TO BACK</b><br>
+<i>instruction: hide AMOS Professional and reveal the Workbench</i><br>
+<b>Amos To Back</b></p>
+
+<p>
+This instruction allows other programs to be accessed, by bringing forward the Workbench
+display and hiding AMOS Professional from view.</p>
+
+<p>
+<b>AMOS TO FRONT</b><br>
+<i>instruction: hide the Workbench and reveal AMOS Professional</i><br>
+<b>Amos To Front</b></p>
+
+<p>
+Similarly, this instruction forces AMOS Professional back onto the display, leaving the
+Workbench environment hidden.</p>
+
+<p>
+<b>AMOS LOCK</b><br>
+<i>instruction: disable [Amiga]+[A] toggle</i><br>
+<b>Amos Lock</b></p>
+
+<p>
+The AMOS LOCK command disables the facility to toggle between AMOS Professional and the
+Workbench by pressing [Amiga]+[A]. This can be used to prevent other users from discovering
+how your program was written!</p>
+
+<!-- section -->
+
+<p>
+<b>AMOS UNLOCK</b><br>
+<i>instruction: re-activate toggle between AMOS Professional and Workbench</i><br>
+<b>Amos Unlock</b></p>
+
+<p>
+Use this instruction to restore the facility for flipping between AMOS Professional and the
+Workbench, via the [Amiga]+[A] keys.</p>
+
+<p>
+<b>AMOS HERE</b><br>
+<i>function: report if AMOS Professional is currently at the front of the display</i><br>
+status=<b>Amos Here</b></p>
+
+<p>
+AMOS HERE is used to provide a simple report. A value of -1(True) is returned if AMOS
+Professional is currently displayed, otherwise zero (False) indicates that the Workbench is in
+view.</p>
+
+<p><b>Communication between programs</b><br>
+
+As well as multi-tasking between AMOS Professional and other programs, communication is
+allowed between different AMOS Professional programs previously installed in memory.</p>
+
+<p>
+<b>PRUN</b><br>
+<i>instruction: run a program from memory</i><br>
+<b>Prun</b> "program name"</p>
+
+<p>
+This command can be used either from Direct Mode or from within a program, and it is a
+combination of calling a procedure and running another program. It is also extremely powerful!
+When PRUN is called, it has the following effect:</p>
+
+<ul>
+  <li>A search is made through a program list for the specified program to be run, such as
+      "Program_Name.AMOS".</li>
+  <li>If it isn't found, this program is loaded and then tested.</li>
+  <li>If an error is encountered, an exit will be made to the original program from which PRUN was
+      called.</li>
+  <li>If everything is in order, all variables are initialised, but the display is left unchanged. All
+      screens remain open, with any windows and zones remaining defined. Opened files will
+      remain open for AmigaDOS, but will appear to be closed to the new program. The new
+      program is free to re-open these files.</li>
+  <li>Bobs and Sprites are erased as the Object Bank is changed, and any music will be stopped.
+       Banks may be passed between programs, however, and this is explained in <a href="5/577.html">Chapter 5.9</a>.</li>
+  <li>The new program will now be run.</li>
+  <li>When the program is over, or if an error is encountered, an exit is made to the AMOS
+      Professional program from which PRUN was called.</li>
+  <li>All variable buffers are erased, all files are closed in the program that was called, and Objects
+      and music will be halted. The screens will remain as they were.</li>
+  <li>If the called program was not originally resident in memory but was loaded, it is now
+      removed from memory.</li>
+  <li>Control is returned to the original program, at the position immediately after the PRUN
+      command.</li>
+</ul>
+
+<!-- section -->
+
+<p>Here is an example of a boot menu, demonstrating a very simple version of this technique:</p>
+
+<pre>
+E> Do
+    Screen Open 0,640,200,4,Hires
+    Repeat
+    Input "Please enter a program name to run: ";P$
+    Exit If P$="",2
+    Trap Prun P$
+    If Errtrap : Print "Program not found!" : End If
+   Until Errtrap=0
+   Wait 50
+  Loop
+</pre>
+
+<ul>
+  <li>You may use PRUN to call and run as many programs as memory allows.</li>
+  <li>If there is a SYSTEM instruction in a program called by PRUN, it will not return to the
+      Workbench, but back to the previous program.</li>
+  <li>PRUN will work with compiled programs in exactly the same way as outlined above, except
+      there will be no ".AMOS" appended to the name of the program that is to be loaded and run.</li>
+  <li>The COMMAND LINES reserved variable can be used to send parameters between programs.</li>
+  <li>The BGRAB command can be used to grab banks from the original program to the program
+      that has been called.</li>
+  <li>If an error is encountered during testing or running, a value will be stored in the PARAM
+      function, as follows: <0 if there is a test-time error, >0 if there is a run-time error and zero if
+      no error is encountered at all.</li>
+</ul>
+
+<p>
+If you are not sure about the display before calling another program with PRUN, simply close all
+current screens. This will also free as much memory as possible. Similarly, if you are not sure
+about the display after running another program with PRUN, you should also close all of the
+screens, and then call the main screen initialisation of your original program again.</p>
+
+<p>
+<b>PRG UNDER</b><br>
+<i>function: report the availability of a program "under" the current program</i><br>
+status=<b>Prg Under</b></p>
+
+<p>
+This function is used to report on the accessibility of an AMOS Professional program that is
+"under" the current program. One of three values can be returned:</p>
+
+<p>
+Zero indicates that the current program is running normally, under the control of the Editor.
+Remote editor commands and BGRAB <b>cannot</b> be used.</p>
+
+<p>
+A value of 1 indicates that the current program is the only program running, but it is <b>not</b> the
+program currently under the control of the Editor. This happens when an accessory program is
+run or a "program to menu" option is selected, and remote editor commands are allowed as well
+as the use of the BGRAB command.</p>
+
+<p>
+A value of -1 means that the program has been run via another program, using PRUN. In this
+case, memory banks can be grabbed, but remote editor commands <b>cannot</b> be sent.</p>
+
+<!-- section -->
+
+<p>
+<b>EXEC</b><br>
+<i>instruction: send a CLI command to a device</i><br>
+<b>Exec</b> "CLI Command","Output"</p>
+
+<p>
+The EXEC instruction executes the specified CLI command, via the named output. Output refers
+to the name of an AmigaDos device, and is held in inverted commas. If these are empty "", NIL:
+will be used, otherwise the name of the output device must end with a colon.</p>
+
+<p>
+"CUR:" specifies that the current CLI window is to be used. If this window does not exist,
+because AMOS Professional was booted from the Workbench, then the EXEC command cannot
+operate. If "CON:" is used, then a CLI window is opened under the Workbench screen, if
+possible. Any other Amiga device can be specified, as long as it is interactive, and it will be
+opened before the CLI command is sent, and closed again after the command has been sent,
+unless it is the current CLI window.</p>
+
+<p>
+For example, to execute an external program copied into the C: directory of AMOS Professional,
+and wait for its completion, this could be used:</p>
+
+<pre>
+X> Amos To Back : Rem Reveal the Workbench
+   Rem Now launch the program in a small CLI window
+   Exec "Program Name","CON:0/0/160/48/Program Name"
+   Amos To Front : Rem Return to AMOS Pro after the program
+</pre>
+
+<p>
+<b>PRG STATE</b><br>
+<i>function: return the status of how the current program was originally run</i><br>
+status=<b>Prg State</b></p>
+
+<p>
+Finally, here is a useful function which gives a report on how the current program was
+originally run. PRG STATE can return one of three possible values, as follows:</p>
+
+<pre>
+<b>Value    Meaning</b>
+0       Program is run under the AMOS Professional Editor
+1       Program is run under run-time only
+-1      Program is compiled
+</pre>
+
+
+</BODY>
+</HTML>
+

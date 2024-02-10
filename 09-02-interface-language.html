@@ -1,0 +1,617 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Interface Language</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>Interface Language</h1>
+
+<br>
+
+
+<p>
+This Chapter deals with all of the AMOS Professional Interface general purpose programming
+commands.</p>
+
+<p>
+The Interface is a complete language, and includes a full set of general instructions that can be
+used to great effect in dialogue boxes. There is an extensive range of graphics commands, a
+testing facility and a pair of important program control instructions for making jumps. The
+Interface even provides fully-operative procedures and user-defined functions!</p>
+
+<p><b>The graphics functions</b><br>
+
+When defining a number of buttons, it is important to be able to arrange them neatly as part of
+the display. The AMOS Professional Interface provides a number of simple functions to
+shoulder the burden of these problems.</p>
+
+<p>
+As usual, these functions read their values directly from the number stack, so the numbers go
+before the operations.</p>
+
+<p><b>B</b>ase<b>X</b><br>
+<b>B</b>ase<b>Y</b><br>
+<i>Interface functions: get the coordinate base location</i><br>
+x=<b>BX</b><br>
+y=<b>BY</b></p>
+
+<p>
+These functions are used to return the screen coordinates that are to be used as the starting
+point for all future calculations. These values are assumed to have been previously set with the
+BAse instruction.</p>
+
+<p>
+<b>S</b>ize<b>X</b><br>
+<b>S</b>ize<b>Y</b><br>
+<i>Interface functions: get the size of the dialogue box</i><br>
+width=<b>SX</b><br>
+height=<b>SY</b></p>
+
+<p>
+Use these functions to provide the precise dimensions of the current dialogue box, as set with
+the SIze command.</p>
+
+<p>
+<b>S</b>creen <b>W</b>idth<br>
+<b>S</b>creen <b>H</b>eight<br>
+<i>Interface functions: read dimensions of the current screen</i><br>
+width=<b>SW</b><br>
+height=<b>SH</b></p>
+
+<p>
+The SW and SH functions find the height and width of the current AMOS Professional screen.
+They can be used in conjunction with the SX and SY functions to position a dialogue box neatly
+in the centre of the display. For example:</p>
+
+<pre>
+X> Size 240.100;
+   BAse SW SX 2/-,SH SY 2/-;
+</pre>
+
+<!-- section -->
+
+<p>
+The next pair of functions keep track of the graphics cursor. This is automatically positioned at
+the location of the last drawing operation on the screen.</p>
+
+<p>
+<b>XA</b><br>
+<b>YA</b><br>
+<i>Interface functions: get previous coordinates of graphics cursor</i><br>
+x=<b>XA</b><br>
+y=<b>YA</b></p>
+
+<p>
+XA and YA retain a copy of the graphic coordinates, at their position <b>before</b> the most recent
+graphics operation was performed. This pair of values can be very useful when objects need to
+be defined relative to one another, as you will only have to set the coordinates of the first object,
+and all of the others will be relative to it. For example:</p>
+
+<pre>
+X> GraphicSquare 10,10,30,30; draw a box at 10,10
+   GraphicSquare XA,40,XA 20+,30; draw a box immediately below at 10,40
+</pre>
+
+<p>
+<b>XB</b><br>
+<b>YB</b><br>
+<i>Interface functions: get current coordinates of graphics cursor</i><br>
+x=<b>XB</b><br>
+y=<b>YB</b></p>
+
+<p>
+These two functions complement the previous pair, and they return the position of the graphics
+cursor after the execution of the most recent instruction. Here are some schematic examples:</p>
+
+<pre>
+X> BUtton 1,160,100,...;[][]
+   BUtton 2,XB,YA,...;[][]
+
+X> PRint 0,8,"Hello, first line",2;
+   PRint XA,YB,"This line will be directly under!",2;
+</pre>
+
+<p><b>The Graphics Commands</b><br>
+
+Here are all of the AMOS Professional Interface graphics commands. They fall into the following
+main groups: boxes and bars, lines and outlines, and the text commands. Most of these Interface
+instructions are very similar to their normal AMOS Professional equivalents.</p>
+
+<p><b>Boxes and Bars</b></p>
+
+<p>
+<b>G</b>raphic<b>B</b>ox<br>
+<i>Interface instruction: draw a filled box</i><br>
+<b>GB</b> x1,y1,x2,y2;</p>
+
+<p>
+To draw a box that is filled with the current colour, the GraphicBox command is followed by
+familiar top left-hand corner coordinates, and then the coordinates of the diagonally opposite
+corner.</p>
+
+<!-- section -->
+
+<p>
+All coordinates are measured from the start location of the dialogue box, which can be set by the
+Interface instruction BAse, or the AMOS Professional command DIALOG BOX. The default
+position is the top left-hand corner of the screen.</p>
+
+<p>
+<b>IN</b>k<br>
+<i>Interface instruction: set current drawing colours</i><br>
+<b>IN</b> pen,background,outline;</p>
+
+<p>
+The colours for boxes and bars and all future drawing operations are set by the INk command.
+The three parameters are as follows:</p>
+
+<p>The pen parameter is set by the colour index number to be used for drawing all future items.</p>
+
+<p>
+The background colour is then chosen for filling bars and for the paper colour on which text is to
+be printed. This option is usually ignored, because the background is completely transparent,
+but it may be activated using a SetWriting mode, which is explained later.</p>
+
+<p>
+The third parameter to be set is for the outline colour of a bar. This is only relevant if the outline
+mode has been switched on, using a previous SetPattern instruction, also explained later.</p>
+
+<p>
+If one of these settings is to be left unchanged, simply enter a negative value for the relevant
+colour number. As you may expect, a wide range of fill patterns can also be used.</p>
+
+<p>
+<b>S</b>et<b>P</b>attern<br>
+<i>Interface instruction: set the fill pattern for dialogue box</i><br>
+<b>SP</b> pattern number,outline mode;</p>
+
+<p>
+The Interface SetPattern command is a combination of the normal SET PATTERN and SET
+PAINT instructions, and it is used to set the fill pattern and toggle the outline mode of all
+subsequent GraphicBox commands.</p>
+
+<p>
+The pattern for all future drawing operations is an index number from zero to 34. The outline
+mode can be set to zero to turn it off completely, or to 1 to activate the feature. If the setting is
+activated, bars will be automatically enclosed by a hollow box in the current outline colour.</p>
+
+<p>To generate a hollow box in its own right, the next command is used.</p>
+
+<p>
+<b>G</b>raphic<b>S</b>quare<br>
+<i>Interface instruction: draw a hollow rectangle</i><br>
+<b>GS</b> x1 ,y1 ,x2,y2;</p>
+
+<p>
+This is the equivalent to the normal BOX command, and it is used to draw a hollow rectangle,
+determined by the coordinates of the top left and bottom right-hand corners.</p>
+
+<!-- section -->
+
+<p><b>Lines and Outlines</b></p>
+
+<p>
+<b>S</b>et<b>L</b>ine<br>
+<i>Interface instruction: set the style of a line</i><br>
+<b>SL</b> pattern;</p>
+
+<p>
+This is identical to the SET LINE command, and is used to design the style of all future line
+drawing. The pattern for the line style is set by the combination of "dots and dashes" in binary
+format. For example, this example would set a line style of equal solid and blank components:</p>
+
+<pre>
+X> SLine %1111000011110000;
+</pre>
+
+<p>
+<b>G</b>raphic<b>L</b>ine<br>
+<i>Interface instruction: draw a line on the screen</i><br>
+<b>GL</b> x1,y1,x2,y2;</p>
+
+<p>
+This command draws a graphical line from coordinates x1,y1 to x2,y2, like the normal DRAW
+command. As usual with Interface commands, the starting coordinates are measured from the
+BAse position. For example:</p>
+
+<pre>
+X> GLine 0,0,100,100
+</pre>
+
+<p>
+<b>G</b>raphic<b>E</b>llipse<br>
+<i>Interface instruction: draw an ellipse or circle</i><br>
+<b>GE</b> x,y,radius1,radius2;</p>
+
+<p>
+This simple Interface command is used to draw hollow ellipses or circles. The centre of the
+figure is set by coordinates x,y relative to the BAse location, and then the height and width of
+the figure are set by specifying the length of the appropriate radii in pixels. To draw a circle,
+simply specify the same value for both radii.</p>
+
+<p><b>Displaying text</b><br>
+
+Once the surroundings of the requester have been generated, the following commands will be
+needed to display text in these dialogue boxes. The PRint command is examined in <a href="9/901.html">Chapter 9.1</a>,
+here are some more instructions to affect the way text is displayed.</p>
+
+<p>
+<b>P</b>rint<b>O</b>utline<br>
+<i>Interface instruction: print hollow text with outline</i><br>
+<b>PO</b> x,y,'text',outline colour,text colour;</p>
+
+<p>
+The PrintOutine command is used 'to call up outlined or stencilled text. This is achieved by
+pasting the same text at slightly different positions, and is most effective with larger typefaces.
+The parameters are self-explanatory, and consist of the starting coordinates for the text on
+screen, the string of text enclosed in single quotation marks and the index numbers of the
+outline and text colours.</p>
+
+<!-- section -->
+
+<p>
+One side effect of the PrintOutline command is that the drawing mode is automatically re-set to
+transparent, and so a previous opaque setting may need to be changed. This is explained next.</p>
+
+<p>
+<b>S</b>et<b>W</b>riting<br>
+<i>Interface instruction: set the writing mode for text and graphics</i><br>
+<b>SW</b> mode;</p>
+
+<p>
+Normally, all text and graphics are drawn over a transparent background, allowing them to
+merge neatly into the existing display. If you need to set the background colour using an INk
+command, you must change the mode to "opaque". The mode parameter that affects this
+command uses a value from zero to 7, and is fully explained under the GR WRITING command
+in <a href="6/627.html">Chapter 6.4</a>. A parameter value of zero will set an opaque mode, and a value of 1 re-sets it to
+transparent. Use of the PrintOutline command automatically re-sets the mode to transparent.</p>
+
+<p>
+<b>S</b>et<b>F</b>ont<br>
+<i>Interface instruction: select font to be assigned to text</i><br>
+<b>SF</b> number,style;</p>
+
+<p>
+To change the type font used by a previous PRint or PrintOutline command, use SetFont
+followed by the number of the new font to be assigned to the text, and the style to be adopted
+by that font. A full explanation of the available styles can be found under the SET TEXT
+command in <a href="5/550.html">Chapter 5.6</a>.</p>
+
+<p>
+If only the style is to be changed, the font remains unaffected when a dummy parameter value,
+such as zero, is used for the font number.</p>
+
+<p>
+There are four more simple Interface functions that can be used to manipulate text, which are
+self explanatory.</p>
+
+<p>
+<b>T</b>ext<b>W</b>idth<br>
+<i>Interface function: return the width of current font text in pixels</i><br>
+width="text" <b>TW</b></p>
+
+<p>
+<b>T</b>ext<b>H</b>eight<br>
+<i>Interface function: return the height of current font in pixels</i><br>
+height=<b>TH</b></p>
+
+<p>
+<b>T</b>ext<b>L</b>ength<br>
+<i>Interface function: return the number of characters in a string of text</i><br>
+number="text" <b>TL</b></p>
+
+<p>
+<b>C</b>entre<b>X</b><br>
+<i>Interface function: centre text in the display</i><br>
+position="text" <b>CX</b></p>
+
+<p>
+The CentreX function is used to find the correct centring location by comparing the width of the
+given text with the value returned by an SX function, like this:</p>
+
+<pre>
+SetVar 0,"Hello, this is the text"
+PRint 0VA CentreX,0,0 VA,2;
+</pre>
+
+<!-- section -->
+
+<p>
+<b>V</b>ert<b>T</b>ext<br>
+<i>Interface instruction: display vertical text</i><br>
+<b>VT</b> x,y,'text',colour</p>
+
+<p>
+The VertText command is used to display a column of vertical text using the specified colour
+index number, starting at your chosen coordinates.</p>
+
+<p><b>Labels and Tests</b><br>
+
+The AMOS Professional Interface also supports a number of program control instructions,
+allowing simple tests to be performed and jumps to be made to various routines. These controls
+make it easy to create complex multi-level user interfaces.</p>
+
+<p>
+<b>LA</b>bel<br>
+<i>Interface instruction: create a simple label</i><br>
+<b>LA</b> label;</p>
+
+<p>
+The LAbel command is used to define a marker label in an Interface program. This can them be
+employed as the target destination for a JumP or JumpSub command, which are the Interface's
+equivalents to the familiar GOTO and GOSUB operations in normal AMOS Professional
+programs. It can also be used as an entry point for the DIALOG RUN instruction.</p>
+
+<p>Several complete dialogue boxes can be installed into the same definition string, if required.</p>
+
+<p>
+Unlike conventional AMOS Professional programs which recognise any characters for labels,
+Interface labels are referred to by <b>numbers</b> only, ranging from zero up to 65535. If a newly
+defined label already exists, an error message will be generated. Interface labels are defined in
+the following manner:</p>
+
+<pre>
+X> LA 10; set up label number 10
+</pre>
+
+<p>
+<b>J</b>m<b>P</b><br>
+<i>Interface instruction: jump to an Interface program label</i><br>
+<b>JP</b> label;</p>
+
+<p>
+The JumP command transfers control to the Interface instructions that commence with the
+selected label number. This label must be defined elsewhere in the Interface program. The JumP
+instruction <b>cannot</b> be used inside any of the routines held in square brackets of a BUtton
+command. It is used with the single parameter of the target label, like this:</p>
+
+<pre>
+X> JumP 10;
+</pre>
+
+<p>
+Interface labels are also used to mark the start of various subroutines, which are entered and left
+as explained next.</p>
+
+<!-- section -->
+
+<p>
+<b>J</b>ump<b>S</b>ubroutine<br>
+<i>Interface instruction: call an Interface sub-routine</i><br>
+<b>JS</b> label;</p>
+
+<p>
+The JumpSubroutine command calls up the sub-routine whose beginning is marked by the
+specified label number from zero to 65535. Sub-routines may be nested inside one another, with
+a maximum of 128 calls that can be made from each routine.</p>
+
+<p>
+<b>R</b>e<b>T</b>urn<br>
+<i>Interface instruction: return from an Interface sub-routine</i><br>
+<b>RT</b>;</p>
+
+<p>
+An Interface sub-routine must be terminated by a ReTurn command. The Interface program will
+now re-commence from the command immediately after the initial JumpSubroutine call. If a
+ReTurn call is encountered out of sequence, an error will be generated.</p>
+
+<p><b>Interface conditional tests</b><br>
+
+<p>Constructing a test facility inside the AMOS Professional Interface is relatively simple.</p>
+
+<p>
+<b>IF</b><br>
+<i>Interface structure: Mark start of conditional test</i><br>
+<b>IF</b> expression;[routine]</p>
+
+<p>
+The familiar IF structure is followed by an Interface expression. When the expression results in a
+value of zero (False), any routine held inside the square brackets will be completely ignored, but
+if the expression is not zero (True) the bracketed routine will be executed immediately.</p>
+
+<p>
+The expression is a normal Interface expression, and all values are taken from the stack in
+reverse order! The routine within the square brackets contains a list of normal Interface
+commands to be performed if the expression is true.</p>
+
+<p>
+There is no limit to the size or the number of these commands, and JUmp as well as
+JumpSubroutine calls can be included. User-defined instructions may be accessed, and these are
+explained below. It is even possible to include another IF within the square brackets, and
+providing the number of opening brackets equals the number of closing brackets, all should be
+well. Here is a very simple example of a conditional test:</p>
+
+<pre>
+X> IF 0VA 1=; if the contents of variable zero is equal to one
+   [PRint 0,0,'Variable 0 equals 1',5; then print a message]
+</pre>
+
+<p>Here is a table of the available testing operators that can be used for Interface conditional tests:</p>
+
+<pre>
+<b>Operator    Meaning       Notes</b>
+=           equals        Gives -1 if two values are equal, otherwise gives zero
+\           not equals    Gives -1 if two values are unequal. Do not confuse with /
+<           less than     Gives -1 if the first value is less than the second value
+>           greater than  Gives -1 if the first value is greater than the second value
+&           logical AND
+|           logical OR
+</pre>
+
+<!-- section -->
+
+<p><b>User-defined functions</b><br>
+User-defined Interface commands are treated in exactly the same way as any of the existing
+instructions, and they can be used to create whole libraries of box definitions, button types and
+selectors.</p>
+
+<p>
+<b>U</b>ser<b>I</b>nstruction<br>
+<i>Interface instruction: create a user-defined Interface command</i><br>
+<b>UI</b> XX,number of parameters;[instruction definition]</p>
+
+<p>
+To create a new Interface instruction, use the UI command and then specify the pair of capital
+letters that are to represent the name of the new instruction from now on. For example, SB could
+be specified to refer to a new command for drawing a ShadowedBox. The new name must not
+already be used for an existing Interface command.</p>
+
+<p>
+The pair of identification letters is followed by a list of parameter values. Each user-defined
+instruction can read up to <b>nine</b> parameter values from the Interface program, these parameters
+must be separated by commas, and can be entered directly in the command line. They can now
+be read from the new definition routine using the parameter functions P1 to P9.</p>
+
+<p>
+Finally, the definition of the user-defined command is specified inside a pair of square brackets.
+This definition enters an Interface program to be assigned to the new instruction, and it can
+include anything you wish.</p>
+
+<p>
+Here is a complete working example of a user-defined instruction that draws a shadowed
+dialogue box:</p>
+
+<pre>
+E> A$=A$+"BA 50,50;"
+   A$=A$+"SI 160,60; SA 1;"
+   A$=A$+"SB 0,0,150,50,5,0,5;"
+   AS=A$+"PO 10,10,'AMOS Professional',2,4; PR 48,20,'Basic',4;"
+   A$=A$+"BU 1,90,38,50,10,0,0,6;"
+   A$=A$+"[ShadowBox 0,0,50,10,1,0,4 BPos+; PR 1,2,'Button',6;][]"
+   A$=A$+"RU 0,7;EXit;"
+   A$=A$+"UserInstruction ShadowBox,7; create shadowed box with seven parameters"
+   A$=A$+"[IN P6,0,0; GB P1 P5+,P2 P5+,P3 P5+,P4 P5+; draw the shadow effect"
+   A$=A$+"1N P7,0,0; GB P1,P2,P3,P4, draw the box at the top]"
+   D=Dialog Box(A$)
+</pre>
+
+<p>
+The Interface provides a method of arranging your user-defined instructions so that they
+behave exactly like the built-in graphics operations.</p>
+
+<p>
+<b>XY</b><br>
+<i>Interface instruction: set graphics variables</i><br>
+<b>XY</b> xa,ya,xb,yb</p>
+
+<p>
+The XY instruction loads the internal variables XA, YA, XB and YB with the position of the
+graphics cursor before and after the new operation.</p>
+
+<!-- section -->
+
+<p>
+The xa,ya parameters hold the values to be loaded into XA and YA, and these store the
+coordinates of the graphics cursor before the current operation is performed. Similarly, the xb,yb
+parameters enter values to be stored in XB and YB, and they are used to set the position of the
+cursor after the new instruction as been executed. So after the new command has done its
+work, the internal variables can b set up accordingly. For example:</p>
+
+<pre>
+X> 'An instruction that draws a box and then prints some text in it.
+   'XB YB will be at the end of the box, and not at the printed text!
+   'The syntax for this is TextBox x1 ,y1,x2,y2,text
+   Userinstruction TextBox,5;
+   [BOx P1,P2,1,P3,P4; PRint P1 ,P2,P5,1; XY P1 ,P2,P3,P4;]
+</pre>
+
+<p>
+User instructions have a few limitations, which should be remembered. Each command is
+restricted to a maximum of nine parameters, identified as P1 to P9, and any user-defined
+instruction can call up to a maximum of ten additional UserInstruction commands from the
+definition routine.</p>
+
+<p>
+One additional problem can occur if you want to create a new button type with a
+UserInstruction. You need to save the parameters somewhere safe before you leave your
+routine, so that they will be readily available when the new button is selected on the screen. This
+problem only occurs if you are defining a zone <b>inside</b> a UserInstruction, and the problem can be
+solved by the following instruction.</p>
+
+<p>
+<b>S</b>et<b>Z</b>onevariable<br>
+<i>Interface instruction: save a parameter for the next zone definition</i><br>
+<b>SZ</b> value;</p>
+
+<p>
+This command is used to set the internal zone variable for the next active zone to be defined.
+The value can be a number or a string that you want to save, and the Interface stores it in an
+internal buffer, ready for the new Zone definition. You can now use the ZoneVariable function
+to poke this value directly into the new zone, so that a "change" routine, held inside the second
+pair of square brackets, will work as normal. This function is explained lastly..</p>
+
+<p>
+<b>Z</b>one<b>V</b>ariable
+<i>Interface function: read a zone variable from the internal buffer area</i><br>
+value=<b>ZV</b></p>
+
+<p>
+This function can only be used inside a change or a draw routine held inside square brackets. It
+returns the contents of the internal zone variable, and pokes it into your definition for safe-
+keeping. For example:</p>
+
+<pre>
+X> 'This user instruction defines a button made of text only
+   'MyButton zone,x,y,text
+   Userinstruction MyButton,4;
+   [SetZone P4; save parameter four in the internal buffer zone
+   BUtton P1,P2,P3,P4 TextWidth 16+,TextHeight 4+,0,0,1;
+   [PRint 0,0,ZoneVariable,1][] zvar permanently installs text into the new button
+</pre>
+
+<!-- section -->
+
+<p><b>Machine code extensions</b><br>
+
+The final part of this Chapter explains how to add your own machine code extensions directly
+into the AMOS Professional Interface.</p>
+
+<p>
+<b>CA</b>ll<br>
+<i>Interface instruction: call a machine code extension</i><br>
+<b>CA</b> address;</p>
+
+<p>
+The address parameter refers to the address of a machine code program in memory, and the
+easiest way to load it is to place it into an Interface variable from the main program. For
+example:</p>
+
+<pre>
+X> Vdialog(1,0)=Start(6) : Rem Load 0VA of channel 1 with the address of bank 6.
+</pre>
+
+<p>You can now run your CAll routine using a line like this:</p>
+
+<pre>
+X> Call 0VA;
+</pre>
+
+<p>
+Machine code can be used to modify all registers, and should return with an RTS. All aspects of
+using machine code for your AMOS Professional programs are examined in detail in Appendix
+A of this User Guide. If you are familiar with assembly language, the following brief information
+will be of use:</p>
+
+<p>On entry to your routine, data will be placed in the address registers like this:</p>
+
+<pre>
+A6= Program pointer
+A5= AMOS datazone
+A4= Base of this Dialog Structure
+A3= Parameter stack. Use this to grab values from the Interface stack.
+</pre>
+
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Accessing a Serial Port</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>Accessing a Serial Port</h1>
+
+<br>
+
+
+<p>
+Here is the Chapter which explains how AMOS Professional is used as the gateway to the world
+of computerised communications.</p>
+
+<p>
+The I/O Extension provides you with all the commands needed to exploit the Amiga's serial port
+for the following purposes:</p>
+
+<ul>
+  <li>Long-distance multi-user games played between any number of Amiga users.</li>
+  <li>Network communications between desks, offices, classrooms and continents!</li>
+  <li>MIDI interfacing for musicians, between the Amiga and synthesizers, drum machines and
+      sequencers.</li>
+</ul>
+
+<p><b>Opening the Serial Port</b><br>
+
+A serial device refers to any machine that can communicate with the Amiga via its Serial Port.
+These devices include modems, MIDI systems and of course, other Amigas.</p>
+
+<p>
+<b>SERIAL OPEN</b><br>
+<i>instruction: open a channel for Serial Input/Output</i><br>
+<b>Serial Open</b> Channel number,Port number<br>
+<b>Serial Open</b> Channel number, Port number,Shared,Xmode,7wires</p>
+
+<p>
+The SERIAL OPEN command is used to open a communication channel between the Amiga and
+a serial device. The following parameters can be given with this instruction:</p>
+
+<p>
+The Channel number is an identification number that will be used for <b>all</b> subsequent
+communication commands. The values for this number range from zero to 3.</p>
+
+<p>
+The Port number is normally set to zero, and it specifies the logical device number of the Serial
+Port. For Amigas equipped with a Multi-Serial card that offers additional Serial Ports, these extra
+ports can be accessed by specifying a Port number from 1 upwards.</p>
+
+<p>There are three optional parameters that can also be given, as follows:</p>
+
+<p>
+The Shared parameter refers to a value which acts as a flag, telling AMOS Professional that the
+serial device can be shared with other tasks that are currently running on the computer. In other
+words, this parameter is used for multi-tasking. A value of zero (False) will grab the specified
+channel for AMOS Professional programs, and will deny access to any other programs. A value
+of -1 (True) will allow the Serial Port to be shared between several programs in memory. You are
+warned to use this system with great care, to avoid crashing your Amiga.</p>
+
+<p>
+The Xmode is a val.-Lie which is used to toggle the checking system known as XON/XOFF. This
+system makes checks during the transmission of data over a serial line. It is essential to set this
+flag when the device is first opened, even if the device will not be required until later. The
+default value is zero (False), and this means that the system is normally disabled. To enable the
+checking system, a value of -1 (True) must be set. Once the port has been opened, the XON and
+XOFF characters must be set using a SERIAL X command, which is explained later.</p>
+
+<p>
+The last of the three optional parameters concerns the "7 wires system" of communication.
+The default value for this parameter is set to zero (False), and a value of -1 (True)
+tells the device to use this system.</p>
+
+<!-- section -->
+
+<p>
+When the SERIAL OPEN command is called for the first time, the Serial Device library is loaded
+from the System disc automatically, so make sure that this disc is available in the current drive.</p>
+
+<p>
+<b>SERIAL CLOSE</b><br>
+<i>instruction: close one or more Serial channels</i><br>
+<b>Serial Close</b><br>
+<b>Serial Close</b> Channel number</p>
+
+<p>
+The use of this instruction closes all currently opened serial channels with no check for any
+errors. If an optional channel number is given, the specified channel will be closed using all
+normal error checks.</p>
+
+<p>
+Whenever a program is run from AMOS Professional, any opened channels will be closed
+automatically.</p>
+
+<p><b>Setting the serial parameters</b><br>
+
+The default settings for Serial Channels correspond to the standard Minitel protocol used in
+France, as follows:</p>
+
+<pre>
+1200 Baud
+7 bits
+1 stop bit
+Even parity.
+</pre>
+
+<p>These settings can be changed using the instructions that are explained next.</p>
+
+<p>
+<b>SERIAL SPEED</b><br>
+<i>instruction: set transfer rate for a serial channel</i><br>
+<b>Serial Speed</b> Channel number,Baud rate</p>
+
+<p>
+This sets the current data transfer rate (the Baud rate) of the given channel, for both the sending
+and receiving operations. A Baud rate cannot be split for a. single channel. If the specified
+transfer rate is not supported by the current serial device, it may be rejected by the system.</p>
+
+<p>
+<b>SERIAL BITS</b><br>
+<i>instruction: set the number of bits for transmission of characters</i><br>
+<b>Serial Bits</b> Channel number,number of bits,number of Stop bits</p>
+
+<p>
+This command is used to assign the number of bits that are to be used for each character that is
+transmitted. After the channel number is specified, give the number of bits followed by the
+number of Stop bits to be used.</p>
+
+<p>
+<b>SERIAL PARITY</b><br>
+<i>instruction: set parity checking for a serial channel</i><br>
+<b>Serial Parity</b> Channel number, Parity</p>
+
+<p>
+The SERIAL PARITY instruction sets the parity checking to be used for the specified
+serial channel.</p>
+
+<!-- section -->
+
+<p>Here is a list of the available settings for the Parity parameter:</p>
+
+<pre>
+-1 No parity
+0  Even parity
+1  Odd parity
+2  Space parity
+3  Mark parity
+</pre>
+
+
+<p>This Parity bit may be set using the BSET or BCLR instructions, as follows:</p>
+
+<pre>
+X> P=0 : Bset 0,P: Rem Odd parity
+   Bclr 1,P : Rem Normal parity
+   Serial Parity 1,P : Rem Set parity using the value in P
+</pre>
+
+<p>
+<b>SERIAL X</b><br>
+<i>instruction: set handshaking system of serial channel</i><br>
+<b>Serial X</b> Channel number,Xmode</p>
+
+<p>
+This command is used to enable or disable the XON/XOFF handshaking system, which checks
+data transmission. A value of -1 (True) will disable the system, whereas any other value will turn
+it on. The Xmode parameter should be loaded with the correct control characters, which must be
+specified in the following format:</p>
+
+<pre>
+X> Xmode=XON110000000+XOFF*$1000
+</pre>
+
+<p><b>Sending and receiving Serial information</b></p>
+
+<p>
+<b>SERIAL SEND</b><br>
+<i>instruction: output a string via a serial channel</i><br>
+<b>Serial Send</b> Channel number,string</p>
+
+<p>
+This is used to send the given string directly to the selected serial channel, without waiting
+for the data to be transmitted through the actual port. This means that the SERIAL CHECK
+function must be used to detect when the transmission of data has been completed, and this is
+explained below.</p>
+
+<p>
+<b>SERIAL OUT</b><br>
+<i>instruction: output a block of raw data via a serial channel</i><br>
+<b>Serial Out</b> Channel number,address,length</p>
+
+<p>
+This command is identical to SERIAL SEND, except for the fact that it works with raw data,
+instead of a string. Specify the channel number as usual, followed by the address in memory of
+the data to be transmitted, and the length of the data given in the number of bytes to be sent.</p>
+
+<p>
+<b>SERIAL GET</b><br>
+<i>function: get a byte from a serial device</i><br>
+value=<b>Serial Get</b>(Channel number)</p>
+
+<p>
+To read a single byte from a serial device, use the SERIAL GET function and
+specify which channel is to be examined. If no data is available,
+a value of -1 will be returned.</p>
+
+<!-- section -->
+
+<p>
+<b>SERIAL INPUT$</b><br>
+<i>function: get a string from the Serial Port</i><br>
+string=<b>Serial Input$</b>(Channel number)</p>
+
+<p>
+This function is used to read an entire string of characters from the Serial Port. If no data is
+available an empty string will be returned, otherwise the string will contain all the bytes that
+have been transmitted via the serial line up to the present moment.</p>
+
+<p>
+Care should be taken when using this function with high speed transfers, such as those from
+MIDI devices. If the waiting time between each receive is too long, the system may overload and
+generate errors such as "string too long" or "serial device buffer overrun".</p>
+
+<p>
+Transmitting a very large string can take a long time, especially at low Baud rates. With AMOS
+Professional multi-tasking, a program will only continue after a SERIAL SEND instruction. To
+avoid corrupting data, the following system should be employed:</p>
+
+<ul>
+  <li>Use the SERIAL CHECK function before using lengthy strings.</li>
+  <li>Perform a "garbage collection" using X =FREE, to ensure that the program will not provoke
+      such an operation spontaneously.</li>
+  <li>Use the SERIAL OUT command and set the address parameter to contain the location of a
+      memory bank that has been previously reserved.</li>
+</ul>
+
+<p><b>Other Serial commands</b></p>
+
+<p>
+<b>SERIAL BUF</b><br>
+<i>instruction: set the size of the serial buffer</i><br>
+<b>Serial Buffer</b> Channel number,length</p>
+
+<p>
+This allocates the length of the buffer space for the required channel, specified in the number of
+bytes to be allocated. The minimum allocation is 64 bytes, and the default setting is 512 bytes.
+You are recommended to increase the buffersize for high speed transfers of data.</p>
+
+<p>
+<b>SERIAL FAST</b><br>
+<i>instruction: engage fast mode for data transfer</i><br>
+<b>Serial Fast</b> Channel number</p>
+
+<p>
+Use this command to set a special "fast" flag in the current serial device, which disables much of
+the internal checking process that can slow down the communication process. This is
+recommended for high speed transfers. Please note that when SERIAL FAST is called, the
+protocol is changed to: even parity, no XON/XOFF and 8 bits.</p>
+
+<p>
+<b>SERIAL SLOW</b><br>
+<i>instruction: re-set slow mode for data transfer</i><br>
+<b>Serial Slow</b> Channel number</p>
+
+<p>
+This instruction slows the serial device transmission back to normal speed, and all of the internal
+error checks are enabled once more.</p>
+
+<!-- section -->
+
+<p>
+<b>SERIAL CHECK</b><br>
+<i>function: report current serial device activity</i><br>
+status=<b>Serial Check</b>(Channel number)</p>
+
+<p>
+This function obtains a report on the status of the current serial device. It can be used to check
+whether all of the information to be transmitted by a previous SERIAL SEND command has
+been sent. If a value of zero (False) is returned, the last Serial command is still being executed. If
+the value is -1 (True) the transmission has been completed.</p>
+
+<p>
+<b>SERIAL STATUS</b><br>
+<i>function: report status of the serial port</i><br>
+bit-map=<b>Serial Status</b>(channel number)</p>
+
+<p>
+The SERIAL STATUS function provides detailed information concerning the current status of
+the serial port. The channel number parameter refers to an open channel that has been
+previously assigned to the serial port with a SERIAL OPEN command. The report is returned in
+the form of a bit-map holding the status of fifteen different parameters. Here is a table of the
+various possibilities. If the relevant bit is set to the value under the "Active" column, the
+associated status has been successfully detected. Any other value indicates that the option is
+currently idle.</p>
+
+<pre>
+<b>Bit   Active    Status</b>
+0       -       Reserved
+1       -       reserved
+2       1       Parallel "select" for A1000 machines. For the A500 and A2000,"select" is
+                also connected to the serial port "Ring Indicator".
+3       0       DSR (Data Set Ready)
+4       0       CTS (Clear To Send)
+5       0       Carrier Detect
+6       0       RTS (Ready To Send)
+7       0       DTR (Data terminal Ready)
+8       1       Hardware overru
+9       1       Break sent (most recent output)
+10      1       Break received (as latest input)
+11      1       Transmit x-OFF
+12      1       Receive x-Off
+13      -       Reserved
+14      -       Reserved
+15      -       Reserved
+</pre>
+
+<p>
+<b>SERIAL ERROR</b><br>
+<i>function: report success of the last data transfer</i><br>
+status=<b>Serial Error</b>(Channel number)</p>
+
+<p>
+The SERIAL ERROR function is used to look for the Error byte in the serial device.
+A value of zero (False) confirms that all is well, whereas 4 (True) indicates
+that there was an error in the last transmission.</p>
+
+<!-- section -->
+
+<p>
+<b>SERIAL ABORT</b><br>
+<i>instruction: stop current data transfer</i><br>
+<b>Serial Abort</b>(channel number)</p>
+
+<p>
+This command halts any serial operations that have been commenced by a SERIAL SEND or
+SERIAL OUT command, and leaves the channel clear. It allows an instant quit from a transfer,
+without the need to wait for current activities to be completed.</p>
+
+<p>
+<b>SERIAL BASE</b><br>
+<i>function: get the address of the serial base</i><br>
+address=<b>Serial Base</b></p>
+
+<p>
+The SERIAL BASE function is especially useful for systems programmers. It returns the base
+address of the i/o structure of the current serial channel, allowing system functions to be called
+directly from an AMOS Professional program with EXEC. You are warned not to use this
+function unless you know precisely what you are doing, otherwise any mistakes can crash your
+computer.</p>
+
+
+</BODY>
+</HTML>
+

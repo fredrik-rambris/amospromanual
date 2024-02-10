@@ -1,0 +1,1057 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Disc Access</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>Disc Access</h1>
+
+<br>
+
+
+<p><b>Disc drive names</b><br>
+
+Each disc drive used by your Amiga is identified by a simple three-character code, followed by
+he colon character to distinguish the name of the drive from a file name. The internal floppy
+disc drive is referred to like this:</p>
+
+<pre>
+Df0:
+</pre>
+
+<p>
+If you have installed additional floppy drives, they will be named Df1: then Df2: and so on.
+I lard drives are identified by a similar code, with the first hard disc drive carrying a zero, the
+second a one, and so on, like this:</p>
+
+<pre>
+Dh0:
+</pre>
+
+<p><b>Volume names</b><br>
+
+The Amiga is happy to refer to an individual disc by name instead of looking for the disc drive
+code, as long as the string of characters that make up the name of the disc carries the colon
+character, as follows:</p>
+
+<pre>
+AMOS_PROFESSIONAL:
+</pre>
+
+The titles of "discs are known as "volume" names, which is the equivalent of the title of a written
+volume in a library. AMOS Professional automatically checks each available drive for the
+required disc, and if it cannot be found, the "Device not available" error will be given.</p>
+
+<p>
+Whenever a new disc is prepared for use via the Workbench, it is automatically given the name
+"Empty", waiting for you to re-name it with a suitable volume title, after clicking on the
+I Rename] option. It is very bad practice to give the same name to more than one disc, as both
+the Amiga and its operator can get confused by sloppy naming. If different discs do have the
+same volume name for any reason, you will have to refer to the appropriate drive name to tell
+AMOS Professional precisely which of these discs you are interested in. For example:</p>
+
+<pre>
+X> Dir "Df0:"
+</pre>
+
+<p>The DIR command is used to print out a directory index of a disc, and is explained below.</p>
+
+<p><b>Files and directories</b><br>
+
+If you think of a disc as a self-contained "volume" , then that volume can contain one or more
+"folders" of information, and each folder can hold all sorts of "files". Before any file can be
+accessed and used, it has to be found in the file directory of its disc. The next section of this
+Chapter explains how files are managed with AMOS Professional, but first you should be aware
+of the set of objects known as "logical devices".</p>
+
+<p>
+Logical devices are used by the Amiga's operating routines to work out the exact position of
+important system files, such as the fonts used for text characters and the device handlers used
+for peripherals. Each device is normally assigned to a specific directory on the current
+start-up disc.</p>
+
+<!-- section -->
+
+<p>
+For example, the directory containing the current fonts used by AMOS Professional is called
+FONTS: whereas the SAY command uses a library file that can be examined by typing the
+following line from Direct Mode:</p>
+
+<pre>
+D> Dir "Libs:"
+</pre>
+
+<p>
+<b>DIR</b><br>
+<i>instruction: print directory of the current disc</i><br>
+<b>Dir</b><br>
+<b>Dir</b> path$</p>
+
+<p>
+The DIR command is used to examine the directory of the current disc and list all of its files on
+screen, like this:</p>
+
+<pre>
+D> Dir
+</pre>
+
+<p>
+Any folders in the listing will be distinguished by a leading asterisk character *. The listing can
+be stopped at any time by pressing the [Space-bar] and then started again in the same way. Note
+that if you change discs without informing AMOS Professional and then try to get a directory
+listing, you may be presented with a system requester. The simple solution is to re-insert the
+requested disc and try again.</p>
+
+<p>
+<b>DIR/W</b><br>
+<i>instruction: print out directory in two columns</i><br>
+<b>Dir/W</b><br>
+<b>Dir</b> paths$<b> /W</b></p>
+
+<p>
+This command performs exactly the same task as DIR, but displays the list of files in two
+separate columns across the screen. So by using this double width, twice as many filenames can
+appear on screen at any one time.</p>
+
+<p>
+There is no need for DIR or DIR/W to list every file on the disc. Certain files or groups of files can
+be extracted by specifying optional "pathways", so that only files which satisfy a certain set of
+conditions are listed.</p>
+
+<p>
+The broadest of these paths gives the name of the disc or the drive to be examined. A colon must
+be added to the disc name, like this:</p>
+
+<pre>
+E> Dir "FONTS:"
+   Dir "Dh0:"
+</pre>
+
+<p>
+The next selective category that can be defined is a single folder of filenames to be listed. For
+example:</p>
+
+<pre>
+X> Dir "Objects/"
+   Dir "AMOSPro_Examples:Objects/"
+</pre>
+
+<!-- section -->
+
+<p>
+The pathway for a listing can be further narrowed by requesting that only the filenames that
+satisfy certain conditions will be printed, and that each character in the filename must match the
+characters in your request exactly. If you wish to make a more general search, you can use the
+asterisk character "*" to be regarded as a substitute for any list of characters in a filename, up to
+the next control character. For example, a file named "Music" will be searched for if you
+command this:</p>
+
+<pre>
+X> Dir "Music"
+</pre>
+
+<p>But the use of an asterisk would broaden the search:</p>
+
+<pre>
+X> Rem List all files starting with M
+   Dir "M*"
+</pre>
+
+<p>That could give the following directory listing:</p>
+
+<pre>
+Music
+Megalomania
+Milk
+</pre>
+
+<p>
+As a default, this option ignores any files that include extensions of the type used by MS-DOS,
+such as "Mad.Asc".</p>
+
+<p>
+The full stop character "." is used to match a filename extension, and is often used with the
+asterisk character to list all the files in a directory with a particular extension, like this:</p>
+
+<pre>
+X> Dir "Music.*"
+   Dir "*.Megalomania"
+   Dir "*.*"
+</pre>
+
+<p>
+The final narrowing of a search path is to use the question-mark character "?" to match up with
+any single character in a filename. For example:</p>
+
+<pre>
+X> Dir "EUROP????"
+</pre>
+
+<p>That would list the following filenames, if they were in the current directory:</p>
+
+<pre>
+EUROPRESS
+EUROPEANS
+</pre>
+
+<p>
+But it would ignore the following filenames, either because the first five characters do not
+match, or the length of the name is different from the specified total of nine characters:</p>
+
+<pre>
+EUROPRESSES
+EUROPE
+EURIPIDES
+</pre>
+
+<p>
+Because certain filenames are too long to fit neatly in a display listing, particularly if
+the DIR/W option is in use, there is a simple way of setting the style of
+directory commands.</p>
+
+<!-- section -->
+
+<p>
+<b>LDIR</b><br>
+<b>LDIRAN</b><br>
+<i>instructions: output directory of current disc to printer</i><br>
+<b>Ldir</b><br>
+<b>Ldir</b> path$<br>
+<b>Ldir/W</b><br>
+<b>Ldir</b> path$ <b>/W</b></p>
+
+<p>
+These two commands are used in exactly the same way as DIR and DIR/W, as explained above,
+and they list the directory of the current disc to a printer.</p>
+
+<p>
+<b>SET DIR</b><br>
+<i>instruction: set directory style</i><br>
+<b>Set Dir</b> number<br>
+<b>Set Dir</b> number,filter$</p>
+
+<p>
+This command must be followed by a number ranging from 1 to 100, which sets the number of
+characters to be displayed from each filename. There is no effect on the names themselves, only
+on the way they are displayed. For example:</p>
+
+<pre>
+E> Set Dir 6
+   Dir
+</pre>
+
+<p>
+An optional string may be added to a SET DIR command, which has the effect of filtering out
+pathnames from the directory search. All filenames that match up with this filer will be
+completely ignored. Supposing a directory began like this:</p>
+
+<pre>
+AMO.IFF
+AMAL
+AMAT.IFF
+AMINIBUS
+AMINOACID
+AMENSROOM.IFF
+AMULET
+</pre>
+
+<p>
+SET DIR may now be used to restrict the display to three characters, as well as filtering out any
+IFF files, as follows:</p>
+
+<pre>
+D> Set Dir 5,".IFF"
+</pre>
+
+<p>
+The first two characters displayed are folder markers, this is why the value five is used instead of
+three.</p>
+
+<!-- section -->
+
+<p>That line would result in this amended display:</p>
+
+<pre>
+AMA
+AMI
+AMI
+AMU
+</pre>
+
+<p>
+It is possible to ignore several file-paths at once, as long as each name is terminated with a single
+oblique character "/". For example:</p>
+
+<pre>
+D> Set Dir 8,"*.AMOS/*.IFF/*.Abk"
+</pre>
+
+<p>
+<b>DIR$</b><br>
+<i>function: change the current directory</i><br>
+s$=<b>Dir$</b><br>
+<b>Dir$</b>=s$</p>
+
+<p>
+The DIR$ function is used to contain the directory that will be used as the starting point for all
+future disc operations, such as loading and saving.</p>
+
+<pre>
+E> Print Dir$ : Rem Print out current directory
+   Rem Set directory to folder
+   Dir$="AMOSPro_Examples:IFF/"
+</pre>
+
+<p>
+DIR$ is similar to the CD command from the CLI, with the advantage of allowing you to read
+the directory as well as change it. All directories are assumed to be relative to the directory in
+current use, and AMOS Professional will only search the current directory for a folder. To avoid
+this problem, include the name of your disc as in the above example, or use the drive name as
+follows:</p>
+
+<pre>
+D> Dir$="Df0:IFF/"
+</pre>
+
+<p>
+<b>PARENT</b><br>
+<i>instruction: negotiate a path through current directory</i><br>
+<b>Parent</b></p>
+
+<p>
+Because directories can be "nested" inside one another, files can be organised according to a
+range of categories. Although this is very convenient, it is not difficult to get lost in a maze of
+nested files. In the following example, the folder named FOLDERA is stored in the main
+directory (the "root" directory) and can be regarded as the "parent" of FOLDERB and
+FOLDERD. Similarly, FOLDERB is the parent of FOLDERC:</p>
+
+<pre>
+FOLDERA/
+ FOLDER B/
+  FOLDERC/
+ FOLDERD/
+</pre>
+
+<!-- section -->
+
+<p>
+The effect of the PARENT command is to load the current directory with the parent of the
+present folder you are using. By using this command repeatedly, you are able to get back to the
+original root directory simply and quickly. For example:</p>
+
+<pre>
+X> Dir$="AMOSPro_Examples:Objects/"
+   Dir
+   Parent
+   Dir
+</pre>
+
+<p>
+<b>ASSIGN</b><br>
+<i>instruction: assign a name to a file or device</i><br>
+<b>Assign</b> "Name:" To "New_Pathname"<br>
+<b>Assign</b> "Name:" To "Device"</p>
+
+<p>
+In the original AMOS system, you were obliged to go back to AmigaDOS every time that
+particular directories needed changing, for example, when changing the font directories.
+The ASSIGN command has been provided to solve this problem, and is fully explained in
+<a href="11/1101.html">Chapter 11.1</a>.</p>
+
+<p><b>Checking for the existence of a file</b><br>
+
+It is possible to keep a tidy mind and a tidy desk, and maintain up to date records on discs. On
+the other hand, you may be normal. AMOS Professional provides three, ways to check for
+elusive files.</p>
+
+<p>
+<b>EXIST</b><br>
+<i>function: check if specified file exists</i><br>
+value=<b>Exist</b>("filename")</p>
+
+<p>
+EXIST looks through the current directory of filenames and checks it against the filename in
+your given string. If the names match, then the file does exist and a value of -1 (true) will be
+reported, otherwise 0 (false) will be returned.</p>
+
+<p>
+As well as checking for individual filenames, even if an idiotic name is given, EXIST will search
+for discs and devices as well. For example:</p>
+
+<pre>
+E> Print Exist("An idiotic name")
+   Print Exist("DEMO:") : Rem Is a disc named DEMO available
+   Print Exist("Df1:") : Rem Is the second floppy drive connected
+</pre>
+
+<p>It is advisable to test for empty strings ("") separately, like this:</p>
+
+<pre>
+E> F$=Fsel$("*.IFF"," ","Load an IFF file")
+   If F$="" Then Edit : Rem return to editor if no file chosen
+   If Exist(F$) Then Load Iff F$,0
+</pre>
+
+<!-- section -->
+
+<p>
+<b>DIR FIRST$</b><br>
+<i>function: get first file that satisfies current path name</i><br>
+file$=<b>Dir First$</b>(path$)</p>
+
+<p>
+This function returns a string containing the name and the length of the first file on the current
+disc that matches up with your chosen search path. For example, the next routine reports the
+first file or folder in the current directory, followed by the first IFF file in the directory.
+Obviously, this could be the same file.</p>
+
+<pre>
+E> Print Dir First$("*.*")
+   Print Dir First$("*.IFF")
+</pre>
+
+<p>
+When DIR FIRST$ is used, the whole directory listing is loaded into memory, so you can
+continue to discover the name of the next file in the current directory with the following
+function.</p>
+
+<p>
+<b>DIR NEXT$</b><br>
+<i>function: get next file that satisfies current path</i><br>
+file$=<b>Dir Next$</b></p>
+
+<p>
+Use this to return the filename that comes after the file or folder found by the previous DIR
+FIRST$ search. If there are no more files to come, an empty string will be returned, "". Once the
+last filename has been found, AMOS Professional will automatically grab back the memory used
+by the directory array, and release it for the rest of your program to use. The next example prints
+every file in the current directory.</p>
+
+<pre>
+E> F$=Dir First$("*.*")
+   While F$<>""
+    Print F$ : Wait 50
+    F$=Dir Next$
+   Wend
+</pre>
+
+<p><b>Selecting a file</b></p>
+
+<p>
+<b>FSEL$</b><br>
+<i>function: select a file</i><br>
+f$=<b>Fsel$</b>(path$)<br>
+f$=<b>Fsel$</b>(path$,default$,title1$,title2$)</p>
+
+<p>
+This file selection function allows you to choose the files you need directly from a disc, using the
+standard AMOS Professional file selector. In its simplest form, it operates like this:</p>
+
+<pre>
+D> Print Fsel$("*.IFF")
+</pre>
+
+<p>
+The string held within the brackets is a path that sets the searching pattern, in that case an IFF
+file. The following optional parameters may also be included:</p>
+
+<p>
+The optional default string is used to choose a filename that will be
+automatically selected if you press [Return] and abort the process.</p>
+
+<!-- section -->
+
+<p>
+Title$ and title2$ are optional text strings that set up a title to be displayed at the top of your file
+selector. For example:</p>
+
+<pre>
+E> F$=Fsel$("AMOSPro_Examples:Objects/*.Abk")
+   If F$="" Then Edit : Rem Return to editor if no file selected
+   Load F$: Rem Load file and display first Bob
+   Flash Off : Bob 1,100,100,1 : Get Bob Palette : Wait Vbl
+</pre>
+
+<p><b>Naming files</b><br>
+
+To create a new folder that can be used to hold files of data, a suitable disc should be ready in
+the appropriate drive.</p>
+
+<p>
+<b>MKDIR</b><br>
+<i>instruction: create a folder</i><br>
+<b>Mkdir</b> filename$</p>
+
+<p>
+This makes a new folder on the current disc, and gives it the filename of your choice. For
+example:</p>
+
+<pre>
+X> Mkdir "Df0:MARATHONMAN"
+   Dir
+</pre>
+
+<p>
+<b>RENAME</b><br>
+<i>instruction: rename a file</i><br>
+<b>Rename</b> oldname$ To newname$</p>
+
+<p>
+This command is used to change the name of an existing file. If your choice of new filename is
+already in use by another file, the appropriate error message will be given.</p>
+
+<pre>
+X> Rename "Ancient" To "Modern"
+</pre>
+
+<p><b>Running programs from disc</b></p>
+
+<p>
+<b>RUN</b><br>
+<i>instruction: execute an AMOS Professional program</i><br>
+<b>Run</b><br>
+<b>Run</b> file$</p>
+
+<p>
+As well as the [Run] or [F1] facility for executing programs from the Edit Screen, the RUN
+command may be used on its own from Direct Mode.</p>
+
+<p>
+When followed by a filename and used inside a program, the RUN command is extremely
+useful. Authors of vast computer games, involving many levels of play, need not be restricted by
+the storage space of a single disc or the memory available in your Amiga. Each level of play can
+be written as a separate program and then saved as a different filename. This means that at the
+end of one level of play, the next stage can be loaded from disc automatically.</p>
+
+<!-- section -->
+
+<p>For example:</p>
+
+<pre>
+X> Run "Next level.AMOS"
+</pre>
+
+<p>
+This method is known as "chaining" programs together. When programs run like this, data
+screens and banks will be kept, allowing you to pass data and display a screen of graphics while
+the next level is loading. But the redundant last program will be erased to make room for the
+new program, so you should remember the fact that any variables will be lost in the process.</p>
+
+<p>
+In fact, AMOS Professional does allow you to pass variable data from one program to another,
+by making use of "Command Lines".</p>
+
+<p>
+<b>COMMAND LINE$</b><br>
+<i>reserved variable: transfer parameters between programs</i><br>
+c$=<b>Command Lines$</b></p>
+
+<p>
+Data for hi-scores, messages, names and so on can be carried through to the next level of
+computer game by the following method.</p>
+
+<p>Type in the next example program:</p>
+
+<pre>
+E> Rem Program 1
+   Screen Open 0,640,200,4.Hires
+   Rem greetings sent by previous program
+   Print "Greetings from Program 2:";Command Line$
+   Input "Please type in a greeting!";A$
+   Command Line$=A$
+   Print "Running Program 2!" : Wait 100
+   Run "Program2.AMOS"
+</pre>
+
+<p>
+Now save that example on a suitable disc, and name it "Program1.AMOS". Next, change that
+example program as follows:</p>
+
+<pre>
+E> Rem Program 2
+   Screen Open 0.320,200,4,Lowres
+   Rem Greetings sent by previous program
+   Print "Greetings from Program 1:";Command Line$
+   Input "Please type in a greeting!";A$
+   Command Line$=A$
+   Print "Running Program 1!"
+   Wait 100
+   Run "Program1.AMOS"
+</pre>
+
+<p>
+Save Program 2, and call it "Program2.AMOS". Now run Program 2, which should still be in
+memory. After the first blank communication, the two programs will greet one another until you
+break into their conversation with [Ctrl]+[C].</p>
+
+<!-- section -->
+
+<p>
+<b>Disc space</b></p>
+
+<p>
+<b>DFREE</b><br>
+<i>function: report free space on disc</i><br>
+f=<b>Dfree</b></p>
+
+<p>
+This simple function returns the amount of free space remaining on the current disc, measured
+in bytes.</p>
+
+<p>
+<b>DISC INFO$</b><br>
+<i>function: report free space of a named device</i><br>
+information$=<b>Disc Info$</b>("Name")</p>
+
+<p>
+This function is used to return the amount of free space in the specified device. The string that is
+returned contains the name of the disc, followed by the amount of free space. Here is an
+example which splits the string:</p>
+
+<pre>
+E> A$=Disc Info$("Df0:")
+   C=Instr(A$,":")
+   N$=Left$(A$,C)
+   A$=A$-N$
+   D=Val(A$)
+   Print "Name of the disc=";N$
+   Print "Free space=";D
+</pre>
+
+<p>
+<b>KILL</b><br>
+<i>instruction: erase a file from current disc</i><br>
+<b>Kill</b> filename$</p>
+
+<p>
+Be extremely careful with this command. It obliterates the named file from the current disc, once
+and for all. The file that is erased with this command cannot be retrieved.
+Kill "Permanently"</p>
+
+<p><b>Disc files</b><br>
+
+Files are simply packages of information stored together at a particular location on disc. Each file
+is assigned its own name, which may contain anything from 1 to 255 characters.</p>
+
+<p>
+Before a file can be used, it must be initialised using the OPEN IN, OPEN OUT or APPEND
+commands, which are explained below. When a file is opened, it must be assigned a channel
+number, ranging from 1 to 10. This number will be used in all subsequent disc operations to
+identify the file you are currently working with.</p>
+
+<p>
+Your Amiga uses two types of disc files: "sequential" files and "random access" files. Here is how
+AMOS Professional exploits them fully.</p>
+
+<!-- section -->
+
+<p><b>Sequential files</b><br>
+
+A sequential file is one that allows you to read your information only in the sequence in which it
+was originally created. Normally with an Amiga, if you need to change a single item of data in
+t lie middle of a sequential file, you must call up that file from disc, read the whole file up to and
+including the item of data you want to alter, change the data and then write the whole file back
+o the disc.</p>
+
+<p>
+AMOS Professional lets you have access to sequential files either for reading data, or for writing
+it, but never for both at the same time. Before the theory is explained, here is some practice.
+Type in this example, which opens a file called "sequential.one", allows you to input some data,
+then closes the file:</p>
+
+<pre>
+E> Open Out 1 ,"sequential.one"
+   Input "Please tell me your name ";N$
+   Print #1,N$
+   Close 1
+</pre>
+
+<p>Now the information stored in that file can be read back, as follows:</p>
+
+<pre>
+E> Open In 1 ,"sequential.one"
+   Input #1,N$
+   Print "I remember you! Hello ";N$
+   Close 1
+</pre>
+
+<p>
+Every time you want to access a sequential file, it must be opened, then the information can be
+accessed, then the file must be closed. Those three steps must be done in exactly that order. Here
+is the list of commands you can use for handling sequential files.</p>
+
+<p>
+<b>OPEN OUT</b><br>
+<i>instruction: open a file for output</i><br>
+<b>Open Out</b> channel,filename$</p>
+
+<p>
+Use this command to open a sequential file, ready for data to be added to its end. Give the
+channel number and filename, as explained above. If the file already exists, it will be erased.</p>
+
+<p>
+<b>APPEND</b><br>
+<i>instruction: add data to an existing file</i><br>
+<b>Append</b> channel,filename$</p>
+
+<p>
+This works like OPEN OUT, but it allows you to add to your files at any time after they have
+been defined. If the filename already exists, your new data will be appended to it, in other
+words it will be added to the end of that file.</p>
+
+<p>
+<b>OPEN IN</b><br>
+<i>instruction: open a file for input</i><br>
+<b>Open In</b> channel,filename$</p>
+
+<p>
+Use this command to prepare a file so that data may be read from it. If the filename
+does not already exist, AMOS Professional will report a "File not found" error.</p>
+
+<!-- section -->
+
+<p>
+<b>CLOSE</b><br>
+<i>instruction: close a file</i><br>
+<b>Close</b> file number</p>
+
+<p>
+You must remember to always CLOSE a file after you have finished with it. If you forget to do
+this, any changes that have been made to the file will be lost.</p>
+
+<p>
+<b>PRINT #</b><br>
+<i>structure: print variables to a file or device</i><br>
+<b>Print #</b>channel,variable list</p>
+
+<p>
+This command is used in the same way as a normal PRINT instruction, but instead of printing
+information on screen it puts that information into one of your files. Simply specify the channel
+number to be used, then the variables you want to print out to the file. Remember to close the
+file's channel number afterwards, like this:</p>
+
+<pre>
+E> Open Out 2,"sequential.two"
+   Print #2,"Just testing"
+   Close 2
+</pre>
+
+<p>As with PRINT, the PRINT # command can be abbreviated to ? #.</p>
+
+<p>
+<b>INPUT #</b><br>
+<i>structure: input variables from a file or device</i><br>
+<b>Input #</b>channel,variable list</p>
+
+<p>
+INPUT # reads information from either a sequential file or a device such as the serial port (see
+OPEN PORT in <a href="1032.html">Chapter 10.4</a>), and loads these values into a set of variables. As with the normal
+INPUT command, each value in the list must be separated by a comma. Additionally, every line
+of data needs to be ended by its own line feed character, which is the equivalent of the [Return]
+pressed when a line is entered from the keyboard. For example:</p>
+
+<pre>
+E> Open In 2,"sequential.two" : Rem Open file created by previous example
+   Input #2,A$
+   Print A$
+   Close 2
+</pre>
+
+<p>
+<b>LINE INPUT #</b><br>
+<i>structure: input variables not separated by a comma</i><br>
+<b>Line Input #</b>channel,variable list</p>
+
+<p>
+This function is identical to INPUT #, except that it allows you to separate your list of data using
+a carriage return sequence, instead of the standard comma.</p>
+
+<p>
+When reading text documents, LINE INPUT # is always recommended, because the commas
+used in normal written English will be treated as separators by the INPUT # structure.</p>
+
+<!-- section -->
+
+<p>
+<b>SET INPUT</b><br>
+<i>instruction: set end-of-line characters</i><br>
+<b>Set Input</b> code1,code2</p>
+
+<p>
+SET INPUT is used to set which characters you want to input to end a line of data. Many
+computers need both a [Return] and [line feed] character at the end of each line, but the Amiga
+only needs a [line feed]. This means that if you wanted to import files from an ST via the serial
+cable, for example, unwanted [Return] characters would litter your input.</p>
+
+<p>
+SET INPUT solves this problem by allowing you to select two Ascii values as your end-of-line
+characters. If you prefer to use a single character only, make the second value a negative
+number. For example:</p>
+
+<pre>
+X> Set Input 10,-1 : Rem Standard Amiga format
+   Set Input 13,10: Rem ST compatible format
+</pre>
+
+<p>
+<b>INPUT$</b><br>
+<i>function: input a fixed number of characters from a device</i><br>
+i$=<b>Input$</b>(file,count)</p>
+
+<p>
+Use this function to input a set number of characters from a device or file. The parameters in
+brackets refer to the filename or device, followed by the count of characters to be input.</p>
+
+<p>
+<b>EOF</b><br>
+<i>function: test for end of file</i><br>
+flag=<b>Eof</b>(channel)</p>
+
+<p>
+This tests to see if the end of a file has been reached at the current reading position, returning -1
+for yes and 0 if this has not happened.</p>
+
+<p>
+<b>LOF</b><br>
+<i>function: give length of an open file</i><br>
+length=<b>Lof</b>(channel)</p>
+
+<p>
+LOF returns the length of an open file, and it would be pointless to use this function with
+devices other than the current disc.</p>
+
+<p>
+<b>POF</b><br>
+<i>reserved variable: hold current position of file pointer</i><br>
+position=<b>Pof</b>(channel)</p>
+
+<p>
+This changes the current reading or writing position of an open file. For example, the following
+line sets the read/write position to 1,000 characters past the start of the file:</p>
+
+<pre>
+X> Pof(1)=1000
+</pre>
+
+<p>
+Because disc drives are inherently random, this may be used to provide
+a crude form of random access with sequential files.</p>
+
+<!-- section -->
+
+<p><b>Random access files</b><br>
+
+AMOS Professional takes full advantage of the second type of file used by the Amiga. Random
+access files are extremely useful, because they allow the programmer to access data stored on a
+disc in any random order. A random access file is made up of units of data called "records", and
+each record has its own identification number. Every record can be split up into as many smaller
+sections as required, with every section becoming a "field". Each field is used to hold a single
+item of data.</p>
+
+<p>
+The main difference between sequential files and random access files is that you must tell AMOS
+Professional the maximum size of a field in advance, before you can make use of it.</p>
+
+<p>
+A field can hold many forms of data, like a password, an invoice number or even a literary
+quotation. Supposing you want to create an electronic phone book. You could choose the
+following fields, with the following maximum number of characters in each:</p>
+
+<pre>
+<b>Field               Max. length</b>
+SURNAME$            20
+F1RSTNAME$          15
+TEL$                10
+</pre>
+
+<p>
+Once the fields have been planned, the structure for your electronic database can be set up
+using the following commands.</p>
+
+<p>
+<p><b>OPEN RANDOM</b><br>
+<i>instruction: open a channel to a random access file</i><br>
+<b>Open Random</b> channel,filename$</p>
+
+<p>This command is used to open a channel to a random access file, like this:</p>
+
+<pre>
+X> Open Random 1,"ADDRESS"
+</pre>
+
+<p>
+FIELD
+<i>instruction: define a record structure</i><br>
+<b>Field</b> channel,length1 <b>As</b> field1$,length2 <b>As</b> field2$</p>
+
+FIELD$ should be used immediately after OPEN RANDOM to define a record that will be used
+for a random access file. This record can be up to 65535 bytes long. After selecting the channel
+number, give the maximum number of characters you will cater for in a field, followed by its
+name, then repeat the process as necessary. For example:
+
+<pre>
+X> Field 1,20 As SURNAME$,15 As F1RSTNAME$,10 As TEL$
+</pre>
+
+<!-- section -->
+
+<p>
+You can now place some records in the strings that have been set up by the FIELD command,
+like this:</p>
+
+<pre>
+X> SURNAME$="Professional"
+   FIRSTNAME$="AMOS"
+   TEL$="0625859333"
+</pre>
+
+<p>
+<b>PUT</b><br>
+<i>instruction: output a record to a random access file</i><br>
+<b>Put</b> channel,record number</p>
+
+<p>
+Once a record has been placed in a string, it can be moved from the computer's memory into a
+record number of your random access file. If you were still using channel 1, your first record
+would be put into the random access file like this:</p>
+
+<pre>
+X> Put 1,1
+</pre>
+
+<p>
+The next record will become number 2, and so on until you fill up your telephone book. Here is
+a simple working example. When you have created enough records, type in "exit" when
+prompted to enter another name.</p>
+
+<pre>
+E> Open Random 1,"ADDRESS"
+   Field 1,25 As NAME$,12 As TEL$
+   INDEX=1
+   Do
+    Input "Enter a name:";NAME$
+    If NAME$="exit" Then Exit
+    Input "Enter the phone number:";TEL$
+    Put 1,INDEX
+    Inc INDEX
+   Loop
+   Close 1
+</pre>
+
+<p>Having created your phone book, you will want to use it.</p>
+
+<p>
+<b>GET</b><br>
+<i>instruction: read a record from a random access file</i><br>
+<b>Get</b> channel,record number</p>
+
+<p>
+This instruction reads a record stored in a random access file, after being told which channel to
+use and the number of the record to read. To read the first record you would use this:</p>
+
+<pre>
+X> Get 1,1
+</pre>
+
+<p>
+GET then loads this record into your field strings, and these strings may be manipulated as you
+like. Obviously you can only GET record numbers that have been PUT onto the disc.</p>
+
+<!-- section -->
+
+<p>Now try this example:</p>
+
+<pre>
+E> Open Random 1,"ADDRESS"
+   Field 1,25 As NAME$,12 As TEL$
+   Do
+    Input "Enter Record Number: ";INDEX
+    If INDEX=0 Then Exit
+    Get 1,INDEX
+    Print NAME$ : Print TEL$
+   Loop
+   Close 1
+</pre>
+
+<b>Included files</b><br>
+
+The AMOS Professional Editor cannot rationalise your source code around the entire memory of
+the Amiga. This means that if you are editing an extremely long program, the insertion of a line
+can be tedious. It can take a few seconds to move the memory around before allowing the next
+line to be inserted.</p>
+
+<p>
+To assist the editing of lengthy programs in assembly language or C, an Include facility is
+provided. AMOS Professional programmers can enjoy exactly the same benefit!</p>
+
+<p>
+<b>INCLUDE</b><br>
+<i>instruction: specify a file for inclusion when testing a program</i><br>
+<b>Include</b> "File_To_Include.AMOS"</p>
+
+<p>
+The INCLUDE command must occupy a line on its own, otherwise the specified file will not be
+detected , and so it will not be included. The effect of INCLUDE on a file is as follows:</p>
+ 
+<ul>
+  <li>Immediately before a program is tested, AMOS Professional scans the beginning of each
+      program line for an INCLUDE instruction.</li>
+  <li>If an INCLUDE is encountered, AMOS Professional opens the specified file, reads its length
+      and checks its validity.</li>
+  <li>This process takes place for each INCLUDE that is found, in order.</li>
+  <li>A memory buffer is reserved for the total length of the re-created program.</li>
+  <li>AMOS Professional now copies sections of the source program, without the Includes, and
+      loads the files from disc.</li>
+  <li>All files are now closed, and with the memory buffer holding the re-created program, the
+      testing process begins as normal.</li>
+</ul>
+
+<p>
+You will need enough memory to hold the original buffer space and the included files at the
+same time for this process to operate, but if your program is large enough to slow down the
+Editor it is obvious that you have access to a reasonable amount of memory.</p>
+
+<p>
+Please note that included files are only supported in the original source, and an INCLUDE in an
+included file will generate an error when the program is run. The re-created buffer is erased as
+soon as the program is left, so the specified files must be loaded every time the program is
+tested. If programs are included which have memory banks, these banks will be left out.</p>
+
+<!-- section -->
+
+<b>IBM and ST users</b><br>
+
+The commercially available Cross Dos package allows AMOS Professional to access discs in IBM-
+clone format or Atari-ST format. Discs that are in either of these formats are identified by a three-
+character code of the two letters "Di" followed by the number of your drive. So an ST format
+disc in the Amiga's internal drive would be named as follows:</p>
+
+<pre>
+X> Di0:
+</pre>
+
+<p>
+Because AMOS Basic evolved from STOS (Atari) Basic, every effort has been made to help STOS
+users convert their programs to AMOS Professional. STOS programs should be saved to disc in
+Ascii format using the [FSAVE] "*.ASC" option. This disc should be inserted into an Amiga
+floppy disc drive that has been mounted by Cross Dos as an IBM drive.</p>
+
+<p>
+Certain STOS programs will need modification before they will run under AMOS Professional,
+but you will be rewarded by the fact that the Amiga's superior power over the ST can transform
+your programs for the better!</p>
+
+
+</BODY>
+</HTML>
+

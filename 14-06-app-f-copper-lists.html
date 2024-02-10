@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - App. F: Copper Lists</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>App. F: Copper Lists</h1>
+
+<br>
+
+
+<p><b>The Amiga co-processor</b><br>
+
+While AMOS Professional allows you to harness the power of the Amiga with the greatest of
+ease, it has to perform a great deal of work behind the scenes when manipulating entire screens
+at great speed. The source of much of this power is a special hardware chip called the "co-
+processor", or copper.</p>
+
+<p>
+The copper is in effect a simple micro-processor, with its own separate programs, and its own
+unique memory registers. It supports only three instructions, MOVE, WAIT and SKIP, and these
+commands insert values into the computer's hardware registers at certain points on the display,
+which change the way pictures are drawn on the screen.</p>
+
+<p>
+These hardware registers hold the values that determine the precise appearance of the display,
+such as its size and position, as well as the number of colours. For example, all the colour values
+used by AMOS Professional screens are held in the colour registers from $180 to $1BE. Because
+the appearance of every line displayed on your screen is controlled by the copper, a massive
+number of special effects can be created by changing these registers during a program, using a
+list of instructions known as the "copper list".</p>
+
+<p><b>The Copper List</b><br>
+
+The copper list is executed automatically, fifty times every second, at the same time that the
+screen is re-drawn. This is how the AMOS Professional RAINBOW commands work, waiting for
+a rainbow line to appear on screen and then immediately poking a new value into the selected
+colour register. This causes dramatic colour changes, depending on the position of the line in the
+display.</p>
+
+<p>
+Exactly the same process can be applied to the rest of the display system, and by placing the
+appropriate value into certain hardware registers at exactly the right moment, the position, type
+and size of the display can be changed at will! Unfortunately, the copper list is notoriously
+difficult to manipulate, and many competent programmers have failed to master its mysteries.</p>
+
+<p>
+Although the copper is automatically managed by AMOS Professional, you cannot expect the
+system to teach you everything about the inner workings of the Amiga's hardware. Indeed,
+Francois Lionet has written AMOS Professional to save you the years of hard work and
+experience needed to gain such expert knowledge. However, for those expert programmers
+who insist on meddling with the copper directly, AMOS Professional includes a powerful trap-
+door into the realms of the co-processor. This allows advanced programmers to generate
+astounding effects, and also allows novices to send their displays berserk and crash their
+computers. You have been warned!</p>
+
+<p><b>Accessing the Copper</b></p>
+
+<p><b>COPPER OFF</b><br>
+<i>instruction: turn off the standard copper list</i><br>
+<b>Copper Off</b></p>
+
+<p>
+If you ignore the warning in the last paragraph and use this instruction, the automatic copper
+generation that forms the backbone of the AMOS Professional system is turned off.
+From now on, you are on your own!</p>
+
+<p>
+  You should now understand that AMOS Professional actually holds <b>two</b> separate copper lists in
+  memory, and the principle is very similar to the logical and physical screens of the DOUBLE
+  BUFFER system.</p>
+
+<p>
+  The <b>logical</b> copper list is the list being created from AMOS Professional Basic, and it is
+  completely invisible. The <b>physical</b> list holds the copper instructions that are generating the
+  current TV display. It cannot be accessed from AMOS Professional at all, as this would corrupt
+  the display completely. As a default, these copper lists are limited to 12k in length, which is the
+  equivalent to approximately six thousand instructions. This limit may be increased using an
+  option from the Interpreter set-up dialogue box.</p>
+
+<p>Copper lists can be defined in one of three ways:</p>
+
+<p>
+  The first method is to enter the copper list using a combination of the COP MOVE and COP
+  WAIT instructions, from AMOS Professional Basic.</p>
+
+<p>
+  The second way is to find the address of the logical copper list, using COP LOGIC. This can then
+  be manipulated directly using DEEK and DOKE, allowing minor modifications to be made to
+  the existing screen without having to generate a completely new copper list at all. This is perfect
+  for the creation of rainbow effects.</p>
+
+<p>
+  The third alternative is for assembly language buffs. Copper lists can be generated using
+  machine code, and as before, the current address is available via the COP LOGIC function. Note
+  that this address will change during the course of a program, and it must be entered every time
+  the machine code routine is called.</p>
+
+<p><b>Recommended Procedures</b><br>
+
+  If you want to create copper lists from beginning to end, you must take personal control over
+  the hardware Sprites, the display positioning, the location of screens, and their sizes. You must
+  then ensure that the resulting screens have the correct amount of memory, before loading the
+  appropriate registers with the addresses of the required bitmaps. This can be achieved with the
+  LOGBASE function.</p>
+
+<p>
+  Additionally, if you intend to use DOUBLE BUFFER, a separate copper list must be produced
+  for both the logical and physical screens. Here is the procedure:</p>
+
+<ul>
+  <li>Define the copper list for the first screen.</li>
+  <li>Switch copper lists using the COP SWAP command.</li>
+  <li>Swap between the logical and physical screens with SCREEN SWAP.</li>
+  <li>Define a copper list for the second screen.</li>
+</ul>
+
+<p>
+  Providing that all is well, you may access your screens using -all of the normal AMOS
+  Professional drawing commands, including SCREEN COPY, DRAW, PRINT and PLOT. As well
+  as this, there should be no problems using Blitter Objects.</p>
+
+<!-- section -->
+
+<p>
+  However, multiple screens and Sprites are only supported by the standard AMOS Professional
+  copper system, so you cannot use SCREEN OPEN, SCREEN DISPLAY, RAINBOWS or any of
+  the SPRITE commands. If you need to generate such effects, you will have to program them for
+  yourself! For those of you who wish to give up now, the following command may be useful.</p>
+
+<p><b>COPPER ON</b><br>
+  <i>instruction: re-start automatic copper generation</i><br>
+  <b>Copper On</b></p>
+
+<p>
+  The COPPER ON command re-starts all standard copper calculations, and returns AMOS
+  Professional back to normal. The experts (and foolhardy) may now continue.</p>
+
+<p><b>COP MOVE</b><br>
+  <i>instruction: write a MOVE instruction to current copper list</i><br>
+  <b>Cop Move</b> address,value</p>
+
+<p>
+  MOVE is an internal instruction used by the copper, and it is very similar to the AMOS
+  Professional DOKE command. It inserts a MOVE command into the current logical copper list,
+  by copying a value from 0 to 65535 into the selected register address. The address refers to a
+  copper register from $7F to $1BE.</p>
+
+<p><b>COP MOVEL</b><br>
+  <i>instruction: write a long MOVE instruction to copper list</i><br>
+  <b>Cop Movel</b> address,value</p>
+
+<p>
+  This is a special option from AMOS Professional Basic, which generates a matched pair of
+  MOVE commands in the new copper list. These load a 32-bit (long word) value into the selected
+  address, exactly like a normal LOKE instruction.</p>
+
+<p><b>COP WAIT</b><br>
+  <i>instruction: insert a WAIT instruction into copper list</i><br>
+  <b>Cop Wait</b> x,y<br>
+  <b>Cop Wait</b> x,y,xmask,ymask<br>
+
+<p>
+  The COP WAIT command enters a WAIT instruction at the current position in the copper list.
+  WAIT forces the copper to stop in its tracks until the screen has been drawn at the specified
+  hardware coordinates x,y. The copper then continues from the next instruction in the copper
+  list.</p>
+
+<p>
+  WAIT is usually called immediately before a MOVE command, creating a pause until the display
+  reaches a specific screen line. The MOVE instruction is then used to change the attributes of the
+  screen area below this line. Rainbows are an excellent example of this technique, with each line
+  of the rainbow generated with a pair of commands like this:</p>
+
+<pre>
+X> Cop Wait 0,Y : Rem Y is starting coordinate of next colour shift
+   Cop Move $180,$777 : Rem $180 is address of colour 0 and $777 is new colour
+</pre>
+
+<!-- section -->
+
+<p>
+  The x-coordinate is a hardware coordinate from 0 to 448. Since the Amiga is only capable of
+  performing this test every four screen points, this coordinate is rounded to the nearest multiple
+  of four.</p>
+
+<p>
+  The y-coordinate can be any value from 0 to 312. Normally, coordinates from 256 to 312 require
+  special programming, but AMOS Professional generates the correct instructions automatically,
+  so there is no need for concern! Here are some examples:</p>
+
+<pre>
+X> Cop Wait 0,130: Rem Wait for screen to reach hardware coords 0,100
+   Cop Wait 0,300: Rem Wait for line 300
+   Cop Wait 12,10: Rem Wait for coordinates 12,10 to arrive
+</pre>
+
+<p>
+  The optional xmask and ymask parameters are bit-mask values which allow for a pause until the
+  screen coordinates satisfy a specific combination of bits. The default value is $1FF. For example:</p>
+
+<pre>
+X> Cop Wait 0,2,$1FF,%11 : Rem Await next EVEN scan line
+</pre>
+
+<p><b>COP RESET</b><br>
+  <i>instruction: re-set copper list pointer</i><br>
+  <b>Cop Reset</b></p>
+
+<p>
+  This command is used to add a pair of MOVE commands, forcing the copper list to re-start from
+  the very first instruction. This may be used to generate simple loops.</p>
+
+<p><b>COP SWAP</b><br>
+  <i>instruction: swap logical and physical copper lists</i><br>
+  <b>Cop Swap</b></p>
+
+<p>
+  The COP SWAP command switches over the logical and physical copper lists. The new copper
+  list will now be flicked into place, and the results will be shown after the next vertical blank
+  period. For example:</p>
+
+<pre>
+X> Cop Swap : Wait Vbl
+</pre>
+
+<p><b>COP LOGIC</b><br>
+  <i>instruction: give address of logical copper list</i><br>
+  address=<b>Cop Logic</b></p>
+
+<p>
+  This command returns the absolute address of the logical copper list in memory. It can be used
+  to manipulate the copper list directly from AMOS Professional Basic. Lists can also be generated
+  by using assembly language.</p>
+
+
+</BODY>
+</HTML>
+

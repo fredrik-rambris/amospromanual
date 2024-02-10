@@ -1,0 +1,426 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - IFF Animation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>IFF Animation</h1>
+
+<br>
+
+
+<p>
+This Chapter explains how AMOS Professional is capable of taking data saved in
+Interchangeable File Format (IFF), and transforming it into superb animations. Old hands and
+less experienced AMOS users alike will discover a new potential for exploiting programming
+kills.</p>
+
+<p>
+IFF graphics have already been discussed as sources for screen pictures and Bob images, and
+you should be familiar with the LOAD IFF and SAVE IFF commands in the relevant Screens and
+Bobs Chapters. Here is a brief reminder:</p>
+
+<p><b>LOAD IFF</b><br>
+<i>instruction: load an IFF screen from a disc</i><br>
+<b>Load IFF</b> "filename"<br>
+<b>Load IFF</b> "filename",any screen number</p>
+
+<pre>
+E> Flash Off
+   Load Iff"AMOSPro Examples:Logo.Iff"
+</pre>
+
+<p><b>SAVE IFF</b><br>
+<i>instruction: save an IFF screen</i><br>
+<b>Save Iff</b> "filename"<br>
+<b>Save Iff</b> "filename", compression flag</p>
+
+<pre>
+X> Save Iff "My Programs:Iff/Picture_Name.Iff" : Rem Compressed
+   Save Iff "My_Programs:Iff/Picture_Name.Iff",0 : Rem Uncompressed
+</pre>
+
+<p>
+Remember that the saved IFF data includes any pre-sets such as SCREEN DISPLAY, SCREEN
+OFFSET, SCREEN HIDE and SCREEN SHOW.</p>
+
+<p><b>Optimising IFF animation</b><br>
+
+It is perfectly possible to create high definition "true video" animation on your Amiga with
+AMOS Professional. Unfortunately, you are normally restricted by available memory. Smooth
+animations need to display at least 24 "frames" (separate still pictures) every second, and every
+16-colour, full-screen picture requires about 32k of storage space. This means that you would
+need to invest in a lot of expensive memory storage to run a few seconds of animation, or the
+memory of an unexpanded Amiga would be exhausted within two seconds! One solution is to
+use tiny images, reduce the number of colours and compact these images using the SPACK
+command, but the AMOS Professional programmer deserves better than that.</p>
+
+<p>
+Adapting the "delta-encoding" technique from the latest video research, AMOS Professional is
+able to optimise IFF data, concentrating on those parts of the image that actually appear to
+"move", and disregarding the much larger area of the screen that remains more or less the same.
+So instead of needing to store a long sequence of complete images, only the differences between
+one image and the next are recorded. This only requires a fraction of the conventional storage
+space and as a bonus it means that data can be unpacked extremely quickly.</p>
+
+<!-- section -->
+
+<p><b>An overview of IFF animation</b><br>
+
+AMOS Professional IFF animation files are divided into a number of separate components, the
+"frames" of your animation sequence. A frame may be either a normal screen or one image in
+the sequence, but it is important to understand that the first frame sets up the background
+reference image for the entire animation, and this first frame is a standard IFF picture. All of the
+following frames are then stored using the delta-encoding system, to be saved as a list of the
+differences between the new image and the current display.</p>
+
+<p>
+AMOS Professional offers several alternative methods of exploiting your animations, which may
+be displayed as an entire sequential video in a single operation, or played in any combination of
+frames, providing the sequence runs forwards. Maximum use is made of the double buffering
+system, to ensure smooth screen displays, although you are free to ignore this feature and
+summon up some flickering screen effects.</p>
+
+<p>
+IFF animation can be used directly with most other AMOS Professional graphics commands,
+including SCREEN COPY and SCROLL, and you can experiment with any area that is not being
+currently animated. Obviously, if you try to draw over the area of the animation, the display will
+become corrupted. It should also be noted that IFF animation is not compatible with the
+standard Bob routines. When using Bobs, it is safe to hide the IFF animation on an invisible
+background screen and copy the results to the main display. Please see <a href="7/726.html">Chapter 7.3</a> for an
+explanation of updating objects. Of course, the easiest solution is to bypass the problem entirely
+and use sprites instead of Bobs!</p>
+
+<p>
+It is important to remember that IFF animations can only be played forwards. Never attempt to
+run your frames in reverse order. A special function is provided for skipping over any frames
+you want to miss out.</p>
+
+<p>
+You should be aware that even with delta-encoding, large, colourful and lengthy animations
+will still consume huge amounts of memory, but AMOS Professional can release this memory
+ready for re-use, as you are about to discover.</p>
+
+<p><b>Creating an IFF animation</b><br>
+
+Many hours can be spent in the creative art of designing home-grown IFF pictures, and
+adapting them for animation sequences. On the other hand, you can cheat! If a video digitiser is
+beyond your budget there are plenty of public domain images to be found, but the most flexible
+method is to use commercial packages like Deluxe Paint. III or IV. AMOS Professional uses
+compressed" (Mode 5) animations, which should be selected from the menu of a commercially
+available drawing package. Deluxe Paint uses this mode as a default, allowing you to draw your
+frames one by one on the screen, and then generate the necessary ANIM files automatically.
+Deluxe Paint users can produce animations using the following procedure:</p>
+
+<ul>
+  <li>Draw the background picture for Frame 1 of the animation sequence, which can be as
+      complex as you wish, as it will only be stored once in the animation file.</li>
+  <li>Select [Add Frame] from the [Frames] option on the main [Anim] menu. A new frame will be
+      created, containing an exact copy of your background picture. There will now be two numbers</li>
+</ul>
+
+<!-- section -->
+
+<ul>
+      on screen indicating the number of the frame being currently edited, and the total number of
+      frames in your animation sequence. Because the background picture for your animations is
+      two led as frame number one, the editing process will start with frame number two.
+  <li>Modify your picture using Any of the Deluxe Paint drawing commands, and when you are
+      satisfied simply move on to the next frame by triggering [Add Frame] again.</li>
+  <li>Repeat this process of modifying the last frame and then adding the next frame, for as long as
+      required. You can check the progress of your animated sequence by going to the
+      Anim/Control] menu and clicking on [Play]. Press any key to exit from the animation.</li>
+  <li>Finally, save your animation sequence onto disc with the [Save] option from the [Anim] menu.
+      This animation can now be loaded directly into AMOS Professional Basic, and animated with
+      the first command listed below.</li>
+</ul>
+<p><b>Playing an IFF animation</b></p>
+
+<p><b>IFF ANIM</b><br>
+<i>instruction: play an animation file</i><br>
+<b>Iff Anim</b> "filename" <b>To</b> screen number<br>
+<b>Iff Anim</b> "filename" <b>To</b> screen number, times</p>
+
+<p>
+This function provides the most straightforward way of displaying a complete IFF animation
+sequence directly on screen. The "filename" must refer to a valid IFF animation saved in
+"compressed" (Mode 5) format. The screen number defines the screen to be created for the
+animation sequence. If the requested screen number already exists, it will be replaced by the
+new definition automatically. There is an optional parameter to set the number of times the
+animated sequence is to be played. If this number is omitted, the animation will be played once.</p>
+
+<p>
+Remember that frame number 1 is the background screen that serves as the basis for the entire
+sequence, so that your animation will always re-start from frame number 2.</p>
+
+<p>
+After the animation has been played the requested number of times it will stop. The memory
+consumed will automatically be released back to AMOS Professional for re-use.</p>
+
+<p>
+If you have a disc containing an IFF animation file, place it into any drive and call up the
+standard file selector, like this:</p>
+
+<pre>
+D> Iff Anim Fsel$("**") To 0,10
+</pre>
+
+<p>
+When the file is requested, your animation sequence will be loaded into screen 0 and cycled
+through ten times.</p>
+
+<p><b>Direct IFF animation</b><br>
+Because the standard AMOS Professional drawing commands may be used with IFF animations,
+you are provided with a range of functions for loading and manipulating animated sequences
+directly in your programs.</p>
+
+<!-- section -->
+
+<p><b>FRAME LOAD</b><br>
+<i>function: load frames into memory</i><br>
+frames=<b>Frame Load</b>(channel <b>To</b> bank/address)<br>
+frames=<b>Frame Load</b>(channel <b>To</b> bank/address,number of frames)</p>
+
+<p>
+Use this function to load one or more IFF frames directly into memory. The parameters in
+brackets are as follows:</p>
+
+<p>
+The channel number is the number of an animation file that is currently opened using the
+OPEN IN command.</p>
+
+<p>
+Next, specify the memory address or bank number where the frames are to be stored. If an
+address is specified, the entire file will be loaded into the chosen memory area, exactly like a
+BLOAD instruction. If you give a bank number, a new memory bank will be reserved
+automatically. It will hold your animation frames and be a permanent data bank in fast memory,
+called "IFF". Please note that bank numbers can range from 1 to 65535. To avoid overrunning
+your memory area and crashing the system, it is vital that enough space is reserved to hold the
+entire animation sequence in memory. The actual storage requirements may be calculated with
+the FRAME LENGTH function, which is explained later.</p>
+
+<p>
+Finally, there is an optional parameter that specifies the number of animation frames to be
+loaded. If this number is omitted, only Frame 1 will be loaded, but if your request is greater than
+the total number of available frames, all of the images will be grabbed in the current file, if
+memory allows. This can be exploited to load entire sequences no matter what their length, by
+setting this optional parameter to an overlarge number, as no error will be generated.</p>
+
+<p>
+FRAME LOAD returns the number of frames that have been successfully loaded into memory.
+This value may be saved into a variable once the animation has been loaded, and made use of
+when the sequence is to be played. For example:</p>
+
+<pre>
+E> Rem Open animation file for reading
+   Open In 1,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
+   Rem Load all frames in current file
+   Rem use overlarge value of 1000 to grab all available images to bank 10
+   N=Frame Load (1 To 10,1000)
+   Close
+   Rem N now holds the number of actual frames
+   Print "Number of frames in this file is ";N
+</pre>
+
+<p><b>FRAME LENGTH</b><br>
+<i>function: return the length of frames in bytes</i><br>
+size=<b>Frame Length</b>(channel)<br>
+size=<b>Frame Length</b>(channel,number of frames)</p>
+
+<p>
+This function is used to calculate the precise amount of memory needed to hold the selected
+frames of an IFF animation file. To find the exact size of the required data area with FRAME</p>
+
+<!-- section -->
+
+<p>
+LENGTH, simply give the channel number of the IFF file previously opened with the OPEN IN
+command.</p>
+
+<p>
+You may also specify the number of frames to be taken into consideration. If this number is
+omitted, only the first frame in the animation with be checked. Alternatively, if an overlarge
+number is specified, the exact memory requirements of all the frames in the current file will be
+returned.</p>
+
+<p>
+FRAME LENGTH does not change the position of the file pointer, but leaves it at the start of the
+next animation frame to be loaded. So it can be used immediately before a FRAME LOAD
+command to check the memory requirement of your new animation. For example:</p>
+
+<pre>
+E> Open In 1 ,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
+   Rem Load first frame only into memory
+   L=Frame Length(1)
+   Rem Reserve space for the frame in Bank 10
+   Reserve As Work 10,L
+   N=Frame Load(1 To 10)
+   Close
+   Print "Required memory for frame 1=";L
+</pre>
+
+<p><b>FRAME PLAY</b><br>
+<i>function: play frames on screen</i><br>
+frame=<b>Frame Play</b>(bank/address,number)<br>
+frame=<b>Frame Play</b>(bank/address,number,screen)</p>
+
+<p>
+Use this function to display animations on screen at the appropriate points in your programs.
+Specify the memory address or bank number containing an IFF animation sequence that has
+already been loaded by FRAME LOAD. Please note that addresses must be even and that the
+first bytes must be a valid IFF Frame definition. Next specify the number of frames that you
+want to play.</p>
+
+<p>
+The optional screen parameter is the identifier of a new screen to be created for the animation,
+and it can be used to automatically define a screen as the first frame of the animation to be
+displayed. If this screen number is omitted, an attempt will be made to use the current screen.</p>
+
+<p>
+Please note that your new screen will not be set up for double buffering, and you should
+activate this directly from your program with the DOUBLE BUFFER command, if required. Also,
+the IFF animation will be displayed on the logical screen, and when using double buffering
+SCREEN SWAP must be employed, otherwise the animation will run invisibly in the
+background!</p>
+
+<p>
+Once the FRAME PLAY function has been called, the start address of the next frame in the
+sequence will be returned, and this address can be used to display the following frame of the
+animation.</p>
+
+<!-- section -->
+
+<p>For example:</p>
+
+<pre>
+E> Rem Play the first frame in Bank 10 using screen 0
+   F=Frame Play(10,1,0)
+   Double Buffer : Rem activate non automatic double buffer
+   Rem Display next frame
+   F=Frame Play(F,1)
+</pre>
+
+<p>
+When the end of the animation sequence has been reached, your F variable points to the last
+frame of the animation. Because the exact number of frames is returned to the FRAME LOAD
+function, FRAME PLAY can be enclosed in a loop for simplicity, like this:</p>
+
+<pre>
+E> Open In 1,"AMOSPro_Tutorialiff_Anim/AMOS.Anim"
+   L=Frame Load(1 To 10,1000)
+   Close
+   Rem Play first frame from Bank 0 and define new screen 0
+   Do
+    P=Frame Play(10,1,0)
+    Double Buffer
+    For X=2 To L-1 : Rem Play sequence to the end
+     P=Frame Play(P,1) : Rem Play next frame
+     Screen Swap : Rem Make animation visible
+     Wait Vbl : Wait Vbl : Wait Vbl
+    Next X
+   Loop
+</pre>
+
+<p><b>FRAME SKIP</b><br>
+<i>function: skip past an animation frame</i><br>
+s=<b>Frame Skip</b>(bank/address)<br>
+s=<b>Frame Skip</b>(bank/address,number)</p>
+
+<p>
+This is exactly the same as FRAME PLAY, except that no output is made to the screen. FRAME
+SKIP omits any selected frames and returns the address of the next frame to be played in the
+sequence. The bank or address number of a valid IFF animation frame is given, followed by the
+number of frames to be skipped over.</p>
+
+<p>
+Use FRAME SKIP carefully, because frames are stored relative to the existing screen background.
+This means that the animation will only re-commence when an identical frame is reached to the
+one currently being displayed.</p>
+
+<p><b>FRAME PARAM</b><br>
+<i>function: return a parameter after playing a frame</i><br>
+p=<b>Frame Param</b></p>
+
+<p>
+This function returns the amount of time needed to successfully display an animation on screen,
+measured in 50ths of a second. It is used after FRAME PLAY or FRAME SKIP to delay the
+program until the screen has been totally re-drawn.</p>
+
+<!-- section -->
+
+<p>
+Deluxe Paint users may need to slow down the speed of AMOS Professional animations by one
+fiftieth of a second, in order to harmonise the display, like this:</p>
+
+<pre>
+X> Wait Form Param+1
+</pre>
+
+<p>
+This has nothing to do with the Deluxe Paint package, but takes into account the extra efficiency
+of the AMOS Professional double buffering and copper calculations, when compared to the
+standard Workbench routines!</p>
+
+<p><b>Iff Masking</b><br>
+
+AMOS Professional does not restrict you to loading all of an IFF picture file. It is possible to load
+specific parts of the file that hold such items as the palette and the bit-maps only. The PICTURE
+function is used in conjunction with the MASK IFF function to achieve this.</p>
+
+<p><b>PICTURE</b><br>
+<i>function: return mask details of an IFF image</i><br>
+mask=<b>Picture</b></p>
+
+<p><b>MASK IFF</b><br>
+<i>instruction: mask IFF picture data</i><br>
+<b>Mask Iff</b> bit-map</p>
+
+<p>
+The PICTURE function returns the precise format of the mask used by a picture, and it is used
+like this:</p>
+
+<pre>
+X> Mask Iff Picture
+   Load Iff "Picture_Name"
+</pre>
+
+<p>Here are some typical settings that can be used to load masked data from an IFF file:</p>
+
+<pre>
+X> Mask Iff %100 : Rem Load palette of picture only
+   Mask Iff %10000 : Rem Load bitmaps only
+</pre>
+
+<p><b>Freezing the display</b><br>
+
+In the next Chapter, the AMOS Professional animation language AMAL is explained. AMAL
+animations can be frozen with an AMAL FREEZE instruction, and unfrozen with AMAL ON.
+The following commands are equivalents to these two instructions, and also offer STOS
+compatibility.</p>
+
+<p><b>FREEZE</b><br>
+<i>instruction: freeze the display</i><br>
+<b>Freeze</b></p>
+
+<p><b>UNFREEZE</b><br>
+<i>instruction: unfreeze the display</i><br>
+<b>Unfreeze</b></p>
+
+<p>
+Use these commands in your AMOS Professional programs to perform
+a simple freezing and unfreezing of moving displays.</p>
+
+
+</BODY>
+</HTML>
+

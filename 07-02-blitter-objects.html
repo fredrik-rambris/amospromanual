@@ -1,0 +1,769 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Blitter Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>Blitter Objects</h1>
+
+<br>
+
+
+<p>
+In this Chapter you will learn how to take full advantage of the Amiga's "Blitter" chip, which
+can copy large sections of a screen almost instantaneously.</p>
+
+<p>
+At its fastest, the Blitter can move a million screen points per second, which is the equivalent of a
+dozen graphic screens. AMOS Professional exploits this facility for the incredible speed achieved
+in commands like SCREEN COPY, but the Blitter is capable of far more than simple graphics.</p>
+
+<p>
+Professional animations are readily available, using special "Blitter Objects" known as "Bobs".
+Bobs can be displayed at any point on the screen and freely moved over the entire screen area,
+without disturbing any existing graphics. They may be guided, tested for collisions and even
+animated with AMAL, exactly like Sprites.</p>
+
+<p>
+The main advantage of Bobs over Sprites is that they are far easier to use. There is no imit to the
+size or number of Bobs, and they are stored as part of the current screen, so all positions are
+measured in simple screen coordinates. As has been explained in the previous Chapter, Sprites
+only work in certain combinations, but Bobs may be displayed with no restrictions at all, at any
+position, and in vast numbers. The only limit is the amount of available memory! The other
+main advantage over Sprites is that Bobs can have up to 64 colours.</p>
+
+<p>
+Naturally, all this power carries a price tag, and although Bobs are more flexible than Sprites,
+they are also slightly slower and consume additional memory. So the ideal solution is to use
+both Sprites and Bobs to their full advantage in the same program. They make a superb team,
+just like your Amiga, AMOS Professional and you!</p>
+
+<p><b>Displaying a Bob</b><br>
+
+Images to be used as Bobs are stored in memory Bank 1, and are each referred to by a simple
+number, which ranges from 1 up to the maximum number of objects in the bank. Load up some
+images now, like this:</p>
+
+<pre>
+E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
+</pre>
+
+<p>
+To find how many objects are in memory bank 1, use the LENGTH function for an instant read-
+out. Type this next line from Direct Mode:</p>
+
+<pre>
+D> Print Length(1)
+</pre>
+
+<p>
+This Object Bank is also used for any Sprite images, so the same objects can be displayed as Bobs
+or Sprites with great ease. To create a Bob, the image of an object is taken from the bank, and
+allocated for display as follows.</p>
+
+<p><b>BOB</b><br>
+<i>instruction: display a Bob on screen</i><br>
+<b>Bob</b> number,image<br>
+<b>Bob</b> number,x,y,image</p>
+
+<p>
+Each Bob must be given an identification number from 0 to 63. As a default, only 64 Bobs may be
+displayed on screen at once, but this limit can be increased if necessary.</p>
+
+<!-- section -->
+
+<p>
+Unlike Sprites, which use complex hardware coordinates, Bobs are displayed using standard
+screen coordinates, measured from the top left-hand corner of the current screen. Set the
+position of your new Bob by giving it screen coordinates relative to the hot spot of your chosen
+image number. Hot spots are explained at the end of the last Chapter.</p>
+
+<p>
+If the coordinates lie outside of the existing screen area, the Bob will not be displayed. So objects
+can be initialised off screen, ready to be moved into place during the course of your program.</p>
+
+<p>
+Once a Bob has been positioned on screen, the coordinate values become optional. The values of
+any coordinate parameters that are omitted will be remembered from the last time they were set.
+In Chapter 7.6 it is explained how this technique is valuable for animating Bobs with AMAL,
+because it allows objects to be moved effortlessly, without disturbing any existing animation
+sequences. It is vital to include all commas in their normal positions if coordinate values are
+omitted, or a syntax error will be reported. For example:</p>
+
+<pre>
+D> Bob 1,160,100,1 : Rem Position Bob 1 at 160,100 using image1
+   Bob 1,,150,1 : Rem Move Bob 1 down 50 pixels
+   Bob 1,110,,1 : Rem Move Bob 1 50 pixels left
+   Bob 1,,,2 : Rem Display new image 2 at Bob 1 current position
+</pre>
+
+<p>
+Before examining the next instant demonstration program, here is a step-by-step technique for
+correctly displaying a Bob.</p>
+
+<ul>
+  <li>First, some images must be made available for Bobs to use, with a call to LOAD the
+      appropriate filename. Once images have been loaded, they are saved as part of your Basic
+      program automatically.</li>
+
+  <li>If you intend to load a picture for use as a background screen, now is the time to do it.
+  Use a line such as:</li>
+</ul>
+
+<pre>
+X> Load Iff "Picture.IFF"
+</pre>
+
+<p>
+Alternatively, the default screen can be prepared by removing the flashing cursor from the
+display and filling the display with a large block of colour, usually black. For example:</p>
+
+<pre>
+X> Curs Off: Flash Off : Cls 0
+</pre>
+
+  <ul>
+    <li>Now the correct image colours should be grabbed from the Object Bank. Note that if Bobs are
+        to be displayed against an existing background screen, you will need to ensure that the images
+        use exactly the same colour values as your picture, otherwise serious colour clashes will be
+        generated. GET BOB PALETTE can be called if you are using Bobs on their own, or call GET
+        SPRITE PALETTE for use with either Sprites or Bobs.</li>
+
+    <li>The automatic AMOS Professional "double buffering" system should now be engaged, with a
+        simple DOUBLE BUFFER command. The theory and practice of this is explained later, but in</li>
+  </ul>
+
+<!-- section -->
+  <ul>
+        essence, double buffering creates an invisible copy of the current screen where drawing
+        operations take place, resulting in beautifully smooth movement effects.
+
+    <li>Finally, your Bobs are assigned their individual starting positions. This could be a simple series
+        of BOB commands, or a complex pattern of off-screen starting points for each level of an arcade game.</li>
+  </ul>
+
+<p><b>General Bob Commands</b></p>
+
+<p><b>BOB OFF</b><br>
+<i>instruction: remove a Bob from display</i><br>
+<b>Bob Off</b><br>
+<b>Bob Off</b> number</p>
+
+<p>
+Use this command to remove all Bobs from the screen simultaneously. If a Bob number is
+specified, only that Bob will be extinguished. For example:</p>
+
+<pre>
+X> Bob Off 1: Rem Remove Bob1 only
+   Bob Off : Rem Remove all Bobs from screen
+</pre>
+
+<p>
+The BOB OFF instruction also turns off any animation or collision routines associated with these
+Bobs.</p>
+
+<p><b>X BOB</b><br>
+<i>function: get x-coordinate of a Bob</i><br>
+x-coordinate=<b>X Bob</b>(number)</p>
+
+<p><b>Y BOB</b><br>
+<i>function: get y-coordinate of a Bob</i><br>
+y-coordinate=<b>Y Bob</b>(number)</p>
+
+<p>
+It is not difficult to keep track of Bobs under normal circumstances, but if Bobs are moved with
+AMAL, their coordinates can vary unpredictably. In which case, the X BOB and Y BOB functions
+may be used to get a snapshot of their current position, by returning the screen coordinates of
+your selected Bob. Specify the number of the chosen Bob on screen, and the appropriate
+coordinate will be returned, as measured from the top left-hand corner of the screen to the hot
+spot of the current image. For example:</p>
+
+<pre>
+E> Load "AMOSPro_Tutorial:Objects/Bobs.abk"
+   Curs Off : Cls 0: Rem Set up screen
+   Flash Off : Get Bob Palette : Rem Grab Bob colours from image bank
+   Double Buffer : Rem Engage double buffering
+   Autoback 1: Rem Engage fast drawing mode
+   Do
+    Rem Move Bob1 with mouse
+    Rem Convert hardware coords to screen coords
+    Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),1
+    Rem Print new location on screen
+    Locate 0,0 : Print X Bob(1);" ";Y Bob(1);" ";
+   Loop
+</pre>
+
+<!-- section -->
+
+<p>
+AMOS Professional provides many alternative methods of moving Bobs, and each Bob can
+display a sequence of different images to create animation. When animating Bobs with AMAL, it
+is possible to loose track of the precise image currently displayed, so the next function has been
+supplied to rectify this.</p>
+
+<p><b>I BOB</b><br>
+<i>function: get image number used by a Bob</i><br>
+image=<b>IBob</b>(number)</p>
+
+<p>
+I BOB returns the number of the image currently assigned to the specified Bob number. If the
+Bob number you want to examine does not exist, an illegal function error will be given, so it is
+vital to define the Bob correctly before calling I BOB. Here is an example:</p>
+
+<pre>
+E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
+   Flash Off : Get Bob Palette : Double Buffer : Autoback 0
+   Bob 1,160,100,1: Rem Display Bob 1 at centre of screen
+   Do
+    For IMAGE=1 To Length(1) : Rem Create simple animation
+     Rem Move Bob 1 with the mouse
+     Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
+     For W=0 To 3 : Wait Vbl : Next W
+     Rem Display image number on screen
+     Locate 0,0 : Print "Image ";I Bob(1);" ";
+    Next IMAGE
+   Loop
+</pre>
+
+<p><b>GET BOB PALETTE</b><br>
+<i>instruction: load image colours into current screen</i><br>
+<b>Get Bob Palette</b><br>
+<b>Get Bob Palette</b> mask</p>
+
+<p>
+This command loads the whole colour palette used for your Bobs into the current screen. A
+mask can be added if you like, which will load a selection of these colours only. Each individual
+colour is represented by one "bit" of the mask being set to a zero (off) or a one (on). Colours run
+from right to left, so that colour zero is represented by the bit at the right-hand end of the mask,
+colour 1 is second from the right, and so on. Supposing there are 16 colours in your Bob palette,
+you would copy the first four colours like this:</p>
+
+<pre>
+X> Get Bob Palette %0000000000001111
+</pre>
+
+<p><b>Unmasking Bobs</b></p>
+
+<p><b>NO MASK</b><br>
+<i>instruction: remove colour zero mask from Bob</i><br>
+<b>No Mask</b> number</p>
+
+<!-- section -->
+
+<p>
+A "mask" means that the background colour (colour zero) around a Bob is made transparent, so
+t hat the screen graphics show through. The mask is also used by certain collision detection
+routines. A mask is automatically set up for every Bob, and the NO MASK command takes away
+this mask, so that the entire Bob image is drawn on the screen, including its original background
+colour and any other graphics in colour zero. To remove a mask, simply use this command
+followed by the number of the Bob image you are interested in.</p>
+
+<p>
+Never remove a mask from a Bob while it is being displayed on screen, or its image will be
+scrambled! Remember to always use the BOB OFF command first.</p>
+
+<p><b>Bob Priority</b><br>
+
+It is important to understand that every Bob automatically possesses a priority of importance,
+and that this priority is based on the Bob's number. So a Bob carries a priority value from 0 to 63,
+and AMOS Professional uses this value to decide in which order Bobs are displayed and which
+Bobs barge their way in front of others when moving around the screen.</p>
+
+<p>
+The general rule is that a Bob with a higher priority number is displayed in front of one with a
+lower priority number. For example, Bob 5 would cut in front of Bob 4, but be obscured if Bob 6
+crossed its path. So it is clear that this priority system should always be remembered when you
+number your Bobs.</p>
+
+<p>
+AMOS Professional allows changes in the priority system to suit your needs, this first system
+offers an alternative based not on Bob numbers, but on the position of Bobs on the screen.</p>
+
+<p><b>PRIORITY ON</b><br>
+<i>instruction: set Bob priority to highest y-coordinate</i><br>
+<b>Priority On</b></p>
+
+<p><b>PRIORITY OFF</b><br>
+<i>instruction: set Bob priority to default status</i><br>
+<b>Priority Off</b></p>
+
+<p>
+When PRIORITY ON is used, Bobs with the highest y-coordinates take priority on the screen. It
+is usually best to set hot spots at the bottom of Bobs to exploit this priority, and some superb
+perspective effects can be created. All that is needed to re-set the original Bob number priorities
+is to use the PRIORITY OFF command.</p>
+
+<p><b>PRIORITY REVERSE ON</b><br>
+<i>instruction: toggle on Reverse Priority of Bobs</i><br>
+<b>Priority Reverse On</b></p>
+
+<p><b>PRIORITY REVERSE OFF</b><br>
+<i>instruction: toggle off Reverse Priority of Bobs</i><br>
+<b>Priority Reverse Off</b></p>
+
+<!-- section -->
+
+<p>
+The PRIORITY REVERSE ON command changes around the entire priority table based on Bob
+numbers. Not only does it give a lower Bob number priority over a higher Bob number, when
+used with PRIORITY ON it also gives priority to a Bob with the lowest y-coordinate. As you
+would expect, PRIORITY REVERSE OFF sets the priority system back to normal.</p>
+
+<p><b>Bobs and screens</b><br>
+AMOS Professional offers a full range of commands to allow Bobs and screens to interact.</p>
+
+<p><b>LIMIT BOB</b><br>
+<i>instruction: limit Bob to part of screen</i><br>
+<b>Limit Bob</b> x1 ,y1 <b>To</b> x2,y2<br>
+<b>Limit Bob</b> number,x1,y1 <b>To</b> x2,y2<br>
+<b>Limit Bob</b></p>
+
+<p>
+This command keeps all Bobs restricted to moving inside an invisible rectangular area of the
+screen, whose coordinates are set by the usual top left to bottom right-hand corner coordinates.
+If LIMIT BOB is followed with a Bob number, then only that Bob becomes restricted by the
+boundaries of the rectangle.</p>
+
+<p>
+Note that the width of the rectangle must always be wider than the width of the Bob, and that
+the x -coordinates are always rounded up to the nearest 16-pixel boundary. To keep Bob number
+1 trapped inside an area, you would use something like this:</p>
+
+<pre>
+X> Limit Bob 1,10,0 To 320,100
+</pre>
+
+<p>
+Remember that a Bob must be called up with the BOB command before LIMIT BOB is used,
+otherwise the limitation will have no effect. To restore a Bob's freedom to move around the
+whole screen, use the command without any coordinates, like this:</p>
+
+<pre>
+X> Limit Bob
+</pre>
+
+<p><b>DOUBLE BUFFER</b><br>
+<i>instruction: activate Double Buffering system</i><br>
+<b>Double Buffer</b></p>
+
+<p>
+Throughout this Chapter, extensive reference is made to the technique known as "double
+buffering". The DOUBLE BUFFER command creates an invisible copy of the current screen and
+stores it as a "logical screen". All graphics operations, including Bob movements, are now
+performed directly on this logical screen, without disturbing your existing display at all. This is
+because the existing display on your television screen is taken straight from the original screen
+area, now called the "physical screen".</p>
+
+<p>
+Once the image has been re-drawn, the logical screen and physical screen are swapped over.
+The old logical screen is flicked onto the display, and the old physical screen is hidden away to
+become the new logical screen. The entire process now cycles continuously, producing a solid,
+smooth display, even when dozens of Bobs are moving on the same screen.</p>
+
+<!-- section -->
+
+<p>
+Any complexities of this technique are completely automatic, so once DOUBLE BUFFER has
+been engaged, you can relax.</p>
+
+<p>
+Since hardware Sprites are overlaid directly onto your television display, double buffering will
+hive no effect at all on any existing Sprite animations.</p>
+
+<p>
+The double buffering system works equally well in all of the Amiga's graphics modes, and can
+also be used in conjunction with dual playfields. You should be aware that double buffering
+requires two separate areas of memory, one for the logical and one for the physical screen. So it
+will double the amount of memory required, for example an extra 32k will be needed for a
+standard 16-colour screen. This means that if you try and DOUBLE BUFFER too many screens,
+available memory will be exhausted.</p>
+
+<p>
+In practice, double buffering is invaluable, and the additional memory required is well spent. It
+can be exploited for advanced three-dimensional routines, and is especially useful for scrolling
+screen effects, because the new areas of display are copied straight into the invisible background
+without corrupting the current display.</p>
+
+<p>
+As an optional extra, AMOS Professional provides total control over the entire DOUBLE
+BUFFER system, and a full explanation may be found in the next Chapter. For a rapid insight
+into the effect of not using DOUBLE BUFFER, make sure you run the HELP_26 demonstration
+program.</p>
+
+<p>
+That demonstration produces a horrible flickering effect. Whenever a Bob moves around the
+screen, the graphics beneath it are replaced at their original position. Unfortunately, since Bobs
+are updated at the same time as the screen images, this sort of flickering effect is generated. By
+including a DOUBLE BUFFER command, screens are switched <b>after</b> the drawing process is
+complete, and as explained above, the process is completely automatic.</p>
+
+<p><b>GET BOB</b><br>
+<i>instruction: grab an image from part of screen</i><br>
+<b>Get Bob</b> image,x1,x2 <b>To</b> x2,y2<br>
+<b>Get Bob</b> screen number,image,x1,y1 <b>To</b> x2,y2</p>
+
+<p>
+This command grabs a selected part from the current screen and copies it straight into the
+Object Bank. After giving the image number to be created, set the area to be grabbed from the
+top left-hand corner to the bottom right-hand coordinates. If your chosen image number already
+exists, the existing image will be replaced by the new picture, otherwise the new picture will be
+added to the bank.</p>
+
+<p>
+An optional screen number may be given immediately after the GET BOB command, allowing
+an image to be grabbed from a specific screen. Here is an example:</p>
+
+<pre>
+E> Curs Off : Cls 0 : Double Buffer : Flash Off
+   Text 50,10, "AMOS Professional Basic!"
+   Get Bob 1,50,0 To 250,20
+   For B=0 To 180
+    Bob 1,50,B,1
+    Wait Vbl
+   Next B
+</pre>
+
+<!-- section -->
+
+<p>
+GET BOB is an extremely useful command, allowing any section of a screen to be loaded into a
+Bob, and then manipulated with the AMAL system. You can even write your own object editor
+from start to finish! It is also possible to create and modify Bob images from AMOS Professional
+Basic. This allows, you to produce stand-alone program listings that will run without the need
+for external image files. Try the next example:</p>
+
+<pre>
+E> Double Buffer : Flash Off : Curs Off
+   Rem Draw an expanding circle and grab it as a Bob
+   For C=1 To 15
+    Ink 5 :Circle 16,16,C: Paint 16,16
+    Get Bob C,0,0 To 32,32
+    Cls 0,0,0 To 32,32
+   Next C
+   Rem Animate new Bob image
+   Do
+    Add IMAGE,1
+    If IMAGE>15 Then IMAGE=1
+    For W=0 To 4: Wait Vbl : Next W: Rem Slow down animation
+    Rem Assign next image in sequence to Bob 1
+    Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
+   Loop
+</pre>
+
+<p><b>PUT BOB</b><br>
+<i>instruction: put a fixed copy of a Bob on screen</i><br>
+<b>Put Bob</b> number</p>
+
+<p>
+The PUT BOB command takes the Bob whose number is given and fixes a permanent copy of its
+image on the screen, at the current position. This is achieved by preventing the background area
+beneath the Bob from being re-drawn. Note that after the image has been copied, the original
+Bob can be animated and moved with no ill effects.</p>
+
+<p>
+In actual fact, PUT BOB is included as a support for STOS programmers, who wish to make their
+old Atari STOS programs compatible with AMOS Professional. Because it only works with single
+buffered screens, it is not particularly useful, and PASTE BOB is recommended as the preferred
+command. Please see below.</p>
+
+<p><b>PASTE BOB</b><br>
+<i>instruction: draw an image from Object Bank</i><br>
+<b>Paste Bob</b> x,y,image</p>
+
+<p>
+PASTE BOB takes an image held in the Object Bank, and draws it straight onto the current
+screen. Unlike the PUT BOB command, the image is drawn immediately, so there is no need to
+add the WAIT VBL commands before proceeding.</p>
+
+<p>
+It is important to note that the coordinates for the given image number are measured from the
+top left-hand corner of the image, and take no account of the current hot spot setting!</p>
+
+<!-- section -->
+
+<p>
+PASTE BOB is just like any other graphics instruction, so it does not need a double buffered
+screen. It can be used to generate a range of extremely fast graphical operations, and it is also
+useful for mapping complex displays in scrolling arcade games. Here is an example:</p>
+
+<pre>
+E> Flash Off : Curs Off : Cis 0
+   Rem The following Palette values go on one line
+   Palette 0,$100,$200,$300,$400,$500.$600,$700,$800,
+   $900,$A00,$B00,$000,$D00,$E00,$F00
+   Rem Create some coloured circles for images
+   For C=1 To 15
+    Ink C : Circle 16,16,15 : Paint 16,16
+    Get Bob C,0,0 To 32,32
+   Next C
+   Do
+    Rem Choose a random circle and choose its position
+    N=Rnd(14)+1 : X=Rnd(320) : Y=Rnd(200)
+    Rem Paste image on screen at new coordinates
+    Paste Bob X,Y,N
+   Loop
+</pre>
+
+<b>Bob Bank Commands</b></p>
+
+<p><b>DEL BOB</b><br>
+<i>instruction: delete an image from the Object Bank</i><br>
+<b>Del Bob</b> number<br>
+<b>Del Bob</b> first <b>To</b> last</p>
+
+<p>
+The DEL BOB command permanently deletes one or more Bob images from the Object Bank. To
+erase a single image, simply give the image number to be deleted, like this:</p>
+
+<pre>
+X> Del Bob 2
+</pre>
+
+<p>
+Whenever an image is deleted, all the subsequent images in the Bank are moved up one place in
+the numerical order. For instance, if the Bank originally contained four images, the above
+example would remove image number 2 from memory, leaving a gap between images 1 and 3.
+This gap would be filled immediately, as the old image numbers 3 and 4 were shunted up one
+place, to become the new image numbers 2 and 3.</p>
+
+<p>
+If more than one image is to be removed from the Bank, you can set the range from the first
+image to the last after a DEL BOB command. The following example would delete Bob images
+4,5,6 and 7:</p>
+
+<pre>
+X> Del Bob 4 To 7
+</pre>
+
+<p>
+After the last image has been deleted from the Object Bank, the entire Bank is erased automatically.</p>
+
+<!-- section -->
+
+<p><b>INS BOB</b><br>
+<i>instruction: insert a blank Bob image into the Object bank</i><br>
+<b>Ins Bob</b> number<br>
+<b>Ins Bob</b> first <b>To</b> last</p>
+
+<p>
+INS BOB inserts a blank image at the numbered position in the current Object Bank. All of the
+images after this numbered position will then be moved down one place in the numerical order.
+The second version of this command allows you to create several spaces in a single operation, by
+giving the range of new gaps between the first and last image numbers that you specify.</p>
+
+<p>
+Any of these new image spaces are completely empty, and so cannot be allocated to a Bob or
+displayed directly on screen while they are still blank. An actual image must first be grabbed
+into the Object Bank, using a GET SPRITE or GET BOB command. If this is not done, the
+appropriate error message will be given as soon as you try to access the empty image.</p>
+
+<p>
+Both DEL BOB and INS BOB are provided to be used with the GET BOB and GET SPRITE
+commands. They allow you to modify and adjust your Bob images from inside AMOS
+Professional programs, with complete freedom. They may be used to create numerous special
+effects such as interactive screen animations and animated brushes, as used in Deluxe Paint.</p>
+
+<p><b>Flipping Bob Images</b><br>
+
+AMOS Professional is designed to meet every programming need when it comes to animating
+images. You will often need to animate mechanical objects and cartoon characters as realistically
+as possible, so every movement sequence must be created from a number of images, and each
+image in the sequence must be carefully drawn using the Object Editor, ready for smooth
+animation with AMAL.</p>
+
+<p>
+Unfortunately, perfectly animated sequences need a great many images, which take up a great
+deal of memory. To move the animated character in several directions makes the problem much
+worse, because each direction needs a separate sequence of images.</p>
+
+<p>
+AMOS Professional cuts such waste of memory to a minimum. This is achieved by allowing you
+to display the same image in different orientations, so that a character can be mirrored and
+turned upside down, simply by flipping its image.</p>
+
+<p><b>HREV</b><br>
+<i>function: flip an image horizontally</i><br>
+new number=<b>Hrev</b>(image number)</p>
+
+<p>
+This function reverses an image from left to right, creating a mirror image. Use HREV by
+specifying the existing image number (in brackets) to be flipped horizontally, in order to create a
+new identification number for the reversed image. This new image number can be freely used
+with any of the standard Bob commands.</p>
+
+<!-- section -->
+
+<p>Here is an example:</p>
+
+<pre>
+E> Load "AMOSPro_Tutorial:Objects/Bobs.abk" : Rem Load Bob images from disc
+   Curs Off.: Cls 0 : Rem Set up screen
+   Flash Off : Get Bob Palette : Rem Grab Bob colours from image bank
+   Double Buffer : Rem Engage Double Buffering
+   For X=360 To -60 Step -4: Rem Move Bob across screen
+    Bob 1,X,100,2 : Rem Display Bob at a new position
+    Wait Vbl : Rem Wait for next vertical blank period
+   Next X
+   For X=-60 To 400 Step 4: Rem Flip image and move from left to right
+    Bob 1,X,100,Hrev(2) : Rem Display Bob at new position
+    Wait Vbl : Rem Wait 50th of second for Vbl
+   Next X
+</pre>
+
+<p>
+There is a hexadecimal version of this function, and the value returned by the HREV function is
+in the following format:</p>
+
+<p>$800+n</p>
+
+<p>
+Where $8000 is a "flag" telling AMOS Professional to reverse the Bob whenever it is displayed on
+screen, and where n is the number of your image. This technique can be used to flip images
+directly from an AMAL animation sequence.</p>
+
+<p>Supposing your original sequence was created with this:</p>
+
+<pre>
+X> "Anim 0,(1,2)(2,2)(3,2)(4,2)"
+</pre>
+
+<p>To reverse these images, either of the following two lines could be used:</p>
+
+<pre>
+X> "Anim 0,($8000+1,2)($8000+2,2)($8000+3,2)($8000+4,2)"
+
+X> "Anim 0,($8001,2)($8002,2)($8003,2)($8004,2)"
+</pre>
+
+<p>
+When an image is reversed like this, the location of the hot spot is reversed horizontally too. So
+if the hot spot was originally in the top left-hand corner, the hot spot of the HREV image will be
+in the top right-hand corner: Depending on the image involved, this can have a great effect on
+the way your image is displayed on screen. Be careful to position your hot spots sensibly, or
+avoid any risks by setting them centrally, using the appropriate HOT SPOT command.</p>
+
+<p><b>VREV</b><br>
+<i>function: flip an image vertically</i><br>
+new number=<b>Vrev</b>(image number)</p>
+
+<p>
+VREV is identical to HREV, except that it takes the specified image and turns it upside down
+before displaying it on the screen. This is best used for animated objects that move vertically,
+although comic effects can be achieved with cartoon characters.</p>
+
+<!-- section -->
+
+<p>
+As with HREV, there is an equivalent hexadecimal version of the VREV function, which can be
+used with AMAL animation strings. The format is:</p>
+
+<p>$4000+n</p>
+
+<p>
+Where $4000 acts as the reversal flag, and n is the image number. Here are two typical AMAL
+string of reversed animation:</p>
+
+<pre>
+X> "Anim 0,($4000+1,2)($4000+2,2)($4000+3,2)($4000+4,2)"
+
+X> "Anim 0,($4001,2)($4002,2)($4003,2)($4004,2)"
+</pre>
+
+<p><b>REV</b><br>
+<i>function: double-flip an image vertically and horizontally</i><br>
+new number=<b>Rev</b>(image number)</p>
+
+<p>
+REV combines HREV and VREV into a single function. It takes the image whose number is held
+in brackets, reverses it from left to right and then performs another reversal from top to bottom.
+For example:</p>
+
+<pre>
+E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
+   Curs Off : Cls 0
+   Flash Off : Get Bob Palette
+   Double Buffer
+   For Y=200 To -40 Step -1
+    Bob 1,Y*2,Y,1
+    Wait Vbl
+   Next Y
+  For Y=-40 To 200
+   Bob 1,Y*2,Y,Rev(1)
+   Wait Vbl
+  Next Y
+</pre>
+
+<p>
+Don't forget to try the HELP programs for a demonstration. If your own attempts at flipping
+Bob images cause any problems, you may wish to consult the Bob Doctor, below.</p>
+
+<p><b>The Bob Doctor</b><br>
+
+Here are some free consultations which answer common problems encountered when flipping
+Bobs.</p>
+
+<p>
+<b>Problem:</b> When I use flipped Bobs on screen with their original images, my display slows down
+to a crawl.<br>
+<b>Remedy</b>: Do not display the same image in different orientations on screen at the same time.
+AMOS Professional flips images during the updating process, just before Bobs are re-drawn on
+screen. Once reversed, images stay in this new state until displayed in a different direction.
+Whenever AMOS Professional flips a reversed image, it first needs to restore the image to its
+original state. This takes a great deal of processor time, and slows down your display.</p>
+
+<!-- section -->
+
+<p>
+<b>Problem:</b> Can I reverse an image for later use, without displaying it on screen?<br>
+<b>Remedy:</b> Yes. PASTE BOB works perfectly with flipped images, and can be used directly with
+HREV, VREV and REV. If you want to reverse an image quickly, without displaying a Bob, try
+something like this:</p>
+
+<pre>
+X> Paste Bob 500,500,Vrev(1)
+</pre>
+
+<p>
+Since the coordinates lie outside of the current screen area, the image is not displayed, but it is
+still flipped by the PASTE BOB command.</p>
+
+<p>
+<b>Problem:</b> I want to flip my Sprites as well as my Bobs?<br>
+<b>Remedy:</b> The flip functions do not work with Sprites directly, but there is no problem in
+displaying a flipped Bob image as a Sprite. This line would be completely ignored:</p>
+
+<pre>
+X> Sprite 8,300,100,Hrev(5)
+</pre>
+
+<p>But the following routine will solve your problem:</p>
+
+<pre>
+E> Load "AMOSPro_Tutorial:Objects/Sprites.abk"
+   Curs Off : Cls 0 : Flash Off : Get Sprite Palette
+   Paste Bob 50,50,Vrev(5)
+   Sprite 8,300,100,5
+   Wait Vbl
+</pre>
+
+<p>
+<b>Problem:</b> Can I check for a collision between two copies of the same image, for example,
+between an original image and its own mirror-image?<br>
+<b>Remedy:</b> Yes, but it is not recommended. If the image's hot spot has been centred the results
+should be acceptable, but if the hot spot is asymmetrical you will generate unpredictable
+problems.</p>
+
+
+</BODY>
+</HTML>
+

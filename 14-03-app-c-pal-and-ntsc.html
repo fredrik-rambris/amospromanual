@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - App. C: PAL and NTSC</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>App. C: PAL and NTSC</h1>
+
+<br>
+
+
+<p><b>International television standard systems</b><br>
+
+With millions of Amigas is use all over the world, it is vital to ensure that programs written with
+the AMOS Professional system can operate in as many territories as possible. For historical
+reasons, different standards of television systems have evolved in different territories, which
+creates a major problem for computer programmers. For example, a "British" television set will
+work perfectly well in Hong Kong and Ireland, but will fail to operate anywhere else in the
+world! That is because the UK has adopted the PAL (I) standard, a third of the planet has
+adopted other PAL standards, half the world uses the NTSC system, and the rest use another
+system called SECAM! Luckily the SECAM system is identical to PAL as far as AMOS
+Professional is concerned, so you need only be concerned with the differences between PAL and
+NTSC.</p>
+
+<p>
+Fortunately, AMOS Professional is an international language, and is designed to work
+automatically under the two major television standards that exist where the Amiga is marketed,
+namely PAL (all standards) and NTSC. If you are serious about designing your programs for
+specific territories, there is a list of world-wide standards at the end of this Appendix. Otherwise,
+rest assured that AMOS Professional will take care of most Amiga users on this planet!</p>
+
+<p>
+When AMOS Professional code is run on a system that differs from the one used by the original
+author of the program, it undergoes two obvious changes. These are the size of the screen
+display and the speed at which the program runs. Here are the crucial differences between the
+two systems.</p>
+
+<p><b>PAL versus NTSC</b><br>
+
+<b>PAL</b> updates images 50 times a second, and can theoretically display up to 312 lines on screen. The
+actual limit will vary depending on your TV set or monitor, but it is likely to be about 270 lines.</p>
+
+<p>
+<b>NTSC</b> updates images 60 times a second, but only displays a maximum of 256 lines, which is
+normally restricted to 220 horizontal lines. This maximum restriction of 220 lines is also imposed
+on the height of Sprites.</p>
+
+<p>
+It might seem that PAL has a clear advantage over the NTSC system, but this is not necessarily
+so. Although NTSC screens are about one fifth shorter than their PAL cousins, their faster
+updating time provides a higher quality picture, which is brighter, more stable and more restful
+for the eyes. Here is a synopsis of the compatibility problems between the two systems.</p>
+
+<p><b>The display size</b><br>
+
+Supposing you have created a 320 wide by 256 high screen. Under the PAL system, the picture
+occupies the entire display, but on NTSC, the bottom section of the screen is hidden from view.
+Any error messages are not visible and wandering Objects are likely to fall from view, through
+the bottom of the screen. Fortunately, AMOS Professional provides a function to assess the
+situation.</p>
+
+<p><b>DISPLAY HEIGHT</b><br>
+<i>function: report maximum available screen height</i><br>
+height=<b>Display height</b></p>
+
+<p>
+This function returns a value of 311 if you are in PAL mode,
+or 261 if an NTSC machine is being used.</p>
+
+<p>
+  These are theoretical maximum heights,, and do not take into account any limitations of you!
+  television or monitor. To be safe, 56 lines should be subtracted, giving the actual working screen
+  height. For example:</p>
+
+<pre>
+E> Screen Open 0,320,Display Height-56,16,Lowres
+   Print Display Height
+</pre>
+
+<p><b>Screen updating and running speeds</b><br>
+
+  It is obviously impossible to slow down an NTSC television, just for the benefit of AMOS
+  Professional! If you want your programs to work at the same speed in either mode, special
+  action has to be taken. Look at this routine:</p>
+
+<pre>
+E> For T=0 To 60*50
+    Wait Vbl
+   Next T
+</pre>
+
+<p>
+  Accounting for the difference in updating speeds, that last example delays a program for exactly
+  one minute in PAL, but for only 50 seconds under NTSC. This is because the WAIT VBL
+  command halts the program for one fiftieth of a second on a PAL machine, but for only one
+  sixtieth of a second for NTSC.</p>
+
+<p>
+  Because NTSC machines are faster, <b>all</b> AMOS Professional programs will speed up dramatically
+  when PAL versions are executed. Obviously this works the other way round as well, slowing
+  down NTSC programs when run under the PAL system.</p>
+
+<p>
+  Also, AMAL will run more quickly under NTSC, and there will be a noticeable increase in the
+  speed of animation sequences.</p>
+
+<p>
+  The good news is that music speed is not affected by these alternative modes. The bad news is
+  that synchronised audio-visual sequences may well become out of step!</p>
+
+<p>
+  Even worse, what used to be a smoothly animated PAL display is likely to be transformed into a
+  jerky NTSC animation, that stops at random intervals. The cause of this is almost certainly the
+  fact that you are using loops for animation, graphic drawing, joystick tests, and so on, and that
+  you assume they will be completed at each turn of the loop. However, if there is only one
+  sixtieth of a second to execute the entire procedure instead of one fiftieth, the routine is
+  overrunning its allotted time. This forces AMOS Professional to wait for the <b>next</b> VBL, throwing
+  your entire sequence out of synchronisation.</p>
+
+<p>
+  To cure such synchronisation problems, you must ensure that all routines can be accomplished
+  within the sixtieth of a second limit. This will guarantee that your program can run under either
+  system, albeit at slightly different speeds.</p>
+
+<p>
+  If you are moving Objects directly from AMOS Professional Basic, you should try using AMAL
+  for extra speed. Furthermore, if there are many Bobs on screen, replace the smaller, faster Bobs
+  with Sprites, and be prepared for some encouraging results!</p>
+
+<!-- section -->
+
+<p><b>Restricting programs to a single mode</b><br>
+
+  Many AMOS Professional programmers may decide to ignore these problems completely,
+  satisfied that their work will not be seen outside of their immediate circle of contacts, let alone
+  outside of their country. However, this is not a professional attitude, and if you have any
+  intention of reaching a wider audience with your programming, there is nothing worse than
+  allowing your work to fall apart before the eyes of an unsuspecting user.</p>
+
+<p>
+  So, if compatibility problems are not to be ignored, they can at least be avoided. This is achieved
+  by adding a simple test at the start of a program, which will warn other users of potential
+  problems, and abort the program if it is run on an incompatible machine.</p>
+
+<p><b>NTSC</b><br>
+  <i>function: identify NTSC or PAL machines</i><br>
+  mode=<b>Ntsc</b></p>
+
+<p>
+  The NTSC function is provided to identify whether or not an NTSC machine is in use, and will
+  return a value of -1 (True) if this is so. Otherwise a value of zero (False) is given, when a PAL
+  machine is identified. The following example gives an idea of its use, and similar routines are
+  essential for professional releases aimed at an international audience:</p>
+
+<pre>
+E> If Ntsc=0
+    Print "Sorry, PAL version only!"
+    Print "NTSC version coming soon!"
+    End
+   End If
+</pre>
+
+<p><b>Dual mode programs</b><br>
+
+  Whereas synchronisation problems can be overcome, the difficulties caused by the two different
+  sized screens causes a bigger problem. The smaller working area of NTSC displays has to be
+  taken into account at the beginning of your program. To open a perfect screen in either display
+  mode, you are recommended to save the screen height and position as global variables, which
+  may be set at the start of a program, as follows:</p>
+
+<pre>
+E> Global YSIZE,YPOSITION
+   YSIZE=256 : YPOSITION=49
+   If Ntsc
+    YSIZE=200 : YPOSITION=55
+   End If
+   Screen Open 0,320,YSIZE,16,Lowres
+   Screen Display 0,,YPOSITION,,
+</pre>
+
+<p>
+  NTSC users can easily provide their PAL cousins with a dormant screen area at the bottom of
+  the display.</p>
+
+<p>
+  To return the complement, PAL users should restrict the size of their menus, activity buttons,
+  dialogue boxes, and similar features, to no more than a quarter of the total screen area.</p>
+
+<!-- section -->
+
+<p>
+  Even better practice is to use pull-down menus rather than dialogue boxes. Before "releasing" a
+  program, you should simulate an NTSC screen by changing a simple screen variable, and
+  checking that everything appears to be in order.</p>
+
+<p>
+  An examination of the Object Editor and <b>all</b> of the ready-made AMOS Professional HELP
+  programs will show how they adapt themselves to the current display mode automatically!</p>
+
+<p>
+  Certain recent Amiga models have special monitors which are designed to accommodate both
+  systems. For example, the A3000 can emulate both PAL and NTSC, and you should check your
+  Amiga manual for details. As far as AMOS Professional is concerned, the current mode is
+  dictated by the type of screen which occupies the front of the display when the machine is
+  booted. Supposing you have an A3000 in PAL mode, and have set its preferences to NTSC. The
+  Amiga will be in NTSC mode when the Workbench screen is the front screen, but it will return
+  to its default PAL mode as soon as another screen is brought forward.</p>
+
+<p>
+  AMOS Professional relies on the current mode to establish the maximum display size, so if it is
+  run from an NTSC Workbench, it will be in NTSC mode of 200 lines maximum, cycling at 60
+  hertz. However, if you flip to Workbench by pressing [Amiga]+[A], and start another program
+  which opens a new screen, the A3000 will revert to PAL without informing AMOS Professional.
+  This means that when you return to AMOS Professional, the size of the display will be limited to
+  200 lines, but the update frequency will be 50 hertz. A hybrid PAL/NTSC mode!</p>
+
+<p>Nothing can prevent this, other than the purchase of a genuine NTSC machine!</p>
+
+<p><b>International television standard systems</b><br>
+
+  The following lists catalogue the different standard systems adopted in various territories
+  around the world.</p>
+
+<p><b>PAL(I)</b><br>
+  Gibraltar, Hong Kong, Malvinas, Republic of Ireland, United Kingdom</p>
+
+<p><b>PAL(B/G/H)</b><br>
+  Afghanistan, Algeria, Australia, Bahrain, Bangladesh, Belgium, Bosnia, Brunei, Central African
+  Republic, Denmark, Equatorial Guinea, Ethiopia, Finland, Germany, Ghana, Greenland, Iceland,
+  India, Indonesia, Jordan, Kenya, Kuwait, Liberia, Luxembourg, Malaysia, Maldives, Malta,
+  Mozambique, Netherlands, New Zealand, Nigeria, Norway, Oman, Pakistan, Portugal, Qatar,
+  Serbia, Seychelles, Sierra Leone, Singapore, Spain, Sri Lanka, Sudan, Swaziland, Sweden,
+  Switzerland, Tanzania, Thailand, Yemen Arab Republic, Turkey, United Arab Emirates, former
+  Yugoslavian territories, Zambia.</p>
+
+<p><b>NTSC(M)</b><br>
+  Antigua and Barbuda, Bahamas, Barbados, Belize, Bermuda, Bolivia, Burma, Canada, Chile,
+  Colombia, Costa Rica, Cuba, Dominican Republic, Ecuador, Guatemala, Haiti, Honduras,
+  Jamaica, Japan, Kampuchea, Mexico, Micronesia, Nicaragua, Panama, Peru, Philippines, Puerto
+  Rico, Saint Christopher and Nevis, Saint Lucia, Samoa, South Korea, Surinam, Taiwan, Trinidad
+  and Tobago, United States of America, Venezuela</p>
+
+<!-- section -->
+
+<p>
+  <b>SECAM</b> systems that are immediately compatible with the built-in PAL setting of the AMOS
+  Professional facilities have been adopted by France, People's Republic of China, most African
+  territories not listed above, most areas of the Commonwealth of Independent States (formally
+  USSR) and former Soviet satellite nations.</p>
+
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,378 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Windows</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>Windows</h1>
+
+<br>
+
+
+<p>
+The AMOS Professional programmer expects to be able to produce file selectors, warning boxes
+and on-screen control panels with a few simple lines of code. The range of windowing
+command featured in this Chapter allow you to create interactive dialogue boxes by restricting
+text and graphics operations to selected areas of the current screen.</p>
+
+<p>
+A "window" is simply a rectangular display area, which must first be opened before electronic
+life can course through it. Your current screen is treated as a window, and opened automatically
+by the AMOS Professional system as window number zero. All other windows have to be
+opened by you, and you are advised not to re-open window zero or change its size or position.</p>
+
+<p><b>Creating windows</b></p>
+
+<p>
+<b>WIND OPEN</b><br>
+<i>instruction: create a window</i><br>
+<b>Wind Open</b> number,x,y,width,height<br>
+<b>Wind Open</b> number,x,y,width,height,border</p>
+
+<p>
+The window opened by this instruction will be displayed on screen and used for all subsequent
+text operation until you command otherwise. WIND OPEN must be qualified by a window
+number (don't forget that zero has already been allocated to the current screen), followed by the
+x,y graphic coordinates setting the top left-hand corner of the new window, followed by the
+width and height of the new window in the number of characters needed. You may also specify
+an optional border style, with values ranging from 1 to 16.</p>
+
+<p>
+Because the Amiga employs its blitter to draw windows, they must always lie on a 16-pixel
+boundary. AMOS Professional automatically rounds your x-coordinates to the nearest multiple
+of 16. Additionally, if you have specified a border for your window, the x and y-coordinates will
+be incremented by an additional 8 pixels. In this way, you can be sure that your windows
+always start at the correct screen boundary. There are no boundary restrictions on the y-
+coordinates. Titles can also be included in window borders, which will be dealt with a little later.
+Try this example:</p>
+
+<pre>
+E> For W=1 To 3
+    Wind Open W,(W-1)*96,50,10,15,W
+    Paper W+3 : Pen W+6 : Clw
+    Print "Window";W
+   Next W
+</pre>
+
+<p>
+<b>WINDOW</b><br>
+<i>instruction: change the current window</i><br>
+<b>Window</b> number</p>
+
+<p>This command sets the window number specified as the active window, to be used for all future
+text operations. There is an automatic saving system for re-drawing the contents of windows,
+which is explained below.</p>
+
+<!-- section -->
+
+For now, run the last example from Direct mode and enter the following statements:
+
+<pre>
+D> Window 1: Print "AMOS"
+D> Window 3: Print "open windows on the world"
+D> Window 2: "lets me"
+</pre>
+
+<p>The active window is host to the flashing text cursor, unless it has been made invisible with a
+CURS OFF command.</p>
+
+<p>
+<b>BORDER</b><br>
+<i>instruction: change window border</i><br>
+<b>Border</b> number,paper, pen</p>
+
+<p>This command allows you to change the style and colour of the current window border. Border
+style numbers range from 1 to 16, and the paper and pen colours can be selected from any
+available colour index numbers. Any of these parameters can be omitted from the BORDER
+instruction as long as the commas are included for any missing values: If the last example is still
+on screen, enter these lines from direct mode:</p>
+
+<pre>
+D> Border 3,2,3
+D> Border 2,,
+</pre>
+
+<p>
+<b>TITLE TOP</b><br>
+<i>instruction: set title at top of current window</i><br>
+<b>Title Top</b> title$</p>
+
+<p>Use this command to set a border title at the top of the current window to your chosen title
+string. This facility will only operate with bordered windows, as follows:</p>
+
+<pre>
+E> Cls: Wind Open 4,1,1,20,10,1
+   Title Top "Top of the morning"
+</pre>
+
+<p>
+<b>TITLE BOTTOM</b><br>
+<i>instruction: set title at bottom of current window</i><br>
+<b>Title Bottom</b> title$</p>
+
+<p>Similarly, this instruction assigns a string to the bottom title of the current window, like this:</p>
+
+<pre>
+E> Cls : Wind Open 5,75,50,24,15
+   Border 5,6,
+   Title Bottom "Bottom of the barrel"
+</pre>
+
+<!-- section -->
+
+<p><b>Manipulating windows</b></p>
+
+<p>
+<b>WINDON</b><br>
+<i>function: return the value of the current window</i><br>
+w=<b>Windon</b></p>
+
+<p>Before using windows in your programs, you will need to refer to their identification numbers.
+This function returns the value of the current window. For example:</p>
+
+<pre>
+E> Do
+    Cls : Wind Open Rnd(99)+1,1,1,25,5,1
+    Print "Window number ";Windon : Wait Key
+   Loop
+</pre>
+
+<p>
+<b>WIND SAVE</b><br>
+<i>instruction: save the contents of the current window</i><br>
+<b>Wind Save</b></p>
+
+<p>
+This command is extremely valuable for the AMOS Professional programmer. Once activated,
+the WIND SAVE feature allows you to move your windows anywhere on screen without
+corrupting the existing display, by the following method. The contents of the current window is
+saved as soon as the command is used, and then every time a new window is opened, the
+contents of the windows underneath get saved automatically. The screen is then re-drawn
+whenever a window is moved to a new position or closed.</p>
+
+<p>
+As you begin a new program, the current window (the default screen) consumes 32k of valuable
+memory, and this would be wasted if you were to save it as background beneath a small
+dialogue box. To solve this problem, create a dummy window of the size you need, and place it
+over the zone you want to save. Now execute your WIND SAVE command and continue with
+your program. When this dialogue box is called up, the area beneath it will be saved as part of
+your dummy window, so it will automatically be restored after your box has been removed.</p>
+
+<p>
+<b>WIND CLOSE</b><br>
+<i>instruction: close the current window</i><br>
+<b>Wind Close</b></p>
+
+<p>
+The WIND CLOSE command deletes the current window. If the WIND SAVE command has
+been activated, the deleted window will be replaced by the saved graphics, otherwise the area
+will be totally erased from the screen. Here is an example:</p>
+
+<pre>
+E> Wind Open 1,1,8,35,18,1 : Print "Press a key to close this window"
+   Wait Key
+   Wind Close
+</pre>
+
+<p>
+<b>WIND MOVE</b><br>
+<i>instruction: move the current window</i><br>
+<b>Wind Move</b> x,y</p>
+	
+<!-- section -->
+
+<p>
+The current window can 'be moved to any acceptable graphic coordinates. Give the new x,y-
+coordinates after the WIND MOVE command, and the x-coordinate will be rounded to the
+nearest 16-pixel boundary automatically. Here is an example:</p>
+
+<pre>
+E> Wind Save : Wind Open 1,0,2,30,10,1 : Wind Save
+   For M=1 To 100
+    Pen Rnd(15) : Paper Rnd(15) : Print : Centre "Making Movies"
+     Wind Move Rnd(30)+1,Rnd(100)+1
+     Wait VbI
+   Next M
+</pre>
+
+<p>
+<b>SCROLL ON/OFF</b><br>
+<i>instructions: toggle window scrolling on and off</i><br>
+<b>Scroll On</b><br>
+<b>Scroll Off</b></p>
+
+<p>
+The SCROLL commands are used to control the scrolling of the current window. SCROLL OFF
+turns off the scrolling, and whenever the cursor passes beyond the bottom of the window it will
+reappear from the top. SCROLL ON starts the scrolling process again, so that a new line is
+inserted when the cursor tries to pass beyond the bottom of the window.</p>
+
+<p>
+<b>WIND SIZE</b><br>
+<i>instruction: change the size of the current window</i><br>
+<b>Wind Size</b> width, height</p>
+
+<p>
+To change the size of the current window, specify the new width and new height in terms of the
+number of characters. If WIND SAVE has been activated, the original contents of the window
+will be re-drawn by this instruction. If the new window size is smaller than the original, any
+parts of the original image that lie outside of the new window boundaries will be lost.
+Alternatively, if the new window is larger, the space around the saved area will be filled with
+the current paper colour. Please note that the text cursor is always re-set to coordinates 0,0.
+For example:</p>
+
+<pre>
+E> Wind Open 1,16,16,22,10,2
+   Print "I want to be wider!"
+   Wind Save
+   Wait 50
+   Wind Size 30,10
+</pre>
+
+<p>
+<b>CLW</b><br>
+<i>instruction: clear the current window</i><br>
+<b>Clw</b></p>
+
+<p>This simple command erases the contents of the current window and replaces it with a block of
+the current PAPER colour.</p>
+
+<!-- section -->
+
+<p>Like this:</p>
+
+<pre>
+E> Cls: Paper 4 : Wind Open 1,1,1,12,5,1
+   Window 1: Print "Clear Off" : Wait 75
+   Paper 9 : Clw
+</pre>
+
+<p><b>Creating slider bars</b><br>
+
+One of the standard uses of windows is to create interactive slider bars, like the one at the right-
+hand side of your AMOS Professional Edit Screen.</p>
+
+<p>
+<b>HSLIDER</b><br>
+<i>instruction: draw a horizontal slider bar</i><br>
+<b>Hslider</b> x1 ,y1 To x2,y2, units, position, length</p>
+
+<p>
+Horizontal slider bars are set up by giving the HSLIDER command, qualified by the following
+parameters: the x,y-coordinates of the top left-hand corner of the bar in pixels followed by the
+x,y-coordinates of the bottom right-hand corner, then the number of individual units that the
+slider is divided into. Next, you must specify the position of the active slider box or control
+button from the left-hand end of the slider, measured in the same sized units as the slider
+divisions. Finally, give the length of the slider control box in these units. The size of each unit is
+calculated with this formula:</p>
+
+<pre>
+(x2-x1)/number of units
+</pre>
+
+<p>Here is an example:</p>
+
+<pre>
+E> Hslider 10,10 To 100,20,100,20,5
+   Hslider 10,50 To 150,100,25,10,10
+</pre>
+
+<p>
+<b>VSLIDER</b><br>
+<i>instruction: draw a vertical slider</i><br>
+<b>Vslider</b> x1 ,y1 To x2,y2,units,position,length</p>
+
+<p>This works in the same way as Hslider, and sets up vertical slider bars. For a working
+demonstration, examine the vertical slider in the Editor window, where the number of units into
+which the slider is divided is set to the number of lines in the current program.</p>
+
+<p>Here is a simpler example:</p>
+
+<pre>
+E> Vslider 10,10 To 20,100,100,20,5
+   Vslider 250,0 To 319,199,10,2,6
+</pre>
+
+<p>
+<b>SET SLIDER</b><br>
+<i>instruction: set fill pattern for slider bar</i><br>
+<b>Set Slider</b> ink1,paper1,outline1,pattern1,ink2,paper2,outline2,pattern2</p>
+
+<p>SET SLIDER is used to set up the colours and patterns used for your slider bars and their
+control boxes.</p>
+
+<!-- section -->
+
+<p>Simply give the index numbers of the ink, paper, outline and pattern to be used for the slider
+bar, followed by the ink paper, outline and pattern to be used by the slider control box. If
+negative values are used for either pattern, a sprite image will be commandeered from the sprite
+bank, allowing even more spectacular effects. Try this example:</p>
+
+<pre>
+E> Centre "&lt;Press a key&gt;" : Curs Off
+    Do
+     A1=Rnd(15) : B1=Rnd(15) : C1=Rnd(15) : D1=Rnd(24)
+     A2=Rnd(15) : B2=Rnd(15) : C2=Rnd(15) : D2=Rnd(24)
+     Set Slider Al ,B1,C1,D1,A2,B2,C2,D2
+     Hslider 10,10 To 300,60,100,20,25
+     Vslider 10,60 To 20,190,100,20,25
+     Wait Key
+    Loop
+</pre>
+
+<p>Having set up your slider bars, you will want to activate them using the mouse. A simple routine
+to create working slider bars needs to be included in your main program. As always, remember
+to test out the ready-made example programs, for a working guide.</p>
+
+<p><b>Displaying a text window</b><br>
+
+To end this Chapter, here is an extremely useful AMOS Professional feature that allows the
+display of a text file directly on screen. Text can be displayed in its own independent screen, it
+may be scrolled through at will, the display window can be dragged around the screen and
+there is even a facility to include a title line.</p>
+
+<p>
+<b>READ TEXT$</b><br>
+<i>instruction: display a text window on screen</i><br>
+<b>Read Text$</b> name$<br>
+<b>Read Text$</b> name$,address, length</p>
+
+<p>
+In its simplest form, the READ TEXT$ command reads the text held in a specified filename on
+disc, for example:</p>
+
+<pre>
+X> Read Text$ Fsel$("**")
+</pre>
+
+<p>
+You can move through the displayed text using scroll bars, the arrow icons or via the following
+key combinations:</p>
+
+<pre>
+<b>Key Press                       Effect</b>
+[Up Arrow]/[Down Arrow]         Move up/down by one line
+[Shift]+[Up Arrow]/[Down Arrow] Scroll up/down by one page
+[Ctrl]+[Up Arrow]/[Down Arrow]  Jump directly to top/bottom of text
+[Esc] or [Return]               Exit
+</pre>
+
+<p>To read some text from an address in memory, there is an alternative version of the READ
+TEXT$ command. In this case the name$ parameter refers to a <b>title</b> line that will be printed at
+the top of the viewing window. Address holds the address of the first line of the text to be read.
+Length specifies the length of the text to be read, in bytes.</p>
+
+
+</BODY>
+</HTML>
+

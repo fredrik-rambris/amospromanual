@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - The Monitor</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>The Monitor</h1>
+
+<br>
+
+
+<p>
+This User Guide can help you to overcome most problems in your programming, and the ready-made HELP programs will 
+demonstrate all of the techniques described in its pages. But a User
+Glide can never get inside your own programs and explain what is going on. Believe it or not,
+AMOS Professional can!</p>
+
+<p>
+The AMOS Professional Monitor is a very simple idea, but it is also incredibly powerful. It may
+summoned up to examine any AMOS Professional routine, or even a single expression. The
+Monitor is used to find out exactly what is happening and why, and to make an instant report
+on screen.</p>
+
+<p><b>Calling the Monitor</b><br>
+
+To call up the AMOS Professional Monitor from the Editor, simply click on the [Monitor] option
+in the Project Menu, or press the [F5] key.</p>
+
+<p>
+<p><b>MONITOR</b><br>
+<i>instruction: call AMOS Professional Monitor</i><br>
+<b>Monitor</b></p>
+
+<p>
+MONITOR is also a command in its own right, and can be typed from Direct Mode or included
+anywhere in your program listing. When called from inside an AMOS Professional program, the
+MONITOR command stops the program and summons up the Monitor Screen. The monitoring
+process will then start from the location immediately after the MONITOR command, ready to
+step through the program one instruction at a time. For example:</p>
+
+<pre>
+E> Print "Time to call the Monitor!"
+   Wait 100
+   Monitor
+   Print "This is the next instruction"
+</pre>
+
+<p>
+Before the next instruction is executed, the Monitor Screen appears, and the system is ready to
+be exploited.</p>
+
+<p><b>Using the Monitor</b><br>
+
+The AMOS Professional Monitor is totally icon-driven and controlled by the mouse, so there is
+no need to type anything at all! To prepare for a step-by-step guide of the Monitor, you are
+recommended to load one of the demos on the AMOSPro Examples disc, so that the Monitor
+can analyse it.</p>
+
+<p>
+If the Monitor screen is displayed, click on the quit icon [Q] in the top right-hand corner of the
+push-button control keypad of the Monitor Screen, and load the following example now:</p>
+
+<pre>
+LD> Load "AMOSPro_Examples:Examples/H-0/Help7.AMOS"
+</pre>
+
+<p>
+Run the example from the Editor, to remind yourself how it looks, then break into it with
+[Ctrl]+[C] and press [Spacebar] to return to the Editor.</p>
+
+<!-- section -->
+
+<p>
+Now trigger the [Monitor] option or press [F5], and the Monitor Screen will appear looking
+something like this:</p>
+
+<img alt="Amos Professional Monitor screen"
+ src="images/1202mon.jpg" >
+
+<p>The AMOS Professional Monitor has been designed to perform all of the following tasks:</p>
+
+<ul>
+  <li>To examine the instructions in a program, one at a time, and to display a report showing the
+      result of what happens when its parameters have been evaluated. In other words, the Monitor
+      can test any instruction in any program.</li>
+  <li>To display HELP information regarding any selected instruction.</li>
+  <li>To supply the result of any expression in the program, where possible. If there is an error in
+      the expression, the offending line will be identified.</li>
+  <li>To provide error message reports.</li>
+</ul>
+
+<p>The Monitor screen is divided into four areas, as follows:</p>
+
+<ul>
+  <li>The top left-hand quarter is the <b>graphic output window</b>.</li>
+  <li>The top right-hand quarter is the <b>control keypad</b>.</li>
+  <li>The central lower screen is the <b>program listing window</b>.</li>
+  <li>The bottom lower screen is the <b>information window</b>.</li>
+</ul>
+
+
+<!-- section -->
+
+<b>The Graphic Output Window</b><br>
+
+The window that occupies the top left-hand quarter of the Monitor Screen displays the graphic
+output of the current program screen. The screen number is displayed above it. Lowres screens
+are reduced to exactly half of their original size, so that a 320x200 screen fits perfectly into this
+window. If the screen is larger than this default size, it can be explored using the four directional
+arrow icons in the push-button control panel. Hires screens are <b>not</b> reduced, and these are also
+examined using the direction arrows.</p>
+
+<p>
+All colour animations, including FLASH and FADE will be shown during the monitoring
+process. If the current screen features more than 16 colours, then colours 16 to 31, colours 41 to
+47 and colours 48 to 63 will each be converted to colours 0 to 15. Obviously HAM pictures may
+well generate some bizarre displays.</p>
+
+<p>
+Experiment with the directional arrows, and then click anywhere in the graphic output window
+with the left mouse button. This returns to the original program display for as long as the button
+remains pressed, and is a useful feature to-remind you of exactly what is on the screen you are
+dealing with.</p>
+
+<p><b>The Program Listing Window</b><br>
+
+This window gives you a view of the current program listing. Any items to be examined can be
+marked out, but nothing in this window can be changed. Once the Monitor has been initialised,
+helpful markers will be shown in the program listing, acting as reminders for the following
+points:</p>
+
+<ul>
+  <li>The current program location is marked by a black cursor with three small arrow-heads. It
+      always appears before the <b>next</b> instruction to be examined.</li>
+  <li>You are allowed to set a "break point" in the listing, and these are marked in <b>inverse video</b>.</li>
+  <li>Any item that you want information about will be <b>underlined</b>.</li>
+</ul>
+
+<p><b>The Information Window</b><br>
+
+This is where all of the Monitor information appears. It commences by displaying the next
+instruction to be examined, but as more of the Monitor features become active, information is
+displayed in the following order, from top to bottom in this window:</p>
+
+<ul>
+  <li>Error messages</li>
+  <li>Information on instructions</li>
+  <li>The next instruction to be examined</li>
+  <li>The first parameter of the next instruction</li>
+  <li>The second parameter, the third parameter, and so on.</li>
+</ul>
+
+<p><b>Changing the window displays</b><br>
+
+Scroll bars are provided to move the display of the program listing, vertically and horizontally in
+the Program Listing Window. The "centre" button at the top right-hand corner of this window is
+used to centre the display on the <b>next</b> instruction to be executed. A vertical scroll bar is also
+available for the Information Window.</p>
+
+<!-- section -->
+
+<p>
+The horizontal line between the Program Listing Window and the Information Window can also
+be dragged up and down, in order to enlarge one of these windows and reduce the other to a
+minimum of three lines.</p>
+
+<p><b>The control keypad</b><br>
+
+Each of the push-buttons in the control keypad is triggered via the mouse. Here is au
+explanation of the controls.</p>
+
+<p><b>Scrolling the screen output</b><br>
+
+<img alt="Monitor scroll button"
+ src="images/1204scroll.jpg" align="left" /><br>
+
+The four directional arrows are used to scroll the reduced screen in the graphic output
+window. The central button in this group selects the screen to be displayed, starting
+from screen zero, and then in order through any additional screens until screen zero is
+displayed once more.</p>
+
+<br>
+
+<p><b>Initialising the Monitor</b><br>
+
+<img alt="Monitor Initialising button"
+ src="images/1204init.jpg" align="left" /><br>
+
+This is the Initialisation button, and it has exactly the same effect as using [Run] from
+the Editor.</p>
+
+<p>
+Firstly, a [Test] of the program is performed. If AMOS Professional encounters an error, the
+faulty line will be displayed in the program listing window. If the testing process is successful
+and no errors are found, a Default command will be given and a program pointer will be
+initialised at the first instruction in the program that is being monitored.</p>
+
+<p>The [INIT] button <b>must</b> be triggered before the program listing can be checked, step by step.</p>
+
+<p><b>One-Step Control</b><br>
+
+<img alt="Monitor One-Step button"
+ src="images/1204step.jpg" align="left" />
+
+Clicking on this button tells the Monitor to examine the next instruction, give a report and
+then go back and wait for your next action. The black program cursor will now be pointing
+to the next instruction, and the Information Window will also show the next instruction and
+give any parameter list.</p>
+
+<p><b>Slow-Run Control</b><br>
+
+<img alt="Monitor Slow-Run button"
+ src="images/1204slow.jpg" align="left" />
+
+When this button is triggered, the Monitor will interpret instructions one at a time, and re-
+draw the whole display after each examination. By using this option, you can follow the
+progress of the program listing in slow motion. To stop the slow-run, click on the stop button.</p>
+
+<p><b>Stop Button</b><br>
+
+<img alt="Monitor stop button"
+ src="images/1204stop.jpg" align="left" />
+
+The stop button brings the interpretation process to a halt, and returns you to the Monitor.
+Pressing [Ctrl]+[C] has the same effect, and so does a "break point", which is explained
+below. If a non-trapped error is discovered, it will be displayed in the Information Window and
+you will also be taken back to the Monitor.</p>
+
+<p><b>Normal-Run Control</b><br>
+
+<img alt="Monitor normal-run button"
+ src="images/1204norm.jpg" align="left" />
+
+This button will run the program from the Monitor and update the graphic display every
+50th of a second, allowing a faster speed of operation. The program itself and the Monitor
+information windows will not be updated until a stop in the program. To stop the process,
+simply use the stop button.</p>
+
+<!-- section -->
+
+<p><b>Fast-Run Button</b><br>
+
+<img alt="Monitor fast-run button"
+ src="images/1205fast.jpg" align="left" />
+
+When fast-run is used, the program's own display is used and the program is run at full
+speed. If an error is not found, the only way to return to the Monitor during a fast-run is to
+press [Ctrl]+[C], or use break points.</p>
+
+<p><b>Break Point Button</b><br>
+
+<img alt="Monitor break point button"
+ src="images/1205break.jpg" align="left" />
+
+Click on the break point button with the left mouse button as usual, then click on the
+instruction in the program listing wherever you wish to <b>set</b> the break. The instruction will
+be highlighted in inverse video. To <b>remove</b> a break point, click on an area which is adjacent to
+the highlighted listing, such as the area without any commands or text to the right of the
+program lines.</p>
+
+<p><b>Evaluation Button</b><br>
+
+<img alt="Monitor evaluation button"
+ src="images/1205val.jpg" align="left" />
+
+The button marked [VAL] allows you to use a very accurate setting for the evaluation
+process. Click on the button and then use the mouse to set the individual character that
+marks the beginning of the expression to be evaluated. With the button held down, drag it to
+the character in the listing to mark the end of the expression you are interested in, and release
+the button to underline the expression. The evaluation will now be reported in the Information
+Window.</p>
+
+<p><b>Help Button</b><br>
+
+<img alt="Monitor help button"
+ src="images/1205help.jpg" align="left" />
+
+Click on the help button [?], then click on the instruction you need help with. The
+keyword will be underlined, and the trusty AMOS Professional Help Window will appear,
+at your service.</p>
+
+<p><b>Quit</b><br>
+
+<img alt="Monitor quit button"
+ src="images/1205quit.jpg" align="left" />
+
+This button takes you back to the Editor. If the Monitor system has been called up from
+inside a program using the MONITOR command, you will be returned to the program at
+the instruction immediately after that command.</p>
+
+<p><b>Evaluating expressions</b><br>
+
+The Monitor may be simple to use, but it is incredibly skilful in the way it analyses expressions,
+and reports the results back to you. here are the ground rules for a simple demonstration. First,
+run this example to give yourself something to work on, and then call up the Monitor.</p>
+
+<pre>
+E> A=1 : B=2 : C=3
+   D=A+B*C-1
+   Print D
+</pre>
+
+<p>
+Initialise the program by clicking on the [INIT] button. If you were to press [VAL] and ask for an
+evaluation of A+B without first initialising B, you would be asking for the impossible. Also, if
+you asked for an evaluation of "k", you would be told that it is not possible to evaluate
+something that is plainly idiotic! On the other hand, if you ask for an evaluation of something
+self evident, like "1", it will be given. Also, the expression must be at the same level of procedure
+as the program pointer.</p>
+
+<!-- section -->
+
+<p>
+With the black program cursor still on the first line of the example program, trigger [VAL] and
+ask for an evaluation of D by clicking on "D" in the last line of the example. The result of zero
+will be given! D will only be equal to A+B*C-1 when all the expressions have been evaluated.</p>
+
+<p>
+Advance the process by one step by pressing the appropriate one-step button on the control
+panel, and the cursor moves to the next expression on the first line. Now advance two more
+steps, and get the correct evaluations for A,B and C, from the second line of the program. D will
+still come back as zero, but by advancing another step, D is given as 6.</p>
+
+<p>To get rid of an expression from the Information Window, just click on it with the mouse cursor.</p>
+
+<p>
+That was a very simple example, of course. However, when dealing with complex programs,
+you can use the Monitor with the greatest of ease to extract all sorts of interesting results from
+the expressions in the listing. Explore one of the AMOS Professional example programs now,
+and test out the Monitor on the most complex expressions you can find.</p>
+
+
+</BODY>
+</HTML>
+

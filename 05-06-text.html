@@ -1,0 +1,850 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Text</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>Text</h1>
+
+<br>
+
+
+<p>This Chapter explains how to use the advantages of AMOS Professional for handling written
+text. You may want to remind yourself of the visible character set by running this simple
+routine:</p>
+
+<pre>
+E> For 0=32 To 255
+    Print Chr$(C);" =Ascii Code";
+    Print Asc(Chr$(C)) : Wait 10
+   Next C
+</pre>
+
+<p><b>Printing on the screen</b><br>
+The PRINT instruction is one of the most familiar command words in most Basic languages.</p>
+
+<p>
+<b>PRINT</b><br>
+<i>instruction: print items on screen</i><br>
+<b>Print</b> items</p>
+
+<p>Items are printed on the screen, starting from the current cursor position, and they may include
+the characters in any group of variables or constants, up to the maximum line length of 255
+characters. The PRINT command is also used to display graphics and information on screen, as
+is demonstrated throughout this User Guide. This Chapter will deal with printing text only.</p>
+
+<p>Print statements can occupy their own lines, but if more than one element to be printed is
+written as a single line of your program, each element must be separated from the next by either
+a semi-colon character or a comma. An element to be printed can be a string, a variable or a
+constant, and is placed inside a pair of quotation marks.</p>
+
+<p>A semi-colon is used to print elements immediately after one another, like this:</p>
+
+<pre>
+E> Print "Follow";"on"
+</pre>
+
+<p>A comma moves the cursor to the next "Tab" position on the screen, as follows:</p>
+
+<pre>
+E> Print "Next","Tab"
+</pre>
+
+<p>A Tab is an automatic marker that sets up a location for printing, and is often used to lay out
+columns of figures, or to make indentations in text, and setting Tab positions is explained later.</p>
+
+<p>Normally, the cursor is advanced downwards by one line after every PRINT command, but by
+using the semi-colon or comma, the rule can be changed. Here is an example:</p>
+
+<pre>
+E> Print "AMOS"
+   Print "Professional"
+   Print "AM";
+   Print "OS",
+   Print "Professional"
+</pre>
+
+<!-- section -->
+
+<p><b>Setting text options</b></p>
+
+<p>
+<b>PEN</b><br>
+<i>instruction: set the colour of text</i><br>
+<b>Pen</b> index number</p>
+
+<p>This command sets the colour of the text displayed in the current window, when followed by
+the colour index number of your choice. The default setting of the pen colour is index number 2,
+which is white, and alternative colours may be selected from one of up to 64 choices, depending
+on the current graphics mode. For example:</p>
+
+<pre>
+E> For INDEX=0 To 15
+    Pen INDEX
+    Print "Pen number ";INDEX
+   Next INDEX
+</pre>
+
+<p>
+<b>PEN$</b><br>
+<i>function: return a control index number to set the pen colour</i><br>
+p$=Pen$(index number)</p>
+
+<p>This function returns a special control sequence that changes the pen colour inside a string.
+This means that whenever the string is printed on the screen, the pre-set pen colour is
+automatically assigned to it. The format of the string returned by PEN$ is:
+Chr$(27)+"Pen"+Chr$(48+number). Here is an example:</p>
+
+<pre>
+E> P$=Pen$(2)+"Well all WHITE, "+Pen$(6)+" I still got the BLUES"
+   Print P$
+   Pen 4
+   Print "In the RED"
+</pre>
+
+<p>
+<b>PAPER</b><br>
+<i>instruction: set colour of text background</i><br>
+<b>Paper</b> index number</p>
+
+<p>To select a background colour on which your text is to be printed, the PAPER command is
+followed by a colour index number between 0 and 63, depending on the graphics mode in use,
+in exactly the same way as PEN. The normal default colour index number is 1, giving an orange
+background colour, with other possibilities listed under the SCREEN OPEN command in this
+User Guide. Run the following simple example:</p>
+
+<pre>
+E> Pen 2: For INDEX=0 To 15
+   Paper INDEX: Print "Paper number ";INDEX;Space$(23)
+   Next INDEX
+</pre>
+
+<!-- section -->
+
+<p>
+<b>PAPER$</b><br>
+<i>function: return a control index number to set background colour</i><br>
+b$=<b>PAPER$</b>(index number)</p>
+
+<p>Similarly to the PEN$ function, PAPER$ returns a character string that automatically sets the
+background colour when the string is printed on the screen. For example:</p>
+
+<pre>
+E> Pen 1
+   B$=Paper$(3)+"Flash Harry"+Paper$(1)+"The Invisible Man"
+   Print B$
+</pre>
+
+<p><b>Changing text options</b></p>
+
+<p>
+<b>INVERSE ON/OFF</b><br>
+<i>instructions: toggle inverse mode of subsequent text</i><br>
+<b>Inverse On</b><br>
+<b>Inverse Off</b></p>
+
+<p>The INVERSE instruction swaps over the text and background colours already selected by the
+PEN and PAPER commands, and so sets up an inverse mode for printing. For example:</p>
+
+<pre>
+E> Pen 2 : Paper 4: Print "I appear normal"
+   Inverse On : Print "Poetry inverse"
+   Inverse Off : Print "Don't be so negative"
+</pre>
+
+<p>
+<b>SHADE ON/OFF</b><br>
+<i>instructions: toggle shading of subsequent text</i><br>
+<b>Shade On</b><br>
+<b>Shade Off</b></p>
+
+<p>The appearance of your text can be changed more subtly by introducing a mask pattern that
+reduces the brightness of the characters when printed. To make use of this shading facility,
+simply turn it on and off like this:</p>
+
+<pre>
+E> Shade On :Print "Shady Lady"
+   Shade Off:Print "Norman Normal"
+</pre>
+
+<p><b>Setting text styles</b><br>
+
+As well as customising the appearance of your text by changing the text options, you can also
+use the standard type-face techniques available to printers and word processors.</p>
+
+<p>
+<b>UNDER ON/OFF</b><br>
+<i>instructions: toggle underline mode of subsequent text</i><br>
+<b>Under On</b><br>
+<b>Under Off</b></p>
+
+
+<!-- section -->
+
+<p>To underline text when printed on screen like this, use the UNDER instructions, as follows:</p>
+
+<pre>
+E> Under On : Print "This is where we draw the line"
+   Under Off: "That is groundless"
+</pre>
+
+<p>In <a href="11/1101.html">Section 11.1</a> there is a full explanation of how to take advantage of any number of different
+type faces or fonts, by making use of what is known as "graphic text". For the time being, try the
+next example:</p>
+
+<pre>
+E> Cls: For S=0 To 7: Set Text S
+   Text 100,S*20+20,AMOS Professional" : Next S
+</pre>
+
+<p>
+<b>SET TEXT</b><br>
+<i>instruction: set the style of a text font</i><br>
+<b>Set Text</b> style number</p>
+
+<p>The SET TEXT command allows you to change the style of a font by selecting one of eight
+different styles that are produced by mixing the following three elements</p>
+
+<pre>
+Bit 0 <u>Underline</u>
+Bit 1 <b>Bold</b>
+Bit 2 <i>Italic</i>
+</pre>
+
+
+<p>Set the appropriate bits in the form of a style number from 0 to 7, as in the last example.</p>
+
+<p>
+<b>TEXT STYLES</b><br>
+<i>function: return current text style</i><br>
+s=<b>Text Styles</b></p>
+
+<p>This function returns the index reference of the text style you last selected using SET TEXT. The
+result is a bit-map in the same format as explained above:</p>
+
+<pre>
+Set Text 2: Print "Style Two"
+Print Text Styles
+</pre>
+
+<p><b>Changing the text mode</b><br>
+
+For even more flexibility in presenting your text on screen, you can select the way it is combined
+with other screen data.</p>
+
+<p>
+<b>WRITING</b><br>
+<i>instruction: select text writing mode of subsequent text</i><br>
+<b>Writing</b> value1<br>
+<b>Writing</b> value1,optional value2</p>
+
+<p>The WRITING command is used to control how the subsequent text interacts with what is
+already on the screen, and it can be followed by either one or two values.</p>
+
+
+<!-- section -->
+
+<p>The first value selects one of five writing modes:</p>
+
+<pre>
+<b>Value   Mode        Effect</b>
+0       REPLACE     New text replaces any existing screen data  
+1       OR          Merge new text with screen data, using logical OR
+2       XOR         Combine new text with screen data, using OR
+3       AND         Combine new text and screen data, using logical AND
+4       IGNORE      Ignore all subsequent printing instructions
+</pre>
+
+<p>A number set as the optional second value selects which parts of the text are to be printed on the
+screen, as follows:</p>
+
+
+<pre>
+<b>Value Mode   Effect</b>
+0     Normal Print text and background together
+1     Paper  Only the background to be drawn on screen
+2     Pen    Ignore paper colour and print text on background colour zero
+</pre>
+
+<p>The default value for both of the WRITING parameters is zero, giving normal printed output.</p>
+
+<p><b>Positioning the text cursor</b><br>
+	
+Characters are always printed at the current position of the text cursor, and the AMOS
+Professional programmer is offered several methods of controlling the cursor in order to make
+text look more orderly, attractive or eye-catching.</p>
+
+<p>
+<b>LOCATE</b><br>
+<i>instruction: position the text cursor</i><br>
+<b>Locate</b> x,<br>
+<b>Locate</b> ,y<br>
+<b>Locate</b> x,y</p>
+
+<p>This command moves the text cursor to the coordinates of your choice, and this new location
+sets the start position for all subsequent text printing until you command otherwise. All screen
+positions are measured in "text coordinates", which are measured in units of one printed
+character on screen, with the x-coordinate controlling the horizontal position and the y-
+coordinate referring to the vertical. So, the top left-hand corner of the screen has coordinates of
+0,0 whereas text coordinates of 15,10 refer to a position 15 characters from the left-hand edge of
+the screen and 10 characters from the top.</p>
+
+<p>The range of these coordinates will depend on the size of your character set and the dimensions
+of the display area allocated, known as a "window". All coordinate measurements are taken
+using text coordinates relative to the current window. If you try and print something outside of
+these limits, an error will be generated. Windows are dealt with in the next Section, but the
+current screen is automatically treated as a window, so there is no need to "open" one to test the
+following examples:</p>
+
+<pre>
+E> Print "0,0": Locate 10, : Print "Stay on current line"
+   Locate ,5 : Print "Six from the top."
+   Locate 10,10 : Print "Ten down and ten across"
+</pre>
+
+<!-- section -->
+
+<p>
+<b>HOME</b><br>
+<i>instruction: force text cursor home</i><br>
+<b>Home</b></p>
+
+<p>
+Whenever you need to move the text cursor back to the top left-hand corner of the screen in a
+hurry, simply tell it to go HOME and it will automatically be relocated to coordinates 0,0 like
+this:</p>
+
+<pre>
+E> Cls: Locate 10,10: Print "I am going"
+   Wait 100: Home : Print "Home!"
+</pre>
+
+<p>
+<b>CMOVE</b><br>
+<i>instruction: move text cursor</i><br>
+<b>Cmove</b> width<br>
+<b>Cmove</b> height<br>
+<b>Cmove</b> width,height</p>
+
+<p>It is also possible to move the text cursor a pre-set distance away from its current position, which
+can come in useful if you need to show speech bubbles or shunt your text to one side
+temporarily. The CMOVE command is followed by a pair of variables that represent the width
+and height of the required offset, and these values are added to the current cursor coordinates.
+Like LOCATE, either of the coordinates can be omitted, as long as the comma is positioned
+correctly. An additional technique is to use negative values as well as positive offsets. For
+example:</p>
+
+<pre>
+E> Cls : Print "Iceland"
+   Cmove 5,5: Print "Scotland";
+   Cmove ,-3 : Print "Norway"
+   Cmove 10,14: Print "France"
+</pre>
+
+<p>
+<b>CMOVE$</b><br>
+<i>function: return control string to move text cursor</i><br>
+a$=<b>Cmove$</b>(x,y)</p>
+
+<p>Characters can be printed relative to the current cursor position by setting up a string using the
+CMOVE$ function. The following example prints a string at coordinates 10,10 from the current
+text cursor:</p>
+
+<pre>
+E> A$=Cmove$(10,10)
+   A$=A$+"AMOS Professional"
+   Print A$
+</pre>
+
+<p>
+<b>AT</b><br>
+<i>function: return a string to position the text cursor</i><br>
+a$=<b>At</b>(x,y)</p>
+
+<!-- section -->
+
+<p>You may also change the position of the text cursor directly from inside a character string. This
+is ideal for positioning text once and for all on screen, no matter what happens in the program,
+because the text cursor can be set during the program's initialisation phase. The string that is
+returned takes the following format:</p>
+
+<pre>
+Chr$(27)+"X"+Chr$(48+X)+Chr$(27)+"Y"+Chr$(48+Y)
+</pre>
+
+<p>So whenever this string is printed, the text cursor will be moved to the text coordinates held by
+X and Y. For example:</p>
+
+<pre>
+E> A$="A"+At(10,10)+"Of"+At(2,4)+"String"+At(20,20)+"Pearls"
+   Print A$
+</pre>
+
+<p>Imagine a Hi-Score table positioned like this:</p>
+
+<pre>
+E> SCORE=999
+   Locate 12,10: Print "Hi Score ";SCORE
+</pre>
+
+<p>By using the AT function, the same table can be moved by editing a single string, no matter how
+many times it is used in the program, like this:</p>
+
+<pre>
+E> HI_SCORES=At(12,10)+"Hi Score"
+   SCORE=999
+   Print HI_SCORE$;SCORE
+</pre>
+
+<p>
+<b>CENTRE</b><br>
+<i>instruction: print text centrally on current line</i><br>
+<b>Centre</b> a$</p>
+
+<p>Programmers often need to position text in the centre of the screen, and to save you the effort of
+calculating the text coordinates in order to achieve this, the CENTRE command takes a string of
+characters and prints it in the middle of the line currently occupied by the cursor.
+For example:</p>
+
+<pre>
+E> Locate 0,1
+   Centre "ABOVE"
+   Cmove ,3
+   Centre "suspicion"
+</pre>
+
+<p>
+<b>TAB$</b><br>
+<i>function: move text cursor to next Tab</i><br>
+t$=<b>Tab$</b></p>
+
+<p>The TAB$ function returns a special control character called TAB, which carries the Ascii code of
+9. When this character is printed, the text cursor is automatically moved to the next tabulated
+column setting (Tab) to the right.</p>
+
+<!-- section -->
+
+<p>The default setting for this is four characters, which can be changed as follows:</p>
+
+<p>
+<b>SET TAB</b><br>
+<i>instruction: change Tab setting</i><br>
+<b>Set Tab</b> number</p>
+
+<p>This simple command specifies the number of characters that the text cursor will move to the
+right when the next TAB$ is printed. For example:</p>
+
+<pre>
+E> Cls : Print "Home"
+   Print Tab$;"And"
+   Set Tab 10 : Print Tab$;"Away"
+</pre>
+
+<p>
+<b>CDOWN</b><br>
+<i>instruction: move text cursor down</i><br>
+<b>Cdown</b></p>
+
+<p>Use this command to force the text cursor down a single line, like this:</p>
+
+<pre>
+E> Cls: Print "Over" : Cdown : Print "the Moon"
+</pre>
+
+<p>
+<b>CDOWN$</b><br>
+<i>function: return control character to move text cursor down</i><br>
+c$=<b>Cdown$</b></p>
+
+<p>The effect of summoning up the special control character (Ascii 31) is exactly the same as
+printing after a CDOWN command. The advantage of this alternative is that several text cursor
+movements can be combined in a single string, using CDOWN$.
+For example:</p>
+
+<pre>
+E> C$="Going Down"+Cdown$
+   For A=0 To 20
+    Print C$
+   Next A
+</pre>
+
+<p>
+<b>CUP</b><br>
+<i>instruction: move text cursor one line up</i><br>
+<b>Cup</b></p>
+
+<p>
+<b>CLEFT</b><br>
+<i>instruction: move text cursor one character left</i><br>
+<b>Cleft</b></p>
+
+<p>
+<b>CRIGHT</b><br>
+<i>instruction: move text cursor one character right</i><br>
+<b>Cright</b></p><br>
+	
+<!-- section -->
+
+<p>These three commands are self-explanatory, and work in exactly the same way as CDOWN.
+their equivalent functions are listed below, and work in the same way as CDOWN$:</p>
+
+<p>
+<b>CUP$</b><br>
+<i>function: return control character (30) to move cursor up one line</i><br>
+x$=<b>Cup$</b></p>
+
+<p>
+<b>CLEFT$</b><br>
+<i>function: return control character (29) to move cursor left one character</i><br>
+x$=<b>Cleft$</b></p>
+
+<p>
+<b>CRIGHT$</b><br>
+<i>function: return control character (28) to move cursor right one character</i><br>
+x$=<b>Cright$</b></p>
+
+<p>
+<b>CLINE</b><br>
+<i>instruction: clear some or all text on current cursor line</i><br>
+<b>Cline</b><br>
+<b>Cline</b> number</p>
+
+<p>This command is used to clear the line currently occupied by the text cursor. If CLINE is
+qualified by a number, then that number of characters get cleared, starting from the current
+cursor position and leaving the cursor exactly where it is. For example:</p>
+
+<pre>
+E> Print "Testing Testing Testing";
+   Cmove -7,
+   Cline 7
+   Wait Key
+   Cline
+</pre>
+
+<p><b>Tracking the text cursor</b><br>
+
+To track down the exact position of the text cursor, the following pair of functions may be used</p>
+
+<p>
+<b>XCURS</b><br>
+<i>function: return the x-coordinate of the text cursor</i><br>
+x=<b>Xcurs</b></p>
+
+<p>
+<b>YCURS</b><br>
+<i>function: return the y-coordinate of the text cursor</i><br>
+y=<b>Ycurs</b></p>
+
+<p>In this way, a variable is created that holds the relevant coordinate of the cursor, in text format,
+and these two functions may be used independently or together. For example:</p>
+
+<pre>
+E> Locate 5,10: Print Xcurs; : Print Ycurs
+</pre>
+
+<p>
+<b>MEMORIZE X/Y</b><br>
+<i>instructions: save the x or y text cursor coordinates</i><br>
+<b>Memorize X</b><br>
+<b>Memorize Y</b></p>
+	
+<!-- section -->
+
+<p>The MEMORIZE commands store the current position of the x or y text cursor, so that you can
+print any text on the screen without destroying the original cursor coordinates. These may be
+reloaded using the REMEMBER commands, as follows:</p>
+
+<p>
+<b>REMEMBER X/Y</b><br>
+<i>instructions: restore the x or y text cursor coordinates</i><br>
+<b>Remember X</b><br>
+<b>Remember Y</b></p>
+
+<p>Use REMEMBER to position the text cursor at the coordinates saved by a previous MEMORIZE
+command. If MEMORIZE has not been used, the relevant coordinate will automatically be set to
+zero. There is a ready-made example demonstrating these commands to be found under the SET
+CURS command, which is below.</p>
+
+<p><b>Changing the text cursor</b></p>
+
+<p>
+<b>CURS PEN</b><br>
+<i>instruction: select colour of text cursor</i><br>
+<b>Curs Pen</b> index number</p>
+
+<p>As a default, whenever your screen mode provides four or more colours the text cursor is set to
+index number 3, which is endowed with a built-in flash. The flashing can be turned off and back
+on again at any time using the FLASH OFF and FLASH commands, but as soon as you select
+another colour for your text cursor, the automatic flash will not apply. To change colours, use
+the CURS PEN command, followed by the index number of your choice. For example:</p>
+
+<pre>
+X> Curs Pen 2
+</pre>
+
+<p>Note that the new colour only effects the text cursor in the current open window, and has no
+influence over other cursors used by any other windows. If you want to introduce a flash to that
+last example, you could add this line before the CURS PEN command:</p>
+
+<pre>
+X> Flash 2,"(FFF,15)(000,15)"
+</pre>
+
+<p>
+<b>SET CURS</b><br>
+<i>instruction: set the shape of the text cursor</i><br>
+<b>Set Curs</b> L1,L2,L3,L4,L5,L6,L7,L8</p>
+
+<p>To customise the text cursor into something a little more personalised, you can change its shape
+into anything you like, providing you limit yourself to the eight lines of eight bits each that
+represent its appearance. Lines are numbered one to eight from top to bottom, and every bit set
+to 1 results in a pixel drawn in the current cursor pen colour, whereas a zero displays the current
+paper colour. To familiarise yourself with the technique, try the next example, which changes
+the text cursor into a Hallowe'en mask:</p>
+
+<!-- section -->
+
+<pre>
+E> L1=%00111100
+   L2=%01111110
+   L3=%01011010
+   L4=%11100111
+   L5=%10111101
+   L6=%01011010
+   L7=%00100100
+   L8=%00011000
+   Set Curs L1 L2 , L3 L4 L5, L6 , L7, L8
+</pre>
+
+<p>Your routine will appear slightly different from that, because the system automatically strips
+away any leading zeros in binary listings.</p>
+
+<p>
+<b>CURS ON/OFF</b><br>
+<i>instructions: toggle text cursor</i><br>
+<b>Curs On</b><br>
+<b>Curs Off</b></p>
+
+<p>This pair of commands is use to hide and reveal the text cursor in the current window. It has no
+effect at all on any cursors used in other windows.</p>
+
+<p><b>Advanced text commands</b></p>
+
+<p>
+<b>ZONE$</b><br>
+<i>function: create a zone around text</i><br>
+z$=<b>ZONE$</b>(text$,zone number)</p>
+
+<p>
+The AMOS Professional programmer is allowed to create powerful dialogue boxes and on-
+screen control panels without the need to employ complex programming. The ZONES function
+surrounds a section of text with its own screen zone, so that the presence of the mouse pointer
+can be detected using the ZONE function. Simply supply the two parameters in brackets, which
+are the string of text for one of your control "buttons", followed by the number of the screen
+zone to be defined.</p>
+
+<p>The maximum number of zones will be limited by the value specified in a previous RESERVE
+ZONE command. The format for the control string is as follows:</p>
+
+<pre>
+Chr$(27)+"ZO"+A$+Chr$(27)+"R"+Chr$(48+n)
+</pre>
+
+<p>
+<b>BORDER$</b><br>
+<i>function: create a border around text</i><br>
+b$=<b>Border$</b>(text$, border number)</p>
+
+<p>This works in much the same way as ZONES, by returning a string of characters that create a
+border around the required string of text. The AMOS Professional programmer can use it with
+ZONES to set up special "buttons" for alert windows and control consoles.</p>
+
+<!-- section -->
+
+<p>In this case, the text held in the string will start at the current text cursor position. Border
+numbers can range from 1 to 16, for example:</p>
+
+<pre>
+E> Locate 1,1: Print Border$("AMOS Professional",2)
+</pre>
+
+<p>The control sequence returned by BORDER has the following format:</p>
+
+<pre>
+Chr$(27)+"E0"+A$+Chr$(27)+"R"+Chr$(48+n)
+</pre>
+
+<p>
+<b>HSCROLL</b><br>
+<i>instruction: scroll text horizontally</i><br>
+<b>Hscroll</b> number</p>
+
+<p>This command scrolls all text in the current open window horizontally, by a single character
+position. The following numbers can be used:</p>
+
+<pre>
+<b>Number Effect</b>
+1      Scroll current line to the left
+2      Scroll entire screen to the left
+3      Scroll current line to the right
+4      Scroll entire screen to the right
+</pre>
+
+<p>
+<b>VSCROLL</b><br>
+<i>instruction: scroll text vertical</i><br>
+<b>Vscroll</b> number</p>
+
+<p>Similarly to HSCROLL, the values given to this command result in different vertical scrolling
+effects, one character at a time.</p>
+
+
+<pre>
+<b>Number Effect</b>
+1      Scroll down text on and below current cursor Line
+2      Scroll down text from top of screen to current cursor line only
+3      Scroll up text from top of screen to current cursor line only
+4      Scroll up text on or below current cursor line
+</pre>
+
+<p>Note that blank lines are inserted to fill any gaps left by these scrolling operations.</p>
+
+<p><b>Advanced printing</b><br>
+
+The AMOS Professional programmer is not restricted to the standard PRINT command for
+displaying information.</p>
+
+<p>
+<b>?</b><br>
+<i>instruction: print</i><br>
+<b>Print</b></p>
+
+<p>The question mark character (?) can be used instead of PRINT as a keyboard short-cut.</p>
+
+<!-- section -->
+
+<p>When used in this way, it is automatically displayed as PRINT as soon as the line has been
+entered into your listing.</p>
+
+<pre>
+E> ? "AMOS Professional"
+</pre>
+
+<p>
+<b>USING</b><br>
+<i>instruction: format printed output</i><br>
+<b>Print Using</b> format$;variable list</p>
+
+<p>USING is always employed with the PRINT command to allow subtle changes in the way
+output is printed from a list of variables. The format string contains special characters, and each
+one has a different effect, as explained below.</p>
+
+<p>
+<b>~</b><br>
+<i>tilde character [Shift]+[#]</i></p>
+
+<p>Every ~ in the string variable is replaced by a single character from left to right, taken from an
+output string. For example:</p>
+
+<pre>
+E> Print Using "This is a ~~~~~~ example";"simple"
+</pre>
+
+<p>
+<b>#</b><br>
+<i>hash character</i></p>
+
+<p>Each # specifies one digit at a time, to be printed out from a given variable, with any unused
+digits being replaced by spaces. For example:</p>
+
+<pre>
+E> Print Using "###";123456
+</pre>
+
+<p>
+<b>+</b><br>
+<i>plus character</i></p>
+
+<p>This adds a plus sign to a positive number or a minus sign if the number is negative. For
+example:</p>
+
+<pre>
+E> Print Using "+##";10 : Print Using "+##";-10
+</pre>
+
+<p>
+<b>-</b><br>
+<i>minus character</i></p>
+
+<p>This gives a minus sign to negative numbers only. Positive numbers will be preceded by a space.
+For example:</p>
+
+<pre>
+E> Print Using "-##";10:Print Using "-##";-10
+</pre>
+
+<!-- section -->
+
+<p>
+<b>.</b><br>
+<i>full stop character</i></p>
+
+<p>When used with PRINT USING, the full stop (period) character places a decimal point in a
+number, and automatically centres it on screen. For example:</p>
+
+<pre>
+E> Print Using ".###";Pi#
+</pre>
+
+<p>
+<b>;</b><br>
+<i>semi-colon character</i></p>
+
+<p>This centres a number, but will not output a decimal point. For example:</p>
+
+<pre>
+E> Print Using "Pl is #;###";Pi#
+</pre>
+
+<p>
+<b>^</b><br>
+<i>exponential (circumflex) character [Shift]+[6]</i></p>
+
+<p>This causes a number to be printed out in exponential format. For example:</p>
+
+<pre>
+E> Print Using "This is an exponential number^";10000*10000.5
+</pre>
+
+<p><b>Sending text to a printer</b><br>
+
+<a href="10/1025.html">Chapter 10.3</a> is devoted to the exploitation of the printer device by AMOS Professional. The
+following command offers easy access to a printer from inside an AMOS Professional program
+or via Direct mode.</p>
+
+<p>
+<b>LPRINT</b><br>
+<i>instruction: output a list of variables to a printer</i><br>
+<b>Lprint</b> variable list</p>
+
+<p>The LPRINT command is exactly the same as a PRINT command, but it sends data to a printer
+instead of the screen, like this:</p>
+
+<pre>
+X> Lprint "Greetings from AMOS Professional!"
+</pre>
+
+
+</BODY>
+</HTML>
+

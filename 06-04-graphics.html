@@ -1,0 +1,659 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Graphics</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<h1>Graphics</h1>
+
+<br>
+
+
+<p>In this Chapter, you will learn how to master the arts of form and colour.</p>
+
+<p>
+AMOS Professional allows the programmer to harness the Amiga's full graphic potential, and all
+aspects of design can be controlled simply, accurately and almost instantaneously. The
+computer-graphics artist is provided with a standard electronic canvas 320 pixels wide and 200
+pixels high, and there are potentially 4096 different colours to exploit. In order to apply the
+chosen colour to the correct point, you will need to know the coordinates of each available pixel,
+and as long as these graphic coordinates are not confused with the broader scale of text
+coordinates, all will be well.</p>
+
+<p><b>Graphic coordinates</b></p>
+
+<p><b>PLOT</b><br>
+<i>instruction: plot a single point</i><br>
+<b>Plot</b> x,y<br>
+<b>Plot</b> x,y,colour</p>
+
+<p>
+This is the simplest drawing command of all, and plots a single pixel of ink colour between
+graphic coordinates 0,0 and 319,199. When followed by specific x,y-coordinates, the current ink
+colour will be plotted at this new position. You are allowed to omit either the x or the y-
+coordinate, provided the comma is left in the correct position. If an optional colour index
+number is added the new colour will be used for this and all subsequent drawing operations.
+For example:</p>
+
+<pre>
+E> Cls: Curs Off
+   Do
+    Plot Rnd(319),Rnd(199),Rnd(15)
+   Loop
+</pre>
+
+<p><b>POINT</b><br>
+<i>function: return the colour of a point</i><br>
+c=<b>Point</b>(x,y)</p>
+
+<p>
+Use this function to find the index number of the colour occupying your chosen coordinates,
+like this:</p>
+
+<pre>
+Cls : Plot 160,100
+Print "The colour is ";Point(160,100)
+</pre>
+
+<p><b>Setting the graphics cursor</b></p>
+
+<p><b>GR LOCATE</b><br>
+<i>instruction: position the graphics cursor</i><br>
+<b>Gr Locate</b> x,y</>
+
+<p>
+The graphics cursor sets the starting point for most drawing operations. To establish this point,
+use GR LOCATE to position the graphics cursor at your chosen coordinates.</p>
+
+<!-- section -->
+
+<p>For example:</p>
+
+<pre>
+E> X=150 : Y=10
+   For R=3 To 87 Step 3
+    Gr Locate X,Y+R
+    Circle ,,R
+   Next R
+</pre>
+
+<p><b>XGR</b><br>
+<b>YGR</b><br>
+<i>functions: return the relevant coordinate of the graphics cursor</i><br>
+x=<b>Xgr</b><br>
+y=<b>Ygr</b></p>
+
+<p>
+Use these functions to find the current coordinates of the graphics cursor, which is the default
+location for future drawing operations. For example:</p>
+
+<pre>
+E> Cls : Circle 100,100,50
+   Print Xgr,Ygr
+</pre>
+
+<p><b>Drawing lines</b></p>
+
+<p><b>DRAW</b><br>
+<i>instruction: draw a line</i><br>
+<b>Draw</b> x1 ,y1 <b>To</b> x2,y2<br>
+<b>Draw</b> <b>To</b> x,y</p>
+
+<p>
+Line drawing is extremely simple. Pick two sets of graphic coordinates, and draw your line from
+one to the other. To draw a line from the current position of the graphics cursor, use DRAW TO
+followed by a single set of coordinates. For example:</p>
+
+<pre>
+E> Cls: Ink 2
+   Draw 50,50 To 250,150
+   Draw To 275,175
+</pre>
+
+<p><b>Line styles</b><br>
+
+Changing the appearance of straight lines is very simple with AMOS Professional. Each line
+pattern is held in the form of a binary number made up of 16 bits, with zeros setting blank spaces
+in the current background colour, and ones setting the solid parts of the pattern in the current ink
+colour. So a normal solid line can be imagined as having all its bits set to one, like this:</p>
+
+<pre>%01111111111111111</pre>
+
+<!-- section -->
+
+<p><b>SET LINE</b><br>
+<i>instruction: set a line style</i><br>
+<b>Set Line</b> binary mask</p>
+
+<p>
+This command sets the style of all straight lines that are subsequently drawn. Theoretically, the
+16-bit mask can generate values for different patterns between 0 and 65535, but here is a more
+practical example:</p>
+
+<pre>
+E> Cls : Ink 2
+   Set Line $F0F0
+   Box 50,100 To 150,140
+   Set Line %1100110011001100
+   Box 60,110 To 160,160
+</pre>
+
+<p><b>Drawing outline shapes</b><br>
+
+Here is a range of AMOS Professional short-cuts for drawing outline shapes on the screen.</p>
+
+<p>
+<b>POLYLINE</b><br>
+<i>instruction: draw multiple line</i><br>
+<b>Polyline</b> x1 ,y1 <b>To</b> x2,y2 <b>To</b> x3,y3<br>
+<b>Polyline</b> To x1 ,y1 <b>To</b> x2,y2</p>
+
+<p>
+The POLYLINE is identical to DRAW except that it accepts multiple coordinate settings at the
+same time. In this way, complex many-sided outlines can be drawn with a single statement. In
+its POLYLINE TO form, drawing begins at the current graphic cursor position. For example:</p>
+
+<pre>
+E> Circle 160,100,95
+   Polyline 160,6 To 100,173 To 250,69 To 71,69 To 222,173 To 160,6
+</pre>
+
+<p><b>BOX</b><br>
+<i>instruction: draw a rectangular outline</i><br>
+<b>Box</b> x1 ,y1 <b>To</b> x2,y2</p>
+
+<p>
+Boxed outlines are drawn at settings determined by the top left-hand and bottom right-hand
+coordinates, as in the last example.</p>
+
+<p>
+<b>CIRCLE</b><br>
+<i>instruction: draw a circular outline</i><br>
+<b>Circle</b> x,y,radius</p>
+
+
+<p>
+To draw circles, a pair of coordinates sets the position of the centre point around which the
+shape is to be drawn, followed by the radius of the circle (the distance between the centre point
+and the circumference or rim of the circle.) If the x,y-coordinates are omitted, the circle will be
+drawn from the current graphic cursor position.</p>
+
+<!-- section -->
+
+<p>For example:</p>
+
+<pre>
+E> Cls : Curs Off : Ink 3
+   Gr Locate 160,100
+   Circle ,,45 : Wait 100: Flash Off
+   Do
+    Ink Rnd(15) : X=Rnd(250) : Y=Rnd(150) : R=Rnd(90)+1
+    Circle X,Y,R
+   Loop
+</pre>
+
+<p><b>ELLIPSE</b><br>
+<i>instruction: draw an elliptical outline</i><br>
+<b>Ellipse</b> x,y,radius1,radius2</p>
+
+<p>
+An ellipse is drawn in a similar way. After the x,y-coordinates have set the centre location, two
+radii must be given, one to set the horizontal width and the second to set the height of the
+ellipse. Coordinates may be omitted as usual, providing the commas remain in place. For
+example:</p>
+
+<pre>
+E> Ellipse 100,100,50,20
+   Ellipse ,,20,50
+</pre>
+
+<p><b>CLIP</b><br>
+<i>instruction: restrict drawing to a limited screen area</i><br>
+<b>Clip</b>
+<b>Clip</b> x1 ,y1 <b>To</b> x2,y2</p>
+
+<p>
+This command is used to set an invisible rectangular boundary on the screen, using the normal
+top left-hand corner to bottom right-hand corner coordinates. All subsequent drawing
+operations will be clipped off when they reach these boundaries. To toggle the command and
+restore the normal screen display area, use CLIP and omit the coordinates. Areas that are
+preserved outside of the clipped zone can be used for items such as borders and control panels.
+For example:</p>
+
+<pre>
+E> Clip 150,5 To 280,199
+   For R=4 To 96 Step 4
+    Gr Locate 150,R+5
+    Ellipse ,,R+9,R
+   Next R
+</pre>
+
+<p><b>Selecting colours</b><br>
+
+The next part of this Chapter explains how the AMOS Professional programmer is free to exploit
+the Amiga's superb colour-handling features. Although the Amiga only provides 32 colour
+registers, AMOS Professional allows the use of colour numbers ranging from 0 to 63. This is in
+order to make full use of the extra colours available from the Half-Bright and HAM modes, as
+explained in <a href="6/601.html">Chapter 6.1</a>.</p>
+
+<!-- section -->
+
+<p><b>INK</b><br>
+<i>instruction: set drawing colour</i><br>
+<b>Ink</b> number<br>
+<b>Ink</b> number,pattern,border</p>
+
+<p>
+You are not restricted to the pre-set colours that have been allocated for drawing operations.
+The INK command is used to specify which colour is to be used for subsequent drawing, and
+the number of the colour register is set like this:</p>
+
+<pre>
+E> Cls: Ink 5
+   Draw To 319,199
+</pre>
+
+<p>
+The INK instruction can also be used to set patterns for filling shapes, as well as colours for
+borders around shapes, and this will be explained later. The next concept to understand is how
+different colours are mixed.</p>
+
+<p>
+Every shade of colour displayed on your television set or monitor is composed of various
+mixtures of the same three primary colours: Red, Green and Blue (RGB for short). There is a
+range of 16 intensities available for each of the RGB levels in every colour. A zero level is
+equivalent to "none" of that colour (black), and the maximum intensity of 16 is the equivalent of
+"all" of that colour. Because there are three separate components each with 16 possible
+strengths, the maximum range of available shades is 16 times 16 times 16, in other words 4096
+possible colours.</p>
+
+<p>
+The Amiga prefers to recognise colours by their RGB components, given in hexadecimal values,
+known as "hex". The following table shows the equivalent decimal and hex values for the 16
+numbers involved:</p>
+
+
+<pre>
+Hex digit 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
+Decimal   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
+</pre>
+
+
+<p><b>COLOUR</b><br>
+<i>function: read the colour assignment</i><br>
+c=<b>Colour</b>(index)</p>
+
+<p>
+It is not difficult to find which colours are occupying the colour index, and analyse how much
+Red, Green and Blue is used to make up each shade. The COLOUR function can take an index
+number from 0 to 31, and returns the colour value assigned to that number. Hex$ is used for this
+purpose, as follows:</p>
+
+<pre>
+E> Curs Off : Flash Off
+   For C=0 To 15: Ink C
+    Print Hex$(Colour(C),3)
+    Circle 160,75,(C+1)*4
+   Next C
+</pre>
+
+<!-- section -->
+
+<p>
+That example creates a lit of 16 colour values in hex code, alongside a ripple of circles in those
+colours. Note that the $ symbol is always used to introduce a hex number for the Amiga to
+recognise. The first hex value in the example table should be $000, meaning no Red, no Green
+and no Blue component is present in colour index 0. Sure enough, the innermost circle is drawn
+in black ink.</p>
+
+<p>Here are some other examples in this form of notation:</p>
+
+<pre>
+<b>Colour    Hex value    RGB components</b>
+White     $FFF         R=F G=F B=F
+Grey      $666         R=6 G=6 B=6
+Green     $0F0         R=0 G=F B=0
+Violet    $FOF         R=F G=0 B=F
+Ox blood  $801         R=8 G=0 B=1
+Pig foot  $A74         R=A G=7 B=4
+</pre>
+
+
+<p><b>COLOUR</b><br>
+<i>instruction: assign a colour to an index</i><br>
+<b>Colour</b> number,$RGB</p>
+
+<p>
+Used as an instruction, COLOUR allows you to assign the RGB components of a colour to each
+of the Amiga's 32 colour registers. For example, if you wanted to load colour number 1 with a
+subtle shade of pig's feet, you would use this:</p>
+
+<pre>
+E> Cls : Colour 1,$A74
+</pre>
+
+<i>COLOUR BACK</i><br>
+<i>instruction: assign a colour to the screen background</i><br>
+<b>Colour Back</b> $RGB<br>
+<b>Colour Back</b> (number)</p>
+
+<p>
+This command is used to assign your choice of RGB components for the screen's background
+colour, which fills unused areas at the top and bottom of the visible screen. Alternatively,
+existing colours may also be specified when enclosed in brackets.</p>
+
+<p><b>Setting several colours</b><br>
+
+Impressive effects can be programmed using multi-colour changes, but assigning individual
+colours to every colour index would be a tedious business. AMOS Professional handles all the
+donkey work as usual.</p>
+
+<p><b>PALETTE</b><br>
+<i>instruction: set the current screen colours</i><br>
+<b>Palette</b> colour list</p
+
+<p>This is a much more powerful command than COLOUR, and it can be used to set as few or as</p>
+
+<!-- section -->
+
+<p>many colours in your artist's palette as are needed. Your programs always begin using a list of
+default colour values, and these values may be changed as in the next example.</p>
+
+<p>Remember that only the colours specifically set with this command will be affected, and any
+others will retain their original values.</p>
+
+<pre>
+E> Palette $FFF : Rem set colour 0 to white
+   Palette ,,,,$F00,$D00,$A00,$700,$400 : Rem colours 4 to 8 graded reds
+   Palette $000,,$000: Rem colours 0 and 2 both black
+</pre>
+
+<p>
+PALETTE can also be used to set the colours used by the Half-Bright and HAM modes, and
+some superb ready-made examples are available, care of <a href="6/601.html">Chapter 6.1</a>. For a little light relief, try
+his routine, which changes the first five colours in the palette with a hexadecimal poem, and
+displays the result on screen. Feel free to change the values or the poetry.</p>
+
+<pre>
+E> Palette $BAD,$0DD,$B0D,$FAB,$F1B
+   Curs Off : Flash Off
+   For C=0 To 4: Ink C
+    Print Hex$(Colour(C,3)
+    Bar 50,8*C To 150,8*C+8
+   Next C
+</pre>
+
+<p><b>Filled shapes</b><br>
+You should now be familiar with drawing basic shapes and setting choices of colour. The next
+stage explains how to combine these skills. Re-set your colours now, by getting rid of any
+customised PALETTE commands, before continuing.</p>
+
+<p><b>PAINT</b><br>
+<i>instruction: fill a screen area with colour</i><br>
+<b>Paint</b> x,y<br>
+<b>Paint</b> x,y,mode</p>
+
+<p>
+The PAINT command allows you to fill any section of your screen with a solid block of colour.
+You may also fill areas with various patterns previously selected with the SET PATTERN
+command, which is explained later. Decide which area is to be filled, and follow the PAINT
+command by a set of coordinates located anywhere inside the section of screen you want to
+paint with the current ink colour. Try this, which if all goes well should result in the Japanese
+national flag:</p>
+
+<pre>
+E> Palette 0,$F00
+   Circle 160,100,50
+   Paint 50,50
+</pre>
+
+<p>
+The optional mode setting can be set to either zero or one. A value of 0 ends your PAINT
+operation at the first pixel encountered of the current border colour. A mode of 1 stops the
+painting operation at any colour which is different from the existing ink colour. If there are any
+gaps in the boundaries of the sections you wish to fill, colour will leak out and stain the
+adjoining area.</p>
+
+<!-- section -->
+
+<p><b>BAR</b><br>
+<i>instruction: draw a filled rectangle</i><br>
+<b>Bar</b> x1,y1 <b>To</b> x2,y2</p>
+
+<p>
+This is used to draw solid bars of colour by the familiar method of setting the top left-hand and
+bottom right-hand graphic coordinates.</p>
+
+<p><b>POLYGON</b><br>
+<i>instruction: draw a filled polygon</i><br>
+<b>Polygon</b> x1,y1 <b>To</b> x2,y2 <b>To</b> x3,y3<br>
+<b>Polygon</b> <b>To</b> x1,y1, <b>To</b> x2,y2</p>
+
+<p>
+This can be regarded as creating a solid version of the POLYLINE command, and your shape
+will begin at the current graphic coordinates if you commence the command in its POLYGON
+TO form. Provided that your single statement does not exceed the maximum allowed line
+length of 255 characters, there is no limit to the number of pairs of coordinates you can use. Try
+this example:</p>
+
+<pre>
+E> Do
+    Ink Rnd(15)
+    X1=Rnd(250) : Y1=Rnd(150) : H=Rnd(200) : W=Rnd(150)
+    Polygon X1,Y1 To X1+W,Y1 To X1+W/2,Y1+H To X1,Y1
+   Loop
+</pre>
+
+<p><b>Alternative fill style</b><br>
+
+Filling shapes with plain colours is a useful technique, but the AMOS Professional programmer
+has a much wider choice of fill effects.</p>
+
+<p><b>SET PATTERN</b><br>
+<i>instruction: select a fill pattern</i><br>
+<b>Set Pattern</b> number</p>
+
+<p>
+Use this command to select from a range of pattern styles. The default status fills shapes with
+the current ink colour, and is set with a zero, like this:</p>
+
+<pre>
+X> Set Pattern 0
+</pre>
+
+<p>
+If SET PATTERN is followed by a positive number from 1 to 34, shapes are filled from a ready-
+made selection of patterns.</p>
+
+
+<!-- section -->
+
+<p>View them now, by running this routine:</p>
+
+<pre>
+D> Do
+    For N=0 To 34
+     Set Pattern N
+     Ink 0,1,2: Set Paint 1
+     Bar 50,50 To 150,150
+     Locate 0,0: Print N ;" "
+     Wait 50
+    Next N
+   Loop
+</pre>
+
+<p>
+If SET PATTERN is followed by a negative number, shapes will be filled with a pattern grabbed
+from a Sprite or Bob image, taken from the Object Bank (memory bank 1). Because these
+patterns can be very complex, AMOS Professional will simplify them automatically, as follows.</p>
+
+<p>
+The width of the image is clipped to 16 pixels, and the height is rounded to the nearest power of
+two (2, 4, 8, 16, 32 and so on.)</p>
+
+<p>
+The original colours of the image are discarded, and the pattern is drawn using the current ink
+and paper colours. Two-colour patterns are drawn as monochrome images.</p>
+
+<p>
+If multi-coloured images are required using the original Object colours, the INK must first be set
+up, as follows:</p>
+
+<pre>
+X> Ink 15,0
+   Set Pattern -1
+   Paint 100,100
+</pre>
+
+<p>
+That example fills the screen area around the given coordinates with any of the Object colours,
+except the transparent colour zero. The colour index number 15 acts as a mask, defining which
+colours are to be used, and sets the range from 1 to 15. If the INK command is changed to the
+following line, the Object will be drawn with the normally transparent colour filled by colour 1:
+</p>
+
+<pre>
+X> Ink 15,1
+</pre>
+
+<p>
+Before making use of sprite images as fill patterns, remember to use GET SPRITE PALETTE to
+avoid messy displays. Here is an example:</p>
+
+<pre>
+E> Flash Off : Cls 0
+   Load "AMOSPro_Tutorial:Objects/Pattern.Abk"
+   Get Sprite Palette
+   Box 1,1 To 319,199
+   Ink 15,0
+   Set Pattern -1
+   Paint 102,102
+</pre>
+
+<!-- section -->
+
+<p><b>SET PAINT</b><br>
+<i>instruction: toggle outline mode</i><br>
+<b>Set Paint</b> mode</p>
+
+<p>
+This is a simple command that toggles outlines off and on for any shapes drawn using the
+POLYGON and BAR instructions. Follow SET PAINT with a mode value of 1, and borders will
+appear in the previous ink colour. If the mode is set by a zero, the default setting applies, with
+no borders shown. For example:</p>
+
+<pre>
+E> Ink 0,1,2 : Set Paint 1
+   Bar 5,5 To 200,100
+   Set paint 0: Bar 210,75 To 310,190
+</pre>
+
+<p>
+In the last example, the INK command carried additional parameters. These optional settings
+follow the usual colour number, and are used to determine paper and border colours. In other
+words, they can set the colours to be used for fill patterns and outlines of bars and polygons.
+Remember to include any commas for unused options, as follows:</p>
+
+<pre>
+X> Ink 3: Rem Set ink colour
+   ink ,,5: Rem Set border outline only
+   Ink 0,8,2: Rem Set ink, fill colour and border
+   Ink 6,13: Rem Set ink and background fill colour
+</pre>
+
+<p><b>Overwriting styles</b><br>
+
+When graphics are drawn, they normally get "written" over what is already displayed on the
+screen. There are four alternative drawing modes that change the way your graphics appear,
+and they may be used individually or combined to generate a whole range of effects.</p>
+
+<p><b>GR WRITING</b><br>
+<i>instruction: change graphic writing mode</i><br>
+<b>Gr Writing</b> bitpattern</p>
+
+<p>
+This command is used to set the various modes used for drawing lines, shapes, filled shapes and
+graphical text. Settings are made using a bit pattern, whose values give the following results:</p>
+
+<pre>
+Bit 0 = 0 only draw graphics using the current ink colour.
+Bit 0 = 1 replace any existing graphics with new graphics (default condition).
+Bit 1 = 1 change old graphics that overlap with new graphics, using XOR.
+Bit 2 = 1 reverse ink and paper colours, creating inverse video effect.
+</pre>
+
+<p>The normal drawing state is where new graphics overwrite old graphics, like this:</p>
+
+<pre>
+E> Ink 2,5 : Text 100,80, "NORMAL TEXT"
+   Wait 100 : Gr Writing 1
+   Text 10 ,80, "REPLACE"
+</pre>
+
+<!-- section -->
+
+<p>Try the next example for some simple demonstrations of alternative settings:</p>
+
+<pre>
+E> Ink 2,5 : Text 100,80,"NORMAL TEXT"
+   Wait 100 : Gr Writing 0
+   Text 100,80, "MERGED"
+   Wait 100 : Gr Writing 4
+   Text 100,90, "STENCIL"
+   Wait 100 : Gr Writing 5
+   Text 100,100, "REVERSE"
+</pre>
+
+<p><b>Advanced techniques</b><br>
+
+Whenever AMOS Professional performs a fill command, a special area of memory is reserved to
+hold the fill pattern. This memory is automatically returned to the system after the fill
+instruction has been performed. The size of the memory buffer is equivalent to a single bit plane
+in the current screen mode, so the default screen takes up a total of 8k.</p>
+
+<p><b>SET TEMPRAS</b><br>
+<i>instruction: set Temporary Raster</i><br>
+<b>Set Tempras</b><br>
+<b>Set Tempras</b> buffer address,buffer size</p>
+
+<p>
+This command allows the AMOS Professional programmer to adjust the amount of memory
+used by the various graphics operations. You are warned that improper usage can cause your
+computer to crash! The address and size of the graphics buffer can be changed as explained
+below.</p>
+
+<p>
+The buffer address can be either an address or a memory bank, and the memory reserved for
+this buffer should always be Chip RAM. After allocating the buffer area at the start of your
+program, there is no need to keep on reserving and restoring it, which means that the execution
+of your programs can be speeded up by up to 5%!</p>
+
+<p>
+The buffer size is the number of bytes you want to reserve for the buffer area, ranging from 256
+to 65536. To calculate the amount of memory you need for a particular object, enclose the object
+in a rectangular box and apply the following formula:</p>
+
+<p>Memory area = Width/8*Height</p>
+
+<p>
+If you are intending to use the PAINT command, make sure that your shape is closed, otherwise
+additional memory may be called for, causing the system to crash.</p>
+
+<p>
+The buffer area can be restored to its original value by calling SET TEMPRAS with no
+parameters.</p>
+
+
+</BODY>
+</HTML>
+
