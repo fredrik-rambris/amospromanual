@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Disc Access</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Disc Access</h1>
+
+<br>
+
+<p>
+<b>LDIR</b><br>
+<b>LDIRAN</b><br>
+<i>instructions: output directory of current disc to printer</i><br>
+<b>Ldir</b><br>
+<b>Ldir</b> path$<br>
+<b>Ldir/W</b><br>
+<b>Ldir</b> path$ <b>/W</b></p>
+
+<p>
+These two commands are used in exactly the same way as DIR and DIR/W, as explained above,
+and they list the directory of the current disc to a printer.</p>
+
+<p>
+<b>SET DIR</b><br>
+<i>instruction: set directory style</i><br>
+<b>Set Dir</b> number<br>
+<b>Set Dir</b> number,filter$</p>
+
+<p>
+This command must be followed by a number ranging from 1 to 100, which sets the number of
+characters to be displayed from each filename. There is no effect on the names themselves, only
+on the way they are displayed. For example:</p>
+
+<pre>
+E> Set Dir 6
+   Dir
+</pre>
+
+<p>
+An optional string may be added to a SET DIR command, which has the effect of filtering out
+pathnames from the directory search. All filenames that match up with this filer will be
+completely ignored. Supposing a directory began like this:</p>
+
+<pre>
+AMO.IFF
+AMAL
+AMAT.IFF
+AMINIBUS
+AMINOACID
+AMENSROOM.IFF
+AMULET
+</pre>
+
+<p>
+SET DIR may now be used to restrict the display to three characters, as well as filtering out any
+IFF files, as follows:</p>
+
+<pre>
+D> Set Dir 5,".IFF"
+</pre>
+
+<p>
+The first two characters displayed are folder markers, this is why the value five is used instead of
+three.</p>
+
+<div align="right"> <a href="1010.html">Back</a> &nbsp;&nbsp;
+  <a href="1012.html">Next</a>
+  <br>
+  10.02.04
+</div>
+
+</BODY>
+</HTML>

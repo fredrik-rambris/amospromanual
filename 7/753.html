@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMAL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>AMAL</h1>
+
+<br>
+
+<p>
+Please note that AMAL automatically waits for the next vertical blank before jumping back to
+the start of the loop with Next. The movement of your objects will only be seen when the screen
+is updated after a VBL, so faster loops would merely waste valuable processor time without any
+visible effect. AMAL automatically synchronises your For ... Next loops with the screen updates,
+producing the smoothest possible results. The use of a Pause command is not needed.</p>
+
+<p><b>AUTOTEST</b><br>
+<b>AU</b>totest (list of tests)</p>
+
+<p>
+The AUtotest feature provides rapid interaction between AMAL and the user. It adds a special
+test at the beginning of the AMAL program, and this test is performed at every VBL before the
+rest of the AMAL program is executed. AUtotest is fully explained in its own section of this
+Chapter.</p>
+
+<p><b>DIRECT</b><br>
+<b>D</b>irect</p>
+
+<p>This sets the part of the main program which is to be executed after an Autotest.</p>
+
+<p><b>END</b><br>
+<b>E</b>nd</p>
+
+<p>The End command terminates the entire AMAL program and turns off the Autotest feature if it
+has been defined.</p>
+
+<p><b>EXIT</b><br>
+e<b>X</b>it</p>
+
+<p>This command exits from an Autotest and re-enters the current AMAL program.</p>
+
+<p><b>ON</b><br>
+<b>O</b>n</p>
+
+<p>The On instruction activates the main program after a Wait command.</p>
+
+<p><b>PAUSE</b><br>
+<b>P</b>ause</p>
+
+<p>
+Use Pause to temporarily halt the execution of an AMAL program, and wait for the next vertical
+blank period. After the VBL, the program resumes from the next instruction automatically.</p>
+
+<p>
+You are recommended to use Pause before a Jump command to ensure that the number of
+jumps is less than the maximum of ten per VBL. This frees valuable processor time and can have
+a superb effect on the overall speed of your Basic program.</p>
+
+<div align="right"> <a href="752.html">Back</a> &nbsp;&nbsp;
+  <a href="754.html">Next</a>
+  <br>
+  07.06.06
+</div>
+
+</BODY>
+</HTML>

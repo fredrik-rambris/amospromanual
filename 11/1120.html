@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Libraries and Devices</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Libraries and Devices</h1>
+
+<br>
+
+<p>
+<b>DEV NEXT$</b><br>
+<i>function: get the next device that satisfies the current search path</i><br>
+device$=<b>Dev Next$</b></p>
+
+<p>
+This is used in conjunction with the DEV FIRST$ function to get the next device in the current
+device list that satisfies the specified search path. Once the last device has been found, an empty
+string will be returned.</p>
+
+<pre>
+E> Print Dev First$("**")
+   Do
+    A$=Dev Next$
+    If A$="" Then End
+    Print A$
+   Loop
+</pre>
+
+<p>
+AMOS Professional includes a powerful series of commands to exploit these devices directly
+from your programs, but they should only be used by experienced programmers, armed with
+the relevant ROM Kernel manual. You have been warned!</p>
+
+<p>
+<b>DEV OPEN</b><br>
+<i>instruction: open a device</i><br>
+<b>Dev Open</b>(channel number,"name.device",IOlength,UnitNumber,Flags)</p>
+
+<p>
+The DEV OPEN command opens a communication port and prepares the device for use by
+AMOS Professional programs. If this device is not already installed, it will be loaded from the
+"DEVS" folder of your current start-up disc automatically. Floppy disc users may be requested to
+swap discs at this point.</p>
+
+<p>
+The selected device will now remain active during the course of the program, and will only be
+closed if a DEV CLOSE command is called, or a RUN command is used to clear the variable area,
+or a CLEAR operation is undertaken.</p>
+
+<p>
+The specified channel number should be from zero to 4, the "name.device" parameter enters the
+name of the device to be initialised in normal AmigaDOS format, and IOlength specified the
+length of the IO structure to be created for the device. If in doubt, use a value of 256, which
+should be sufficient for most devices. The final flags parameter sets the status of the device flags
+if applicable. Please refer to your system documentation for details.</p>
+
+<p>DEV OPEN performs the following operations:</p>
+
+<ul>
+  <li>Firstly, a communication port is created and initialised.</li>
+  <li>Next, an IO Ext structure is opened, ready for communication.</li>
+  <li>Lastly, the OPEN DEVICE function is executed with the new structure.</li>
+</ul>
+
+<p>
+<b>DEV CLOSE</b><br>
+<i>instruction: close one or more devices</i><br>
+<b>Dev Close</b><br>
+<b>Dev Close</b> channel</p>
+
+<p>Use this command to close one or more open devices.</p>
+
+<div align="right"> <a href="1119.html">Back</a> &nbsp;&nbsp;
+  <a href="1121.html">Next</a>
+  <br>
+  11.05.07
+</div>
+
+</BODY>
+</HTML>

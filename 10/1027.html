@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Accessing a Printer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Accessing a Printer</h1>
+
+<br>
+
+<pre>
+aSGR22     ESC[22m   normal pitch
+aSHORP2    ESC[2w    Elite on
+aSHORP1    ESC[1w    Elite off
+aSHORP4    ESC[4w    condensed on
+aSHORP3    ESC[3w    condensed off
+aSHORP6    ESC[6w    enlarged on
+aSHORP5    ESC[5w    enlarged off
+aDEN6      ESC[6"z   shadow print on
+aDEN5      ESC[5"z   shadow print off
+aDEN4      ESC[4"z   double-strike on
+aDEN3      ESC[3"z   double-strike off
+aDEN2      ESC[2"z   near-letter-quality on
+aDEN1      ESC[1"z   near-letter-quality off
+aSUS2      ESC[2v    superscript on
+aSUS1      ESC[1v    superscript off
+aSUS       ESC[4v    subscript on
+aSUS3      ESC3v     subscript off
+</pre>
+
+<p>
+In order to print a text string in Italics and underlined, for example, the following routine could
+be used:</p>
+
+<pre>
+X> ESC$=Chr$(27)
+   LF$=ESC$+"E"
+   Printer Open
+   Printer Send ESC$+"[3m"+ESC$+[4m"+"Greetings!"+LF$
+   Printer Close
+</pre>
+
+<p>
+The state of printer output can be monitored by the PRINTER CHECK and PRINTER ERROR
+functions, and printing can be abandoned completely using PRINTER ABORT, which are all
+explained later.</p>
+
+<p><b>Screen dumps</b><br>
+
+There are three alternative ways of using the PRINTER DUMP command to perform a screen
+dump.</p>
+
+<p>
+<b>PRINTER DUMP</b><br>
+<i>instruction: print the contents of an AMOS Professional screen</i><br>
+<b>Printer Dump</b><br>
+<b>Printer Dump</b> x1 ,y1 <b>To</b> x2,y2<br>
+<b>Printer Dump</b> x1 ,y1 <b>To</b> x2,y2,px,py,setting</p>
+
+<p>
+Used without any parameters, PRINTER DUMP will perform an entire screen dump in a single
+operation. If the screen contains complex graphics, this may well take a considerable time to
+complete.</p>
+
+<p>
+A selected area of the screen can be transmitted to the printer, retaining the current aspect ratio
+and screen size. In other words, if only half of the current display is to be printed,
+it will take up exactly half of the space of a complete print-out.</p>
+
+<div align="right"> <a href="1026.html">Back</a> &nbsp;&nbsp;
+  <a href="1028.html">Next</a>
+  <br>
+  10.03.03
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Maths</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Maths</h1>
+
+<br>
+
+<P>This Chapter provides a full explanation of using standard mathematical and 
+trigonometric functions, as well an insight into how AMOS Professional exploits numbers.</P>
+
+
+<P><b>Arithmetical calculations</b><br>
+Nothing could be simpler than asking AMOS Professional to run this sum:</P>
+
+<pre>
+D&gt; Print 2+2
+</pre>
+	
+<P>Arithmetical operations are straightforward, provided the correct symbols are used, as follows:</P>
+
+
+<P>+ the plus sign always signals addition</P>
+
+<p>- the minus sign is used for subtraction</p>
+
+<p>* for multiplication, an asterisk character must be used</p>
+<p>/ divisions are made using the forward-slash symbol</p>
+<p>^ the circumflex character is used as the exponential symbol, and it means "raise this
+  number to a given power", which is exactly the same as multiplying a number with itself.</p>
+
+
+
+<P>So the following two lines are interchangable:</P>
+
+<pre>
+D&gt; Print 3^5
+   Print 3*3*3*3*3
+</pre>
+
+<P>The following logical operations can also be used in calculations:</P>
+
+
+<P><b>MOD</b> is the "modulo" operator, which acts as a constant multiplier.
+<b>AND</b>, <b>OR</b> and <b>XOR</b> are the three logical operations.</p>
+
+<p><b>Calculation priorities</b><br>
+
+Arithmetical instructions are taken literally, using a set of built-in priorities. So the 
+following lines give the results 6 and 8 respectively:</P>
+
+<pre>
+D&gt; Print 2+2*2
+   Print (2+2)*2
+</pre>
+
+<P>AMOS Professional handles a combination of calculations that make up an "expression" in 
+the following strict order of priority:</P>
+
+<UL>
+  <LI>exponential numbers are always calculated first ( ^ ).</LI>
+
+  <LI>multiplications and divisions are then calculated in order of appearance, from left 
+  to right (*/). Remainders of divisions will be dealt with by any modulo operations (MOD).</LI>
+
+  <LI>additions and subtractions are calculated last, again in order, from left to right 
+  (+-).</LI>
+
+  <LI>any logical operations will not be taken into account until after all the above 
+  calculations have been completed (AND, OR, XOR).</LI>
+
+</UL>
+
+<P>Any calculation placed inside a pair of round brackets is evaluated first, and treated 
+as a single number.</P>
+
+<div align="right"> <a href="517.html">Back</a> &nbsp;&nbsp; 
+  <a href="519.html">Next</a>
+  <br>
+  05.03.01
+</div>
+
+</BODY>
+</HTML>

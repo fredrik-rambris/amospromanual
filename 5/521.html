@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Maths</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Maths</h1>
+
+<br>
+
+<P>
+Similarly, the MIN function returns the smaller value of two expressions. Expressions can consist
+of strings, integers or real numbers, but only compare like with like, as follows:</P>
+
+<pre>
+D&gt; A=Min(99,1) : Print A
+   Print Min("AMOS Professional","AMOS")
+</pre>
+
+<P><b>Values and signs</b><br>
+
+Any number can have one of three values: negative, positive or zero, and these are represented
+by the "sign" of a number.</P>
+
+<P><b>SGN</b><BR>
+<i>function: return the sign of a number</i><BR>
+sign=<b>Sgn</b>(value)<BR>
+sign=<b>Sgn</b>(value#)</P>
+	
+<P>
+The SGN function returns a value representing the sign of a number. The three possible results
+are these:</P>
+
+<pre>
+-1 if the value is negative
+ 1 if the value is positive
+ 0 if the value is zero
+</pre>
+
+<P><b>ABS</b><BR>
+<i>function: return an absolute value</i><BR>
+a=<b>Abs</b>(value)<BR>
+a=<b>Abs</b>(value#)</P>
+
+<P>
+This function is used to convert arguments into a positive number. ABS returns an 
+absolute value of an integer or fractional number, paying no attention to whether that number is 
+positive or negative, in other words, ignoring its sign.</P>
+
+<P>For example:</P>
+
+<pre>
+D&gt; Print Abs(-1),Abs(1)
+</pre>
+	
+<P><b>Floating point numbers</b><br>
+
+Numbers that consist of many digits either side of a decimal point can often give very 
+messy results in Basic programming. The movement of the decimal point slows down the processing,
+and levels of accuracy may be too great for your needs.</P>
+
+<P><b>INT</b><BR>
+<i>function: convert floating point number into an integer</i><BR>
+integer=<b>Int</b>(number#)</P>
+
+<div align="right"> <a href="520.html">Back</a> &nbsp;&nbsp; 
+  <a href="522.html">Next</a>
+  <br>
+  05.03.04
+</div>
+
+</BODY>
+</HTML>

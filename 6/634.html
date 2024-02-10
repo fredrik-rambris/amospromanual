@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Graphics</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Graphics</h1>
+
+<br>
+
+<p><b>BAR</b><br>
+<i>instruction: draw a filled rectangle</i><br>
+<b>Bar</b> x1,y1 <b>To</b> x2,y2</p>
+
+<p>
+This is used to draw solid bars of colour by the familiar method of setting the top left-hand and
+bottom right-hand graphic coordinates.</p>
+
+<p><b>POLYGON</b><br>
+<i>instruction: draw a filled polygon</i><br>
+<b>Polygon</b> x1,y1 <b>To</b> x2,y2 <b>To</b> x3,y3<br>
+<b>Polygon</b> <b>To</b> x1,y1, <b>To</b> x2,y2</p>
+
+<p>
+This can be regarded as creating a solid version of the POLYLINE command, and your shape
+will begin at the current graphic coordinates if you commence the command in its POLYGON
+TO form. Provided that your single statement does not exceed the maximum allowed line
+length of 255 characters, there is no limit to the number of pairs of coordinates you can use. Try
+this example:</p>
+
+<pre>
+E> Do
+    Ink Rnd(15)
+    X1=Rnd(250) : Y1=Rnd(150) : H=Rnd(200) : W=Rnd(150)
+    Polygon X1,Y1 To X1+W,Y1 To X1+W/2,Y1+H To X1,Y1
+   Loop
+</pre>
+
+<p><b>Alternative fill style</b><br>
+
+Filling shapes with plain colours is a useful technique, but the AMOS Professional programmer
+has a much wider choice of fill effects.</p>
+
+<p><b>SET PATTERN</b><br>
+<i>instruction: select a fill pattern</i><br>
+<b>Set Pattern</b> number</p>
+
+<p>
+Use this command to select from a range of pattern styles. The default status fills shapes with
+the current ink colour, and is set with a zero, like this:</p>
+
+<pre>
+X> Set Pattern 0
+</pre>
+
+<p>
+If SET PATTERN is followed by a positive number from 1 to 34, shapes are filled from a ready-
+made selection of patterns.</p>
+
+
+<div align="right"> <a href="633.html">Back</a> &nbsp;&nbsp;
+  <a href="635.html">Next</a>
+  <br>
+  06.04.08
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Control Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Control Structures</h1>
+
+<br>
+
+<P>
+This pair of commands will loop a list of AMOS Professional statements forever, with DO 
+acting as the marker position for the LOOP to return to. Both the DO and LOOP should occupy their
+own lines, as follows:</P>
+
+<pre>
+E&gt; Do
+    Print "FOREVER AND": Wait 25
+   Loop
+</pre>
+	
+<P>
+<b>EXIT</b><br>
+<i>structure: break out of a loop</i><br>
+<b>Exit</b><br>
+<b>Exit</b> number</p>
+
+<P>
+EXIT forces the program to leave a loop immediately, and it can be used to escape from 
+all the types of loop employed in AMOS Professional, such as FOR ... NEXT, REPEAT ... UNTIL,
+WHILE ... WEND and DO ... LOOP. Any number of loops may be nested inside of one another,
+and when used on its own, EXIT will short-circuit the innermost loop only. By including an
+optional number after EXIT, that number of nested loops will be taken into account before 
+the EXIT is made, and the program will jump directly to the instruction immediately after the
+relevant loop.</P>
+
+<P>For example:</P>
+
+<pre>
+E&gt; Do
+    Do
+     Input "Type in a number";X
+     Print "I am the inner loop"
+     If X=1 Then Exit
+     If X=2 Then Exit 2
+    Loop
+    Print "I am the outer loop"
+   Loop
+   Print "And I am outside both loops!"
+</pre>
+
+<P>
+<b>EXIT IF</b><BR>
+<i>structure: exit from a loop depending on a test</i><BR>
+<b>Exit If</b> expression<BR>
+<b>Exit If</b> expression,number</P>
+
+
+<P>
+It is often necessary to leave a loop as a result of a specific set of conditions, and 
+this can be simplified by using the EXIT IF instruction. As explained above, in conditional operations,
+ the value -1 represents True, whereas a zero represents False. After using EXIT IF, an 
+expression is given which consists of one or more tests in standard AMOS Professional format. The EXIT 
+will only be performed IF the result is found to be -1 (True).</P>
+
+<div align="right"> <a href="534.html">Back</a> &nbsp;&nbsp; 
+  <a href="536.html">Next</a>
+  <br>
+  05.04.07
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Setting up Screens</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Setting up Screens</h1>
+
+<br>
+
+<p>
+It must be stated that HAM mode is difficult to use, but AMOS Professional is able to exploit its
+full potential. This is valuable for displaying digitised colour pictures, either grabbed from video
+images or created using special packages such as Dpaint 4. To open a HAM screen ready to
+display all 4096 available colours, the following line could be used:</p>
+
+<pre>
+E> Screen Open 0,320,256,4096,Lowres
+</pre>
+
+<p>
+All text and graphics operations may be used directly with a HAM screen, and it can be
+manipulated by the normal SCREEN DISPLAY and SCREEN OFFSET commands.</p>
+
+<p>
+Do set the first point of each horizontal line to a colour numbered from 0 to 15, which will serve
+as the starting colour for all shades on the current line. To prevent unwanted fringe colours
+when SCREEN COPY is used, see that the screen's border zone also uses a colour from 0 to 15.
+This ensures that HAM screens are re-drawn at a new position using their original colours.</p>
+
+<p>
+Do not try to scroll a HAM screen horizontally, unless you wish to see fringes of spurious colour
+at the side of the picture. This problem does not occur with vertical scrolls.</p>
+
+<p><b>Interlaced screens</b><br>
+
+Interlaced mode is perfect for displaying pictures, but is not recommended for much else.</p>
+
+<p><b>LACED</b><br>
+<i>reserved variable: return a value in conjunction with screen resolution</i><br>
+<b>Screen Open</b> number,width,height,colours,<b>Laced</b>+resolution</p>
+
+LACED is a reserved variable which holds the value of 4. It is used in addition to either the Hires
+or Lowres parameters when opening a screen, like this:
+
+<pre>
+E> Screen Open 0,320,200,16,Laced+Lowres
+</pre>
+
+<p>
+Interlaced screens have <b>double</b> the number of vertical lines, which is excellent for graphic
+displays. Unfortunately they take twice as long to update, which is no good at all for fast-action
+games! Interlaced screens will only give flicker-free results if a "multi-sync" monitor is being
+used. Also certain TV sets and monitors do not take kindly to excessive switching between
+interlaced and normal screens.</p>
+
+<p>
+All of the usual operations may be used with interlaced screens, such as SCREEN DISPLAY,
+SCREEN OFFSET, and so on, but for technical reasons interlacing is not allowed during copper
+list calculations. As soon as the last interlaced screen has been closed, the entire display returns
+to normal mode.</p>
+
+<p><b>SCREEN MODE</b><br>
+<i>function: return screen mode</i><br>
+value=<b>Screen Mode</b></p>
+
+<p>
+This simple function is used to report the mode of the current screen. If the screen is LACED,
+4 or $8004 will be returned. If the screen is LOWRES, a value of $0 is given.
+For a HIRES screen, $8000 will be returned.</p>
+
+<div align="right"> <a href="612.html">Back</a> &nbsp;&nbsp;
+  <a href="614.html">Next</a>
+  <br>
+  06.01.13
+</div>
+
+</BODY>
+</HTML>

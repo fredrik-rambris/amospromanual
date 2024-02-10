@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Using the Keyboard</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Using the Keyboard</h1>
+
+<br>
+
+<p><b>Keyboard inputs</b></p>
+
+<p>
+<b>WAIT KEY</b><br>
+<i>instruction: wait for a key-press</i><br>
+<b>Wait Key</b></p>
+
+<p>
+This simple command waits for a single key-press before acting on the next instruction. For
+example:</p>
+
+<p>E> Print "Please press a key" : Wait key : Print "Thank you!"</p>
+
+<p>
+<b>INPUT$</b><br>
+<i>function: anticipate a number of characters to input into a string</i><br>
+v$=<b>Input$</b>(number)</p>
+
+<p>
+This function loads a given number of characters into a string variable, waiting for the user to
+enter each character in turn. Although characters will not appear on the screen, similar to
+INKEY$, the two instructions are totally different. Here is an example:</p>
+
+<pre>
+E> Clear Key : Print "Please type in ten characters"
+   V$=Input$(10) : Print "You typed: ";V$
+</pre>
+
+<p>
+There is another version of INPUT$ which operates with a number of characters from a disc.
+Please see <a href="1008.html">Chapter 10.2</a> for details.</p>
+
+<p>
+<b>INPUT</b><br>
+<i>instruction: load a value into a variable</i><br>
+<b>Input</b> variables;<br>
+<b>Input</b> "Prompt string";variables;</p>
+
+<p>
+The INPUT command is used to enter information into one or more variables. Any variable may
+be used, as well as any set of variables, providing they are separated by commas. A question
+mark will automatically appear at the current cursor position as a prompt for your input.</p>
+
+<p>
+If your own "Prompt string" is included, it will be printed out before your information is
+entered. Please note that a semi-colon must be used between your prompt text and the variable
+list, a comma is not allowed for this purpose.</p>
+
+<p>
+You may also use an optional semi-colon at the end of your variable list, to specify that the text
+cursor is not to be affected by the INPUT command, and will retain its original position after
+your data has been entered.</p>
+
+<p>
+When INPUT is executed, the program will wait for the required information to be entered via
+the keyboard, and each variable in the list must be matched by a single value entered by the
+user. These values must be of exactly the same type as the original variables, and should be
+separated by commas.</p>
+
+<div align="right"> <a href="1003.html">Back</a> &nbsp;&nbsp;
+  <a href="1005.html">Next</a>
+  <br>
+  10.01.04
+</div>
+
+</BODY>
+</HTML>

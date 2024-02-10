@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Text</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Text</h1>
+
+<br>
+
+<p><b>Setting text options</b></p>
+
+<p>
+<b>PEN</b><br>
+<i>instruction: set the colour of text</i><br>
+<b>Pen</b> index number</p>
+
+<p>This command sets the colour of the text displayed in the current window, when followed by
+the colour index number of your choice. The default setting of the pen colour is index number 2,
+which is white, and alternative colours may be selected from one of up to 64 choices, depending
+on the current graphics mode. For example:</p>
+
+<pre>
+E> For INDEX=0 To 15
+    Pen INDEX
+    Print "Pen number ";INDEX
+   Next INDEX
+</pre>
+
+<p>
+<b>PEN$</b><br>
+<i>function: return a control index number to set the pen colour</i><br>
+p$=Pen$(index number)</p>
+
+<p>This function returns a special control sequence that changes the pen colour inside a string.
+This means that whenever the string is printed on the screen, the pre-set pen colour is
+automatically assigned to it. The format of the string returned by PEN$ is:
+Chr$(27)+"Pen"+Chr$(48+number). Here is an example:</p>
+
+<pre>
+E> P$=Pen$(2)+"Well all WHITE, "+Pen$(6)+" I still got the BLUES"
+   Print P$
+   Pen 4
+   Print "In the RED"
+</pre>
+
+<p>
+<b>PAPER</b><br>
+<i>instruction: set colour of text background</i><br>
+<b>Paper</b> index number</p>
+
+<p>To select a background colour on which your text is to be printed, the PAPER command is
+followed by a colour index number between 0 and 63, depending on the graphics mode in use,
+in exactly the same way as PEN. The normal default colour index number is 1, giving an orange
+background colour, with other possibilities listed under the SCREEN OPEN command in this
+User Guide. Run the following simple example:</p>
+
+<pre>
+E> Pen 2: For INDEX=0 To 15
+   Paper INDEX: Print "Paper number ";INDEX;Space$(23)
+   Next INDEX
+</pre>
+
+<div align="right"> <a href="550.html">Back</a> &nbsp;&nbsp;
+  <a href="552.html">Next</a>
+  <br>
+  05.06.02
+</div>
+
+</BODY>
+</HTML>

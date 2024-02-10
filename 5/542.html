@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Procedures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Procedures</h1>
+
+<br>
+
+<P>
+A procedure is a component of a computer program that allows the AMOS Professional
+programmer to tackle one aspect of the program at a time, without becoming distracted or 
+side-tracked by other programming considerations. Procedures can be thought of as programming
+modules, each with a specific purpose and sphere of operation. This Chapter explains how
+procedures are created and fully exploited.</P>
+
+<P><b>Creating a procedure</b></p>
+
+<p>
+<b>PROCEDURE</b><BR>
+<i>structure: create a procedure</i><BR>
+<b>Procedure</b> NAME [list of optional parameters]</P>
+
+<P>
+<b>END PROC</b><BR>
+<i>structure: end a procedure</i><BR>
+<b>End Proc</b></p>
+
+<p>
+A procedure is created in exactly the same way as a normal variable, by giving it a name. 
+The name is then followed by a list of parameters and the procedure must be ended with an END
+PROC command. PROCEDURE and END PROC commands must be placed on their own
+individual lines. For example:</P>
+
+<pre>
+E&gt; Procedure HELLO
+   Print "Hello, I am a procedure!"
+   End Proc
+</pre>
+
+<P>
+If you try and run that program, nothing will happen. This is because a procedure must 
+be called up by name from inside your program before it can do anything. Now add the 
+following line at the start of that last example, and then [Run] it.</P>
+
+<pre>
+E&gt; HELLO
+</pre>
+
+<P>There is nothing preventing a procedure from calling itself, but this recursion is 
+limited by the
+area of storage allocated for local variables. If this local variable space is full, it 
+can be increased
+using the SET BUFFER command. Programs can also be held up if there is no more stack space
+available, and this problem is cured by the following command.</P>
+
+<P>
+<b>SET STACK</b><BR>
+<i>instruction: set stack space</i><BR>
+<b>Set Stack</b> number</P>
+
+<P>When AMOS Professional procedures call themselves, an "Out of stack space" error 
+message will be generated after about fifty loops. Use the SET STACK instruction by specifying the 
+new number of procedure calls that an be made.</P>
+
+<P><b>Keeping track of procedures</b><br>
+
+To help you find the starting positions of procedures in a very long program, there is 
+a simple short-cut that uses just two keys.</P>
+
+<div align="right"> <a href="541.html">Back</a> &nbsp;&nbsp;
+  <a href="543.html">Next</a>
+  <br>
+  05.05.01
+</div>
+
+</BODY>
+</HTML>

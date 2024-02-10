@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Bank Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Memory Bank Structures</h1>
+
+<br>
+
+<pre>
+* The Music part starts here, as a list of patterns to be played in sequence
+Music:
+           dc.w   Number_Of_Musics
+* ".mus" is the number of the music ...
+* Repeat for each piece of music
+          REPT    Number_Of_Musics
+             dc.l   Music.mus_Music            * Offset to Pointer list
+          ENDR
+* End repeat
+* Repeat for each bit of music
+          REPT  Number_Of_Musics
+Music.mus:
+             dc.w Tempo
+             dc.w List_patterns_voice_0 - Music.mus         * Offset to Voice 0
+             dc.w List_patterns_voice_1 - Music.mus         * Offset to Voice 1
+             dc.w List_patterns_voice_2 - Music.mus         * Offset to Voice 2
+             dc.w List_patterns_voice_3 - Music.mus         * Offset to Voice 3
+             dc.w 0                                         *Free for extension
+* We now add the list of the pattern numbers to play for each voice
+List_patterns_voice_0:
+             dc.w  ""                          * Patterns for voice 0
+List_patterns_voice_1:    
+             dc.w  ""                          * Patterns for voice 1
+List_patterns_voice_2:
+             dc.w  ""                          * Patterns for voice 2
+List_patterns_voice_3:
+             dc.w  ""                          * Patterns for voice 3
+          ENDR
+* End Repeat
+* The last bit holds the pattern definition
+* ".pat" stands for the number of the pattern
+Patterns:
+          dc.w    Number_Of_Patterns
+* Repeat for each pattern
+          REPT    Number_Of_Patterns
+* Offsets to the note values for each voice
+* Each individual pattern can be safely assigned to ANY voice
+* Simply set the offsets accordingly
+             dc.w Voice_0_Note_list.pat - Patterns        * Offset to voice 0 notes
+             dc.w Voice_1_Note_list.pat - Patterns        * Offset to voice 1 notes
+             dc.w Voice_2_Note_list.pat - Patterns        * Offset to voice 2 notes
+             dc.w Voice_3_Note list.pat - Patterns        * Offset to voice 3 notes
+          ENDR
+* End Repeat
+* And now for the note list, one after the other ...
+* Repeat for each pattern
+</pre>
+
+<div align="right"> <a href="1433.html">Back</a> &nbsp;&nbsp;
+  <a href="1435.html">Next</a>
+  <br>
+  14.E.10
+</div>
+
+</BODY>
+</HTML>

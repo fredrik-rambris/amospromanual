@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Errors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Errors</h1>
+
+<br>
+
+<p><b>Amal bank not reserved (116)</b><br>
+You've tried to use an Amal PLay command in a program without defining a movement pattern
+in the AMAL Bank. These banks are created with the AMAL Accessory program. If you're not
+actually using PLay, check that you've correctly separated any Pause or Let instructions in your
+AMAL program.</p>
+
+<p><b>Animation string too long (113)</b><br>
+Your current AMAL program is too long, the maximum number of bytes is 65536. You may split
+your program into several smaller sections, and it is possible to animate the same object using
+several AMAL channels.</p>
+
+<p><b>AREXX device not interactive (199)</b><br>
+This error is reported back by AREXX. We don't know what it means so write to Commodore!</p>
+
+<p><b>Arexx library not found (194)</b><br>
+You've attempted to use the AREXX commands on a system on which it hasn't been installed.
+The AREXX library is held in the "rexxsyslib.library" and should be normally available from the
+LIBS directory of your Workbench disc. Note; AREXX is provided free with Workbench 2, but
+other users will need to purchase it separately.</p>
+
+<p><b>Arexx message not answered (198)</b><br>
+You've received a message from an external AREXX program and you haven't answered back.
+You must answer all messages at once otherwise the sending program will be hanging around
+waiting for your answer.</p>
+
+<p><b>Arexx port already opened (193)</b><br>
+You've tried to open the same AREXX port twice using AREXX OPEN.</p>
+
+<p><b>Arexx port not opened (196)</b><br>
+You've attempted to use the AREXX ANSWER, =AREXX, or AREXX WAIT commands without
+first opening up a communications channel with AREXX OPEN.</p>
+
+<p><b>Array already dimensioned (28)</b><br>
+You have tried to dimension the same array more than once in the same program.</p>
+
+<p><b>Autotest already opened (111)</b><br>
+An illegal AMAL autotest has been defined inside an existing autotest command.</p>
+
+<p><b>Bad IFF format (30)</b><br>
+You are attempting to use LOAD I FF to load a file in the wrong format. LOAD I FF can only load
+IFF screens into memory and not general purpose IFF files.</p>
+
+<p><b>Bad parameter (149)</b><br>
+You've made a mistake when setting up the serial port with SERIAL SPEED, SERIAL BITS,
+SERIAL PARITY, or SERIAL X. Check your current set up.</p>
+
+<div align="right"> <a href="1219.html">Back</a> &nbsp;&nbsp;
+  <a href="1221.html">Next</a>
+  <br>
+  12.03.10
+</div>
+
+</BODY>
+</HTML>

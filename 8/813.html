@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Samples</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Samples</h1>
+
+<br>
+
+<p><b>Changing a sample bank</b><br>
+
+Digital sound samples are normally stored in memory bank 5, but there are no restrictions on
+assigning other banks to hold samples.</p>
+
+<p><b>SAM BANK</b><br>
+<i>instruction: change the current sample bank</i><br>
+<b>Sam Bank</b> bank number</p>
+
+<p>
+The SAM BANK instruction dictates that all future SAM PLAY commands will take samples
+from the newly specified memory bank. If several parallel banks are set up, AMOS Professional
+can swap between them with a simple call to the SAM BANK command. To hear all of the
+samples used in one of the AMOS Professional example games, load the following file and listen
+to what is stored in the memory bank, using this routine:</p>
+
+<pre>
+E> Load "AMOSPro_Productivity:Wonderland/Wonderland Samples.Abk"
+   Sam Bank 6
+   For A=1 To 5
+    Print "Sample number ";A
+    For B=1 To 3
+     Sam Play A
+     Wait 20
+    Next B
+   Next A
+</pre>
+
+<p><b>Playing a sample from memory</b><br>
+
+Samples do not have to be held in a special bank. In fact, a "raw" sound sample can be stored
+anywhere in the computer's memory using BLOAD, and then played with the following
+command:</p>
+
+<p><b>SAM RAW</b><br>
+<i>instruction: play a raw sample from memory</i><br>
+<b>Sam Raw</b> voice,address,length,frequency</p>
+
+<p>
+SAM RAW plays a raw sample, and can be used to scan through any program or sound library
+discs, searching for a sample that matches the given parameters.</p>
+
+<p>
+The voice parameter has already been explained. Address refers to the location address of the
+sound sample, which is normally inside an AMOS Professional memory bank, but can be
+anywhere. The length parameter confirms the length in bytes of the sample to be played.
+Finally, frequency dictates the playback speed of the original sample, given in Hertz.</p>
+
+<p>A typical raw sample command looks like this:</p>
+
+<pre>
+E> Reserve as work 10,21480
+   R$="AMOSPro_Examples:Samples/Mixture.Abk"
+   Bload R$,Start(10)
+   Sam Raw 15,Start(10),length(10),3000
+</pre>
+
+<div align="right"> <a href="812.html">Back</a> &nbsp;&nbsp;
+  <a href="814.html">Next</a>
+  <br>
+  08.02.03
+</div>
+
+</BODY>
+</HTML>

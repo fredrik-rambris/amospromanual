@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Control Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Control Structures</h1>
+
+<br>
+
+<P>
+<b>TRUE</b><BR>
+<b>FALSE</b><BR>
+<i>functions: hold value of -1 (True) and zero (False)</i><BR>
+value=<b>True</b><BR>
+value=<b>False</b></P>
+
+<P>
+In all the conditional operations such as IF ... THEN and REPEAT ... UNTIL, the value 
+of -1 is used to represent TRUE, and the value of 0 is used to represent FALSE. A value of either 
+-1 (True) or 0 (False) is produced every time a test is made to satisfy a condition.</P>
+
+<P>
+<b>NOT</b><BR>
+<i>structure: toggle binary digits</i><BR>
+value=<b>Not</b> digits</P>
+
+<P>NOT is used to swap over every digit in a binary number from a 0 to a 1, and vice 
+versa. For example:</P>
+
+<pre>
+E&gt; Print Bin$(Not%11110000,8)
+</pre>
+	
+<P>Since -1 (True) can be expressed in binary as %1111111111111111, then NOT TRUE must be
+equal to FALSE, and a logical NOT operation is achieved.</P>
+
+<P>
+<b>SWAP</b><BR>
+<i>structure: swap the contents of two variables</i><BR>
+<b>Swap</b> a,b<BR>
+<b>Swap</b> a#,b#<BR>
+<b>Swap</b> a$,b$</P>
+
+<P>Use the SWAP command to swap over the data between any two variables of the same type. 
+For example:</P>
+
+<pre>
+E&gt; A=10 : B=99: Print A,B
+   Swap A,B : Print A,B
+</pre>
+
+<P><b>Using loops</b><br>
+
+To write a separate routine for dozens of logical choices, and to end up with dozens of 
+END IFs is not only messy, but also extremely tedious. AMOS Professional offers all of the 
+expected programming short-cuts to allow sections of code to be repeated as often as necessary. 
+These repeated parts of programs are known as "loops".</P>
+
+<P>
+<b>DO</b><BR>
+<b>LOOP</b><BR>
+<i>structure: keep repeating a list of statements</i><BR>
+<b>Do</b><BR>
+list of statements<BR>
+<b>Loop</b></P>
+
+<div align="right"> <a href="533.html">Back</a> &nbsp;&nbsp; 
+  <a href="535.html">Next</a>
+  <br>
+  05.04.06
+</div>
+
+</BODY>
+</HTML>

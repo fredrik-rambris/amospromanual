@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Bank Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Memory Bank Structures</h1>
+
+<br>
+
+<pre>
+Pkdy       dc.w   y
+* Width of the bitmap in bytes (number of pixels/8)
+Pktx       dc.w   width/8
+* Height of the bitmap in blocks
+Pkty       dc.w   height_in_y
+* Height of each individual packing block
+Pktcar     dc.w   height_in_lines
+* The total height of the picture can be found by multiplying Pkty by Pktcar
+* Number of colour planes
+Pkplan     dc.w   planes
+* Pointer to next data list
+PkDatas2   dc.l   next_data
+* Pointer to next data pointer
+PkPoint2   dc.l   next_pointer
+* the packed data goes here!
+</pre>
+
+<p>
+Finally, a packed screen created with the SPACK instruction is examined. This is identical to the
+previous version, except for some extra information that comes before the header, as follows:</p>
+
+<pre>
+PsCode    dc.l   $12031990        Code for a packed screen
+PsTx      dc.w   Width            Width of the screen
+PsTy      dc.w   Height           Height of the screen 
+PsAWx     dc.w   Hard_X           X coordinate of screen in hardware format
+PsAWy     dc.w   Hard_Y           Vertical position of screen
+PsAWTx    dc.w   Display_Width    Width of screen to area to be displayed
+PsAWTy    dc.w   Display_Height   Display Height (set by SCREEN DISPLAY)
+PsAVx     dc.w   X_Offset         As set by SCREEN OFFSET
+PsAVy     dc.w   Y_Offset         Coordinate of first line to be displayed
+PsCon0    dc.w   mode             BPLCON0
+PsNbCol   dc.w   cols             Number of colours      
+PsNPlan   dc.w   planes           Number of bitplanes
+PsPal     dcb.w  32               Holds the colour palette
+</pre>
+
+<div align="right"> <a href="1440.html">Back</a> &nbsp;&nbsp;
+  <a href="1442.html">Next</a>
+  <br>
+  14.E.17
+</div>
+
+</BODY>
+</HTML>

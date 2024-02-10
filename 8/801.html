@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Music</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Music</h1>
+
+<br>
+
+<p>
+This Chapter explains how to exploit the superb sound capabilities of the Amiga. It will deal
+with simple sound effects and the use of music in AMOS Professional programs.</p>
+
+<p>
+Generally, the sound capabilities of a television set are terrible. To release the full potential of
+AMOS Professional stereo sound, a hi-fi system or personal stereo should first be connected to
+the Amiga's pair of stereo phono sockets.</p>
+
+<p>
+All AMOS Professional sound commands operate independently from games and utility
+routines, so that they can never interfere with your programming. On the contrary, they should
+enhance your work in any way that you chose, acting as markers, adding realism, soothing,
+shocking or providing comic relief.</p>
+
+<p><b>Ready-made sound effects</b><br>
+
+Any imaginable sound effect can be used in an AMOS Professional program, whether it is
+natural, synthetic, pre-recorded or composed by you. In fact the choice is so vast that the next
+two Chapters are devoted to the wonders of sound samples! A whole bank of pre-recorded
+effects has been prepared for your use, but there are three common sound effects that can
+be called up by their own commands and used for testing and punctuating your routines.</p>
+
+<p><b>BOOM</b><br>
+<i>instruction: generate explosive sound effect</i><br>
+<b>Boom</b></p>
+
+<p>
+By making use of interrupts to simulate "white noise", the BOOM command plays a realistic
+explosive sound effect. This does not delay the program at all, so it may be necessary to use
+WAIT between successive explosions, or to create ricochet and echo effects For example:</p>
+
+<pre>
+E> Curs Off : Centre "Thunderbolt and Lightning"
+   Flash 1, "(FFF,1)(000,147)(A5F,2)
+   Boom : Wait 150: Boom : Cls
+   Centre "Very Very Frightening"
+   Wait 50 : Boom
+</pre>
+
+<p><b>SHOOT</b><br>
+<i>instruction: generate percussive sound effect</i><br>
+<b>Shoot</b></p>
+
+<p>
+The SHOOT command generates a simple sound effect in exactly the same way as BOOM. For
+example:</p>
+
+<pre>
+E> Shoot : Wait 25: Shoot : Print "Ouch!"
+</pre>
+
+<p><b>BELL</b><br>
+<i>instruction: generate pure tone</i><br>
+<b>Bell</b><br>
+<b>Bell</b> pitch</p>
+
+<p>Unlike the built-in explosive sound effects, BELL produces a simple pure tone.</p>
+
+<div align="right"> <a href="../7/777.html">Back</a> &nbsp;&nbsp;
+  <a href="802.html">Next</a>
+  <br>
+  08.01.01
+</div>
+
+</BODY>
+</HTML>

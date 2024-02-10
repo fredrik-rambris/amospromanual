@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Disc Access</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Disc Access</h1>
+
+<br>
+
+<p><b>Sequential files</b><br>
+
+A sequential file is one that allows you to read your information only in the sequence in which it
+was originally created. Normally with an Amiga, if you need to change a single item of data in
+t lie middle of a sequential file, you must call up that file from disc, read the whole file up to and
+including the item of data you want to alter, change the data and then write the whole file back
+o the disc.</p>
+
+<p>
+AMOS Professional lets you have access to sequential files either for reading data, or for writing
+it, but never for both at the same time. Before the theory is explained, here is some practice.
+Type in this example, which opens a file called "sequential.one", allows you to input some data,
+then closes the file:</p>
+
+<pre>
+E> Open Out 1 ,"sequential.one"
+   Input "Please tell me your name ";N$
+   Print #1,N$
+   Close 1
+</pre>
+
+<p>Now the information stored in that file can be read back, as follows:</p>
+
+<pre>
+E> Open In 1 ,"sequential.one"
+   Input #1,N$
+   Print "I remember you! Hello ";N$
+   Close 1
+</pre>
+
+<p>
+Every time you want to access a sequential file, it must be opened, then the information can be
+accessed, then the file must be closed. Those three steps must be done in exactly that order. Here
+is the list of commands you can use for handling sequential files.</p>
+
+<p>
+<b>OPEN OUT</b><br>
+<i>instruction: open a file for output</i><br>
+<b>Open Out</b> channel,filename$</p>
+
+<p>
+Use this command to open a sequential file, ready for data to be added to its end. Give the
+channel number and filename, as explained above. If the file already exists, it will be erased.</p>
+
+<p>
+<b>APPEND</b><br>
+<i>instruction: add data to an existing file</i><br>
+<b>Append</b> channel,filename$</p>
+
+<p>
+This works like OPEN OUT, but it allows you to add to your files at any time after they have
+been defined. If the filename already exists, your new data will be appended to it, in other
+words it will be added to the end of that file.</p>
+
+<p>
+<b>OPEN IN</b><br>
+<i>instruction: open a file for input</i><br>
+<b>Open In</b> channel,filename$</p>
+
+<p>
+Use this command to prepare a file so that data may be read from it. If the filename
+does not already exist, AMOS Professional will report a "File not found" error.</p>
+
+<div align="right"> <a href="1017.html">Back</a> &nbsp;&nbsp;
+  <a href="1019.html">Next</a>
+  <br>
+  10.02.11
+</div>
+
+</BODY>
+</HTML>

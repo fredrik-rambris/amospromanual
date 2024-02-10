@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Menus</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Menus</h1>
+
+<br>
+
+<p>
+In this Chapter, the AMOS Professional programmer will learn how to create, control and use
+powerful on-screen menus. These techniques allow you to customise your own menu designs
+and operations, and offer true interactivity.</p>
+
+<p>
+AMOS Professional menus can have as many as eight overlaid levels and any menu item can be
+repositioned anywhere on screen. There is no restriction to the inclusion of title styles and
+graphic images, and your own Bobs and icons can be used directly.</p>
+
+<p>
+When reading your menus, branching to user-selected points in your programs can be
+automatic, whether triggered by the mouse or directly from the keyboard. And if you cannot
+wait to see all this in action, the Chapter is accompanied by a full range of ready-made
+demonstration programs available on the AMOSPro Tutorial disc.</p>
+
+<p><b>Using AMOS Professional menus</b><br>
+
+SELECTING. All of these menus are activated by holding down the right mouse button. Once
+the relevant menu has appeared on screen, drag the mouse cursor over the option you wish to
+select and release the button. The selected option number is automatically returned to your
+program.</p>
+
+<p>
+REPOSITIONING. A menu can be repositioned on screen by placing the mouse cursor over its
+lop left-hand corner and holding down the left mouse button. When a small box appears on the
+menu bar, drag it across the screen using the mouse. To freeze the current position of a menu,
+hold down the [Shift] key as well. This allows you to explore the menu without activating any of
+its options.</p>
+
+<p>
+AMOS Professional menus can be created directly from within your programs, or you may
+prefer to use the menu defining program supplied on disc.</p>
+
+<p><b>Simple menus</b></p>
+
+<p><b>MENU$</b><br>
+<i>reserved variable: define a menu title or option</i><br>
+<b>Menu$</b>(number)=title$<br>
+<b>Menu$</b>(number,option)=option$</p>
+
+<p>
+To create a simple menu, its title line must first be defined. Each heading in a title line created
+with MENU$ must be assigned its own number. The title at the left-hand edge of the title line is
+represented by 1, the next title by 2, and so on, from left to right. The characters in your title
+string hold the name of the numbered title. This example sets up a menu title line offering two
+titles, and you should note the use of the spaces to separate titles when they appear in the
+title line:</p>
+
+<pre>
+E> Menu$(1)," Action"
+   Menu$(2)," Mouse"
+</pre>
+
+<div align="right"> <a href="637.html">Back</a> &nbsp;&nbsp;
+  <a href="639.html">Next</a>
+  <br>
+  06.05.01
+</div>
+
+</BODY>
+</HTML>

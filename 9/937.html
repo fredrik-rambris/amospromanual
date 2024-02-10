@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Advanced Control Panels</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Advanced Control Panels</h1>
+
+<br>
+
+<p>
+The ZoneChange command can be used to great effect with the ZonePosition function, to link
+the positions of various items in the dialogue box. For example, if a slider bar has been assigned
+to zone 1, and an active list to zone 2, you would be able to scroll through the list with the slider
+using a line like this:</p>
+
+<pre>
+X> VSlide 1,16,16,8,64,0,1,12,1; create a twelve position slider
+   [ZChange 2,ZPosition;] set zone two to position of changed slider
+</pre>
+
+<p>
+The commands inside the square brackets are executed automatically whenever the slider is
+moved on the screen, and they copy the new slider position straight into the active list
+command and move the list through the selector window.</p>
+
+<pre>Here is a step by step procedure for generating a selection box on screen:</pre>
+
+<p>
+Firstly, create a list of components needed for the selector. This could begin with a vertical scroll
+bar, where 0 VA holds the address of the item array already set up in the main program, and AS
+returning the number of items:</p>
+
+<pre>
+X> VSlider 1,x,y,width,height,0,8,0 VA AS,1;[]
+</pre>
+
+<p>Next an ActiveList is defined for the selection window, using a line like this:</p>
+
+<pre>
+X> AList 2,x+width,y,20,8,0 VA,0,0,0,4; set up the item list
+</pre>
+
+<p>Finally, a text edit zone is created to hold the current item on screen, like this;</p>
+
+<pre>
+X> EDit 3,x,y+height,width/8,width/8,0,0,2;
+</pre>
+
+<p>
+Now the scroll bar can be linked to the item display in the ActiveList window, as already
+explained.</p>
+
+<pre>
+X> VSlider 1,x,y,width,height,0,1,0 VA AS,1; create a twelve position slider
+   [ZChange 2,ZPosition;] set zone two to slider position
+</pre>
+
+<p>Lastly, the ActiveList is linked with the EDit command, so that it loads the selected item into the
+editing zone, as follows:</p>
+
+<pre>
+X> AList 2,x+width,y,20,8,0 VA,0,0,0,4; set up the item list
+   [ZChange 3,0 VA ZPosition ARray;] load the edit zone with selected item
+</pre>
+
+<p>
+Remember that 0 VA stores the address of the array, ZPosition holds the item number and
+ARray is used to get the item. This will return the value of the selected item straight to the EDit
+zone. If you need to transfer the edited version back to the selector, the appropriate array item
+needs to be loaded directly from the main AMOS Professional program. Please see the DIALOG
+UPDATE command for a detailed explanation.</p>
+
+<p>
+It is sometimes necessary to link up a number of zones in sequence, and relative
+values instead of absolute zone numbers can be used for this purpose.</p>
+
+<div align="right"> <a href="936.html">Back</a> &nbsp;&nbsp;
+  <a href="938.html">Next</a>
+  <br>
+  09.03.13
+</div>
+
+</BODY>
+</HTML>

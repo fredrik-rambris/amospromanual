@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Bank Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Memory Bank Structures</h1>
+
+<br>
+
+<pre>
++ STOP_EFFECT               label 4
+       dc.w                 %10000100 00000000
++ REPEAT                    label 5
+       dc.w                 %10000101 rrrrrrrr
+       * rrrrrrrr : number of times to repeat
++ LED_ON                    label 6
+       dc.w                 %10000110 00000000
++ LED_OFF                   label 7
+       dc.w                 %10000111 00000000
++ SET_TEMPO                 label 8
+       dc.w                 %10001000 tttttttt
+       * tttttttt : new tempo from 0 to 63
++ SET_INSTRUMENT            label 9
+       dc.w                 %10001001 11111111
+       * 11111111 : number of the new instrument
++ SET_ARPEGGIO              label 10
+       dc.w                 %10001010 aaaaaaaa
+       * aaaaaaaa : value of the arpeggio
++ SET_PORTAMENTO            label 11
+       dc.w                 %10001011 pppppppp
+       * pppppppp : value of the portamento
++ SET_VIBRATO               label 12
+       dc.w                 %10001100 vvvvvvvv
+       * vvvvvvvv : value of the vibrato
++ SET_VOLUME_SLIDE          label 13
+       dc.w                 %10001101 ssssdddd
+       * ssss : step size
+       * dddd : duration
++ SLIDE_UP                  label 14
+       dc.w                 %10001110 ssssssss
+       * ssssssss : frequency shift
++ SLIDE_DOWN                label 15
+       dc.w                 %10001111 ssssssss
+       * ssssssss : frequency shift
++ DELAY                     label 16
+       dc.w                 %10010000 dddddddd
+       * dddddddd : delay duration in 1/50th of a second
+       This label is normally used right after a note definition to pause
+       for a moment while the note is played
++ JUMP                      label 17
+       dc.w                 %10010001 pppppppp
+       * pppppppp : the number of a pattern you want to jump to
+</pre>
+
+<p>Please note the following comments:</p>
+
+<ul>
+  <li>Everything is relocatable.</li>
+</ul>
+
+<div align="right"> <a href="1435.html">Back</a> &nbsp;&nbsp;
+  <a href="1437.html">Next</a>
+  <br>
+  14.E.12
+</div>
+
+</BODY>
+</HTML>

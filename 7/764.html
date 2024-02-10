@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMAL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>AMAL</h1>
+
+<br>
+
+<p><b>IF</b><br>
+<b>I</b>f expression <b>J</b>ump label<br>
+<b>I</b>f expression <b>D</b>irect label<br>
+<b>I</b>f expression e<b>X</b>it</p>
+
+<p>
+This is a specially extended version of the standard If statement used in AMAL, and it is used
+to simplify the testing process inside an Autotest routine. It depends on the result of a logical
+expression, and triggers one ,of three actions. The three alternatives are a Jump to another
+part of the Autotest, or a Direct change of the resumption point of a program, or an eXit from
+the Autotest.</p>
+
+<p>Here is the example at the start of this section, re-written with the Autotest system in place:</p>
+
+<pre>
+E> Load "AMOSPro Tutorial:Objects/Sprites.abk" : Get Sprite Palette
+   Sprite 8,130,50,1
+   A$="AUtotest (If R1<>XM Jump Update"
+   A$=A$+"If R1<>YM Jump Update else eXit"
+   A$=A$+"Update: Let R0=XM; Let R1=YM; Direct M)" : Rem End of Autotest
+   A$=A$+"M: Move R0-X,R1-Y,20; Wait;" : Rem Try Changing 20 to other values
+   Amal 8,A$ : Amal On : Direct
+</pre>
+
+<p>
+If all is well, the Sprite should now be following your mouse, no matter how fast it is moved. To
+analyse the last example, identify how the mouse coordinates are tested every 50th of a second,
+using the XM and YM functions. If they remain unchanged since the last test, the Autotest is
+short-circuited by the eXit command, and the main program resumes exactly where it left off.
+But if the mouse has been moved, the Autotest re-starts the main program from label M, at the
+beginning, using the new coordinates in XM and YM.</p>
+
+<p>
+For a tutorial session involving the Autotest feature, as well as a fully playable arcade game,
+please load the following program and remember to watch the birdie!</p>
+
+<pre>
+LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_7.AMOS"
+</pre>
+
+<p>
+AMAL program control from AMOS Professional
+Once an AMAL program has been defined, you will need to be able to execute and control
+it from inside an ordinary AMOS Professional program. Here are the commands provided for
+this purpose.</p>
+
+<p><b>AMAL ON</b><br>
+<b>AMAL OFF</b><br>
+<i>instructions: start and stop AMAL programs</i><br>
+<b>Amal On</b><br>
+<b>Amal On</b> number<br>
+<b>Amal Off</b><br>
+<b>Amal Off</b> number</p>
+
+<p>AMAL ON is used to activate all AMAL programs.</p>
+
+<div align="right"> <a href="763.html">Back</a> &nbsp;&nbsp;
+  <a href="765.html">Next</a>
+  <br>
+  07.06.17
+</div>
+
+</BODY>
+</HTML>

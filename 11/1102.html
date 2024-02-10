@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Fonts</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Fonts</h1>
+
+<br>
+
+<p>
+<b>GET DISC FONTS</b><br>
+<i>instruction: create a list of available fonts from current disc</i><br>
+<b>Get Disc Fonts</b></p>
+
+<p>
+This instruction is exactly the same as the GET FONTS command, except that it triggers a search
+through the "Fonts" folder of your current disc only. If new fonts are to be used, then they must
+first be copied into this folder.</p>
+
+<p>
+<b>GET ROM FONTS</b><br>
+<i>instruction: create a list of available ROM fonts</i><br>
+<b>Get Rom Fonts</b></p>
+
+<p>
+As you might expect, this command produces a list of the fonts that are built into the computer's
+ROM chips. At time of writing, the choice is rather limited:</p>
+
+<pre>
+E> Screen Open 0,640,200,16,Hires
+   Get Rom Fonts
+   For A=1 To 10
+    Set Font A : A$="Hello, I'm "+ Font$(A) : Text 0,100,A$
+    Wait Key : Cls
+   Next A
+</pre>
+
+<p>
+<b>FONT$</b><br>
+<i>function: return details of available fonts</i><br>
+report$=<b>Font$</b>(font number)</p>
+
+<p>
+This function is used to examine an existing font list and make a report, giving details of the
+specified font number. The report is given as a string of 38 characters, holding the following
+information: the name of the font, its physical height in pixels and its status set to either Disc or
+Rom. For example:</p>
+
+<pre>
+E> Get Fonts : Set Font 2
+   Print Font$(2)
+</pre>
+
+<p>
+<b>SET FONT</b><br>
+<i>instruction: select font for use by Text command</i><br>
+<b>Set Font</b> font number</p>
+
+<p>
+This simple command is used to select the character set to be employed by a TEXT instruction,
+like this:</p>
+
+<p>
+E> Get Fonts
+   Set Font 2 : Text 100,100,"AMOS" : Set Font 1: Text 100,120,"Professional"
+</p>
+
+<div align="right"> <a href="1101.html">Back</a> &nbsp;&nbsp;
+  <a href="1103.html">Next</a>
+  <br>
+  11.01.02
+</div>
+
+</BODY>
+</HTML>

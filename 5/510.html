@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+	<title>Amos Professional Manual - the Bare Bones</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>the Bare Bones</h1>
+
+<br>
+
+<p><b>Marking the bones of a program</b><BR>
+
+Imagine that the skeleton of your latest programming masterpiece is so clever and so 
+complex that you cannot remember where everything is or what anything is supposed to do! There is 
+a simple and effective way of marking any part of an AMOS Professional program, by inserting
+typed messages to remind yourself exactly what this section of program is for. These 
+little comments or messages are known as "Rem statements".</P>
+
+<P><b>REM</b><BR>
+<i>structure: insert a reminder message into a program</i><BR>
+<b>Rem</b> Typed in statement<BR>
+<b>'</b> Typed in statement</P>
+
+<P>
+The beginning of a Rem statement is marked by REM or by the apostrophe character, which 
+is simply a short-cut recognised by AMOS Professional as a REM. The message or comment is 
+then typed in from the keyboard, beginning with a capital letter. Here are some examples:</P>
+
+<pre>
+X&gt; 'An apostrophe can be used instead of the characters Rem
+   Rem The next line will print a greeting
+   Print "a greeting"
+   'This line is a comment that does nothing at all
+   Wait 75: Rem Wait one and a half seconds
+   'Return to the Edit Screen
+   Edit
+</pre>
+
+<P>These reminders are for human intelligence only, and when a Rem statement is 
+encountered in a program, it is completely ignored by the computer.</P>
+
+<P>
+Rem statements can occupy their own line, or be placed at the end of a line of the 
+program, as long as they are separated from the last instruction by a colon. But the apostrophe 
+character can only be used to mark a Rem statement at the <b>beginning</b> of a line. The first of the next two 
+lines is fine, but the second will create an error:</P>
+
+<pre>
+X&gt; Print "This example is fine" : Rem Fine example
+   Print "Wrong!" : ' This is illegal
+</pre>
+
+<div align="right"> <a href="509.html">Back</a> &nbsp;&nbsp; 
+  <a href="511.html">Next</a>
+  <br>
+  05.01.10
+</div>
+
+</BODY>
+</HTML>

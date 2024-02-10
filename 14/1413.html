@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Machine Code</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Machine Code</h1>
+
+<br>
+
+<p>
+Note that AREG(3) to AREG(6) will <b>not</b> be transferred to the routine. These registers cannot be
+changed, as they are used to store important system information. To return values to AMOS
+Professional Basic, AREG and DREG can be used to read the contents of the Address and Data
+registers, after the procedure has been called.</p>
+
+<p>
+The second alternative method is much neater. Values are entered using normal parameters. As
+usual, a list of parameters is specified as part of the procedure definition, like this:</p>
+
+<pre>
+X> Rem Use no parameters but take info directly from AREG and DREG values
+   Procedure _MACHINE°
+   Procedure _MACHINE1[A] : Rem Enter one integer into procedure
+   Procedure _MACH1NE2[A,B,C$] : Rem Get two integers and one string
+</pre>
+
+<p>
+The values of the parameters are pushed onto the Parameter stack, pointed to by A3. These
+parameters are stored in reverse order, and are four bytes in length.</p>
+
+<p>_MACHINE1 will grab the parameters like this:</p>
+
+
+<pre>
+Move.l (a3)+,d0
+</pre>
+
+<p>_MACHINE2 will grab the parameters as follows:</p>
+
+<pre>
+; Grab the string. Each string is stored at an EVEN address,
+; starting with the length of the string, and then the string itself
+
+Move.l (a3)+,a2             * Address of the string
+Move.w (a2)+,d2             * Length of the string
+
+; A2 now points to the first character
+
+; Grab the two integers
+
+Move.l (a3)+,d1             * Grab "B"
+Move.l (a3)+,d0             * Grab "A"
+</pre>
+
+<p>
+The AMOS Professional stack works in the same way as a conventional stack, so although
+anything <b>below</b> can be changed, do not touch any values above the base address contained in
+A3. Also note that the space available for the routine depends on the level of the procedure, so if
+it is called from the main program approximately 3k is available. This can be increased by a call
+to the SET STACK command from AMOS Professional Basic.</p>
+
+<p>
+To return values to AMOS Professional Basic, the value of DO is available from the PARAM
+function automatically.</p>
+
+<p><b>Calling machine code from an address or bank</b><br>
+
+There is another option for calling machine code directly from a memory bank or an address.</p>
+
+<div align="right"> <a href="1412.html">Back</a> &nbsp;&nbsp;
+  <a href="1414.html">Next</a>
+  <br>
+  14.A.13
+</div>
+
+</BODY>
+</HTML>

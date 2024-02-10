@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Bank Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Memory Bank Structures</h1>
+
+<br>
+
+<p><b>Work banks and data banks stored on disc</b><br>
+
+Before AMOS Professional saves your banks onto disc, the header is discarded and replaced by
+the following:</p>
+
+
+<pre>
+dc.b  "AmBk"
+dc.w  Number_Of_The_Bank
+dc.w  Flag
+dc.l  Length_Of_The_Bank + 8
+dc.b  "NameBank"             * 8 bytes
+ds.b  Length_Of_The_Bank     * the bank itself!
+</pre>
+
+<p>
+These files will normally end with ".abk" and can be loaded into AMOS Professional Basic using
+the LOAD command.</p>
+
+<p><b>Saving several Banks at once</b><br>
+
+AMOS Professional allows you to save a group of banks in a single ".abs" file. The format of
+these files is as follows:</p>
+
+<pre>
+dc.b  "AmBs"
+dc.w  Number_Of_Banks
+</pre>
+
+<p>The memory banks are then listed onto the appropriate disc, one after another.</p>
+
+<p><b>Format of Object banks and Icon banks</b><br>
+
+As before, the manner in which Objects and Icons are stored in memory will be examined,
+followed by an explanation of their storage on disc.</p>
+
+<p><b>Object banks and Icon banks stored in memory</b><br>
+
+Icons and Objects are stored in a special way. Rather than hold the data in a single continuous
+package, AMOS Professional splits these banks into a separate list of images. These images are
+stored in their own independent memory locations, and are scattered through the Amiga's Chip
+Ram. This makes it very easy to add or delete images, and avoids the problem of "garbage
+collection".</p>
+
+<p>
+However, this does require you to take a little care when accessing images directly from your
+programs. <b>Never</b> try to FILL or COPY data directly to the Object or Icon bank. <b>Do not</b> try to load
+or save your images with BLOAD or BSAVE, these commands will not work. Use LOAD and
+SAVE instead.</p>
+
+<p>
+The locations of the images are held in a list of pointers, which can be found immediately after
+the header.</p>
+
+<p>
+In order to remain compatible with the original AMOS system, Object banks are indicated by the
+name "Sprites" rather than "Objects", but they can be used to hold either Sprite or Bob images as
+required.</p>
+
+<div align="right"> <a href="1428.html">Back</a> &nbsp;&nbsp;
+  <a href="1430.html">Next</a>
+  <br>
+  14.E.05
+</div>
+
+</BODY>
+</HTML>

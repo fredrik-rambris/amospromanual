@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Procedures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Procedures</h1>
+
+<br>
+
+<P>
+Make sure that the edit cursor is over the procedure statement, select the [Procedures] 
+option rom the [Editor] menu and trigger the [Open/Close] option, or hit [F9] as a short-cut. The
+procedure definition is neatly folded away from view, and in normal practice you would be
+allowed to concentrate on your main program without the distraction of chunks of 
+procedures getting in the way. In other words, you can achieve greater programming clarity in your 
+listings by closing procedures from view. The last example should now look like this:</P>
+
+<pre>
+X&gt; MAIN TITLE
+   Procedure MAIN_TITLE
+</pre>
+
+<P>To reveal the procedure at any time, simply move the cursor back to the procedure line 
+and reveal its definitions with [F9] or [Open/Close].</P>
+
+<P>Closed procedures can be executed as normal, and saved or loaded along with an AMOS
+Professional program listing. But a closed procedure cannot be deleted using the program
+cursor, and a deletion can only be made if the procedure is opened again or by means of 
+the [Cut] option.</P>
+
+<P>
+To open and close all of the procedures in the current program, the [Open All] and 
+[Close All] options are provided. Alternatively, you can use the keyboard short-cuts [Amiga]+[Shift]
++[0] and [Amiga]+[Shift]+[C], as already explained under the full list of Editor options in
+<a href="../4/401.html">Chapter 4.1</a>.</P>
+
+<P><b>Jumping in and out of a procedure</b><br>
+
+You should be familiar with the use of ON for jumping to a GOSUB routine. It is just as 
+simple to use this structure with procedures.<BR>
+
+<p>
+<b>ON ... PROC</b><BR>
+<i>structure: trigger a jump to a procedure</i><BR>
+<b>On</b> variable value <b>Proc</b> NAME</P>
+
+<P>In this case, if a variable holds a particular value, a system is automatically 
+triggered that forces a
+jump to a named procedure. Of course you can have as many values triggering off as many
+jumps to different procedures as you want. For example:</P>
+
+<pre>
+X&gt; On X Proc PROCEDURE1,PROCEDURE2
+</pre>
+
+<P>Which is exactly the same as saying:</P>
+
+<pre>
+X&gt; If X=1 Then PROCEDURE1
+X&gt; If X=2 Then PROCEDURE2
+</pre>
+
+<P>Normally, procedures will only return to the main program when the END PROC instruction 
+is reached. But supposing you need to jump out of a procedure instantly.</P>
+
+<P>
+<b>POP PROC</b><BR>
+<i>structure: leave a procedure immediately</i><BR>
+<b>Pop Proc</b></P>
+
+<div align="right"> <a href="543.html">Back</a> &nbsp;&nbsp;
+  <a href="545.html">Next</a>
+  <br>
+  05.05.03
+</div>
+
+</BODY>
+</HTML>

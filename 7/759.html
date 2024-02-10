@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMAL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>AMAL</h1>
+
+<br>
+
+<p>
+Note that these values can be accessed from your program using the DEEK function. Note also
+that this AMAL option overrides any previous CHANNEL assignments.</p>
+
+<p><b>Controlling update timings</b><br>
+
+Although most AMAL programs are performed incredibly quickly, all Objects that are
+manipulated must be drawn on screen individually, and updated at regular intervals. Tim
+amount of time needed for this updating procedure can vary during the course of a program,
+and so it is unpredictable. This can generate jerky movement patterns for certain Objects.
+Fortunately, This problem can be solved very easily.</p>
+
+<p><b>UPDATE EVERY</b><br>
+<i>instruction: control update intervals</i><br>
+<b>Update Every</b> number</p>
+
+<p>
+The UPDATE EVERY command slows down the updating process, so that even the largest
+Object can be re-drawn during a single screen update. The animation system is regulated by this
+process, once again providing smooth movement. After the UPDATE EVERY command, simply
+specify the number of vertical blank periods between each screen update, in 50ths of a second.
+Begin your timing changes with a value of two, and increase the value by one unit at a time
+until the animation becomes smooth.</p>
+
+<p>
+One useful effect of using UPDATE EVERY is to reserve more time for AMOS Professional to
+execute the main program. In fact, with careful use of this instruction, it is possible to speed up
+programs by as much as one third, and still maintain excellent animation.</p>
+
+<p><b>Assigning Objects to Channels</b><br>
+
+Up to 64 different AMAL programs can be executed simultaneously, and each program must be
+assigned to a specific animation "channel". The first 16 channels can be performed using
+interrupts, but if more than 16 animations are needed, interrupts must be turned off using the
+SYNCHRO OFF command, which is explained below. As a default, the 16 interrupt channels are
+assigned to the relevant Sprite numbers.</p>
+
+<p><b>CHANNEL</b><br>
+<i>instruction: assign an Object to an AMAL channel</i><br>
+<b>Channel</b> number <b>To Sprite</b> number<br>
+<b>Channel</b> number <b>To Bob</b> number</p>
+
+<p>
+The CHANNEL command assigns an animation channel to a particular screen-related Object.
+There is no restriction to a single channel, and any single Object can be animated with several
+channels, if necessary.</p>
+
+<p><b>Animating Sprites</b><br>
+
+As a default, channels 0 to 7 are allocated to the equivalent hardware Sprite number, and
+channels 8 to 15 are reserved for the equivalent computed Sprite numbers.</p>
+
+<div align="right"> <a href="758.html">Back</a> &nbsp;&nbsp;
+  <a href="760.html">Next</a>
+  <br>
+  07.06.12
+</div>
+
+</BODY>
+</HTML>

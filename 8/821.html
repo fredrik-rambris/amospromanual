@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Playing Music Modules</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Playing Music Modules</h1>
+
+<br>
+
+<p>
+As with Tracker modules, AMOS Professional sound samples can be played while Med modules
+are active. When a sound effect is triggered, any Med music will be stopped on all four voices,
+and will start again as soon as the sample has been played.</p>
+
+<p><b>MED PLAY</b><br>
+<i>instruction: play a Med module</i><br>
+<b>Med Play</b><br>
+<b>Med Play</b> bank number,song number</p>
+
+<p>
+This instruction plays the specified currently loaded Med module. If no bank number parameter
+is given, the data in the last appropriate bank to be loaded will be played. Med modules can
+include more than one song, and an individual melody can be specified by including the song
+number to be played, as follows:</p>
+
+<pre>
+X> Med Play 2
+   Med Play ,2
+   Med Play 2,2
+</pre>
+
+<p><b>MED STOP</b><br>
+<i>instruction: stop the current Med module</i><br>
+<b>Med Stop</b></p>
+
+<p>
+This simple instruction halts the current Med song being played. The song can now be started
+from the beginning with a new call to MED PLAY, or continued using a MED CONT command.</p>
+
+<p><b>MED CONT</b><br>
+<i>instruction: continue a Med module</i><br>
+<b>Med Cont</b></p>
+
+<p>
+This command is used to re-commence a Med module that has been halted by a MED STOP
+instruction. The song will continue from the exact point at which it was stopped.</p>
+
+<p><b>MED MIDI ON</b><br>
+<i>instruction: access MIDI instructions in a Med module</i><br>
+<b>Med Midi On</b></p>
+
+<p>
+MIDI is the international standard by which musical instruments talk to one another and stands
+for Musical Instrument Digital Interface. If the Med module contains MIDI instructions for
+controlling keyboards, drum machines and so on, the MED MIDI ON command must be given
+<b>before</b> the first MED LOAD command, in other words, before the "Medplayer.library" file is
+opened.</p>
+
+<div align="right"> <a href="820.html">Back</a> &nbsp;&nbsp;
+  <a href="../9/901.html">Next</a>
+  <br>
+  08.03.04
+</div>
+
+</BODY>
+</HTML>

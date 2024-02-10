@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Accessing a Printer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Accessing a Printer</h1>
+
+<br>
+
+<p>
+The section of screen to be dumped is set by giving the top left-hand coordinates followed by
+the coordinates of the corner diagonally opposite.</p>
+
+<p>
+The third option allows you to change the size parameters and aspect ratio of the original screen
+image. This is achieved by including additional parameters after x1,y1 and x2,y2, as follows:</p>
+
+<p>
+Px and py specify the dimensions of the final print-out, and these values are measured in
+printer pixels rather than normal screen pixels. Printer pixels vary in size, depending on the
+command options that are given by the following settings:</p>
+
+<p>
+Settings refers to a special command parameter, that is used to tell the printer precisely how to
+draw the current screen image on paper. Here is a list of these settings, which can be combined
+using AND as well as OR operations from AMOS Professional.</p>
+
+<pre>
+<b>Value    Name          Description</b>
+$0001    MILCOLS       px is in 1/1000" (see Note 1)
+$0002    MILROWS       py is in 1/1000"
+$0004    FULLCOLS      use maximum print width (see Note 2)
+$0008    FULLROWS      use maximum print height
+$0010    FRACCOLS      px is a fraction of FULLCOLS (see Note 3)
+$0020    FRACROWS      py is a fraction of FULLROWS
+$0040    CENTRE        centre the image on the page
+$0080    ASPECT        retain the original aspect ratio
+$0100    DENSITY1      set resolution (dots per inch)
+$0200    DENSITY2      next resolution
+$0300    DENSITY3      next resolution
+$0400    DENSITY4      next resolution
+$0500    DENSITY5      next resolution
+$0600    DENSITY6      next resolution
+$0700    DENSITY7      set resolution
+$0800    NOFORM FEED   do not eject paper
+$1000    TRUSTME       do not re-set
+$2000    NOPRINT       do not print
+</pre>
+
+<p>
+Note 1. MILCOLS and MILROWS measure the px and py parameters in units of 1/1000th of an
+inch. So if px=10000, the print-out will measure ten inches wide.</p>
+
+<p>
+Note 2. FULLCOLS and FULLROWS make use of the maximum available width and height of
+the paper.</p>
+
+<p>
+Note 3. FRACCOLS and FRACROWS specify the width and height of the print-out as a fraction
+of the current paper size.</p>
+
+<p>
+Px,py are assumed to be between $0000 and $FFFF, and the print width is calculated using the
+formula width =FULLCOLS*px/$FFFF whereas height is calculated by the formula
+height=FULLROWS*py/$FFFF.<br>
+
+This means that if px =$8000 the print width will be $8000/$FFF,
+which equals half of FULLCOLS. So the pint-out will take up half the width of the paper.</p>
+
+<div align="right"> <a href="1027.html">Back</a> &nbsp;&nbsp;
+  <a href="1029.html">Next</a>
+  <br>
+  10.03.04
+</div>
+
+</BODY>
+</HTML>

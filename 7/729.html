@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Updating Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Updating Objects</h1>
+
+<br>
+
+<ul>
+  <li>First, turn off the automatic system with BOB UPDATE OFF</li>
+  <li>Execute your main loop as normal.</li>
+  <li>Now call a BOB UPDATE command at the point when objects are to be drawn on screen. This
+      command automatically flips the results onto the display, using the internal equivalent of a
+      SCREEN SWAP.</li>
+  <li>Finally, wait for the updates to be completed, by using WAIT VBL.</li>
+</ul>
+
+<p>
+BOB UPDATE is now used as the standard technique in the vast majority of AMOS arcade
+games.</p>
+
+<p>
+If you need to restore the re-drawing system to its default status, BOB UPDATE ON sets the
+situation back to normal. One word of warning though, if you are already swapping the screens
+manually with SCREEN SWAP, use BOB UPDATE carefully, because it will switch between the
+logical and physical screens immediately after your Bobs have been updated. The simplest
+remedy for any problems this may cause is to use BOB CLEAR and BOB DRAW instead. These
+are explained later.</p>
+
+<p><b>SPRITE UPDATE</b><br>
+<i>instruction: move all Sprites at once</i><br>
+<b>Sprite Update</b><br>
+<b>Sprite Update</b> Off<br>
+<b>Sprite Update</b> On</p>
+
+<p>
+You may want to remind yourself of this family of commands, which are explained in <a href="../7/701.html">Chapter
+7.1</a>. They parallel the BOB UPDATE commands, and are used in the same way.</p>
+
+<p>
+You are recommended to add a WAIT VBL instruction after each SPRITE UPDATE, to make sure
+that Sprite movements are perfectly synchronised with the existing screen display.</p>
+
+<p><b>UPDATE</b><br>
+<i>instruction: move all objects at once</i><br>
+<b>Update</b><br>
+<b>Update</b> Off<br>
+<b>Update</b> On</p>
+
+<p>
+The UPDATE commands are a combination of the BOB UPDATE and SPRITE UPDATE families,
+and they are used to re-draw all objects on the screen in a single operation.
+UPDATE OFF turns off the automatic re-drawing system, so that any Bob or Sprite commands
+will appear to be completely ignored. In actual fact, they are still going on invisibly, in the
+background.</p>
+
+<p>
+UPDATE displays any objects which have moved since the last update. You are recommended
+to add a WAIT VBL instruction to ensure a smooth effect.</p>
+
+<p>UPDATE ON returns the updating system back to the original automatic setting.</p>
+
+<div align="right"> <a href="728.html">Back</a> &nbsp;&nbsp;
+  <a href="730.html">Next</a>
+  <br>
+  07.03.04
+</div>
+
+</BODY>
+</HTML>

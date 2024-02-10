@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Hardware Sprites</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Hardware Sprites</h1>
+
+<br>
+
+<p>For example:</p>
+
+<pre>
+E> Load "AMOSPro Tutorial:Objects/Sprites.Abk"
+   Flash Off : Get Sprite Palette
+   Curs Off : Cls 0
+   Sprite 8,200,100,1
+   Wait Key
+   Sprite 8,,150,1
+   Wait Key
+   Sprite 8,250,,1
+   Wait Key
+   Sprite 8,,,2
+</pre>
+
+<p><b>DEL SPRITE</b><br>
+<i>instruction: delete an image from the Object Bank</i><br>
+<b>Del Sprite</b> number<br>
+<b>Del Sprite</b> first <b>To</b> last</p>
+
+<p>
+The DEL SPRITE command permanently deletes one or more Sprite images from the Object
+Bank. To erase a single image, simply give the image number to be deleted, like this:</p>
+
+<pre>
+X> Del Sprite 2
+</pre>
+
+<p>
+Whenever an image is deleted, all the subsequent images in the Bank are moved up one place in
+the numerical order. For instance, if the Bank originally contained four images, the above
+example would remove image number 2 from memory, leaving a gap between images 1 and 3.
+This gap would be filled immediately, as the old image numbers 3 and 4 were shunted up one
+place, to become the new image numbers 2 and 3.</p>
+
+<p>
+If more than one image is to be removed from the Bank, you can set the range from the first
+image to the last after a DEL SPRITE command. The following example would delete Sprite
+images 4,5,6 and 7:</p>
+
+<pre>
+X> Del Sprite 4 To 7
+</pre>
+
+<p>
+After the last image has been deleted from the Object Bank, the entire Bank is erased
+automatically.</p>
+
+<p><b>INS SPRITE</b><br>
+<i>instruction: insert a blank Sprite image into the Object bank</i><br>
+<b>Ins Sprite</b> number<br>
+<b>Ins Sprite</b> first <b>To</b> last</p>
+
+<p>
+INS SPRITE inserts a <b>blank</b> image at the numbered position in the current Object Bank. All of
+the images after this numbered position will then be moved down one place in the numerical
+order. The second version of this command allows you to create several spaces in a single
+operation, by giving the range of new gaps between the first and last image numbers that you
+specify.</p>
+
+<div align="right"> <a href="704.html">Back</a> &nbsp;&nbsp;
+  <a href="706.html">Next</a>
+  <br>
+  07.01.05
+</div>
+
+</BODY>
+</HTML>

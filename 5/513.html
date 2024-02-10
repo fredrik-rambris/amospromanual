@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+	<title>Amos Professional Manual - String Functions</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>String Functions</h1>
+
+<br>
+
+<pre>
+    If X&lt;&gt;0 Then Print G$;" Found at position ";X
+   Loop
+</pre>
+
+<P>
+Normally, the search will begin from the first character at the extreme left-hand side 
+of the host string, but you may begin searching from any position by specifying an optional number of
+characters from the beginning of the host string. The optional start-of-search position 
+can range from zero to the maximum number of characters in the host string to be searched. For 
+example:</P>
+
+<pre>
+E&gt; Print Instr("AMOS PROFESSIONAL","O",0)
+   Print Instr("AMOS PROFESSIONAL","O",4)
+</pre>
+
+<P><b>Converting strings</b></P>
+
+<P><b>UPPER$</b><BR>
+<i>function: convert a string of text to upper case</i><BR>
+new$=<b>Upper$</b>(old$)</P>
+
+<P>This function converts the characters in a string into upper case (capital) letters, 
+and places the result into a new string. For example:</P>
+
+<pre>
+D&gt; Print Upper$("aMoS pRoFeSsIoNaL")
+</pre>
+
+<P><b>LOWER$</b><BR>
+<i>function: convert a string of text to lower case</i><BR>
+new$=<b>Lower$</b>(old$)</P>
+
+<P>
+This works in the same way as UPPERS, but translates all the characters in a string 
+into nothing but lower case (small) letters. These sorts of text conversions are particularly useful 
+for interpreting user-input in interactive data programs and adventure games, because input 
+can be converted into a standard format which is understood by your programs. For example:</P>
+
+<pre>
+E&gt; Input "Do you want to continue? (Yes or No)";ANSWER$
+   ANSWER$=Lower$(ANSWER$) : If ANSWER$="no" Then Edit
+   Print "OK. Continuing with your program"
+</pre>
+
+<P><b>STR$</b><BR>
+<i>function: convert a number into a string</i><BR>
+s$=<b>Str$</b>(number)</P>
+
+<P>
+Str$ converts a real number variable into a string. This can be used to overcome 
+limitations posed by functions like CENTRE, which does not accept numbers as parameters, but will work
+happily with parameters in the form of strings. Here is an example:</P>
+
+<pre>
+E&gt; Centre "Remaining memory is"+Str$(Chip Free)+" Bytes"
+</pre>
+
+<P><b>VAL</b><BR>
+<i>function: convert a string of digits into a number</i><BR>
+v=<b>Val</b>(x$)<BR>
+v#=<b>Val</b>(x$)</P>
+
+<div align="right"> <a href="512.html">Back</a> &nbsp;&nbsp; 
+  <a href="514.html">Next</a>
+  <br>
+  05.02.03
+</div>
+
+</BODY>
+</HTML>

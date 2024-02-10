@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Setting up Screens</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Setting up Screens</h1>
+
+<br>
+
+<p><b>SCREEN TO BACK</b><br>
+<i>instruction: move screen to back of display</i><br>
+<b>Screen To Back</b><br>
+<b>Screen To Back</b> number</p>
+
+<p>
+This command is used to move a screen to the background of the display. If another screen is
+already there, it will be displayed in front of the chosen screen. Again, if the screen number is
+omitted after a SCREEN TO BACK command, the current screen will be relegated to the back of
+the display queue. Try this example:</p>
+
+<pre>
+E> Centre "Hello again, Screen 0 here"
+   Wait 100
+   Screen Open 1,320,200,2,Lowres
+   Centre "Excuse me, make way for Screen 1"
+   Wait 100 : Screen To Front 0
+   Screen 0
+   Wait 100 : Screen To Back
+</pre>
+
+<p><b>SCREEN</b><br>
+<i>instruction: set current screen</i><br>
+<b>Screen</b> number</p>
+
+<p>
+This command allows <b>all</b> graphical and text operations to be directed to the selected screen
+number, like this:</p>
+
+<pre>
+E> Screen Open 2,320,32,16,Lowres
+   Screen Display 2,,130,,
+   Screen 0
+   Plot 0,0: Draw To 320,200
+</pre>
+
+<p>
+If the chosen screen is outside of the current display area or is hidden, there will be no visible
+effect. However, any graphics will be drawn in memory, waiting to be displayed whenever this
+screen comes into view, or out of hiding after a Screen Show command.</p>
+
+<p><b>Defining screen colours</b></p>
+
+<p><b>DEFAULT PALETTE</b><br>
+<i>instruction: define standard palette</i><br>
+<b>Default Palette</b> $1,$2,$3 ... $32</p>
+
+<p>
+It is often necessary to open several screens using the same palette. To simplify this process, the
+DEFAULT PALETTE instruction is used to define a standard palette which will be used by <b>all</b>
+subsequent screens created by the SCREEN OPEN command. Colours are set using the $RGB
+values that are fully explained in the COLOUR section of <a href="../6/627.html">Chapter 6.4</a>. Up to 32 colours may be
+defined, depending on the screen mode, and any colours that are not re-set must have their
+appropriate commas in place. Here is an example line for eight colour screens:</p>
+
+<pre>
+D> Default Palette $000,$111,$A69,,,,,$FFF
+</pre>
+
+<div align="right"> <a href="608.html">Back</a> &nbsp;&nbsp;
+  <a href="610.html">Next</a>
+  <br>
+  06.01.09
+</div>
+
+</BODY>
+</HTML>

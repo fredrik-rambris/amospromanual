@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Banks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Memory Banks</h1>
+
+<br>
+
+<p>
+BANK SWAP is commonly used in conjunction with Objects, Icons and music banks. For
+example, it can be used to instantly flick between the images in an Icon bank and an Object
+bank, like this:</p>
+
+<pre>
+X> Load "Objects.Abk" : Rem Please use your own filename
+   Load "Icons.Abk" : Rem Select appropriate filename
+   Bank Swap 1,2 : Rem Banks 1 and 2 normally used for Sprites and Icons
+</pre>
+
+<p>Another possibility is to store several different music banks in memory, and swap them as
+required.</p>
+
+<p><b>Listing banks on the screen</b></p>
+
+<p>
+<b>LIST BANK</b><br>
+<i>instruction: list all current banks in memory</i><br>
+<b>List Bank</b></p>
+
+<p>
+The LIST BANK instruction is used to provide a complete list of all the banks that are available
+from the current program. Information about the banks is listed in the following order:</p>
+
+<ul>
+  <li>The bank number, ranging from 1 to 65536</li>
+  <li>A single letter indicating the type of bank, with "F" for Fast or "C" indicating Chip Ram.</li>
+  <li>The name of the bank, held in a string of eight characters. Please note that Object banks are
+      identified with the letters "Sprite", even though the same images can be used equally well for
+      Sprites or Bobs.</li>
+  <li>The address of the start of the bank in memory, using hexadecimal notation.</li>
+  <li>The length of the bank in normal decimal format. In the case of "Sprite" or "Icon" banks, the
+      number of images in the bank will be given instead.</li>
+</ul>
+
+<p>LIST BANK will result in the following sort of report appearing on the screen:</p>
+
+<pre>
+1-C- SpritesS:C61298            L:0000005
+3-C- Music  S:C60E80            L:0001000
+6-F- Work   S:100000            L:0010000
+</pre>
+
+<p><b>Memory bank functions</b><br>
+
+AMOS Professional provides a full range of memory bank functions, which are used to provide
+information about the status of available banks.</p>
+
+<p>
+<b>LENGTH</b><br>
+<i>function: return the length of a memory bank</i><br>
+length=<b>Length</b>(bank number)</p>
+
+<p>
+The LENGTH function is used to find the size of the bank whose number is specified in
+brackets. Normally, this is measured in bytes, but if the bank contains Objects or Icon data, the
+number of images in that bank will be given.</p>
+
+<div align="right"> <a href="583.html">Back</a> &nbsp;&nbsp;
+  <a href="585.html">Next</a>
+  <br>
+  05.09.08
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Using Screens</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Using Screens</h1>
+
+<br>
+
+<p>
+and starts scanning again at the top left-hand corner of the screen. The period between the
+completion of one screen and the beginning of the next update is known as the "vertical blank
+period", or VBL for short. This is the period when AMOS Professional jumps in to perform
+important tasks like moving Bobs and swapping screens.</p>
+
+<p>
+AMOS Professional is so efficient, it considers a 50th of a second to be a huge waste of time, and
+is eager to get on with any other tasks that need doing. This means that your programs could
+get out of synchronisation with what is actually happening on screen, so there are situations
+when AMOS Professional must be instructed to wait for the next vertical blank period, in order
+keep in step.</p>
+
+<p><b>WAIT VBL</b><br>
+<i>instruction: wait for next vertical blank period</i><br>
+<b>Wait Vbl</b><br>
+
+<p>
+This simple command can be included to achieve perfect synchronisation, and is especially
+useful after a SCREEN SWAP.</p>
+
+<p><b>Screen compaction</b><br>
+
+Naturally you will want to exploit the most spectacular images in your programs, but the idea
+becomes less attractive because of the large amounts of program memory that get used when a
+graphical screen is used. With a single, 64 colour, full-size screen consuming 60k of RAM, the
+AMOS Professional programmer needs to crunch the data that makes up screen graphics, pack
+it into an acceptable amount of memory and then unpack it when necessary.</p>
+
+<p><b>SPACK</b><br>
+<i>picture compactor extension: pack a screen</i><br>
+<b>Spack</b> screen number <b>To</b> bank number<br>
+<b>Spack</b> screen number <b>To</b> bank number xl,y1,x2,y2</p>
+
+<p>
+This command stands for "screen pack", and it supports all standard graphic modes, including
+HAM. Memory is crunched to a fraction of its original requirement, and in its simplest form you
+only need to define the screen number that holds the source of your image (from 0 to 7), and the
+number of the memory bank where you want the packed image deposited (from 1 upwards), for
+example:</p>
+
+<pre>
+X> Spack 7 To 20
+</pre>
+
+<p>
+If the selected memory bank does not already exist, AMOS Professional will reserve it
+automatically before packing in the screen data, which includes everything about the image
+including its mode, size and any offsets or display settings. This means that when the data is
+unpacked, the image will be re-created in its original state. Your new memory bank will be
+stored in fast memory if available, and will be saved along with your Basic program. After
+SPACK has been called, you can determine the size of your crunched screen with the LENGTH
+function.</p>
+
+<div align="right"> <a href="617.html">Back</a> &nbsp;&nbsp;
+  <a href="619.html">Next</a>
+  <br>
+  06.02.05
+</div>
+
+</BODY>
+</HTML>

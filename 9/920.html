@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Interface Language</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Interface Language</h1>
+
+<br>
+
+<p>
+<b>V</b>ert<b>T</b>ext<br>
+<i>Interface instruction: display vertical text</i><br>
+<b>VT</b> x,y,'text',colour</p>
+
+<p>
+The VertText command is used to display a column of vertical text using the specified colour
+index number, starting at your chosen coordinates.</p>
+
+<p><b>Labels and Tests</b><br>
+
+The AMOS Professional Interface also supports a number of program control instructions,
+allowing simple tests to be performed and jumps to be made to various routines. These controls
+make it easy to create complex multi-level user interfaces.</p>
+
+<p>
+<b>LA</b>bel<br>
+<i>Interface instruction: create a simple label</i><br>
+<b>LA</b> label;</p>
+
+<p>
+The LAbel command is used to define a marker label in an Interface program. This can them be
+employed as the target destination for a JumP or JumpSub command, which are the Interface's
+equivalents to the familiar GOTO and GOSUB operations in normal AMOS Professional
+programs. It can also be used as an entry point for the DIALOG RUN instruction.</p>
+
+<p>Several complete dialogue boxes can be installed into the same definition string, if required.</p>
+
+<p>
+Unlike conventional AMOS Professional programs which recognise any characters for labels,
+Interface labels are referred to by <b>numbers</b> only, ranging from zero up to 65535. If a newly
+defined label already exists, an error message will be generated. Interface labels are defined in
+the following manner:</p>
+
+<pre>
+X> LA 10; set up label number 10
+</pre>
+
+<p>
+<b>J</b>m<b>P</b><br>
+<i>Interface instruction: jump to an Interface program label</i><br>
+<b>JP</b> label;</p>
+
+<p>
+The JumP command transfers control to the Interface instructions that commence with the
+selected label number. This label must be defined elsewhere in the Interface program. The JumP
+instruction <b>cannot</b> be used inside any of the routines held in square brackets of a BUtton
+command. It is used with the single parameter of the target label, like this:</p>
+
+<pre>
+X> JumP 10;
+</pre>
+
+<p>
+Interface labels are also used to mark the start of various subroutines, which are entered and left
+as explained next.</p>
+
+<div align="right"> <a href="919.html">Back</a> &nbsp;&nbsp;
+  <a href="921.html">Next</a>
+  <br>
+  09.02.06
+</div>
+
+</BODY>
+</HTML>

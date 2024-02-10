@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Windows</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Windows</h1>
+
+<br>
+
+<p>Simply give the index numbers of the ink, paper, outline and pattern to be used for the slider
+bar, followed by the ink paper, outline and pattern to be used by the slider control box. If
+negative values are used for either pattern, a sprite image will be commandeered from the sprite
+bank, allowing even more spectacular effects. Try this example:</p>
+
+<pre>
+E> Centre "&lt;Press a key&gt;" : Curs Off
+    Do
+     A1=Rnd(15) : B1=Rnd(15) : C1=Rnd(15) : D1=Rnd(24)
+     A2=Rnd(15) : B2=Rnd(15) : C2=Rnd(15) : D2=Rnd(24)
+     Set Slider Al ,B1,C1,D1,A2,B2,C2,D2
+     Hslider 10,10 To 300,60,100,20,25
+     Vslider 10,60 To 20,190,100,20,25
+     Wait Key
+    Loop
+</pre>
+
+<p>Having set up your slider bars, you will want to activate them using the mouse. A simple routine
+to create working slider bars needs to be included in your main program. As always, remember
+to test out the ready-made example programs, for a working guide.</p>
+
+<p><b>Displaying a text window</b><br>
+
+To end this Chapter, here is an extremely useful AMOS Professional feature that allows the
+display of a text file directly on screen. Text can be displayed in its own independent screen, it
+may be scrolled through at will, the display window can be dragged around the screen and
+there is even a facility to include a title line.</p>
+
+<p>
+<b>READ TEXT$</b><br>
+<i>instruction: display a text window on screen</i><br>
+<b>Read Text$</b> name$<br>
+<b>Read Text$</b> name$,address, length</p>
+
+<p>
+In its simplest form, the READ TEXT$ command reads the text held in a specified filename on
+disc, for example:</p>
+
+<pre>
+X> Read Text$ Fsel$("**")
+</pre>
+
+<p>
+You can move through the displayed text using scroll bars, the arrow icons or via the following
+key combinations:</p>
+
+<pre>
+<b>Key Press                       Effect</b>
+[Up Arrow]/[Down Arrow]         Move up/down by one line
+[Shift]+[Up Arrow]/[Down Arrow] Scroll up/down by one page
+[Ctrl]+[Up Arrow]/[Down Arrow]  Jump directly to top/bottom of text
+[Esc] or [Return]               Exit
+</pre>
+
+<p>To read some text from an address in memory, there is an alternative version of the READ
+TEXT$ command. In this case the name$ parameter refers to a <b>title</b> line that will be printed at
+the top of the viewing window. Address holds the address of the first line of the text to be read.
+Length specifies the length of the text to be read, in bytes.</p>
+
+<div align="right"> <a href="568.html">Back</a> &nbsp;&nbsp;
+  <a href="570.html">Next</a>
+  <br>
+  05.07.06
+</div>
+
+</BODY>
+</HTML>

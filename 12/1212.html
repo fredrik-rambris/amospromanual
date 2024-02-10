@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Errors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Errors</h1>
+
+<br>
+
+<p><b>Editor command not runnable</b><br>
+ASK EDITOR and CALL EDITOR can only be used by EDITOR ACCESSORIES. These are
+normal programs with a SET EDITOR command at the start.</p>
+
+<p><b>Editor function not found</b><br>
+You've used an incorrect function number in an ASK EDITOR or CALL EDITOR command.</p>
+
+<p><b>Error in previous program</b><br>
+There was a problem with the accessory program you've called up with PRUN, or accessed from
+the USER MENU. If possible, bring up the listing on the screen, and try running the program
+again from an editor window. You should spot the error immediately.</p>
+
+<p><b>Line too long</b><br>
+You've tried to enter a line into the editor which is longer than the maximum of 251 characters.
+If possible, split the line into a number of smaller pieces.</p>
+
+<p><b>Mark not defined</b><br>
+This error is generated using the [Goto] system mark and [Goto] user mark from the [Editor]
+menu. You are only allowed to jump to a mark if it's been previously defined from the editor.
+User marks are created by you, but System marks are generated automatically whenever you
+move through an AMOS program listing. However, if you call them straight after a program has
+been loaded, you can still get this error.</p>
+
+<p><b>No errors</b><br>
+No errors have been detected in the current program during the testing process.</p>
+
+<p><b>No macros defined</b><br>
+If you try to clear macros when there are none set-up this message will be displayed.</p>
+
+<p><b>No more Redo</b><br>
+You've run out of things to redo. You can only redo lines which have been previously recalled
+by the UNDO command. So every REDO matches exactly one UNDO operation.</p>
+
+<p><b>No more Undo</b><br>
+You've reached the end of the stored key presses used by the undo option. If you've got enough
+memory, AMOS Professional will happily allow you to undo the entire editing session a
+character at a time.</p>
+
+<p><b>Not a procedure</b><br>
+You are trying to use the [Procedure Open/Close] options, but the text cursor is not positioned
+over a procedure.</p>
+
+<p><b>Not an AMOS program</b><br>
+You've attempted to load the wrong sort of program into the Editor. AMOS Professional is
+compatible with all versions of AMOS and Easy AMOS. But you can't load .AMOS format
+compiled programs created from the original AMOS Compiler.</p>
+
+<div align="right"> <a href="1211.html">Back</a> &nbsp;&nbsp;
+  <a href="1213.html">Next</a>
+  <br>
+  12.03.02
+</div>
+
+</BODY>
+</HTML>

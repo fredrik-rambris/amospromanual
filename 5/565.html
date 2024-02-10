@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Windows</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Windows</h1>
+
+<br>
+
+For now, run the last example from Direct mode and enter the following statements:
+
+<pre>
+D> Window 1: Print "AMOS"
+D> Window 3: Print "open windows on the world"
+D> Window 2: "lets me"
+</pre>
+
+<p>The active window is host to the flashing text cursor, unless it has been made invisible with a
+CURS OFF command.</p>
+
+<p>
+<b>BORDER</b><br>
+<i>instruction: change window border</i><br>
+<b>Border</b> number,paper, pen</p>
+
+<p>This command allows you to change the style and colour of the current window border. Border
+style numbers range from 1 to 16, and the paper and pen colours can be selected from any
+available colour index numbers. Any of these parameters can be omitted from the BORDER
+instruction as long as the commas are included for any missing values: If the last example is still
+on screen, enter these lines from direct mode:</p>
+
+<pre>
+D> Border 3,2,3
+D> Border 2,,
+</pre>
+
+<p>
+<b>TITLE TOP</b><br>
+<i>instruction: set title at top of current window</i><br>
+<b>Title Top</b> title$</p>
+
+<p>Use this command to set a border title at the top of the current window to your chosen title
+string. This facility will only operate with bordered windows, as follows:</p>
+
+<pre>
+E> Cls: Wind Open 4,1,1,20,10,1
+   Title Top "Top of the morning"
+</pre>
+
+<p>
+<b>TITLE BOTTOM</b><br>
+<i>instruction: set title at bottom of current window</i><br>
+<b>Title Bottom</b> title$</p>
+
+<p>Similarly, this instruction assigns a string to the bottom title of the current window, like this:</p>
+
+<pre>
+E> Cls : Wind Open 5,75,50,24,15
+   Border 5,6,
+   Title Bottom "Bottom of the barrel"
+</pre>
+
+<div align="right"> <a href="564.html">Back</a> &nbsp;&nbsp;
+  <a href="566.html">Next</a>
+  <br>
+  05.07.02
+</div>
+
+</BODY>
+</HTML>

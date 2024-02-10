@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Multi-Tasking</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Multi-Tasking</h1>
+
+<br>
+
+<p>Here is an example of a boot menu, demonstrating a very simple version of this technique:</p>
+
+<pre>
+E> Do
+    Screen Open 0,640,200,4,Hires
+    Repeat
+    Input "Please enter a program name to run: ";P$
+    Exit If P$="",2
+    Trap Prun P$
+    If Errtrap : Print "Program not found!" : End If
+   Until Errtrap=0
+   Wait 50
+  Loop
+</pre>
+
+<ul>
+  <li>You may use PRUN to call and run as many programs as memory allows.</li>
+  <li>If there is a SYSTEM instruction in a program called by PRUN, it will not return to the
+      Workbench, but back to the previous program.</li>
+  <li>PRUN will work with compiled programs in exactly the same way as outlined above, except
+      there will be no ".AMOS" appended to the name of the program that is to be loaded and run.</li>
+  <li>The COMMAND LINES reserved variable can be used to send parameters between programs.</li>
+  <li>The BGRAB command can be used to grab banks from the original program to the program
+      that has been called.</li>
+  <li>If an error is encountered during testing or running, a value will be stored in the PARAM
+      function, as follows: <0 if there is a test-time error, >0 if there is a run-time error and zero if
+      no error is encountered at all.</li>
+</ul>
+
+<p>
+If you are not sure about the display before calling another program with PRUN, simply close all
+current screens. This will also free as much memory as possible. Similarly, if you are not sure
+about the display after running another program with PRUN, you should also close all of the
+screens, and then call the main screen initialisation of your original program again.</p>
+
+<p>
+<b>PRG UNDER</b><br>
+<i>function: report the availability of a program "under" the current program</i><br>
+status=<b>Prg Under</b></p>
+
+<p>
+This function is used to report on the accessibility of an AMOS Professional program that is
+"under" the current program. One of three values can be returned:</p>
+
+<p>
+Zero indicates that the current program is running normally, under the control of the Editor.
+Remote editor commands and BGRAB <b>cannot</b> be used.</p>
+
+<p>
+A value of 1 indicates that the current program is the only program running, but it is <b>not</b> the
+program currently under the control of the Editor. This happens when an accessory program is
+run or a "program to menu" option is selected, and remote editor commands are allowed as well
+as the use of the BGRAB command.</p>
+
+<p>
+A value of -1 means that the program has been run via another program, using PRUN. In this
+case, memory banks can be grabbed, but remote editor commands <b>cannot</b> be sent.</p>
+
+<div align="right"> <a href="1111.html">Back</a> &nbsp;&nbsp;
+  <a href="1113.html">Next</a>
+  <br>
+  11.04.03
+</div>
+
+</BODY>
+</HTML>

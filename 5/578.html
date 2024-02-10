@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Banks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Memory Banks</h1>
+
+<br>
+
+<p>
+Here is a list of the most common types of memory bank that will be used with AMOS
+Professional programs:</p>
+
+<pre>
+<b>Bank Name         Items Stored                    Bank Type        Memory          Notes</b>
+Sprites           Sprite or Bob images            Permanent         Chip           Bank 1 only
+Icons             Icon images                     Permanent         Chip           Bank 2 only
+Music             Melodies                        Permanent         Chip           Bank 3 only
+AMAL              AMAL progs. and PL table        Permanent         Fast           Bank 4 only
+Samples           audio samples                   Permanent         Chip           Bank 5 default
+Menu              menu definitions                Permanent         Fast           any bank
+Pic.Pac           compressed pictures             Permanent         Fast           any bank
+Resource          buttons and dialogues           Permanent         Fast           any bank
+Tracker           Noisetracker music              Permanent         Chip           any bank
+Chip Work         temporary chip workspace        Temporary         Chip           any bank
+Fast Work         temporary fast workspace        Temporary         Fast           any bank
+Chip Data         long-term chip data             Permanent         Chip           any bank
+Fast Data         constant fast data              Permanent         Fast           any bank
+</pre>
+
+<p><b>Reserving a bank</b><br>
+
+It has already been explained that AMOS Professional allocates certain types of bank
+automatically. To create any other required memory bank, they must first be "reserved". The
+RESERVE AS command is followed by the type of bank that you want to create, a comma, then
+the number of bytes needed for the length of this bank.</p>
+
+<p>If a selected bank already exists, it will be erased to make room for the new definition.</p>
+
+<p>
+Allowable <b>bank numbers</b> range from 1 to 65535, but because bank numbers 1 to 4 are already
+used internally by the AMOS Professional system, new banks should be reserved using the bank
+numbers 5 and above. For users who have upgraded from earlier versions of the AMOS system,
+you will have noted the increase in the range of available bank numbers from the original 15.
+There are four alternative types of bank that can be reserved, and these will now be explained.</p>
+
+<p>
+<b>RESERVE AS DATA</b><br>
+<i>instruction: reserve a new data bank</i><br>
+<b>Reserve As Data</b> bank number,length</p>
+
+<p>
+This reserves the selected bank number with the number of bytes specified as its length. Data
+banks are <b>permanent</b>, and wherever possible, their memory will be allocated from fast memory,
+so this type of bank should <b>not</b> be used for information such as Objects and samples which need
+to be accessed directly by the Amiga's hardware chips.</p>
+
+<p>
+<b>RESERVE AS WORK</b><br>
+<i>instruction: reserve a new work bank</i><br>
+<b>Reserve as Work</b> bank number,length</p>
+
+<p>This allocates a <b>temporary</b> workspace of the requested length from fast memory, if it is available.</p>
+
+<div align="right"> <a href="577.html">Back</a> &nbsp;&nbsp;
+  <a href="579.html">Next</a>
+  <br>
+  05.09.02
+</div>
+
+</BODY>
+</HTML>

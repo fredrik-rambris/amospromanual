@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Machine Code</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Machine Code</h1>
+
+<br>
+
+<p>
+This function can be thought of as an array which holds an exact copy of registers DO to D7. This
+array is automatically moved into the Data registers, either by the CALL command or whenever
+a machine code procedure is run. Once the routine has ended, the new contents of DO to D7 is
+copied directly into the array, so that the results may be read directly from AMOS Professional
+programs. For example:</p>
+
+<pre>
+E> Dreg(0)=10 : Rem Save 10 into DO
+   Print Dreg(0) : Rem Print the contents of DO
+</pre>
+
+<div align="right"> <a href="1415.html">Back</a> &nbsp;&nbsp;
+  <a href="1417.html">Next</a>
+  <br>
+  14.A.16
+</div>
+
+</BODY>
+</HTML>

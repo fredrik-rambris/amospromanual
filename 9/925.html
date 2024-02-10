@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Advanced Control Panels</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Advanced Control Panels</h1>
+
+<br>
+
+<p>
+This Chapter reveals the true power of the AMOS Professional Interface, and deals with the
+creation of advanced control panels, dialogue channels, edit zones and sliders.</p>
+
+<p>
+The last Chapter explained h w simple requesters and dialogue boxes wait for the user to make
+a selection, and then return straight back to the main AMOS Professional program with the
+result. But this only uses fraction of the system In actual fact the Interface is capable of running
+a dialogue box completely in the background, exactly like an AMOS Professional menu.</p>
+
+<p>
+A control panel can be displayed on screen permanently, and each button selection can be read
+as it happens, directly from the main program, without any interruption to that program
+whatsoever. This means that a computer game can be busy performing its calculations while the
+user enters new values into a dialogue box.</p>
+
+<p>
+In order to access these features, a little preparation must be made in advance in order to exploit
+dialogue channels.</p>
+
+<p><b>Dialogue channels</b></p>
+
+<p>
+<b>DIALOG OPEN</b><br>
+<i>instruction: open a channel to an Interface program</i><br>
+<b>Dialog Open</b> channel number,Interface string<br>
+<b>Dialog Open</b> channel number,Interface string,nvar,buffer</p>
+
+<p>
+The DIALOG OPEN command opens a "communication channel" to the new program, and
+loads it with a list of Interface commands. If there are any problems, an appropriate error
+message will appear, and mistakes can be located using a simple call to the error function
+EDIALOG, which is explained below.</p>
+
+<p>
+The parameters for a DIALOG OPEN instruction are given as follows:firstly, the number of the
+channel to be opened, starting from 1. Providing that there is enough memory, you may open as
+many channels as you wish. A string should be specified next, containing one or more Interface
+programs to be initialised. If this string contains several programs, each routine should begin
+with a LAbel instruction and end with an EXit command.</p>
+
+<p>
+Normally AMOS Professional provides enough space to hold up to 17 different values in every
+Interface channel (0 VA to 16 VA). If more channels are needed, this array can be expanded via
+an optional nvar parameter, and each extra variable will take up four bytes of memory. There is
+a final optional parameter that allocates bytes for an internal memory buffer used by Interface
+programs. This array holds all of the information that is required to display dialogue boxes and
+selectors on screen. As a default, 1k is reserved for each channel that has been defined, but if the
+requirements are very complex, this value may have to increase. An error message will appear
+automatically if the current allocation is too small.</p>
+
+<p>
+Note that the DIALOG OPEN command only initialises the communication <b>channel</b>, and it does
+not start the program running or generate any graphics on the screen. To accomplish this, the
+following function is used.</p>
+
+<div align="right"> <a href="924.html">Back</a> &nbsp;&nbsp;
+  <a href="926.html">Next</a>
+  <br>
+  09.03.01
+</div>
+
+</BODY>
+</HTML>

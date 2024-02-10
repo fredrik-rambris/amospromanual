@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Icons and Blocks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Icons and Blocks</h1>
+
+<br>
+
+<p>
+GET ICON PALETTE grabs the colours of the Icon images stored in Bank 2, and loads them in to
+the current screen.</p>
+
+<p><b>PASTE ICON</b><br>
+<i>instruction: draw an Icon</i><br>
+<b>Paste Icon</b> x,y,number</p>
+
+<p>
+Use the PASTE ICON command to draw the specified Icon number already stored in Bank 2, on
+screen. The screen position is defined by graphic coordinates, and can be anywhere you like.
+Icon images will be clipped in the normal way, if they exceed the standard limitations. Here is a
+simple example:</p>
+
+<pre>
+E> Flash Off : Load Iff "AMOSPro_Examples:Iff/logo.iff"
+   Z=0
+   For A=0 To 304 Step 16
+    Inc Z
+    Get Block Z,A,1,16,199
+   Next A
+   Cls 0
+   For A=0 To 304 Step 16
+    Put Block Z,A,0
+    Dec Z
+    Wait Vbl
+   Next A
+</pre>
+
+<p>
+If the DOUBLE BUFFER system in engaged, a copy of the Icon will be drawn into both the
+logical and physical screens, and because this takes a little time, you are advised to add a call to
+AUTOBACK 0 before drawing Icons on screen. This restricts the Icon to the current logical
+screen, and then the entire background may be copied to the physical screen, using SCREEN
+COPY, which is a much faster process.</p>
+
+<p><b>DEL ICON</b><br>
+<i>instruction: delete Icons</i><br>
+<b>Del Icon</b> number<br>
+<b>Del Icon</b> first number <b>To</b> last number</p>
+
+<p>
+DEL ICON erases the Icon whose number is specified from Bank 2. A second Icon number may
+also be given, in which case, all Icons from the first number TO the second number will be deleted.
+When the final Icon in the bank has been deleted, the whole bank will be removed from memory.</p>
+
+<p><b>INS ICON</b><br>
+<i>instruction: insert a blank Icon image into the Icon bank</i><br>
+<b>Ins Icon</b> number<br>
+<b>Ins Icon</b> first To last</p>
+
+<p>
+The INS ICON instruction operates in exactly the same way as INS BOB, which is explained in
+<a href="713.html">Chapter 7.2</a>.</p>
+
+<div align="right"> <a href="773.html">Back</a> &nbsp;&nbsp;
+  <a href="775.html">Next</a>
+  <br>
+  07.07.02
+</div>
+
+</BODY>
+</HTML>

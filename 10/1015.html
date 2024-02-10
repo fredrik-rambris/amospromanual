@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Disc Access</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Disc Access</h1>
+
+<br>
+
+<p>
+Title$ and title2$ are optional text strings that set up a title to be displayed at the top of your file
+selector. For example:</p>
+
+<pre>
+E> F$=Fsel$("AMOSPro_Examples:Objects/*.Abk")
+   If F$="" Then Edit : Rem Return to editor if no file selected
+   Load F$: Rem Load file and display first Bob
+   Flash Off : Bob 1,100,100,1 : Get Bob Palette : Wait Vbl
+</pre>
+
+<p><b>Naming files</b><br>
+
+To create a new folder that can be used to hold files of data, a suitable disc should be ready in
+the appropriate drive.</p>
+
+<p>
+<b>MKDIR</b><br>
+<i>instruction: create a folder</i><br>
+<b>Mkdir</b> filename$</p>
+
+<p>
+This makes a new folder on the current disc, and gives it the filename of your choice. For
+example:</p>
+
+<pre>
+X> Mkdir "Df0:MARATHONMAN"
+   Dir
+</pre>
+
+<p>
+<b>RENAME</b><br>
+<i>instruction: rename a file</i><br>
+<b>Rename</b> oldname$ To newname$</p>
+
+<p>
+This command is used to change the name of an existing file. If your choice of new filename is
+already in use by another file, the appropriate error message will be given.</p>
+
+<pre>
+X> Rename "Ancient" To "Modern"
+</pre>
+
+<p><b>Running programs from disc</b></p>
+
+<p>
+<b>RUN</b><br>
+<i>instruction: execute an AMOS Professional program</i><br>
+<b>Run</b><br>
+<b>Run</b> file$</p>
+
+<p>
+As well as the [Run] or [F1] facility for executing programs from the Edit Screen, the RUN
+command may be used on its own from Direct Mode.</p>
+
+<p>
+When followed by a filename and used inside a program, the RUN command is extremely
+useful. Authors of vast computer games, involving many levels of play, need not be restricted by
+the storage space of a single disc or the memory available in your Amiga. Each level of play can
+be written as a separate program and then saved as a different filename. This means that at the
+end of one level of play, the next stage can be loaded from disc automatically.</p>
+
+<div align="right"> <a href="1014.html">Back</a> &nbsp;&nbsp;
+  <a href="1016.html">Next</a>
+  <br>
+  10.02.08
+</div>
+
+</BODY>
+</HTML>

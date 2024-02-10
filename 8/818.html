@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Playing Music Modules</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Playing Music Modules</h1>
+
+<br>
+
+<p>
+A complete range of facilities i provided for playing music composed with the AMOS
+Professional system, as well as module created with the popular Tracker and Med systems.</p>
+
+<p><b>Playing AMOS Professional music</b><br>
+
+Any pieces of AMOS Professional music that are to be used with your programs must be held in
+the Music Bank, which is normally Bank 3. These musical pieces can be played without affecting
+tiny other part of the main program. If sound effects are triggered on a channel that is currently
+playing music, the tune will be suspended while the sound effect is performed, and will start
+again from its last position once the effect is over.</p>
+
+<p>
+Several musical arrangements can be stored in the same bank, provided that there is enough
+memory, and to identify melodies each piece of music must be given its own number.</p>
+
+<p><b>MUSIC</b><br>
+<i>instruction: play a piece of AMOS Professional music</i><br>
+<b>Music</b> number</p>
+
+<p>
+The MUSIC command is used to start playing the specified melody. Up to three different
+melodies can be started at the same time, but each new MUSIC instruction will halt the current
+melody and hold its status in a stack. When the new song has ended, the original music will
+start again exactly where it left off. Here is a ready-made melody to load and play:</p>
+
+<pre>
+DL> Load "AMOSPro_Examples:Music/Music.Abk"
+    Music 1
+</pre>
+
+<p>
+If you do not want your music to play through to the end, it can be halted in either of the two
+following ways.</p>
+
+<p><b>MUSIC STOP</b><br>
+<i>instruction: stop a single passage of music</i><br>
+<b>Music Stop</b></p>
+
+<p>
+This instruction brings the current single passage of music to a halt. If there is any other active
+music held in the stack and waiting to be played, that music will begin to play at once.</p>
+
+<p><b>MUSIC OFF</b><br>
+<i>instruction: turn off all music</i><br>
+<b>Music Off</b></p>
+
+<p>
+The MUSIC OFF command is used to turn off all AMOS Professional music in your program
+completely. After this command has been called, the sound track can only be re-started by
+executing a MUSIC command all over again.</p>
+
+<p><b>MVOLUME</b><br>
+<i>instruction: set the volume of a piece of music</i><br>
+<b>Mvolume</b> level</p>
+
+<p>
+To set the volume of a piece of music, or to change its current volume, this command
+is followed by a number ranging from zero for complete silence, up to 63 for
+as loud as possible.</p>
+
+<div align="right"> <a href="817.html">Back</a> &nbsp;&nbsp;
+  <a href="819.html">Next</a>
+  <br>
+  08.03.01
+</div>
+
+</BODY>
+</HTML>

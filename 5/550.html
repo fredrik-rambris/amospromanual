@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Text</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Text</h1>
+
+<br>
+
+<p>This Chapter explains how to use the advantages of AMOS Professional for handling written
+text. You may want to remind yourself of the visible character set by running this simple
+routine:</p>
+
+<pre>
+E> For 0=32 To 255
+    Print Chr$(C);" =Ascii Code";
+    Print Asc(Chr$(C)) : Wait 10
+   Next C
+</pre>
+
+<p><b>Printing on the screen</b><br>
+The PRINT instruction is one of the most familiar command words in most Basic languages.</p>
+
+<p>
+<b>PRINT</b><br>
+<i>instruction: print items on screen</i><br>
+<b>Print</b> items</p>
+
+<p>Items are printed on the screen, starting from the current cursor position, and they may include
+the characters in any group of variables or constants, up to the maximum line length of 255
+characters. The PRINT command is also used to display graphics and information on screen, as
+is demonstrated throughout this User Guide. This Chapter will deal with printing text only.</p>
+
+<p>Print statements can occupy their own lines, but if more than one element to be printed is
+written as a single line of your program, each element must be separated from the next by either
+a semi-colon character or a comma. An element to be printed can be a string, a variable or a
+constant, and is placed inside a pair of quotation marks.</p>
+
+<p>A semi-colon is used to print elements immediately after one another, like this:</p>
+
+<pre>
+E> Print "Follow";"on"
+</pre>
+
+<p>A comma moves the cursor to the next "Tab" position on the screen, as follows:</p>
+
+<pre>
+E> Print "Next","Tab"
+</pre>
+
+<p>A Tab is an automatic marker that sets up a location for printing, and is often used to lay out
+columns of figures, or to make indentations in text, and setting Tab positions is explained later.</p>
+
+<p>Normally, the cursor is advanced downwards by one line after every PRINT command, but by
+using the semi-colon or comma, the rule can be changed. Here is an example:</p>
+
+<pre>
+E> Print "AMOS"
+   Print "Professional"
+   Print "AM";
+   Print "OS",
+   Print "Professional"
+</pre>
+
+<div align="right"> <a href="549.html">Back</a> &nbsp;&nbsp;
+  <a href="551.html">Next</a>
+  <br>
+  05.06.01
+</div>
+
+</BODY>
+</HTML>

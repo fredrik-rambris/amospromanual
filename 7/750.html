@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMAL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>AMAL</h1>
+
+<br>
+
+<p>
+The parameters in a Move command are not limited to numbers. You can also employ
+expressions using AMAL functions. In the following example, use is made of XM and YM, which
+are the pair of AMAL functions that return the current coordinates of the mouse. This sort of
+technique is often used to make an Object appear to chase after a player in "intelligent" pursuit:</p>
+
+<pre>
+E> Load "AMOSPro_Tutorial:Objects/Sprites.abk" : Get Sprite Palette
+   Sprite 8,200,100,1
+   Amal 8,"Move XM-X,YM-Y,32"
+   Amal On 8 : Wait Key
+</pre>
+
+<p><b>Animating an Object</b></p>
+
+<p><b>ANIM</b><br>
+<i>AMAL instruction: animate an Object</i><br>
+<b>A</b>nim number,(image,delay)(image,delay) ..</p>
+
+<p>
+Once Objects are moving smoothly across the screen, the next stage is to animate them. This is
+achieved by cycling an Object through a series of images, using the Anim command. Anim is
+followed by a number, which specifies how many times the animation cycle is to be repeated. If
+this number is given a value of zero, the animation will be performed continuously. The
+"frames" of the animation are each held in a pair of brackets containing two parameters. First,
+the number of the image is given, then the delay time that this image is to be displayed on
+screen, measured in 50ths of a second. Remember that you are recommended to use semi-colons
+to separate AMAL commands, as shown in the following example:</p>
+
+<pre>
+E> Load "AMOSPro Tutorial:Objects/Sprites.Abk"
+   Get Sprite Palette
+   SP=6 : Sprite SP,200,100,7
+   M$=Anim 26,(7,4)(8,5);"
+   M$=M$+"Move 100,100,150; Move-100,-100,75"
+   Channel SP To Sprite SP
+   Amal SP,M$ : Amal On SP
+   Direct
+</pre>
+
+<p>For an instant demonstration of an animated Object, please examine this tutorial program:</p>
+
+<pre>
+LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_1.AMOS"
+</pre>
+
+<p><b>Moving within AMAL programs</b></p>
+
+<p><b>JUMP</b><br>
+<i>AMAL instruction: move to a label in AMAL program</i><br>
+<b>J</b>ump label</p>
+
+<p>
+As you begin to use the facilities of AMAL with confidence, you will soon need to be able to
+jump from one part of a program to another. This is achieved by defining a label, and then using
+the Jump command to move to that label.</p>
+
+<div align="right"> <a href="749.html">Back</a> &nbsp;&nbsp;
+  <a href="751.html">Next</a>
+  <br>
+  07.06.03
+</div>
+
+</BODY>
+</HTML>

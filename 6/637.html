@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Graphics</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Graphics</h1>
+
+<br>
+
+<p>Try the next example for some simple demonstrations of alternative settings:</p>
+
+<pre>
+E> Ink 2,5 : Text 100,80,"NORMAL TEXT"
+   Wait 100 : Gr Writing 0
+   Text 100,80, "MERGED"
+   Wait 100 : Gr Writing 4
+   Text 100,90, "STENCIL"
+   Wait 100 : Gr Writing 5
+   Text 100,100, "REVERSE"
+</pre>
+
+<p><b>Advanced techniques</b><br>
+
+Whenever AMOS Professional performs a fill command, a special area of memory is reserved to
+hold the fill pattern. This memory is automatically returned to the system after the fill
+instruction has been performed. The size of the memory buffer is equivalent to a single bit plane
+in the current screen mode, so the default screen takes up a total of 8k.</p>
+
+<p><b>SET TEMPRAS</b><br>
+<i>instruction: set Temporary Raster</i><br>
+<b>Set Tempras</b><br>
+<b>Set Tempras</b> buffer address,buffer size</p>
+
+<p>
+This command allows the AMOS Professional programmer to adjust the amount of memory
+used by the various graphics operations. You are warned that improper usage can cause your
+computer to crash! The address and size of the graphics buffer can be changed as explained
+below.</p>
+
+<p>
+The buffer address can be either an address or a memory bank, and the memory reserved for
+this buffer should always be Chip RAM. After allocating the buffer area at the start of your
+program, there is no need to keep on reserving and restoring it, which means that the execution
+of your programs can be speeded up by up to 5%!</p>
+
+<p>
+The buffer size is the number of bytes you want to reserve for the buffer area, ranging from 256
+to 65536. To calculate the amount of memory you need for a particular object, enclose the object
+in a rectangular box and apply the following formula:</p>
+
+<p>Memory area = Width/8*Height</p>
+
+<p>
+If you are intending to use the PAINT command, make sure that your shape is closed, otherwise
+additional memory may be called for, causing the system to crash.</p>
+
+<p>
+The buffer area can be restored to its original value by calling SET TEMPRAS with no
+parameters.</p>
+
+<div align="right"> <a href="636.html">Back</a> &nbsp;&nbsp;
+  <a href="638.html">Next</a>
+  <br>
+  06.04.11
+</div>
+
+</BODY>
+</HTML>

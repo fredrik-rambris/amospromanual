@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Detecting Collisions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Detecting Collisions</h1>
+
+<br>
+
+<p>
+Supposing you are testing Bob 1 for a collision between Bobs 2,3 and 4. The initial test could look
+like this:</p>
+
+<pre>
+X> C=Bob Col(1,2 To 4)
+</pre>
+
+<p>
+Alter the collision has been detected, you can check on the other objects using the COL
+I unction, as follows:</p>
+
+<pre>
+X> For B=2 To 4
+    If Col(B) Then Print "You have hit Bob number ";B
+   Next B
+</pre>
+
+<p>
+A faster version of this function allows instant monitoring for the second object in the collision,
+like this:</p>
+
+<pre>
+X> object=Col(-1)
+</pre>
+
+<p>
+This returns the number of the object which has collided with your target, or a zero if no
+collision has happened. So the alternative version to the last example is:</p>
+
+<pre>
+X> C=Bob Col(1,2 To 4)
+   Print "You have hit Bob number ";Col(-1)
+</pre>
+
+<p>
+The AMAL equivalent of this function is C, and both are perfect for detecting collisions between
+individual "hostiles" and "friendlies". You simply check for a collision between each object with
+a BOB COL or SPRITE COL, then grab the number of the collision object with the COL function.</p>
+
+<p><b>SET HARDCOL</b><br>
+<i>instruction: set hardware register for hardware Sprite collision detection</i><br>
+<b>Set Hardcol</b> bitmap1 ,bitmap2</p>
+
+<p>
+This command is available to experienced Amiga programmers, and it permits Sprite collision
+detection using the computer's hardware. SET HARDCOL cannot be used with computed
+Sprites, so only Sprites zero to 7 may be monitored for collision.</p>
+
+<p>
+The CLXCON register is set for hardware Sprite collision detection using two parameters.
+Bitmap1 is an enabler, that sets bits 12,13,14 and 15 of the CLXON register, and bitmap2
+determines the comparison itself, setting bits zero to 5. Please refer to your hardware manual for
+a technical explanation of this register.</p>
+
+<p><b>HARDCOL</b><br>
+<i>function: return collision status after a Set Hardcol instruction</i><br>
+c=<b>Hardcol</b></p>
+
+<p>
+Once the hardware register has been set with a SET HARDCOL command, the HARDCOL
+function can be used to read the system register CLXDAT, returning zero (False) if there is no
+collision, or -1 (True) if a collision is detected. The COL function can then be used to return the
+identification number of the colliding Sprite.</p>
+
+<div align="right"> <a href="737.html">Back</a> &nbsp;&nbsp;
+  <a href="739.html">Next</a>
+  <br>
+  07.04.05
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Libraries and Devices</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Libraries and Devices</h1>
+
+<br>
+
+<p>
+There can be problems with these structures, because the type of an element varies dramatically
+from function to function. Depending on the structure, it can be anything from a single byte to a
+whole string of characters. This means that before an element can be changed, the tedious
+process of checking its format must be carried out.</p>
+
+<p>
+STRUC is able to identify the type of the element directly from the equates, and then handle the
+entire procedure automatically, no matter if the element is a byte, a word or a longword. If the
+element is a string pointer, an error will obviously be generated, but we have provided a
+STRUC$ variable to cater for this!</p>
+
+<p>
+The address parameter holds the address of your structure in memory. This will usually be
+returned by a LIB BASE or a DEV BASE function. The offset name is the name of the relevant
+data object as listed in your manuals. The name will be converted into an offset number by
+AMOS Professional, using the auto-equate system, as explained earlier. This means that a SET
+EQUATE BANK command needs to be included near the beginning of your program, to
+initialise this feature. For example:</p>
+
+<pre>
+X> Struc(Dev Base(1),"I0_LENGTH")=TRACK_SIZE
+</pre>
+
+<p>The same process can be used to read a value from a structure:</p>
+
+<pre>
+X> Print Struc(Dev Base(1),"I0_LENGTH")
+</pre>
+
+<p>
+<b>STRUC$</b><br>
+<i>function: read or write a string pointer to a structure</i><br>
+value$=<b>Struc$</b>(address,"Offset_Name")<br>
+<b>Struc$</b>(address,"Offset Name")="value"</p>
+
+<p>
+This is used to read or write a string of characters to the named structure in memory. If the
+element is a number, an error will be generated when the program is first tested.
+When used to copy a string in a buffer area, STRUC$ adds a zero to the end, and then LOKEs it.
+In its alternative use, STRUC$ grabs the string from the relevant structure address, where this
+address refers to the address of the structure in memory, as returned by the LIB BASE or DEV
+BASE functions.</p>
+
+<p>In both cases, the offset name refers to the name of the item to be manipulated.</p>
+
+<p><b>Adding equates to the equates file</b><br>
+
+If your own non-standard libraries are to be used, equate files can easily be expanded in order to
+make use of your new routines.</p>
+
+<p>
+To achieve this, an assembly listing should be produced, containing the equate definitions in
+standard Devpak format. This listing should then be run through the
+"Equates_Generator.AMOS" program, which can be found in the root directory of the
+AMOSPro_System disc.</p>
+
+<div align="right"> <a href="1117.html">Back</a> &nbsp;&nbsp;
+  <a href="1119.html">Next</a>
+  <br>
+  11.05.05
+</div>
+
+</BODY>
+</HTML>

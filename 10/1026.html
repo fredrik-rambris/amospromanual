@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Accessing a Printer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Accessing a Printer</h1>
+
+<br>
+
+<p>
+The command does not wait for the text to be printed, and returns immediately to the program.
+All printing operations are performed "invisibly" in the background. Obviously, if the printer is
+not ready, the appropriate requester will appear.</p>
+
+<p><b>Embedded commands</b><br>
+
+The text string to be printed can contain embedded commands, and these will be converted into
+the appropriate control sequences for the current printer automatically. This means that all the
+effects such as underline, bold, italic and subscript can be included in your programs.</p>
+
+<p>
+Most embedded commands begin with an "Escape" character, or Chr$(27), and they will work
+equally well on <b>any</b> printer. Provided that your particular printer has been installed using the
+Preferences utility, the entire system will be completely transparent. Here are the rules of
+successful printing:</p>
+
+<ul>
+  <li>Each line of text should be terminated by a single Line Feed. Normally this will be Chr$(10),
+      but an embedded command can also be used like this:</li>
+</ul>
+
+<pre>
+X> LF$=Chr$(27)+"E"
+   Printer Send "Greetings" +LF$
+</pre>
+
+<ul>
+  <li>The LF +CR settings found in the AMOS_Interpreter configuration menus are ignored!</li>
+  <li>Zeros are printed as normal characters.</li>
+  <li>The PRINTER SEND command should not be used to output raw data. Such data may contain
+      embedded commands that can be misinterpreted by the printer device.</li>
+  <li>Because PRINTER SEND uses multi--tasking, there may be a slight delay while the text string
+      is being printed.</li>
+  <li>If any changes are made to a string while it is being output, the final print-out may become
+      corrupted.</li>
+  <li>To avoid unwanted "garbage collection", such an operation can be forced <b>before</b> transmission
+      begins of data to be printed, with a line such as X =Free.</li>
+</ul>
+
+<p>
+Here is a list of the most useful embedded commands. Note that ESC is simply a standard name
+for the CHR$(27) character.</p>
+
+
+<pre>
+<b>Name    Code      Effect</b>
+aRIS    ESCc      hard re-set
+aRIN    ESC#1     initialise to defaults
+aIND    ESCD      true line-feed
+aNEL    ESCE      line-feed. This is to be added after every line!
+aRI     ESCM      reverse line-feed
+aSGRO   ESC[Om    normal character set
+aSGR3   ESC[3m    Italics on
+aSGR23  ESC[23m   Italics off
+aSGR4   ESC[4m    underline on
+aSGR24  ESC[24m   underline off
+aSGR1   ESC[1m    boldface on
+</pre>
+
+<div align="right"> <a href="1025.html">Back</a> &nbsp;&nbsp;
+  <a href="1027.html">Next</a>
+  <br>
+  10.03.02
+</div>
+
+</BODY>
+</HTML>

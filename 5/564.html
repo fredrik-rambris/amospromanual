@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Windows</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Windows</h1>
+
+<br>
+
+<p>
+The AMOS Professional programmer expects to be able to produce file selectors, warning boxes
+and on-screen control panels with a few simple lines of code. The range of windowing
+command featured in this Chapter allow you to create interactive dialogue boxes by restricting
+text and graphics operations to selected areas of the current screen.</p>
+
+<p>
+A "window" is simply a rectangular display area, which must first be opened before electronic
+life can course through it. Your current screen is treated as a window, and opened automatically
+by the AMOS Professional system as window number zero. All other windows have to be
+opened by you, and you are advised not to re-open window zero or change its size or position.</p>
+
+<p><b>Creating windows</b></p>
+
+<p>
+<b>WIND OPEN</b><br>
+<i>instruction: create a window</i><br>
+<b>Wind Open</b> number,x,y,width,height<br>
+<b>Wind Open</b> number,x,y,width,height,border</p>
+
+<p>
+The window opened by this instruction will be displayed on screen and used for all subsequent
+text operation until you command otherwise. WIND OPEN must be qualified by a window
+number (don't forget that zero has already been allocated to the current screen), followed by the
+x,y graphic coordinates setting the top left-hand corner of the new window, followed by the
+width and height of the new window in the number of characters needed. You may also specify
+an optional border style, with values ranging from 1 to 16.</p>
+
+<p>
+Because the Amiga employs its blitter to draw windows, they must always lie on a 16-pixel
+boundary. AMOS Professional automatically rounds your x-coordinates to the nearest multiple
+of 16. Additionally, if you have specified a border for your window, the x and y-coordinates will
+be incremented by an additional 8 pixels. In this way, you can be sure that your windows
+always start at the correct screen boundary. There are no boundary restrictions on the y-
+coordinates. Titles can also be included in window borders, which will be dealt with a little later.
+Try this example:</p>
+
+<pre>
+E> For W=1 To 3
+    Wind Open W,(W-1)*96,50,10,15,W
+    Paper W+3 : Pen W+6 : Clw
+    Print "Window";W
+   Next W
+</pre>
+
+<p>
+<b>WINDOW</b><br>
+<i>instruction: change the current window</i><br>
+<b>Window</b> number</p>
+
+<p>This command sets the window number specified as the active window, to be used for all future
+text operations. There is an automatic saving system for re-drawing the contents of windows,
+which is explained below.</p>
+
+<div align="right"> <a href="563.html">Back</a> &nbsp;&nbsp;
+  <a href="565.html">Next</a>
+  <br>
+  05.07.01
+</div>
+
+</BODY>
+</HTML>

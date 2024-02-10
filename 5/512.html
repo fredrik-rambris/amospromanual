@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+	<title>Amos Professional Manual - String Functions</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>String Functions</h1>
+
+<br>
+<P><b>MID$</b><BR>
+<i>function: return a number of characters from the middle of a string</i><br>
+destination$=<b>Mid$</b>(source$,offset,number)<BR>
+<b>Mid$</b>(destination$,offset,number)=source$</P>
+
+<P>Similarly, the MID$ function returns characters from the middle of a string, with the 
+first number specified in brackets setting the offset from the start of the string and the 
+second number setting how many characters are to be fetched. If the number of characters to be 
+fetched is omitted from your instruction, then the characters will be read right up to the end of 
+the string being examined. Here are some examples:</P>
+
+<pre>
+E&gt; Print Mid$("AMOS Professional",6)
+   Print Mid$("AMOS Professional",6,4)
+
+E&gt; A$="AMOS Professional ***"
+   Mid$(A$,19)="Basic"
+   Print A$
+   Mid$(A$,19,3)="Mag"
+   Print A$
+</pre>
+
+<P><b>Finding characters in a string</b><br>
+
+It is often necessary to search through a mass of data for a particular reference, in 
+other words, to search through strings for individual characters or sub-strings. Similarly, you may 
+wish to write an adventure game where lines of text must be broken down into individual commands.</P>
+
+<P><b>INSTR</b><BR>
+<i>function: search for occurrences of one string within another string</i><br>
+x=<b>Instr</b>(host$,guest$)<BR>
+x=<b>Instr</b>(host$,guest$,start of search position)</P>
+
+<P>
+INSTR allows you to search for all instances of one string inside another. In the 
+following examples, the "host" strings are searched for the first occurrence of the "guest" strings 
+you are seeking. If the relevant string is found, its location will be reported in the form of the 
+number of characters from the left-hand side of the host string. If the search is unsuccessful, a 
+result of zero will be given.</P>
+
+<pre>
+E&gt; Print Instr("AMOS Professional","AMOS")
+   Print Instr("AMOS Professional","O")
+   Print Instr("AMOS Professional","o")
+   Print Instr("AMOS Professional","Provisional")
+
+E&gt; Do
+    Input "Type in a host string:";H$
+    Input "Type in a guest string to be found:";G$
+    X=Instr(H$,G$)
+    If X=0 Then Print G$;" Not found"
+</pre>
+
+<div align="right"> <a href="511.html">Back</a> &nbsp;&nbsp; 
+  <a href="513.html">Next</a>
+  <br>
+  05.02.02
+</div>
+
+</BODY>
+</HTML>

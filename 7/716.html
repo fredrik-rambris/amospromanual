@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Blitter Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Blitter Objects</h1>
+
+<br>
+
+<p>
+AMOS Professional provides many alternative methods of moving Bobs, and each Bob can
+display a sequence of different images to create animation. When animating Bobs with AMAL, it
+is possible to loose track of the precise image currently displayed, so the next function has been
+supplied to rectify this.</p>
+
+<p><b>I BOB</b><br>
+<i>function: get image number used by a Bob</i><br>
+image=<b>IBob</b>(number)</p>
+
+<p>
+I BOB returns the number of the image currently assigned to the specified Bob number. If the
+Bob number you want to examine does not exist, an illegal function error will be given, so it is
+vital to define the Bob correctly before calling I BOB. Here is an example:</p>
+
+<pre>
+E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
+   Flash Off : Get Bob Palette : Double Buffer : Autoback 0
+   Bob 1,160,100,1: Rem Display Bob 1 at centre of screen
+   Do
+    For IMAGE=1 To Length(1) : Rem Create simple animation
+     Rem Move Bob 1 with the mouse
+     Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
+     For W=0 To 3 : Wait Vbl : Next W
+     Rem Display image number on screen
+     Locate 0,0 : Print "Image ";I Bob(1);" ";
+    Next IMAGE
+   Loop
+</pre>
+
+<p><b>GET BOB PALETTE</b><br>
+<i>instruction: load image colours into current screen</i><br>
+<b>Get Bob Palette</b><br>
+<b>Get Bob Palette</b> mask</p>
+
+<p>
+This command loads the whole colour palette used for your Bobs into the current screen. A
+mask can be added if you like, which will load a selection of these colours only. Each individual
+colour is represented by one "bit" of the mask being set to a zero (off) or a one (on). Colours run
+from right to left, so that colour zero is represented by the bit at the right-hand end of the mask,
+colour 1 is second from the right, and so on. Supposing there are 16 colours in your Bob palette,
+you would copy the first four colours like this:</p>
+
+<pre>
+X> Get Bob Palette %0000000000001111
+</pre>
+
+<p><b>Unmasking Bobs</b></p>
+
+<p><b>NO MASK</b><br>
+<i>instruction: remove colour zero mask from Bob</i><br>
+<b>No Mask</b> number</p>
+
+<div align="right"> <a href="715.html">Back</a> &nbsp;&nbsp;
+  <a href="717.html">Next</a>
+  <br>
+  07.02.04
+</div>
+
+</BODY>
+</HTML>

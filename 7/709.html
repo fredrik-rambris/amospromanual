@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Hardware Sprites</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Hardware Sprites</h1>
+
+<br>
+
+<p>
+The SPRITE OFF command removes all sprites from your display, and all current Sprite
+movements are aborted. To re-start them, the movement pattern must be initialised again.
+(Please see the AMAL facilities explained in <a href="../7/748.html">Chapter 7.6</a>). If an optional Sprite number is given,
+only that Sprite will be de-activated and removed from the screen.</p>
+
+<p>
+Please note that Sprites are de-activated every time the AMOS Professional editor is called up.
+Sprites are automatically returned to their original positions the next time Direct Mode is
+entered.</p>
+
+<p><b>X SPRITE</b><br>
+<i>function: return x-coordinate of a Sprite</i><br>
+x=<b>X Sprite</b>(number)</p>
+
+<p>
+This function returns the current x-coordinate of the Sprite whose number is given in brackets.
+The Sprite number can range from 0 to 63, and positions are given in hardware coordinates. Use
+X SPRITE to check if a Sprite has passed off the edge of the screen.</p>
+
+<p><b>Y SPRITE</b><br>
+<i>function: return y-coordinate of a Sprite</i><br>
+y=<b>Y Sprite</b>(number)</p>
+
+<p>This gives the vertical position of the specified Sprite, measured in hardware coordinates.</p>
+
+<p><b>I SPRITE</b><br>
+<i>function: return current image number of a Sprite</i><br>
+image=<b>I Sprite</b>(number)</p>
+
+<p>
+This function returns the current image number being used by the specified Sprite. If the Sprite
+is not displayed, a value of zero will be returned.</p>
+
+<p><b>Conversion Functions</b></p>
+
+<p><b>X SCREEN</b><br>
+<i>function: convert hardware x-coordinate to screen x-coordinate</i><br>
+x=<b>X Screen</b>(xcoordinate)<br>
+x=<b>X Screen</b>(screen number,xcoordinate)</p>
+
+<p><b>Y SCREEN</b><br>
+<i>function: convert hardware y-coordinate to screen y-coordinate</i><br>
+y=<b>Y Screen</b>(ycoordinate)<br>
+y=<b>Y Screen</b>(screen number,ycoordinate)</p>
+
+<p>
+These functions transform a hardware coordinate into a screen coordinate, relative to the
+current screen. If the hardware coordinates lie outside of the screen, both functions will return
+relative offsets from the screen boundaries. An optional screen number may be included, in
+which case the coordinates will be returned relative to that screen.</p>
+
+<div align="right"> <a href="708.html">Back</a> &nbsp;&nbsp;
+  <a href="710.html">Next</a>
+  <br>
+  07.01.09
+</div>
+
+</BODY>
+</HTML>

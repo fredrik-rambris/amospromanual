@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Errors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Errors</h1>
+
+<br>
+
+<p><b>Not an AmigaDOS disc (92)</b><br>
+AMOS Professional can only read discs created on an Amiga. If you want to use discs that are of
+compatible size but originate from another sort of computer, you will first have to use
+specialised software to translate the data.</p>
+
+<p><b>Not a med module (189)</b><br>
+The MED LOAD command is only capable of loading music modules which are compatible with
+the MED music format. So check that the music is in the correct format.</p>
+
+<p><b>Not a packed bitmap (200)</b><br>
+You have attempted to unpack a data bank which is not in bitmap format.</p>
+
+<p><b>Not a packed screen (201)</b><br>
+The data you are trying to unpack is not in packed screen format.</p>
+
+<p><b>Not a tracker module (186)</b><br>
+The TRACKER LOAD command is only capable of loading music modules which are compatible
+with the popular NOISETRACKER music format.</p>
+
+<p><b>Out of data (33)</b><br>
+You may have left out some information from one of your DATA lines, because a READ
+command has gone past the last item of data in the current program. Alternatively, there may be
+a typing error in a RESTORE command.</p>
+
+<p><b>Out of internal memory (printer device) (167)</b><br>
+The printer device cannot cope with what you've requested. This Commodore internal error
+may vary upon the device.</p>
+
+<p><b>Out of memory (24)</b><br>
+Your Amiga thinks that it has run out of available memory storage space. If the information line
+assures you that there is plenty of spare memory, simply save your program, re-boot and load
+the program back in. There are commands which will free up memory when you start reaching
+the Amiga's limits. These are: CLOSE EDITOR, KILL EDITOR and CLOSE WORKBENCH.</p>
+
+<p><b>Out of memory (parallel device 172), (printer device 166), ( serial device 148)</b><br>
+If a device requires memory and finds that there's no more left, one of the above will be
+reported back. Try adding the CLOSE WORKBENCH or CLOSE EDITOR commands at the start
+of your program to free up some additional memory.</p>
+
+<p><b>Out of stack space (0)</b><br>
+There are too many procedure calls nested inside one another. Although AMOS Professional
+procedures can call themselves up, this error may be reported after about 50 loops. The same
+can happen with the GOSUB command. See the SET STACK command if you need to extend
+this limit.</p>
+
+<p><b>Out of variable space (11)</b><br>
+Normally, AMOS Professional allocates 8k of storage space for your strings and arrays.
+To increase variable space, use the SET BUFFER command at the beginning
+of your program.</p>
+
+<div align="right"> <a href="1228.html">Back</a> &nbsp;&nbsp;
+  <a href="1230.html">Next</a>
+  <br>
+  12.03.19
+</div>
+
+</BODY>
+</HTML>

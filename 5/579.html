@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Banks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Memory Banks</h1>
+
+<br>
+
+<p>The work data will be erased every time the program is run from the Editor, and it will be
+discarded when the listing is saved onto disc. A quick check can be made to see if the data area
+has been successfully assigned to fast memory, using the FAST FREE function, like this:</p>
+
+<pre>
+E> M=Fast Free : Rem Give the amount of available FAST memory
+   Reserve As Work 10,1000
+   If M<>Fast Free
+     Print "The Data has been stored in FAST Ram"
+   Else
+     Print "Sorry, there is only CHIP Ram available"
+   End If
+</pre>
+
+<p>
+<b>RESERVE AS CHIP DATA</b><br>
+<i>instruction: reserve a new chip data bank</i><br>
+<b>Reserve As Chip Data</b> bank number,length</p>
+
+<p>
+Use this variation of the RESERVE AS instruction to allocate a <b>permanent</b> area of memory using
+Chip Ram. If there is none available, an "Out of Memory" error will be reported. You can obtain
+an instant read-out of the remaining chip memory by calling the CHIP FREE function, as
+follows:</p>
+
+<pre>
+E> CF=Chip Free
+   Print "Remaining Chip memory = ";CF;" bytes."
+</pre>
+
+<p>Once a bank has been defined by this command, it will be saved automatically, along with your
+AMOS Professional Basic program.</p>
+
+<p>
+<b>RESERVE AS CHIP WORK</b><br>
+<i>instruction: reserve a new chip work bank</i><br>
+<b>Reserve As Chip Work</b> bank number,length</p>
+
+<p>
+This command allocates the selected block of <b>temporary</b> memory using Chip Ram, and it is often
+used with the DOUBLE BUFFERED sampling system, to play samples directly from hard disc.
+Here are some typical examples of the different RESERVE AS commands:</p>
+
+<pre>
+X> Reserve As Chip Work 10,10000: Rem 10000 bytes of chip workspace to bank 10
+   Reserve As Work 11,5000: Rem 5000 bytes of fast workspace to bank 11
+   Reserve As Chip Data 12,2000 : Rem 2000 bytes of permanent chip data to bank 12
+   Reserve as Data 13,1000 : Rem 1000 bytes of fast data to bank 13
+</pre>
+
+<p><b>Saving memory banks</b><br>
+
+AMOS Professional provides the simplest of instructions for saving memory banks.</p>
+
+<p>
+<b>SAVE</b><br>
+<i>instruction: save one or more memory banks onto disc</i><br>
+<b>Save</b> "filename.abk"<br>
+<b>Save</b> "filename.abk",bank number</p>
+
+<div align="right"> <a href="578.html">Back</a> &nbsp;&nbsp;
+  <a href="580.html">Next</a>
+  <br>
+  05.09.03
+</div>
+
+</BODY>
+</HTML>

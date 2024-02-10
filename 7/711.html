@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Hardware Sprites</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<A href="../index.html">Amos Professional Manual</A>&nbsp; <A href="../contents/c1.html">Contents</A>&nbsp; <A href="../14/1446.html">Index</A> 
+
+<h1>Hardware Sprites</h1>
+
+<br>
+
+<p><b>HOT SPOT</b><br>
+<i>instruction: set reference point for all coordinate calculations</i><br>
+<b>Hot Spot</b> image number,x,y<br>
+<b>Hot Spot</b> image number,pre-set value</p>
+
+<p>
+The HOT SPOT command sets the hot spot of an image stored in the current Object Bank. The
+hot spot x,y-offset is measured from the top left-hand corner of the image, and is added to those
+coordinates before use, as illustrated in the following diagram:</p>
+
+<IMG height=201 alt   ="sprite at central hotspot" src="../images/711ship1.jpg" width=315 >
+
+<p>
+It is perfectly legal to position the hot spot outside of the current screen display. This can be
+used for automatic conversion of all screen coordinates, as explained above, or to set up a games
+sequence with Sprites appearing from off-screen.</p>
+
+<p>
+There is another version of this instruction, allowing automatic positioning of the hot spot to
+any one of nine pre-set positions. These positions are shown in the following diagram, with the
+central point of the Object image represented by the value $11. The value for a pre-set hot spot
+at the top right-hand corner of the image is $20, for the bottom left-hand corner $02, and so on.</p>
+
+<IMG height=197 alt  ="Hot Spot values" src="../images/711ship2.jpg" width=300 >
+
+<p><b>The Sprite Doctor</b><br>
+
+The final part of this Chapter contains some instant diagnoses and remedies for common Sprite
+illnesses!</p>
+
+<p>
+<b>Problem:</b> I can't display hardware Sprite zero. It does not want to appear.<br>
+<b>Remedy:</b> Hardware Sprite zero is already allocated to the mouse pointer.
+Use HIDE ON to remove the mouse pointer from the screen, and try again.</p>
+
+<div align="right"> <A href="710.html">Back</A> &nbsp;&nbsp;
+  <A href="712.html">Next</A>
+  <br>
+  07.01.11
+</div>
+
+</body>
+</HTML>

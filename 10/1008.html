@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Disc Access</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Disc Access</h1>
+
+<br>
+
+<p><b>Disc drive names</b><br>
+
+Each disc drive used by your Amiga is identified by a simple three-character code, followed by
+he colon character to distinguish the name of the drive from a file name. The internal floppy
+disc drive is referred to like this:</p>
+
+<pre>
+Df0:
+</pre>
+
+<p>
+If you have installed additional floppy drives, they will be named Df1: then Df2: and so on.
+I lard drives are identified by a similar code, with the first hard disc drive carrying a zero, the
+second a one, and so on, like this:</p>
+
+<pre>
+Dh0:
+</pre>
+
+<p><b>Volume names</b><br>
+
+The Amiga is happy to refer to an individual disc by name instead of looking for the disc drive
+code, as long as the string of characters that make up the name of the disc carries the colon
+character, as follows:</p>
+
+<pre>
+AMOS_PROFESSIONAL:
+</pre>
+
+The titles of "discs are known as "volume" names, which is the equivalent of the title of a written
+volume in a library. AMOS Professional automatically checks each available drive for the
+required disc, and if it cannot be found, the "Device not available" error will be given.</p>
+
+<p>
+Whenever a new disc is prepared for use via the Workbench, it is automatically given the name
+"Empty", waiting for you to re-name it with a suitable volume title, after clicking on the
+I Rename] option. It is very bad practice to give the same name to more than one disc, as both
+the Amiga and its operator can get confused by sloppy naming. If different discs do have the
+same volume name for any reason, you will have to refer to the appropriate drive name to tell
+AMOS Professional precisely which of these discs you are interested in. For example:</p>
+
+<pre>
+X> Dir "Df0:"
+</pre>
+
+<p>The DIR command is used to print out a directory index of a disc, and is explained below.</p>
+
+<p><b>Files and directories</b><br>
+
+If you think of a disc as a self-contained "volume" , then that volume can contain one or more
+"folders" of information, and each folder can hold all sorts of "files". Before any file can be
+accessed and used, it has to be found in the file directory of its disc. The next section of this
+Chapter explains how files are managed with AMOS Professional, but first you should be aware
+of the set of objects known as "logical devices".</p>
+
+<p>
+Logical devices are used by the Amiga's operating routines to work out the exact position of
+important system files, such as the fonts used for text characters and the device handlers used
+for peripherals. Each device is normally assigned to a specific directory on the current
+start-up disc.</p>
+
+<div align="right"> <a href="1007.html">Back</a> &nbsp;&nbsp;
+  <a href="1009.html">Next</a>
+  <br>
+  10.02.01
+</div>
+
+</BODY>
+</HTML>

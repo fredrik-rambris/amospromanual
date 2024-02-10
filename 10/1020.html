@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Disc Access</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Disc Access</h1>
+
+<br>
+
+<p>
+<b>SET INPUT</b><br>
+<i>instruction: set end-of-line characters</i><br>
+<b>Set Input</b> code1,code2</p>
+
+<p>
+SET INPUT is used to set which characters you want to input to end a line of data. Many
+computers need both a [Return] and [line feed] character at the end of each line, but the Amiga
+only needs a [line feed]. This means that if you wanted to import files from an ST via the serial
+cable, for example, unwanted [Return] characters would litter your input.</p>
+
+<p>
+SET INPUT solves this problem by allowing you to select two Ascii values as your end-of-line
+characters. If you prefer to use a single character only, make the second value a negative
+number. For example:</p>
+
+<pre>
+X> Set Input 10,-1 : Rem Standard Amiga format
+   Set Input 13,10: Rem ST compatible format
+</pre>
+
+<p>
+<b>INPUT$</b><br>
+<i>function: input a fixed number of characters from a device</i><br>
+i$=<b>Input$</b>(file,count)</p>
+
+<p>
+Use this function to input a set number of characters from a device or file. The parameters in
+brackets refer to the filename or device, followed by the count of characters to be input.</p>
+
+<p>
+<b>EOF</b><br>
+<i>function: test for end of file</i><br>
+flag=<b>Eof</b>(channel)</p>
+
+<p>
+This tests to see if the end of a file has been reached at the current reading position, returning -1
+for yes and 0 if this has not happened.</p>
+
+<p>
+<b>LOF</b><br>
+<i>function: give length of an open file</i><br>
+length=<b>Lof</b>(channel)</p>
+
+<p>
+LOF returns the length of an open file, and it would be pointless to use this function with
+devices other than the current disc.</p>
+
+<p>
+<b>POF</b><br>
+<i>reserved variable: hold current position of file pointer</i><br>
+position=<b>Pof</b>(channel)</p>
+
+<p>
+This changes the current reading or writing position of an open file. For example, the following
+line sets the read/write position to 1,000 characters past the start of the file:</p>
+
+<pre>
+X> Pof(1)=1000
+</pre>
+
+<p>
+Because disc drives are inherently random, this may be used to provide
+a crude form of random access with sequential files.</p>
+
+<div align="right"> <a href="1019.html">Back</a> &nbsp;&nbsp;
+  <a href="1021.html">Next</a>
+  <br>
+  10.02.13
+</div>
+
+</BODY>
+</HTML>

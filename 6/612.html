@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Setting up Screens</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Setting up Screens</h1>
+
+<br>
+
+<p><b>Extra Half Bright mode</b><br>
+	
+The colour of every point on the screen is governed by a value held in one of the Amiga's colour
+registers. Each register can be loaded from a selection of 4096 different colours.</p>
+
+<p>
+There is no point in wasting the computer's memory with dozens of available colours, if only
+two of them are going to be employed for some simple text. On the other hand, there is no point
+being restricted to 16 or 32 colours if images need to be as realistic as possible. There are two
+special screen modes that change the number of colours for use, Extra Half Bright mode (EHB),
+and Hold And Modify mode (HAM).</p>
+
+<p>
+Extra Half Bright mode doubles the number of available colours to 64. This is achieved by
+creating two colours from each of the Amiga's 32 colour registers. Colour numbers 0 to 31 are
+loaded straight from one of the colour registers, as normal. But the EHB mode creates an extra
+set of colours alongside the originals, by looking at their values and dividing them in half. This
+makes the new set of colours exactly half as bright as the originals. The new set of colours uses
+index numbers from 32 to 63.</p>
+
+<p>
+Obviously, you can take full advantage of EHB by loading the 32 colour registers with the
+brightest colours available, so that pastel shades are generated automatically. Alternatively, if
+you needed to create specialised graphics, like an old-fashioned photograph for example, you
+might want to restrict the 32 colour registers to reds, greys and browns.</p>
+
+<p>
+Using EHB mode makes no difference at all to any other parts of your programming, and EHB
+screens are treated in exactly the same way as the default screen. It is also possible to create Bobs
+in this mode. Here is a simple example of EHB colours.</p>
+
+<pre>
+E> Screen Close 0
+   Screen Open 2,320,167,64,Lowres : Flash Off
+   For C=1 To 32
+    Ink C
+    Bar 0,(C-1)*5 To 160,(2+C-1)*5
+    Ink C+32
+    Bar 160,(C-1)*5 To 319,(2+C-1)*5
+   Next C
+</pre>
+
+<p><b>Hold And Modify mode</b><br>
+
+For an artist to carry around 4096 tubes of different coloured paint would be expensive and
+stupid, so an artist makes use of common colours, and mixes them together to create the exact
+shade needed. Computers use exactly the same process, allowing the programmer to hold on to
+an existing colour and modify it very slightly, time and time again. This is the theory behind the
+Amiga's Hold And Modify (HAM) mode.</p>
+
+HAM mode splits up colour values into four separate groups. Colours 0 to 15 are normal, and
+the others exploit the way that all colours are made up from basic Red, Green and Blue
+components.
+
+<div align="right"> <a href="611.html">Back</a> &nbsp;&nbsp;
+  <a href="613.html">Next</a>
+  <br>
+  06.01.12
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Updating Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Updating Objects</h1>
+
+<br>
+
+<p><b>BOB CLEAR</b><br>
+<i>instruction: clear all Bobs from the screen</i><br>
+<b>Bob Clear</b></p>
+
+<p><b>BOB DRAW</b><br>
+<i>instruction: re-draw all Bobs on screen</i><br>
+<b>Bob Draw</b></p>
+
+<p>
+This pair of commands is used to synchronise Bob updates with complex screen movements,
+and generate superbly smooth scrolling screen effects. The technique is achieved by the
+following steps.</p>
+
+<ul>
+  <li>Remove all Bobs from the logical screen display with BOB CLEAR. Background areas are
+      copied from their invisible hiding places in memory, and the display is returned to its original
+      condition.</li>
+  <li>Each Bob is now examined in turn, and checked to see if it has been repositioned. If so, the
+      area beneath the new coordinates are copied invisibly, as they will be needed to return the
+      screen back to normal, when the Bob is next moved. You can now perform your drawing
+      operations as required, and move your Bobs to any point on the screen.
+  <li>Now use BOB DRAW to re-draw any Bobs that have moved at their new screen coordinates,
+      using the appropriate image from the Object Bank.</li>
+</ul>
+
+<p>
+Note that BOB CLEAR and BOB DRAW will only work on the current logical screen, so if
+DOUBLE BUFFER has been activated, a SCREEN SWAP command will be needed to call the
+relevant display, as follows:</p>
+
+<pre>
+X> Screen Swap : Wait Vbl
+</pre>
+
+<p>
+Also remember to turn off the automatic updating system completely before use. Here is the
+correct procedure.</p>
+
+<ul>
+  <li>Turn off the AUTOBACK system to stop the synchronisation between your graphics and Bobs,
+      like this:</li>
+</ul>
+
+<p>Autoback 0</p>
+
+<ul>
+  <li>Now that all graphical operations have been forced to work with the logical screen, turn off
+      the standard updating system, with BOB UPDATE OFF.</li>
+  <li>Next add a BOB CLEAR command at the start of your main loop. You can now draw your
+      graphics on screen, and move your objects as required.</li>
+  <li>Finally, re-draw your objects at their new positions using BOB DRAW.</li>
+</ul>
+
+<div align="right"> <a href="729.html">Back</a> &nbsp;&nbsp;
+  <a href="731.html">Next</a>
+  <br>
+  07.03.05
+</div>
+
+</BODY>
+</HTML>

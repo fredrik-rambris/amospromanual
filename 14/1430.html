@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Bank Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Memory Bank Structures</h1>
+
+<br>
+
+<pre>
+Header           dc.l    Address_Of_Next_Bank    Start-24
+                 dc.l    Length_Of_Bank + 16     Start-20
+                 dc.l    Number_Of_The_Bank      Start-16
+                 dc.w    Flag                    Start-12 (5=Objects or 9=lcons)
+                 dc.w    Free_For_Future         Start-10 (Do not touch!)
+                 dc.b    "Sprites  "             Start-8 (or "Icons ")
+* Start of the bank                              Returned by START function
+Start            dc.w    Number_Of_Images        Returned by LENGTH function
+* ".img" stands for the number of the image
+* There is a separate pointer for each image in the bank
+                 REPT    Number_Of_Images        For IMG=1 To No_Of_Images
+* Store pointer values
+                 dc.l    lmage_Address.img       Address of Image
+                 dc.l    Mask_Address.img        Address of Mask (if defined)
+                 ENDR
+* Colour palette (32 words). This holds the colour values used by your images
+                 dc.w 32
+</pre>
+
+<p><b>Image_Address.img</b><br>
+If you have created a blank image using INS BOB, the address of the image will be 0 (zero). In
+this case, there is obviously no mask address either.</p>
+
+<p><b>Mask_Address.img</b><br>
+This can have different values. If the value equals <b>zero</b>, the mask is not yet calculated. It will be
+created when the image is assigned to the Bob automatically. If the value is <b>-1</b> the user has called
+the NO MASK command, so AMOS Professional will not bother with the mask. If the
+Mask_Address.img is <b>greater than zero</b> , it will hold the address of the mask in Chip memory.</p>
+
+<p>Each image has a separate data area:</p>
+
+<pre>
+Image_Address.img
+   dc.w   X_Size                        (Width in words = pixel size/16)
+   dc.w   V_Size                        Height in lines
+   dc.w   Number_Of_Planes              Number of planes (1 to 6)
+   dc.w   Hot_Spot_X OR Flipping_Flags  Holds X control point + extra flags
+   dc.w   Hot_Spot_V
+* Image data
+  REPT  Number_Of_Planes
+   dcb.w X_Size * Y_Size
+  ENDR
+</pre>
+
+<p>
+The image definition is merely a small bitmap containing the actual picture. The planes are
+stored one after another, starling from plane 0.</p>
+
+<div align="right"> <a href="1429.html">Back</a> &nbsp;&nbsp;
+  <a href="1431.html">Next</a>
+  <br>
+  14.E.06
+</div>
+
+</BODY>
+</HTML>

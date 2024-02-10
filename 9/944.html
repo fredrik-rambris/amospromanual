@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Interface Resources</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Interface Resources</h1>
+
+<br>
+
+<p>
+These components can be re-used to produce a large number of possible displays, such as in the
+next example diagram:</p>
+
+<pre>
+[1|2|2|2|3]
+[4|5|5|5|6]
+[4|5|5|5|6]
+[7|8|8|8|9]
+</pre>
+
+
+<p>
+<b>PU</b>sh<br>
+<i>Interface instruction: push image to an offset position in the Resource Bank</i><br>
+<b>PU</b> offset;</p>
+
+<p>
+The PUsh command sets an offset value to the first image in the Resource Bank, and this offset
+will be added to all subsequent image numbers. This means that you can make a dialogue box
+totally independent from the images in the Resource Bank. For example, if new images are
+added at the beginning of the bank at any subsequent time, the images used by your existing
+resource commands will be pushed down the required number of places, and they will work
+perfectly without any changes in numbering required. To demonstrate this, the following two
+lines would have exactly the same effect:</p>
+
+<pre>
+X> PUsh 0; UNpack 0,0,13;
+   PUsh 13; UNpack 0,0,0;
+</pre>
+
+<p><b>The Resource commands</b><br>
+
+Here is a full explanation of the additional AMOS Professional instructions and functions that
+can be used to exploit the Resource Bank.</p>
+
+<p><b>RESOURCE BANK</b><br>
+<i>instruction: select a bank to be used for resources</i><br>
+<b>Resource Bank</b> number</p>
+
+<p>
+This command is used to tell AMOS Professional in which bank the resources to be used by
+Interface programs are kept. The number parameter holds the number of the memory bank to
+be allocated. If this bank does not exist, the Editor's internal resource bank will be used as a
+default. This means that after this command has been called, you can return to the Editor
+resources by employing a dummy value, such as zero. Here is an example:</p>
+
+<pre>
+X> Load "Resource.Abk",16 : Rem This can be any filename
+   Resource Bank 16: Rem Set resources to Bank 16
+</pre>
+
+<p><b>RESOURCE$</b><br>
+<i>function: read a message from the Resource Bank</i><br>
+message=<b>Resource$</b>(message number)</p>
+
+<p>
+The RESOURCE$ function returns one of the messages from the current Resource Bank, to be
+used by an AMOS Professional program. If the bank has not been defined, the standard Editor
+messages will be made available from the Configuration file.</p>
+
+<div align="right"> <a href="943.html">Back</a> &nbsp;&nbsp;
+  <a href="945.html">Next</a>
+  <br>
+  09.04.03
+</div>
+
+</BODY>
+</HTML>

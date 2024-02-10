@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Using the Keyboard</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Using the Keyboard</h1>
+
+<br>
+
+<p>This Chapter reveals how AMOS Professional exploits the potential of your keyboard.</p>
+
+<p><b>Checking for a key-press</b><br>
+
+The keyboard can be used to interact with your routines once they are running. This is vital for
+any sort of arcade game, adventure gaming or for more practical items such as word processing.</p>
+
+<p>
+<b>INKEY$</b><br>
+<i>function: check for a key-press</i><br>
+k$=<b>Inkeys$</b></p>
+
+<p>
+This function checks to see if a key has been pressed, and reports back its value in a string. For
+example:</p>
+
+<pre>
+E> Do
+    K$=Inkey$
+    If K$<>""Then Print "You pressed a key!"
+   Loop
+</pre>
+
+<p>Now use the INKEY$ function to move your cursor around the screen, like this:</p>
+
+
+<pre>
+E> Print "Use your cursor keys"
+   Do
+    K$=Inkey$
+    If K$<>""Then Print K$;
+   Loop
+</pre>
+
+<p>
+The INKEY$ function does not wait for you to input anything from the keyboard, so if a
+character is not entered an empty string is returned.
+INKEY$ can only register a key-press from one of the keys that carries its own Ascii code, and
+the Ascii code numbers that represent the characters which can be printed on the screen are
+explained in <a href="../5/511.html">Chapter 5.2</a>.</p>
+
+<p>
+It has also been explained that certain keys like [Help] and the function keys [Fl] to [F10] do not
+carry as Ascii code at all, and if INKEY$ detects that this type of key has been pressed, a
+character with a value of zero will be returned. When this happens, the internal "scan codes" of
+these keys can be found.</p>
+
+<p>
+<b>SCANCODE</b><br>
+<i>function: return the scancode of a key entered with INKEY$</i><br>
+s=<b>Scancode</b></p>
+
+SCANCODE returns the internal scan code of a key that has already been entered using the
+INKEY$ function. The next example may be tested by pressing the function keys, [Del] and
+[Help]. To interrupt the example, press [Ctrl]+[C].
+
+<div align="right"> <a href="../9/946.html">Back</a> &nbsp;&nbsp;
+  <a href="1002.html">Next</a>
+  <br>
+  10.01.01
+</div>
+
+</BODY>
+</HTML>

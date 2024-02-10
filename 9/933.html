@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Advanced Control Panels</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Advanced Control Panels</h1>
+
+<br>
+
+<p>
+<b>V</b>ertical<b>S</b>lider<br>
+<i>Interface instruction: create an animated vertical slider bar</i><br>
+<b>VS</b> zone number,x,y,width,height,position,trigger,total,step;[changes]</p>
+
+<p>
+The VerticalSlider command generates a working vertical slider, as demonstrated by the
+standard AMOS Professional file selector. The parameters are exactly the same as for the HSlider
+command, and the position of the slider can be read by a call to the RDIALOG function, like
+this:</p>
+
+<pre>
+X> position=RDIALOG(channel number,zone number)
+</pre>
+
+<p>
+Once slider bars have been created, they can be used to produce attractive selector boxes. These
+allow you to scroll through a list of items directly on the screen, and select them individually
+using the mouse, again, as demonstrated by the AMOS Professional file selector.</p>
+
+<p><b>Reading arrays</b><br>
+
+In order to generate an Interface selector, a method is needed of grabbing an entire list of items
+from the AMOS Professional main program. A simple function is provided for transferring
+complete arrays into an Interface routine.</p>
+
+<p>
+<b>ARRAY</b><br>
+<i>function: load the address of an array into a program</i><br>
+address=<b>ARRAY</b>(list$(0))</p>
+
+<p>
+The ARRAY function returns the address in memory of the first item in the specified list$ array.
+This string can contain any data at all, but if the array is to be accessed from an Interface
+program, each element in the array must be of <b>exactly</b> the same length.</p>
+
+<p>
+After it has been returned, the address may now be installed into an Interface program using the
+VDIALOG function, as follows:</p>
+
+<pre>
+X> Vdialog(1,0)=Array(V$(0)) : Rem Loads 0 VA (channel 1) with the address of V$(0)
+</pre>
+
+<p>
+Once installed like that, the address can be accessed from an Interface program using the
+ArrayRead function.</p>
+
+<p>
+<b>A</b>rray<b>R</b>ead<br>
+<i>Interface function: read an element from an AMOS Professional array</i><br>
+item=address,element number <b>AR</b></p>
+
+<p>
+This function returns the specified item from a normal AMOS Professional array. The element to
+be returned must have been previously loaded into an Interface variable from the main
+program. The two parameters that must be specified are the address which holds the location of
+the first item in the array, followed by the number of the item in that array which is to be
+returned. Obviously, if the number of the specified element is higher than the dimension of the
+array, an error will be generated.</p>
+
+<div align="right"> <a href="932.html">Back</a> &nbsp;&nbsp;
+  <a href="934.html">Next</a>
+  <br>
+  09.03.09
+</div>
+
+</BODY>
+</HTML>

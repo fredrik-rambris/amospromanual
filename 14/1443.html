@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Copper Lists</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Copper Lists</h1>
+
+<br>
+
+<p>
+You should now understand that AMOS Professional actually holds <b>two</b> separate copper lists in
+memory, and the principle is very similar to the logical and physical screens of the DOUBLE
+BUFFER system.</p>
+
+<p>
+The <b>logical</b> copper list is the list being created from AMOS Professional Basic, and it is
+completely invisible. The <b>physical</b> list holds the copper instructions that are generating the
+current TV display. It cannot be accessed from AMOS Professional at all, as this would corrupt
+the display completely. As a default, these copper lists are limited to 12k in length, which is the
+equivalent to approximately six thousand instructions. This limit may be increased using an
+option from the Interpreter set-up dialogue box.</p>
+
+<p>Copper lists can be defined in one of three ways:</p>
+
+<p>
+The first method is to enter the copper list using a combination of the COP MOVE and COP
+WAIT instructions, from AMOS Professional Basic.</p>
+
+<p>
+The second way is to find the address of the logical copper list, using COP LOGIC. This can then
+be manipulated directly using DEEK and DOKE, allowing minor modifications to be made to
+the existing screen without having to generate a completely new copper list at all. This is perfect
+for the creation of rainbow effects.</p>
+
+<p>
+The third alternative is for assembly language buffs. Copper lists can be generated using
+machine code, and as before, the current address is available via the COP LOGIC function. Note
+that this address will change during the course of a program, and it must be entered every time
+the machine code routine is called.</p>
+
+<p><b>Recommended Procedures</b><br>
+
+If you want to create copper lists from beginning to end, you must take personal control over
+the hardware Sprites, the display positioning, the location of screens, and their sizes. You must
+then ensure that the resulting screens have the correct amount of memory, before loading the
+appropriate registers with the addresses of the required bitmaps. This can be achieved with the
+LOGBASE function.</p>
+
+<p>
+Additionally, if you intend to use DOUBLE BUFFER, a separate copper list must be produced
+for both the logical and physical screens. Here is the procedure:</p>
+
+<ul>
+  <li>Define the copper list for the first screen.</li>
+  <li>Switch copper lists using the COP SWAP command.</li>
+  <li>Swap between the logical and physical screens with SCREEN SWAP.</li>
+  <li>Define a copper list for the second screen.</li>
+</ul>
+
+<p>
+Providing that all is well, you may access your screens using -all of the normal AMOS
+Professional drawing commands, including SCREEN COPY, DRAW, PRINT and PLOT. As well
+as this, there should be no problems using Blitter Objects.</p>
+
+<div align="right"> <a href="1442.html">Back</a> &nbsp;&nbsp;
+  <a href="1444.html">Next</a>
+  <br>
+  14.F.02
+</div>
+
+</BODY>
+</HTML>

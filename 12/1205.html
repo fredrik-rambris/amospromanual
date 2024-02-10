@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - the Monitor</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>the Monitor</h1>
+
+<br>
+
+<p><b>Fast-Run Button</b><br>
+
+<img alt="Monitor fast-run button"
+ src="../images/1205fast.jpg" align="left" />
+
+When fast-run is used, the program's own display is used and the program is run at full
+speed. If an error is not found, the only way to return to the Monitor during a fast-run is to
+press [Ctrl]+[C], or use break points.</p>
+
+<p><b>Break Point Button</b><br>
+
+<img alt="Monitor break point button"
+ src="../images/1205break.jpg" align="left" />
+
+Click on the break point button with the left mouse button as usual, then click on the
+instruction in the program listing wherever you wish to <b>set</b> the break. The instruction will
+be highlighted in inverse video. To <b>remove</b> a break point, click on an area which is adjacent to
+the highlighted listing, such as the area without any commands or text to the right of the
+program lines.</p>
+
+<p><b>Evaluation Button</b><br>
+
+<img alt="Monitor evaluation button"
+ src="../images/1205val.jpg" align="left" />
+
+The button marked [VAL] allows you to use a very accurate setting for the evaluation
+process. Click on the button and then use the mouse to set the individual character that
+marks the beginning of the expression to be evaluated. With the button held down, drag it to
+the character in the listing to mark the end of the expression you are interested in, and release
+the button to underline the expression. The evaluation will now be reported in the Information
+Window.</p>
+
+<p><b>Help Button</b><br>
+
+<img alt="Monitor help button"
+ src="../images/1205help.jpg" align="left" />
+
+Click on the help button [?], then click on the instruction you need help with. The
+keyword will be underlined, and the trusty AMOS Professional Help Window will appear,
+at your service.</p>
+
+<p><b>Quit</b><br>
+
+<img alt="Monitor quit button"
+ src="../images/1205quit.jpg" align="left" />
+
+This button takes you back to the Editor. If the Monitor system has been called up from
+inside a program using the MONITOR command, you will be returned to the program at
+the instruction immediately after that command.</p>
+
+<p><b>Evaluating expressions</b><br>
+
+The Monitor may be simple to use, but it is incredibly skilful in the way it analyses expressions,
+and reports the results back to you. here are the ground rules for a simple demonstration. First,
+run this example to give yourself something to work on, and then call up the Monitor.</p>
+
+<pre>
+E> A=1 : B=2 : C=3
+   D=A+B*C-1
+   Print D
+</pre>
+
+<p>
+Initialise the program by clicking on the [INIT] button. If you were to press [VAL] and ask for an
+evaluation of A+B without first initialising B, you would be asking for the impossible. Also, if
+you asked for an evaluation of "k", you would be told that it is not possible to evaluate
+something that is plainly idiotic! On the other hand, if you ask for an evaluation of something
+self evident, like "1", it will be given. Also, the expression must be at the same level of procedure
+as the program pointer.</p>
+
+<div align="right"> <a href="1204.html">Back</a> &nbsp;&nbsp;
+  <a href="1206.html">Next</a>
+  <br>
+  12.01.05
+</div>
+
+</BODY>
+</HTML>

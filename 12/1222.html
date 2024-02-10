@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Errors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Errors</h1>
+
+<br>
+
+<p>You should tag the number of the destination screen to the LOAD IFF command like this:</p>
+
+<pre>
+X> Load Iff "filename", number
+</pre>
+
+<p><b>Can't open narrator (185)</b><br>
+AMOS Professional is unable to find "narrator.device" in the current "devs:" directory, so the
+narrator program cannot be loaded.</p>
+
+<p><b>Can't resume to a label (4)</b><br>
+You cannot use RESUME label inside an error procedure.</p>
+
+<p><b>Can't set dual playfield (70)</b><br>
+The screens you are using are not suitable for setting up a dual playfield. The correct screen
+combinations are explained under the DUAL PLAYFIELD section of this User Guide.</p>
+
+<p><b>Command not supported by device (143)</b><br>
+This error is returned by the DEV DO and DEV SEND commands. A command has been sent
+that is not supported. Check with Commodore's documentation.</p>
+
+<p><b>Copper list too long (77)</b><br>
+The user-defined copper list has a pre-set limit of 12k. This may be extended using the [Set
+Interpreter] option from the [Config] menu.</p>
+
+<p><b>Copper not disabled (76)</b><br>
+You are not allowed to use the COP MOVE or COP SWAP commands before disabling the
+normal copper list with COPPER OFF.</p>
+
+<p><b>Device already opened (140)</b><br>
+You've tried to open the same device twice. The PRINTER and PARALLEL devices can only be
+opened once in any particular session. If you're using multi-tasking, check that another
+application hasn't grabbed the device first. If so, you'll have to quit from the application before
+running your AMOS program.</p>
+
+<p><b>Device cannot be opened (142)</b><br>
+The selected device cannot be opened for use. Make sure that it's correctly connected, and that
+the appropriate device drivers are available from the DEVS folder of your current start-up disc.</p>
+
+<p><b>Device error (144)</b><br>
+A device has reported a device specific error. AMOS Professional cannot keep all possible errors
+in memory so check with Commodore documentation for the correct error meaning.</p>
+
+<p><b>Device not available (86)</b><br>
+You have specified a disc or a drive, but your Amiga does not believe that it exists, possibly
+because you have changed a disc unexpectedly. You can set the directory to the correct drive
+name with an instruction such as:</p>
+
+<pre>
+X> Dir$="Df0:"
+</pre>
+
+<div align="right"> <a href="1221.html">Back</a> &nbsp;&nbsp;
+  <a href="1223.html">Next</a>
+  <br>
+  12.03.12
+</div>
+
+</BODY>
+</HTML>

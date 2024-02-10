@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - String Functions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>String Functions</h1>
+
+<br>
+
+<p>
+The starting point of your table is specified by the a$(0) parameter, and it must always be set to
+the first item in the array, which is item number zero. For example:</P>
+
+<pre>
+E&gt; N=5 : P=0
+   Dim A(N)
+   Print "Type in ";N," numbers, or enter 0"
+   Print "to stop entry and begin sort"
+   Repeat
+    Input A(P)
+    If A(P)=0
+       Dec P
+       Exit
+    End If
+    If P=N-1 Then Exit
+    Inc P
+   Until False
+   Sort A(0)
+   For X=N-P To N
+    Print A(X)
+  Next X
+</pre>
+
+<P><b>MATCH</b><BR>
+<i>function: search an array for a value</i><BR>
+x=<b>Match</b>(array(0),value)<br>
+x=<b>Match</b>(array#(0),value#)<br>
+x=<b>Match</b>(array$(0),value$)</P>
+
+<P>
+MATCH searches through an array that has already gone through the SORT process, looking 
+for a given value. If the value is found then x is loaded with the relevant index number. 
+However, if the search is not successful the result will be negative. If you take the absolute value 
+of this result, the item which came closest to your original search parameter is provided. Only 
+arrays with a single dimension can be checked in this way, and they must already be sorted before
+MATCH can be called.</P>
+
+<P>For example:</P>
+
+<pre>
+E&gt; Read N : Dim D$(N)
+   For X=0 To N-1 : Read D$(X) : Next X
+    Sort D$(0)
+    Do
+     REINPUT:
+     Input A$
+     If A$=" "Then End
+     If A$="print all data"
+        For X=1 To N: Print D$(X) : Next X: Goto REINPUT
+     End If
+</pre>
+
+<div align="right"> <a href="515.html">Back</a> &nbsp;&nbsp; 
+  <a href="517.html">Next</a>
+  <br>
+  05.02.06
+</div>
+
+</BODY>
+</HTML>

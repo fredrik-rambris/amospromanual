@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Text</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Text</h1>
+
+<br>
+
+<p>The first value selects one of five writing modes:</p>
+
+<pre>
+<b>Value   Mode        Effect</b>
+0       REPLACE     New text replaces any existing screen data  
+1       OR          Merge new text with screen data, using logical OR
+2       XOR         Combine new text with screen data, using OR
+3       AND         Combine new text and screen data, using logical AND
+4       IGNORE      Ignore all subsequent printing instructions
+</pre>
+
+<p>A number set as the optional second value selects which parts of the text are to be printed on the
+screen, as follows:</p>
+
+
+<pre>
+<b>Value Mode   Effect</b>
+0     Normal Print text and background together
+1     Paper  Only the background to be drawn on screen
+2     Pen    Ignore paper colour and print text on background colour zero
+</pre>
+
+<p>The default value for both of the WRITING parameters is zero, giving normal printed output.</p>
+
+<p><b>Positioning the text cursor</b><br>
+	
+Characters are always printed at the current position of the text cursor, and the AMOS
+Professional programmer is offered several methods of controlling the cursor in order to make
+text look more orderly, attractive or eye-catching.</p>
+
+<p>
+<b>LOCATE</b><br>
+<i>instruction: position the text cursor</i><br>
+<b>Locate</b> x,<br>
+<b>Locate</b> ,y<br>
+<b>Locate</b> x,y</p>
+
+<p>This command moves the text cursor to the coordinates of your choice, and this new location
+sets the start position for all subsequent text printing until you command otherwise. All screen
+positions are measured in "text coordinates", which are measured in units of one printed
+character on screen, with the x-coordinate controlling the horizontal position and the y-
+coordinate referring to the vertical. So, the top left-hand corner of the screen has coordinates of
+0,0 whereas text coordinates of 15,10 refer to a position 15 characters from the left-hand edge of
+the screen and 10 characters from the top.</p>
+
+<p>The range of these coordinates will depend on the size of your character set and the dimensions
+of the display area allocated, known as a "window". All coordinate measurements are taken
+using text coordinates relative to the current window. If you try and print something outside of
+these limits, an error will be generated. Windows are dealt with in the next Section, but the
+current screen is automatically treated as a window, so there is no need to "open" one to test the
+following examples:</p>
+
+<pre>
+E> Print "0,0": Locate 10, : Print "Stay on current line"
+   Locate ,5 : Print "Six from the top."
+   Locate 10,10 : Print "Ten down and ten across"
+</pre>
+
+<div align="right"> <a href="553.html">Back</a> &nbsp;&nbsp;
+  <a href="555.html">Next</a>
+  <br>
+  05.06.05
+</div>
+
+</BODY>
+</HTML>

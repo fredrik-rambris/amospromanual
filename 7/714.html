@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Blitter Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Blitter Objects</h1>
+
+<br>
+
+<p>
+Unlike Sprites, which use complex hardware coordinates, Bobs are displayed using standard
+screen coordinates, measured from the top left-hand corner of the current screen. Set the
+position of your new Bob by giving it screen coordinates relative to the hot spot of your chosen
+image number. Hot spots are explained at the end of the last Chapter.</p>
+
+<p>
+If the coordinates lie outside of the existing screen area, the Bob will not be displayed. So objects
+can be initialised off screen, ready to be moved into place during the course of your program.</p>
+
+<p>
+Once a Bob has been positioned on screen, the coordinate values become optional. The values of
+any coordinate parameters that are omitted will be remembered from the last time they were set.
+In Chapter 7.6 it is explained how this technique is valuable for animating Bobs with AMAL,
+because it allows objects to be moved effortlessly, without disturbing any existing animation
+sequences. It is vital to include all commas in their normal positions if coordinate values are
+omitted, or a syntax error will be reported. For example:</p>
+
+<pre>
+D> Bob 1,160,100,1 : Rem Position Bob 1 at 160,100 using image1
+   Bob 1,,150,1 : Rem Move Bob 1 down 50 pixels
+   Bob 1,110,,1 : Rem Move Bob 1 50 pixels left
+   Bob 1,,,2 : Rem Display new image 2 at Bob 1 current position
+</pre>
+
+<p>
+Before examining the next instant demonstration program, here is a step-by-step technique for
+correctly displaying a Bob.</p>
+
+<ul>
+  <li>First, some images must be made available for Bobs to use, with a call to LOAD the
+      appropriate filename. Once images have been loaded, they are saved as part of your Basic
+      program automatically.</li>
+
+  <li>If you intend to load a picture for use as a background screen, now is the time to do it.
+  Use a line such as:</li>
+</ul>
+
+<pre>
+X> Load Iff "Picture.IFF"
+</pre>
+
+<p>
+Alternatively, the default screen can be prepared by removing the flashing cursor from the
+display and filling the display with a large block of colour, usually black. For example:</p>
+
+<pre>
+X> Curs Off: Flash Off : Cls 0
+</pre>
+
+  <ul>
+    <li>Now the correct image colours should be grabbed from the Object Bank. Note that if Bobs are
+        to be displayed against an existing background screen, you will need to ensure that the images
+        use exactly the same colour values as your picture, otherwise serious colour clashes will be
+        generated. GET BOB PALETTE can be called if you are using Bobs on their own, or call GET
+        SPRITE PALETTE for use with either Sprites or Bobs.</li>
+
+    <li>The automatic AMOS Professional "double buffering" system should now be engaged, with a
+        simple DOUBLE BUFFER command. The theory and practice of this is explained later, but in</li>
+  </ul>
+
+<div align="right"> <a href="713.html">Back</a> &nbsp;&nbsp;
+  <a href="715.html">Next</a>
+  <br>
+  07.02.02
+</div>
+
+</BODY>
+</HTML>

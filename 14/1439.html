@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Bank Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Memory Bank Structures</h1>
+
+<br>
+
+<pre>
+                                                   measured in WORDS
+         ENDR
+* Programs
+         REPT      Number_Of_Programs
+Prog_NN     dc.w Length Of Prog_NN
+            dc.b "The program in plain Ascii"
+         ENDR
+</pre>
+
+<p><b>THE RESOURCE BANK</b><br>
+
+The Resource bank is used to hold all the control buttons and icons used by the AMOS
+Professional INTERFACE commands. The Resource bank is split into three main sections. There
+is one area for the button definitions, another for the command strings and a third for messages.</p>
+
+<pre>
+        dc.b   "Resource"
+Start   dc.l   Images-Start         * Offset to the compressed images (optional)
+        dc.l   Texts-Start          * Offset to the message list (optional)
+        dc.l   DBL-Start            * Offset to the Interface program (optional)
+        dc.l   0                    * Reserved for future expansion
+* The compressed images go here
+* These are used by the UNpack, Line and BOx commands from the Interface
+Images  dc.w   Number_Of_Images     Holds the number of parts
+        REPT   Number_Of_Images
+           dc.l   Image_NN-Images   Offset to the start of each part
+        ENDR
+* We now enter full details of the screen from which the images were grabbed
+        dc.w   Number_Of_Colours
+        dc.w   Graphic_Mode         In the same format as SCREEN OPEN
+                                    (Lowres, Hires, Laced)
+        ds.w   32                   Holds the colour palette for the images
+        dc.w   Length_Of_Name       Now the name of the source image
+        dc.b   "Full_Path_Name"     This is a name in simple Ascii format
+        dc.b   0                    Pad out the byte, if not even
+* Each image is a normal packed bitmap, in "pic.pac" format
+* At this moment, there are only two possible image types
+* Simple image
+Image_NN:
+        dc.b   Packed_data          Internal to the screen packer!
+* Alternatively, the data can be a BOx definition, a Line definition
+* or comments on a specific image, entered in the resource bank_maker.
+* in this case, a magic number, =$ABCD will be immediately BEFORE
+* the graphic data.
+Res_NN:
+        dc.b   "name  "             8 bytes, Ascii
+        dc.w   Number_Of_Images     A BOx needs 9 images, Lines need 3
+                                    and a simple image has only 1
+        dc.w   $ABCD
+        dcb.b  Packed_Data
+* These types can be mixed in any order, so it is acceptable
+* to put the comment line BEFORE the button definition
+</pre>
+
+<div align="right"> <a href="1438.html">Back</a> &nbsp;&nbsp;
+  <a href="1440.html">Next</a>
+  <br>
+  14.E.15
+</div>
+
+</BODY>
+</HTML>

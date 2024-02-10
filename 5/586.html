@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Banks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Memory Banks</h1>
+
+<br>
+
+<p>
+<b>BSTART</b><br>
+<i>function: return the address of a memory bank from a previous program</i><br>
+address=<b>BSTART</b>(bank number)</p>
+
+<p>Similarly, the BSTART function will give the address of the specified memory bank from a
+previous program, if possible. An error will be returned if no such bank has been reserved.</p>
+
+<p>
+<b>BGRAB</b><br>
+<i>instruction: grab a memory bank used by the previous program</i><br>
+<b>Bgrab</b> bank number</p>
+
+<p>
+This command is used to grab a memory bank from the previous program. The selected bank is
+<b>erased</b> from its former program and appropriated to the current program's list of memory
+banks. If a selected bank number already exists in the current program, then it will be erased
+before being replaced by the grabbed bank. However, a grabbed bank is not automatically
+replaced at its original location. This must be achieved using a BSEND instruction, which is
+explained next.</p>
+
+<p>
+If the bank which is specified to be grabbed does not exist a "Bank not reserved" message will be
+generated.</p>
+
+<p>
+<b>BSEND</b><br>
+<i>instruction: transfer a memory bank from the current program to the previous program</i><br>
+<b>Bsend</b> bank number</p>
+
+<p>
+This command is the exact opposite of the BGRAB instruction. The specified bank is erased from
+the current program list of banks, and appears in the list of banks belonging to the previous
+program. If a bank already occupies this position in the previous program, it will be erased. Both
+the BGRAB and BSEND commands are very fast, and blocks of data are not reserved first.</p>
+
+<p>
+Here is an example of how to grab memory banks safely. The example lists all of the banks of the
+previous program before they are grabbed, and it should be noted that the name of the bank is
+located eight bytes before the BSTART address:</p>
+
+<pre>
+X> If Prg Under : Rem Check availability of a previous program
+    For B=1 To 1000: Rem Check the first 1000 banks!
+     If Blength(B)
+      Print "Bank number:";B;" found. Name: ";Peek$(Bstart(B)-8,8)
+      Bgrab B: Rem Grab the bank
+     End If
+    Next
+   End If
+</pre>
+
+<p><b>Automatic bank grabbing</b><br>
+
+This feature is a unique bonus! It allows memory banks to be passed between programs
+completely automatically. You could be in the middle of writing an arcade game, call up the</p>
+
+<div align="right"> <a href="585.html">Back</a> &nbsp;&nbsp;
+  <a href="587.html">Next</a>
+  <br>
+  05.09.10
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Errors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Errors</h1>
+
+<br>
+
+<p><b>Out of memory</b><br>
+During a [Test] operation, this error message may appear when there is not enough memory
+available to reserve the required variable buffer space. Please see the SET BUFFER command.</p>
+
+<p><b>Procedure's limits must be alone on a line</b><br>
+All PROCEDURE and END PROC statements must begin on their own line.</p>
+
+<p><b>Procedure not closed</b><br>
+You have forgotten to end one of your procedures with an END PROC statement.</p>
+
+<p><b>Procedure not opened.</b><br>
+An END PROC statement has been discovered without a corresponding PROCEDURE defined
+before it.</p>
+
+<p><b>REPEAT without matching UNTIL</b><br>
+A REPEAT instruction has been found, but there is no UNTIL statement to go with it.</p>
+
+<p><b>Sample not defined</b><br>
+You are trying to play an audio sample that does not exist in the current sample bank.</p>
+
+<p><b>Shared must be alone on a line</b><br>
+The SHARED command must be the only statement on the current line.</p>
+
+<p><b>Structure too long</b><br>
+Loops in AMOS Professional have a maximum span of 65,536 bytes. So if you have lines
+between a FOR.. .NEXT loop that exceed this limit you'll receive this error. The same applies to
+IF...ENDIF and all other loops.</p>
+
+<p><b>Syntax error</b><br>
+The current line of your program is written wrongly. You must have the correct syntax or
+"grammar" for the construction you are trying to use, as explained in this User Guide.</p>
+
+<p><b>This array is not defined in the main program</b><br>
+If a SHARED command is used within a procedure but the array that you want to share is not
+dimensioned at the start of the program then this error will occur.</p>
+
+<p><b>This instruction must be used within a procedure</b><br>
+You are trying to use the SHARED command outside of a procedure definition.</p>
+
+<p><b>This variable is already defined as SHARED</b><br>
+You are not allowed to define the same variable more than once in a single procedure.</p>
+
+<p><b>Trap must be immediately followed by an instruction</b><br>
+The TRAP command runs an AMOS instruction and automatically traps any error before
+returning to the next line.</p>
+
+<div align="right"> <a href="1217.html">Back</a> &nbsp;&nbsp;
+  <a href="1219.html">Next</a>
+  <br>
+  12.03.08
+</div>
+
+</BODY>
+</HTML>

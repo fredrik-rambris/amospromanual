@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+	<title>Amos Professional Manual - the Bare Bones</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>the Bare Bones</h1>
+
+<br>
+
+<p>
+Any parameter can be left out, as long as its comma remains in place. When this happens,
+AMOS professional will check to see what the current value is, or if there is a default 
+value for this parameter, and automatically assign this value to the parameter that has been 
+omitted. For example:</P>
+
+<pre>
+E&gt; Ink 0,1,2 : Rem Set drawing, background and border colour
+   Ink 3,, : Rem Set drawing colour only
+   Ink ,4, : Rem Set background, leave drawing and border colours alone
+</pre>
+
+<P><b>Procedures</b><br>
+	
+The more complex the skeleton of a program gets, the easier it is to get lost among all 
+of its routes and connections. Experienced programmers usually split their programs into small 
+units known as "procedures", which allow one aspect of the program to be tackled at a time, 
+without getting distracted by everything else that is going on.</P>
+
+<P>
+AMOS Professional offers all the advantages of using procedures in the most convenient 
+way, and <a href="542.html">Chapter 5.5</a> is dedicated to a full explanation of how to exploit them. You will learn 
+how each procedure module can be given its own specially defined variables and parameters, and
+how to take best advantage of them.</P>
+
+<P><b>Controlling a program skeleton</b><br>
+Once a program is running, there are a number of ways to stop it in its tracks, 
+allowing you to control what happens next.</P>
+
+<P><b>WAIT</b><BR>
+<i>instruction: wait before performing the next instruction</i><BR>
+<b>Wait</b> number of 50ths of a second</P>
+
+<P>
+The WAIT command tells the computer to stop the program and wait for as long as you 
+want before moving on to the next instruction. The number that follows it is the waiting time,
+specified in 50ths of a second.</P>
+
+<P>The following example forces the program to wait for two seconds:</P>
+
+<pre>
+E&gt; Print "I am the first instruction."
+   Wait 100
+   Print "I am the next instruction."
+</pre>
+
+<P><b>END</b><BR>
+<i>instruction: end the current program</i><BR>
+<b>End</b></P>
+
+<P>
+As soon as the END command is recognised, it stops the program. You can either press 
+the [Esc] key to go to Direct Mode, or use the [Spacebar] to get to the Edit Screen. Try this 
+example now:</P>
+
+<pre>
+E&gt; Print "I am the first instruction."
+   Wait 150
+   End
+   Print "This instruction will never be executed!"
+</pre>
+
+<div align="right"> <a href="506.html">Back</a> &nbsp;&nbsp; 
+  <a href="508.html">Next</a>
+  <br>
+  05.01.07
+</div>
+
+</BODY>
+</HTML>

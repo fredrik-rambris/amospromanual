@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Bank Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Memory Bank Structures</h1>
+
+<br>
+
+<pre>
+*
+Texts:
+* This is just a simple list of strings
+* Each string can hold up to 255 characters, and it is terminated by a zero
+* The length has been added at the start, to make it compatible with AMOS strings.
+* Each string is referred to by its number, from an Interface program.
+        REPT Number_Of_Strings
+           dc.b 0
+           dc.b Length
+           dc.b "The string in plain Ascii"
+        ENDR
+        dc.b 0
+* Holds one or more Interface command strings in standard Ascii format
+* Offset list
+DBL:    dc.w    Number_Of Programs
+        REPT    Number_Of_Programs       Each program has own offset value
+           dc.l   Prog_N - DBL           Offset to the Interface program
+        ENDR
+* Repeat for each program
+        REPT Number_Of_Programs
+Prog_N:                                  One of these for each program
+        dc.w    Prog_N_End - Prog_N      Length of Interface string in bytes
+        dc.b    "The text of the program, in Ascii"
+        dc.b    "with a ZERO at the end..."
+        dc.b    0
+Prog_N_End:
+        ENDR
+</pre>
+
+<p><b>COMPRESSED PICTURES (PIC.PAC)</b><br>
+
+The internal structure of these pictures is very complex, and this explanation is limited to the
+header file. A full source listing of the compaction code is available from the extensions folder.</p>
+
+<p>
+The packing process makes several attempts to provide the optimum compression ratio. It packs
+the picture into small blocks which are several lines high and exactly one byte wide. The height
+of the blocks is continually adjusted until the packer finds the most suitable value for the current
+data.</p>
+
+<p>
+There are two possible cases. Either a compressed bitmap created with the PACK command, or a
+packed screen created with the SPACK instruction. The compressed bitmap is examined first.</p>
+
+<pre>
+* Magic number for a packed bitmap (Happy Birthday Francois Lionet!)
+Pkcode  dc.l  $06071963
+* (Original X coordinate of the bitmap)/8 (in bytes)
+Pkdx    dc.w  x
+* Y coordinate of the original source data
+</pre>
+
+<div align="right"> <a href="1439.html">Back</a> &nbsp;&nbsp;
+  <a href="1441.html">Next</a>
+  <br>
+  14.E.16
+</div>
+
+</BODY>
+</HTML>

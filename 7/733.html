@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Updating Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Updating Objects</h1>
+
+<br>
+
+<p>
+By changing these planes, selected colours can be omitted from the Bob when it is drawn on
+screen. For example:</p>
+
+<pre>
+X Set Bob 1,0,$000111 : Rem Display bits drawn in colours 0 to 7
+  Set Bob 1,0,$111111 : Rem Display all bit-planes
+</pre>
+
+<p>
+The last SET BOB parameter is another bit pattern, that selects one of 255 possible Miler modes
+used to draw Bobs on screen. This can set a mask, so that colour zero is transparent, and a full
+description of the available modes is given at the beginning of <a href="../6/614.html">Chapter 6.2</a>, in the SCREEN
+COPY section. In fact, the mask parameter is usually set to one of two values:</p>
+
+<p>%11100010 if no mask is to be used.</p>
+
+<p>%11001010 if the Bob is to be used with a mask, in other words, if colour zero is to be
+transparent.</p>
+
+<p>So the following line would set Bob 1 moving across the original screen colours, with a mask set:</p>
+
+<pre>
+E> Set Bob 1,0,%111111, %11001010
+</pre>
+
+<p>Advanced users may find the following information useful:</p>
+
+<pre>
+<b>Blitter Source     Purpose</b>
+A                  Blitter Mask
+B                  Blitter Object
+C                  Destination Screen
+</pre>
+
+<div align="right"> <a href="732.html">Back</a> &nbsp;&nbsp;
+  <a href="734.html">Next</a>
+  <br>
+  07.03.08
+</div>
+
+</BODY>
+</HTML>

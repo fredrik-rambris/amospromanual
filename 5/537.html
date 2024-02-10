@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Control Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Control Structures</h1>
+
+<br>
+
+<P>
+Unlike that last example, instead of checking if a condition is true or false at the start 
+of a loop, the pair of commands makes its check at the end of a loop. REPEAT marks the start and 
+UNTIL the end of the loop to be checked. This means that if a condition is false at the 
+beginning of a</P>
+
+<P>
+WHILE ... WEND structure, that loop will never be performed at all, but if it is true 
+at the beginning of a REPEAT ... UNTIL structure, the loop will be performed at least once. Here 
+is an example that waits for you to press a mouse button:</P>
+
+<pre>
+E&gt; Repeat
+    Print "I can go on forever" : Wait 25
+   Until Mouse Key&lt;&gt;0
+</pre>
+
+<P><b>Controlled loops</b><br>
+
+When deciding how many times a loop is to be repeated, control can be made much more
+definite than relying on whether conditions are true or false.</P>
+
+<P>
+<b>FOR</b><BR>
+<b>TO</b><BR>
+<b>NEXT</b><BR>
+<i>structure: repeat loop a specific number of times</i><BR>
+<b>For</b> index=first number <b>To</b> last number<BR>
+list of statements<BR>
+<b>Next</b> index</P>
+
+<P>
+This control structure is one of the programmer's classic devices. Each FOR statement 
+must be matched by a single NEXT, and pairs of FOR ... NEXT loops can be nested inside one 
+another. Each loop repeats a list of instructions for a specific number of times, governed by an 
+index which counts the number of times the loop is repeated. Once inside the loop, this index 
+can be read by the program as if it is a normal variable. Here is a simple example:</P>
+
+<pre>
+E&gt; For X=1 To 7
+    Print "SEVEN DEADLY SINS"
+   Next X
+</pre>
+	
+<P>
+<b>STEP</b><BR>
+<i>structure: control increment of index in a loop</i><BR>
+<b>For</b> index=first number <b>To</b> last number <b>Step</b> size</P>
+
+<P>Normally, the index counter is increased by 1 unit at every turn of a FOR ... NEXT 
+loop. When the current value exceeds that of the last number specified, the loop is terminated. For 
+example:</P>
+
+<pre>
+E&gt; For DAY=1 To 365
+    Print DAY
+   Next DAY
+</pre>
+
+<P>STEP is used to change the size of increase in the index value, like this:</P>
+
+<pre>
+E&gt; For DAY=1 To 365 Step 7
+    Print DAY
+   Next DAY
+</pre>
+
+<div align="right"> <a href="536.html">Back</a> &nbsp;&nbsp; 
+  <a href="538.html">Next</a>
+  <br>
+  05.04.09
+</div>
+
+</BODY>
+</HTML>

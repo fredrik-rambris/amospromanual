@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Menus</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Menus</h1>
+
+<br>
+
+<p>
+The LOcate embedded command moves the graphics cursor to coordinates x,y measured
+relative to the top left-hand corner of the 'menu line. Please note that after this command, the
+graphics cursor will always be positioned at the bottom right of the object which has just be
+drawn. These coordinates will also be used to determine the location of any further items in
+your menu. For example:</p>
+
+<pre>
+E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
+   Menu$(1,2)="Please guess my coords"
+   Menu On : Wait Key
+</pre>
+
+<p><b>BOB</b><br>
+<i>embedded command: draw a bob</i><br>
+<b>BO</b>b number</p>
+
+<p>
+The BOb command draws the specified Bob image from the Object Bank at the current cursor
+position. The existence of any hot spot will be ignored. Colour zero will normally be treated as
+transparent, but this can be changed with NO MASK. All coordinates will be measured relative
+to the top left-hand corner.</p>
+
+<p><b>ICON</b><br>
+<i>embedded command: draw an icon</i><br>
+<b>IC</b>on number</p>
+
+ICon draws the given icon number at the current cursor position. Colour zero is not normally
+transparent in this case, but transparency can be achieved with MAKE ICON MASK, as detailed
+in Chapter 7.7.
+
+<p><b>INK</b><br>
+<i>embedded command: set pen, paper or outline colour</i><br>
+<b>IN</b>k mode,value</p>
+
+<p>
+The INk command assigns the colour index values to be used for the pen, paper and outline
+colours in your menu drawing. The numbers to be used for the various modes are as follows:</p>
+
+<pre>
+<b>Number    Mode</b>
+1         Set text PEN colour
+2         Set PAPER colour
+3         Set OUTLINE colour
+</pre>
+
+<p><b>SFONT</b><br>
+<i>embedded command: set font</i><br>
+<b>SF</b>ont number</p>
+
+<p>
+SFont sets the current menu font to the selected graphics font number. This font will now be
+used for all subsequent menu items. GET FONTS must be called before this instruction is
+executed.</p>
+
+<div align="right"> <a href="650.html">Back</a> &nbsp;&nbsp;
+  <a href="652.html">Next</a>
+  <br>
+  06.05.14
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Errors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Errors</h1>
+
+<br>
+
+<p><b>Program already running</b><br>
+This will occur if a program trys to PRUN itself.</p>
+
+<p><b>Program is not an accessory</b><br>
+You are using Accessory specific commands (ASK EDITOR, CALL EDITOR etc.) within
+program that is not an Accessory. To be an Accessory, a program must include SET ACCESSORY
+at the beginning of its code and also be called from the Editor menus.</p>
+
+<p><b>Sorry! Editor configuration not recoverable!</b><br>
+AMOS Professional has attempted a Warm-start. In order to work it needs to be able to find the
+"AMOSPro.LastSession" file from the APSystem folder. If this is corrupted, or write-protected,
+you'll get an error when you try to load AMOS Professional. If you've write-protected the disc,
+remove the protection, and try again. If it still fails to load, delete the "AMOSPro.LastSession"
+file from the CLI and re-boot. AMOS Professional should now load correctly.</p>
+
+<p><b>Syntax error</b><br>
+The current line of your program is written wrongly. You must have the correct syntax or
+"grammar" for the construction you are trying to use, as explained in this User Guide.</p>
+
+<p><b>Text buffer too small</b><br>
+The SET TEXT BUFFER command from the Editor menu will not allow you to set the text buffer
+smaller than 1024 bytes. Try a higher value.</p>
+
+<p><b>Too many direct mode variables</b><br>
+Normally, you are allowed to create up to 64 new variables while in direct mode. If your
+program is using too much memory, space in the variable table may become restricted.</p>
+
+<p><b>This editor command needs a string</b><br>
+An ASK EDITOR or a CALL EDITOR command has been used with the wrong sort of
+parameters. It was expecting a string, but you've entered a number instead.</p>
+
+<p><b>This file is not an AMOSPro Macro file!</b><br>
+The [Load Macros] option from the [Project/Macro] menu has attempted to load a file which is
+in the wrong format.</p>
+
+<p><b>This function cannot be used in a macro!</b><br>
+When you're creating a Macro, you're not allowed to call up any existing Macro definitions from
+the keyboard. If you try, you'll get a dialogue box with this error, and your Macro definition will
+be aborted.</p>
+
+<p><b>This key is not assigned to a macro!</b><br>
+The macro definition you've attempted to delete with [Erase Macro] does not exist! You've
+probably made a typing mistake.</p>
+
+<p><b>This is not a relocatable executable routine!</b><br>
+You've attempted to use INSERT PROGRAM to install the wrong type of program into a
+procedure. This program file must contain a 68000 machine code routine in PC relative
+(relocatable) format. Programs created with the AMOS Compiler are NOT acceptable!</p>
+
+<div align="right"> <a href="1213.html">Back</a> &nbsp;&nbsp;
+  <a href="1215.html">Next</a>
+  <br>
+  12.03.04
+</div>
+
+</BODY>
+</HTML>

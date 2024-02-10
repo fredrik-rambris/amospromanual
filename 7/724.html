@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Blitter Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Blitter Objects</h1>
+
+<br>
+
+<p>
+As with HREV, there is an equivalent hexadecimal version of the VREV function, which can be
+used with AMAL animation strings. The format is:</p>
+
+<p>$4000+n</p>
+
+<p>
+Where $4000 acts as the reversal flag, and n is the image number. Here are two typical AMAL
+string of reversed animation:</p>
+
+<pre>
+X> "Anim 0,($4000+1,2)($4000+2,2)($4000+3,2)($4000+4,2)"
+
+X> "Anim 0,($4001,2)($4002,2)($4003,2)($4004,2)"
+</pre>
+
+<p><b>REV</b><br>
+<i>function: double-flip an image vertically and horizontally</i><br>
+new number=<b>Rev</b>(image number)</p>
+
+<p>
+REV combines HREV and VREV into a single function. It takes the image whose number is held
+in brackets, reverses it from left to right and then performs another reversal from top to bottom.
+For example:</p>
+
+<pre>
+E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
+   Curs Off : Cls 0
+   Flash Off : Get Bob Palette
+   Double Buffer
+   For Y=200 To -40 Step -1
+    Bob 1,Y*2,Y,1
+    Wait Vbl
+   Next Y
+  For Y=-40 To 200
+   Bob 1,Y*2,Y,Rev(1)
+   Wait Vbl
+  Next Y
+</pre>
+
+<p>
+Don't forget to try the HELP programs for a demonstration. If your own attempts at flipping
+Bob images cause any problems, you may wish to consult the Bob Doctor, below.</p>
+
+<p><b>The Bob Doctor</b><br>
+
+Here are some free consultations which answer common problems encountered when flipping
+Bobs.</p>
+
+<p>
+<b>Problem:</b> When I use flipped Bobs on screen with their original images, my display slows down
+to a crawl.<br>
+<b>Remedy</b>: Do not display the same image in different orientations on screen at the same time.
+AMOS Professional flips images during the updating process, just before Bobs are re-drawn on
+screen. Once reversed, images stay in this new state until displayed in a different direction.
+Whenever AMOS Professional flips a reversed image, it first needs to restore the image to its
+original state. This takes a great deal of processor time, and slows down your display.</p>
+
+<div align="right"> <a href="723.html">Back</a> &nbsp;&nbsp;
+  <a href="725.html">Next</a>
+  <br>
+  07.02.12
+</div>
+
+</BODY>
+</HTML>

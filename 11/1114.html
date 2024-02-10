@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Libraries and Devices</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Libraries and Devices</h1>
+
+<br>
+
+<p>
+This Chapter deals with the exploitation of the Amiga's operating system, providing a vast range
+of possibilities for the experienced system programmer. System libraries are dealt with first, and
+then devices are examined.</p>
+
+<p><b>Accessing the system libraries</b><br>
+
+All of the most useful calls to the Amiga's internal system libraries are already built in to AMOS
+Professional. You are able to call <b>any</b> library directly from an AMOS Professional program, as
+well as access all devices connected to your computer. If you really need to make contact with
+these libraries and devices, the following functions are supplied. Please take note that using
+them without precise knowledge is a recipe for disaster!</p>
+
+<p>
+AMOS Professional is able to execute commands from any library installed in your Amiga. These
+options use the standard AMOS Professional channel system to deal with Input/Output
+structures. Total access to all the standard data structures is also provided via the powerful
+STRUC function, which automatically senses the type of element to be manipulated.</p>
+
+<p>
+<b>LIB OPEN</b><br>
+<i>instruction: open a library for use</i><br>
+<b>Lib Open</b> channel number,"name.library",version</p>
+
+<p>
+The LIB OPEN command calls the OPEN LIBRARY function from EXEC. If the library is
+external, it will be loaded into memory from the "Libs:" folder of your current start-up disc. If a
+problem is encountered, you will be helped by the relevant error message from AMOS
+Professional, and the error can easily be intercepted using a TRAP command.</p>
+
+<p>
+After the library has been initialised successfully, it remains open until the program is run again
+from the Editor, or your variables are re-set using a CLEAR command, or a LIB CLOSE
+command is called.</p>
+
+<p>
+Three parameters are needed for a LIB OPEN instruction. The number of a new AMOS
+Professional channel, to be used to refer to this library throughout the AMOS Professional
+program. Then the name of the library that is to be opened, given in standard Commodore
+format. Lastly, the minimum version number of the library that is to be installed in memory
+should be specified. If you are unsure of this parameter, use a value of zero.</p>
+
+<p>
+<b>LIB CLOSE</b><br>
+<i>instruction: close one or all currently open libraries</i><br>
+<b>Lib Close</b><br>
+<b>Lib Close</b> channel number</p>
+
+<p>
+Used on its own, the LIB CLOSE command closes all open libraries in a single operation. If an
+optional Channel number is included, an individual library may be closed. Please note that if a
+selected library does not exist, no error will be reported!</p>
+
+<p>
+<b>LIB CALL</b><br>
+<i>function: call a function from a library</i><br>
+result=<b>Lib Call</b>(channel number,function offset)</p>
+
+<p>
+This important function acts as the gateway to <b>all</b> the functions in the selected library.
+It calls the required function and returns the result to your
+AMOS Professional program.</p>
+
+<div align="right"> <a href="1113.html">Back</a> &nbsp;&nbsp;
+  <a href="1115.html">Next</a>
+  <br>
+  11.05.01
+</div>
+
+</BODY>
+</HTML>

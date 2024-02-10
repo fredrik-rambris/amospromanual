@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Disc Access</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Disc Access</h1>
+
+<br>
+
+<p>That line would result in this amended display:</p>
+
+<pre>
+AMA
+AMI
+AMI
+AMU
+</pre>
+
+<p>
+It is possible to ignore several file-paths at once, as long as each name is terminated with a single
+oblique character "/". For example:</p>
+
+<pre>
+D> Set Dir 8,"*.AMOS/*.IFF/*.Abk"
+</pre>
+
+<p>
+<b>DIR$</b><br>
+<i>function: change the current directory</i><br>
+s$=<b>Dir$</b><br>
+<b>Dir$</b>=s$</p>
+
+<p>
+The DIR$ function is used to contain the directory that will be used as the starting point for all
+future disc operations, such as loading and saving.</p>
+
+<pre>
+E> Print Dir$ : Rem Print out current directory
+   Rem Set directory to folder
+   Dir$="AMOSPro_Examples:IFF/"
+</pre>
+
+<p>
+DIR$ is similar to the CD command from the CLI, with the advantage of allowing you to read
+the directory as well as change it. All directories are assumed to be relative to the directory in
+current use, and AMOS Professional will only search the current directory for a folder. To avoid
+this problem, include the name of your disc as in the above example, or use the drive name as
+follows:</p>
+
+<pre>
+D> Dir$="Df0:IFF/"
+</pre>
+
+<p>
+<b>PARENT</b><br>
+<i>instruction: negotiate a path through current directory</i><br>
+<b>Parent</b></p>
+
+<p>
+Because directories can be "nested" inside one another, files can be organised according to a
+range of categories. Although this is very convenient, it is not difficult to get lost in a maze of
+nested files. In the following example, the folder named FOLDERA is stored in the main
+directory (the "root" directory) and can be regarded as the "parent" of FOLDERB and
+FOLDERD. Similarly, FOLDERB is the parent of FOLDERC:</p>
+
+<pre>
+FOLDERA/
+ FOLDER B/
+  FOLDERC/
+ FOLDERD/
+</pre>
+
+<div align="right"> <a href="1011.html">Back</a> &nbsp;&nbsp;
+  <a href="1013.html">Next</a>
+  <br>
+  10.02.05
+</div>
+
+</BODY>
+</HTML>

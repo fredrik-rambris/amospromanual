@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - PAL and NTSC</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>PAL and NTSC</h1>
+
+<br>
+
+<p><b>Restricting programs to a single mode</b><br>
+
+Many AMOS Professional programmers may decide to ignore these problems completely,
+satisfied that their work will not be seen outside of their immediate circle of contacts, let alone
+outside of their country. However, this is not a professional attitude, and if you have any
+intention of reaching a wider audience with your programming, there is nothing worse than
+allowing your work to fall apart before the eyes of an unsuspecting user.</p>
+
+<p>
+So, if compatibility problems are not to be ignored, they can at least be avoided. This is achieved
+by adding a simple test at the start of a program, which will warn other users of potential
+problems, and abort the program if it is run on an incompatible machine.</p>
+
+<p><b>NTSC</b><br>
+<i>function: identify NTSC or PAL machines</i><br>
+mode=<b>Ntsc</b></p>
+
+<p>
+The NTSC function is provided to identify whether or not an NTSC machine is in use, and will
+return a value of -1 (True) if this is so. Otherwise a value of zero (False) is given, when a PAL
+machine is identified. The following example gives an idea of its use, and similar routines are
+essential for professional releases aimed at an international audience:</p>
+
+<pre>
+E> If Ntsc=0
+    Print "Sorry, PAL version only!"
+    Print "NTSC version coming soon!"
+    End
+   End If
+</pre>
+
+<p><b>Dual mode programs</b><br>
+
+Whereas synchronisation problems can be overcome, the difficulties caused by the two different
+sized screens causes a bigger problem. The smaller working area of NTSC displays has to be
+taken into account at the beginning of your program. To open a perfect screen in either display
+mode, you are recommended to save the screen height and position as global variables, which
+may be set at the start of a program, as follows:</p>
+
+<pre>
+E> Global YSIZE,YPOSITION
+   YSIZE=256 : YPOSITION=49
+   If Ntsc
+    YSIZE=200 : YPOSITION=55
+   End If
+   Screen Open 0,320,YSIZE,16,Lowres
+   Screen Display 0,,YPOSITION,,
+</pre>
+
+<p>
+NTSC users can easily provide their PAL cousins with a dormant screen area at the bottom of
+the display.</p>
+
+<p>
+To return the complement, PAL users should restrict the size of their menus, activity buttons,
+dialogue boxes, and similar features, to no more than a quarter of the total screen area.</p>
+
+<div align="right"> <a href="1420.html">Back</a> &nbsp;&nbsp;
+  <a href="1422.html">Next</a>
+  <br>
+  14.C.03
+</div>
+
+</BODY>
+</HTML>

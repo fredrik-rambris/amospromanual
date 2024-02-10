@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Control Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Control Structures</h1>
+
+<br>
+
+<p>
+For that to work properly, X must have a value from 1 up to the number of the highest 
+possible destination. Any other values would cause problems. In fact the third line of that example 
+is a very economical way of writing the following lines:</P>
+
+<pre>
+X&gt; If X=1 Then Goto LABEL1
+   If X=2 Then Goto LABEL2
+   If X=3 Then Goto LABEL3
+</pre>
+
+<P>Now change the third line of the last example to this:</p>
+
+<pre>
+E&gt; On X Goto LABEL3,LABEL2,LABEL1
+</pre>
+
+<P>
+Gosub. The use of an ON GOSUB structure is identical to ON ... GOTO, except that it 
+must employ a RETURN to jump back to the instruction immediately after the ON ... GOSUB
+statement. Destinations may be given as the name of a label, or the identification number 
+of a line between 1 and the maximum number of possible destinations.</P>
+
+<P>ON is also used with the ON BREAK PROC structure, as well as ON ERROR GOTO, which are
+explained in the relevant sections of the Procedures and Error Handling Chapters of this 
+User Guide.</P>
+
+<P><b>EVERY</b><BR>
+<i>instruction: call subroutine or procedure at regular intervals</i><BR>
+<b>Every</b> time <b>Gosub</b> label<BR>
+<b>Every</b> time <b>Proc</b> name</P>
+
+<P>The EVERY statement is used to call up a sub-routine or a procedure at regular 
+intervals,
+without interfering with the main program. Simply specify the length of time between every
+call, measured in 50ths of a second. Obviously the time taken for a sub-routine or a 
+procedure to
+be completed must be less than the interval time, or an error will be generated.</P>
+
+<P>After a sub-routine has been entered, the EVERY system is automatically disabled. This 
+means
+that in order to call this feature continuously, an EVERY ON command must be inserted into 
+a sub-routine before the final RETURN statement. Similarly, EVERY ON must be included in a
+procedure before returning to the main program with an END PROC. For example:</P>
+
+<pre>
+E&gt; Every 50 Proc TEST
+   Do
+    Print At(0,0); "Main Loop"
+   Loop
+   Procedure TEST
+    Shared A
+    Inc A: Print "This is call number ";A
+    Every On
+   End Proc
+</pre>
+
+<div align="right"> <a href="538.html">Back</a> &nbsp;&nbsp;
+  <a href="540.html">Next</a>
+  <br>
+  05.04.11
+</div>
+
+</BODY>
+</HTML>

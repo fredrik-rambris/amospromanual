@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Bank Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Memory Bank Structures</h1>
+
+<br>
+
+<p><b>Length_Of_Bank+16</b><br>
+
+For Sprite and Icon banks, this refers to the size of the pointer/palette list. Otherwise the length
+of the bank is in bytes.</p>
+
+<p><b>Number_Of_The_Bank</b><br>
+
+The number of the bank is held as a standard AMOS Professional integer in four bytes, but
+RESERVE and ERASE will only make use of the lower two locations (Start-14). So although there
+can be a theoretical maximum of 2,147,483,647 banks, AMOS Professional will only manipulate
+banks numbered from 1 to 65535.</p>
+
+<p>
+Please note that if you poke in a number above 65535, this bank may only be deleted with an
+ERASE ALL command.</p>
+
+<p><b>Flags</b><br>
+
+The flags are stored as individual binary bits, and have the following meaning:</p>
+
+<pre>
+Bit #0: 1 => This sets a permanent DATA Bank which will be saved with an AMOS
+             Professional program.
+
+        0 => This is a temporary WORK Bank which will be erased by an ERASE TEMP
+             command, and discarded every time the program is run.
+
+Bit #1: 1 => CHIP memory bank, used for Objects which are to be displayed on the screen,
+             or items played through the Amiga's sound chips:
+             Sprites, Bobs, Icons, Samples and Music.
+
+        0 => This is a FAST memory bank.
+</pre>
+
+<p>
+Please note that if there is no FAST memory available, all of the FAST banks will be stored in
+CHIP RAM instead. This allows you to use the same definitions on any Amiga!</p>
+
+<pre>
+Bit #2: 1 => Object bank (list of pointers)
+        0 => Normal, one-section bank
+
+Bit #3: 1 => Icon bank (list of pointers)
+        0 => Normal, one-section bank
+</pre>
+
+<p>
+DATA and WORK bits can be changed as much as necessary, but you should <b>never</b> alter ICON,
+BOB, CHIP or FAST flags. Doing so is absolutely guaranteed to crash the Amiga the next time a
+bank is reserved or erased.</p>
+
+<p>
+Although you can have more than one Sprite bank in memory, only bank number 1 will be used
+to display Sprites and Bobs. Similarly, only bank number 2 can be used for Icons.</p>
+
+<p>
+If you need to use several Object banks, images can be placed into any bank you wish, and these
+banks can be switched using the BANK SWAP command, before they are displayed.</p>
+
+<div align="right"> <a href="1426.html">Back</a> &nbsp;&nbsp;
+  <a href="1428.html">Next</a>
+  <br>
+  14.E.03
+</div>
+
+</BODY>
+</HTML>

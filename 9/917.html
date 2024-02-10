@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Interface Language</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Interface Language</h1>
+
+<br>
+
+<p>
+All coordinates are measured from the start location of the dialogue box, which can be set by the
+Interface instruction BAse, or the AMOS Professional command DIALOG BOX. The default
+position is the top left-hand corner of the screen.</p>
+
+<p>
+<b>IN</b>k<br>
+<i>Interface instruction: set current drawing colours</i><br>
+<b>IN</b> pen,background,outline;</p>
+
+<p>
+The colours for boxes and bars and all future drawing operations are set by the INk command.
+The three parameters are as follows:</p>
+
+<p>The pen parameter is set by the colour index number to be used for drawing all future items.</p>
+
+<p>
+The background colour is then chosen for filling bars and for the paper colour on which text is to
+be printed. This option is usually ignored, because the background is completely transparent,
+but it may be activated using a SetWriting mode, which is explained later.</p>
+
+<p>
+The third parameter to be set is for the outline colour of a bar. This is only relevant if the outline
+mode has been switched on, using a previous SetPattern instruction, also explained later.</p>
+
+<p>
+If one of these settings is to be left unchanged, simply enter a negative value for the relevant
+colour number. As you may expect, a wide range of fill patterns can also be used.</p>
+
+<p>
+<b>S</b>et<b>P</b>attern<br>
+<i>Interface instruction: set the fill pattern for dialogue box</i><br>
+<b>SP</b> pattern number,outline mode;</p>
+
+<p>
+The Interface SetPattern command is a combination of the normal SET PATTERN and SET
+PAINT instructions, and it is used to set the fill pattern and toggle the outline mode of all
+subsequent GraphicBox commands.</p>
+
+<p>
+The pattern for all future drawing operations is an index number from zero to 34. The outline
+mode can be set to zero to turn it off completely, or to 1 to activate the feature. If the setting is
+activated, bars will be automatically enclosed by a hollow box in the current outline colour.</p>
+
+<p>To generate a hollow box in its own right, the next command is used.</p>
+
+<p>
+<b>G</b>raphic<b>S</b>quare<br>
+<i>Interface instruction: draw a hollow rectangle</i><br>
+<b>GS</b> x1 ,y1 ,x2,y2;</p>
+
+<p>
+This is the equivalent to the normal BOX command, and it is used to draw a hollow rectangle,
+determined by the coordinates of the top left and bottom right-hand corners.</p>
+
+<div align="right"> <a href="916.html">Back</a> &nbsp;&nbsp;
+  <a href="918.html">Next</a>
+  <br>
+  09.02.03
+</div>
+
+</BODY>
+</HTML>

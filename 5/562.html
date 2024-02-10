@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Text</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Text</h1>
+
+<br>
+
+<p>When used in this way, it is automatically displayed as PRINT as soon as the line has been
+entered into your listing.</p>
+
+<pre>
+E> ? "AMOS Professional"
+</pre>
+
+<p>
+<b>USING</b><br>
+<i>instruction: format printed output</i><br>
+<b>Print Using</b> format$;variable list</p>
+
+<p>USING is always employed with the PRINT command to allow subtle changes in the way
+output is printed from a list of variables. The format string contains special characters, and each
+one has a different effect, as explained below.</p>
+
+<p>
+<b>~</b><br>
+<i>tilde character [Shift]+[#]</i></p>
+
+<p>Every ~ in the string variable is replaced by a single character from left to right, taken from an
+output string. For example:</p>
+
+<pre>
+E> Print Using "This is a ~~~~~~ example";"simple"
+</pre>
+
+<p>
+<b>#</b><br>
+<i>hash character</i></p>
+
+<p>Each # specifies one digit at a time, to be printed out from a given variable, with any unused
+digits being replaced by spaces. For example:</p>
+
+<pre>
+E> Print Using "###";123456
+</pre>
+
+<p>
+<b>+</b><br>
+<i>plus character</i></p>
+
+<p>This adds a plus sign to a positive number or a minus sign if the number is negative. For
+example:</p>
+
+<pre>
+E> Print Using "+##";10 : Print Using "+##";-10
+</pre>
+
+<p>
+<b>-</b><br>
+<i>minus character</i></p>
+
+<p>This gives a minus sign to negative numbers only. Positive numbers will be preceded by a space.
+For example:</p>
+
+<pre>
+E> Print Using "-##";10:Print Using "-##";-10
+</pre>
+
+<div align="right"> <a href="561.html">Back</a> &nbsp;&nbsp;
+  <a href="563.html">Next</a>
+  <br>
+  05.06.13
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Blitter Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Blitter Objects</h1>
+
+<br>
+
+<p>
+A "mask" means that the background colour (colour zero) around a Bob is made transparent, so
+t hat the screen graphics show through. The mask is also used by certain collision detection
+routines. A mask is automatically set up for every Bob, and the NO MASK command takes away
+this mask, so that the entire Bob image is drawn on the screen, including its original background
+colour and any other graphics in colour zero. To remove a mask, simply use this command
+followed by the number of the Bob image you are interested in.</p>
+
+<p>
+Never remove a mask from a Bob while it is being displayed on screen, or its image will be
+scrambled! Remember to always use the BOB OFF command first.</p>
+
+<p><b>Bob Priority</b><br>
+
+It is important to understand that every Bob automatically possesses a priority of importance,
+and that this priority is based on the Bob's number. So a Bob carries a priority value from 0 to 63,
+and AMOS Professional uses this value to decide in which order Bobs are displayed and which
+Bobs barge their way in front of others when moving around the screen.</p>
+
+<p>
+The general rule is that a Bob with a higher priority number is displayed in front of one with a
+lower priority number. For example, Bob 5 would cut in front of Bob 4, but be obscured if Bob 6
+crossed its path. So it is clear that this priority system should always be remembered when you
+number your Bobs.</p>
+
+<p>
+AMOS Professional allows changes in the priority system to suit your needs, this first system
+offers an alternative based not on Bob numbers, but on the position of Bobs on the screen.</p>
+
+<p><b>PRIORITY ON</b><br>
+<i>instruction: set Bob priority to highest y-coordinate</i><br>
+<b>Priority On</b></p>
+
+<p><b>PRIORITY OFF</b><br>
+<i>instruction: set Bob priority to default status</i><br>
+<b>Priority Off</b></p>
+
+<p>
+When PRIORITY ON is used, Bobs with the highest y-coordinates take priority on the screen. It
+is usually best to set hot spots at the bottom of Bobs to exploit this priority, and some superb
+perspective effects can be created. All that is needed to re-set the original Bob number priorities
+is to use the PRIORITY OFF command.</p>
+
+<p><b>PRIORITY REVERSE ON</b><br>
+<i>instruction: toggle on Reverse Priority of Bobs</i><br>
+<b>Priority Reverse On</b></p>
+
+<p><b>PRIORITY REVERSE OFF</b><br>
+<i>instruction: toggle off Reverse Priority of Bobs</i><br>
+<b>Priority Reverse Off</b></p>
+
+<div align="right"> <a href="716.html">Back</a> &nbsp;&nbsp;
+  <a href="718.html">Next</a>
+  <br>
+  07.02.05
+</div>
+
+</BODY>
+</HTML>

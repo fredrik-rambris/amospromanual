@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Banks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Memory Banks</h1>
+
+<br>
+
+<p>A value of zero is returned for any bank that has not been defined. For example:</p>
+
+<pre>
+E> Load Fsel$("*.Abk"," ","Load an Object bank") : Rem Bank 1
+   Print "There are ";Length(1);" images available."
+</pre>
+
+<p>
+<b>START</b><br>
+<i>function: return the address of a memory bank</i><br>
+address=<b>Start</b>(bank number)</p>
+
+<p>
+Use the START function to reveal the address of the memory area allocated to a bank, whose
+number is specified in brackets. The address will usually remain fixed for the duration of a
+program, but it can be changed by a BANK SWAP command.</p>
+
+<p>
+If the specified bank number does not exist, AMOS Professional will give a "Bank not reserved"
+error report. This can be avoided by checking the status of a bank with the LENGTH function,
+like this:</p>
+
+<pre>
+E> If Length(N)>0: Rem give N a suitable bank number
+    Print "Address of the bank is ";Start(N)
+   Else
+    Print "This bank does not exist!"
+   End If
+</pre>
+
+<p>
+The FAST FREE and CHIP FREE functions that are used to find the amount of relevant free
+memory have already been explained. These should not be confused with the FREE function,
+which reports the amount of free memory in the variable area.</p>
+
+<p><b>Grabbing accessory program memory banks</b><br>
+
+Any memory banks that are used by an accessory are independent from the main program.
+Existing AMOS users will find that the system for grabbing memory banks has been greatly
+enhanced for AMOS Professional programmers.</p>
+
+<p>
+The PRG UNDER command is used to check whether a program is accessible "under" the
+current program, and if all is well, its memory banks can be grabbed for the current program. As
+many different programs as memory allows can be run using the PRUN command, and full
+details of these commands as well as communication between programs is explained in <a href="../11/1110.html">Chapter
+11.4</a>. Here are the available bank-grabbing instructions and functions:</p>
+
+<p>
+<b>BLENGTH</b><br>
+<i>function: return the length of a memory bank from a previous program</i><br>
+length=<b>Blength</b>(bank number)</p>
+
+<p>
+This function is used to get the length of the specified bank number from a previous AMOS
+Professional program, if this is possible. A value of zero will be returned if the specified bank has
+not been defined in the previous program, or if there is no previous program accessible at all
+(PRG UNDER= 0).</p>
+
+<div align="right"> <a href="584.html">Back</a> &nbsp;&nbsp;
+  <a href="586.html">Next</a>
+  <br>
+  05.09.09
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Setting up Screens</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Setting up Screens</h1>
+
+<br>
+
+<p><b>GET PALETTE</b><br>
+<i>instruction: copy palette from a screen</i><br>
+<b>Get Palette</b> number<br>
+<b>Get Palette</b> number,mask</p>
+
+<p>This command copies the colours from a specified screen, and loads them into the current
+screen. This is useful when data is being moved from one screen to another with a SCREEN
+COPY command, and the same colour settings need to be shared for both screens. An optional
+mask can be added after the screen number, allowing only selected colours to be loaded. This
+works in exactly the same way as a mask for a GET SPRITE PALETTE command, and is
+explained in <a href="../7/701.html">Chapter 7.1</a>.</p>
+
+<p><b>Screen functions</b><br>
+
+AMOS Professional provides a full range of screen functions, to monitor and exploit the current
+status of your screens.</p>
+
+<p><b>SCREEN</b><br>
+<i>function: give current screen number</i><br>
+screen number=<b>Screen</b></p>
+
+<p>
+SCREEN can be used as a function to return the number of the screen which is currently active.
+This screen is used for all drawing operations, but it is <b>not</b> necessarily visible.</p>
+
+<p><b>SCREEN HEIGHT</b><br>
+<i>function: give current screen height</i><br>
+height=<b>Screen Height</b><br>
+height=<b>Screen Height</b> number</p>
+
+<p><b>SCREEN WIDTH</b><br>
+<i>function: give current screen width</i><br>
+height=<b>Screen Width</b><br>
+height=<b>Screen Width</b> (number)</p>
+
+<p>
+This pair of functions is used to return the height and the width of the current screen or a
+particular screen, if that screen number is specified. The dimensions of the current screen can be
+found like this:</p>
+
+<pre>
+E> Print Screen Height
+   Print Screen Width
+</pre>
+
+<p><b>SCREEN COLOUR</b><br>
+<i>function: give maximum number of colours</i><br>
+number=<b>Screen Colour</b></p>
+	
+<div align="right"> <a href="609.html">Back</a> &nbsp;&nbsp;
+  <a href="611.html">Next</a>
+  <br>
+  06.01.10
+</div>
+
+</BODY>
+</HTML>

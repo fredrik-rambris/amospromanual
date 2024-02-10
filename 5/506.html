@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+	<title>Amos Professional Manual - the Bare Bones</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>the Bare Bones</h1>
+
+<br>
+
+<P>
+AMOS Professional provides over 200 ready-made functions, but it allows you to create as many
+different functions as you like! These "user-defined" functions are set up inside your own
+programs, and they can be used to compute commonly used values very quickly and very
+simply.</P>
+
+<P><b>DEF FN</b><BR>
+<i>structure: create a user-defined function</i><BR>
+<b>Def Fn</b> name (list of variables)=expression</P>
+	
+<P>
+To create a user-defined function, give it a name and follow the name with a list of variables.
+These variables must be held inside a pair of round brackets, and separated from one another by
+commas, like these examples:</P>
+
+<PRE>
+X&gt; Def Fn NAME$(A$)=LOWER$(A$)
+   Def Fn X(A,B,C)=A*B*C
+</PRE>
+
+<p>
+When a user-defined function is called up my variables that are entered with it will be
+substituted in the appropriate positions, as demonstrated below.</p>
+
+<p><b>FN</b><BR>
+<i>structure: call a user-defined function</i><BR>
+<b>Fn</b> name(list of variables)</p>
+	
+<p>The following examples show how DEF FN is first used to define a function, and how FN 
+calls it up:</p>
+
+<pre>
+E&gt; Def Fn NAME$(A$,X,Y)=Mid$(A$,X,Y)
+   Print Fn NAME$("Professional",4,3)
+  
+E&gt; Def Fn X(A,B,C)=A+B+C
+   Print Fn X(1,10,100)
+</pre>
+
+<P>
+The expression that equals the user-defined function can include any of the standard 
+AMOS Professional functions, and it is limited to a single line of a program.</p>
+
+<p><b>Parameters</b><br>
+The values that are entered into an AMOS Professional instruction are known as 
+"parameters". If there is more than one parameter, each parameter must be separated from its neighbour 
+by a comma.</P>
+
+<P>
+For example, up to three parameters can be used after an INK command, in the form of 
+various numbers which specify which colour is to be used for drawing operations, then the 
+background colour, and the third parameter setting a border colour. So an INK command could appear 
+like this, with its three parameters ready to draw a shape:</P>
+
+<pre>
+E&gt; Ink 0,1,2
+   Bar 10,10 To 100,50
+</pre>
+
+<div align="right"> <a href="505.html">Back</a> &nbsp;&nbsp; 
+  <a href="507.html">Next</a>
+  <br>
+  05.01.06
+</div>
+
+</BODY>
+</HTML>

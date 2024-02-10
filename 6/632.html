@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Graphics</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Graphics</h1>
+
+<br>
+
+<p>
+That example creates a lit of 16 colour values in hex code, alongside a ripple of circles in those
+colours. Note that the $ symbol is always used to introduce a hex number for the Amiga to
+recognise. The first hex value in the example table should be $000, meaning no Red, no Green
+and no Blue component is present in colour index 0. Sure enough, the innermost circle is drawn
+in black ink.</p>
+
+<p>Here are some other examples in this form of notation:</p>
+
+<pre>
+<b>Colour    Hex value    RGB components</b>
+White     $FFF         R=F G=F B=F
+Grey      $666         R=6 G=6 B=6
+Green     $0F0         R=0 G=F B=0
+Violet    $FOF         R=F G=0 B=F
+Ox blood  $801         R=8 G=0 B=1
+Pig foot  $A74         R=A G=7 B=4
+</pre>
+
+
+<p><b>COLOUR</b><br>
+<i>instruction: assign a colour to an index</i><br>
+<b>Colour</b> number,$RGB</p>
+
+<p>
+Used as an instruction, COLOUR allows you to assign the RGB components of a colour to each
+of the Amiga's 32 colour registers. For example, if you wanted to load colour number 1 with a
+subtle shade of pig's feet, you would use this:</p>
+
+<pre>
+E> Cls : Colour 1,$A74
+</pre>
+
+<i>COLOUR BACK</i><br>
+<i>instruction: assign a colour to the screen background</i><br>
+<b>Colour Back</b> $RGB<br>
+<b>Colour Back</b> (number)</p>
+
+<p>
+This command is used to assign your choice of RGB components for the screen's background
+colour, which fills unused areas at the top and bottom of the visible screen. Alternatively,
+existing colours may also be specified when enclosed in brackets.</p>
+
+<p><b>Setting several colours</b><br>
+
+Impressive effects can be programmed using multi-colour changes, but assigning individual
+colours to every colour index would be a tedious business. AMOS Professional handles all the
+donkey work as usual.</p>
+
+<p><b>PALETTE</b><br>
+<i>instruction: set the current screen colours</i><br>
+<b>Palette</b> colour list</p
+
+<p>This is a much more powerful command than COLOUR, and it can be used to set as few or as</p>
+
+<div align="right"> <a href="631.html">Back</a> &nbsp;&nbsp;
+  <a href="633.html">Next</a>
+  <br>
+  06.04.06
+</div>
+
+</BODY>
+</HTML>

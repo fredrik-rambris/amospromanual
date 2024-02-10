@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Disc Access</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Disc Access</h1>
+
+<br>
+
+<p>
+<b>Disc space</b></p>
+
+<p>
+<b>DFREE</b><br>
+<i>function: report free space on disc</i><br>
+f=<b>Dfree</b></p>
+
+<p>
+This simple function returns the amount of free space remaining on the current disc, measured
+in bytes.</p>
+
+<p>
+<b>DISC INFO$</b><br>
+<i>function: report free space of a named device</i><br>
+information$=<b>Disc Info$</b>("Name")</p>
+
+<p>
+This function is used to return the amount of free space in the specified device. The string that is
+returned contains the name of the disc, followed by the amount of free space. Here is an
+example which splits the string:</p>
+
+<pre>
+E> A$=Disc Info$("Df0:")
+   C=Instr(A$,":")
+   N$=Left$(A$,C)
+   A$=A$-N$
+   D=Val(A$)
+   Print "Name of the disc=";N$
+   Print "Free space=";D
+</pre>
+
+<p>
+<b>KILL</b><br>
+<i>instruction: erase a file from current disc</i><br>
+<b>Kill</b> filename$</p>
+
+<p>
+Be extremely careful with this command. It obliterates the named file from the current disc, once
+and for all. The file that is erased with this command cannot be retrieved.
+Kill "Permanently"</p>
+
+<p><b>Disc files</b><br>
+
+Files are simply packages of information stored together at a particular location on disc. Each file
+is assigned its own name, which may contain anything from 1 to 255 characters.</p>
+
+<p>
+Before a file can be used, it must be initialised using the OPEN IN, OPEN OUT or APPEND
+commands, which are explained below. When a file is opened, it must be assigned a channel
+number, ranging from 1 to 10. This number will be used in all subsequent disc operations to
+identify the file you are currently working with.</p>
+
+<p>
+Your Amiga uses two types of disc files: "sequential" files and "random access" files. Here is how
+AMOS Professional exploits them fully.</p>
+
+<div align="right"> <a href="1016.html">Back</a> &nbsp;&nbsp;
+  <a href="1018.html">Next</a>
+  <br>
+  10.02.10
+</div>
+
+</BODY>
+</HTML>

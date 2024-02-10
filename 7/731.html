@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Updating Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Updating Objects</h1>
+
+<br>
+
+<p>
+If you are using double buffering, you must make sure that there is a genuine connection
+between the logical and physical screens. To achieve smooth graphics, there must be a sensible
+progression from screen to screen, otherwise flickering distortions will be displayed.</p>
+
+<p>
+When scrolling the playing area of a computer game, it is often possible to ensure that screens
+are already in step, so BOB CLEAR and BOB DRAW can be used without any problems. In other
+situations, you may need to make radical changes from screen to screen, so ensure that these are
+made both copies of the current screen.</p>
+
+<p><b>The Autoback command</b><br>
+
+The standard Bob routines only work if the logical and physical screens are in perfect harmony.
+The instant that text or graphics are drawn, or the SCREEN COPY command is used, the two
+screens fall out of step with one another, ruining any smooth effects. In the case of SCREEN
+COPY, you must take control over the system with the BOB DRAW and BOB CLEAR
+commands, but when using standard graphics commands, the situation is much easier.</p>
+
+<p>
+AMOS Professional includes a powerful feature that automatically synchronises all text and
+graphics operations with all Bob updates. This means that once DOUBLE BUFFER is activated,
+graphics and text can be displayed as normal. This is the principle of the AUTOBACK system.</p>
+
+<p><b>AUTOBACK</b><br>
+<i>instruction: set mode for graphics operations on double buffered screen</i><br>
+<b>Autoback</b> mode</p>
+
+<p>
+There are three AUTOBACK modes, and you can toggle between them by setting the mode
+values as follows:</p>
+
+<pre>
+X> Autoback 0
+</pre>
+
+<p>
+Manual mode. This mode deactivates the AUTOBACK system completely, so that graphics are
+drawn directly on the logical screen, for maximum speed. It is recommended for use with the
+BOB DRAW and BOB CLEAR commands.</p>
+
+<p>
+AUTOBACK 0 is useful when large amounts of graphics are drawn on screens being switched
+manually with SCREEN SWAP, because it is much faster than the standard system. But
+remember that you must take responsibility for synchronising between the logical and physical
+screens.</p>
+
+<pre>
+X> Autoback 1
+</pre>
+
+<p>
+Semi-automatic. In mode 1, AUTOBACK performs all graphical operations on both the logical
+and physical screens. Although Bob updates are not taken into account, this is an ideal mode for
+displaying hi-score tables and control panels. So as long as your Bobs are kept clear of any new
+graphics, this mode is perfect.</p>
+
+<pre>
+X> Autoback 2
+</pre>
+
+<div align="right"> <a href="730.html">Back</a> &nbsp;&nbsp;
+  <a href="732.html">Next</a>
+  <br>
+  07.03.06
+</div>
+
+</BODY>
+</HTML>

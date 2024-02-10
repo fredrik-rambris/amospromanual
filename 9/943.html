@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Interface Resources</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Interface Resources</h1>
+
+<br>
+
+<p>
+In addition to single images, more complex arrangements can be built up from combining a
+group of individual component images, and the following commands are available to exploit
+this facility.</p>
+
+<p>
+<b>LI</b>ne<br>
+<i>Interface instruction: draw a line from Resource Bank image components</i><br>
+<b>LI</b> x,y,first image,width;</p>
+
+<p>
+The LIne command is used to construct a line from three single images held in the Resource
+Bank. The x,y-coordinates set the position of the top left-hand corner of the line, with the x-
+coordinate rounded to the nearest multiple of eight pixels. Then the number of the first image to
+be used for the line is given. Lastly, the width of the line is set in pixels, and this width should be
+an exact multiple of the image width, otherwise the width of the line will be increased to the
+nearest image boundary.</p>
+
+<p>
+The following diagram illustrates the three component images, defining the start, the middle
+and the end of the line.</p>
+
+<pre>
+[1 2 3]
+</pre>
+
+<p>These components can be rearranged to generate larger lines, as illustrated next:</p>
+
+<pre>
+[1|2|2|2|2|3]
+</pre>
+
+
+<p>
+<b>VL</b>ine<br>
+<i>Interface instruction: draw a vertical line from Resource Bank components</i><br>
+<b>VL</b> x,y,first image,height</p>
+
+<p>
+This is very similar to the LIne command, except that it displays a vertical line composed of a
+series of three images held in the Resource Bank. The x,y-coordinates for the top left-hand
+corner of the line are given, followed by the number of the first of the three images to be used in
+the display. Finally, the height of the line is specified, and it will be rounded up to the nearest
+multiple of three automatically.</p>
+
+<p>
+<b>BO</b>x<br>
+<i>Interface instruction: draw a box from Resource Bank image components</i><br>
+<b>BO</b> x,y,first image,width,height;</p>
+
+<p>
+Similarly, the BOx instruction draws a rectangular bar from an assortment of nine packed
+images from the Resource Bank. The parameters are the same as for a LIne command, with the
+additional parameter of the height of the box, which can be anything you wish. The component
+images for the rectangle are in the following format:</p>
+
+<pre>
+[1|2|3]
+[4|5|6]
+[7|8|9]
+</pre>
+
+<div align="right"> <a href="942.html">Back</a> &nbsp;&nbsp;
+  <a href="944.html">Next</a>
+  <br>
+  09.04.02
+</div>
+
+</BODY>
+</HTML>

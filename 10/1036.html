@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Accessing a Serial Port</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Accessing a Serial Port</h1>
+
+<br>
+
+<p>
+<b>SERIAL CHECK</b><br>
+<i>function: report current serial device activity</i><br>
+status=<b>Serial Check</b>(Channel number)</p>
+
+<p>
+This function obtains a report on the status of the current serial device. It can be used to check
+whether all of the information to be transmitted by a previous SERIAL SEND command has
+been sent. If a value of zero (False) is returned, the last Serial command is still being executed. If
+the value is -1 (True) the transmission has been completed.</p>
+
+<p>
+<b>SERIAL STATUS</b><br>
+<i>function: report status of the serial port</i><br>
+bit-map=<b>Serial Status</b>(channel number)</p>
+
+<p>
+The SERIAL STATUS function provides detailed information concerning the current status of
+the serial port. The channel number parameter refers to an open channel that has been
+previously assigned to the serial port with a SERIAL OPEN command. The report is returned in
+the form of a bit-map holding the status of fifteen different parameters. Here is a table of the
+various possibilities. If the relevant bit is set to the value under the "Active" column, the
+associated status has been successfully detected. Any other value indicates that the option is
+currently idle.</p>
+
+<pre>
+<b>Bit   Active    Status</b>
+0       -       Reserved
+1       -       reserved
+2       1       Parallel "select" for A1000 machines. For the A500 and A2000,"select" is
+                also connected to the serial port "Ring Indicator".
+3       0       DSR (Data Set Ready)
+4       0       CTS (Clear To Send)
+5       0       Carrier Detect
+6       0       RTS (Ready To Send)
+7       0       DTR (Data terminal Ready)
+8       1       Hardware overru
+9       1       Break sent (most recent output)
+10      1       Break received (as latest input)
+11      1       Transmit x-OFF
+12      1       Receive x-Off
+13      -       Reserved
+14      -       Reserved
+15      -       Reserved
+</pre>
+
+<p>
+<b>SERIAL ERROR</b><br>
+<i>function: report success of the last data transfer</i><br>
+status=<b>Serial Error</b>(Channel number)</p>
+
+<p>
+The SERIAL ERROR function is used to look for the Error byte in the serial device.
+A value of zero (False) confirms that all is well, whereas 4 (True) indicates
+that there was an error in the last transmission.</p>
+
+<div align="right"> <a href="1035.html">Back</a> &nbsp;&nbsp;
+  <a href="1037.html">Next</a>
+  <br>
+  10.04.05
+</div>
+
+</BODY>
+</HTML>

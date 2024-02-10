@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Bank Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Memory Bank Structures</h1>
+
+<br>
+
+<p>
+As well as this superb new memory pointer, the header contains special flags which tell AMOS
+Professional the type of current bank under surveillance. For mere mortals, a name is supplied
+in simple Ascii format as well!</p>
+
+<p>Here is a list of currently allowable bank names:</p>
+
+
+<p>
+<b>Sprites</b><br>
+<b>Icon</b><br>
+<b>Music</b><br>
+<b>Amal</b><br>
+<b>Menu</b><br>
+<b>Samples</b><br>
+<b>Pic.Pac</b><br>
+<b>Resource</b><br>
+<b>Code</b><br>
+<b>Tracker</b><br>
+<b>Data</b><br>
+<b>Work</b><br>
+<b>Chip</b><br>
+<b>Fast</b><br>
+</p>
+
+<p>You are more than welcome to add your own bank definitions to this list.</p>
+
+<p><b>Memory bank headers</b><br>
+
+The header is stored in the following format:</p>
+
+
+<pre>
+Header        dc.l        Address_Of_Next_Bank           * Start-24
+              dc.l        Length_Of_Bank + 16            * Start-20
+              dc.l        Number_Of_The_Bank             * Start-16
+              dc.w        Flags                          * Start-12
+              dc.w        Free_For_Future
+              dc.b        "Namebank"                     * Start-8
+Start                                                    *
+*             Data goes here                             * Returned by START function
+</pre>
+
+<p>There now follows an explanation of each of the above Header components.</p>
+
+<p><b>Address_Of_Next_Bank</b><br>
+
+This is the address of the next bank in the memory chain. The list is terminated with a value of
+zero. Note that each new bank is added to the <b>top</b> of the list so the last bank that has been
+reserved will be the first bank in the chain.</p>
+
+<p>
+These pointers are swapped around whenever the BANK SWAP command is called from AMOS
+Professional Basic.</p>
+
+<div align="right"> <a href="1425.html">Back</a> &nbsp;&nbsp;
+  <a href="1427.html">Next</a>
+  <br>
+  14.E.02
+</div>
+
+</BODY>
+</HTML>

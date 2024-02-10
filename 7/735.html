@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Detecting Collisions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Detecting Collisions</h1>
+
+<br>
+
+<p>
+Before a detailed explanation of the collision functions, it is worth examining AMOS
+Professional in action with a ready-made program. This will demonstrate how collisions are
+handled.</p>
+
+<p>Please load the following tutorial:</p>
+
+<pre>
+DP> Load "AMOSPro Tutorial:Tutorials/Collision_Detection.AMOS"
+</pre>
+
+<p>
+Now run the program and select Example 1. This shows how a simple bat and ball are made to
+interact, and to simplify things, the bat has been fixed in position! The collision detection in this
+example relies on the following line:</p>
+
+<pre>
+X> If Bob Col(1) Then Boom
+</pre>
+
+<p>
+Notice how the explosion effect is triggered the instant that the bat overlaps the ball, even by the
+smallest margin. Example 2 really sets the ball rolling!</p>
+
+<p>
+The same instruction can also be used to detect collisions between a single source and any
+number of target objects, with the BOB COL function checking all of the Bobs automatically in
+Example 3.</p>
+
+<p>
+To refine the system, and check for collisions with a smaller range of objects, simply add the first
+and last numbers of that range to the BOBSPRITE COL command, in the demonstration
+program. For example, changing the relevant line as follows will test for one red and one green
+ball only:</p>
+
+<pre>
+E> If Bobsprite 001(1,2 To 4) Then Bell 10
+</pre>
+
+<p><b>Masks</b><br>
+Invisible "masks" are created around images for two main reasons. Firstly they ensure that the
+background colour (zero) is transparent, so a masked Bob will merge with the current screen
+display. The second reason for masking an image is to provide AMOS Professional with a
+mechanism for detecting collisions. The collision detection functions will only work if a mask
+has first been created around the required images.</p>
+
+<p>
+Masks are automatically defined around an image when that image is assigned to a Blitter
+Object, in other words, when the BOB command is used. But it is important to remember that
+Sprites have no masks unless you specifically attach them. So if you intend to make use of
+collision detection, it is vital to ensure that all your objects are wearing their masks.</p>
+
+<p><b>MAKE MASK</b><br>
+<i>instruction: mask an image for collision detection</i><br>
+<b>Make Mask</b><br>
+<b>Make Mask</b> number</p>
+
+<p>This command creates a mask around every one of the images in the Object Bank, and may take</p>
+
+<div align="right"> <a href="734.html">Back</a> &nbsp;&nbsp;
+  <a href="736.html">Next</a>
+  <br>
+  07.04.02
+</div>
+
+</BODY>
+</HTML>

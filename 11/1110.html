@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Multi-Tasking</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Multi-Tasking</h1>
+
+<br>
+
+<p>
+AMOS Professional can be run at the same time as totally separate programs and utilities such as
+DPaint III. This allows the creation and testing of original AMOS Professional programs while
+drawing on the resources of your favourite audio, graphical and utility items.</p>
+
+<p>
+Provided that your system has at least one megabyte, multi-tasking is activated by pressing
+[Amiga]+[A] to flick between AMOS Professional and the CLI or Workbench environments.</p>
+
+<p>
+To make effective multi-tasking programs, most of the processing time should not be grabbed,
+leaving only a limited amount of processing power for other tasks, and the following command
+is provided to solve this problem.</p>
+
+<p>
+<b>MULTI WAIT</b><br>
+<i>instruction: force a multi-task wait vbl</i><br>
+<b>Multi Wait</b></p>
+
+<p>
+The MULTI WAIT instruction should be used in the main loop of an AMOS Professional
+program. It forces a multi-task WAIT VBL for situations such as waiting for a menu item to be
+selected.</p>
+
+<p>
+This command should not be used to achieve accurate screen synchronisation, as it has been
+specifically provided for multi-tasking and may skip several vertical blank periods, depending
+on the number of tasks being run simultaneously.</p>
+
+<p>
+The following simple commands are provided to allow complete control over multi-tasking
+facilities.</p>
+
+<p>
+<b>AMOS TO BACK</b><br>
+<i>instruction: hide AMOS Professional and reveal the Workbench</i><br>
+<b>Amos To Back</b></p>
+
+<p>
+This instruction allows other programs to be accessed, by bringing forward the Workbench
+display and hiding AMOS Professional from view.</p>
+
+<p>
+<b>AMOS TO FRONT</b><br>
+<i>instruction: hide the Workbench and reveal AMOS Professional</i><br>
+<b>Amos To Front</b></p>
+
+<p>
+Similarly, this instruction forces AMOS Professional back onto the display, leaving the
+Workbench environment hidden.</p>
+
+<p>
+<b>AMOS LOCK</b><br>
+<i>instruction: disable [Amiga]+[A] toggle</i><br>
+<b>Amos Lock</b></p>
+
+<p>
+The AMOS LOCK command disables the facility to toggle between AMOS Professional and the
+Workbench by pressing [Amiga]+[A]. This can be used to prevent other users from discovering
+how your program was written!</p>
+
+<div align="right"> <a href="1109.html">Back</a> &nbsp;&nbsp;
+  <a href="1111.html">Next</a>
+  <br>
+  11.04.01
+</div>
+
+</BODY>
+</HTML>

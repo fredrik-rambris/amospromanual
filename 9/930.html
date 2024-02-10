@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Advanced Control Panels</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Advanced Control Panels</h1>
+
+<br>
+
+<p>
+The 'string' parameter enters a string of characters that will be initially loaded into the text edit
+zone. If a default string is not required, simply use a pair of single quotation marks with nothing
+in them, or use a zero. Finally, set the colour index numbers for the paper and pen to be used for
+the characters on screen.</p>
+
+<p>
+If the size of the string is larger that the physical size of the zone, the string will scroll
+automatically as more characters are typed in. If the [Return] or [Tab] key is pressed within the
+edit line, the Interface will jump to the next EDit zone, if it has been defined. When the final
+zone is reached, all keyboard input will be directed to the dialogue buttons, and the next [Tab]
+press will return you back to the original editing zone.</p>
+
+<p>
+When the dialogue box is drawn, the first edit zone of the Interface program will be activated
+automatically. Please note that order of activity follows the order in which the edit zones were
+declared in the Interface program, and not the number of the zones.</p>
+
+<p>
+The contents of an edit zone can be read directly from the main AMOS Professional program,
+using a simple call to a RDIALOG$ function. Also, if the [Return] key has been pressed, the
+number of the selected EDit zone will also be available from the DIALOG function.</p>
+
+<p>
+Characters are entered in a new text zone window with the number z+1000. If the program is to
+display some text while the zone is in use, the default screen window should be re-activated
+with a WINDOW 0 instruction. After the text has been displayed, the edit window can be
+handled by a line like this:</p>
+
+<pre>
+X> Window Z+1000: Rem Z is the number of the EDit zone
+</pre>
+
+Here is a working example of a text input zone:
+
+<pre>
+E> A$=A$+"BA 50,50;SI 200,60; SA 1; set things up"
+   A$=A$+"IN 5,0,0; GB 0,0,200,50; PR 16,10,'Enter your name human!',2;"
+   A$=A$+"BU 1,150,40,50,10,0,0,16;"
+   A$=A$+"[1N BPos 4+,0,0; GB 0,0,50,10; PR 2,0,' Quit',2;][BQ]"
+   A$=A$+"ED 2,16,25,14,14,",0,2; define an edit zone"
+   A$=A$+"EXit,"
+   Dialog Open 1,A$ : Rem Open a channel
+   R=Dialog Run(1) : Rem the Interface program
+   Repeat
+    D=Dialog(1) : Rem Wait until Return Key is pressed
+   Until D<0
+   Print "Hello ";Rdialog$(1,2)
+   Dialog Close
+</pre>
+
+<p>The numerical equivalent of a text zone is examined next.</p>
+
+<div align="right"> <a href="929.html">Back</a> &nbsp;&nbsp;
+  <a href="931.html">Next</a>
+  <br>
+  09.03.06
+</div>
+
+</BODY>
+</HTML>

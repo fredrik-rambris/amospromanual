@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Interface Language</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Interface Language</h1>
+
+<br>
+
+<p>
+One side effect of the PrintOutline command is that the drawing mode is automatically re-set to
+transparent, and so a previous opaque setting may need to be changed. This is explained next.</p>
+
+<p>
+<b>S</b>et<b>W</b>riting<br>
+<i>Interface instruction: set the writing mode for text and graphics</i><br>
+<b>SW</b> mode;</p>
+
+<p>
+Normally, all text and graphics are drawn over a transparent background, allowing them to
+merge neatly into the existing display. If you need to set the background colour using an INk
+command, you must change the mode to "opaque". The mode parameter that affects this
+command uses a value from zero to 7, and is fully explained under the GR WRITING command
+in <a href="../6/627.html">Chapter 6.4</a>. A parameter value of zero will set an opaque mode, and a value of 1 re-sets it to
+transparent. Use of the PrintOutline command automatically re-sets the mode to transparent.</p>
+
+<p>
+<b>S</b>et<b>F</b>ont<br>
+<i>Interface instruction: select font to be assigned to text</i><br>
+<b>SF</b> number,style;</p>
+
+<p>
+To change the type font used by a previous PRint or PrintOutline command, use SetFont
+followed by the number of the new font to be assigned to the text, and the style to be adopted
+by that font. A full explanation of the available styles can be found under the SET TEXT
+command in <a href="../5/550.html">Chapter 5.6</a>.</p>
+
+<p>
+If only the style is to be changed, the font remains unaffected when a dummy parameter value,
+such as zero, is used for the font number.</p>
+
+<p>
+There are four more simple Interface functions that can be used to manipulate text, which are
+self explanatory.</p>
+
+<p>
+<b>T</b>ext<b>W</b>idth<br>
+<i>Interface function: return the width of current font text in pixels</i><br>
+width="text" <b>TW</b></p>
+
+<p>
+<b>T</b>ext<b>H</b>eight<br>
+<i>Interface function: return the height of current font in pixels</i><br>
+height=<b>TH</b></p>
+
+<p>
+<b>T</b>ext<b>L</b>ength<br>
+<i>Interface function: return the number of characters in a string of text</i><br>
+number="text" <b>TL</b></p>
+
+<p>
+<b>C</b>entre<b>X</b><br>
+<i>Interface function: centre text in the display</i><br>
+position="text" <b>CX</b></p>
+
+<p>
+The CentreX function is used to find the correct centring location by comparing the width of the
+given text with the value returned by an SX function, like this:</p>
+
+<pre>
+SetVar 0,"Hello, this is the text"
+PRint 0VA CentreX,0,0 VA,2;
+</pre>
+
+<div align="right"> <a href="918.html">Back</a> &nbsp;&nbsp;
+  <a href="920.html">Next</a>
+  <br>
+  09.02.05
+</div>
+
+</BODY>
+</HTML>

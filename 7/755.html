@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMAL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>AMAL</h1>
+
+<br>
+
+<p>
+The PLay command is followed by the number of the pre-recorded path stored in the AMAL
+memory bank, and path numbers can range from 1 up to the maximum number of patterns tho
+have been stored. The first time that AMAL comes across a PLay command, it will look for Ow
+relevant path number in this memory bank, and if any problem is encountered, AMAL will abort
+the operation and skip to the instruction immediately after the animation string.</p>
+
+<p>
+As soon as the pattern has been initialised, register RU is loaded with the delay time between
+each individual movement step, measured in 50ths of a second. By changing the RU register
+from inside the AMAL program, Object movements are slowed down or speeded up. Note that
+each movement step is <b>added</b> to the current coordinates of the Object. This means that if the
+Object movements are controlled by SPRITE or BOB instructions, that Object will continue its
+pre-recorded movements from the new screen location. Furthermore, it is easy to animate
+dozens of different Objects using a single sequence of pre-recorded movements.</p>
+
+<p>
+The value which controls the direction of movement is held in register R1. This value can affect
+movement in one of three different ways, as follows.</p>
+
+<pre>
+R1 Value Effect
+>0       execute sequence in pre-recorded order
+ 0       execute sequence in reverse order
+-1       stop sequence and proceed to next AMAL instruction
+</pre>
+
+<p>
+The contents of both register R1 and RU can be changed at any time from within the AMOS
+Professional Basic program, by using the AMREG or AMPLAY commands, which are explained
+later.</p>
+
+<p>
+For a spectacular demonstration of pre-recorded movement patterns, please load this ready-
+made program:</p>
+
+<pre>
+LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_5.AMOS"
+</pre>
+
+<p><b>AMAL functions list</b><br>
+
+Here is a full alphabetical list of all the available AMAL functions:</p>
+
+<p><b>BC</b><br>
+value=<b>B</b>ob <b>C</b>ol(number,first,last)</p>
+
+<p>
+BC is identical to the BOB COL Basic instruction. It checks the single Bob whose number is
+specified for collisions with other Bobs, whose numbers are given as the first and last in the
+range to be monitored. If a collision is detected, a value of -1 (true) is returned, otherwise 0
+(false) is given.</p>
+
+<p>
+This instruction may <b>not</b> be performed within an interrupt, so it is only available when AMAL
+routines are directly executed from Basic using the SYNCHRO command.</p>
+
+<div align="right"> <a href="754.html">Back</a> &nbsp;&nbsp;
+  <a href="756.html">Next</a>
+  <br>
+  07.06.08
+</div>
+
+</BODY>
+</HTML>

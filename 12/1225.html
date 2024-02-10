@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Errors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Errors</h1>
+
+<br>
+
+<p><b>Hardware data overrun (150)</b><br>
+This error can be generated if you wait too long before loading your data from the serial port
+using SERIAL INPUTS. If there's too much waiting in the wings the serial port can be
+overloaded, and the system collapses. Possible solutions include reducing the transfer rate with
+SERIAL SPEED, or reading the information a character at a time with SERIAL GET.</p>
+
+<p><b>I/O error (94)</b><br>
+The Input/Output error message implies that there is a corrupted file that cannot be accessed
+properly. Try again, checking any disc drive connections. If necessary, you may have to resort to
+the DISC DOCTOR program, supplied on your original Workbench disc.</p>
+
+<p><b>IFF compression not recognised (31)</b><br>
+You are trying to load a screen that has been compressed with an unfamiliar system. Try and re-
+save your original screen source in standard IFF format.</p>
+
+<p><b>Icon not defined (74)</b><br>
+The icon specified in your instruction cannot be found in the current Icon bank.</p>
+
+<p><b>Invalid baud rate (147)</b><br>
+The SERIAL SPEED command only permits you to set the speed to certain values. If the current
+serial device doesn't support your value, you'll get this error.</p>
+
+<p><b>Illegal block parameters (66)</b><br>
+The values you have entered in a GET BLOCK or PUT BLOCK command are not allowed.</p>
+
+<p><b>Illegal copper parameter (78)</b><br>
+The value entered in a COP MOVE, COP MOVEL or COP SWAP instruction is outside of the
+permitted range.</p>
+
+<p><b>Illegal direct mode (17)</b><br>
+Direct mode only permits you to run certain types of instructions from the command line. All
+program control instructions such as FOR. .NEXT, IF. .THEN, GOSUB, and GOTO are forbidden.
+In addition, you are NOT allowed to call any AMOS Professional procedures from direct mode.</p>
+
+<p><b>Illegal file name (82)</b><br>
+You are trying to use a non-standard file name.</p>
+
+<p><b>Illegal function call (23)</b><br>
+There is a mistake with the values in an AMOS Professional command. Return to the editor and
+identify the likely command in your line of program. Allowable parameters are all detailed in
+this User Guide.</p>
+
+<p><b>Illegal instruction during autotest (115)</b><br>
+Check to see if an AUTOTEST has been defined by mistake. If it is intentional, you may have
+used an AMAL command such as Move or Anim. Also check the upper and lower case usage of
+your AMAL labels.</p>
+
+<p><b>Illegal number of colours (49)</b><br>
+You are trying to use the wrong number of colours on screen at once.
+Check the syntax of your SCREEN OPEN commands, or check this
+User Guide for a full list of available screen colour options.</p>
+
+<div align="right"> <a href="1224.html">Back</a> &nbsp;&nbsp;
+  <a href="1226.html">Next</a>
+  <br>
+  12.03.15
+</div>
+
+</BODY>
+</HTML>

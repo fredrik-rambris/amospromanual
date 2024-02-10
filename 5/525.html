@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Maths</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Maths</h1>
+
+<br>
+
+<P>
+<b>DEGREE</b><BR>
+<i>instruction: use degrees</i><BR>
+<b>Degree</b></P>
+
+<P>
+If, for any reason, you are unhappy with the complexities of radians, AMOS Professional 
+is happy to accept your trigonometric instructions in degrees. Once the DEGREE command has
+been activated, all subsequent calls to the trigonometric functions will expect degrees to 
+be used.</P>
+
+<pre>
+E&gt; Degree
+   Print Sin(45)
+</pre>
+
+<P>
+<b>RADIAN</b><BR>
+<i>instruction: use radians</i><BR>
+<b>Radian</b></P>
+
+<P>If DEGREE has already been called, the RADIAN function returns to the default status, 
+where all future angles are expected to be entered in radians.</P>
+
+<P>
+<b>SIN</b><BR>
+<i>function: calculate sine of an angle</i><BR>
+s#=<b>Sin</b>(angle)<BR>
+s#=<b>Sin</b>(angle#)</P>
+
+<P>The SIN function calculates how far point <b>b</b> is above the x-axis, known as the sine of 
+the angle <b>a</b>.<br>
+Note that SIN always returns a floating point number. For example:</P>
+
+<pre>
+E&gt; Degree
+   For X=0 To 319
+    Y#=Sin(X)
+    Plot X,Y#*50+100
+   Next X
+</pre>
+
+<P>
+<b>COS</b><BR>
+<i>function: calculate cosine of an angle</i><BR>
+c#=<b>Cos</b>(angle)<BR>
+c#=<b>Cos</b>(angle#)</P>
+
+<P>In the above diagram, the distance that point <b>b</b> is to the right of the y-axis is known 
+as the cosine. If <b>b</b> goes to the left of the y-axis, its cosine value becomes negative. (Similarly,
+ if it drops below the x-axis, its sine value is negative.) The COS function gives the cosine of a 
+given angle.<br>
+To demonstrate this, add the following two lines to your last example between the PLOT and
+NEXT instructions:</P>
+
+<pre>
+E&gt; Y#=Cos(X)
+   Plot X,Y#*50+100
+</pre>
+
+<div align="right"> <a href="524.html">Back</a> &nbsp;&nbsp; 
+  <a href="526.html">Next</a>
+  <br>
+  05.03.08
+</div>
+
+</BODY>
+</HTML>

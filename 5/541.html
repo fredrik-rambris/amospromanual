@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Control Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Control Structures</h1>
+
+<br>
+
+<P> For example:</P>
+
+<pre>
+E&gt; EXAMPLE
+   Read A$: Print A$
+   Data "I am Main Program Data"
+   Procedure EXAMPLE
+    Read B$: Print B$
+    Data "I am Procedure Data only"
+   End Proc
+</pre>
+
+<P>
+<b>READ</b><BR>
+<i>structure: read data into a variable</i><BR>
+<b>Read</b> list</P>
+
+<P>
+When READ loads items of information that have been stored in a DATA statement into a 
+list of variables, it uses a special marker to jump to the first item in the first DATA statement 
+of your listing. As soon as that item of data has been read, the marker moves on to the next item 
+in the list.</P>
+
+<P>It must be remembered that the variables to be read must be of exactly the same type as 
+the data held at the current position. If you match up one type of stored data with a different 
+type of variable after a READ command, the appropriate error message will be given. Here is an
+example of correct matching:</P>
+
+<pre>
+E&gt; N=Rnd(100)
+   Read A$,B,C,D$
+   Print A$,B,C,D$
+   Data "Text string",100,N,"AMOS"+"Professional"
+</pre>
+
+<P>
+<b>RESTORE</b><BR>
+<i>structure: set the current READ pointer</i><BR>
+<b>Restore</b> Label<BR>
+<b>Restore</b> LABEL$<BR>
+<b>Restore</b> Line<BR>
+<b>Restore</b> number</P>
+
+<P>To change the order in which your data is read from the order in which it was 
+originally stored, you can alter the point where a READ operation expects to find the next DATA statement. 
+The RESTORE command sets the position of this pointer by referring to a particular label or 
+line number, and both labels and numbers may be calculated as part of an expression.</P>
+
+<P>For example:</P>
+
+<pre>
+E&gt; Restore LAST
+   Read A$
+   Print A$
+   Data "First"
+   Data "Middle"
+   LAST:
+   Data "Last"
+</pre>
+
+<p>
+Each Amos Professional procedure has its own individual data pointer, so any calls to 
+the command will apply to the current procedure only.</p>
+
+<p>
+RESTORE is one of the AMOS Professional programmer's most useful devices to force the computer 
+to select information, depending on the actions of the user. It can be used for educational and 
+business routines as well as adventure and role-playing games.</p>
+
+<div align="right"> <a href="540.html">Back</a> &nbsp;&nbsp;
+  <a href="542.html">Next</a>
+  <br>
+  05.04.13
+</div>
+
+</BODY>
+</HTML>

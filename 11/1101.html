@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Fonts</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Fonts</h1>
+
+<br>
+
+<p>
+A "font" refers to the physical shape of a set of printed characters. This Chapter explains how to
+exploit the ready-made AMOS Professional fonts, how to import new ones, and how to design
+your own fonts using the ready-made Font Editor program.</p>
+
+<p><b>Text Fonts</b><br>
+
+Tile sets of fonts used by commands like PRINT, are known as "text fonts", and each AMOS
+Professional window can have its own individual set, as required. Styles and special effects for
+text fonts are controlled by instructions such as TEXT STYLE and WRITING, which are fully
+explained in <a href="../5/550.html">Chapter 5.6</a>.</p>
+
+<p><b>Graphic Text Fonts</b><br>
+
+Although text fonts are suitable for normal uses, an infinite variety of styles can be achieved by
+exploiting the much more flexible category of fonts known as "graphic text". Text fonts are
+positioned by referring to their location in terms of characters, but graphic text can be controlled
+much more accurately, because it is positioned using x,y-coordinates numbered in pixels. AMOS
+Professional supports the thousands of graphic fonts, available in commercial packages or in the
+public domain.</p>
+
+<p><b>ROM Fonts</b><br>
+
+There are also alternative fonts built into the Amiga's ROM chips, and these are also available for
+use by the AMOS Professional system.</p>
+
+<p>
+All fonts are referred to by an individual index number in a font list. No matter what type of font
+is to be used, you must first "get" it from wherever it is being stored, and then "set" it, ready for
+use. Users who are familiar with the AMOS system will find that the AMOS Professional system
+for handling fonts has been streamlined and improved. When a SET FONT command is given,
+the system will do an automatic search to see if the required font is already in memory, and if all
+is well, the specified font is immediately made available for use. If the required font is not found
+in the current list of available fonts, it will be loaded, but the next time it is called by SET FONT
+there will be no need to load it again.</p>
+
+<p>
+<b>GET FONTS</b><br>
+<i>instruction: create a list of available fonts from System disc</i><br>
+<b>Get Fonts</b></p>
+
+<p>
+The GET FONTS command creates an internal list of all available fonts on the System disc, and it
+should always be called at least once before any changes in settings are made. In practice, you
+will probably want to use this instruction at the beginning of a program, so that SET FONT may
+be used freely at any later point.</p>
+
+<p>
+It is <b>very</b> important to remember that if you are distributing run-only or compiled programs to
+be used by other people, and these programs make use of alternative fonts, then the required
+font files <b>must</b> be included.</p>
+
+<pre>
+E> Get Fonts
+   For F=0 To 10
+    Set Font F : T$="AMOS Professional Font: "+Str$(F)
+    Text 0,100,T$
+    Wait Key : Cls
+   Next F
+</pre>
+
+<div align="right"> <a href="../10/1044.html">Back</a> &nbsp;&nbsp;
+  <a href="1102.html">Next</a>
+  <br>
+  11.01.01
+</div>
+
+</BODY>
+</HTML>

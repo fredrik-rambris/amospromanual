@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Banks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Memory Banks</h1>
+
+<br>
+
+<p>"filename.Abk" to indicate a single AMOS Professional memory bank<br>
+"filename.Abs" for a file containing a group of several memory banks.</p>
+
+<p>These identifiers can be very useful when employed with certain instructions, as follows:</p>
+
+<pre>
+E> Rem Load an Object bank from current disc
+   Load Fsel$("*.Abk"," ","Load an Object bank")
+   List Bank : Rem List bank details on screen
+</pre>
+
+<p>
+As can be seen, the LOAD command will load the selected memory bank directly from the
+appropriate disc file. An optional destination bank number can be added after the filename to be
+loaded, but if it is omitted, or given the number zero, data will be re-loaded into the <b>same</b> bank
+numbers from which it was originally saved. Any current information in these existing banks
+will be completely lost!</p>
+
+<p>
+Object and Icon files are treated slightly differently. If the bank number is greater than zero, any
+additional images will be added to the end of the existing bank of images.</p>
+
+<p><b>Saving and loading memory blocks</b></p>
+
+<p>
+<b>BSAVE</b><br>
+<i>instruction: save an unformatted memory block</i><br>
+<b>Bsave</b> file$,start <b>To</b> end</p>
+
+<p>
+A block of memory between a specified start and end location can be saved into a specified file
+on disc. For example:</p>
+
+<pre>
+Bsave "Test",Start(5) To Start(5)+Length(5) : Rem Save memory bank 5
+</pre>
+
+<p>
+The above example would save the data in memory bank number 5 to a suitable disc. The
+difference between this file and a file saved as a normal memory bank is that while SAVE causes
+a special bank header to be written, containing information about the bank, this header is not
+written for a file when BSAVE is used. This means that LOAD cannot be used for this type of
+file. It is also not suitable for Object banks.</p>
+
+<p>
+<b>BLOAD</b><br>
+<i>instruction: load block of binary data into bank or address</i><br>
+<b>Bload</b> file$,bank number<br>
+<b>Bload</b> file$, address</p>
+
+<p>
+The BLOAD instruction loads a file of binary data into memory. It does not alter the data in any
+way. To load this data into a memory bank, the bank must first be reserved, otherwise an error
+will be generated. Also note that files to be loaded must not be any larger than the reserved
+bank, or other areas of memory will be corrupted.</p>
+
+<p>The file of data can also be loaded from disc into a specified address, using BLOAD.</p>
+
+<div align="right"> <a href="580.html">Back</a> &nbsp;&nbsp;
+  <a href="582.html">Next</a>
+  <br>
+  05.09.05
+</div>
+
+</BODY>
+</HTML>

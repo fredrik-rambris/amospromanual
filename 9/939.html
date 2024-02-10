@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Advanced Control Panels</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Advanced Control Panels</h1>
+
+<br>
+
+<p>
+<b>DIALOG FREEZE</b><br>
+<i>instruction: stop dialogue channel input</i><br>
+<b>Dialog Freeze</b> [channel number]</p>
+
+<p>
+This command is used to freeze all input from one or more active dialogue channels. The
+number of a single dialogue routine that is to be suspended is specified in square brackets. If this
+number is omitted all current channels will be frozen.</p>
+
+<p>
+<b>DIALOG UNFREEZE</b><br>
+<i>instruction: re-activate a frozen dialogue channel</i><br>
+<b>Dialog Unfreeze</b> [channel number]</p>
+
+<p>
+Use this instruction to re-activate one or more dialogue channels from the point at which they
+were frozen.</p>
+
+<p>
+<b>DIALOG CLR</b><br>
+<i>instruction: clear a dialogue box</i><br>
+<b>Dialog Clr</b> channel number</p>
+
+<p>
+The DIALOG CLR instruction erases all zones and shuts down the dialogue box completely,
+leaving the specified channel open. The Interface program can now be re-run from the
+beginning, using a further call to the DIALOG RUN command.
+As always, if the background area has been saved using the SA option, it will be restored to its
+original position.</p>
+
+<p><b>HyperText</b><br>
+
+The impressive interactive Help system is one of the most user-friendly aspects of the AMOS
+Professional system, allowing detailed information to be called up using single mouse key-
+presses from the Editor. More impressive than this is the fact that the Help system was entirely
+written in AMOS Professional, and it is a typical example of the Interface in action!</p>
+
+<p>
+The final part of this Chapter explains how similar systems can be created using the HyperText
+feature.</p>
+
+<p>
+<b>H</b>yper<b>T</b>ext<br>
+<i>Interface instruction: open an interactive text window</i><br>
+<b>HT</b> zone number,x,y,width,height,address,line number,buffer,paper,pen;[changes]</p>
+
+<p>
+The HyperText command opens a simple window on a piece of text held in memory. This text
+can include optional words or phrases that may be selected directly by the user. Each option
+returns a specific value to the main program, which can then be used to jump to some
+additional text, or call up an appropriate routine from the main program.</p>
+
+<p>
+The zone number is given as usual, followed by x,y-coordinates. The x-coordinate will be
+rounded down to the nearest multiple of 16.</p>
+
+<div align="right"> <a href="938.html">Back</a> &nbsp;&nbsp;
+  <a href="940.html">Next</a>
+  <br>
+  09.03.15
+</div>
+
+</BODY>
+</HTML>

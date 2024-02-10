@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Using Screens</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Using Screens</h1>
+
+<br>
+
+<p>
+This is the command that swaps over the physical and logical screens, so that the displays are
+instantly switched between the two of. them. If the DOUBLE BUFFER command has been
+engaged, this process is automatic.</p>
+
+<p><b>LOGBASE</b><br>
+<i>function: return the address of logical screen bit-plane</i><br>
+address=<b>Logbase</b>(plane)</p>
+
+<p>
+The LOGBASE function allows expert programmers to access the Amiga's screen memory
+directly. The current screen is made up of six possible bit-planes, and after LOGBASE has been
+called, the address of the required plane is returned, or zero is given if it does not exist.</p>
+
+<p><b>PHYBASE</b><br>
+<i>function: return the address of the current screen</i><br>
+address=<b>Phybase</b>(plane)</p>
+
+<p>
+PHYBASE returns the address in memory of the specified bit-plane number for the current
+screen. If this plane does not exist, a value of zero is given. For example:</p>
+
+<pre>
+X> Loke Phybase(0),0 : Rem Poke a thin line directly onto screen
+</pre>
+
+<p><b>PHYSIC</b><br>
+<i>function: return identification number for physical screen</i><br>
+number=<b>Physic</b><br>
+number=<b>Physic</b>(screen number)<br>
+
+<p>
+The PHYSIC function returns an identification number for the current physical screen. This
+number allows you to access the physical image being displayed by the automatic DOUBLE
+BUFFER system, and the result of this function can be substituted for the screen number in
+ZOOM, APPEAR and SCREEN COPY commands. The PHYSIC identification number of the
+current screen will be returned, unless an optional screen number is specified.</p>
+
+<p><b>LOGIC</b><br>
+<i>function: return identification number for logical screen</i><br>
+number=<b>Logic</b><br>
+number=<b>Logic</b>(screen number)</p>
+
+<p>
+Use the LOGIC function to get an identification number for the current logical screen, or use an
+optional screen number to specify a particular logical screen. The identification number that is
+returned can now be used with the ZOOM, APPEAR and SCREEN COPY commands, to change
+images off screen, without affecting the current display.</p>
+
+<p><b>Screen synchronisation</b><br>
+
+It has already been explained that the image on your screen is updated fifty times every second.
+A single update consists of an image drawn by an electron beam scanning across every line of
+the screen until it reaches the bottom right-hand corner, at which point the beam switches off</p>
+
+
+<div align="right"> <a href="616.html">Back</a> &nbsp;&nbsp;
+  <a href="618.html">Next</a>
+  <br>
+  06.02.04
+</div>
+
+</BODY>
+</HTML>

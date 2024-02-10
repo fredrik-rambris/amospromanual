@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Speech</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Speech</h1>
+
+<br>
+
+<p><b>Synthetic speech</b><br>
+
+AMOS Professional programmers are not restricted to printing words on screen. You can
+corn ma nd your Amiga to say them! This can be invaluable for people whose eyesight is
+impaired, for the creation of teaching programs for younger users, as well as for adding
+atmosphere to computer games and sheer fun. Before uttering its first words of the day, a
+Narrator device is loaded off disc automatically, and this takes a few seconds. After that, speech
+is almost instant. Obviously, hard disc users must remember to install the Narrator on hard disc
+before the Amiga will speak.</p>
+
+<p>
+<b>SAY</b><br>
+<i>instruction: speak a phrase</i><br>
+<b>Say</b> text$<br>
+<b>Say</b> text$,mode</p>
+
+<p>
+This is one of the simplest of all AMOS Professional commands to use, and it has one of the most
+satisfying results. Use the SAY instruction with a string of text, containing all the words and
+punctuation you want AMOS Professional to speak, like this:</p>
+
+<pre>
+E> Say "Welcome, everybody!"
+</pre>
+
+<p>
+Normally, all other instructions, music or sound effects will wait until AMOS Professional has
+finished speaking before they are executed. This default speech mode has a value of zero. By
+adding an optional mode value of 1, synthetic speech can be delivered while the rest of the
+program is being executed. This will necessarily slow down the relevant routines. To return to
+the default mode, use a line like this:</p>
+
+<pre>
+E> Say "Default mode.",0
+</pre>
+
+<p>
+Now get AMOS Professional to say anything you like, using the next simple routine, but please
+mind your language! Try experimenting with numbers and symbol characters too.</p>
+
+<pre>
+E> Do
+    Input "Please tell me what to say:";S$
+    S$=S$+"."
+    Say S$
+   Loop
+</pre>
+
+<p>
+If the Narrator system appears to fumble over a particular phrase, you are free to clarify things
+by adding spaces at the end of a sentence, or using phonetic spellings. As always, you cannot do
+any harm by experimenting.</p>
+
+<p>
+<b>SET TALK</b><br>
+<i>instruction: set style of speech</i><br>
+<b>Set Talk</b> sex,mode,pitch,rate</p>
+
+<p>
+The easiest way to test this command is to play with its parameters. These are given
+in the form of four values, and any of them can be omitted, providing
+the relevant commas are in position.</p>
+
+<div align="right"> <a href="1105.html">Back</a> &nbsp;&nbsp;
+  <a href="1107.html">Next</a>
+  <br>
+  11.02.01
+</div>
+
+</BODY>
+</HTML>

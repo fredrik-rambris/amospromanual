@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Advanced Control Panels</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Advanced Control Panels</h1>
+
+<br>
+
+<p>
+Now open an Interface communication channel with a DIALOG OPEN command, and grab the
+address of the first character in the item array to be loaded into an Interface variable.</p>
+
+<pre>
+X> Dialog Open A$,1
+   AD=Array(ITEM(0)) : Vdialog(1,0)=AD
+</pre>
+
+<p>Finally, call the Interface program with DIALOG RUN, like this:</p>
+
+<pre>
+X> R=Dialog Run(1)
+</pre>
+
+<p><b>Creating a selector</b><br>
+
+The ActiveList command is very useful, but it is not intended to operate in isolation. To create a
+working selection box, an appropriate set of sliders, buttons and edit zones need to be linked up,
+as explained in the next part of this Chapter.</p>
+
+<p>
+<b>Z</b>one<b>P</b>osition<br>
+<i>Interface function: return the status of a zone</i><br>
+value=<b>ZP</b></p>
+
+<p>
+ZonePosition returns the value of the current zone's status. In fact it is simply an expanded
+version of the BP function, with the difference being that it can be used in any active zone,
+including buttons.</p>
+
+<p>
+<b>Z</b>one<b>C</b>hange<br>
+<i>Interface instruction: change the status of a zone</i><br>
+<b>ZC</b> zone number,new data;</p>
+
+<p>
+ZoneChange is a simple expansion of the BC instruction. It is used within the "changes" square
+brackets to link a number of zones together into one compound object. After the ZC command,
+specify the number of the zone to be affected, followed by some new data that is to be fed into
+the zone.</p>
+
+<p>The new data depends on the type of zone that is to be affected, and there are four possibilities:</p>
+
+<p>
+<b>Buttons</b>. The data holds a new value for the status of the button position. If this is different from
+the current position, the button will be re-drawn immediately.</p>
+
+<p>
+<b>Edit zones</b>. If a text zone has been created with EDit, the new data should contain a new string
+of characters that is to be displayed in the box. Similarly, if the zone was defined using Digit, the
+existing number will be replaced by a newly specified value.</p>
+
+<p>
+<b>Sliders</b>. The data is used to move the slider bar on the screen, exactly as if it had been selected
+by the user.</p>
+
+<p><b>Active lists</b>. In this case, the selection window is scrolled up or down the string array.</p>
+
+<div align="right"> <a href="935.html">Back</a> &nbsp;&nbsp;
+  <a href="937.html">Next</a>
+  <br>
+  09.03.12
+</div>
+
+</BODY>
+</HTML>

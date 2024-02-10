@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+	<title>Amos Professional Manual - the Bare Bones</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>the Bare Bones</h1>
+
+<br>
+
+<p>
+Never run a program that is still being edited with BREAK OFF activated, or <b>you will lose 
+your work</b>. Make a back-up copy first. Here are two examples, and if you insist on ignoring this
+advice, you may be foolhardy enough to try the second one!</P>
+
+<pre>
+E&gt; Break Off
+   Print "Try and press the Break keys now"
+   Wait 500
+   Break On
+   Print "Break keys activated"
+   Wait 100
+   Direct
+
+E&gt; Break Off
+   Do
+    Print "Get out of that!"
+    Wait Key
+   Loop
+
+</pre>
+
+<P><b>SYSTEM</b><BR>
+<b>instruction: go to Workbench</b><BR>
+<b>System</b></P>
+
+<P>
+To close AMOS Professional altogether, and go to the Workbench, the <b>System</b> command can 
+be given from within a program, or from the Editor. The Direct Mode pre-set icon, is 
+explained in <a href="../4/401.html">Chapter 4.1</a>, or simply press [Shift]+[F10].</P>
+
+<pre>
+D&gt; Print "Au revoir AMOS"
+   System
+</pre>
+
+<P><b>Separating commands in a line</b><br>
+
+So far in this Chapter, individual instructions have been separated from one another by 
+typing them in and pressing the [Return] key to enter them on a new line of the program. In fact, 
+the AMOS Professional programmer will often want to place groups of related commands together
+on the same line of the program. This is achieved by separating your instructions with a 
+colon character.</p>
+
+<p>
+AMOS Professional makes typing in instructions as simple as possible, and you will not
+normally have to worry about typing in correct spacings, as long as you stick to the 
+rules. When a colon is used to split up commands, command words are recognised and given a capital 
+letter and a space automatically.</P>
+
+<P>This can be proved by typing in the next example exactly as it appears below, and 
+hitting the
+Return] key:</P>
+
+<pre>
+E&gt; Print"I'm so":wait key:print"neat!"
+</pre>
+
+<div align="right"> <a href="508.html">Back</a> &nbsp;&nbsp; 
+  <a href="510.html">Next</a>
+  <br>
+  05.01.09
+</div>
+
+</BODY>
+</HTML>

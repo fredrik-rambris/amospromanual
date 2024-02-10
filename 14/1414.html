@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Machine Code</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Machine Code</h1>
+
+<br>
+
+<p><b>PLOAD</b><br>
+<i>instruction: load machine code directly into memory</i><br>
+<b>Pload</b> "filename",bank number</p>
+
+<p>
+The PLOAD command reserves a memory bank and loads some machine code into it from disc.
+Specify the filename that contains the machine code file on disc, followed by the number of a
+new memory bank to be reserved for the program. If the bank number is negative, the number
+will be multiplied by -1, and the bank will be allocated using Chip memory.</p>
+
+<p>
+Once machine code is loaded in this way, it is installed as a permanent memory bank, so
+whenever the current program is saved, the machine code is stored too. Also note that the
+machine code file can be saved onto disc as a standard ".Abk" file, then loaded directly into
+AMOS Professional Basic. After PLOAD has performed its work, the memory bank can be
+executed immediately! The following factors should be noted:</p>
+
+<ul>
+  <li>This file must consist of a standard piece of machine code, that can be run under CLI.</li>
+  <li>The program must be terminated by an RTS instruction.</li>
+  <li>Only the first CODE segment of the routine will be installed into memory.</li>
+  <li>Any attempt to load a commercial program using this technique will probably crash your
+      Amiga</li>
+</ul>
+
+<p><b>CALL</b><br>
+<i>instruction: execute a machine code program from memory</i><br>
+<b>Call</b> address<br>
+<b>Call</b> address,parameters<br>
+<b>Call</b> bank<br>
+<b>Call</b> bank,parameters</p>
+
+<p>
+The CALL instruction is used to run a machine code program straight from the Amiga's
+memory. You can specify either an absolute memory location or the number of a memory bank,
+previously installed using the PLOAD command.</p>
+
+<p>
+On entry to the program, registers D0 to D7 and A0 to A2 will be loaded from values stored in
+the DREG and AREG functions. The assembly language program can change any 68000 registers
+it chooses. At the start of the routine, register A3 will point to the optional parameter list, which
+is explained next, and A5 will contain the address of the AMOS Professional data zone. When
+the routine has completed its task, you can return to Basic with a RTS.</p>
+
+<p>
+After the memory location or bank number, a list of optional parameters may be given in the
+form of a list of values. These values will be taken from the AMOS Professional Basic program
+and pushed onto the A3 stack by the CALL command. They must be removed in reverse order,
+so the last value in the list will be the first on the stack. The format of a parameter depends on
+what type of variable they are, as follows:</p>
+
+<div align="right"> <a href="1413.html">Back</a> &nbsp;&nbsp;
+  <a href="1415.html">Next</a>
+  <br>
+  14.A.14
+</div>
+
+</BODY>
+</HTML>

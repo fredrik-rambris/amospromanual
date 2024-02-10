@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Machine Code</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Machine Code</h1>
+
+<br>
+
+<p>
+The fill pattern is a standard four-byte integer, but if you need to fill the area with multiple
+copies of a single byte, this value can be calculated as follows, where V will contain the required
+value of your fill command:</p>
+
+<pre>
+E> BYTE=255 : Rem This can be any number from 0 to 255
+   V=0
+   Poke Varptr(V),BYTE : Poke Varptr(V)+1,BYTE
+   Poke Varptr(V)+2,BYTE : Poke Varptr(V)+3,BYTE
+   Print V
+</pre>
+
+<b>HUNT</b><br>
+<i>function: find a string of characters in memory</i><br>
+first=<b>Hunt</b>(start <b>To</b> finish,s$)</p>
+
+<p>
+HUNT is really a low level version of the familiar INSTR$ command. It searches the memory
+area defined by the given start and finish addresses, looking for the first occurrence of the
+characters held in your specified string.</p>
+
+<p>
+If the search is successful, the position of the first character in memory is returned, otherwise a
+value of zero will be given. When using this function, take great care in selecting the start and
+finish points for the search.</p>
+
+<p><b>Direct access to variables</b></p>
+
+<p><b>VARPTR</b><br>
+<i>function: read the address of a variable</i><br>
+address=<b>Varptr</b>(variable)</p>
+
+<p>
+This useful function returns the location of any AMOS Professional variable in the Amiga's
+memory. Programmers familiar with C should find it very similar to the & (ampersand) operator
+in that language.</p>
+
+<p>
+VARPTR provides back-door access to your variables, and with careful use you are able to get to
+them directly, without having to rely on standard routines. This is especially valuable with
+procedures, because if procedures are loaded with the <b>address</b> of a variable instead of its actual
+value, that variable can be changed from <b>inside</b> the procedure. For example:</p>
+
+<pre>
+E> TEST=0
+   Rem Correct use of square brackets
+   ANSWER[Varptr(Test)] : Rem Load ADDRESS of variable into AD parameter
+   Print TEST
+   Procedure ANSWER[AD]
+    Loke AD,42 : Rem Copy new value into variable, by back door!
+   End Proc
+</pre>
+
+<p>
+There should be few problems encountered when reading the variables, but changing them is a
+very hazardous process!</p>
+
+<div align="right"> <a href="1405.html">Back</a> &nbsp;&nbsp;
+  <a href="1407.html">Next</a>
+  <br>
+  14.A.06
+</div>
+
+</BODY>
+</HTML>

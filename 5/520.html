@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Maths</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Maths</h1>
+
+<br>
+
+<p>
+The ADD command can be used to add the result of an expression to a whole number variabk.
+immediately. It is the equivalent to variable=variable+ expression but performs the 
+addition nearly twice as fast.</P>
+
+<P>
+There is a more complex version of ADD, which is ideal for handling certain loops much 
+more quickly than the equivalent separate instructions. When Base number and Top number
+parameters are included, ADD is the equivalent to the following lines:</P>
+
+<pre>
+X&gt; V=V+A
+   If V&lt;BASE Then V=TOP
+   If V&gt;TOP Then V=BASE
+</pre>
+
+<P>Here is an example:</P>
+
+<pre>
+E&gt; Dim A(10)
+   For X=0 To 10:A(X)=X:Next X
+   V=0
+   Repeat
+    Add V,1,1 To 10
+    Print A(V)
+   Until V=11 : Rem This loop is infinite as V is always &lt;11
+</pre>
+
+<P><b>Relative values</b><br>
+
+It is obvious that every expression has a value, but expressions are not restricted to 
+whole numbers (integers), or any sort of numbers. Expressions can be created from real numbers 
+or strings of characters. If you need to compare two expressions, the following functions are
+provided to examine them and establish their relative values.</P>
+
+<P><b>MAX</b><BR>
+<i>function: return the maximum of two values</i><BR>
+value=<b>Max</b>(a,b)<BR>
+value#=<b>Max</b>(a#,b#)<BR>
+value$=<b>Max</b>(a$,b$)</P>
+
+<P>
+MAX compares two expressions and returns the largest. Different types of expressions 
+cannot be compared in one instruction, so they must not be mixed.</P>
+
+<P>Here are some examples:</P>
+
+<pre>
+D&gt; Print Max(99,1)
+   Print Max("AMOS Professional","AMOS")</P>
+
+</pre>
+
+<P><b>MIN</b><BR>
+<i>function: return the minimum of two values</i><BR>
+value=<b>Min</b>(a,b)<BR>
+value#=<b>Min</b>(a#,b#)<BR>
+value$=<b>Min</b>(a$,b$)</P>
+
+<div align="right"> <a href="519.html">Back</a> &nbsp;&nbsp; 
+  <a href="521.html">Next</a>
+  <br>
+  05.03.03
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Accessing a Printer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Accessing a Printer</h1>
+
+<br>
+
+<p>
+AMOS Professional offers total access to the Amiga's printer driver. The printer configuration is
+taken directly from your Preferences settings, allowing printer control with a standard set of
+"escape codes".</p>
+
+<p>Any AMOS Professional screen can also be dumped directly onto paper via your printer.</p>
+
+<p><b>The printer device</b><br>
+
+Details of your printer are taken from the settings that have been previously entered from the
+Workbench Preferences utility. A printer can be connected to the Serial Port or the Parallel Port,
+mid AMOS Professional will choose the appropriate device for all printing operations
+automatically.</p>
+
+<p>
+The first time that a printer is used, the printer drivers are loaded into memory from your start-
+up disc. If this is not available, a requester will be displayed enabling you to insert the relevant
+disc.</p>
+
+<p>
+The printer driver consumes a great deal Of memory, and can require up to 50k in order to
+operate. If available memory is running short, it may be easier to access the printer with the
+SERIAL or PARALLEL commands instead. Additionally, if multi-tasking is being used, it is
+important to realise that only one program is allowed to access the printer device at any one
+time. If a previous program has already grabbed the printer, an error message will be generated
+when an attempt is made to access the printer from an AMOS Professional program.</p>
+
+<p>Such errors can be trapped using a command like this:</p>
+
+<pre>
+X> Trap Printer Open
+   If ERRTRAP : Print "Cannot open Printer Device!" : Endif
+</pre>
+
+<p>
+<b>PRINTER OPEN</b><br>
+<i>instruction: open the standard printer device for use</i><br>
+<b>Printer Open</b></p>
+
+<p>This command opens the printer device using your current preferences.</p>
+
+<p>
+<b>PRINTER CLOSE</b><br>
+<i>instruction: close printer port</i><br>
+<b>Printer Close</b></p>
+
+<p>
+Use this instruction to close the printer port that has been previously set with a PRINTER OPEN
+command. Note that the memory is not freed for use by your AMOS Professional program
+immediately. Memory is only returned if the following conditions are met: firstly, that no other
+program has requested the printer device during multi-tasking, as explained above. Secondly, if
+the system becomes short of memory and requires more.</p>
+
+<p>
+<b>PRINTER SEND</b><br>
+<i>instruction: send a string to the printer</i><br>
+<b>Printer Send</b> text$</p>
+
+<p>
+The PRINTER SEND command sends a string of text to the printer,
+using multi-tasking.</p>
+
+<div align="right"> <a href="1024.html">Back</a> &nbsp;&nbsp;
+  <a href="1026.html">Next</a>
+  <br>
+  10.03.01
+</div>
+
+</BODY>
+</HTML>

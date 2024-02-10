@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+	<title>Amos Professional Manual - the Bare Bones</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>the Bare Bones</h1>
+
+<br>
+
+<P>
+To introduce a name, or split it up, use the "underscore" character instead of spaces, by 
+typing [Shift] and [-] together. For example:</P>
+
+<pre>
+E&gt; _IAM A_LONG_LEGAL_VARIABLE_NAME=1
+   Print _IAM A_LONG_LEGAL_VARIABLE_NAME
+</pre>
+
+<p><b>Types of variables</b><br>
+
+There are three types of variable that can be used in AMOS Professional programs.</P>
+
+<P><b>Whole Numbers</b><br>
+
+The first of these types is where the variable represents a whole number, like 1 or 
+9999. These variables are perfect for holding the sort of values used in computer games, for example:</P>
+
+<pre>
+E&gt; HI SCORE=1000000
+   Print HI SCORE</P>
+</pre>
+
+<P>
+Whole numbers are called "integers", and integer variables can range from -147,483,648 
+up to 147,483,648.</P>
+
+<P><b>Real number variables</b><br>
+
+Variables can also represent fractional values, such as 1.2 or 99.99 and the results 
+from this sort of variable can be extremely accurate. The accuracy of numbers either side of a decimal 
+point (known as "floating point" numbers) is fully explained in <a href="518.html">Chapter 5.3</a>.</P>
+
+<P>Real number variables must always have a "hash" symbol added to the end of their names,
+which is typed by pressing the tit] key. For example:</P>
+
+<pre>
+E&gt; REAL_NUMBER#=3.14
+   Print REAL_NUMBER#
+</pre>
+
+<P><b>String variables</b><br>
+
+This type of variable holds text characters, and the length of the text can be anything 
+from zero up to 65,500 characters long. String variables are enclosed in quotation marks, and are 
+also distinguished from number variables by a $ character on the end of their names, to tell 
+AMOS Professional that they will contain text rather than numbers. For example:</P>
+
+<pre>
+E&gt; NAME$="Name"
+   GUITAR$="Twang"
+   Print NAME$,GUITAR$
+</pre>
+
+<P><b>Storing variables</b><br>
+
+All variables are stored in an 8k memory area called a "buffer". This area can hold 
+about 2000 numbers or two pages of normal text, and it has been set as small as possible to allow 
+more space for memory banks and screens of graphics. When there is not enough room left to 
+store all of the variables in a program, an error message will appear saying "Out of variable 
+space". The size of the storage space for variables can be increased at any time, and the only limit 
+to the size of arrays and string variables is the amount of memory available in your computer.</P>
+
+<div align="right"> <a href="502.html">Back</a> &nbsp;&nbsp; 
+  <a href="504.html">Next</a>
+  <br>
+  05.01.03
+</div>
+
+</BODY>
+</HTML>

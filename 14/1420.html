@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - PAL and NTSC</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>PAL and NTSC</h1>
+
+<br>
+
+<p>
+These are theoretical maximum heights,, and do not take into account any limitations of you!
+television or monitor. To be safe, 56 lines should be subtracted, giving the actual working screen
+height. For example:</p>
+
+<pre>
+E> Screen Open 0,320,Display Height-56,16,Lowres
+   Print Display Height
+</pre>
+
+<p><b>Screen updating and running speeds</b><br>
+
+It is obviously impossible to slow down an NTSC television, just for the benefit of AMOS
+Professional! If you want your programs to work at the same speed in either mode, special
+action has to be taken. Look at this routine:</p>
+
+<pre>
+E> For T=0 To 60*50
+    Wait Vbl
+   Next T
+</pre>
+
+<p>
+Accounting for the difference in updating speeds, that last example delays a program for exactly
+one minute in PAL, but for only 50 seconds under NTSC. This is because the WAIT VBL
+command halts the program for one fiftieth of a second on a PAL machine, but for only one
+sixtieth of a second for NTSC.</p>
+
+<p>
+Because NTSC machines are faster, <b>all</b> AMOS Professional programs will speed up dramatically
+when PAL versions are executed. Obviously this works the other way round as well, slowing
+down NTSC programs when run under the PAL system.</p>
+
+<p>
+Also, AMAL will run more quickly under NTSC, and there will be a noticeable increase in the
+speed of animation sequences.</p>
+
+<p>
+The good news is that music speed is not affected by these alternative modes. The bad news is
+that synchronised audio-visual sequences may well become out of step!</p>
+
+<p>
+Even worse, what used to be a smoothly animated PAL display is likely to be transformed into a
+jerky NTSC animation, that stops at random intervals. The cause of this is almost certainly the
+fact that you are using loops for animation, graphic drawing, joystick tests, and so on, and that
+you assume they will be completed at each turn of the loop. However, if there is only one
+sixtieth of a second to execute the entire procedure instead of one fiftieth, the routine is
+overrunning its allotted time. This forces AMOS Professional to wait for the <b>next</b> VBL, throwing
+your entire sequence out of synchronisation.</p>
+
+<p>
+To cure such synchronisation problems, you must ensure that all routines can be accomplished
+within the sixtieth of a second limit. This will guarantee that your program can run under either
+system, albeit at slightly different speeds.</p>
+
+<p>
+If you are moving Objects directly from AMOS Professional Basic, you should try using AMAL
+for extra speed. Furthermore, if there are many Bobs on screen, replace the smaller, faster Bobs
+with Sprites, and be prepared for some encouraging results!</p>
+
+<div align="right"> <a href="1419.html">Back</a> &nbsp;&nbsp;
+  <a href="1421.html">Next</a>
+  <br>
+  14.C.02
+</div>
+
+</BODY>
+</HTML>

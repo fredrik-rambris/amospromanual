@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Error Handling</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Error Handling</h1>
+
+<br>
+
+<p>Call ON ERROR without any parameters like that, or force it to go to zero, like this:</p>
+
+<pre>
+X> On Error Goto 0
+</pre>
+
+<p>
+To get back to your program after ON ERROR has been called, you must use RESUME. Never
+use GOTO for this purpose.</p>
+
+<p>
+<b>RESUME</b><br>
+<i>structure: resume the execution of current program after an error trapping routine</i><br>
+<b>Resume</b><br>
+<b>Resume Next</b><br>
+<b>Resume</b> labelname<br>
+<b>Resume</b> linenumber</p>
+
+<p>
+Used on its own, RESUME will jump back to the statement which caused the error and try it
+again. To return to the instruction immediately after the one that caused the error, use RESUME
+NEXT. Alternatively, to jump to a specific point in your main program, simply follow RESUME
+with a reference to a chosen label or a normal line number.</p>
+
+<p>
+<b>ON ERROR PROC</b><br>
+<i>structure: trap an error using a procedure</i><br>
+<b>On Error Proc</b> name</p>
+
+<p>
+Errors can also be trapped using a procedure. ON ERROR PROC selects a named procedure
+which is automatically called if there is an error in the main program. In fact, this is a structured
+version of the ON ERROR GOTO command. In this case, your procedure must be terminated by
+an END PROC in the usual way, then return to the main program with an additional call to
+RESUME, which can be placed just before the final END PROC statement. Here is an example:</p>
+
+<pre>
+E> On Error Proc HELP
+    Do
+     Input "Type in two numbers";A,B
+     Print A;" divided by ";B;" is ";A/B
+    Loop
+    Rem Error Handler
+    Procedure HELP
+     Print
+     Print "Sorry, you have tried to divide"
+     Print "your number by zero."
+    Resume Next: Rem Go back to input
+   End Proc
+</pre>
+
+<p>
+When using a procedure to deal with errors, and you want to jump to a particular label, a special
+marker must be placed inside that procedure. This is achieved with the RESUME LABEL
+structure.</p>
+
+<div align="right"> <a href="1207.html">Back</a> &nbsp;&nbsp;
+  <a href="1209.html">Next</a>
+  <br>
+  12.02.02
+</div>
+
+</BODY>
+</HTML>

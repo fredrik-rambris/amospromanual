@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Blitter Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Blitter Objects</h1>
+
+<br>
+
+<p>
+In this Chapter you will learn how to take full advantage of the Amiga's "Blitter" chip, which
+can copy large sections of a screen almost instantaneously.</p>
+
+<p>
+At its fastest, the Blitter can move a million screen points per second, which is the equivalent of a
+dozen graphic screens. AMOS Professional exploits this facility for the incredible speed achieved
+in commands like SCREEN COPY, but the Blitter is capable of far more than simple graphics.</p>
+
+<p>
+Professional animations are readily available, using special "Blitter Objects" known as "Bobs".
+Bobs can be displayed at any point on the screen and freely moved over the entire screen area,
+without disturbing any existing graphics. They may be guided, tested for collisions and even
+animated with AMAL, exactly like Sprites.</p>
+
+<p>
+The main advantage of Bobs over Sprites is that they are far easier to use. There is no imit to the
+size or number of Bobs, and they are stored as part of the current screen, so all positions are
+measured in simple screen coordinates. As has been explained in the previous Chapter, Sprites
+only work in certain combinations, but Bobs may be displayed with no restrictions at all, at any
+position, and in vast numbers. The only limit is the amount of available memory! The other
+main advantage over Sprites is that Bobs can have up to 64 colours.</p>
+
+<p>
+Naturally, all this power carries a price tag, and although Bobs are more flexible than Sprites,
+they are also slightly slower and consume additional memory. So the ideal solution is to use
+both Sprites and Bobs to their full advantage in the same program. They make a superb team,
+just like your Amiga, AMOS Professional and you!</p>
+
+<p><b>Displaying a Bob</b><br>
+
+Images to be used as Bobs are stored in memory Bank 1, and are each referred to by a simple
+number, which ranges from 1 up to the maximum number of objects in the bank. Load up some
+images now, like this:</p>
+
+<pre>
+E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
+</pre>
+
+<p>
+To find how many objects are in memory bank 1, use the LENGTH function for an instant read-
+out. Type this next line from Direct Mode:</p>
+
+<pre>
+D> Print Length(1)
+</pre>
+
+<p>
+This Object Bank is also used for any Sprite images, so the same objects can be displayed as Bobs
+or Sprites with great ease. To create a Bob, the image of an object is taken from the bank, and
+allocated for display as follows.</p>
+
+<p><b>BOB</b><br>
+<i>instruction: display a Bob on screen</i><br>
+<b>Bob</b> number,image<br>
+<b>Bob</b> number,x,y,image</p>
+
+<p>
+Each Bob must be given an identification number from 0 to 63. As a default, only 64 Bobs may be
+displayed on screen at once, but this limit can be increased if necessary.</p>
+
+<div align="right"> <a href="712.html">Back</a> &nbsp;&nbsp;
+  <a href="714.html">Next</a>
+  <br>
+  07.02.01
+</div>
+
+</BODY>
+</HTML>

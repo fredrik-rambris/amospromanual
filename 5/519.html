@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Maths</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Maths</h1>
+
+<br>
+
+<p>
+The next calculation gives a result of 43, because it evaluated in the following order:</P>
+
+<pre>
+D&gt; Print 10+2*5-8/4+5^2
+
+    5^2 = 25
+    2*5 = 10
+    8/4 = 2
+  10+10 = 20
+   20-2 = 18
+  18+25 = 43
+</pre>
+
+<P>By adding two strategic pairs of brackets to the same calculation, the logical 
+interpretation is transformed, resulting in an answer of 768, like this:</P>
+
+<pre>
+D&gt; Print (10+2)*(5-8/4+5)^2
+
+     10+2 = 12
+  5-8/4+5 = 5-2+5
+    5-2+5 = 8
+      8^2 = 64
+    12*64 = 768
+</pre>
+
+<P><b>Fast calculations</b><br>
+There are three instructions that can be used to speedflip the process of simple calculations.</P>
+
+<P><b>INC</b><BR>
+<i>instruction: increment an integer variable by 1</i><BR>
+<b>Inc</b> variable</P>
+
+<P>This command adds 1 to an integer (whole number) variable, using a single instruction to
+perform the expression variable=variable+1 very quickly. For example:</P>
+
+<pre>
+D&gt; V=10 : Inc V : Print V
+</pre>
+
+<P><b>DEC</b><BR>
+<i>instruction: decrement an integer variable by 1</i><BR>
+<b>Dec</b> variable</P>
+
+<P>Similarly to INC, the DEC command performs a rapid subtraction of 1 from an integer 
+variable. For example:</P>
+
+<pre>
+D&gt; V=10 : Dec V : Print V
+</pre>
+
+<P><b>ADD</b><BR>
+<i>instruction: perform fast integer addition</i><BR>
+<b>Add</b> variable,expression<BR>
+<b>Add</b> variable,expression,base <b>To</b> top</P>
+
+<div align="right"> <a href="518.html">Back</a> &nbsp;&nbsp; 
+  <a href="520.html">Next</a>
+  <br>
+  05.03.02
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Advanced Control Panels</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Advanced Control Panels</h1>
+
+<br>
+
+<p>
+<b>Z</b>one<b>N</b>umber<br>
+<i>Interface function: return the number of a zone</i><br>
+number=<b>ZN</b></p>
+
+<p>
+The ZoneNumber function is used to return the number of the current zone. It is intended to be
+used in conjunction with the ZoneChange command, like this:</p>
+
+<pre>
+X> [ZChange ZNumber 1+ZPosition] loads the next zone with existing position value.
+</pre>
+
+<p><b>Controlling a selector from the main program</b></p>
+
+<p>
+<p><b>DIALOG UPDATE</b><br>
+instruction: update a zone<br>
+<b>Dialog Update</b> channel number,zone number[,param1][,param2][,param3]</p>
+
+<p>
+This instruction enables AMOS Professional programs to force the Interface to re-draw a zone
+on the screen. It is especially useful for selectors, which often need to interact directly with the
+main program. These can include file selectors that need to read a new search path and update
+the file list, as well as EDit routines that must load a selection window with a new value entered
+by the user.</p>
+
+<p>
+The DIALOG UPDATE parameters are given in the following order: first the channel number of
+an active dialogue channel to be updated. This is followed by the number of the zone to be
+affected. There are also three parameters held inside their own set of square brackets, and the
+effect of these parameters varies, depending on the type of the zone. Parameter I affects any of
+the different zone types, whereas Parameters 2 and 3 affect active lists and sliders only. Here is a
+table of the possibilities:</p>
+
+<pre>
+<b>Parameter 1</b>
+Button         Enters a new status position
+Active List    Sets the number of the first string displayed
+Slider         Moves the slider
+Digit          Replaces the existing number zone
+Edit           Inserts a new string into the edit zone
+
+<b>Parameter 2</b>
+Active List Changes the currently selected string
+Slider      Changes the size of the slider window
+
+<b>Parameter 3</b>
+Active List Chooses the last element of the array that can be selected. Normally
+this parameter is equal to the size of the array, but it can be restricted
+for certain applications.
+Slider      Changes the "total" parameter
+</pre>
+
+<div align="right"> <a href="937.html">Back</a> &nbsp;&nbsp;
+  <a href="939.html">Next</a>
+  <br>
+  09.03.14
+</div>
+
+</BODY>
+</HTML>

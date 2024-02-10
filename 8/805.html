@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Music</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Music</h1>
+
+<br>
+
+<p>
+With AMOS Professional, the shape of a wave form is set using a list of 256 numbers, with each
+number representing the intensity of an individual section of the wave.</p>
+
+<p><b>SET WAVE</b><br>
+<i>instruction: define a wave form</i><br>
+<b>Set Wave</b> number,shape$</p>
+
+<p>
+The SET WAVE command sets the wave form of an individual sound, that can then be used at
+various pitches to create music or sound effects. This command requires two parameters, the
+number of the wave to be set, followed by the shape of this pattern, held in a string.</p>
+
+<p>
+Wave numbers zero and 1 are already allocated, so these numbers should not be used. Wave
+zero holds a random noise pattern, used to generate the explosive effects of BOOM and
+SHOOT, while wave number 1 is a smooth pattern in the shape of a sine wave, which is used as
+the "template" for the pure tones needed by the PLAY and BELL commands. So when setting
+your new wave patterns, use the identification numbers from 2 upwards.</p>
+
+<p>Setting the parameter for the shape of the wave form is a little more complicated.</p>
+
+<p>
+Each one of the 256 numbers which make up the shape of the wave form sets a single level of
+intensity for that single part of the wave. Each one of these intensities can hold a possible value
+ranging from -128 up to 127. Look at the diagram below. The vertical scale represents this range
+of intensities (-128 to 127) and the horizontal scale shows the physical length of the wave form,
+in other words the individual moments of time as the wave is played (256).</p>
+
+<img alt="Wave pattern"
+ src="../images/805intensity.jpg" >
+
+<p>
+This triangular wave pattern does not make a very exciting sound, but it serves as a simple
+introduction to making your own wave forms.</p>
+
+<p>
+Because AMOS Professional strings can only hold positive numbers from zero to 256, the
+negative values in this wave form need to be converted before use. This is extremely easy, and is
+achieved by adding 256 to the negative numbers in the list! In other words, a value of -50 would
+be entered as 206, like this:</p>
+
+<pre>
+X> -50+256=206
+</pre>
+
+<div align="right"> <a href="804.html">Back</a> &nbsp;&nbsp;
+  <a href="806.html">Next</a>
+  <br>
+  08.01.05
+</div>
+
+</BODY>
+</HTML>

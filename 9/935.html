@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Advanced Control Panels</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Advanced Control Panels</h1>
+
+<br>
+
+<pre>
+Bit 1 is only active if the automatic numbering system has been turned on by setting Bit 0 to one.
+      If this is the case, then the number count will start from one rather than zero, if Bit 1 is set
+      to one.
+
+Bit 2 changes the way the selector reacts to the mouse pointer. If it is set to zero, each line will
+      react to the mouse immediately, with no need for a click of the mouse button. If Bit 2 is set
+      to one, then items must be selected explicitly with the left mouse button.
+</pre>
+
+<p>The paper and pen parameters are the colour index numbers for the text in the item.</p>
+
+<p>
+Finally, the square brackets hold an Interface routine that determines any changes to be
+executed every time one of the items is selected.</p>
+
+<p>
+Note that the text is displayed using a normal AMOS Professional window defined by the
+number z+2000. Particular care should be taken if you are writing to the screen while reading a
+selector. Return to the normal screen before printing, with a WINDOW 0 command, then use a
+line like WINDOW Z+2000 to move the cursor back to the active window. If this is not done,
+text will be printed inside the selection area!</p>
+
+<p>
+As with all of these techniques, there is a ready-made working example of an active window,
+available for examination:</p>
+
+<pre>
+LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Sliders.AMOS"
+</pre>
+
+<p>
+<b>I</b>nactive<b>L</b>ist<br>
+<i>Interface instruction: display an inactive list window</i><br>
+<b>IL</b> zone number,x,y,width,height,address,index,flag,paper,pen;</p>
+
+<p>
+To display a window containing items in an array that are <b>not</b> for selection by the mouse, the
+InactiveList command is used in much the same way as an ActiveList instruction except that
+there is no [changes] parameter. Inactive windows are useful for generating simple lists on the
+screen.</p>
+
+<p>
+Before using the AList or IList commands, some advance preparation should be carried out,
+using the following steps:</p>
+
+<p>First of all, define a string array to hold the items in memory, using a line like this:</p>
+
+<pre>
+X> Dim ITEM$(100)
+</pre>
+
+<p>
+Next, load the items into the array. These items may be anything you wish, such as the
+commands for an adventure game, or a set of filenames on a disc. The one factor that must be
+ensured is that each item must have exactly the <b>same</b> number of characters. Use spaces to pad
+items as necessary.</p>
+
+<p>
+The third step is to enter the Interface program into a string, and include an ActiveList
+command. The following example line would create zone 1 at coordinates 10,10, with 15 lines of
+30 characters each, taking the address of the item array from 0 VA.</p>
+
+<pre>
+X> AL 1,10,10,30,15,0 VA,0,0,0,1;[]
+</pre>
+
+<div align="right"> <a href="934.html">Back</a> &nbsp;&nbsp;
+  <a href="936.html">Next</a>
+  <br>
+  09.03.11
+</div>
+
+</BODY>
+</HTML>

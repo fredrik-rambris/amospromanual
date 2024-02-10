@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMAL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>AMAL</h1>
+
+<br>
+
+<p><b>CHANNEL</b><br>
+<i>instruction: manipulate a screen</i><br>
+<b>Channel</b> channel number <b>To Screen Display</b> screen number<br>
+<b>Channel</b> channel number <b>To Screen Offset</b> screen number<br>
+<b>Channel</b> channel number <b>To Screen Size</b> screen number<br>
+<b>Channel</b> channel number <b>To Rainbow</b> rainbow number</p>
+
+<p><b>Moving a screen</b><br>
+
+Normally, the SCREEN DISPLAY command is used to position the current screen on a television
+display. However, you may need to achieve the same effect using interrupts, and the
+CHANNEL instruction may be used for this purpose. Simply specify which channel number is
+to be set to which screen number, and the X and Y variables in AMAL will hold the position of
+the screen in hardware coordinates. Note that register A is not used by this technique, and
+screens may not be animated using the ANIM command, although all other AMAL instructions
+can be performed as normal.</p>
+
+<p>
+In fact the screen number can be defined anywhere in your program, and this system will work
+perfectly provided that the screen is opened <b>before</b> the animation is started. Here is a simple
+example:</p>
+
+<pre>
+E> Flash Off : Load Iff "AMOSPro Examples:Iff/Logo.Iff"
+   Channel 0 To Screen Display 0
+   Amal 0,"Loop: Move 0,200,100; Move 0,-200,100; Jump Loop"
+   Amal On: Direct
+</pre>
+
+<p><b>Hardware scrolling</b><br>
+
+Using hardware scrolling to manipulate screens can be achieved by the SCREEN OFFSET
+instruction, but it is often much easier to animate screens using the smooth techniques of AMAL.
+Specify which channel number is to assigned to which screen number, using the CHANNEL
+command in conjunction with the SCREEN OFFSET command. AMAL's X and Y registers will
+now refer to the section of the screen which is to be displayed on your television display. By
+changing these registers, the visible screen area can be scrolled around the display. Try moving
+the mouse in Direct Mode, to affect this example:</p>
+
+<pre>
+E> Screen Open 0,320,500,32,Lowres : Rem Open tall screen
+   Screen Display 045,320,250
+   Flash Off : Cls 0
+   Load Iff "AMOSPro_Examples:Iff/Logo.Iff"
+   Screen Copy 0,0,0,320,250 To 0,0,251
+   Screen 0: Get Palette (0)
+   Channel 0 To Screen Offset 0
+   Amal 0,"Loop: Let X=XM-128 ; Let Y=YM-45 ; Pause; Jump Loop"
+   Amal On : Wait Key
+</pre>
+
+<p><b>Changing the screen size</b><br>
+
+<p>Similarly to moving and scrolling a screen with the CHANNEL command, the size of a screen</p>
+
+<div align="right"> <a href="760.html">Back</a> &nbsp;&nbsp;
+  <a href="762.html">Next</a>
+  <br>
+  07.06.14
+</div>
+
+</BODY>
+</HTML>

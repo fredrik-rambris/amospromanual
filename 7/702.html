@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Hardware Sprites</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<A href="../index.html">Amos Professional Manual</a>&nbsp; <A href="../contents/c1.html">Contents</a>&nbsp; <A href="../14/1446.html">Index</a> 
+
+<h1>Hardware Sprites</h1>
+
+<br>
+
+<p>A 16 x 16 hardware sprite</p>
+
+<IMG height=159 alt     ="A 16 x 16 hardware sprite" src="../images/701ship1.jpg" width=302 >
+
+<p>
+If this hardware Sprite is split into segments, and each segment is assigned to a separate image,
+the same memory area of this single Sprite can be used to display up to 16 simultaneous images.
+Fortunately, the Amiga's hardware allows each of these segments to be repositioned anywhere
+on the current line, as illustrated by the next diagram.</p>
+
+<p>Computed sprites</p>
+
+<IMG height=179 alt ="Computed sprites" src="../images/701ship3.jpg" width=319 >
+
+<p>
+Because there are up to eight 3-colour or four 15-colour Sprites available for AMOS Professional
+to commandeer and use, you are given access to dozens of objects on the screen at the same
+time. However, there is still the size restriction to be overcome.</p>
+
+<p>
+By displaying two or more 16-pixel Sprites side by side, larger objects can be created, up to a
+maximum width of 64 pixels for 15-colour and 128 pixels for 3-colour Sprites. Even if these width
+limits are exceeded, your programs will still run, although it is highly likely that your SPRITE
+command will be completely ignored!</p>
+
+<p>
+When you use a mixture of 3-colour and 15-colour Sprites on the same screen, it is much safer to
+assume that the lower width limit totalling 64 pixels applies. Alternatively, the maximum total
+line widths of Sprites may be calculated as follows:</p>
+
+<p>total width = (Width of all 15-colour Sprites)*2 + (Width of all 3-colour Sprites)</p>
+
+<div align="right"> <A href="701.html">Back</a> &nbsp;&nbsp;
+  <A href="703.html">Next</a>
+  <br>
+  07.01.02
+</div>
+
+</body>
+</HTML>

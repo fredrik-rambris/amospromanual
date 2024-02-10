@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Screen Effects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Screen Effects</h1>
+
+<br>
+
+<p>The AMOS Professional programmer expects to achieve superb visual effects with simple,
+economic commands. Classic cinematic and video techniques are readily available, as well as
+more spectacular routines that are only made possible by the power of the computer.</p>
+
+<p>When the image of one screen dissolves and melts into the image of another screen, various
+"fade" effects are produced.</p>
+
+<p><b>APPEAR</b><br>
+<i>instruction: fade between two screens</i><br>
+<b>Appear</b> source screen <b>To</b> destination screen, pixels<br>
+<b>Appear</b> source screen <b>To</b> destination screen, number pixels, range</p>
+
+<p>
+This command creates a fade between two pictures. Choose the number of the source screen
+where the original picture comes from, then the number of the destination screen whose picture
+it fades into. LOGIC and PHYSIC functions can be substituted for screen numbers, if required.</p>
+
+<p>
+Next determine a value that will cause the desired effect, by setting the number of pixel points
+on the screen, ranging from 1 pixel all the way up to every pixel in the display.</p>
+
+<p>
+Normally APPEAR affects the whole of your screen area, but there is an optional parameter that
+causes only part of the screen to be faded. Because screens are drawn from top to bottom, set the
+area to be faded by adding the range of the number of pixels from the top of the screen.
+For example:</p>
+
+<pre>
+E> Load "AMOSPro_Tutorial:Objects/Bobs.Abk"
+   Flash Off : Get Bob Palette
+   Paste Bob 100,0,1
+   Wait 100
+   Screen Open 1,320,90,16,Lowres
+   Flash Off : Get Bob Palette
+   Appear 0 To 1,1,28800
+</pre>
+
+<p>
+That example fades the top part of your default screen into the newly opened Screen 1.
+Obviously, the appearance of fades will vary, depending on the screen mode being used.</p>
+
+<p><b>FADE</b><br>
+<i>instruction: blend colours to new values</i><br>
+<b>Fade</b> speed<br>
+<b>Fade</b> speed,colour list<br>
+<b>Fade</b> speed <b>To</b> screen number<br>
+<b>Fade</b> speed <b>To</b> screen number,mask</p>
+
+<p>
+The classic "fade to black" movie effect takes the current palette and gradually fades all values to
+zero. Set the speed of the fade by choosing the number of vertical blank periods between each
+colour change. Try this:</p>
+
+<pre>
+E> Flash Off : Curs Off
+   Centre "GOOD NIGHT"
+   Fade 5
+</pre>
+
+<div align="right"> <a href="620.html">Back</a> &nbsp;&nbsp;
+  <a href="622.html">Next</a>
+  <br>
+  06.03.01
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - the Resource Creator</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>the Resource Creator</h1>
+
+<br>
+
+<p><b>[Edit Graphic Elements]</b><br>
+
+All the components used to construct the objects on the screen are created here. These objects
+can be displayed subsequently using the LIne, BOx and UNpack commands from an Interface
+program. You may also use the RESOURCE UNPACK instruction from the main AMOS
+Professional program. This option offers a working screen and sub-menu, which is fully
+explained below.</p>
+
+<p><b>[Edit Text Strings]</b><br>
+
+This is used to enter the list of text strings that are to be used for the various on-screen messages.
+These messages can be accessed using the MEssage function from an Interface program, or the
+AMOS Professional RESOURCE$ option. A full explanation of the text editing options appears
+below.</p>
+
+<p><b>[Quit]</b><br>
+This will discard the current resource bank completely, and return to AMOS Professional. If any
+changes have been made, you will be asked to confirm your actions before being allowed to
+quit.</p>
+
+<p><b>Editing Graphic Elements</b><br>
+
+Resource elements can be grabbed directly from a normal IFF screen. Any screen can be used for
+this purpose, including Hires and interlace mode screens. When the [Edit Graphic Elements]
+option is chosen, a selection box appears containing all of the current objects displayed on
+screen, with a summary of information about each one. The format of this summary is as
+follows:</p>
+
+
+<pre>
+Item-no            - Type             : Size
+</pre>
+
+<p>
+The item-no refers to the index number of the object that has been created, the type is one of
+four possible categories of object, described next, and the size of the object is given as
+explained below.</p>
+
+<p>
+The four possibilities for the category of object are an element, a horizontal line, a vertical line or
+a box. There follows a brief explanation of each of these types of resource objects.</p>
+
+<p><b>Element</b><br>
+
+This is a simple picture that can be displayed on the screen by using the UNpack command. The
+width of a resource element must be at least eight pixels, and it may be increased by multiples of
+eight only. The height of an element can be as tall as required.</p>
+
+<p><b>Horizontal Line</b><br>
+
+Resource lines are constructed by arranging a group of <b>three</b> components on screen. One
+component represents the Start of the line, another the Middle and the third is for the End of
+the line. Each element is made up of at least eight pixels, and since there are three different
+components, the Resource Creator will only allow you to grab these lines in steps of 8*3, or 24
+units wide. Obviously, only one each of the Start and End components is possible, and AMOS
+Professional will repeat the Middle section of the line automatically.</p>
+
+<div align="right"> <a href="1347.html">Back</a> &nbsp;&nbsp;
+  <a href="1349.html">Next</a>
+  <br>
+  13.07.02
+</div>
+
+</BODY>
+</HTML>

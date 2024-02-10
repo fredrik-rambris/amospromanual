@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Libraries and Devices</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Libraries and Devices</h1>
+
+<br>
+
+<p><b>The Requester Extension</b><br>
+
+As a default, the AMOS Professional requester routine will be used in preference to hit'
+Workbench system requester.</p>
+
+<p>
+<b>REQUEST WB</b><br>
+<i>instruction: use the Workbench system requester</i><br>
+<b>Request Wb</b></p>
+
+<p>
+This command is used to switch to the Workbench system requester. As soon as one of the
+options is selected from it, you will be returned to AMOS Professional. Please note that if the
+Requester Extension is deleted from the extension list by means of the configuration file, then
+the standard Workbench requester will be used for displaying messages. This will give the
+illusion that AMOS Professional has crashed when a requester appears. If this situation occurs,
+simply press [Amiga]+[A] to return to the Workbench, respond to the requester and press
+[Amiga]+[A] again to return to AMOS Professional. There should be no need to delete the
+Requester extension unless memory is very low.</p>
+
+<p>
+<b>REQUEST ON</b><br>
+<i>instruction: use the AMOS Professional requester routine</i><br>
+<b>Request On</b></p>
+
+<p>
+This is the default setting, and is used to make AMOS Professional employ its own requester
+routine.</p>
+
+<p>
+<b>REQUEST OFF</b><br>
+<i>instruction: cancel the requester</i><br>
+<b>Request Off</b></p>
+
+<p>
+If this instruction is used, AMOS Professional will automatically select the [CANCEL] button of
+the requester, and the actual requester will not be displayed. This is ideal for error trapping
+Within a program.</p>
+
+<p><b>Control of devices</b><br>
+
+AmigaDOS supports a wide range of devices for your use. Some devices are provided to control
+specific items of hardware, such as printers and disc drives, while others offer access to internal
+facilities like the synthetic speech handler. The following two functions need no expert
+knowledge to use!</p>
+
+<p>
+<b>DEV FIRST$</b><br>
+<i>function: get the first device from the current device list</i><br>
+device$=<b>Dev First</b>(path$)</p>
+
+<p>
+This function is similar to DIR FIRST$. A string is returned identifying the first device that
+satisfies a chosen search path in the current device list.</p>
+
+<p>
+DEV FIRST$("**") will list everything, DEV FIRST$("D/**") will only list disks, and DEV
+FIRST$(A/**") is used if you only want to list assigns.</p>
+
+<div align="right"> <a href="1118.html">Back</a> &nbsp;&nbsp;
+  <a href="1120.html">Next</a>
+  <br>
+  11.05.06
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Menus</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Menus</h1>
+
+<br>
+
+<p><b>ELLIPSE</b><br>
+<i>embedded command: draw an ellipse</i><br>
+<b>EL</b>lipse radius1 ,radius2</p>
+
+<p>
+ELlipse draws an ellipse centred on the current coordinates, with the chosen radii. To draw a
+circle centred at the current coordinates, simply make radius1 equal to radius2.</p>
+
+<p><b>PROC</b><br>
+<i>embedded command: call a procedure</i><br>
+<b>PR</b>oc NAME</p>
+
+<p>
+PRoc allows you to call any AMOS Professional procedure directly within a menu line. The
+called procedure cannot include any parameters, otherwise a syntax error will be generated.</p>
+
+<p>
+This is the command that allows you to customise your menu to your own needs and ignore the
+limitations of the available menu commands.</p>
+
+<p>
+At the start of your procedure, the following values are held in the Amiga's 68000 processor
+registers:</p>
+
+<p>
+DREG(0) holds the graphical x-coordinate of the top left-hand corner of the current menu item.
+Do not draw graphics to the left of this point on the screen unless you want to confuse the menu
+re-drawing process and generate bizarre effects.</p>
+
+<p>
+DREG(1) holds the y-coordinate of your menu item. Avoid drawing below this point on the
+screen to minimalise possible errors.</p>
+
+<p>
+DREG(2) holds the current status of your menu drawing operations. It contains a value of 0
+(false) while the menu item is being drawn, in which case you must load DREG(0) and DREG(1)
+with the x,y-coordinates of the bottom right-hand corner of your menu zone, and return from
+the procedure immediately. If DREG(2) is -1 (true), you are free to perform the graphics
+operations used by the procedure. After completion, you should return the coordinates of the
+bottom right-hand corner of your item in DREG(0) and DREG(1) as above.</p>
+
+<p>
+DREG(3) holds a value of -1 if the menu is selected and the first menu string is on display,
+otherwise it will contain a value of 0.</p>
+
+<p>DREG(4) is set to TRUE when the menu branch is initially opened.</p>
+
+<p>
+AREG(1) holds the address of the zone created with RESERVE. It is used to allow different
+procedures to communicate with one another.</p>
+
+<div align="right"> <a href="652.html">Back</a> &nbsp;&nbsp;
+  <a href="654.html">Next</a>
+  <br>
+  06.05.16
+</div>
+
+</BODY>
+</HTML>

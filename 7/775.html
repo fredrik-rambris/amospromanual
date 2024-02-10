@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Icons and Blocks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Icons and Blocks</h1>
+
+<br>
+
+<p><b>MAKE ICON MASK</b><br>
+<i>instruction: set colour zero to transparent</i><br>
+<b>Make Icon Mask</b><br>
+<b>Make Icon Mask</b> number</p>
+
+<p>
+Normally, any Icons that are drawn on screen completely replace the existing background
+image, and the Icon appears in a rectangular box filled with colour zero. If you prefer to overlay
+Icons on top of the current graphics, a mask must be created. This is achieved by the MAKE
+ICON MASK command, and sets colour zero to transparent. All Icons in Bank 2 will be affected
+by this instruction, unless an optional Icon number is given, in which case only that Icon will be
+masked.</p>
+
+<p><b>NO ICON MASK</b><br>
+<i>instruction: remove colour zero mask from Icon</i><br>
+<b>No Icon Mask</b> number</p>
+
+<p>
+This command performs exactly the same task as the NO MASK instruction, explained in
+<a href="713.html">Chapter 7.2</a>, except that it is used with Icons instead of Bobs.</p>
+
+<p><b>Screen Blocks</b><br>
+
+Unlike Icons, graphic Blocks are not saved along with your programs, and the following BLOCK
+Instructions are used to hold and manipulate temporary graphics data. Blocks are extremely
+useful for setting up items such as dialogue boxes, by saving background pictures before new
+graphics are displayed. They can be used to create "tiles" for all sorts of entertainment programs,
+such as visual puzzles, as well as practical programs like identi-kits and architectural planners.</p>
+
+<p><b>GET BLOCK</b><br>
+<i>instruction: grab a screen Block into memory</i><br>
+<b>Get Block</b> number,x,y,width,height<br>
+<b>Get Block</b> number,x,y,width,height,mask</p>
+
+<p>
+The GET BLOCK command is used to grab a rectangular area from the graphics on the current
+screen. First specify a Block number from 1 up to 65535, then set the coordinates of the top left-
+hand corner of the rectangle to be grabbed, followed by the number of pixels making up the
+width and height of the Block.</p>
+
+<p>
+An optional mask code can be added after these parameters. If this code is set to zero, the Block
+will destroy and replace any graphics that used to occupy its position on screen. If the mask
+code is set to 1, the block is given a background mask, and colour zero becomes transparent.</p>
+
+<p><b>PUT BLOCK</b><br>
+<i>instruction: copy Block onto screen</i><br>
+<b>Put Block</b> number<br>
+<b>Put Block</b> number,x,y<br>
+<b>Put Block</b> number,x,y,bit-planes<br>
+<b>Put Block</b> number,x,y,bit-planes,blitter mode</p>
+
+<p>
+To re-draw a Block at its original coordinates on the current screen, simply add
+the Block's identification number after the PUT BLOCK command.</p>
+
+<div align="right"> <a href="774.html">Back</a> &nbsp;&nbsp;
+  <a href="776.html">Next</a>
+  <br>
+  07.07.03
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Text</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Text</h1>
+
+<br>
+
+<p>You may also change the position of the text cursor directly from inside a character string. This
+is ideal for positioning text once and for all on screen, no matter what happens in the program,
+because the text cursor can be set during the program's initialisation phase. The string that is
+returned takes the following format:</p>
+
+<pre>
+Chr$(27)+"X"+Chr$(48+X)+Chr$(27)+"Y"+Chr$(48+Y)
+</pre>
+
+<p>So whenever this string is printed, the text cursor will be moved to the text coordinates held by
+X and Y. For example:</p>
+
+<pre>
+E> A$="A"+At(10,10)+"Of"+At(2,4)+"String"+At(20,20)+"Pearls"
+   Print A$
+</pre>
+
+<p>Imagine a Hi-Score table positioned like this:</p>
+
+<pre>
+E> SCORE=999
+   Locate 12,10: Print "Hi Score ";SCORE
+</pre>
+
+<p>By using the AT function, the same table can be moved by editing a single string, no matter how
+many times it is used in the program, like this:</p>
+
+<pre>
+E> HI_SCORES=At(12,10)+"Hi Score"
+   SCORE=999
+   Print HI_SCORE$;SCORE
+</pre>
+
+<p>
+<b>CENTRE</b><br>
+<i>instruction: print text centrally on current line</i><br>
+<b>Centre</b> a$</p>
+
+<p>Programmers often need to position text in the centre of the screen, and to save you the effort of
+calculating the text coordinates in order to achieve this, the CENTRE command takes a string of
+characters and prints it in the middle of the line currently occupied by the cursor.
+For example:</p>
+
+<pre>
+E> Locate 0,1
+   Centre "ABOVE"
+   Cmove ,3
+   Centre "suspicion"
+</pre>
+
+<p>
+<b>TAB$</b><br>
+<i>function: move text cursor to next Tab</i><br>
+t$=<b>Tab$</b></p>
+
+<p>The TAB$ function returns a special control character called TAB, which carries the Ascii code of
+9. When this character is printed, the text cursor is automatically moved to the next tabulated
+column setting (Tab) to the right.</p>
+
+<div align="right"> <a href="555.html">Back</a> &nbsp;&nbsp;
+  <a href="557.html">Next</a>
+  <br>
+  05.06.07
+</div>
+
+</BODY>
+</HTML>

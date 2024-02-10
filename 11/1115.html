@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Libraries and Devices</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Libraries and Devices</h1>
+
+<br>
+
+<p>
+The function offset parameter holds the offset value to the library function that you wish to
+execute, and if it is entered directly this value must be exact. Any mistakes will crash the
+computer. Alternatively, you are recommended to use a safer method via the LVO function to
+call the command by name, which is explained below.</p>
+
+<p>
+Before calling this function, the appropriate parameter values need to be loaded into the
+Address and Data registers, using the AREG and DREG commands. The precise format of these
+parameters depends on the function in question, and should be checked from the appropriate
+reference manual.</p>
+
+<p>
+After the function has been successfully executed, any return values will be available for
+immediate use from the AREG and DREG variables. Note that AREG only allows the registers
+from A0 to A3 to be accessed. (Registers A4, A5 and A6 are not used by the libraries at all.)</p>
+
+<p>
+<b>LIB BASE</b><br>
+<i>function: get the base address of the library</i><br>
+address=<b>Lib Base</b>(channel number)</p>
+
+<p>
+LIB BASE is used to return the base address of the selected library. This can be used in
+conjunction with the STRUC function to manipulate the internal data structures directly.
+Obviously, the normal PEEK and POKE functions can be used for this purpose as well.</p>
+
+<p>
+<b>DOSCALL</b><br>
+<i>function: execute function from DOS library</i><br>
+result=<b>Doscall</b>(function offset)</p>
+
+<p>
+DOSCALL executes a function directly from the DOS library, with the offset to the appropriate
+function being specified in brackets. The selected command is executed straight from an AMOS
+Professional program, without the need to open the DOS library in your program. This is useful
+for single calls to an important routine.</p>
+
+<p>
+The offset value can either be a simple number or a named function using the LVO command.
+As with LIB CALL, the control registers first need to be set up carefully. These values should be
+placed into D0 to D7 and A0 to A3, with the aid of the AREG and DREG functions. After the
+command has been executed, the result will be given as the return value in D0. Please note that
+the contents of the other registers will <b>not</b> be loaded back into AREG and DREG.</p>
+
+<p>
+<b>EXECALL</b><br>
+<i>function: call EXEC library</i><br>
+result=<b>Execall</b>(function offset)</p>
+
+<p>
+The EXECALL function performs a call to the Amiga's EXEC library, with the specified offset
+value. On entry, D0 to D7 and A0 to A2 <b>must</b> be loaded with the control settings required by the
+function. A value is returned holding the contents of D0.</p>
+
+<div align="right"> <a href="1114.html">Back</a> &nbsp;&nbsp;
+  <a href="1116.html">Next</a>
+  <br>
+  11.05.02
+</div>
+
+</BODY>
+</HTML>

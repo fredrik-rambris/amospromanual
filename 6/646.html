@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Menus</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Menus</h1>
+
+<br>
+
+<p>
+MENU ACTIVE reverses the effect of a previous MENU INACTIVE command. An entire level or
+single item specified by its parameters can be re-activated and the original appearance of their
+title strings will be re-displayed.</p>
+
+<p><b>Moving menu displays</b><br>
+
+As has been explained, AMOS Professional menus can be displayed anywhere on your screen.
+he display positions can be moved either by the user or by your program.</p>
+
+<p><b>MENU MOVABLE</b><br>
+<i>instruction: activate automatic menu movement</i><br>
+<b>Menu Movable</b> level number<br>
+<b>Menu Movable</b>(single item parameters)</p>
+
+<p>
+The default condition is that the menu items at a particular level may be moved directly by the
+user. Any level can be repositioned by moving the mouse pointer over the first item in the menu
+and holding down the left mouse button. A rectangular box will appear around the selected
+menu item, and it can be dragged to its new screen position. When the left mouse button is
+released, the menu is re-drawn at this location, along with all of its associated items.</p>
+
+<p>
+Use MENU MOVABLE to set the status of entire menu levels, or selected items in a menu
+hierarchy, but please note that this command does not allow you to change the status of any
+items below the selected level.</p>
+
+<p><b>MENU STATIC</b><br>
+<i>instruction: fix a menu in static position</i><br>
+<b>Menu Static</b> level number<br>
+<b>Menu Static</b>(single item parameters)</p>
+
+<p>
+One characteristic of mobile menus is that the amount of memory they use changes during the
+course of the program. With large menus or programs that are on the boundary of available
+memory this can cause real problems. MENU STATIC can be used to avoid these difficulties by
+setting the level or item at which the entire menu becomes immovable by the user.</p>
+
+<p><b>MENU ITEM STATIC</b><br>
+<i>instruction: fix items in static positions</i><br>
+<b>Menu Item Static</b> level number<br>
+<b>Menu Item Static</b>(single item parameters)</p>
+
+<p>This command locks one or more menu items into place, and is the default setting.</p>
+
+<p><b>MENU ITEM MOVABLE</b><br>
+<i>instruction: move individual menu options</i><br>
+<b>Menu Item Movable</b> level number<br>
+<b>Menu Item Movable</b>(single item parameters)</p>
+
+<div align="right"> <a href="645.html">Back</a> &nbsp;&nbsp;
+  <a href="647.html">Next</a>
+  <br>
+  06.05.09
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Interface Language</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Interface Language</h1>
+
+<br>
+
+<p><b>Lines and Outlines</b></p>
+
+<p>
+<b>S</b>et<b>L</b>ine<br>
+<i>Interface instruction: set the style of a line</i><br>
+<b>SL</b> pattern;</p>
+
+<p>
+This is identical to the SET LINE command, and is used to design the style of all future line
+drawing. The pattern for the line style is set by the combination of "dots and dashes" in binary
+format. For example, this example would set a line style of equal solid and blank components:</p>
+
+<pre>
+X> SLine %1111000011110000;
+</pre>
+
+<p>
+<b>G</b>raphic<b>L</b>ine<br>
+<i>Interface instruction: draw a line on the screen</i><br>
+<b>GL</b> x1,y1,x2,y2;</p>
+
+<p>
+This command draws a graphical line from coordinates x1,y1 to x2,y2, like the normal DRAW
+command. As usual with Interface commands, the starting coordinates are measured from the
+BAse position. For example:</p>
+
+<pre>
+X> GLine 0,0,100,100
+</pre>
+
+<p>
+<b>G</b>raphic<b>E</b>llipse<br>
+<i>Interface instruction: draw an ellipse or circle</i><br>
+<b>GE</b> x,y,radius1,radius2;</p>
+
+<p>
+This simple Interface command is used to draw hollow ellipses or circles. The centre of the
+figure is set by coordinates x,y relative to the BAse location, and then the height and width of
+the figure are set by specifying the length of the appropriate radii in pixels. To draw a circle,
+simply specify the same value for both radii.</p>
+
+<p><b>Displaying text</b><br>
+
+Once the surroundings of the requester have been generated, the following commands will be
+needed to display text in these dialogue boxes. The PRint command is examined in <a href="../9/901.html">Chapter 9.1</a>,
+here are some more instructions to affect the way text is displayed.</p>
+
+<p>
+<b>P</b>rint<b>O</b>utline<br>
+<i>Interface instruction: print hollow text with outline</i><br>
+<b>PO</b> x,y,'text',outline colour,text colour;</p>
+
+<p>
+The PrintOutine command is used 'to call up outlined or stencilled text. This is achieved by
+pasting the same text at slightly different positions, and is most effective with larger typefaces.
+The parameters are self-explanatory, and consist of the starting coordinates for the text on
+screen, the string of text enclosed in single quotation marks and the index numbers of the
+outline and text colours.</p>
+
+<div align="right"> <a href="917.html">Back</a> &nbsp;&nbsp;
+  <a href="919.html">Next</a>
+  <br>
+  09.02.04
+</div>
+
+</BODY>
+</HTML>

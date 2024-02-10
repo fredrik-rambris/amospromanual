@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Errors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Errors</h1>
+
+<br>
+
+<p><b>Device not opened (141)</b><br>
+You've called a printer, parallel, or serial command without previously opening a channel with
+PRINTER OPEN, PARALLEL OPEN or SERIAL OPEN.</p>
+
+<p><b>Directory not empty (85)</b><br>
+You can only erase directories when all the files held within them have been deleted by the KILL
+command.</p>
+
+<p><b>Directory not found (80)</b><br>
+The required directory cannot be found on the current disc. List the current disc and check its
+contents.</p>
+
+<p><b>Disc error (101)</b><br>
+There's a problem with a disc you're trying to access from one of your disc operations, or with
+the AMOS Professional file selector. Try removing the disc and re-inserting it. This clears up
+most problems. If you still can't get the disc to work after a couple of attempts, there may be a
+problem with your disc. You may need to use the DISCDOCTOR program on your Workbench
+disc. DISCDOCTOR should only be used as a last resort, but it's quite good at salvaging dead
+discs.</p>
+
+<p><b>Disc full (88)</b><br>
+There is not enough space on your current disc to hold your data.</p>
+
+<p><b>Disc is not validated (83)</b><br>
+This message is likely to be generated when your Amiga is unable to come to terms with a
+perfectly valid disc. Try again. If the problem persists, you may have to resort to the DISC
+DOCTOR program, which is on the standard Workbench disc.</p>
+
+<p><b>Disc is write protected (84)</b><br>
+The disc's write protection tab is "on". To save your data on the current disc, remove it, slide the
+write protection tab to the "off" position and try again. Alternatively, use another disc.</p>
+
+<p><b>Division by zero (20)</b><br>
+You are trying to divide a number by zero, and this is impossible.</p>
+
+<p><b>End of file (100)</b><br>
+The end of the current file has been reached unexpectedly, while the disc is being accessed. You
+should use the EOF function to test for this condition from inside your program.</p>
+
+<p><b>End of program (10)</b><br>
+This information message is given after AMOS Professional has executed the last instruction in
+your program.</p>
+
+<p><b>Error not resumed (3)</b><br>
+You have come out of an error-handling routine, but forgotten to reset the error using
+RESUME.</p>
+
+<p><b>Error procedure must RESUME to end (8)</b><br>
+You may not exit from an error-handling procedure using END PROC.
+Use one of the special RESUME commands instead.</p>
+
+<div align="right"> <a href="1222.html">Back</a> &nbsp;&nbsp;
+  <a href="1224.html">Next</a>
+  <br>
+  12.03.13
+</div>
+
+</BODY>
+</HTML>

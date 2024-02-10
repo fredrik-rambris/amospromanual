@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Multi-Tasking</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Multi-Tasking</h1>
+
+<br>
+
+<p>
+<b>EXEC</b><br>
+<i>instruction: send a CLI command to a device</i><br>
+<b>Exec</b> "CLI Command","Output"</p>
+
+<p>
+The EXEC instruction executes the specified CLI command, via the named output. Output refers
+to the name of an AmigaDos device, and is held in inverted commas. If these are empty "", NIL:
+will be used, otherwise the name of the output device must end with a colon.</p>
+
+<p>
+"CUR:" specifies that the current CLI window is to be used. If this window does not exist,
+because AMOS Professional was booted from the Workbench, then the EXEC command cannot
+operate. If "CON:" is used, then a CLI window is opened under the Workbench screen, if
+possible. Any other Amiga device can be specified, as long as it is interactive, and it will be
+opened before the CLI command is sent, and closed again after the command has been sent,
+unless it is the current CLI window.</p>
+
+<p>
+For example, to execute an external program copied into the C: directory of AMOS Professional,
+and wait for its completion, this could be used:</p>
+
+<pre>
+X> Amos To Back : Rem Reveal the Workbench
+   Rem Now launch the program in a small CLI window
+   Exec "Program Name","CON:0/0/160/48/Program Name"
+   Amos To Front : Rem Return to AMOS Pro after the program
+</pre>
+
+<p>
+<b>PRG STATE</b><br>
+<i>function: return the status of how the current program was originally run</i><br>
+status=<b>Prg State</b></p>
+
+<p>
+Finally, here is a useful function which gives a report on how the current program was
+originally run. PRG STATE can return one of three possible values, as follows:</p>
+
+<pre>
+<b>Value    Meaning</b>
+0       Program is run under the AMOS Professional Editor
+1       Program is run under run-time only
+-1      Program is compiled
+</pre>
+
+<div align="right"> <a href="1112.html">Back</a> &nbsp;&nbsp;
+  <a href="1114.html">Next</a>
+  <br>
+  11.04.04
+</div>
+
+</BODY>
+</HTML>

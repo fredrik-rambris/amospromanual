@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - the AMAL Editor</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>the AMAL Editor</h1>
+
+<br>
+
+<p>
+A range of useful Test instructions is available, and they all use the same general syntax, as
+follows:</p>
+
+<p>INSTRUCTION condition : list of statements</p>
+
+<p>
+The statements after the condition will only be executed if the condition is True, otherwise the
+following commands will be completely ignored and the program will jump directly to the next
+line of this Environment routine:</p>
+
+<pre>
+<b>AMAL Environment Command                     Notes</b>
+
+IF SCREEN number                             True if the screen has been opened
+IF NOT SCREEN number                         True if the screen is currently closed
+IF BANK number                               True if the bank has been reserved
+IF NOT BANK number                           True if the bank is not reserved
+IF REG number,value                          True if Reg A to Z or 0 to 25 equals value
+</pre>
+
+<p>To get you started, type in these texts:</p>
+
+<pre>
+E> Screen Open 0,320,200,16,Lowres
+   Double Buffer
+   Load "AMOSPro_Tutorial:Objects/Bobs.Abk",1
+   Channel To Bob 0,1
+   Screen 0
+   Bob 1,100,100,1
+   AMAL Channel 0
+   Let X=0;
+   Let Y=0;
+   L:
+   Let X=X+1;
+   Let Y=Y+1;
+   Pause;
+   Jump;
+</pre>
+
+<div align="right"> <a href="1341.html">Back</a> &nbsp;&nbsp;
+  <a href="1343.html">Next</a>
+  <br>
+  13.05.07
+</div>
+
+</BODY>
+</HTML>

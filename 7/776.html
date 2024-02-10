@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Icons and Blocks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Icons and Blocks</h1>
+
+<br>
+
+<p>
+If you want to draw the Block at a new position, then add the new x,y-coordinates for the It
+left-hand corner, after the Block number.</p>
+
+<p>
+The Amiga's screen is divided into segments known as "bit-planes", and Blocks are normally
+displayed using all the available screen bit-planes, which is a bit-pattern of %111111. Re-setting
+these bit-planes can create numerous special effects, and various settings are dealt with at the
+beginning of <a href="../6/614.html">Chapter 6.2</a>.</p>
+
+<p><b>DEL BLOCK</b><br>
+<i>instruction: delete a screen Block</i><br>
+<b>Del Block</b><br>
+<b>Del Block</b> number</p>
+
+<p>
+To delete all new screen Blocks, the DEL BLOCK command is used. The memory these Blocks
+used is returned to the main program automatically. If you only want to get rid of a single Block,
+follow the command with that Block's identification number.</p>
+
+<p><b>HREV BLOCK</b><br>
+<i>instruction: flip a Block horizontally</i><br>
+<b>Hrev Block</b> number</p>
+
+<p>This command reverses any numbered Block, by flipping it over its own horizontal axis.</p>
+
+<p><b>VREV BLOCK</b><br>
+<i>instruction: flip a Block vertically</i><br>
+<b>Vrev Block</b> number</p>
+
+<p>Similarly, VREV BLOCK is used to flip a block over its own vertical axis.</p>
+
+<p><b>Compacted blocks</b><br>
+
+If you need reminding about the screen compaction memory-saving techniques, please refer to
+SPACK and PACK, which are fully explained at the end of <a href="../6/614.html">Chapter 6.2</a>. The compaction system
+used for the following commands is designed for speed as opposed to efficiency. They save less
+memory than SPACK and PACK, but they are a lot faster!</p>
+
+<p><b>GET CBLOCK</b><br>
+<i>instruction: save and compact a screen Block</i><br>
+<b>Get Cblock</b> number,x,y,width,height</p>
+
+<p>
+The GET CBLOCK command is used to save and compact a rectangular area of graphics from
+the screen. These Blocks are often used to grab the area underneath dialogue boxes, so that after
+the dialogue has been completed, the screen can be rapidly restored to its original state.</p>
+
+<p>
+Specify the Block number from 1 to 65535, followed by the x,y-coordinates of its top left-hand
+corner. Then define the Block by giving its width and height, in pixels. Note that the x-
+coordinate, and the width of the Block will be rounded to the nearest multiple of eight pixels.</p>
+
+<div align="right"> <a href="775.html">Back</a> &nbsp;&nbsp;
+  <a href="777.html">Next</a>
+  <br>
+  07.07.04
+</div>
+
+</BODY>
+</HTML>

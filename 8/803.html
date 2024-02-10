@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Music</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Music</h1>
+
+<br>
+
+<p><b>VOLUME</b><br>
+<i>instruction: control sound volume</i><br>
+<b>Volume</b> level<br>
+<b>Volume</b> voice,level</p>
+
+<p>
+The VOLUME command controls the level of sound flowing through one or more channels,
+ranging from zero (complete silence) up to 63 (ear-splitting), like this:</p>
+
+<pre>
+E> For L=0 To 63
+    Volume L: Bell 80 : Wait 5
+   Next L
+</pre>
+
+<p>
+Once the VOLUME level has been set, all future sound effects and music will be delivered at
+that level, across all four channels. In order to create stereo effects and perfect sound mixes, each
+of the voices needs to be adjusted independently from one another.</p>
+
+<p><b>VOICE</b><br>
+<i>instruction: activate voice</i><br>
+<b>Voice</b> bit-mask</p>
+
+<p>
+Soundtracks are made up of one or more voices, acting independently or together. The VOICE
+command is used to activate voices by setting a bit-mask, with each bit representing the state of
+one of the four available channels through which the voices flow. To play the required voice
+(from 0 to 3) simply set the relevant bit to 1, otherwise a value of zero will keep the voice silent.
+Here are some example settings:</p>
+
+<pre>
+X> Voice %1111 : Rem Activate all voices
+   Voice %0001 : Rem Activate voice 0 only
+   Voice %1001 : Rem Activate voices 3 and 0
+</pre>
+
+<p>The volume of each voice can now be controlled by specifying voices and volumes, like this:</p>
+
+<pre>
+E> Volume %0001,63
+   Boom : Wait 100: Rem Channel 1 loud
+   Volume %1110,5
+   Boom : Wait 50: Rem Channels 2,3,4 soft
+   Bell 40 : Wait 50 : Volume 60: Bell 40
+</pre>
+
+<p>
+Here are some common values for voice settings, that can be used to make programming a little
+easier:</p>
+
+<pre>
+<b>Value Voices used  Effect</b>
+15    0,1,2,3      use all four voices
+9     0,3          combine output to left speaker
+6     2,4          combine output to right speaker
+1     0            use voice 0
+2     1            use voice 1
+4     2            use voice 2
+8     3            use voice 3
+</pre>
+
+<div align="right"> <a href="802.html">Back</a> &nbsp;&nbsp;
+  <a href="804.html">Next</a>
+  <br>
+  08.01.03
+</div>
+
+</BODY>
+</HTML>

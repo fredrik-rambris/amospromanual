@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Blitter Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Blitter Objects</h1>
+
+<br>
+
+<p>
+GET BOB is an extremely useful command, allowing any section of a screen to be loaded into a
+Bob, and then manipulated with the AMAL system. You can even write your own object editor
+from start to finish! It is also possible to create and modify Bob images from AMOS Professional
+Basic. This allows, you to produce stand-alone program listings that will run without the need
+for external image files. Try the next example:</p>
+
+<pre>
+E> Double Buffer : Flash Off : Curs Off
+   Rem Draw an expanding circle and grab it as a Bob
+   For C=1 To 15
+    Ink 5 :Circle 16,16,C: Paint 16,16
+    Get Bob C,0,0 To 32,32
+    Cls 0,0,0 To 32,32
+   Next C
+   Rem Animate new Bob image
+   Do
+    Add IMAGE,1
+    If IMAGE>15 Then IMAGE=1
+    For W=0 To 4: Wait Vbl : Next W: Rem Slow down animation
+    Rem Assign next image in sequence to Bob 1
+    Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
+   Loop
+</pre>
+
+<p><b>PUT BOB</b><br>
+<i>instruction: put a fixed copy of a Bob on screen</i><br>
+<b>Put Bob</b> number</p>
+
+<p>
+The PUT BOB command takes the Bob whose number is given and fixes a permanent copy of its
+image on the screen, at the current position. This is achieved by preventing the background area
+beneath the Bob from being re-drawn. Note that after the image has been copied, the original
+Bob can be animated and moved with no ill effects.</p>
+
+<p>
+In actual fact, PUT BOB is included as a support for STOS programmers, who wish to make their
+old Atari STOS programs compatible with AMOS Professional. Because it only works with single
+buffered screens, it is not particularly useful, and PASTE BOB is recommended as the preferred
+command. Please see below.</p>
+
+<p><b>PASTE BOB</b><br>
+<i>instruction: draw an image from Object Bank</i><br>
+<b>Paste Bob</b> x,y,image</p>
+
+<p>
+PASTE BOB takes an image held in the Object Bank, and draws it straight onto the current
+screen. Unlike the PUT BOB command, the image is drawn immediately, so there is no need to
+add the WAIT VBL commands before proceeding.</p>
+
+<p>
+It is important to note that the coordinates for the given image number are measured from the
+top left-hand corner of the image, and take no account of the current hot spot setting!</p>
+
+<div align="right"> <a href="719.html">Back</a> &nbsp;&nbsp;
+  <a href="721.html">Next</a>
+  <br>
+  07.02.08
+</div>
+
+</BODY>
+</HTML>

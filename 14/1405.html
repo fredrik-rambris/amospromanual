@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Machine Code</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Machine Code</h1>
+
+<br>
+
+<p>
+The copying operation will continue until the last character of the source string is reached, and
+the end address will be as follows:</p>
+
+<pre>
+address+Len(string$)-1
+</pre>
+
+<p>
+The address may be odd or even, and can be anywhere in the Amiga's memory space. As
+always, mistakes with the address can crash your computer! Here is an example of the correct
+technique:</p>
+
+<pre>
+X> Reserve As Data 10,1000: Rem Reserve a memory bank
+   NAME=Start(10)-8 : Rem Get the address of the name
+   T$="Testbank" : Rem Choose a new name of up to 8 characters
+   Poke$ NAME,Left$(T$,8) : Rem Poke the first 8 characters into the name
+</pre>
+
+<p><b>PEEK$</b><br>
+<i>function: read a string of characters from memory</i><br>
+string$=<b>Peek$</b>(address,length)<br>
+string$=<b>Peek$</b>(address,length,stop$)</p>
+
+<p>
+PEEK$ reads the maximum number of characters specified in the length parameter, into a new
+string. If this is not a sensible value, the length is assumed to be 65500. The address parameter is
+the location of the first character to be read.</p>
+
+<p>
+There is an optional stop$ parameter, and if this is included, AMOS Professional will stop in its
+tracks the moment a specified stop$ character is encountered in the memory area. You will then
+be left with a string of characters up to the final stop$. Here is an example using PEEKS:</p>
+
+<pre>
+X> Reserve As Data 10,1000 : Rem Reserve a memory bank
+   NAME=Start(10)-8 : Rem Get the address of the name
+   Print Peek$(NAME,8)
+</pre>
+
+<p><b>COPY</b><br>
+<i>instruction: copy a memory block</i><br>
+<b>Copy</b> start,finish <b>To</b> destination</p>
+
+<p>
+The COPY command is used to move large sections of the Amiga's memory rapidly from one
+place to another. Specify the start and finish locations of the data to be moved, then give the
+destination of the position of memory area which is to be loaded with the data. Addresses may
+be odd or even, and special care should be taken to ensure that the destination area points to
+somewhere safe!</p>
+
+<p><b>FILL</b><br>
+<i>instruction: fill memory block with the contents of a variable</i><br>
+<b>Fill</b> start <b>To</b> finish,pattern</p>
+
+<p>
+The FILL instruction packs an area of memory specified from start to finish. This area is filled
+with multiple copies of a specified four-byte pattern. The addresses of the start and finish
+determine the size and position of the memory block, and they must both be even.</p>
+
+<div align="right"> <a href="1404.html">Back</a> &nbsp;&nbsp;
+  <a href="1406.html">Next</a>
+  <br>
+  14.A.05
+</div>
+
+</BODY>
+</HTML>

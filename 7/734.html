@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Detecting Collisions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Detecting Collisions</h1>
+
+<br>
+
+<p>
+In this Chapter, you will learn how to turn moving objects into truly interactive game
+components, by giving them friendly or hostile personalities. These personalities depend on
+what happens when two or more objects collide, and all of the classic computer games demand
+continual monitoring for collision between moving objects. Collision detection must be instant,
+accurate and totally reliable, otherwise games will lack excitement and playability.</p>
+
+<p>
+AMOS Professional provides a comprehensive range of functions that allow perfect monitoring
+for collisions between objects on screen: Bobs, Hardware Sprites, Computed Sprites or any
+combination of these different types. The detection routines are sensitive to the actual shape of
+your objects, so all results are incredibly accurate. There is not a single "classic" computer game
+that you cannot match in terms of speed and sensitivity when it comes to detecting collisions.
+Here is a synopsis of the options available.</p>
+
+<p><b>Collision detection options</b><br>
+
+AMOS Professional permits effortless checking for a collision between any group of screen
+objects, by means of four powerful functions. Each function uses the same principle, which takes
+a single source object and then searches for collisions between that object and one or more
+targets. If the test is successful and a collision is detected, a value of -1 is returned, meaning True.
+On the other hand, if there is no collision, a value of 0 is given, meaning False.</p>
+
+<p>
+As a default, the collision functions will test all relevant active objects for collision with the single
+object that you are interested in, but if you want to restrict your test to a selection of active
+objects, each function can be qualified with an optional setting for the range of targets. This
+range is set by specifying the number of the first object in the range to the number of the last
+target object you are interested in.</p>
+
+<p>
+Here is a list of the four available collision tests:<br>
+BOB COL monitors for collisions between Bobs.<br>
+SPRITE COL monitors for collisions between Sprites.<br>
+SPRITEBOB COL checks a single Sprite for collisions with Bobs.<br>
+BOBSPRITE COL tests a single Bob for collisions with Sprites.</p>
+
+<p>
+After a collision has been detected by one of those tests, you can make an immediate check for
+the other objects involved, using a collision function named COL, which is used like this:</p>
+
+<p>
+collision=Col(number)<br>
+where the number relates to one of the objects being checked.</p>
+
+<p>
+Most of these options are also available in the built-in AMAL animation system, to which
+<a href="../7/748.html">Chapter 7.6</a> is devoted.</p>
+
+<p><b>Types of collisions</b><br>
+
+There are three general categories of collision which can occur in a computer game:</p>
+
+<ul>
+  <li><b>One-to-one.</b> This is the simplest case where there are only two objects on the screen, such as a
+      bat and a ball.</li>
+  <li><b>One-to-many.</b> Normally the player will have control of one object which is suffering the
+      unwanted attentions of a whole host of hostile harassers.</li>
+  <li><b>Many-to-many.</b> In more complex arcade games, each hostile object must be
+      checked for collision with an entire armoury of user-controlled objects.</li>
+</ul>
+
+<div align="right"> <a href="733.html">Back</a> &nbsp;&nbsp;
+  <a href="735.html">Next</a>
+  <br>
+  07.04.01
+</div>
+
+</BODY>
+</HTML>

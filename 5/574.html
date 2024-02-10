@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - the Joystick and Mouse</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>the Joystick and Mouse</h1>
+
+<br>
+
+<pre>
+E> For N=150 To 300
+    X Mouse=N : Y Mouse=N/2
+    Print X Mouse : Print Y Mouse
+   Next N
+</pre>
+
+<p>
+<b>MOUSE KEY</b><br>
+<i>function: read status of mouse buttons</i><br>
+k=<b>Mouse Key</b></p>
+
+<p>
+The MOUSE KEY function checks whether one of the mouse buttons has been pressed and
+makes a report in the form of a binary pattern made up of these elements:</p>
+
+<pre>
+<b>Pattern      Report</b>
+Bit 0        Left mouse button
+Bit 1        Right mouse button
+Bit 2        Third mouse button if it exists
+</pre>
+
+<p>
+As usual, the numbers zero and one make up the report, with a one displayed when the
+relevant button is held down, otherwise a zero is shown. Try this routine:</p>
+
+<pre>
+E> Curs Off
+   Do
+    Locate 0,0
+    M= Mouse Key : Print "Bit Pattern ";Bin$(M,8);" Number ";M
+   Loop
+</pre>
+
+<p>
+<b>MOUSE CLICK</b><br>
+<i>function: check for click of mouse button</i><br>
+c=<b>Mouse Click</b></p>
+
+<p>
+This is similar to MOUSE KEY, but instead of checking to see whether or not a mouse button is
+held down, MOUSE CLICK is only interested in whether the user has just made a single click on
+a mouse button. It returns the familiar bit pattern of these elements:</p>
+
+
+<pre>
+<b>Pattern    Report</b>
+Bit 1      Single test for left mouse button
+Bit 2      Single test for right mouse button
+Bit 3      Single test for third mouse button, if available
+</pre>
+
+<p>
+These bits are automatically re-set to zero after one test has been made, so they will only check
+for a single key press at a time. Here is an example:</p>
+
+<pre>
+E> Curs Off
+   Do
+    M=Mouse Click
+    If M<>0 Then Print "Bit Pattern ";Bin$(M,8);" Number";M
+   Loop
+</pre>
+
+<div align="right"> <a href="573.html">Back</a> &nbsp;&nbsp;
+  <a href="575.html">Next</a>
+  <br>
+  05.08.05
+</div>
+
+</BODY>
+</HTML>

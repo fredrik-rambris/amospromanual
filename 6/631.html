@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Graphics</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Graphics</h1>
+
+<br>
+
+<p><b>INK</b><br>
+<i>instruction: set drawing colour</i><br>
+<b>Ink</b> number<br>
+<b>Ink</b> number,pattern,border</p>
+
+<p>
+You are not restricted to the pre-set colours that have been allocated for drawing operations.
+The INK command is used to specify which colour is to be used for subsequent drawing, and
+the number of the colour register is set like this:</p>
+
+<pre>
+E> Cls: Ink 5
+   Draw To 319,199
+</pre>
+
+<p>
+The INK instruction can also be used to set patterns for filling shapes, as well as colours for
+borders around shapes, and this will be explained later. The next concept to understand is how
+different colours are mixed.</p>
+
+<p>
+Every shade of colour displayed on your television set or monitor is composed of various
+mixtures of the same three primary colours: Red, Green and Blue (RGB for short). There is a
+range of 16 intensities available for each of the RGB levels in every colour. A zero level is
+equivalent to "none" of that colour (black), and the maximum intensity of 16 is the equivalent of
+"all" of that colour. Because there are three separate components each with 16 possible
+strengths, the maximum range of available shades is 16 times 16 times 16, in other words 4096
+possible colours.</p>
+
+<p>
+The Amiga prefers to recognise colours by their RGB components, given in hexadecimal values,
+known as "hex". The following table shows the equivalent decimal and hex values for the 16
+numbers involved:</p>
+
+
+<pre>
+Hex digit 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
+Decimal   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
+</pre>
+
+
+<p><b>COLOUR</b><br>
+<i>function: read the colour assignment</i><br>
+c=<b>Colour</b>(index)</p>
+
+<p>
+It is not difficult to find which colours are occupying the colour index, and analyse how much
+Red, Green and Blue is used to make up each shade. The COLOUR function can take an index
+number from 0 to 31, and returns the colour value assigned to that number. Hex$ is used for this
+purpose, as follows:</p>
+
+<pre>
+E> Curs Off : Flash Off
+   For C=0 To 15: Ink C
+    Print Hex$(Colour(C),3)
+    Circle 160,75,(C+1)*4
+   Next C
+</pre>
+
+<div align="right"> <a href="630.html">Back</a> &nbsp;&nbsp;
+  <a href="632.html">Next</a>
+  <br>
+  06.04.05
+</div>
+
+</BODY>
+</HTML>

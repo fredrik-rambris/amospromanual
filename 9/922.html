@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Interface Language</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Interface Language</h1>
+
+<br>
+
+<p><b>User-defined functions</b><br>
+User-defined Interface commands are treated in exactly the same way as any of the existing
+instructions, and they can be used to create whole libraries of box definitions, button types and
+selectors.</p>
+
+<p>
+<b>U</b>ser<b>I</b>nstruction<br>
+<i>Interface instruction: create a user-defined Interface command</i><br>
+<b>UI</b> XX,number of parameters;[instruction definition]</p>
+
+<p>
+To create a new Interface instruction, use the UI command and then specify the pair of capital
+letters that are to represent the name of the new instruction from now on. For example, SB could
+be specified to refer to a new command for drawing a ShadowedBox. The new name must not
+already be used for an existing Interface command.</p>
+
+<p>
+The pair of identification letters is followed by a list of parameter values. Each user-defined
+instruction can read up to <b>nine</b> parameter values from the Interface program, these parameters
+must be separated by commas, and can be entered directly in the command line. They can now
+be read from the new definition routine using the parameter functions P1 to P9.</p>
+
+<p>
+Finally, the definition of the user-defined command is specified inside a pair of square brackets.
+This definition enters an Interface program to be assigned to the new instruction, and it can
+include anything you wish.</p>
+
+<p>
+Here is a complete working example of a user-defined instruction that draws a shadowed
+dialogue box:</p>
+
+<pre>
+E> A$=A$+"BA 50,50;"
+   A$=A$+"SI 160,60; SA 1;"
+   A$=A$+"SB 0,0,150,50,5,0,5;"
+   AS=A$+"PO 10,10,'AMOS Professional',2,4; PR 48,20,'Basic',4;"
+   A$=A$+"BU 1,90,38,50,10,0,0,6;"
+   A$=A$+"[ShadowBox 0,0,50,10,1,0,4 BPos+; PR 1,2,'Button',6;][]"
+   A$=A$+"RU 0,7;EXit;"
+   A$=A$+"UserInstruction ShadowBox,7; create shadowed box with seven parameters"
+   A$=A$+"[IN P6,0,0; GB P1 P5+,P2 P5+,P3 P5+,P4 P5+; draw the shadow effect"
+   A$=A$+"1N P7,0,0; GB P1,P2,P3,P4, draw the box at the top]"
+   D=Dialog Box(A$)
+</pre>
+
+<p>
+The Interface provides a method of arranging your user-defined instructions so that they
+behave exactly like the built-in graphics operations.</p>
+
+<p>
+<b>XY</b><br>
+<i>Interface instruction: set graphics variables</i><br>
+<b>XY</b> xa,ya,xb,yb</p>
+
+<p>
+The XY instruction loads the internal variables XA, YA, XB and YB with the position of the
+graphics cursor before and after the new operation.</p>
+
+<div align="right"> <a href="921.html">Back</a> &nbsp;&nbsp;
+  <a href="923.html">Next</a>
+  <br>
+  09.02.08
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMAL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>AMAL</h1>
+
+<br>
+
+<p>These tests consist of any of the following commands:</p>
+
+<p><b>Let</b><br>
+<b>L</b> register=expression</p>
+
+<p>
+This is the standard AMAL Let instruction, and it assigns the result of an expression to a register.
+For example:</p>
+
+<pre>
+X> Let R0=XM
+</pre>
+
+<p><b>JUMP</b><br>
+<b>J</b> label</p>
+
+<p>
+Use Jump to go to a label positioned at another part of the current Autotest. The label is defined
+using a colon, and it must lie inside the Autotest brackets, like this:</p>
+
+<pre>
+X> (... J Targetlabel   Targetlabel: ...)
+</pre>
+
+<p><b>EXIT</b><br>
+e<b>X</b>it</p>
+
+<p>
+This leaves the Autotest and re-enters the main program once again, at the original departure
+point.</p>
+
+<p><b>WAIT</b><br>
+<b>W</b>ait</p>
+
+<p>This turns off the main AMAL program completely, and only allows the Autotest to be executed.</p>
+
+<p><b>ON</b><br>
+<b>O</b>n</p>
+
+<p>
+The On instruction re-starts the main program again after a previous Wait command. This
+allows you to wait for a specific event, such as a mouse click, without wasting valuable processor
+time.</p>
+
+<p><b>DIRECT</b><br>
+<b>D</b>irect label</p>
+
+<p>
+The Direct command changes the point at which the main program will be resumed, after an
+Autotest. AMAL will now jump to this point at the next vertical blank period. Note that the label
+must be defined <b>outside</b> of the Autotest brackets. For example:</p>
+
+<pre>
+X> (... Direct M)
+   ... M:
+</pre>
+
+<div align="right"> <a href="762.html">Back</a> &nbsp;&nbsp;
+  <a href="764.html">Next</a>
+  <br>
+  07.06.16
+</div>
+
+</BODY>
+</HTML>

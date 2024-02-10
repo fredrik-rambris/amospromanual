@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Multi-Tasking</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Multi-Tasking</h1>
+
+<br>
+
+<p>
+<b>AMOS UNLOCK</b><br>
+<i>instruction: re-activate toggle between AMOS Professional and Workbench</i><br>
+<b>Amos Unlock</b></p>
+
+<p>
+Use this instruction to restore the facility for flipping between AMOS Professional and the
+Workbench, via the [Amiga]+[A] keys.</p>
+
+<p>
+<b>AMOS HERE</b><br>
+<i>function: report if AMOS Professional is currently at the front of the display</i><br>
+status=<b>Amos Here</b></p>
+
+<p>
+AMOS HERE is used to provide a simple report. A value of -1(True) is returned if AMOS
+Professional is currently displayed, otherwise zero (False) indicates that the Workbench is in
+view.</p>
+
+<p><b>Communication between programs</b><br>
+
+As well as multi-tasking between AMOS Professional and other programs, communication is
+allowed between different AMOS Professional programs previously installed in memory.</p>
+
+<p>
+<b>PRUN</b><br>
+<i>instruction: run a program from memory</i><br>
+<b>Prun</b> "program name"</p>
+
+<p>
+This command can be used either from Direct Mode or from within a program, and it is a
+combination of calling a procedure and running another program. It is also extremely powerful!
+When PRUN is called, it has the following effect:</p>
+
+<ul>
+  <li>A search is made through a program list for the specified program to be run, such as
+      "Program_Name.AMOS".</li>
+  <li>If it isn't found, this program is loaded and then tested.</li>
+  <li>If an error is encountered, an exit will be made to the original program from which PRUN was
+      called.</li>
+  <li>If everything is in order, all variables are initialised, but the display is left unchanged. All
+      screens remain open, with any windows and zones remaining defined. Opened files will
+      remain open for AmigaDOS, but will appear to be closed to the new program. The new
+      program is free to re-open these files.</li>
+  <li>Bobs and Sprites are erased as the Object Bank is changed, and any music will be stopped.
+       Banks may be passed between programs, however, and this is explained in <a href="../5/577.html">Chapter 5.9</a>.</li>
+  <li>The new program will now be run.</li>
+  <li>When the program is over, or if an error is encountered, an exit is made to the AMOS
+      Professional program from which PRUN was called.</li>
+  <li>All variable buffers are erased, all files are closed in the program that was called, and Objects
+      and music will be halted. The screens will remain as they were.</li>
+  <li>If the called program was not originally resident in memory but was loaded, it is now
+      removed from memory.</li>
+  <li>Control is returned to the original program, at the position immediately after the PRUN
+      command.</li>
+</ul>
+
+<div align="right"> <a href="1110.html">Back</a> &nbsp;&nbsp;
+  <a href="1112.html">Next</a>
+  <br>
+  11.04.02
+</div>
+
+</BODY>
+</HTML>

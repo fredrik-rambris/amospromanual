@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Playing Music Modules</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Playing Music Modules</h1>
+
+<br>
+
+<p>Obviously, by setting up a simple loop, you can fade your music up or down.</p>
+
+<p><b>TEMPO</b><br>
+<i>instruction: change the speed of a piece of music</i><br>
+<b>Tempo</b> speed</p>
+
+<p>
+Changing the volume or speed of music and sound effects can enhance the mood of most
+programs. The TEMPO command is used to modify the speed of the current melody, and must
+be followed by a number ranging from 1 for as slow as possible, up to 100 for incredibly fast.
+Here is an example of music mood changing:</p>
+
+<pre>
+E> Load "AMOSPro_Examples:Music/Music.Abk"
+   Music 1
+   Do
+    For X=0 To 63
+     Tempo X: Mvolume X
+    Wait 10: Next X
+   Loop
+</pre>
+
+<p>
+Please note that music created using the Tracker and MED systems may include their own
+tempo and volume labels, and these will override the settings specified by AMOS Professional.</p>
+
+<p><b>Playing Tracker modules</b><br>
+
+If you are unable or unwilling to write your own musical masterpieces, there is no need to
+worry. AMOS Professional lets you take other composers' soundtracks and add them to your
+original games and utilities. There are thousands of public domain soundtracks written with
+various systems, and to make life easy, you are provided with a range of commands that will
+play the latest Soundtracker modules.</p>
+
+<p>
+A Tracker module can only be played while all other AMOS Professional music is stopped. The
+following TRACKER instructions should only be used for Tracker modules and not for normal
+AMOS Professional music, otherwise some bizarre noises are likely to be generated. The AMOS
+Professional VOLUME and TEMPO commands will have no effect on Tracker modules, which
+have their own built-in controls.</p>
+
+<p><b>TRACK LOAD</b><br>
+<i>instruction: load a Tracker module</i><br>
+<b>Track Load</b> "modulename",bank number</p>
+
+<p>
+Use this command to load a specified Tracker module into the memory bank number of your
+choice. Any existing data in this bank will be erased before the module is loaded, and the new
+bank will be called "Tracker".</p>
+
+<p><b>TRACK PLAY</b><br>
+<i>instruction: play a Tracker module</i><br>
+<b>Track Play</b><br>
+<b>Track Play</b> bank number,pattern number</p>
+
+<div align="right"> <a href="818.html">Back</a> &nbsp;&nbsp;
+  <a href="820.html">Next</a>
+  <br>
+  08.03.02
+</div>
+
+</BODY>
+</HTML>

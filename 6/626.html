@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Screen Effects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Screen Effects</h1>
+
+<br>
+
+<p>
+The next example demonstrates the following technique. Rainbow number 1, with colour index
+1, is given a colour table length of 4097, which is one entry for every colour value that will be
+displayed on screen. The RGB values are left blank, to be set up by the first FOR ... NEXT
+routine, that contains the RAIN command. The second FOR ... NEXT routine uses RAINBOW to
+display a pattern 255 lines long, starting at scan line 40. The DO ... LOOP structure is used to
+repeat the process.</p>
+
+<pre>
+E> Curs Off : Centre "OVER THE RAINBOW"
+   Set Rainbow 1,1,4097,"","",""
+   For L=0 To 4095
+    Rain(1,L)=L
+   Next L
+   Do
+    For 0=0 To 4095-255 Step 4
+     Rainbow 1,C,40,255
+     Wait Vbl
+    Next C
+   Loop
+</pre>
+
+<p><b>The copper list</b><br>
+
+The appearance of every line displayed on your screen is controlled by the Amiga's co-
+processor, known as the "copper". The copper is a self-contained processor with its own special
+set of instructions, and its own internal memory. A massive number of special effects can be
+created by programming the copper, but the copper list is notoriously difficult to manipulate,
+and many competent programmers have failed to master its mysteries.</p>
+
+<p>A full discussion of the copper lists may be found in <a href="../14/1442.html">Appendix F</a> of this User Guide.</p>
+
+<div align="right"> <a href="625.html">Back</a> &nbsp;&nbsp;
+  <a href="627.html">Next</a>
+  <br>
+  06.03.06
+</div>
+
+</BODY>
+</HTML>

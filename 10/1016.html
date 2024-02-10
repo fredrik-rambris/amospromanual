@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Disc Access</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Disc Access</h1>
+
+<br>
+
+<p>For example:</p>
+
+<pre>
+X> Run "Next level.AMOS"
+</pre>
+
+<p>
+This method is known as "chaining" programs together. When programs run like this, data
+screens and banks will be kept, allowing you to pass data and display a screen of graphics while
+the next level is loading. But the redundant last program will be erased to make room for the
+new program, so you should remember the fact that any variables will be lost in the process.</p>
+
+<p>
+In fact, AMOS Professional does allow you to pass variable data from one program to another,
+by making use of "Command Lines".</p>
+
+<p>
+<b>COMMAND LINE$</b><br>
+<i>reserved variable: transfer parameters between programs</i><br>
+c$=<b>Command Lines$</b></p>
+
+<p>
+Data for hi-scores, messages, names and so on can be carried through to the next level of
+computer game by the following method.</p>
+
+<p>Type in the next example program:</p>
+
+<pre>
+E> Rem Program 1
+   Screen Open 0,640,200,4.Hires
+   Rem greetings sent by previous program
+   Print "Greetings from Program 2:";Command Line$
+   Input "Please type in a greeting!";A$
+   Command Line$=A$
+   Print "Running Program 2!" : Wait 100
+   Run "Program2.AMOS"
+</pre>
+
+<p>
+Now save that example on a suitable disc, and name it "Program1.AMOS". Next, change that
+example program as follows:</p>
+
+<pre>
+E> Rem Program 2
+   Screen Open 0.320,200,4,Lowres
+   Rem Greetings sent by previous program
+   Print "Greetings from Program 1:";Command Line$
+   Input "Please type in a greeting!";A$
+   Command Line$=A$
+   Print "Running Program 1!"
+   Wait 100
+   Run "Program1.AMOS"
+</pre>
+
+<p>
+Save Program 2, and call it "Program2.AMOS". Now run Program 2, which should still be in
+memory. After the first blank communication, the two programs will greet one another until you
+break into their conversation with [Ctrl]+[C].</p>
+
+<div align="right"> <a href="1015.html">Back</a> &nbsp;&nbsp;
+  <a href="1017.html">Next</a>
+  <br>
+  10.02.09
+</div>
+
+</BODY>
+</HTML>

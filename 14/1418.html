@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Professional Run Time</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Professional Run Time</h1>
+
+<br>
+
+<p>
+In order for this command to operate, it must be enabled in the Interpreter configuration file.
+Also, please note that the current program cannot be an accessory if KILL EDITOR is to work
+and the program cannot be a program that has been PRUNed by another program. Otherwise,
+for all other programs, the following operations are performed when KILL EDITOR is called:</p>
+
+<ul>
+  <li>A "warm start" procedure is executed, saving the configuration of all programs currently in
+      memory.</li>
+  <li>This configuration and the current program is left in memory, but all other programs are
+      erased.</li>
+  <li>All Editor buffers and Editor programs are also removed from memory, leaving a run-only
+      memory configuration.</li>
+  <li>When the program is over, AMOS Professional will re-load the Editor with all of the data
+      concerning the last session, which may take a little time, but which will return you to exactly
+      the same status as before KILL EDITOR was called!</li>
+</ul>
+
+<p>
+Remember that Kill Editor must be enabled from the [Set Editor] option in the [Config] menu for
+it to work.</p>
+
+<p>
+You are reminded that the PRG STATE function can be used to establish how a particular
+program was run. PRG STATE returns the current status of a program in the form of one of
+three possible values.</p>
+
+<pre>
+<b>Value               Meaning</b>
+ 0                  The program was run under the AMOS Professional Interpreter
+ 1                  The program was run under a run-time environment
+-1                  The program has been compiled
+</pre>
+
+<div align="right"> <a href="1417.html">Back</a> &nbsp;&nbsp;
+  <a href="1419.html">Next</a>
+  <br>
+  14.B.02
+</div>
+
+</BODY>
+</HTML>

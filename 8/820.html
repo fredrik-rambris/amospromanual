@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Playing Music Modules</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Playing Music Modules</h1>
+
+<br>
+
+<p>
+To start your Tracker module playing, give this command followed by the appropriate bank
+number. If the bank number is omitted, bank number 6 will be used as a default.
+Most electronic composers use sets of patterns to make up a tune, and these can be repeated in
+any suitable order. A Tracker sequence can be started from any one of these patterns, providing
+that you know which pattern number refers to which particular part of the sequence. An
+optional pattern number can be added after the bank number parameter. Here are some
+example settings:</p>
+
+<pre>
+X> Track Play : Rem Use default Tracker bank
+   Track Play ,5 : Rem Play pattern 5 from default Tracker bank
+   Track Play 9,5: Rem Play pattern 5 from bank 9
+</pre>
+
+<p><b>TRACK LOOP ON</b><br>
+<b>TRACK LOOP OFF</b><br>
+<i>instructions: toggle a Tracker loop</i><br>
+<b>Track Loop On</b><br>
+<b>Track Loop Off</b></p>
+
+<p>
+Use these commands to make Tracker modules loop over and over again, or to stop a particular
+loop after it has commenced. Try this example:</p>
+
+<pre>
+E> Track Load "AMOSPro_Examples:Music/Mod.Tracker"
+   Track Play
+   Track Loop On
+</pre>
+
+<p><b>TRACK STOP</b><br>
+<i>instruction: stop all Tracker music</i><br>
+<b>Track Stop</b></p>
+
+<p>This command is used to halt all Tracker modules playing.</p>
+
+<p><b>Playing Med modules</b><br>
+
+If you wish to play Med modules, the "Medplayer.library" file must be in your "Libs:" folder.
+Naturally, if you have no intention of exploiting the Med library, there is no need to load it and
+allocate unnecessary memory. Both "MMDO" and "MMD1" modules can be used for your
+programs.</p>
+
+<p><b>MED LOAD</b><br>
+<i>instruction: load a Med module</i><br>
+<b>Med Load</b> "Module name",bank number</p>
+
+<p>
+The MED LOAD instruction loads the specified module in memory, and re-locates it to the
+specified reserved bank in Chip memory. This bank is <b>not</b> a data bank, and will <b>not</b> be saved along
+with your program, so Med modules must be loaded anew each time that the program is run.</p>
+
+<p>
+This command will open the "Medplayer.library" file, and you may be asked to insert
+your System disc into the drive if this file is not available on the current disc.</p>
+
+<div align="right"> <a href="819.html">Back</a> &nbsp;&nbsp;
+  <a href="821.html">Next</a>
+  <br>
+  08.03.03
+</div>
+
+</BODY>
+</HTML>

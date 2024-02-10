@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Interface</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Interface</h1>
+
+<br>
+
+<p>
+Please note that if the Interface program is to wait for user input, a RunUntil command must be
+included before the final EXit, otherwise the dialogue box will jump directly to the main AMOS
+Professional program after the last Interface program instruction. RunUntil is explained in detail
+below.</p>
+
+<p>
+The DIALOG BOX facility is only intended for simple requesters. To control the dialogue
+directly from an AMOS Professional program, the DIALOG OPEN and DIALOG RUN
+commands must be used instead. These are fully explained at the beginning of <a href="925.html">Chapter 9.3</a>,
+which is devoted to advanced control panels.</p>
+
+<p><b>Creating a simple requester</b><br>
+
+If a large requester with a  lot of graphics is to be generated, it can be very difficult to keep track
+of all of the coordinates. You can simplify things enormously by entering all of the coordinates
+relative to the top left-hand corner of the requester box.</p>
+
+<p><b>BA</b>se<br>
+<i>Interface instruction: set coordinate base for dialogue box</i><br>
+<b>BA</b> x,y;</p>
+
+<p>
+The BAse command sets the reference point for <b>all</b> future coordinate calculations, and is used by
+simply setting the screen coordinates of the new origin. The default coordinate values are 0,0.</p>
+
+<p>
+If this command is called more than once, the new BAse setting will replace the previous one.
+This coordinate reference point can also be set using the x,y parameters with the DIALOG BOX
+command, as explained earlier. Here is a working example:</p>
+
+<pre>
+E> A$=A$+"BAse 50,50; set the coordinate base"
+   A$=A$+"INk 5,0,0; Graphic Box 0,0,150,50; draw a filled bar in ink five"
+   A$=A$+"PrintOutline 5,10,'AMOS Professional',2,4; print message in outline text"
+   A$=A$+"PRint 45,20,'Basic',4; display message in normal text"
+   A$=A$+"EXit; leave the interface program"
+   D=Dialog Box(A$) : Wait Key
+</pre>
+
+<p><b>Saving the background graphics</b><br>
+
+The simple drawing operations used in these examples would destroy any existing graphics on
+the screen. But AMOS Professional dialogue boxes should wink into place over an existing
+display, and then return the screen to its original state after use. The Interface includes
+commands that do exactly that!</p>
+
+<p><b>SI</b>ze<br>
+<i>Interface instruction: define the size of graphics to be saved</i><br>
+<b>SI</b> width,height;</p>
+
+<p>
+The SIze command sets the size of the dialogue box on the screen, and prepares the Interface
+system to save the background graphics. The location of this screen area is set by giving the
+number of pixels for the width of the zone, followed by the number of pixels for its height,
+measured relative to the reference point already set by the BAse command.</p>
+
+<div align="right"> <a href="906.html">Back</a> &nbsp;&nbsp;
+  <a href="908.html">Next</a>
+  <br>
+  09.01.07
+</div>
+
+</BODY>
+</HTML>

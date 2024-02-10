@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Hardware Sprites</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Hardware Sprites</h1>
+
+<br>
+
+<p>
+By assuming that the total width must always be less than 128 pixels, you will not cause any
+disasters.</p>
+
+<p><b>Hardware Sprites versus computed Sprites</b><br>
+
+The greatest problem when using computed Sprites is that you never know precisely which
+hardware Sprite is going to be assigned to any particular object! Each computed Sprite can be
+instructed from a mixture of hardware Sprites, and the mixture changes every time the object
+is moved on the screen.</p>
+
+<p>
+This can lead to major problems, especially if you need to animate objects that must stay visible
+in a wide range of Sprite combinations. In these circumstances it is useful to assign a specific
+group of hardware Sprites to a single object, and the SPRITE command allows you to allocate
+such Sprites directly by using an identification number between 0 and 7. For Example, the next
+line allocates hardware Sprite 2 to image number 1, and positions it at coordinates 200,100:</p>
+
+<pre>
+X> Sprite 2,200,100,1
+</pre>
+
+<p>
+After a Sprite has been grabbed in this way, it will be completely removed from the computed
+Sprite system, so there will be an inevitable reduction in the number of computed Sprites that
+can be displayed on screen.</p>
+
+<p>
+If the required image is wider than 16 pixels, AMOS Professional will automatically assign
+additional hardware Sprites to this object. These Sprites will be allocated in consecutive order,
+starting from your original Sprite number.</p>
+
+<p>
+Look again at the last example line above. Suppose that image number 1 contains a 30 by 20
+picture in three colours. The SPRITE command will automatically grab Sprite number 3 as well
+as number 2, so any future attempt to display Sprite number 3 would fail, because it is already in
+use. You would then be restricted to assigning hardware Sprites 0,1,4,5,6 and 7 only, and greatly
+reducing the number of possible computed Sprites.</p>
+
+<p>
+It is also important to understand that each 15-colour Sprite is actually displayed by using a pair
+of 3-colour Sprites. The Amiga's hardware allows you to combine matched pairs of Sprites in the
+following groups only:</p>
+
+<p>0 and 1, 2 and 3, 4 and 5, 6 and 7.</p>
+
+<p>
+So it is vital to assign 15-colour images to even Sprite numbers, or AMOS Professional will be
+forced to display your object using the next pair of Sprite numbers, which is a complete waste of
+a Sprite.</p>
+
+<p>
+There is a trouble-shooting section at the end of this Chapter, which should answer the most
+common problems experienced with Sprites. Meanwhile, please load this ready-made program,
+which demonstrates the advantages of using computed Sprites over Bobs:</p>
+
+<pre>
+D> Load "AMOSPro Tutorials:Tutorials/Sprites_v_Bobs.AMOS"
+</pre>
+
+<div align="right"> <a href="702.html">Back</a> &nbsp;&nbsp;
+  <a href="704.html">Next</a>
+  <br>
+  07.01.03
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Errors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Errors</h1>
+
+<br>
+
+<p><b>Time-out error (155)</b><br>
+The SERIAL INPUTS command or SERIAL GET command have waited in vain for information
+over the serial channel. They've finally aborted with an error. Check that everything is
+connected correctly, and that the other end of the communications line is actually sending you
+some data. This time-out limit can be set from the Workbench Preferences.</p>
+
+<p><b>Too many colours in flash (51)</b><br>
+There is a maximum allowance of 16 colour changes in a single FLASH command.</p>
+
+<p><b>Type mismatch (34)</b><br>
+An illegal value has been assigned to a variable. The following line shows two classic Type
+mismatch errors:</p>
+
+<pre>
+X> A$=23 : B="A string into an integer?"
+</pre>
+
+<p><b>User cancelled request (161)</b><br>
+The printer was not available to the printer device, a system requester appeared and you clicked
+on Cancel and then this error occurred.</p>
+
+<p><b>User function not defined (15)</b><br>
+There's a problem with a user defined function created with DEF FN. AMOS can't find the
+function you are referring to. Check that you've defined your function earlier in your program
+with DEF FN. This line must occur BEFORE your FN function actually appears in the listing!
+You can't create your function as part of a procedure, or a subroutine.</p>
+
+<p><b>Valid screen numbers range from 0 to 7 (50)</b><br>
+There is a maximum of eight screens that can be opened at any one time.</p>
+
+<p><b>Wave 0 and 1 are reserved (182)</b><br>
+Waves 0 and 1 are automatically reserved for white noise and pure tones respectively. So you
+can't redefine them using the SET WAVE command.</p>
+
+<p><b>Window already opened (55)</b><br>
+It is impossible to open a window that is already open.</p>
+
+<p><b>Window not opened (54)</b><br>
+You are trying to access a window that does not exist, because it has not been opened.</p>
+
+<p><b>Window too large (57)</b><br>
+It is impossible to open the requested window, because its dimensions are too large to fit into
+the current screen.</p>
+
+<p><b>Window too small (56)</b><br>
+The requested window is smaller than the minimum permitted size. Please see WIND OPEN
+and WIND SIZE for a full explanation.</p>
+
+<div align="right"> <a href="1231.html">Back</a> &nbsp;&nbsp;
+  <a href="../13/1301.html">Next</a>
+  <br>
+  12.03.22
+</div>
+
+</BODY>
+</HTML>

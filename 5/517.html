@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - String Functions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>String Functions</h1>
+
+<br>
+
+<pre>
+     POS=Match(D$(0),A$)
+     If POS&lt;-N-1
+        If POS&gt;-10
+           Print "Not found. Nearest to ";D$(1) : Goto JMP
+        Else
+           Print "Not found. Nearest to ";D$(N) : Goto JMP
+        End if
+     End If
+     If POS&gt;0 Then Print "Found ",DS(POS);" in record ";POS
+     If POS&lt;0 Then Inc POS : Print "Not found. Nearest to ":DS(Abs(POS))
+     JMP:
+    Loop
+    Data 8,"Mercury","Venus","Earth","Mars","Saturn","Jupiter","Neptune","Tharg"
+</pre>
+
+<P>
+Test that example out by entering various inputs, including the names of planets, 
+single characters in upper and lower case and "print all data". Obviously MATCH can be used with
+the INSTR function to set up a powerful parser routine, for interpreting user input in an
+adventure game.</P>
+
+<div align="right"> <a href="516.html">Back</a> &nbsp;&nbsp; 
+  <a href="518.html">Next</a>
+  <br>
+  05.02.07
+</div>
+
+</BODY>
+</HTML>

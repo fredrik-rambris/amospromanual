@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Machine Code</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>App. A: Machine Code</h1>
+
+<br>
+
+<p>
+AMOS Professional Basic includes a range of commands that provide the advanced programmer
+with total access to the inner workings of the Amiga's hardware. In experienced hands these
+instructions can be invaluable. But be warned, if you are not completely sure what you are
+doing, these commands may be lethal for your programs!</p>
+
+<p>
+All the important hardware routines are built in to AMOS Professional Basic, allowing you to
+exploit the Amiga's full potential using the simple commands already detailed in this User
+Guide. In other words, if you prefer to opt for the simple life, you are free to ignore this machine
+code section altogether. You certainly do not need these functions to create superb computer
+games.</p>
+
+<p><b>Converting numbers</b><br>
+
+Human beings normally count in multiples of ten, based on the number of fingers most of us
+possess. These "decimal" numbers are expressed by a group of characters from 0 to 9, and the
+relative position of these "digits" determines whether a character represents the number of ones,
+or tens, or millions, and so on.</p>
+
+<p>So in the decimal system, the number 1234 is equivalent to:</p>
+
+<pre>
+1*1000 + 2*100 + 3*10 + 4
+</pre>
+
+<p>
+Computers do not posses ten fingers, but count in a "binary" system instead, which means that
+each digit can only be in one of two possible states, non-existent or existent. This is represented
+by either a 0 or a 1.</p>
+
+<p>
+As with the decimal system, the meaning of a binary digit depends entirely on its position in a
+binary number. Both systems rely on the fact that the value of digits change depending on their
+position from right to left in the number. The human system uses a base of ten, but the
+computer prefers a base of 2. So as you move from right to left, the values of binary numbers
+increase by a factor of two. In other words, the digit at the extreme right of a binary number
+represents the number of ones, the next one along represents the number of twos, then fours,
+eights, and so on.</p>
+
+<p>Examine the number 15. In the decimal system this is depicted as follows:</p>
+
+<pre>
+1*10 + 5
+</pre>
+
+<p>But in binary, the same number is stored like this:</p>
+
+<pre>
+1*8 + 1*4 + 1*2 + 1
+</pre>
+
+<p>Which can be written as follows:</p>
+
+<pre>
+1111
+</pre>
+
+<div align="right"> <a href="../13/1352.html">Back</a> &nbsp;&nbsp;
+  <a href="1402.html">Next</a>
+  <br>
+  14.A.01
+</div>
+
+</BODY>
+</HTML>

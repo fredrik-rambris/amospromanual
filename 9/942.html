@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Interface Resources</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Interface Resources</h1>
+
+<br>
+
+<p>
+Up to now, it has been explained how Interface graphics are generated using built-in Interface
+commands. It is also possible to create superb effects using pre-defined images stored in
+memory.</p>
+
+<p>
+Each Interface program has access to a set of special resources held in an appropriate memory
+bank. These resources can be created with the Resource Bank Maker, which has <a href="../13/1346.html">Chapter 13.7</a>
+devoted to it. Once defined, resources can be installed for use with the AMOS Professional
+Interface.</p>
+
+<p>
+The Resource Bank is normally allocated to memory bank 16, and the loading of a resources file
+is explained at the very end of this Chapter.</p>
+
+<p>
+Alternatively, this process can be avoided if the current Editor settings are used. As a default,
+AMOS Professional provides instant access to all of the system messages and Editor objects.
+These provide everything needed to generate a wide variety of attractive dialogue boxes.</p>
+
+<p>
+There are two types of resources: messages, which hold a series of button definitions and titles,
+and packed pictures, which can be anything at all.</p>
+
+<p>
+<b>ME</b>ssage
+<i>Interface function: return a message from Resource Bank</i><br>
+message=number <b>ME</b></p>
+
+<p>
+The MEssage function takes a number from the stack and returns the appropriate message from
+the Resource Bank. If the value for the number of the message is out of range, an error will be
+generated. MEssage can be used in a PRint or PrintOutline command, like this:</p>
+
+<pre>
+E> A$="PRint 0,0,7,MEssage,5;"
+   A$=A$+"EXit;"
+   D=Dialog Box(A$)
+</pre>
+
+<p>
+A message can also be displayed directly from the main AMOS Professional program, using the
+RESOURCES function, which is explained later.</p>
+
+<p>
+<b>UN</b>pack<br>
+<i>Interface instruction: unpack an image from Resource Bank</i><br>
+<b>UN</b> x,y,image number;</p>
+
+<p>
+Packed pictures can be taken from the Resource Bank, and unpacked for items such as buttons
+or dialogue boxes. First specify the x,y-coordinates at which the image is to be unpacked. In this
+case, the x-coordinate is rounded to a multiple of eight. Then specify the number of the single
+image to be unpacked.</p>
+
+<pre>
+E> Resource Screen Open 0,640,200,2
+   A$="UNpack 10,10,13; EXit;"
+   D=Dialog Box(A$)
+</pre>
+
+<div align="right"> <a href="941.html">Back</a> &nbsp;&nbsp;
+  <a href="943.html">Next</a>
+  <br>
+  09.04.01
+</div>
+
+</BODY>
+</HTML>

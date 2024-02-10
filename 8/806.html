@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Music</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Music</h1>
+
+<br>
+
+<p>
+The following program shows how the sort of wave form in the above diagram could be created
+The wave form is then assigned to a wave and played, which is explained a little later.</p>
+
+<pre>
+E> S$=" " : Rem Clear wave form string
+   For W=-128 To 127
+    X=W : If X<0 Then Add X,256
+    S$=S$+Chr$(X)
+   Next W
+   Set Wave 2,S$
+   Wave 2 To 15: For S=10 to 60: Play S,10: Next S
+</pre>
+
+<p>
+The wave forms of musical instruments are much more complicated than the last example, but
+they are not too difficult to reproduce. By combining several sine waves together, with each sine
+wave having a different starting point, the type of pattern shown in the next diagram is
+achieved.</p>
+
+<img alt="Wave pattern 2"
+ src="../images/806wave.jpg" >
+
+
+
+<p>
+This sort of wave form generates smooth harmonics, which can then be used as the "templates"
+for musical notes, and the sort of routine in the next example can produce typical sine waves:</p>
+
+<pre>
+E> SHAPE$=" " : Degree
+   For S=0 To 255
+    V=Int((Sin(S)/2+Sin(S*2+45)/4)*128)+127
+    SHAPE$=SHAPE$+Chr$(V)
+   Next S
+   Set Wave 2,SHAPE$ : Wave 2 To 15
+   For N=10 To 60: Play N,10 : Next N
+</pre>
+
+<p><b>WAVE</b><br>
+<i>instruction: assign a wave to sound channel</i><br>
+<b>Wave</b> number <b>To</b> voices</p>
+
+<p>
+The WAVE command is used to assign the specified wave number to one or more sound
+channels.</p>
+
+<div align="right"> <a href="805.html">Back</a> &nbsp;&nbsp;
+  <a href="807.html">Next</a>
+  <br>
+  08.01.06
+</div>
+
+</BODY>
+</HTML>

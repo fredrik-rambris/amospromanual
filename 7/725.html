@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Blitter Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Blitter Objects</h1>
+
+<br>
+
+<p>
+<b>Problem:</b> Can I reverse an image for later use, without displaying it on screen?<br>
+<b>Remedy:</b> Yes. PASTE BOB works perfectly with flipped images, and can be used directly with
+HREV, VREV and REV. If you want to reverse an image quickly, without displaying a Bob, try
+something like this:</p>
+
+<pre>
+X> Paste Bob 500,500,Vrev(1)
+</pre>
+
+<p>
+Since the coordinates lie outside of the current screen area, the image is not displayed, but it is
+still flipped by the PASTE BOB command.</p>
+
+<p>
+<b>Problem:</b> I want to flip my Sprites as well as my Bobs?<br>
+<b>Remedy:</b> The flip functions do not work with Sprites directly, but there is no problem in
+displaying a flipped Bob image as a Sprite. This line would be completely ignored:</p>
+
+<pre>
+X> Sprite 8,300,100,Hrev(5)
+</pre>
+
+<p>But the following routine will solve your problem:</p>
+
+<pre>
+E> Load "AMOSPro_Tutorial:Objects/Sprites.abk"
+   Curs Off : Cls 0 : Flash Off : Get Sprite Palette
+   Paste Bob 50,50,Vrev(5)
+   Sprite 8,300,100,5
+   Wait Vbl
+</pre>
+
+<p>
+<b>Problem:</b> Can I check for a collision between two copies of the same image, for example,
+between an original image and its own mirror-image?<br>
+<b>Remedy:</b> Yes, but it is not recommended. If the image's hot spot has been centred the results
+should be acceptable, but if the hot spot is asymmetrical you will generate unpredictable
+problems.</p>
+
+<div align="right"> <a href="724.html">Back</a> &nbsp;&nbsp;
+  <a href="726.html">Next</a>
+  <br>
+  07.02.13
+</div>
+
+</BODY>
+</HTML>

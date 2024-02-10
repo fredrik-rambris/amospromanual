@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - the AMAL Editor</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>the AMAL Editor</h1>
+
+<br>
+
+<p><b>[Run Selected] or [F3]</b><br>
+This performs the same task as [Run Current] or [F2], but instead of the current single program,
+the highlighted program in the Selection Window will be run.</p>
+
+<p><b>[Monitor] or [F4] The AMAL Monitor</b><br>
+As soon as this option is selected, a new screen is displayed featuring all of the AMAL Monitor
+options. This monitoring device allows you to step through your program one instruction at a
+time. At the top of the Monitor screen there is a selection window, showing the list of currently
+active programs. All of these programs will be executed simultaneously, so you must de-activate
+any that you are not immediately interested in. Click on any of these, to turn off the highlight
+selection.</p>
+
+<p>
+Because all of the AMAL registers can be accessed directly from this screen, it is very simple to
+isolate any errors and cure them. All options are selected by clicking on the screen, or by
+pressing the associated key. To cancel a selection, simply press the [Esc] key. Here are the
+operating steps for using the AMAL Monitor:</p>
+
+<ul>
+  <li><b>Initialise</b>. Before using any of the Monitor options, press [I] or click on [Init screen and
+      AMAL], which is the initialisation option at the top of the right-hand option stack. This runs
+      the environment routine and prepares the Monitor for use.</li>
+  <li><b>External Registers</b>. On the left of the Monitor window there are two vertical displays,
+      showing all 26 of the external registers, from RA to RZ. These can be changed at any time by
+      clicking on the chosen register with the left mouse button, then entering a new value in
+      hexadecimal.</li>
+  <li><b>Internal Registers</b>. The central panel displays the internal registers in the format R(channel
+      number,register number). Each AMAL program has its own individual set of internal registers,
+      and they can be examined by clicking on one of the direction-arrow icons underneath the
+      Internal register display panel, to display R(0,0) up to R(15,9). To set a register, highlight it
+      with the left mouse button, and enter a new hexadecimal value from the keyboard.</li>
+  <li><b>Option Panel</b>. You may test your routine by selecting any of the other options in the right-
+      hand panel, once the system has been initialised. These are self-explanatory, as follows:
+</ul>
+
+
+<pre>
+[R] or [Run until key press]
+[G] or [Go until Reg=Value]
+[S] or [Perform one step]
+[Esc] or [Quit Monitor]
+</pre>
+
+<p>
+We will now examine the final option in the [Edit] menu, which is to be found below the
+[Monitor] option.</p>
+
+<p><b>[Play Editor] or [F5]</b><br>
+Two sub-menus are offered here, [Back to String Editor Esc] will take you straight back to the
+main String Editor Window. The alternative option allows you to exploit some AMAL magic!
+This [Movement] menu is explained next.</p>
+
+<p><b>[Movement]</b><br>
+Here are the options available from this sub-menu, from top to bottom:</p>
+
+<div align="right"> <a href="1337.html">Back</a> &nbsp;&nbsp;
+  <a href="1339.html">Next</a>
+  <br>
+  13.05.03
+</div>
+
+</BODY>
+</HTML>

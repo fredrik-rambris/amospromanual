@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Error Handling</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Error Handling</h1>
+
+<br>
+
+<p>
+When AMOS Professional encounters an error in your programs, or if you attempt the
+impossible, automatic assistance is offered in the form of error messages displayed in the
+information line. If this happens while you are programming, you can try to correct the mistake
+immediately. If the problem is found when you try to test or run a program, AMOS Professional
+will take you to the offending line as soon as you edit.</p>
+
+<p><b>Trapping errors</b><br>
+
+Routines can be set up in advance for handling errors inside an AMOS Professional program, so
+that when a mistake is spotted, error trapping swings into action. This process is triggered by the
+following command:</p>
+
+<p>
+<b>ON ERROR</b><br>
+<i>structure: trap an error within a Basic program</i><br>
+<b>On Error</b> Goto label</p>
+
+<p>
+By this method, when an error occurs in your Basic program, a jump is made to whatever label
+has been defined. This label acts as the starting point for your own error correction routine, and
+after the mistake has been corrected you can return to your main program without the need to
+go via the editor window. Try this simple routine:</p>
+
+<pre>
+E> Do
+    Input "Type in two numbers";A,B
+    Print A;" divided by ";B;" is ";A/B
+   Loop
+</pre>
+
+<p>
+This will work perfectly until you try to enter a value of zero for B and it is discovered that
+division by zero is impossible. Such unforeseen problems can be catered for by setting an error
+trap like this:</p>
+
+<pre>
+E> On Error Goto HELP
+   AGAIN:
+    Do
+     Input "Type in two numbers";A,B
+     Print A;" divided by ";B;" is ";A/B
+    Loop
+    Rem Error Handler
+    HELP:
+    Print
+    Print "Sorry, you have tried to divide"
+    Print "your number by zero."
+    Resume AGAIN : Rem Go back to input
+</pre>
+
+<p>
+If you are unfortunate enough to write an error inside your own error trapping routine, AMOS
+Professional will grind to a halt! There are two ways to deliberately disable ON ERROR GOTO.</p>
+
+<pre>
+X> On Error : Rem disable error trap
+</pre>
+
+<div align="right"> <a href="1206.html">Back</a> &nbsp;&nbsp;
+  <a href="1208.html">Next</a>
+  <br>
+  12.02.01
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMOS Interface</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AMOS Interface</h1>
+
+<br>
+
+<p>
+To perform more complex calculation's some theoretical understanding is needed. Every time a
+value is entered into an expression, it is laced on the top of a list of numbers known as a stack.
+Supposing a stack is represented by this:</p>
+
+<pre>
+3
+2
+1
+0
+</pre>
+
+<p>
+The stack grows from the bottom upwards, so 3 sits on the top and the zero is sitting at the
+bottom. Whenever the Interface encounters a number or a string, it is pushed straight to the <b>top</b>
+of the current stack. But operators are treated differently. When an operator or a function is
+spotted, the Interface will execute it immediately, grabbing the required values directly from the
+stack. After the calculation has been performed, the result is replaced back onto the current
+stack. This process continues until the Interface reaches the end of the expression.</p>
+
+<p>
+Here is a theoretical calculation of one of these expressions, in this case how the result of 21 is
+evaluated from the expression 23+ 4*1+</p>
+
+<pre>
+23+4*1+=54*1+
+54*1+=20 1+
+20 1+=21
+</pre>
+
+<p>
+That expression is evaluated strictly from left to right. The 2 and the 3 are first placed onto the
+stack and are then added together by the plus sign, giving a result of 5. The 4 is now loaded onto
+the stack to be multiplied by the item immediately below it, which is the 5 that resulted from the
+last operation. This gives a value of 20, and this new value is loaded onto the stack to be added
+to the item below, generating a final value of 21.</p>
+
+<p>
+It is important to realise that the stack is only retained during the current calculation. It has <b>no</b>
+permanent existence whatsoever! This means that after the expression has been calculated,
+exactly <b>one</b> value must be left in the stack, otherwise a syntax error will be generated.</p>
+
+<p>Here is a table of the available arithmetic operators:</p>
+
+Operator Example       Result   Explanation
++        12+           3         add two values together
+-        23-          -1         subtract second value from value beneath in the stack
+*        23*           6         multiply two values from the top of the stack
+/        62/           3         divide a value by the value above it in the stack
+NEg      2NEg         -2         toggle value from positive to negative
+!        "H" "ello"!   "Hello"   Add two strings together
+#        42#           "42"      convert a number into a string
+MIn      6 49 MIn      6         give minimum of two values
+MAx      6 9 MAx       9         give maximum of two values
+
+<p>
+A separate set of logical operators that can be used to perform tests
+is explained in <a href="915.html">Chapter 9.2</a>.</p>
+
+<div align="right"> <a href="904.html">Back</a> &nbsp;&nbsp;
+  <a href="906.html">Next</a>
+  <br>
+  09.01.05
+</div>
+
+</BODY>
+</HTML>

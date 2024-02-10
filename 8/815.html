@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Samples</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Samples</h1>
+
+<br>
+
+<ul>
+      It is good practice to start with a small value, such as 8k, and then increase this value until the
+      resulting sound effect is perfect.
+  <li>Load the first two segments of the sample into the logical and physical memory banks, using
+      the SLOAD command.</li>
+  <li>Play the physical sample, using a SAM RAW instruction.</li>
+  <li>Activate the sample swapping process with SAM SWAP.</li>
+  <li>Continue with the main program, and simply test the status of the sample at regular intervals
+      using the SAM SWAPPED function. A value of -1 (True) will indicate the need to load the next
+      segment of sample data with SLOAD.</li>
+  <li>The swapping system is then re-initialised by SAM SWAP, and the process continues.</li>
+</ul>
+
+<p><b>SLOAD</b><br>
+<i>instruction: load a section of a sample</i><br>
+<b>Sload</b> channel number <b>To</b> address,length</p>
+
+<p>
+The SLOAD instruction is an extended version of the BLOAD command, and it is designed to
+load selected parts of a file into memory, one section at a time.</p>
+
+<p>
+First give the channel number of a sample file stored on disc, which has been previously opened
+with an OPEN IN instruction. This is followed by the destination address of the data in memory.
+This will normally be the start address of an AMOS Professional memory bank. Finally, the
+length of the sample section is given, in the form of the number of bytes to be loaded into
+memory. These bytes will be loaded directly from the current position of the file pointer,
+and this pointer may be moved anywhere in the file, using the POF function. This means that
+you have complete control over the starting point of the loading operation. Obviously, if the
+requested position lies outside of the current file, an error will be reported. If the length is
+larger than the actual file, AMOS Professional will read all of the remaining bytes up to the end
+of the file.</p>
+
+<p>
+After the data has been successfully loaded, the file pointer will be moved to the next byte in the
+sample automatically.</p>
+
+<p>
+It should be apparent that the SLOAD command can be used for applications other than sample
+loading. It will work equally well with any drive, including the internal floppy drive, <b>but only</b> a
+<b>hard</b> disc, Ram-disc or <b>CD ROM</b> will be fast enough to load samples, for use with the SAM
+SWAP command! This is explained below.</p>
+
+<p><b>SSAVE</b><br>
+<i>instruction: save a data chunk anywhere into an existing file</i><br>
+<b>Ssave</b> channel number, start <b>To</b> end</p>
+
+<p>This command is the reverse of SLOAD. It allows you to save a chunk of memory data into a file
+opened with OPEN OUT or APPEND. Use the LOF, POF and EOF functions to control where
+you want to position the data within the file.</p>
+
+<div align="right"> <a href="814.html">Back</a> &nbsp;&nbsp;
+  <a href="816.html">Next</a>
+  <br>
+  08.02.05
+</div>
+
+</BODY>
+</HTML>

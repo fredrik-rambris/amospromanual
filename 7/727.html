@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Updating Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Updating Objects</h1>
+
+<br>
+
+<p><b>Displaying objects over a changing background</b><br>
+
+When objects need to be displayed against a rapidly changing background picture, other
+problems can occur. The most important thing to understand is that although they can hold the
+same images, Sprites and Bobs are completely different from one another. The following tables
+set out these differences.</p>
+
+
+<p><b>Sprites</b></p>
+<ul>
+  <li>exist independently in the Amiga's memory</li>
+  <li>are created by the Amiga's DMA hardware</li>
+  <li>are stored independently from the screen, in a separate memory area</li>
+  <li>use hardware coordinates</li>
+</ul>
+
+<p><b>Bobs</b></p>
+<ul>
+  <li>do not exist independently, their appearance on screen is all there is!</li>
+  <li>are created by software using the Blitter chip</li>
+  <li>are stored as part of the current display</li>
+  <li>use screen coordinates</li>
+</ul>
+
+<p>
+This has far reaching implications for your programming, and is the crucial reason for the entire
+DOUBLE BUFFER system. It is the complete independence of Sprites that make them so useful.</p>
+
+<p>
+AMOS Professional allows you to use Bobs with animated screens, and the next section explains
+how screens are updated to permit this.</p>
+
+<p><b>The update process</b><br>
+
+This explanation of the Bob movement system is very detailed. If you are not interested in the
+theory, then the BOB CLEAR and BOB DRAW commands are explained later in this Chapter,
+and will be enough to allow you to proceed.</p>
+
+<p>
+The updating of single buffered screens will now be examined. Supposing you want to display a
+single Witter Object on the screen. The following steps need to be undertaken:</p>
+
+<ul>
+  <li>Draw up the display screen as usual.</li>
+  <li>Discover the start position where the Bob is going to be displayed, and establish the
+      background area underneath the Bob.</li>
+  <li>Copy this background area to a safe location in memory.</li>
+  <li>Display the Bob over the original graphics in the target area, using the appropriate image from
+      the Object Bank.</li>
+  <li>Discover the next position where the Bob is going to move.</li>
+  <li>Clear the Bob from its current position, by displaying the safely copied background image at
+      its original screen location.</li>
+  <li>Examine each Bob in turn to see if it has moved since the previous update. If so, make a copy
+      of the original screen image at the new coordinates.</li>
+  <li>Finally, update by re-drawing the Bob at its new screen position.</li>
+</ul>
+
+<div align="right"> <a href="726.html">Back</a> &nbsp;&nbsp;
+  <a href="728.html">Next</a>
+  <br>
+  07.03.02
+</div>
+
+</BODY>
+</HTML>

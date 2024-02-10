@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Windows</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Windows</h1>
+
+<br>
+
+<p><b>Manipulating windows</b></p>
+
+<p>
+<b>WINDON</b><br>
+<i>function: return the value of the current window</i><br>
+w=<b>Windon</b></p>
+
+<p>Before using windows in your programs, you will need to refer to their identification numbers.
+This function returns the value of the current window. For example:</p>
+
+<pre>
+E> Do
+    Cls : Wind Open Rnd(99)+1,1,1,25,5,1
+    Print "Window number ";Windon : Wait Key
+   Loop
+</pre>
+
+<p>
+<b>WIND SAVE</b><br>
+<i>instruction: save the contents of the current window</i><br>
+<b>Wind Save</b></p>
+
+<p>
+This command is extremely valuable for the AMOS Professional programmer. Once activated,
+the WIND SAVE feature allows you to move your windows anywhere on screen without
+corrupting the existing display, by the following method. The contents of the current window is
+saved as soon as the command is used, and then every time a new window is opened, the
+contents of the windows underneath get saved automatically. The screen is then re-drawn
+whenever a window is moved to a new position or closed.</p>
+
+<p>
+As you begin a new program, the current window (the default screen) consumes 32k of valuable
+memory, and this would be wasted if you were to save it as background beneath a small
+dialogue box. To solve this problem, create a dummy window of the size you need, and place it
+over the zone you want to save. Now execute your WIND SAVE command and continue with
+your program. When this dialogue box is called up, the area beneath it will be saved as part of
+your dummy window, so it will automatically be restored after your box has been removed.</p>
+
+<p>
+<b>WIND CLOSE</b><br>
+<i>instruction: close the current window</i><br>
+<b>Wind Close</b></p>
+
+<p>
+The WIND CLOSE command deletes the current window. If the WIND SAVE command has
+been activated, the deleted window will be replaced by the saved graphics, otherwise the area
+will be totally erased from the screen. Here is an example:</p>
+
+<pre>
+E> Wind Open 1,1,8,35,18,1 : Print "Press a key to close this window"
+   Wait Key
+   Wind Close
+</pre>
+
+<p>
+<b>WIND MOVE</b><br>
+<i>instruction: move the current window</i><br>
+<b>Wind Move</b> x,y</p>
+	
+<div align="right"> <a href="565.html">Back</a> &nbsp;&nbsp;
+  <a href="567.html">Next</a>
+  <br>
+  05.07.03
+</div>
+
+</BODY>
+</HTML>

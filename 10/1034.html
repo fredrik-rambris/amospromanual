@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Accessing a Serial Port</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Accessing a Serial Port</h1>
+
+<br>
+
+<p>Here is a list of the available settings for the Parity parameter:</p>
+
+<pre>
+-1 No parity
+0  Even parity
+1  Odd parity
+2  Space parity
+3  Mark parity
+</pre>
+
+
+<p>This Parity bit may be set using the BSET or BCLR instructions, as follows:</p>
+
+<pre>
+X> P=0 : Bset 0,P: Rem Odd parity
+   Bclr 1,P : Rem Normal parity
+   Serial Parity 1,P : Rem Set parity using the value in P
+</pre>
+
+<p>
+<b>SERIAL X</b><br>
+<i>instruction: set handshaking system of serial channel</i><br>
+<b>Serial X</b> Channel number,Xmode</p>
+
+<p>
+This command is used to enable or disable the XON/XOFF handshaking system, which checks
+data transmission. A value of -1 (True) will disable the system, whereas any other value will turn
+it on. The Xmode parameter should be loaded with the correct control characters, which must be
+specified in the following format:</p>
+
+<pre>
+X> Xmode=XON110000000+XOFF*$1000
+</pre>
+
+<p><b>Sending and receiving Serial information</b></p>
+
+<p>
+<b>SERIAL SEND</b><br>
+<i>instruction: output a string via a serial channel</i><br>
+<b>Serial Send</b> Channel number,string</p>
+
+<p>
+This is used to send the given string directly to the selected serial channel, without waiting
+for the data to be transmitted through the actual port. This means that the SERIAL CHECK
+function must be used to detect when the transmission of data has been completed, and this is
+explained below.</p>
+
+<p>
+<b>SERIAL OUT</b><br>
+<i>instruction: output a block of raw data via a serial channel</i><br>
+<b>Serial Out</b> Channel number,address,length</p>
+
+<p>
+This command is identical to SERIAL SEND, except for the fact that it works with raw data,
+instead of a string. Specify the channel number as usual, followed by the address in memory of
+the data to be transmitted, and the length of the data given in the number of bytes to be sent.</p>
+
+<p>
+<b>SERIAL GET</b><br>
+<i>function: get a byte from a serial device</i><br>
+value=<b>Serial Get</b>(Channel number)</p>
+
+<p>
+To read a single byte from a serial device, use the SERIAL GET function and
+specify which channel is to be examined. If no data is available,
+a value of -1 will be returned.</p>
+
+<div align="right"> <a href="1033.html">Back</a> &nbsp;&nbsp;
+  <a href="1035.html">Next</a>
+  <br>
+  10.04.03
+</div>
+
+</BODY>
+</HTML>

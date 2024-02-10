@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Menus</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Menus</h1>
+
+<br>
+
+<p><b>SSTYLE</b><br>
+<i>embedded command: set font style</i><br>
+<b>SS</b>tyle bit-pattern</p>
+
+<p>
+SStyle sets the style of the "Current font to the selected bit-pattern. In the following table, 
+a setting of 1 will have the listed effect, whereas a setting of zero will have no effect:</p>
+
+<pre>
+<b>Bit    Effect</b>
+0      underline
+1      bold
+2      italic
+</pre>
+
+<p><b>LINE</b><br>
+<i>embedded command: draw a line</i><br>
+<b>LI</b>ne x,y</p>
+
+<p>LIne draws a line from the current cursor position to the graphics coordinates x,y.</p>
+
+<p><b>SLINE</b><br>
+<i>embedded command: set line pattern</i><br>
+<b>SL</b>ine pattern</p>
+
+<p>
+SLine sets the line style to be used in all subsequent LIne commands to the selected bit-pattern.
+Because there is no evaluation of expressions, the bit-pattern must be converted into decimal
+notation before use.</p>
+
+<p><b>BAR</b><br>
+<i>embedded command: draw a bar</i><br>
+<b>BA</b>r x,y</p>
+
+<p>BAr draws a rectangular bar from the current cursor coordinates to x,y.</p>
+
+<p><b>PATTERN</b><br>
+<i>embedded command: draw a pattern</i><br>
+<b>PA</b>ttern number</p>
+
+PAttern changes the fill pattern used by the BAr command to the numbered style.
+
+<p><b>OUTLINE</b><br>
+<i>embedded command: enclose a bar with an outline</i><br>
+<b>OU</b>tline value</p>
+
+<p>
+OUtline draws a border in the current outline colour (set to ink colour 3) around all subsequent
+bars. A value of 1 activates the border and a value of 0 removes it.</p>
+
+<div align="right"> <a href="651.html">Back</a> &nbsp;&nbsp;
+  <a href="653.html">Next</a>
+  <br>
+  06.05.15
+</div>
+
+</BODY>
+</HTML>

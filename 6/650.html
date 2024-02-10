@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Menus</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Menus</h1>
+
+<br>
+
+<p>
+If more than a single bit is set in this pattern, several keys must be pressed at the same time in
+order to call up the associated menu item. Any of these keyboard shortcuts can be erased by
+using MENU KEY with no parameters. For example:</p>
+
+<pre>
+X> Menu Key(1,10) : Rem Erase shortcut assigned to item (1,10)
+</pre>
+
+<p>Here is an example that checks for key presses of the Amiga's ten function keys:</p>
+
+<pre>
+E> Menu$(1)="Function Keys"
+   For A=1 To 10
+    OPT$="F"+Str$(A)+" "
+    Menu$(1,A)=OPT$
+    Menu Key(1,A) To 79+A
+   Next A
+   Menu On
+   Do
+    If Choice Then Print "You have pressed Function Key ";Choice(2)
+   Loop
+</pre>
+
+<p><b>Embedded menu commands</b><br>
+
+AMOS Professional menus offer complete freedom to make use of any text styles of graphics
+you want. The final part of this Chapter deals with the commands that make this possible.</p>
+
+<p>
+Any menu string can include a powerful set of optional embedded commands that allow you to
+customise the appearance of your menus. These embedded commands must be enclosed
+between sets of brackets, and individual commands must be separated by colons, like this:</p>
+
+<pre>
+X> Menu$(1)"(LOcate 10,10: Ink 1,1)I am embedded"
+</pre>
+
+<p>
+Each embedded command consists of only two characters, which can be in either upper or
+lower case. Any other characters will be ignored. So the following characters will be treated as
+"LO" when entered as an embedded command:</p>
+
+<pre>
+X> LO
+   lo
+   locate
+   Lonniedonegan
+</pre>
+
+<p>
+Most embedded commands also require you to input one or more numbers. These numbers
+must never make use of expressions, because they will not be evaluated.</p>
+
+<p>
+In the listings for all of the following embedded commands, the two important characters that
+make up the command are in upper case bold type.</p>
+
+<p><b>LOCATE</b><br>
+<i>embedded command: move the graphics cursor</i><br>
+<b>LO</b>cate x,y</p>
+
+<div align="right"> <a href="649.html">Back</a> &nbsp;&nbsp;
+  <a href="651.html">Next</a>
+  <br>
+  06.05.13
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Configuration</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Configuration</h1>
+
+<br>
+
+<p>
+Turning off this drive while the Amiga is operating will have <b>no</b> effect at all, because the
+memory is allocated to the external drive as part of the start-up sequence.</p>
+
+<p>
+Two powerful instructions are provided that allow you to maximise the available memory for
+your programs.</p>
+
+<p><b>CLOSE WORKBENCH</b><br>
+<i>instruction: close the Workbench</i><br>
+Close Workbench</p>
+
+<p>
+This command closes the Workbench screen, saving about 40k of memory, and freeing it for
+your own programs! Prove this now, as follows:</p>
+
+<pre>
+E> Print Chip Free, Fast free
+   Close Workbench
+   Print Chip Free, Fast Free
+</pre>
+
+<p>
+CLOSE WORKBENCH can be executed from inside an AMOS Professional program, or from
+Direct Mode, but it will not work if there is a CLI window opened. To solve this problem, ensure
+that AMOS Professional loads using the following CLI instruction:</p>
+
+<img alt="Run AmosPro in CLI"
+ src="../images/1307endcli.jpg" /><br>
+
+<p><b>CLOSE EDITOR</b><br>
+<i>instruction: close the AMOS Professional Editor Window</i><br>
+<b>Close Editor</b></p>
+
+<p>
+To save more than 28k of memory, use the CLOSE EDITOR command in an AMOS Professional
+program. The program listing will be completely unaffected. If there is insufficient memory to
+re-open the Editor Window after the program has finished, AMOS Professional will
+automatically erase the current display and revert to the standard default screen. Simply press
+[Esc] to summon up the Editor as usual!</p>
+
+<div align="right"> <a href="1306.html">Back</a> &nbsp;&nbsp;
+  <a href="1308.html">Next</a>
+  <br>
+  13.01.07
+</div>
+
+</BODY>
+</HTML>

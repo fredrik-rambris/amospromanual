@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Memory Bank Structures</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Memory Bank Structures</h1>
+
+<br>
+
+<ul>
+  <li>The AMOS Professional Music player does not modify anything in the bank before the music
+  is played, unlike Soundtracker.</li>
+  <li>The number of instruments is virtually unlimited, with a choice of 65536!</li>
+  <li>There is an unlimited number of patterns.</li>
+  <li>With a little work, you are able to save a lot of space. The same pattern can be re-used by
+      different songs, and may be repeated several times in your Soundtrack.</li>
+</ul>
+
+<p><b>Music banks stored on disc</b><br>
+
+The AMOS Professional music banks are saved to disc "as is", with only a simple header.</p>
+
+
+<pre>
+dc.b    "AmBk"
+dc.w    Number_Of_The_Bank
+dc.l    $80000000 + Length_Of_The_Bank
+
+Note that $80000000 indicates a CHIP memory bank.
+</pre>
+
+<p><b>SAMPLE BANKS</b><br>
+
+All sample banks are loaded in CHIP Ram.</p>
+
+<pre>
+        dc.b    "Samples"             Start-8 Name of the bank
+Start   dc.w    Number_Of_Samples
+* First we store a list of pointers to the samples in memory
+* These are held as offsets from the start of the bank
+        REPT    Number_Of_Samples
+           dc.l   Sample_XX-start     XX = number of the sample
+        ENDR
+* Now we store the samples one after the other
+* Repeat for each sample
+        REPT      Number_Of_Samples
+Sample XX  dc.b   "Namesamp"           Name of the sample in 8 bytes
+           dc.w   Sampling_Frequency   In Hertz
+           dc.l   Sample_Length        In WORDS (real length/2)
+           dcb.b  ... samples ...      The actual sample data
+        ENDR
+</pre>
+
+<p>
+On disc, the sample bank is saved directly in the above format. The disc header is exactly the
+same as for a CHIP DATA bank.</p>
+
+<p><b>AMAL BANKS</b><br>
+
+An AMAL bank can hold two separate types of information. Either a list of AMAL command
+strings, or a recorded series of Object movements for use with the PLay instruction. The bank is
+therefore divided into sections, as shown below:</p>
+
+<pre>
+The header 
+         dc.b  "AMAL  "        Start-8 Bank name, 8 bytes, Ascii
+Start    dc.l  Strings-Start   Offset to the first command string in memory
+The movement table
+* We start with a list of the movement table used by the PLay command
+* (NN= number of the move)
+</pre>
+
+<div align="right"> <a href="1436.html">Back</a> &nbsp;&nbsp;
+  <a href="1438.html">Next</a>
+  <br>
+  14.E.13
+</div>
+
+</BODY>
+</HTML>

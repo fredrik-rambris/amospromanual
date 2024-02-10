@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Detecting Collisions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Detecting Collisions</h1>
+
+<br>
+
+<p><b>HZONE</b><br>
+<i>function: return the zone number under the specified hardware coordinates</i><br>
+number=<b>Hzone</b>(x,y)<br>
+number=<b>Hzone</b>(screen number,x,y)</p>
+
+<p>
+The HZONE function is identical to ZONE, except for the fact that the position on screen is
+measured in hardware coordinates. This means that this function can be used to detect the
+presence of a hardware Sprite in one of the screen zones, in this format:</p>
+
+<pre>
+X> N=Hzone(X Sprite(n),Y Sprite(n))
+</pre>
+
+<p><b>MOUSE ZONE</b><br>
+<i>function: test if mouse pointer has entered a zone</i><br>
+number=<b>Mouse Zone</b></p>
+
+<p>This is a short reminder that the MOUSE ZONE function is used to check whether the mouse
+pointer has entered a zone, as outlined in <a href="../5/570.html">Chapter 5.8</a>.</p>
+
+<p><b>RESET ZONE</b><br>
+<i>instruction: erase screen zone</i><br>
+<b>Reset Zone</b><br>
+<b>Reset Zone</b> number</p>
+
+<p>
+This command is used to nullify a zone created by the SET ZONE instruction. On its own,
+RESET ZONE permanently de-activates all zone settings, but if it is qualified by a zone number,
+only that zone will be erased. The RESET ZONE instruction does not return the memory
+allocated by RESERVE ZONE to the main program.</p>
+
+<div align="right"> <a href="739.html">Back</a> &nbsp;&nbsp;
+  <a href="741.html">Next</a>
+  <br>
+  07.04.07
+</div>
+
+</BODY>
+</HTML>

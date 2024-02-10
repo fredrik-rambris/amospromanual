@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Using the Keyboard</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Using the Keyboard</h1>
+
+<br>
+
+<p>
+<b>KEY$</b><br>
+<i>reserved variable: define a keyboard macro</i><br>
+<b>Key$</b>(number)=command$<br>
+command$=<b>Key$</b>(number)</p>
+
+<p>
+KEY$ assigns the contents of the specified command$ to a function key number from 1 to 20.
+Keys 1 to 10 are accessed by pressing the appropriate function key at the same time as the [left
+Amiga] key. Similarly, numbers 11 to 20 are accessed in conjunction with the [right Amiga] key.
+If these keys are not pressed simultaneously, they will be misinterpreted as two separate key
+presses!</p>
+
+<p>
+Single quotes can be used to enclose a comment, which will only be displayed in your key
+definition list and will be completely ignored by the macro routine. For example:</p>
+
+<pre>
+X> Key$(3)="'Comment' Print"
+</pre>
+
+<p>Also note that by pressing [Alt]+[Quote] together, a special return code is generated.</p>
+
+<p>
+If you need to generate a key press that has no Ascii equivalent, such as an [up arrow], the
+appropriate scan-code can be included in a macro definition. This is achieved by using the
+SCAN$ function, explained next.</p>
+
+<p>
+<b>SCAN$</b><br>
+<i>function: return a scan-code for use with Key$</i><br>
+x$=<b>Scan$</b>(scan-code)<br>
+x$=<b>Scan$</b>(scan-code,mask)</p>
+
+<p>
+The scan-code parameter refers to the scan-code of a key that is to be used in one of your macro
+definitions. There is also an optional mask parameter, which sets special keys such as [Ctrl] and
+[Alt], and the format is the same as for KEY SHIFT, explained earlier.</p>
+
+<p><b>Improving your typing skills</b><br>
+
+The AMOS Professional programmer is offered as much help as possible to enter listings quickly
+and correctly. As many structures as possible are automatically recognised and correctly
+formatted, even if upper and lower case is sometimes confused and spacings are not quite
+perfect. But even the most experienced programmer can be fumble-fingered at times.</p>
+
+<p>
+<b>KEY SPEED</b><br>
+<i>instruction: change key repeat speed.</i><br>
+<b>Key Speed</b> time-lag,delay-speed</p>
+
+<p>
+During editing, a character or cursor movement is repeated for as long as its key is held down.
+This can be frustrating if it causes unwanted characters or cursor movements. KEY SPEED lets
+you change the repeat rate while a key is held down, to your own particular preference. State
+the time-lag you want to use between pressing a key and the start of the repeat sequence,
+measured in 50ths of a second.</p>
+
+<div align="right"> <a href="1005.html">Back</a> &nbsp;&nbsp;
+  <a href="1007.html">Next</a>
+  <br>
+  10.01.06
+</div>
+
+</BODY>
+</HTML>

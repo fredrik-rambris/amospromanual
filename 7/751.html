@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AMAL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>AMAL</h1>
+
+<br>
+
+<p>
+All AMAL labels are defined using a single capital letter, followed by a colon. In the same way
+that commands are recognised, any lower-case letters that you may want to use to improve the
+understanding of your listings will be ignored. So the following labels are all acceptable:</p>
+
+<pre>
+T:
+Target:
+Zippadeedoodah:
+</pre>
+
+<p>
+Remember that each label is defined by one upper-case letter only, so in those examples, both T:
+and Target: refer to the same label! If you forget this, and try to define two different labels
+starting with the same letter, an error message will be generated.</p>
+
+<p>
+Each AMAL program can have its own unique set of labels, so it is perfectly acceptable to use
+identical labels in several different programs.</p>
+
+<p><b>AMAL registers</b></p>
+
+<p><b>LET</b><br>
+<i>AMAL instruction: assign a value to a register</i><br>
+<b>L</b>et register=expression</p>
+
+<p>
+The Let instruction is used to assign a value to an AMAL register, and it is very similar to
+conventional Basic except for the fact that all expressions are evaluated strictly from left to right.</p>
+
+<p>
+The registers are used to hold values in AMAL programs, and allowable numbers range
+from -32768 up to 32767.</p>
+
+<p>There are three types of AMAL register, as follows.</p>
+
+<p><b>Internal registers R0 to R9</b><br>
+
+Every AMAL program has its own set of ten internal registers. Their names start with the
+identification letter R, followed by one of the digits from 0 to 9 and internal registers are like the
+local variables defined inside a normal AMOS Professional procedure.</p>
+
+<p><b>External registers RA to RI</b><br>
+
+External AMAL registers keep hold of their values between separate AMAL programs. This
+allows them to be used to pass information between several AMAL routines. There are 26
+external registers provided, each having the identification letter R followed by one of the 26
+letters of the alphabet from A to Z.</p>
+
+<p>
+The contents of any internal or external register can be accessed directly from your main AMOS
+Professional program, using the AMREG function, which is explained later.</p>
+
+<p><b>Special registers X,Y and A</b><br>
+
+There is a set of three values which control the status of an Object, and these are held in three
+special registers. X and Y contain the coordinates of the Object, and A stores the number of the
+image which is displayed by a Sprite or a Bob.</p>
+
+<div align="right"> <a href="750.html">Back</a> &nbsp;&nbsp;
+  <a href="752.html">Next</a>
+  <br>
+  07.06.04
+</div>
+
+</BODY>
+</HTML>

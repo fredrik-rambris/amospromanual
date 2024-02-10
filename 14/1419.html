@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - PAL and NTSC</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>App. C: PAL and NTSC</h1>
+
+<br>
+
+<p><b>International television standard systems</b><br>
+
+With millions of Amigas is use all over the world, it is vital to ensure that programs written with
+the AMOS Professional system can operate in as many territories as possible. For historical
+reasons, different standards of television systems have evolved in different territories, which
+creates a major problem for computer programmers. For example, a "British" television set will
+work perfectly well in Hong Kong and Ireland, but will fail to operate anywhere else in the
+world! That is because the UK has adopted the PAL (I) standard, a third of the planet has
+adopted other PAL standards, half the world uses the NTSC system, and the rest use another
+system called SECAM! Luckily the SECAM system is identical to PAL as far as AMOS
+Professional is concerned, so you need only be concerned with the differences between PAL and
+NTSC.</p>
+
+<p>
+Fortunately, AMOS Professional is an international language, and is designed to work
+automatically under the two major television standards that exist where the Amiga is marketed,
+namely PAL (all standards) and NTSC. If you are serious about designing your programs for
+specific territories, there is a list of world-wide standards at the end of this Appendix. Otherwise,
+rest assured that AMOS Professional will take care of most Amiga users on this planet!</p>
+
+<p>
+When AMOS Professional code is run on a system that differs from the one used by the original
+author of the program, it undergoes two obvious changes. These are the size of the screen
+display and the speed at which the program runs. Here are the crucial differences between the
+two systems.</p>
+
+<p><b>PAL versus NTSC</b><br>
+
+<b>PAL</b> updates images 50 times a second, and can theoretically display up to 312 lines on screen. The
+actual limit will vary depending on your TV set or monitor, but it is likely to be about 270 lines.</p>
+
+<p>
+<b>NTSC</b> updates images 60 times a second, but only displays a maximum of 256 lines, which is
+normally restricted to 220 horizontal lines. This maximum restriction of 220 lines is also imposed
+on the height of Sprites.</p>
+
+<p>
+It might seem that PAL has a clear advantage over the NTSC system, but this is not necessarily
+so. Although NTSC screens are about one fifth shorter than their PAL cousins, their faster
+updating time provides a higher quality picture, which is brighter, more stable and more restful
+for the eyes. Here is a synopsis of the compatibility problems between the two systems.</p>
+
+<p><b>The display size</b><br>
+
+Supposing you have created a 320 wide by 256 high screen. Under the PAL system, the picture
+occupies the entire display, but on NTSC, the bottom section of the screen is hidden from view.
+Any error messages are not visible and wandering Objects are likely to fall from view, through
+the bottom of the screen. Fortunately, AMOS Professional provides a function to assess the
+situation.</p>
+
+<p><b>DISPLAY HEIGHT</b><br>
+<i>function: report maximum available screen height</i><br>
+height=<b>Display height</b></p>
+
+<p>
+This function returns a value of 311 if you are in PAL mode,
+or 261 if an NTSC machine is being used.</p>
+
+<div align="right"> <a href="1418.html">Back</a> &nbsp;&nbsp;
+  <a href="1420.html">Next</a>
+  <br>
+  14.C.01
+</div>
+
+</BODY>
+</HTML>

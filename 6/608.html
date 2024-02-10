@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Setting up Screens</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Setting up Screens</h1>
+
+<br>
+
+<p>
+The CLS command erases.all or part of the current screen. Used on its own, the contents of the
+current screen are deleted and replaced by the current paper colour. Any windows that may
+have been set up will also be cleared in this way.</p>
+
+<p>
+By specifying the index number of a particular colour after the CLS command, the clearing
+operation will be carried out using that colour.</p>
+
+<p>
+A rectangular part of the current screen can also be cleared, leaving the rest of the screen intact.
+This is achieved by adding the coordinates of the block to be filed with the specified colour, from
+the top left-hand corner, to the bottom right. For example:</p>
+
+<pre>
+E> Cls: Circle 100,98,98: Cls 0,50,50 To 150,150
+</pre>
+
+<p><b>SCREEN HIDE</b><br>
+<i>instruction: hide a screen</i><br>
+<b>Screen Hide</b><br>
+<b>Screen Hide</b> number</p>
+
+<p><b>SCREEN SHOW</b><br>
+<i>instruction: show a screen</i><br>
+<b>Screen Show</b><br>
+<b>Screen Show</b> number</p>
+
+<p>
+Use the SCREEN HIDE command to remove the current screen from view. It can then be
+restored using a SCREEN SHOW instruction, like this:</p>
+
+<pre>
+E> Cls : Print "I am the Current Screen" : Wait 100
+   Screen Hide : Wait Key
+   Screen Show
+</pre>
+
+<p>
+Any screen can be temporarily hidden, by including its index number after the SCREEN HIDE
+instruction. This screen is revealed with a similar request to SCREEN SHOW, followed by the
+relevant screen number.</p>
+
+<p><b>Screen priority</b><br>
+
+Because screens may be of different sizes, and because they can be displayed at various
+positioned on the TV by offsets and overlaps, and because there can be up to eight electronic
+screens queuing up one behind the other, a method is needed to bring any one of these screens
+to the front of the display.</p>
+
+<p><b>SCREEN TO FRONT</b><br>
+<i>instruction: move screen to front of display</i><br>
+<b>Screen To Front</b><br>
+<b>Screen To Front</b> number</p>
+
+<p>
+Use SCREEN TO FRONT to move the selected screen to the front of the display queue. If the
+screen number is omitted after the command, then the current screen will be brought to the
+front.</p>
+
+<div align="right"> <a href="607.html">Back</a> &nbsp;&nbsp;
+  <a href="609.html">Next</a>
+  <br>
+  06.01.08
+</div>
+
+</BODY>
+</HTML>

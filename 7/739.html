@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Detecting Collisions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Detecting Collisions</h1>
+
+<br>
+
+<p><b>Collisions with rectangular blocks</b><br>
+
+The last part of this Chapter explains how rapid checks can be made to see if an Object has
+entered a rectangular area of the screen. These screen "zones" can be used for collision
+detection in computer games, as well as for setting up buttons, control panels and dialogue
+boxes.</p>
+
+<p><b>RESERVE ZONE</b><br>
+<i>instruction: RESERVE memory for a detection zone</i><br>
+<b>Reserve Zone</b><br>
+<b>Reserve Zone</b> number</p>
+
+<p>
+The RESERVE ZONE instruction must be used to allocate enough memory for the exact number
+of zones required, before a SET ZONE command is given. There is no limit to the number that
+can be specified, apart from the amount of available memory.</p>
+
+<p>
+To erase all current zone definitions and restore the allocated memory to the main program,
+simply give the RESERVE ZONE command without any number parameter.</p>
+
+<p><b>SET ZONE</b><br>
+<i>instruction: set a screen zone for testing</i><br>
+<b>Set Zone</b> number,x1 ,y1 <b>To</b> x2,y2</p>
+
+<p>
+After memory has been allocated with the RESERVE ZONE command, SET ZONE is used to
+define a rectangular area of the screen which can be tested by the various ZONE functions. The
+command is followed by the number of the new zone, followed by its coordinates from top left
+to bottom right-hand corner.</p>
+
+<p><b>ZONE</b><br>
+<i>function: return the zone number under specified screen coordinates</i><br>
+number=<b>Zone</b>(x,y)<br>
+number=<b>Zone</b>(screen number,x,y)</p>
+
+<p>
+The ZONE function is used to give the number of the screen zone at the specified screen
+coordinates x,y. These coordinates are normally relative to the current screen, but an optional
+screen number can be included before the coordinates.</p>
+
+<p>
+After the ZONE function has been called, the number of the <b>first</b> zone at these coordinates will
+be returned, or a value of zero (False) will be given if no zone is detected.</p>
+
+<p>
+This function can be used with the X BOB and Y BOB functions to detect whether or not a Bob
+has entered a specific screen zone, as follows:</p>
+
+<pre>
+X> N=Zone(X Bob(n),Y Bob(n))
+</pre>
+
+<div align="right"> <a href="738.html">Back</a> &nbsp;&nbsp;
+  <a href="740.html">Next</a>
+  <br>
+  07.04.06
+</div>
+
+</BODY>
+</HTML>

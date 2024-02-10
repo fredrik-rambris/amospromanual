@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Advanced Control Panels</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>Advanced Control Panels</h1>
+
+<br>
+
+<p>
+<b>DIgit</b><br>
+<i>Interface instruction: create a numeric editing zone</i><br>
+<b>DI</b> zone number,x,y,width,value,flag,paper,pen;</p>
+
+<p>
+The DIgit instruction creates a special edit window for entering numbers. It is very similar to the
+previous EDit command, except for the fact that only the digits from zero to 9 may be entered,
+and anything else will be completely ignored by the Interface system.</p>
+
+<p>
+Please refer to the EDit command to see how the zone number is specified first, followed by the
+x,y-coordinates that set the position of the zone on screen. The width of the window is then set,
+and it is rounded up to the next even number, in exactly the same way as with an EDit
+instruction.</p>
+
+<p>
+The value parameter defines what the initial default value displayed in the edit window is to be.
+The flag parameter indicates whether the default is to be shown in the window, with a zero
+setting to make the default value invisible, and any other setting meaning that it will be
+displayed as normal. Finally, the paper and pen parameters are set by the colour index numbers
+to use for the input numeric characters.</p>
+
+<p>
+The DIgit value can be read from the main AMOS Professional program with the RDIALOG
+function.</p>
+
+<p>Here is a simple working example:</p>
+
+<pre>
+E> A$=A$+"BA 50,50; SI 200,90; SA 1;"
+   A$=A$+"IN 5,0,0; GB 0,0,200,80;PR 16,10,'Enter your name human!',2;"
+   A$=A$+"BU 1;150,70,40,10,0,0,16;"
+   A$=A$+"[IN BPos 4+,0,0; GB 0,0,50,10; PR 2,0,' Quit',2;][BQ;] KY 13,0;"
+   A$=A$+"ED 2,16,25,14,14,",0,2; text edit zone"
+   A$=A$+"PR 16,40,'How old are you?',2;"
+   A$=A$+"DIgit 3,16,50,4,30,0,0,2; numerical edit zone"
+   A$=A$+"EXit;"
+   Dialog Open 1,A$ : R=Dialog Run(1)
+   Repeat
+    D=Dialog(1) : Rem Wait for the user to enter the last item
+   Until D<0
+   Print "Hello ";Rdialog$(1,2) : Print "You are ";Rdialog(1,3); "years old"
+   Dialog Close
+</pre>
+
+<p><b>Sliders and Selectors</b><br>
+
+One of the most powerful features of the Interface system is the facility to create a wide variety
+of sliders and selection boxes in AMOS Professional programs. The next part of this Chapter
+provides a detailed examination of the commands that make this possible.</p>
+
+<p>
+<b>H</b>orizontal<b>S</b>lider<br>
+<i>Interface instruction: create an animated horizontal slider bar</i><br>
+<b>HS</b> zone number,x,y,width,height,position,trigger,total,step;[changes]</p>
+
+<p>The HS command draws an animated horizontal slider bar on the screen.</p>
+
+
+<div align="right"> <a href="930.html">Back</a> &nbsp;&nbsp;
+  <a href="932.html">Next</a>
+  <br>
+  09.03.07
+</div>
+
+</BODY>
+</HTML>

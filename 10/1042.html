@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - AREXX</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a>
+
+<h1>AREXX</h1>
+
+<br>
+
+<p>Firstly, open a CLI and type:</p>
+
+<img alt="AmigaDOS Window 1 - REXXMAST"
+ src="../images/1042rexx1.jpg" >
+
+
+<p>
+A welcome message should appear. Now enter the AMOS Professional environment and run a
+program containing some AREXX-compatible commands. Finally, press[Amiga] + [A] and run
+the program from the CLI prompt. This program could be an external application such as CED,
+or a purpose-built routine written in the AREXX programming language.</p>
+
+<p>
+This example would run an AREXX program called Arexxdemo.REX:</p>
+
+<img alt="AmigaDOS Window 2 - Rx Arexxdemo.REX"
+ src="../images/1042rexx2.jpg" >
+
+<p>
+When you return to AMOS Professional, you will be able to communicate with the external
+program using the commands that are ,detailed below.</p>
+
+<p><b>AREXX-Compatible Instructions</b></p>
+
+<p>
+<b>AREXX OPEN</b><br>
+<i>instruction: open an AREXX communication port</i><br>
+<b>Arexx</b> Open "PORT_NAME"</p>
+
+<p>
+The AREXX OPEN instruction sets up an AREXX communication port, ready for immediate use.
+Before opening this channel, AREXX must be installed in memory using the REXXMAST
+command. If you are in any doubt as to the current availability of AREXX, its status can be
+checked by the AREXX EXIST function, explained below.</p>
+
+<p>
+"PORT NAME" refers to the name of the communications port to be opened, and it should be in
+upper case. The name should be less than 32 characters long, and AMOS Professional will ignore
+any characters with an Ascii code below 32.</p>
+
+<div align="right"> <a href="1041.html">Back</a> &nbsp;&nbsp;
+  <a href="1043.html">Next</a>
+  <br>
+  10.06.02
+</div>
+
+</BODY>
+</HTML>

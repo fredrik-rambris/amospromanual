@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Menus</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Menus</h1>
+
+<br>
+
+<p>
+This is process may take a few seconds, particularly with very large menus, and the MENU CALC
+command is designed to perform this recalculation at the most suitable point in the program, in
+order to minimise any delays.</p>
+
+<p>
+You are advised to freeze your menus with MENU OFF at the start of the recalculation
+procedure, to prevent the user calling the menu half way through an update. It may then be
+made active again using MENU ON after the updating process is over.</p>
+
+<p><b>Alternative menu styles</b><br>
+
+The AMOS Professional programmer is free to change the display format of any level of any
+menu, and design a customised layout. As a default, all titles are displayed in a horizontal bar
+with their related options arranged below in a vertical block. Here are the alternatives:</p>
+
+<p><b>MENU LINE</b><br>
+<i>instruction: display menu options as a horizontal line</i><br>
+<b>Menu Line</b> level number<br>
+<b>Menu Line</b> (single item parameters)</p>
+
+<p>
+Use this command to change the display of options that relate to a particular title from a vertical
+block into a horizontal line. The line of options will now start from the left-hand corner of the
+first menu title and stretch to the bottom right-hand corner of the last title. Follow MENU LINE
+with the number of the level you want to affect, and make sure that this command is only called
+during your menu definitions. The level number can range from 1 to 8, and it specifies the layer
+of the menu to be affected.</p>
+
+<p>
+It is perfectly legal to set individual items by this method, and with the following MENU TLINE
+and MENU BAR commands. This can result in some highly eccentric displays.</p>
+
+<pre>
+X> Menu Line(1,1,1) : Rem Display sub-option 1,1,1 as a line
+</pre>
+
+<p><b>MENU TLINE</b><br>
+<i>instruction: display a menu as a total line</i><br>
+<b>Menu Tline</b> level number<br>
+<b>Menu Tline</b>(single item parameters)</p>
+
+<p>
+MENU TUNE is used to display a section of your menu as a total line, stretching from the
+extreme left to the extreme right of the screen. The complete line will be drawn even if the first
+item is centre screen. Use this instruction in the same way as MENU LINE during your menu
+definitions.</p>
+
+<p><b>MENU BAR</b><br>
+<i>instruction: display menu items as a vertical bar</i><br>
+<b>Menu Bar</b> level number<br>
+<b>Menu Bar</b>(single item parameters)</p>
+
+<div align="right"> <a href="643.html">Back</a> &nbsp;&nbsp;
+  <a href="645.html">Next</a>
+  <br>
+  06.05.07
+</div>
+
+</BODY>
+</HTML>

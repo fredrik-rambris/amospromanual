@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Maths</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Maths</h1>
+
+<br>
+
+<P>
+The INT function rounds <b>down</b> a floating point number to the nearest whole number (integer),
+so that the result of the following two example lines is 3 and -2, respectively:</P>
+
+<pre>
+D&gt; Print Int(3.9999)
+   Print Int(-1.1)
+</pre>
+
+<P><b>FIX</b><BR>
+<i>instruction: fix precision of floating point</i><BR>
+<b>Fix</b>(number)</P>
+
+<P>The FIX command changes the way floating point numbers are displayed on screen, or 
+output to a printer. The precision of these floating point numbers is determined by a number (n) 
+that is specified in brackets, and there can be four possibilities, as follows:</P>
+
+<UL>
+  <LI>If (n) is greater than 0 and less than 16, the number of figures shown after the 
+  decimal point will be n.</LI>
+
+  <LI>If (n) equals 16 then the format is returned to normal.</LI>
+
+  <LI>If (n) is greater than 16, any trailing zeros will be removed and the display will 
+  be proportional.</LI>
+
+  <LI>If (n) is less than 0, the absolute value ABS(n) will determine the number of digits 
+  after the decimal point, and all floating point numbers will be displayed in exponential format.</LI>
+
+</UL>
+
+<P>Here are some examples:</P>
+
+<pre>
+E&gt; Fix (2) : Print Pi# : Rem Two digits after decimal point
+   Fix(-4) : Print Pi# : Rem Exponential with four digits after decimal point
+   Fix(16) : Print Pi# : Rem Revert to normal mode
+</pre>
+
+<P><b>Single and double precision</b><br>
+
+Although the standard floating point system is perfect for general use, it may not be 
+accurate enough for genuine scientific applications, or advanced simulations. AMOS Professional 
+offers a choice of two separate calculation systems.</P>
+
+<P><b>Single Precision</b><br>
+
+This is the default mode, and is automatically used whenever an AMOS Professional 
+program is RUN. Single precision is accurate to about seven decimal digits, it is very fast 
+and it is ideal for the vast majority of applications.</P>
+
+<P><b>Double precision</b><BR>
+	
+Double precision mode offers double the normal degree of accuracy, and is capable of 
+dealing with extremely precise values. Unlike most pocket calculators, AMOS Professional double
+precision can handle numbers with up to 16 significant digits.</P>
+
+<P>This extent of accuracy will consume twice as much memory as the standard version, and 
+it will also cause a great slowing down of calculations. It should only be used when extra 
+accuracy is absolutely vital.</P>
+
+<div align="right"> <a href="521.html">Back</a> &nbsp;&nbsp; 
+  <a href="523.html">Next</a>
+  <br>
+  05.03.05
+</div>
+
+</BODY>
+</HTML>

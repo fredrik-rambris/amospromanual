@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Detecting Collisions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Detecting Collisions</h1>
+
+<br>
+
+<p>
+a little time, depending on the number of objects involved. If an optional number is given, then
+a mask is created for that specified image only.</p>
+
+<b>The collision functions</b><br>
+
+<p><b>BOB COL</b><br>
+<i>function: detect for collision between Blitter Objects</i><br>
+c=<b>Bob Col</b>(number)<br>
+c=<b>Bob Col</b>(number, first <b>To</b> last)</p>
+
+<p>
+The BOB COL function checks the screen for collisions between Blitter Objects. It is invaluable
+in the type of arcade games that rely on hitting or avoiding moving objects. To test for a collision
+with BOB COL, simply specify the number of the Bob you are interested in (in brackets) and a
+value of -1 (true) will be returned if a collision occurs. Otherwise zero (false) is generated.</p>
+
+<p>
+Note that the AMOS Professional collision system uses "masks", and so it is sensitive to the
+physical shape of your objects. This means that when different objects have extremely varied
+appearances, the collision will only be detected when the objects happen to overlap on screen.</p>
+
+<p>
+Normally, BOB COL will check for collisions between the specified Bob and any other Blitter
+Object, but you can also monitor the movements of a particular range of Bobs using this
+As optional parameters, after the specified Bob number, you may set the range of
+Bobs to be checked for collision from the first to the last in your Bob list.</p>
+
+<p>
+BOB COL is very similar to the BC function used by the AMAL animation system. AMAL is
+detailed at the end of this section, in <a href="../7/748.html">Chapter 7.6</a>. For a rapid status test of an individual Bob,
+after a collision detection routine, the COL function can be used to determine precisely which
+pair of objects have collided amongst a whole range of similar objects. The COL function is
+explained later.</p>
+
+<p><b>SPRITE COL</b><br>
+<i>function: test for collision between Sprites</i><br>
+c=<b>Sprite Col</b>(number)<br>
+c=<b>Sprite Col</b>(number,start <b>To</b> finish)</p>
+
+<p>
+SPRITE COL provides an easy method of checking to see if two or more Sprites have collided on
+screen. If the test is successful, SPRITE COL returns a value of -1 (true), and if not 0 (false) is
+returned instead. As you would expect, the brackets contain the number of any active Sprite on
+screen. This can be a standard Amiga hardware Sprite, or an AMOS Professional computed
+Sprite, but the image it displays must carry a mask. As a default, masks are created for Bobs only,
+so you must deliberately create a mask for each Sprite image at the start of your program, using
+MAKE MASK.</p>
+
+<p>
+If you want to check for a selected group of Sprites, include the optional first to last parameters
+to set the range of the Sprite numbers you are interested in.</p>
+
+<p>
+Note that any mixture of hardware Sprites and computed Sprites can be tested in the same
+SPRITE COL instruction. Also that the equivalent AMAL function is SC.</p>
+
+<div align="right"> <a href="735.html">Back</a> &nbsp;&nbsp;
+  <a href="737.html">Next</a>
+  <br>
+  07.04.03
+</div>
+
+</BODY>
+</HTML>

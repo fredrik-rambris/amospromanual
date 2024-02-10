@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completly FREE FOREVER.
+      Created 2008. :)
+  -->
+  <title>Amos Professional Manual - Blitter Objects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="asymetrix">
+
+</head>
+
+<body bgcolor="white">
+
+<a href="../index.html">Amos Professional Manual</a>&nbsp; <a href="../contents/c1.html">Contents</a>&nbsp; <a href="../14/1446.html">Index</a> 
+
+<h1>Blitter Objects</h1>
+
+<br>
+
+<p>
+Any complexities of this technique are completely automatic, so once DOUBLE BUFFER has
+been engaged, you can relax.</p>
+
+<p>
+Since hardware Sprites are overlaid directly onto your television display, double buffering will
+hive no effect at all on any existing Sprite animations.</p>
+
+<p>
+The double buffering system works equally well in all of the Amiga's graphics modes, and can
+also be used in conjunction with dual playfields. You should be aware that double buffering
+requires two separate areas of memory, one for the logical and one for the physical screen. So it
+will double the amount of memory required, for example an extra 32k will be needed for a
+standard 16-colour screen. This means that if you try and DOUBLE BUFFER too many screens,
+available memory will be exhausted.</p>
+
+<p>
+In practice, double buffering is invaluable, and the additional memory required is well spent. It
+can be exploited for advanced three-dimensional routines, and is especially useful for scrolling
+screen effects, because the new areas of display are copied straight into the invisible background
+without corrupting the current display.</p>
+
+<p>
+As an optional extra, AMOS Professional provides total control over the entire DOUBLE
+BUFFER system, and a full explanation may be found in the next Chapter. For a rapid insight
+into the effect of not using DOUBLE BUFFER, make sure you run the HELP_26 demonstration
+program.</p>
+
+<p>
+That demonstration produces a horrible flickering effect. Whenever a Bob moves around the
+screen, the graphics beneath it are replaced at their original position. Unfortunately, since Bobs
+are updated at the same time as the screen images, this sort of flickering effect is generated. By
+including a DOUBLE BUFFER command, screens are switched <b>after</b> the drawing process is
+complete, and as explained above, the process is completely automatic.</p>
+
+<p><b>GET BOB</b><br>
+<i>instruction: grab an image from part of screen</i><br>
+<b>Get Bob</b> image,x1,x2 <b>To</b> x2,y2<br>
+<b>Get Bob</b> screen number,image,x1,y1 <b>To</b> x2,y2</p>
+
+<p>
+This command grabs a selected part from the current screen and copies it straight into the
+Object Bank. After giving the image number to be created, set the area to be grabbed from the
+top left-hand corner to the bottom right-hand coordinates. If your chosen image number already
+exists, the existing image will be replaced by the new picture, otherwise the new picture will be
+added to the bank.</p>
+
+<p>
+An optional screen number may be given immediately after the GET BOB command, allowing
+an image to be grabbed from a specific screen. Here is an example:</p>
+
+<pre>
+E> Curs Off : Cls 0 : Double Buffer : Flash Off
+   Text 50,10, "AMOS Professional Basic!"
+   Get Bob 1,50,0 To 250,20
+   For B=0 To 180
+    Bob 1,50,B,1
+    Wait Vbl
+   Next B
+</pre>
+
+<div align="right"> <a href="718.html">Back</a> &nbsp;&nbsp;
+  <a href="720.html">Next</a>
+  <br>
+  07.02.07
+</div>
+
+</BODY>
+</HTML>
