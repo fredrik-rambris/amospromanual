@@ -14,10 +14,8 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Memory Banks</h1>
-
-<br>
-
 
 <p>This Chapter explains what memory banks are, the sort of information they can hold and how
 they are used.</p>
@@ -33,10 +31,12 @@ AMOS Professional stores this information in special areas of accommodation know
 memory banks", and these banks can be created by certain accessories such as the Object
 Editor, or directly inside a program with the RESERVE command. Memory banks are also
 generated as a direct result of certain instructions, such as GET SPRITE and FRAME LOAD.</p>
+</section>
 
-<p><b>Memory bank numbers, names and types</b><br>
+<section id="01-memory-bank-numbers-names-and-types">
+<h2>Memory bank numbers, names and types</h2>
 
-Every memory bank is assigned its own unique number, ranging from 1 up to 65535. Bank
+<p>Every memory bank is assigned its own unique number, ranging from 1 up to 65535. Bank
 numbers 1 to 4 are normally reserved for Objects, icons, music and AMAL programs, and the
 remaining banks can be used for any information you choose.</p>
 
@@ -72,8 +72,6 @@ samples, but they are fine for AMAL programs or menu definitions.</p>
 Amiga's own sound and graphics chips. Depending on the model of Amiga in use, there can be
 anything between 512k and 2024k of chip Ram at your disposal.</p>
 
-<!-- section -->
-
 <p>
 Here is a list of the most common types of memory bank that will be used with AMOS
 Professional programs:</p>
@@ -94,10 +92,12 @@ Fast Work         temporary fast workspace        Temporary         Fast        
 Chip Data         long-term chip data             Permanent         Chip           any bank
 Fast Data         constant fast data              Permanent         Fast           any bank
 </pre>
+</section>
 
-<p><b>Reserving a bank</b><br>
+<section id="02-reserving-a-bank">
+<h2>Reserving a bank</h2>
 
-It has already been explained that AMOS Professional allocates certain types of bank
+<p>It has already been explained that AMOS Professional allocates certain types of bank
 automatically. To create any other required memory bank, they must first be "reserved". The
 RESERVE AS command is followed by the type of bank that you want to create, a comma, then
 the number of bytes needed for the length of this bank.</p>
@@ -128,8 +128,6 @@ to be accessed directly by the Amiga's hardware chips.</p>
 <b>Reserve as Work</b> bank number,length</p>
 
 <p>This allocates a <b>temporary</b> workspace of the requested length from fast memory, if it is available.</p>
-
-<!-- section -->
 
 <p>The work data will be erased every time the program is run from the Editor, and it will be
 discarded when the listing is saved onto disc. A quick check can be made to see if the data area
@@ -180,18 +178,18 @@ X> Reserve As Chip Work 10,10000: Rem 10000 bytes of chip workspace to bank 10
    Reserve As Chip Data 12,2000 : Rem 2000 bytes of permanent chip data to bank 12
    Reserve as Data 13,1000 : Rem 1000 bytes of fast data to bank 13
 </pre>
+</section>
 
-<p><b>Saving memory banks</b><br>
+<section id="03-saving-memory-banks">
+<h2>Saving memory banks</h2>
 
-AMOS Professional provides the simplest of instructions for saving memory banks.</p>
+<p>AMOS Professional provides the simplest of instructions for saving memory banks.</p>
 
 <p>
 <b>SAVE</b><br>
 <i>instruction: save one or more memory banks onto disc</i><br>
 <b>Save</b> "filename.abk"<br>
 <b>Save</b> "filename.abk",bank number</p>
-
-<!-- section -->
 
 <p>
 If a bank has been created using RESERVE, or some screen Objects have been defined with a
@@ -231,10 +229,12 @@ E> N=1 : Rem Set number of first new image to create
    Save F$,1
   End If
 </pre>
+</section>
 
-<p><b>Loading memory banks</b><br>
+<section id="04-loading-memory-banks">
+<h2>Loading memory banks</h2>
 
-Once saved, memory banks need to be retrieved and loaded, ready for use. AMOS Professional
+<p>Once saved, memory banks need to be retrieved and loaded, ready for use. AMOS Professional
 makes this process very easy too.</p>
 
 <p>
@@ -246,8 +246,6 @@ makes this process very easy too.</p>
 <p>
 Remember it has been suggested that memory bank filenames should have the following
 extensions, acting as reminders for human eyes, and identification flags for computer searches:</p>
-
-<!-- section -->
 
 <p>"filename.Abk" to indicate a single AMOS Professional memory bank<br>
 "filename.Abs" for a file containing a group of several memory banks.</p>
@@ -270,8 +268,10 @@ will be completely lost!</p>
 <p>
 Object and Icon files are treated slightly differently. If the bank number is greater than zero, any
 additional images will be added to the end of the existing bank of images.</p>
+</section>
 
-<p><b>Saving and loading memory blocks</b></p>
+<section id="05-saving-and-loading-memory-blocks">
+<h2>Saving and loading memory blocks</h2>
 
 <p>
 <b>BSAVE</b><br>
@@ -307,11 +307,12 @@ bank, or other areas of memory will be corrupted.</p>
 
 <p>The file of data can also be loaded from disc into a specified address, using BLOAD.</p>
 
-<!-- section -->
+</section>
 
-<p><b>Deleting memory banks</b><br>
+<section id="06-deleting-memory-banks">
+<h2>Deleting memory banks</h2>
 
-During the course of a program, it may be necessary to define temporary memory banks for
+<p>During the course of a program, it may be necessary to define temporary memory banks for
 specific purposes. For instance, a title screen may need to be enhanced by an animation
 sequence or some background music. Since this data would only be needed at the beginning of
 the program, it would serve very little purpose to hold it in memory permanently, and the extra
@@ -364,8 +365,6 @@ erased before the program is saved to disc, otherwise masses of useless data cou
 part of the program listing. Use the ERASE ALL command carefully to save large amounts of
 valuable disc space.</p>
 
-<!-- section -->
-
 <p>
 <b>ERASE TEMP</b><br>
 <i>instruction: clear temporary memory banks</i><br>
@@ -404,8 +403,10 @@ E> Reserve As Data 10,1000000: Rem Very large bank
    Bank Shrink 10 To 100: Rem Shrink bank to 100 bytes
    Save "My_Bank.Abk",10
 </pre>
+</section>
 
-<p><b>Swapping banks</b></p>
+<section id="07-swapping-banks">
+<h2>Swapping banks</h2>
 
 <p>
 <b>BANK SWAP</b><br>
@@ -421,8 +422,6 @@ Note that the items held in these banks are completely unaffected by this operat
 only thing that changes is the number and type of the memory bank to which the items are
 assigned.</p>
 
-<!-- section -->
-
 <p>
 BANK SWAP is commonly used in conjunction with Objects, Icons and music banks. For
 example, it can be used to instantly flick between the images in an Icon bank and an Object
@@ -436,8 +435,10 @@ X> Load "Objects.Abk" : Rem Please use your own filename
 
 <p>Another possibility is to store several different music banks in memory, and swap them as
 required.</p>
+</section>
 
-<p><b>Listing banks on the screen</b></p>
+<section id="08-listing-banks-on-the-screen">
+<h2>Listing banks on the screen</h2>
 
 <p>
 <b>LIST BANK</b><br>
@@ -466,10 +467,12 @@ from the current program. Information about the banks is listed in the following
 3-C- Music  S:C60E80            L:0001000
 6-F- Work   S:100000            L:0010000
 </pre>
+</section>
 
-<p><b>Memory bank functions</b><br>
+<section id="09-memory-bank-functions">
+<h2>Memory bank functions</h2>
 
-AMOS Professional provides a full range of memory bank functions, which are used to provide
+<p>AMOS Professional provides a full range of memory bank functions, which are used to provide
 information about the status of available banks.</p>
 
 <p>
@@ -481,8 +484,6 @@ length=<b>Length</b>(bank number)</p>
 The LENGTH function is used to find the size of the bank whose number is specified in
 brackets. Normally, this is measured in bytes, but if the bank contains Objects or Icon data, the
 number of images in that bank will be given.</p>
-
-<!-- section -->
 
 <p>A value of zero is returned for any bank that has not been defined. For example:</p>
 
@@ -518,10 +519,12 @@ E> If Length(N)>0: Rem give N a suitable bank number
 The FAST FREE and CHIP FREE functions that are used to find the amount of relevant free
 memory have already been explained. These should not be confused with the FREE function,
 which reports the amount of free memory in the variable area.</p>
+</section>
 
-<p><b>Grabbing accessory program memory banks</b><br>
+<section id="10-grabbing-accessory-program-memory-banks">
+<h2>Grabbing accessory program memory banks</h2>
 
-Any memory banks that are used by an accessory are independent from the main program.
+<p>Any memory banks that are used by an accessory are independent from the main program.
 Existing AMOS users will find that the system for grabbing memory banks has been greatly
 enhanced for AMOS Professional programmers.</p>
 
@@ -542,8 +545,6 @@ This function is used to get the length of the specified bank number from a prev
 Professional program, if this is possible. A value of zero will be returned if the specified bank has
 not been defined in the previous program, or if there is no previous program accessible at all
 (PRG UNDER= 0).</p>
-
-<!-- section -->
 
 <p>
 <b>BSTART</b><br>
@@ -596,13 +597,13 @@ X> If Prg Under : Rem Check availability of a previous program
     Next
    End If
 </pre>
+</section>
 
-<p><b>Automatic bank grabbing</b><br>
+<section id="11-automatic-bank-grabbing">
+<h2>Automatic bank grabbing</h2>
 
-This feature is a unique bonus! It allows memory banks to be passed between programs
+<p>This feature is a unique bonus! It allows memory banks to be passed between programs
 completely automatically. You could be in the middle of writing an arcade game, call up the</p>
-
-<!-- section -->
 
 <p>
 Object Editor, change the Bobs in the game, and return to the creation of your program routines
@@ -611,10 +612,12 @@ bringing the new Bobs with you!</p>
 <p>
 No loading and saving are necessary, everything is handled by AMOS Professional, and your
 working life is made that much easier! An example of this technique is featured in <a href="13/1346.html">Chapter 13.7</a>.</p>
+</section>
 
-<p><b>Creating your own utilities</b><br>
+<section id="12-creating-your-own-utilities">
+<h2>Creating your own utilities</h2>
 
-The following functions are provided in order to provide developers with full access to the inner
+<p>The following functions are provided in order to provide developers with full access to the inner
 workings of the AMOS Professional system. They are definitely not intended for the casual
 programmer, but they do allow advanced users to create customised AMOS Professional
 utilities.</p>
@@ -654,7 +657,7 @@ follows:</p>
   <li>A <b>positive</b> number indicates the address of the mask in memory. The first "long word" of this
       area holds the length of the mask, and the next gives the actual definition.</li>
 </ul>
-
+</section>
 
 </BODY>
 </HTML>

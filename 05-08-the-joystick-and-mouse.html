@@ -14,17 +14,17 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>The Joystick and Mouse</h1>
-
-<br>
-
 
 This Chapter clarifies all aspects of controlling and exploiting the joystick and mouse in your
 programs.
+</section>
 
-<p><b>Joysticks</b><br>
+<section id="01-joysticks">
+<h2>Joysticks</h2>
 
-A joystick can be used to control movement around the screen by pushing its handle in the
+<p>A joystick can be used to control movement around the screen by pushing its handle in the
 desired direction, and to trigger all sorts of actions by pressing one or more buttons built in to its
 mechanism. Either of the two joystick sockets at the back or side of your Amiga will happily
 accept a joystick plug. If two users want to control one joystick each for specially written
@@ -77,8 +77,6 @@ x=<b>Jleft</b>(port number)</p>
 <p>This returns a value of -1 (meaning True) if the joystick connected to the given port number has
 been pushed to the left, otherwise a value of 0 is returned (meaning False).</p>
 
-<!-- section -->
-
 <p>The three other function in this family are self-evident, as follows:</p>
 
 <p>
@@ -123,10 +121,12 @@ E> Do
     Print
    Loop
 </pre>
+</section>
 
-<p><b>The mouse pointer</b><br>
+<section id="02-the-mouse-pointer">
+<h2>The mouse pointer</h2>
 
-The mouse is often used in practical programming whereas joysticks have become associated
+<p>The mouse is often used in practical programming whereas joysticks have become associated
 with playing computer games, but they both do much the same thing. They can both control
 moving objects on screen and be used to select from a range of on-screen options, using a
 cursor.</p>
@@ -134,8 +134,6 @@ cursor.</p>
 <p>The mouse cursor has been pre-programmed to look like a pointer arrow, along with two
 additional standard shapes that can be selected at any time. The standard shapes have been
 assigned the numbers one to three, as follows:</p>
-
-<!-- section -->
 
 <pre>
 <b>Number Shape of mouse cursor</b>
@@ -195,8 +193,6 @@ X> Hide On
 
 <p>This makes the mouse pointer visible again after a HIDE instruction.</p>
 
-<!-- section -->
-
 <p>
 As a default, the system counts the number of times that the HIDE command has been used,
 then reveals the pointer on screen when the number of SHOWs equals the number of HIDEs. To
@@ -209,10 +205,12 @@ E> Do
     Next N
    Loop
 </pre>
+</section>
 
-<p><b>Reading the status of the mouse</b><br>
+<section id="03-reading-the-status-of-the-mouse">
+<h2>Reading the status of the mouse</h2>
 
-Whether or not the mouse pointer is visible, the computer must know two things in order to
+<p>Whether or not the mouse pointer is visible, the computer must know two things in order to
 make any use of the mouse. It needs to recognise where the mouse pointer is as well as if any of
 the mouse buttons have been pressed.</p>
 
@@ -254,8 +252,6 @@ y=<b>Y Mouse</b></p>
 Y MOUSE is used to give the y-coordinate of the mouse pointer in hardware co-ordinates, or to
 reposition the mouse pointer on screen, and it is employed in exactly the same way as X
 MOUSE.</p>
-
-<!-- section -->
 
 <pre>
 E> For N=150 To 300
@@ -322,11 +318,12 @@ E> Curs Off
    Loop
 </pre>
 
-<!-- section -->
+</section>
 
-<p><b>Limiting the mouse pointer</b><br>
+<section id="04-limiting-the-mouse-pointer">
+<h2>Limiting the mouse pointer</h2>
 
-One of the commonest screen conventions for both leisure and serious programs is the use of
+<p>One of the commonest screen conventions for both leisure and serious programs is the use of
 control panels. AMOS Professional relies on them extensively for ease of use and clarity.
 Supposing you need to set up a control panel on your screen, but you want to prevent the
 mouse pointer from wandering outside the area of that panel.</p>
@@ -351,10 +348,12 @@ If you need to restore freedom to the mouse pointer and allow it to move around 
 screen, use the LIMIT MOUSE instruction on its own, without any coordinates after it. Note that
 SCREEN OPEN must be followed by a WAIT VBL command before LIMIT MOUSE can be used,
 otherwise no screen will be set up for screen limits to be set.</p>
+</section>
 
-<p><b>Finding the mouse pointer</b><br>
+<section id="05-finding-the-mouse-pointer">
+<h2>Finding the mouse pointer</h2>
 
-If you already understand the concept of different screens and screen zone numbers, you will
+<p>If you already understand the concept of different screens and screen zone numbers, you will
 appreciate that it is not difficult to lose track of the mouse pointer.</p>
 
 <p>
@@ -382,8 +381,6 @@ X> X=Hzone(X Mouse,Y Mouse)
 <i>function: check which screen the mouse pointer is occupying</i><br>
 screen number=<b>Mouse Screen</b></p>
 
-<!-- section -->
-
 <p>
 Use MOUSE SCREEN to return the number of the screen where the mouse pointer is currently
 located, like this:</p>
@@ -392,10 +389,12 @@ located, like this:</p>
 E> X=Mouse Screen
    Print X
 </pre>
+</section>
 
-<p><b>Displaying menus with the mouse pointer</b><br>
+<section id="06-displaying-menus-with-the-mouse-pointer">
+<h2>Displaying menus with the mouse pointer</h2>
 
-Finally, as an AMOS Professional programmer, you will want to make use of the automatic
+<p>Finally, as an AMOS Professional programmer, you will want to make use of the automatic
 facility for displaying all the menus whose root starts from the current position of the mouse
 pointer.</p>
 
@@ -415,7 +414,7 @@ automatic process, simply use MENU MOUSE OFF.</p>
 <p>
 Please see <a href="6/638.html">Chapter 6.5</a> which deals with all aspects of AMOS Professional menus, if you are not
 experienced in their use.</p>
-
+</section>
 
 </BODY>
 </HTML>

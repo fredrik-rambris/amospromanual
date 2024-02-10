@@ -14,10 +14,8 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Text</h1>
-
-<br>
-
 
 <p>This Chapter explains how to use the advantages of AMOS Professional for handling written
 text. You may want to remind yourself of the visible character set by running this simple
@@ -29,9 +27,12 @@ E> For 0=32 To 255
     Print Asc(Chr$(C)) : Wait 10
    Next C
 </pre>
+</section>
 
-<p><b>Printing on the screen</b><br>
-The PRINT instruction is one of the most familiar command words in most Basic languages.</p>
+<section id="01-printing-on-the-screen">
+<h2>Printing on the screen</h2>
+
+<p>The PRINT instruction is one of the most familiar command words in most Basic languages.</p>
 
 <p>
 <b>PRINT</b><br>
@@ -73,10 +74,10 @@ E> Print "AMOS"
    Print "OS",
    Print "Professional"
 </pre>
+</section>
 
-<!-- section -->
-
-<p><b>Setting text options</b></p>
+<section id="02-setting-text-options">
+<h2>Setting text options</h2>
 
 <p>
 <b>PEN</b><br>
@@ -129,8 +130,6 @@ E> Pen 2: For INDEX=0 To 15
    Next INDEX
 </pre>
 
-<!-- section -->
-
 <p>
 <b>PAPER$</b><br>
 <i>function: return a control index number to set background colour</i><br>
@@ -144,8 +143,10 @@ E> Pen 1
    B$=Paper$(3)+"Flash Harry"+Paper$(1)+"The Invisible Man"
    Print B$
 </pre>
+</section>
 
-<p><b>Changing text options</b></p>
+<section id="03-changing-text-options">
+<h2>Changing text options</h2>
 
 <p>
 <b>INVERSE ON/OFF</b><br>
@@ -176,10 +177,12 @@ simply turn it on and off like this:</p>
 E> Shade On :Print "Shady Lady"
    Shade Off:Print "Norman Normal"
 </pre>
+</section>
 
-<p><b>Setting text styles</b><br>
+<section id="04-setting-text-styles">
+<h2>Setting text styles</h2>
 
-As well as customising the appearance of your text by changing the text options, you can also
+<p>As well as customising the appearance of your text by changing the text options, you can also
 use the standard type-face techniques available to printers and word processors.</p>
 
 <p>
@@ -188,8 +191,6 @@ use the standard type-face techniques available to printers and word processors.
 <b>Under On</b><br>
 <b>Under Off</b></p>
 
-
-<!-- section -->
 
 <p>To underline text when printed on screen like this, use the UNDER instructions, as follows:</p>
 
@@ -236,10 +237,12 @@ result is a bit-map in the same format as explained above:</p>
 Set Text 2: Print "Style Two"
 Print Text Styles
 </pre>
+</section>
 
-<p><b>Changing the text mode</b><br>
+<section id="05-changing-the-text-mode">
+<h2>Changing the text mode</h2>
 
-For even more flexibility in presenting your text on screen, you can select the way it is combined
+<p>For even more flexibility in presenting your text on screen, you can select the way it is combined
 with other screen data.</p>
 
 <p>
@@ -252,13 +255,11 @@ with other screen data.</p>
 already on the screen, and it can be followed by either one or two values.</p>
 
 
-<!-- section -->
-
 <p>The first value selects one of five writing modes:</p>
 
 <pre>
 <b>Value   Mode        Effect</b>
-0       REPLACE     New text replaces any existing screen data  
+0       REPLACE     New text replaces any existing screen data
 1       OR          Merge new text with screen data, using logical OR
 2       XOR         Combine new text with screen data, using OR
 3       AND         Combine new text and screen data, using logical AND
@@ -277,10 +278,12 @@ screen, as follows:</p>
 </pre>
 
 <p>The default value for both of the WRITING parameters is zero, giving normal printed output.</p>
+</section>
 
-<p><b>Positioning the text cursor</b><br>
-	
-Characters are always printed at the current position of the text cursor, and the AMOS
+<section id="06-positioning-the-text-cursor">
+<h2>Positioning the text cursor</h2>
+
+<p>Characters are always printed at the current position of the text cursor, and the AMOS
 Professional programmer is offered several methods of controlling the cursor in order to make
 text look more orderly, attractive or eye-catching.</p>
 
@@ -311,8 +314,6 @@ E> Print "0,0": Locate 10, : Print "Stay on current line"
    Locate ,5 : Print "Six from the top."
    Locate 10,10 : Print "Ten down and ten across"
 </pre>
-
-<!-- section -->
 
 <p>
 <b>HOME</b><br>
@@ -370,8 +371,6 @@ E> A$=Cmove$(10,10)
 <b>AT</b><br>
 <i>function: return a string to position the text cursor</i><br>
 a$=<b>At</b>(x,y)</p>
-
-<!-- section -->
 
 <p>You may also change the position of the text cursor directly from inside a character string. This
 is ideal for positioning text once and for all on screen, no matter what happens in the program,
@@ -432,8 +431,6 @@ t$=<b>Tab$</b></p>
 9. When this character is printed, the text cursor is automatically moved to the next tabulated
 column setting (Tab) to the right.</p>
 
-<!-- section -->
-
 <p>The default setting for this is four characters, which can be changed as follows:</p>
 
 <p>
@@ -492,8 +489,6 @@ E> C$="Going Down"+Cdown$
 <b>CRIGHT</b><br>
 <i>instruction: move text cursor one character right</i><br>
 <b>Cright</b></p><br>
-	
-<!-- section -->
 
 <p>These three commands are self-explanatory, and work in exactly the same way as CDOWN.
 their equivalent functions are listed below, and work in the same way as CDOWN$:</p>
@@ -530,10 +525,12 @@ E> Print "Testing Testing Testing";
    Wait Key
    Cline
 </pre>
+</section>
 
-<p><b>Tracking the text cursor</b><br>
+<section id="07-tracking-the-text-cursor">
+<h2>Tracking the text cursor</h2>
 
-To track down the exact position of the text cursor, the following pair of functions may be used</p>
+<p>To track down the exact position of the text cursor, the following pair of functions may be used</p>
 
 <p>
 <b>XCURS</b><br>
@@ -557,8 +554,6 @@ E> Locate 5,10: Print Xcurs; : Print Ycurs
 <i>instructions: save the x or y text cursor coordinates</i><br>
 <b>Memorize X</b><br>
 <b>Memorize Y</b></p>
-	
-<!-- section -->
 
 <p>The MEMORIZE commands store the current position of the x or y text cursor, so that you can
 print any text on the screen without destroying the original cursor coordinates. These may be
@@ -574,8 +569,10 @@ reloaded using the REMEMBER commands, as follows:</p>
 command. If MEMORIZE has not been used, the relevant coordinate will automatically be set to
 zero. There is a ready-made example demonstrating these commands to be found under the SET
 CURS command, which is below.</p>
+</section>
 
-<p><b>Changing the text cursor</b></p>
+<section id="08-changing-the-text-cursor">
+<h2>Changing the text cursor</h2>
 
 <p>
 <b>CURS PEN</b><br>
@@ -610,9 +607,7 @@ into anything you like, providing you limit yourself to the eight lines of eight
 represent its appearance. Lines are numbered one to eight from top to bottom, and every bit set
 to 1 results in a pixel drawn in the current cursor pen colour, whereas a zero displays the current
 paper colour. To familiarise yourself with the technique, try the next example, which changes
-the text cursor into a Hallowe'en mask:</p>
-
-<!-- section -->
+the text cursor into a Halloween mask:</p>
 
 <pre>
 E> L1=%00111100
@@ -637,8 +632,10 @@ away any leading zeros in binary listings.</p>
 
 <p>This pair of commands is use to hide and reveal the text cursor in the current window. It has no
 effect at all on any cursors used in other windows.</p>
+</section>
 
-<p><b>Advanced text commands</b></p>
+<section id="09-advanced-text-commands">
+<h2>Advanced text commands</h2>
 
 <p>
 <b>ZONE$</b><br>
@@ -668,8 +665,6 @@ b$=<b>Border$</b>(text$, border number)</p>
 <p>This works in much the same way as ZONES, by returning a string of characters that create a
 border around the required string of text. The AMOS Professional programmer can use it with
 ZONES to set up special "buttons" for alert windows and control consoles.</p>
-
-<!-- section -->
 
 <p>In this case, the text held in the string will start at the current text cursor position. Border
 numbers can range from 1 to 16, for example:</p>
@@ -718,10 +713,12 @@ effects, one character at a time.</p>
 </pre>
 
 <p>Note that blank lines are inserted to fill any gaps left by these scrolling operations.</p>
+</section>
 
-<p><b>Advanced printing</b><br>
+<section id="10-advanced-printing">
+<h2>Advanced printing</h2>
 
-The AMOS Professional programmer is not restricted to the standard PRINT command for
+<p>The AMOS Professional programmer is not restricted to the standard PRINT command for
 displaying information.</p>
 
 <p>
@@ -793,8 +790,6 @@ For example:</p>
 E> Print Using "-##";10:Print Using "-##";-10
 </pre>
 
-<!-- section -->
-
 <p>
 <b>.</b><br>
 <i>full stop character</i></p>
@@ -825,10 +820,12 @@ E> Print Using "Pl is #;###";Pi#
 <pre>
 E> Print Using "This is an exponential number^";10000*10000.5
 </pre>
+</section>
 
-<p><b>Sending text to a printer</b><br>
+<section id="11-sending-text-to-a-printer">
+<h2>Sending text to a printer</h2>
 
-<a href="10/1025.html">Chapter 10.3</a> is devoted to the exploitation of the printer device by AMOS Professional. The
+<p><a href="10/1025.html">Chapter 10.3</a> is devoted to the exploitation of the printer device by AMOS Professional. The
 following command offers easy access to a printer from inside an AMOS Professional program
 or via Direct mode.</p>
 
@@ -843,7 +840,7 @@ instead of the screen, like this:</p>
 <pre>
 X> Lprint "Greetings from AMOS Professional!"
 </pre>
-
+</section>
 
 </BODY>
 </HTML>

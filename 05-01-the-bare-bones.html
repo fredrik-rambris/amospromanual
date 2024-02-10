@@ -14,40 +14,40 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>The Bare Bones</h1>
 
-<br>
-
-
 <P>
-Ths Chapter provides you with the bare bones that support AMOS Professional 
+Ths Chapter provides you with the bare bones that support AMOS Professional
 programming. These bones are used to build program skeletons, and you need to understand what they do
-and how they work before adding the life-blood, the muscle-power and the brain-control 
+and how they work before adding the life-blood, the muscle-power and the brain-control
 that endow a program with its own life.</P>
 
 <P>
-If you are an experienced programmer, you will already be familiar with these bare 
+If you are an experienced programmer, you will already be familiar with these bare
 bones, and you can safely skip through most of this Chapter.</P>
 
 <P>
-AMOS Professional is designed to provide you with the easiest and most convenient way 
+AMOS Professional is designed to provide you with the easiest and most convenient way
 of controlling all your programming needs, and even though it provides very powerful
 programming features, difficult concepts and terms are avoided wherever possible.
-This section begins with one of the simplest concepts in computing, known as 
+This section begins with one of the simplest concepts in computing, known as
 "strings".</P>
+</section>
 
-<p><b>Strings</b><br>
+<section id="01-strings">
+<h2>Strings</h2>
 
-A "string" is a number of characters strung together. A set of quotation marks is 
-placed at either end of the string to hold it together and keep it separate from the rest of the program. 
-Each string is also identified by its own name, so that it can be called up by that name, and 
-used elsewhere in the program. The "dollar" character $ is attached to the end of every string 
-name, to mark the fact that this name refers to a string. On UK Keyboards, quote marks are typed 
+<p>A "string" is a number of characters strung together. A set of quotation marks is
+placed at either end of the string to hold it together and keep it separate from the rest of the program.
+Each string is also identified by its own name, so that it can be called up by that name, and
+used elsewhere in the program. The "dollar" character $ is attached to the end of every string
+name, to mark the fact that this name refers to a string. On UK Keyboards, quote marks are typed
 in by pressing the [Shift] and [2] keys together, and the $ character is typed with [Shift] plus [4].</P>
 
 <P>
-Characters in a string can be letters, numbers, symbols or spaces. The following 
-example creates a simple string named A$, and it is defined by letting the name of the string equal the 
+Characters in a string can be letters, numbers, symbols or spaces. The following
+example creates a simple string named A$, and it is defined by letting the name of the string equal the
 characters enclosed in quotes, like this:</P>
 
 <pre>
@@ -64,7 +64,7 @@ E&gt; A$="AMOS"
    Print A$+B$+C$
 </pre>
 
-<P>Strings are extremely useful, and they can act on their own or work together, as that 
+<P>Strings are extremely useful, and they can act on their own or work together, as that
 last example demonstrated. Try the next example now:</P>
 
 <pre>
@@ -73,35 +73,37 @@ E&gt; A$="AMOS PROFESSIONAL"-"S"
 </pre>
 
 <P>The whole of <a href="511.html">Chapter 5.2</a> is devoted to how AMOS Professional makes use of strings.</P>
+</section>
 
-<P><b>Variables</b><BR>
-	
-There are certain elements of a computer program that are set aside to store the results 
+<section id="02-variables">
+<h2>Variables</h2>
+
+<p>There are certain elements of a computer program that are set aside to store the results
 of calculations. The names of these storage locations are known as "variables".</P>
 
-<!-- section -->
-
 <p>
-Think of a variable as the name of a place where a value resides, and that the value can 
-change as the result of a calculation made by your computer. Like strings, variables are given 
+Think of a variable as the name of a place where a value resides, and that the value can
+change as the result of a calculation made by your computer. Like strings, variables are given
 their own names, and once a name has been chosen it can be given a value, like this:</P>
 
 <pre>
-	
+
 E&gt; SCORE=100
    Print SCORE
 
 </pre>
 
 <P>That example creates a variable with the name of SCORE, and loads it with a value of 100.</P>
+</section>
 
-<p><b>Naming variables</b><br>
+<section id="03-naming-variables">
+<h2>Naming variables</h2>
 
-The rules for the naming of variables are very simple. Firstly, all variable names must 
+<p>The rules for the naming of variables are very simple. Firstly, all variable names must
 begin with a letter, so the following variable name is fine:</P>
 
 <pre>
-	
+
 E&gt; AMOS2=1
    Print AMOS2
 
@@ -110,13 +112,13 @@ E&gt; AMOS2=1
 <P>But the next name is not allowed:</P>
 
 <pre>
-	
+
 X&gt; 2AMOS=1
 
 </pre>
 
 <P>
-Secondly, you cannot begin a variable name with the letters that make up one of the 
+Secondly, you cannot begin a variable name with the letters that make up one of the
 AMOS Professional command words, because this would confuse your Amiga. The following variable
 name is acceptable, because the first letters are not used by one of the AMOS Professional
 commands:</P>
@@ -126,7 +128,7 @@ E&gt; FOOTPRINT=1
    Print FOOTPRINT
 </pre>
 
-<P>But the next name is unacceptable, because the computer recognises the first five 
+<P>But the next name is unacceptable, because the computer recognises the first five
 letters as the command PRINT:</P>
 
 <pre>
@@ -134,12 +136,12 @@ X&gt; PRINTFOOT=1
 </pre>
 
 <P>
-If you try and type in an illegal variable name, AMOS Professional will spot the 
-mistake, and point it out by splitting the illegal characters away from the rest of the name. A full 
+If you try and type in an illegal variable name, AMOS Professional will spot the
+mistake, and point it out by splitting the illegal characters away from the rest of the name. A full
 list of the command words can be found in the Command Index, in Appendix H of this User Guide.</P>
 
 <P>
-Variable names can be as short as one character, and as long as 255 characters, but 
+Variable names can be as short as one character, and as long as 255 characters, but
 they can never contain a blank space. So the next name is allowed:</P>
 
 <pre>
@@ -153,24 +155,24 @@ E&gt; AMOSPRO=1
 X&gt; AMOS PRO=1
 </pre>
 
-<!-- section -->
-
 <P>
-To introduce a name, or split it up, use the "underscore" character instead of spaces, by 
+To introduce a name, or split it up, use the "underscore" character instead of spaces, by
 typing [Shift] and [-] together. For example:</P>
 
 <pre>
 E&gt; _IAM A_LONG_LEGAL_VARIABLE_NAME=1
    Print _IAM A_LONG_LEGAL_VARIABLE_NAME
 </pre>
+</section>
 
-<p><b>Types of variables</b><br>
+<section id="04-types-of-variables">
+<h2>Types of variables</h2>
 
-There are three types of variable that can be used in AMOS Professional programs.</P>
+<p>There are three types of variable that can be used in AMOS Professional programs.</P>
 
 <P><b>Whole Numbers</b><br>
 
-The first of these types is where the variable represents a whole number, like 1 or 
+The first of these types is where the variable represents a whole number, like 1 or
 9999. These variables are perfect for holding the sort of values used in computer games, for example:</P>
 
 <pre>
@@ -179,13 +181,13 @@ E&gt; HI SCORE=1000000
 </pre>
 
 <P>
-Whole numbers are called "integers", and integer variables can range from -147,483,648 
+Whole numbers are called "integers", and integer variables can range from -147,483,648
 up to 147,483,648.</P>
 
 <P><b>Real number variables</b><br>
 
-Variables can also represent fractional values, such as 1.2 or 99.99 and the results 
-from this sort of variable can be extremely accurate. The accuracy of numbers either side of a decimal 
+Variables can also represent fractional values, such as 1.2 or 99.99 and the results
+from this sort of variable can be extremely accurate. The accuracy of numbers either side of a decimal
 point (known as "floating point" numbers) is fully explained in <a href="518.html">Chapter 5.3</a>.</P>
 
 <P>Real number variables must always have a "hash" symbol added to the end of their names,
@@ -198,9 +200,9 @@ E&gt; REAL_NUMBER#=3.14
 
 <P><b>String variables</b><br>
 
-This type of variable holds text characters, and the length of the text can be anything 
-from zero up to 65,500 characters long. String variables are enclosed in quotation marks, and are 
-also distinguished from number variables by a $ character on the end of their names, to tell 
+This type of variable holds text characters, and the length of the text can be anything
+from zero up to 65,500 characters long. String variables are enclosed in quotation marks, and are
+also distinguished from number variables by a $ character on the end of their names, to tell
 AMOS Professional that they will contain text rather than numbers. For example:</P>
 
 <pre>
@@ -208,14 +210,16 @@ E&gt; NAME$="Name"
    GUITAR$="Twang"
    Print NAME$,GUITAR$
 </pre>
+</section>
 
-<P><b>Storing variables</b><br>
+<section id="05-storing-variables">
+<h2>Storing variables</h2>
 
-All variables are stored in an 8k memory area called a "buffer". This area can hold 
-about 2000 numbers or two pages of normal text, and it has been set as small as possible to allow 
-more space for memory banks and screens of graphics. When there is not enough room left to 
-store all of the variables in a program, an error message will appear saying "Out of variable 
-space". The size of the storage space for variables can be increased at any time, and the only limit 
+<p>All variables are stored in an 8k memory area called a "buffer". This area can hold
+about 2000 numbers or two pages of normal text, and it has been set as small as possible to allow
+more space for memory banks and screens of graphics. When there is not enough room left to
+store all of the variables in a program, an error message will appear saying "Out of variable
+space". The size of the storage space for variables can be increased at any time, and the only limit
 to the size of arrays and string variables is the amount of memory available in your computer.</P>
 
 <!-- section -->
@@ -227,19 +231,21 @@ to the size of arrays and string variables is the amount of memory available in 
 <P>
 The SET BUFFER command can be used inside a program to set the new size of the variable
 area. Simply follow the command with the number of kilobytes required, and you are
-recommended to increase this value by 5k at a time, until enough space has been reserved 
+recommended to increase this value by 5k at a time, until enough space has been reserved
 in the buffer area. It is important to note that the SET BUFFER command must be the very first
 instruction in your program, apart from any REM messages.</P>
+</section>
 
-<P><b>Arrays</b><br>
+<section id="06-arrays">
+<h2>Arrays</h2>
 
-It is often necessary to use a whole set of similar variables for something like a 
-table of football results or a catalogue for a record collection. Any set of variables can be grouped 
+<p>It is often necessary to use a whole set of similar variables for something like a
+table of football results or a catalogue for a record collection. Any set of variables can be grouped
 together in what is known as an "array".</P>
 
 <P>
-Supposing you have 100 titles in your record collection, and you need to tell AMOS 
-Professional the size of the table of variables needed for your array. There is a special command for 
+Supposing you have 100 titles in your record collection, and you need to tell AMOS
+Professional the size of the table of variables needed for your array. There is a special command for
 setting up this dimension.</P>
 
 <P><b>DIM</b><BR>
@@ -247,7 +253,7 @@ setting up this dimension.</P>
 <b>Dim</b> variable name(number,number,number...)</P>
 
 <P>
-The DIM command is used to dimension an array, and the variables in your record 
+The DIM command is used to dimension an array, and the variables in your record
 collection table could be set up with a first line like this:</P>
 
 <pre>
@@ -255,11 +261,11 @@ E&gt; Dim ARTIST$(99),TITLE$(99),YEAR(99),PRICE#(99)
 </pre>
 
 <P>
-Each dimension in the table is held inside round brackets, and if there is more than 
+Each dimension in the table is held inside round brackets, and if there is more than
 one element
 in a dimension each number must be separated from the next by a comma.</P>
 
-<P>Element numbers in arrays always start from zero, so your first and last entries might 
+<P>Element numbers in arrays always start from zero, so your first and last entries might
 contain these variables:</P>
 
 <pre>
@@ -273,10 +279,8 @@ E&gt; ARTIST$(0)="Aaron Copeland"
    PRICE#(99)=9.95
 </pre>
 
-<P>To extract elements from your array, you could then add something like this to your 
+<P>To extract elements from your array, you could then add something like this to your
 example program:</P>
-
-<!-- section -->
 
 <pre>
 E&gt; Print TITLE$(0),PRICE#(0)
@@ -289,15 +293,17 @@ E&gt; Print TITLE$(0),PRICE#(0)
 <pre>
 X&gt; Dim LIST(5),NUMBER#(5,5,5),WORD$(5,5)
 </pre>
+</section>
 
-<P><b>Constants</b><br>
+<section id="07-constants">
+<h2>Constants</h2>
 
-Constants are a special type of number or string that can be assigned to a variable, or 
-used in a calculation. They are given this name because their value remains constant, and does not 
+<p>Constants are a special type of number or string that can be assigned to a variable, or
+used in a calculation. They are given this name because their value remains constant, and does not
 change during the course of the program.</P>
 
 <P>
-AMOS Professional will normally treat all constants that are fractional numbers 
+AMOS Professional will normally treat all constants that are fractional numbers
 (floating point numbers) as whole numbers (integers), and convert them automatically, before they are used.
 For example:</P>
 
@@ -307,16 +313,18 @@ E&gt; A=3.141
 </pre>
 
 <P>
-Any numbers that are typed into an AMOS Professional program are converted into a 
-special format. When programs are listed, these numbers are converted back to their original form, 
-and this can lead to minor discrepancies between the number that was originally typed in and 
-the number that is displayed in the listing. There is no need to worry about this, because the 
+Any numbers that are typed into an AMOS Professional program are converted into a
+special format. When programs are listed, these numbers are converted back to their original form,
+and this can lead to minor discrepancies between the number that was originally typed in and
+the number that is displayed in the listing. There is no need to worry about this, because the
 value of the number always remains exactly the same.</P>
 
+</section>
 
-<P><b>Functions</b><br>
+<section id="08-functions">
+<h2>Functions</h2>
 
-There is a whole set of bare bones in the AMOS Professional skeleton known as 
+<p>There is a whole set of bare bones in the AMOS Professional skeleton known as
 "functions". These are command words that have one thing in common: they all work with numbers in
 order to give a result.</P>
 
@@ -331,15 +339,13 @@ memory are currently available to hold your variables, and it can be used to mak
 E&gt; Print "The number of bytes available is:";Free
 </pre>
 
-<P>Now use the FREE function with the SET BUFFER command (which is explained earlier in 
+<P>Now use the FREE function with the SET BUFFER command (which is explained earlier in
 this Chapter) as follows:</P>
 
 <pre>
 E&gt; Set Buffer 13
    Print "The number of bytes now available is:";Free
 </pre>
-
-<!-- section -->
 
 <P>
 AMOS Professional provides over 200 ready-made functions, but it allows you to create as many
@@ -350,7 +356,7 @@ simply.</P>
 <P><b>DEF FN</b><BR>
 <i>structure: create a user-defined function</i><BR>
 <b>Def Fn</b> name (list of variables)=expression</P>
-	
+
 <P>
 To create a user-defined function, give it a name and follow the name with a list of variables.
 These variables must be held inside a pair of round brackets, and separated from one another by
@@ -368,31 +374,33 @@ substituted in the appropriate positions, as demonstrated below.</p>
 <p><b>FN</b><BR>
 <i>structure: call a user-defined function</i><BR>
 <b>Fn</b> name(list of variables)</p>
-	
-<p>The following examples show how DEF FN is first used to define a function, and how FN 
+
+<p>The following examples show how DEF FN is first used to define a function, and how FN
 calls it up:</p>
 
 <pre>
 E&gt; Def Fn NAME$(A$,X,Y)=Mid$(A$,X,Y)
    Print Fn NAME$("Professional",4,3)
-  
+
 E&gt; Def Fn X(A,B,C)=A+B+C
    Print Fn X(1,10,100)
 </pre>
 
 <P>
-The expression that equals the user-defined function can include any of the standard 
+The expression that equals the user-defined function can include any of the standard
 AMOS Professional functions, and it is limited to a single line of a program.</p>
+</section>
 
-<p><b>Parameters</b><br>
-The values that are entered into an AMOS Professional instruction are known as 
-"parameters". If there is more than one parameter, each parameter must be separated from its neighbour 
+<section id="09-parameters">
+<h2>Parameters</h2>
+<p>The values that are entered into an AMOS Professional instruction are known as
+"parameters". If there is more than one parameter, each parameter must be separated from its neighbour
 by a comma.</P>
 
 <P>
-For example, up to three parameters can be used after an INK command, in the form of 
-various numbers which specify which colour is to be used for drawing operations, then the 
-background colour, and the third parameter setting a border colour. So an INK command could appear 
+For example, up to three parameters can be used after an INK command, in the form of
+various numbers which specify which colour is to be used for drawing operations, then the
+background colour, and the third parameter setting a border colour. So an INK command could appear
 like this, with its three parameters ready to draw a shape:</P>
 
 <pre>
@@ -404,8 +412,8 @@ E&gt; Ink 0,1,2
 
 <p>
 Any parameter can be left out, as long as its comma remains in place. When this happens,
-AMOS professional will check to see what the current value is, or if there is a default 
-value for this parameter, and automatically assign this value to the parameter that has been 
+AMOS professional will check to see what the current value is, or if there is a default
+value for this parameter, and automatically assign this value to the parameter that has been
 omitted. For example:</P>
 
 <pre>
@@ -413,22 +421,26 @@ E&gt; Ink 0,1,2 : Rem Set drawing, background and border colour
    Ink 3,, : Rem Set drawing colour only
    Ink ,4, : Rem Set background, leave drawing and border colours alone
 </pre>
+</section>
 
-<P><b>Procedures</b><br>
-	
-The more complex the skeleton of a program gets, the easier it is to get lost among all 
-of its routes and connections. Experienced programmers usually split their programs into small 
-units known as "procedures", which allow one aspect of the program to be tackled at a time, 
+<section id="10-procedures">
+<h2>Procedures</h2>
+
+<p>The more complex the skeleton of a program gets, the easier it is to get lost among all
+of its routes and connections. Experienced programmers usually split their programs into small
+units known as "procedures", which allow one aspect of the program to be tackled at a time,
 without getting distracted by everything else that is going on.</P>
 
 <P>
-AMOS Professional offers all the advantages of using procedures in the most convenient 
-way, and <a href="542.html">Chapter 5.5</a> is dedicated to a full explanation of how to exploit them. You will learn 
+AMOS Professional offers all the advantages of using procedures in the most convenient
+way, and <a href="542.html">Chapter 5.5</a> is dedicated to a full explanation of how to exploit them. You will learn
 how each procedure module can be given its own specially defined variables and parameters, and
 how to take best advantage of them.</P>
+</section>
 
-<P><b>Controlling a program skeleton</b><br>
-Once a program is running, there are a number of ways to stop it in its tracks, 
+<section id="11-controlling-a-program-skeleton">
+<h2>Controlling a program skeleton</h2>
+<P>Once a program is running, there are a number of ways to stop it in its tracks,
 allowing you to control what happens next.</P>
 
 <P><b>WAIT</b><BR>
@@ -436,7 +448,7 @@ allowing you to control what happens next.</P>
 <b>Wait</b> number of 50ths of a second</P>
 
 <P>
-The WAIT command tells the computer to stop the program and wait for as long as you 
+The WAIT command tells the computer to stop the program and wait for as long as you
 want before moving on to the next instruction. The number that follows it is the waiting time,
 specified in 50ths of a second.</P>
 
@@ -453,8 +465,8 @@ E&gt; Print "I am the first instruction."
 <b>End</b></P>
 
 <P>
-As soon as the END command is recognised, it stops the program. You can either press 
-the [Esc] key to go to Direct Mode, or use the [Spacebar] to get to the Edit Screen. Try this 
+As soon as the END command is recognised, it stops the program. You can either press
+the [Esc] key to go to Direct Mode, or use the [Spacebar] to get to the Edit Screen. Try this
 example now:</P>
 
 <pre>
@@ -463,8 +475,6 @@ E&gt; Print "I am the first instruction."
    End
    Print "This instruction will never be executed!"
 </pre>
-
-<!-- section -->
 
 <P><b>STOP</b><BR>
 <i>instruction: interrupt the current program</i><BR>
@@ -483,7 +493,7 @@ E&gt; Print "Interrupt in two seconds!"
 <i>instruction: leave current program and return to Edit Screen</i><BR>
 <b>Edit</b></P>
 
-<P>Similarly, the EDIT instruction forces the program to be abandoned, and returns you 
+<P>Similarly, the EDIT instruction forces the program to be abandoned, and returns you
 straight to the Edit Screen, like this:</P>
 
 <pre>
@@ -497,7 +507,7 @@ E&gt; Print "Wait four seconds and then EDIT"
 <i>instruction: leave current program and return to Direct Mode</i><BR>
 <b>Direct</b></P>
 
-<P>Use the DIRECT command to jump out of the current program and go straight to Direct 
+<P>Use the DIRECT command to jump out of the current program and go straight to Direct
 Mode for testing out a programming idea.</P>
 
 <pre>
@@ -506,7 +516,7 @@ E&gt; Print "Take me to Direct Mode immediately"
 </pre>
 
 <P>Normally, a program can be interrupted by pressing the [Ctrl] and the [C] keys together,
-returning you to the AMOS Professional Edit Screen. This facility can be turned off and on 
+returning you to the AMOS Professional Edit Screen. This facility can be turned off and on
 at will, creating a crude sort of program protection.</P>
 
 <P><b>BREAK OFF</b><BR>
@@ -518,10 +528,8 @@ at will, creating a crude sort of program protection.</P>
 <P>The BREAK OFF command can be included in a program to stop a particular routine from being
 interrupted while it is running. To re-start the interrupt feature, use BREAK ON. But be <b>warned!</b></P>
 
-<!-- section -->
-
 <p>
-Never run a program that is still being edited with BREAK OFF activated, or <b>you will lose 
+Never run a program that is still being edited with BREAK OFF activated, or <b>you will lose
 your work</b>. Make a back-up copy first. Here are two examples, and if you insist on ignoring this
 advice, you may be foolhardy enough to try the second one!</P>
 
@@ -547,45 +555,47 @@ E&gt; Break Off
 <b>System</b></P>
 
 <P>
-To close AMOS Professional altogether, and go to the Workbench, the <b>System</b> command can 
-be given from within a program, or from the Editor. The Direct Mode pre-set icon, is 
+To close AMOS Professional altogether, and go to the Workbench, the <b>System</b> command can
+be given from within a program, or from the Editor. The Direct Mode pre-set icon, is
 explained in <a href="4/401.html">Chapter 4.1</a>, or simply press [Shift]+[F10].</P>
 
 <pre>
 D&gt; Print "Au revoir AMOS"
    System
 </pre>
+</section>
 
-<P><b>Separating commands in a line</b><br>
+<section id="12-separating-commands-in-a-line">
+<h2>Separating commands in a line</h2>
 
-So far in this Chapter, individual instructions have been separated from one another by 
-typing them in and pressing the [Return] key to enter them on a new line of the program. In fact, 
+<P>So far in this Chapter, individual instructions have been separated from one another by
+typing them in and pressing the [Return] key to enter them on a new line of the program. In fact,
 the AMOS Professional programmer will often want to place groups of related commands together
-on the same line of the program. This is achieved by separating your instructions with a 
+on the same line of the program. This is achieved by separating your instructions with a
 colon character.</p>
 
 <p>
 AMOS Professional makes typing in instructions as simple as possible, and you will not
-normally have to worry about typing in correct spacings, as long as you stick to the 
-rules. When a colon is used to split up commands, command words are recognised and given a capital 
+normally have to worry about typing in correct spacings, as long as you stick to the
+rules. When a colon is used to split up commands, command words are recognised and given a capital
 letter and a space automatically.</P>
 
-<P>This can be proved by typing in the next example exactly as it appears below, and 
+<P>This can be proved by typing in the next example exactly as it appears below, and
 hitting the
 Return] key:</P>
 
 <pre>
 E&gt; Print"I'm so":wait key:print"neat!"
 </pre>
+</section>
 
-<!-- section -->
+<section id="13-marking-the-bones-of-a-program">
+<h2>Marking the bones of a program</h2>
 
-<p><b>Marking the bones of a program</b><BR>
-
-Imagine that the skeleton of your latest programming masterpiece is so clever and so 
-complex that you cannot remember where everything is or what anything is supposed to do! There is 
+<p>Imagine that the skeleton of your latest programming masterpiece is so clever and so
+complex that you cannot remember where everything is or what anything is supposed to do! There is
 a simple and effective way of marking any part of an AMOS Professional program, by inserting
-typed messages to remind yourself exactly what this section of program is for. These 
+typed messages to remind yourself exactly what this section of program is for. These
 little comments or messages are known as "Rem statements".</P>
 
 <P><b>REM</b><BR>
@@ -594,8 +604,8 @@ little comments or messages are known as "Rem statements".</P>
 <b>'</b> Typed in statement</P>
 
 <P>
-The beginning of a Rem statement is marked by REM or by the apostrophe character, which 
-is simply a short-cut recognised by AMOS Professional as a REM. The message or comment is 
+The beginning of a Rem statement is marked by REM or by the apostrophe character, which
+is simply a short-cut recognised by AMOS Professional as a REM. The message or comment is
 then typed in from the keyboard, beginning with a capital letter. Here are some examples:</P>
 
 <pre>
@@ -608,13 +618,13 @@ X&gt; 'An apostrophe can be used instead of the characters Rem
    Edit
 </pre>
 
-<P>These reminders are for human intelligence only, and when a Rem statement is 
+<P>These reminders are for human intelligence only, and when a Rem statement is
 encountered in a program, it is completely ignored by the computer.</P>
 
 <P>
-Rem statements can occupy their own line, or be placed at the end of a line of the 
-program, as long as they are separated from the last instruction by a colon. But the apostrophe 
-character can only be used to mark a Rem statement at the <b>beginning</b> of a line. The first of the next two 
+Rem statements can occupy their own line, or be placed at the end of a line of the
+program, as long as they are separated from the last instruction by a colon. But the apostrophe
+character can only be used to mark a Rem statement at the <b>beginning</b> of a line. The first of the next two
 lines is fine, but the second will create an error:</P>
 
 <pre>
@@ -622,6 +632,7 @@ X&gt; Print "This example is fine" : Rem Fine example
    Print "Wrong!" : ' This is illegal
 </pre>
 
+</section>
 
 </BODY>
 </HTML>

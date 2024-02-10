@@ -14,17 +14,20 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>String Functions</h1>
 
 <br>
 
 
 <P>
-In this Chapter, you will learn how to handle strings. AMOS Professional Basic has a 
+In this Chapter, you will learn how to handle strings. AMOS Professional Basic has a
 full range of string manipulation instructions, and experienced Basic programmers should already be
 familiar with the standard syntax used.</P>
+</section>
 
-<P><b>Reading characters in a string</b></P>
+<section id="01-reading-characters-in-a-string">
+<h2>Reading characters in a string</h2>
 
 <P><b>LEFT$</b><BR>
 <i>function: return the leftmost characters of a string</i><BR>
@@ -32,8 +35,8 @@ destination$=<b>Left$</b>(source$,number)<BR>
 <b>Left$</b>(destination$,number)=source$</P>
 
 <P>
-LEFT$ reads the specified number of characters in a source string, starting from the 
-left-hand side, and copies them into a destination string. The first type of usage of this function 
+LEFT$ reads the specified number of characters in a source string, starting from the
+left-hand side, and copies them into a destination string. The first type of usage of this function
 creates a new destination string from the chosen number of characters of the source string. For example:</P>
 
 <pre>
@@ -45,7 +48,7 @@ E&gt; Do
    Loop
 </pre>
 
-<P>The second type of usage replaces the leftmost number of characters in the destination 
+<P>The second type of usage replaces the leftmost number of characters in the destination
 string with the equivalent number of characters from the source string. For example:</P>
 
 <pre>
@@ -54,7 +57,7 @@ E&gt; A$="**** Basic"
    Print A$
 </pre>
 
-<P>Exactly the same processes can be performed with characters from the right-hand side of 
+<P>Exactly the same processes can be performed with characters from the right-hand side of
 a string, by using the equivalent RIGHT$ function.</P>
 
 <P><b>RIGHT$</b><BR>
@@ -82,10 +85,10 @@ E&gt; B$="AMOS ************"
 destination$=<b>Mid$</b>(source$,offset,number)<BR>
 <b>Mid$</b>(destination$,offset,number)=source$</P>
 
-<P>Similarly, the MID$ function returns characters from the middle of a string, with the 
-first number specified in brackets setting the offset from the start of the string and the 
-second number setting how many characters are to be fetched. If the number of characters to be 
-fetched is omitted from your instruction, then the characters will be read right up to the end of 
+<P>Similarly, the MID$ function returns characters from the middle of a string, with the
+first number specified in brackets setting the offset from the start of the string and the
+second number setting how many characters are to be fetched. If the number of characters to be
+fetched is omitted from your instruction, then the characters will be read right up to the end of
 the string being examined. Here are some examples:</P>
 
 <pre>
@@ -98,12 +101,14 @@ E&gt; A$="AMOS Professional ***"
    Mid$(A$,19,3)="Mag"
    Print A$
 </pre>
+</section>
 
-<P><b>Finding characters in a string</b><br>
+<section id="02-finding-characters-in-a-string">
+<h2>Finding characters in a string</h2>
 
-It is often necessary to search through a mass of data for a particular reference, in 
-other words, to search through strings for individual characters or sub-strings. Similarly, you may 
-wish to write an adventure game where lines of text must be broken down into individual commands.</P>
+<p>It is often necessary to search through a mass of data for a particular reference, in
+other words, to search through strings for individual characters or sub-strings. Similarly, you may
+wish to write an adventure game where lines of text must be broken down into individual commands.</p>
 
 <P><b>INSTR</b><BR>
 <i>function: search for occurrences of one string within another string</i><br>
@@ -111,10 +116,10 @@ x=<b>Instr</b>(host$,guest$)<BR>
 x=<b>Instr</b>(host$,guest$,start of search position)</P>
 
 <P>
-INSTR allows you to search for all instances of one string inside another. In the 
-following examples, the "host" strings are searched for the first occurrence of the "guest" strings 
-you are seeking. If the relevant string is found, its location will be reported in the form of the 
-number of characters from the left-hand side of the host string. If the search is unsuccessful, a 
+INSTR allows you to search for all instances of one string inside another. In the
+following examples, the "host" strings are searched for the first occurrence of the "guest" strings
+you are seeking. If the relevant string is found, its location will be reported in the form of the
+number of characters from the left-hand side of the host string. If the search is unsuccessful, a
 result of zero will be given.</P>
 
 <pre>
@@ -130,32 +135,32 @@ E&gt; Do
     If X=0 Then Print G$;" Not found"
 </pre>
 
-<!-- section -->
-
 <pre>
     If X&lt;&gt;0 Then Print G$;" Found at position ";X
    Loop
 </pre>
 
 <P>
-Normally, the search will begin from the first character at the extreme left-hand side 
+Normally, the search will begin from the first character at the extreme left-hand side
 of the host string, but you may begin searching from any position by specifying an optional number of
-characters from the beginning of the host string. The optional start-of-search position 
-can range from zero to the maximum number of characters in the host string to be searched. For 
+characters from the beginning of the host string. The optional start-of-search position
+can range from zero to the maximum number of characters in the host string to be searched. For
 example:</P>
 
 <pre>
 E&gt; Print Instr("AMOS PROFESSIONAL","O",0)
    Print Instr("AMOS PROFESSIONAL","O",4)
 </pre>
+</section>
 
-<P><b>Converting strings</b></P>
+<section id="03-converting-strings">
+<h2>Converting strings</h2>
 
 <P><b>UPPER$</b><BR>
 <i>function: convert a string of text to upper case</i><BR>
 new$=<b>Upper$</b>(old$)</P>
 
-<P>This function converts the characters in a string into upper case (capital) letters, 
+<P>This function converts the characters in a string into upper case (capital) letters,
 and places the result into a new string. For example:</P>
 
 <pre>
@@ -167,9 +172,9 @@ D&gt; Print Upper$("aMoS pRoFeSsIoNaL")
 new$=<b>Lower$</b>(old$)</P>
 
 <P>
-This works in the same way as UPPERS, but translates all the characters in a string 
-into nothing but lower case (small) letters. These sorts of text conversions are particularly useful 
-for interpreting user-input in interactive data programs and adventure games, because input 
+This works in the same way as UPPERS, but translates all the characters in a string
+into nothing but lower case (small) letters. These sorts of text conversions are particularly useful
+for interpreting user-input in interactive data programs and adventure games, because input
 can be converted into a standard format which is understood by your programs. For example:</P>
 
 <pre>
@@ -183,7 +188,7 @@ E&gt; Input "Do you want to continue? (Yes or No)";ANSWER$
 s$=<b>Str$</b>(number)</P>
 
 <P>
-Str$ converts a real number variable into a string. This can be used to overcome 
+Str$ converts a real number variable into a string. This can be used to overcome
 limitations posed by functions like CENTRE, which does not accept numbers as parameters, but will work
 happily with parameters in the form of strings. Here is an example:</P>
 
@@ -196,11 +201,9 @@ E&gt; Centre "Remaining memory is"+Str$(Chip Free)+" Bytes"
 v=<b>Val</b>(x$)<BR>
 v#=<b>Val</b>(x$)</P>
 
-<!-- section -->
-
 <p>
-To perform the reverse task to STR$, the VAL function converts a list of decimal digits 
-stored in a string, changing them into a number. If this process fails for any reason, a value of 
+To perform the reverse task to STR$, the VAL function converts a list of decimal digits
+stored in a string, changing them into a number. If this process fails for any reason, a value of
 zero will be returned. For example:</P>
 
 <pre>
@@ -212,20 +215,23 @@ D&gt; X=Val("1234") : Print X
 new$=<b>String$</b>(existing$, number)</P>
 
 <P>
-Do not confuse this with STR$, which converts numbers into a string. The STRING$ 
-function creates a new string filled with the required number of copies of the first character from 
-an existing string. For instance, the following example produces a new string containing ten 
+Do not confuse this with STR$, which converts numbers into a string. The STRING$
+function creates a new string filled with the required number of copies of the first character from
+an existing string. For instance, the following example produces a new string containing ten
 copies of the character "A".</P>
 
 <pre>
 E&gt; Print String$("AMOS Professional is a joy forever",10)
 </pre>
 
-<P><b>Manipulating strings</b><br>
+</section>
 
-Sometimes you may want to handle your strings for special purposes. For example, if you 
-wish to pad out a piece of text before it gets printed onto the screen, you will need an 
-accurate method of creating spaces in the string.</P>
+<section id="04-manipulating-strings">
+<h2>Manipulating strings</h2>
+
+<p>Sometimes you may want to handle your strings for special purposes. For example, if you
+wish to pad out a piece of text before it gets printed onto the screen, you will need an
+accurate method of creating spaces in the string.</p>
 
 <P><b>SPACE$</b><BR>
 <i>function: space out a string</i><BR>
@@ -241,30 +247,30 @@ E&gt; Print "Ten";Space$(10);"spaces"
 <i>function: invert a string</i><BR>
 inverted$=<b>Flip$</b>(original$)</P>
 
-<P>This function simply reverses the order of the characters held in an existing string. 
+<P>This function simply reverses the order of the characters held in an existing string.
 For example:</P>
 
 <pre>
 D&gt; Print Flip$("SOMA gnippilf")
 </pre>
-	
+
 <P><b>REPEAT$</b><BR>
 <i>function: repeat a string</i><BR>
 r$=<b>Repeat$</b>(text$,number)</P>
 
 <P>
-To repeat the same string of characters using a single PRINT statement, follow your 
+To repeat the same string of characters using a single PRINT statement, follow your
 string of text with the number of times you want the repetition. Allowable values are between 1 and 127.
-Whenever the string is printed, a sequence of control characters is automatically added to 
+Whenever the string is printed, a sequence of control characters is automatically added to
 the r$ variable, in the following format:</P>
-
-<!-- section -->
 
 <PRE>
 Chr$(27)+"RO"+A$+Chr$(27)+"R"+Chr$(48+n)
 </PRE>
+</section>
 
-<P><b>Getting information about strings</b><br>
+<section id="05-getting-information-about-strings">
+<h2>Getting information about strings</h2>
 The next three functions are provided to discover particular properties of strings.</P>
 
 <P><b>CHR$</b><BR>
@@ -272,9 +278,9 @@ The next three functions are provided to discover particular properties of strin
 s$=<b>Chr$</b>(code number)</P>
 
 <P>
-The CHR$ function creates a string that contains a single character generated by a 
-given ASCII code number. Note that only the characters with ASCII code numbers 32 to 255 are printable 
-on the screen. Others are used internally as control codes. Match characters with their codes 
+The CHR$ function creates a string that contains a single character generated by a
+given ASCII code number. Note that only the characters with ASCII code numbers 32 to 255 are printable
+on the screen. Others are used internally as control codes. Match characters with their codes
 using this routine:</P>
 
 <pre>
@@ -285,7 +291,7 @@ E&gt; For S=32 To 255: Print Chr$(S); : Next S
 <i>function: Give the ASCII code of a character</i><BR>
 code=<b>Asc</b>(a$)</P>
 
-<P>To get the internal ASCII code of the first character in a string, use the ASC function 
+<P>To get the internal ASCII code of the first character in a string, use the ASC function
 like this:</P>
 
 <pre>
@@ -302,10 +308,13 @@ length=<b>Len</b>(a$)</P>
 <pre>
 D&gt; Print Len("0123456789")
 </pre>
-	
-<P><b>Array operations</b><br>
 
-To end this Chapter, here are a pair of useful instructions for manipulating arrays.</P>
+</section>
+
+<section id="06-array-operations">
+<h2>Array operations</h2>
+
+<P>To end this Chapter, here are a pair of useful instructions for manipulating arrays.</P>
 
 <P><b>SORT</b><BR>
 <i>instruction: sort all elements in an array</i><BR>
@@ -313,10 +322,8 @@ To end this Chapter, here are a pair of useful instructions for manipulating arr
 <b>Sort</b> a#(0)<BR>
 <b>Sort</b> a$(0)</P>
 
-<P>The SORT instruction arranges the contents of any array into ascending order, and the 
+<P>The SORT instruction arranges the contents of any array into ascending order, and the
 array may contain integers, floating point numbers or strings.</P>
-
-<!-- section -->
 
 <p>
 The starting point of your table is specified by the a$(0) parameter, and it must always be set to
@@ -349,10 +356,10 @@ x=<b>Match</b>(array#(0),value#)<br>
 x=<b>Match</b>(array$(0),value$)</P>
 
 <P>
-MATCH searches through an array that has already gone through the SORT process, looking 
-for a given value. If the value is found then x is loaded with the relevant index number. 
-However, if the search is not successful the result will be negative. If you take the absolute value 
-of this result, the item which came closest to your original search parameter is provided. Only 
+MATCH searches through an array that has already gone through the SORT process, looking
+for a given value. If the value is found then x is loaded with the relevant index number.
+However, if the search is not successful the result will be negative. If you take the absolute value
+of this result, the item which came closest to your original search parameter is provided. Only
 arrays with a single dimension can be checked in this way, and they must already be sorted before
 MATCH can be called.</P>
 
@@ -369,11 +376,7 @@ E&gt; Read N : Dim D$(N)
      If A$="print all data"
         For X=1 To N: Print D$(X) : Next X: Goto REINPUT
      End If
-</pre>
 
-<!-- section -->
-
-<pre>
      POS=Match(D$(0),A$)
      If POS&lt;-N-1
         If POS&gt;-10
@@ -390,11 +393,11 @@ E&gt; Read N : Dim D$(N)
 </pre>
 
 <P>
-Test that example out by entering various inputs, including the names of planets, 
+Test that example out by entering various inputs, including the names of planets,
 single characters in upper and lower case and "print all data". Obviously MATCH can be used with
 the INSTR function to set up a powerful parser routine, for interpreting user input in an
 adventure game.</P>
-
+</section>
 
 </BODY>
 </HTML>

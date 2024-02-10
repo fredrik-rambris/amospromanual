@@ -14,10 +14,8 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Windows</h1>
-
-<br>
-
 
 <p>
 The AMOS Professional programmer expects to be able to produce file selectors, warning boxes
@@ -30,8 +28,10 @@ A "window" is simply a rectangular display area, which must first be opened befo
 life can course through it. Your current screen is treated as a window, and opened automatically
 by the AMOS Professional system as window number zero. All other windows have to be
 opened by you, and you are advised not to re-open window zero or change its size or position.</p>
+</section>
 
-<p><b>Creating windows</b></p>
+<section id="01-creating-windows">
+<h2>Creating windows</h2>
 
 <p>
 <b>WIND OPEN</b><br>
@@ -72,8 +72,6 @@ E> For W=1 To 3
 <p>This command sets the window number specified as the active window, to be used for all future
 text operations. There is an automatic saving system for re-drawing the contents of windows,
 which is explained below.</p>
-
-<!-- section -->
 
 For now, run the last example from Direct mode and enter the following statements:
 
@@ -127,10 +125,10 @@ E> Cls : Wind Open 5,75,50,24,15
    Border 5,6,
    Title Bottom "Bottom of the barrel"
 </pre>
+</section>
 
-<!-- section -->
-
-<p><b>Manipulating windows</b></p>
+<section id="02-manipulating-windows">
+<h2>Manipulating windows</h2>
 
 <p>
 <b>WINDON</b><br>
@@ -189,8 +187,6 @@ E> Wind Open 1,1,8,35,18,1 : Print "Press a key to close this window"
 <i>instruction: move the current window</i><br>
 <b>Wind Move</b> x,y</p>
 	
-<!-- section -->
-
 <p>
 The current window can 'be moved to any acceptable graphic coordinates. Give the new x,y-
 coordinates after the WIND MOVE command, and the x-coordinate will be rounded to the
@@ -247,8 +243,6 @@ E> Wind Open 1,16,16,22,10,2
 <p>This simple command erases the contents of the current window and replaces it with a block of
 the current PAPER colour.</p>
 
-<!-- section -->
-
 <p>Like this:</p>
 
 <pre>
@@ -256,10 +250,12 @@ E> Cls: Paper 4 : Wind Open 1,1,1,12,5,1
    Window 1: Print "Clear Off" : Wait 75
    Paper 9 : Clw
 </pre>
+</section>
 
-<p><b>Creating slider bars</b><br>
+<section id="03-creating-slider-bars">
+<h2>Creating slider bars</h2>
 
-One of the standard uses of windows is to create interactive slider bars, like the one at the right-
+<p>One of the standard uses of windows is to create interactive slider bars, like the one at the right-
 hand side of your AMOS Professional Edit Screen.</p>
 
 <p>
@@ -311,8 +307,6 @@ E> Vslider 10,10 To 20,100,100,20,5
 <p>SET SLIDER is used to set up the colours and patterns used for your slider bars and their
 control boxes.</p>
 
-<!-- section -->
-
 <p>Simply give the index numbers of the ink, paper, outline and pattern to be used for the slider
 bar, followed by the ink paper, outline and pattern to be used by the slider control box. If
 negative values are used for either pattern, a sprite image will be commandeered from the sprite
@@ -333,10 +327,12 @@ E> Centre "&lt;Press a key&gt;" : Curs Off
 <p>Having set up your slider bars, you will want to activate them using the mouse. A simple routine
 to create working slider bars needs to be included in your main program. As always, remember
 to test out the ready-made example programs, for a working guide.</p>
+</section>
 
-<p><b>Displaying a text window</b><br>
+<section id="04-displaying-a-text-window">
+<h2>Displaying a text window</h2>
 
-To end this Chapter, here is an extremely useful AMOS Professional feature that allows the
+<p>To end this Chapter, here is an extremely useful AMOS Professional feature that allows the
 display of a text file directly on screen. Text can be displayed in its own independent screen, it
 may be scrolled through at will, the display window can be dragged around the screen and
 there is even a facility to include a title line.</p>
@@ -371,7 +367,7 @@ key combinations:</p>
 TEXT$ command. In this case the name$ parameter refers to a <b>title</b> line that will be printed at
 the top of the viewing window. Address holds the address of the first line of the text to be read.
 Length specifies the length of the text to be read, in bytes.</p>
-
+</section>
 
 </BODY>
 </HTML>

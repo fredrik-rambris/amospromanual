@@ -14,20 +14,20 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Using Screens</h1>
-
-<br>
-
 
 <p>
 IF you are familiar with the screen concepts set out in the last Chapter, this is where you make
 AMOS Professional screens come alive. This Chapter explains how to manipulate your screens,
 and we have provided ready-made demonstrations of the techniques on disc, complete with
 led notes in their listings.</p>
+</section>
 
-<p><b>Copying screens</b><br>
+<section id="01-copying-screens">
+<h2>Copying screens</h2>
 
-Any rectangular part of a screen can be copied and moved on the current screen or to any other
+<p>Any rectangular part of a screen can be copied and moved on the current screen or to any other
 screen, time and time again, at great speed. Copying between the "physical" and "logical"
 screens is fully discussed in <a href="7/713.html">Chapter 7.2</a>, along with detailed explanations of double buffering.</p>
 
@@ -78,7 +78,7 @@ together on the screen, and are set using a bit-pattern in the following format:
 7           1             1
 </pre>
 
-<!-- section -->
+
 
 <p>
 Please note that the bottom four bits in the pattern are not used by this instruction, and should
@@ -91,7 +91,7 @@ ready-made working example to examine:</p>
 <b>Mode    Bit-pattern    Effect</b>
 REPLACE %11000000      Replace destination graphics with a copy of the
                        source image. (Default mode.)
-INVERT  %00110000      Replace destination graphics with an inverse 
+INVERT  %00110000      Replace destination graphics with an inverse
                        video image of the source.
 AND     %10000000      Combine together the source and destination
                        images, with a logical AND operation.
@@ -107,8 +107,10 @@ Examine that demonstration program, and use the mouse pointer to copy the image 
 on screen, with a single click of the left mouse button. Keep the button held down and move the
 mouse pointer to see the full potential of SCREEN COPY, then press any key to call up the next
 mask and repeat the process.</p>
+</section>
 
-<p><b>Scrolling the screen</b></p>
+<section id="02-scrolling-the-screen">
+<h2>Scrolling the screen</h2>
 
 <p><b>DEF SCROLL</b><br>
 <i>instruction: define a scrolling screen zone</i><br>
@@ -132,10 +134,10 @@ values will scroll downwards and negative values cause an upward scroll.</p>
 <p>
 To scroll a screen zone already specified with a DEF SCROLL setting, use SCROLL followed by
 the zone number you require.</p>
+</section>
 
-<!-- section -->
-
-<p><b>Enlarging and reducing the screen</b></p>
+<section id="03-enlarging-and-reducing-the-screen">
+<h2>Enlarging and reducing the screen</h2>
 
 <p><b>ZOOM</b><br>
 <i>instruction: change size of part of screen</i><br>
@@ -155,10 +157,12 @@ automatically re-size the image.</p>
 The LOGIC function may be used to grab an image from the appropriate logical screen, instead
 of specifying a physical screen number. In the same way, you are allowed to deposit a zoomed
 image to a logical screen. This is explained below.</p>
+</section>
 
-<p><b>Physical and logical screens</b><br>
+<section id="04-physical-and-logical-screens">
+<h2>Physical and logical screens</h2>
 
-When you watch the moving images shown at the cinema or on video, you are watching an
+<p>When you watch the moving images shown at the cinema or on video, you are watching an
 illusion. Graphical animation in the movies is created by a fast sequence of still pictures known
 as frames. Television screens do not display moving images either. They fool the brain and the
 eye by updating still images on the screen, fifty limes every second.</p>
@@ -187,8 +191,6 @@ explained in <a href="7/713.html">Chapter 7.2</a>.</p>
 <i>instruction: swap over logical and, physical screens</i><br>
 <b>Screen Swap</b><br>
 <b>Screen Swap</b> number</p>
-	
-<!-- section -->
 
 <p>
 This is the command that swaps over the physical and logical screens, so that the displays are
@@ -238,15 +240,15 @@ Use the LOGIC function to get an identification number for the current logical s
 optional screen number to specify a particular logical screen. The identification number that is
 returned can now be used with the ZOOM, APPEAR and SCREEN COPY commands, to change
 images off screen, without affecting the current display.</p>
+</section>
 
-<p><b>Screen synchronisation</b><br>
+<section id="05-screen-synchronisation">
+<h2>Screen synchronisation</h2>
 
-It has already been explained that the image on your screen is updated fifty times every second.
+<p>It has already been explained that the image on your screen is updated fifty times every second.
 A single update consists of an image drawn by an electron beam scanning across every line of
 the screen until it reaches the bottom right-hand corner, at which point the beam switches off</p>
 
-
-<!-- section -->
 
 <p>
 and starts scanning again at the top left-hand corner of the screen. The period between the
@@ -268,10 +270,12 @@ keep in step.</p>
 <p>
 This simple command can be included to achieve perfect synchronisation, and is especially
 useful after a SCREEN SWAP.</p>
+</section>
 
-<p><b>Screen compaction</b><br>
+<section id="06-screen-compaction">
+<h2>Screen compaction</h2>
 
-Naturally you will want to exploit the most spectacular images in your programs, but the idea
+<p>Naturally you will want to exploit the most spectacular images in your programs, but the idea
 becomes less attractive because of the large amounts of program memory that get used when a
 graphical screen is used. With a single, 64 colour, full-size screen consuming 60k of RAM, the
 AMOS Professional programmer needs to crunch the data that makes up screen graphics, pack
@@ -301,8 +305,6 @@ unpacked, the image will be re-created in its original state. Your new memory ba
 stored in fast memory if available, and will be saved along with your Basic program. After
 SPACK has been called, you can determine the size of your crunched screen with the LENGTH
 function.</p>
-
-<!-- section -->
 
 <p>
 If you only want to pack a part of any screen and not bother about the remaining area, simply
@@ -359,8 +361,6 @@ X> Unpack 15
 
 <p>To re-draw the packed image starting from new top left-hand corner coordinates, include them</p>
 
-<!-- section -->
-
 <p>
 after the bank number. If the new image does not fit into the current screen, the appropriate
 error message will appear.</p>
@@ -376,7 +376,7 @@ X> Unpack 15 To 1
 <p>
 If the screen you select already exists, its image will be replaced by the newly unpacked picture
 within one second.</p>
-
+</section>
 
 </BODY>
 </HTML>

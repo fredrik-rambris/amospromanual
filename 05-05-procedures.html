@@ -14,6 +14,7 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Procedures</h1>
 
 <br>
@@ -25,8 +26,10 @@ programmer to tackle one aspect of the program at a time, without becoming distr
 side-tracked by other programming considerations. Procedures can be thought of as programming
 modules, each with a specific purpose and sphere of operation. This Chapter explains how
 procedures are created and fully exploited.</P>
+</section>
 
-<P><b>Creating a procedure</b></p>
+<section id="01-creating-a-procedure">
+<h2>Creating a procedure</h2>
 
 <p>
 <b>PROCEDURE</b><BR>
@@ -74,13 +77,13 @@ available, and this problem is cured by the following command.</P>
 <P>When AMOS Professional procedures call themselves, an "Out of stack space" error 
 message will be generated after about fifty loops. Use the SET STACK instruction by specifying the 
 new number of procedure calls that an be made.</P>
+</section>
 
-<P><b>Keeping track of procedures</b><br>
+<section id="02-keeping-track-of-procedures">
+<h2>Keeping track of procedures</h2>
 
-To help you find the starting positions of procedures in a very long program, there is 
+<p>To help you find the starting positions of procedures in a very long program, there is
 a simple short-cut that uses just two keys.</P>
-
-<!-- section -->
 
 <P>
 By pressing [Alt] and [Down Arrow] together, the edit cursor automatically jumps to the 
@@ -120,10 +123,12 @@ Professional encounters a procedure statement, the procedure is recognised and a
 made to the final End Proc. In this way, there is no risk of executing your procedure by 
 accident.</P>
 
+</section>
 
-<P><b>Opening and closing procedures</b><br>
+<section id="03-opening-and-closing-procedures">
+<h2>Opening and closing procedures</h2>
 
-If a great many procedures are used, your listings may appear cluttered and confused by 
+<p>If a great many procedures are used, your listings may appear cluttered and confused by
 all of their definitions. Because of this problem, there is a simple method of "closing" a 
 procedure. Self-contained procedures can be neatly hidden away inside your main program if you need 
 to reduce the size and complexity of your listings.</P>
@@ -141,8 +146,6 @@ E&gt; MAIN_TITLE
 </pre>
 
 <P>Run that if you like, and then return to the Edit screen.</P>
-
-<!-- section -->
 
 <P>
 Make sure that the edit cursor is over the procedure statement, select the [Procedures] 
@@ -170,10 +173,12 @@ To open and close all of the procedures in the current program, the [Open All] a
 [Close All] options are provided. Alternatively, you can use the keyboard short-cuts [Amiga]+[Shift]
 +[0] and [Amiga]+[Shift]+[C], as already explained under the full list of Editor options in
 <a href="4/401.html">Chapter 4.1</a>.</P>
+</section>
 
-<P><b>Jumping in and out of a procedure</b><br>
+<section id="04-jumping-in-and-out-of-a-procedure">
+<h2>Jumping in and out of a procedure</h2>
 
-You should be familiar with the use of ON for jumping to a GOSUB routine. It is just as 
+<p>You should be familiar with the use of ON for jumping to a GOSUB routine. It is just as
 simple to use this structure with procedures.<BR>
 
 <p>
@@ -204,8 +209,6 @@ is reached. But supposing you need to jump out of a procedure instantly.</P>
 <b>POP PROC</b><BR>
 <i>structure: leave a procedure immediately</i><BR>
 <b>Pop Proc</b></P>
-
-<!-- section -->
 
 <P>
 The POP PROC instruction provides you with a fast getaway, if you ever find yourself in 
@@ -239,10 +242,12 @@ E&gt; On Break Proc BROKEN
     Print "I am the procedure"
    End Proc
 </pre>
+</section>
 
-<P><b>Local and global variables</b><br>
+<section id="05-local-and-global-variables">
+<h2>Local and global variables</h2>
 
-All of the variables that are defined inside a procedure work completely separately 
+<p>All of the variables that are defined inside a procedure work completely separately
 from any other variables in your programs. We call these variables "local" to the procedure. All 
 local variables are automatically discarded after the procedure has finished executing, so that 
 in the following example the same value of 1 will always be printed, no matter how many times it 
@@ -263,8 +268,6 @@ or global.</P>
 
 <P>When the next example is run, it can be seen that the values given to the global 
 variables are different to those of the local variables, even though they have the same name.</P>
-
-<!-- section -->
 
 <p>Because the global variables cannot be accessed from inside the procedure, the procedure
 assigns a value of zero to them no mater what value they are given globally.</p>
@@ -321,8 +324,6 @@ X> TWINS[6,9]
 <i>structure: define a list of global variables</i><br>
 <b>Shared</b> list of variables</p>
 
-<!-- section -->
-
 <p>There is an alternative method of passing data between a procedure and the main program.
 When SHARED is placed inside a procedure definition, it takes a list of local variables separated
 by commas and transforms them into global variables, which can be directly accessed from the
@@ -376,8 +377,6 @@ E> A=6 : B=9
 <p>AMOS Professional programmers who are familiar with earlier versions of the AMOS system are
 now able to employ the new facility of using strings in procedure definitions. As with disc
 names, the "wild card" characters * and ? can also be included. In this case, the * character is</p>
-
-<!-- section -->
 
 <P>
 used to mean "match this with any list of characters in the variable name, until the next 
@@ -439,15 +438,15 @@ X> Procedure VARIABLES
    Global ARRAY()
    End Proc
 </pre>
+</section>
 
-<P><b>Returning values from a procedure</b><br>
+<section id="06-returning-values-from-a-procedure">
+<h2>Returning values from a procedure</h2>
 
-If you want to return a parameter from inside a procedure, that is to say, if you need 
+<p>If you want to return a parameter from inside a procedure, that is to say, if you need
 to send back a value from a local parameter, you need a way of telling your main program where to 
 find this local variable.</P>
 
-
-<!-- section -->
 
 <P>
 <b>PARAM</b><BR>
@@ -478,11 +477,12 @@ E> JOIN_NUMBERS[1.5,2.25]
     Print A#,B#
    End Proc[A#+B#]
 </pre>
+</section>
 
-<P>
-<b>Local data statements</b><br>
+<section id="07-local-data-statements">
+<h2>Local data statements</h2>
 
-Any data statements defined inside your procedures are held completely separately from those
+<P>Any data statements defined inside your procedures are held completely separately from those
 in the main program. This means that each procedure can have its own individual areas of data.
 Let us end this Chapter with a modest example that calls the same procedure using different
 parameters, and then sets up additional data in variables.</P>
@@ -504,7 +504,7 @@ E> Curs Off : Paper 0
     Centre "Press a key" : Wait Key
    End Proc
 </pre>
-
+</section>
 
 </BODY>
 </HTML>

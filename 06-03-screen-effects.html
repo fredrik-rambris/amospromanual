@@ -14,10 +14,8 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Screen Effects</h1>
-
-<br>
-
 
 <p>The AMOS Professional programmer expects to achieve superb visual effects with simple,
 economic commands. Classic cinematic and video techniques are readily available, as well as
@@ -78,8 +76,6 @@ E> Flash Off : Curs Off
    Fade 5
 </pre>
 
-<!-- section -->
-
 <p>
 Fade effects are executed using interrupts, so it is sensible to wait until the fade has ended
 before going on to the next program instruction. The length of wait required can be calculated
@@ -139,12 +135,12 @@ E> Load "AMOSPro_Tutorial:Objects/Bobs.Abk"
    Fade 1 To 0,%01111000011001010
    Wait 15
 </pre>
+</section>
 
-<p><b>Flashing colours</b><br>
+<section id="01-flashing-colours">
+<h2>Flashing colours</h2>
 
-You will already be aware that colour index number 3 is pre-set to flash on and off, and is the</p>
-
-<!-- section -->
+<p>You will already be aware that colour index number 3 is pre-set to flash on and off, and is the</p>
 
 <p>
 default setting for the text cursor. By using interrupts, any colour index can be cycled through a
@@ -205,8 +201,6 @@ executed using interrupts they will not affect the running of your programs.</p>
 <p><b>SHIFT DOWN</b><br>
 <i>instruction: rotate colour values downwards</i><br>
 <b>Shift Down</b> delay,first,last,flag</p>
-	
-<!-- section -->
 
 <p>
 This command is identical to SHIFT UP, except for the fact that colours are rotated in the
@@ -221,10 +215,12 @@ the list.</p>
 <p>
 Use this command to terminate all colour rotations previously set by the SHIFT UP and SHIFT
 DOWN instructions.</p>
+</section>
 
-<p><b>Rainbow effects</b><br>
+<section id="02-rainbow-effects">
+<h2>Rainbow effects</h2>
 
-So far, most of the screen effects in this Chapter take a colour index and change its value over a
+<p>So far, most of the screen effects in this Chapter take a colour index and change its value over a
 set period of time. AMOS Professional offers an alternative system, where colour indexes are
 changed depending on specific screen locations. This means that a single colour index can be
 used to generate hundreds of colours in some spectacular rainbow effects. Before any rainbows
@@ -263,8 +259,6 @@ the colour pattern will be repeated on the screen.</p>
 Finally, the Red, Blue and Green components of the rainbow colours are set up as strings, each
 within their own brackets. The last example leaves out any reference to the Green and Blue
 components, which is why the resulting effect is completely in the Red. These strings will be</p>
-
-<!-- section -->
 
 <p>
 cycled to produce the final rainbow pattern, and their format comprises three values contained
@@ -321,8 +315,6 @@ This powerful rainbow instruction allows you to change the colour of any rainbow
 value you choose. RAIN is followed by a pair of brackets containing the number of the rainbow
 to be changed and the scan line number that is to be affected.</p>
 
-<!-- section -->
-
 <p>
 The next example demonstrates the following technique. Rainbow number 1, with colour index
 1, is given a colour table length of 4097, which is one entry for every colour value that will be
@@ -344,17 +336,19 @@ E> Curs Off : Centre "OVER THE RAINBOW"
     Next C
    Loop
 </pre>
+</section>
 
-<p><b>The copper list</b><br>
+<section id="03-the-copper-list">
+<h2>The copper list</h2>
 
-The appearance of every line displayed on your screen is controlled by the Amiga's co-
+<p>The appearance of every line displayed on your screen is controlled by the Amiga's co-
 processor, known as the "copper". The copper is a self-contained processor with its own special
 set of instructions, and its own internal memory. A massive number of special effects can be
 created by programming the copper, but the copper list is notoriously difficult to manipulate,
 and many competent programmers have failed to master its mysteries.</p>
 
 <p>A full discussion of the copper lists may be found in <a href="14/1442.html">Appendix F</a> of this User Guide.</p>
-
+</section>
 
 </BODY>
 </HTML>

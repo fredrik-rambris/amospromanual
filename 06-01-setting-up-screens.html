@@ -14,10 +14,8 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Setting up Screens</h1>
-
-<br>
-
 
 <p>This Chapter explains how AMOS Professional screens are created and made ready to display
 the wonders of text, graphics and special effects.</p>
@@ -34,8 +32,10 @@ So far in this User Guide, everything has been displayed on a single AMOS Profes
 that appears in the glass window of your TV set. As an aid to understanding the theory of
 different screens, and to see the theory put into practice, make sure that you use the ready-made
 HELP programs as you read through this Chapter.</p>
+</section>
 
-<p><b>The AMOS Professional screens</b></p>
+<section id="01-the-amos-professional-screens">
+<h2>The AMOS Professional screens</h2>
 
 <p><b>The default screen</b><br>
 
@@ -58,8 +58,10 @@ height, number of colours and pixel size is also defined.</p>
 Although the default screen is 320 pixels wide, this "resolution" can be doubled to 640 pixels
 across the screen. When the screen is 320 pixels wide it is in low resolution, or "Lowres", for
 short. If this is changed to 640 pixels wide, the screen is in high resolution, known as "Hires".</p>
+</section>
 
-<p><b>Defining a screen</b></p>
+<section id="02-defining-a-screen">
+<h2>Defining a screen</h2>
 
 <p>
 <b>SCREEN OPEN</b><br>
@@ -71,8 +73,6 @@ short. If this is changed to 640 pixels wide, the screen is in high resolution, 
 <p>
 <b>Number</b> is the identification number of the new screen, ranging from 0 to 7. If a screen with this
 number already exists, it will be completely replaced by this new screen.</p>
-
-<!-- section -->
 
 <p>
 <b>Width</b> sets up the numbest- of pixels that will make up the width of the new screen. There is no
@@ -134,16 +134,14 @@ D> Curs Off : Cls 13: Paper 13
    Next S
 </pre>
 
-<!-- section -->
-
 <p>
 Here is a table which lists the different screen options, along with an indication of the amount of
 memory a standard size screen will consume.</p>
 
 <pre>
 <b>Colours    Resolution    Memory    Notes</b>
-2          320x200       8k        PAPER=0 PEN=1 no FLASH Cursor=1                           
-2          640x200       16k       as above 
+2          320x200       8k        PAPER=0 PEN=1 no FLASH Cursor=1
+2          640x200       16k       as above
 4          320x200       16k       PAPER=1 PEN=2 FLASH=3 Cursor=3
 4          640x200       32k       as above
 8          320x200       24k       PAPER=1 PEN=2 FLASH=3 Cursor=3
@@ -154,8 +152,10 @@ memory a standard size screen will consume.</p>
 64         320x200       48k       Extra Half Bright mode
 4096       320x200       48k       Hold And Modify mode
 </pre>
+</section>
 
-<p><b>Controlling screens</b></p>
+<section id="03-controlling-screens">
+<h2>Controlling screens</h2>
 
 <p><b>SCREEN CLOSE</b><br>
 <i>instruction: erase a screen</i><br>
@@ -187,8 +187,6 @@ VIEW OFF command can be used to disable this automatic display system. Screens c
 updated at a convenient point, using the VIEW instruction. To re-activate the automatic screen
 updating system, use the AUTO VIEW ON command.</p>
 
-<!-- section -->
-
 <p><b>VIEW</b><br>
 <i>instruction: display current screen setting</i><br>
 <b>View</b></p>
@@ -197,10 +195,12 @@ updating system, use the AUTO VIEW ON command.</p>
 When the AUTO VIEW OFF instruction is engaged, VIEW can be used to display any changes
 that have been made to the current screen settings, and they will be displayed at the next
 vertical blank period following the VIEW command.</p>
+</section>
 
-<p><b>Moving a screen</b><br>
+<section id="04-moving-a-screen">
+<h2>Moving a screen</h2>
 
-Once a screen has been opened, it can be positioned and moved anywhere on the television
+<p>Once a screen has been opened, it can be positioned and moved anywhere on the television
 display. This means that screens can be made to bounce, slip, slide, flip over, sink out of sight
 and behave in all sorts of bizarre ways. This also means that screens can overlap or be displayed
 above one another, and so several different screen modes can be shown at once in separate areas
@@ -241,8 +241,6 @@ be rounded down to the nearest 16 pixels.</p>
 
 <p>If any of the optional parameters are left out, the <b>default</b> settings will be applied automatically.</p>
 
-<!-- section -->
-
 <p>
 For example, to display screen zero, keeping its original width and height, this line could be
 used:</p>
@@ -280,14 +278,14 @@ The SCREEN OFFSET command is followed by the number of the screen to be displaye
 the x,y-coordinates of the "offset", which is the point where the top left-hand corner of the
 visible display is to start, measured from the top left-hand corner of the extra-large screen.</p>
 
-<!-- section -->
-
 <p>
 The visible area can be Moved around the extra-large screen by changing the offset coordinates,
 and some very smooth scrolling effects are achieved. These can be used for background graphics
 in computer games, as well as more serious applications like route finders or star constellations.</p>
+</section>
 
-<p><b>Manipulating screens</b></p>
+<section id="05-manipulating-screens">
+<h2>Manipulating screens</h2>
 
 <p><b>SCREEN CLONE</b><br>
 <i>instruction: clone a screen</i><br>
@@ -336,8 +334,6 @@ other, and this can be exploited to produce very smooth parallax scrolling. Beca
 the two screens can be different, a smaller screen can be scrolled against a larger background
 screen, creating the parallax effect.</p>
 
-<!-- section -->
-
 <p>
 The two components of this dual playfield are treated as any other AMOS Professional screen,
 and they can even be double buffered or animated with AMAL.</p>
@@ -384,8 +380,10 @@ reverse this order, so that the second screen appears in front of the first, use
 PRIORITY command. Please note that this instruction only changes the order of display, and
 has no effect on the screen organisation at all, so the first screen in the parameter list is still used
 for all colour assignments, and with the SCREEN DISPLAY command.</p>
+</section>
 
-<p><b>Clearing, hiding and showing screens</b><br>
+<section id="06-clearing-hiding-and-showing-screens">
+<h2>Clearing, hiding and showing screens</h2>
 
 Screens can be removed from view by permanently erasing them, or by hiding them away for
 later display.</p>
@@ -395,8 +393,6 @@ later display.</p>
 <b>Cls</b><br>
 <b>Cls</b> colour number<br>
 <b>Cls</b> colour number,x1,y1 <b>To</b> x2,y2</p>
-	
-<!-- section -->
 
 <p>
 The CLS command erases.all or part of the current screen. Used on its own, the contents of the
@@ -440,10 +436,12 @@ E> Cls : Print "I am the Current Screen" : Wait 100
 Any screen can be temporarily hidden, by including its index number after the SCREEN HIDE
 instruction. This screen is revealed with a similar request to SCREEN SHOW, followed by the
 relevant screen number.</p>
+</section>
 
-<p><b>Screen priority</b><br>
+<section id="07-screen-priority">
+<h2>Screen priority</h2>
 
-Because screens may be of different sizes, and because they can be displayed at various
+<p>Because screens may be of different sizes, and because they can be displayed at various
 positioned on the TV by offsets and overlaps, and because there can be up to eight electronic
 screens queuing up one behind the other, a method is needed to bring any one of these screens
 to the front of the display.</p>
@@ -457,8 +455,6 @@ to the front of the display.</p>
 Use SCREEN TO FRONT to move the selected screen to the front of the display queue. If the
 screen number is omitted after the command, then the current screen will be brought to the
 front.</p>
-
-<!-- section -->
 
 <p><b>SCREEN TO BACK</b><br>
 <i>instruction: move screen to back of display</i><br>
@@ -500,8 +496,10 @@ E> Screen Open 2,320,32,16,Lowres
 If the chosen screen is outside of the current display area or is hidden, there will be no visible
 effect. However, any graphics will be drawn in memory, waiting to be displayed whenever this
 screen comes into view, or out of hiding after a Screen Show command.</p>
+</section>
 
-<p><b>Defining screen colours</b></p>
+<section id="08-defining-screen-colours">
+<h2>Defining screen colours</h2>
 
 <p><b>DEFAULT PALETTE</b><br>
 <i>instruction: define standard palette</i><br>
@@ -519,8 +517,6 @@ appropriate commas in place. Here is an example line for eight colour screens:</
 D> Default Palette $000,$111,$A69,,,,,$FFF
 </pre>
 
-<!-- section -->
-
 <p><b>GET PALETTE</b><br>
 <i>instruction: copy palette from a screen</i><br>
 <b>Get Palette</b> number<br>
@@ -532,10 +528,12 @@ COPY command, and the same colour settings need to be shared for both screens. A
 mask can be added after the screen number, allowing only selected colours to be loaded. This
 works in exactly the same way as a mask for a GET SPRITE PALETTE command, and is
 explained in <a href="7/701.html">Chapter 7.1</a>.</p>
+</section>
 
-<p><b>Screen functions</b><br>
+<section id="09-screen-functions">
+<h2>Screen functions</h2>
 
-AMOS Professional provides a full range of screen functions, to monitor and exploit the current
+<p>AMOS Professional provides a full range of screen functions, to monitor and exploit the current
 status of your screens.</p>
 
 <p><b>SCREEN</b><br>
@@ -569,8 +567,6 @@ E> Print Screen Height
 <p><b>SCREEN COLOUR</b><br>
 <i>function: give maximum number of colours</i><br>
 number=<b>Screen Colour</b></p>
-	
-<!-- section -->
 
 <p>To find the maximum number of colours in the screen that is currently active, test the SCREEN
 COLOUR function now:</p>
@@ -587,10 +583,12 @@ number=<b>SCIN</b>(x,y)</p>
 check whether the mouse cursor has entered a particular screen. It returns the number of the
 screen which is underneath the selected <b>hardware</b> coordinates. If there is no screen there, a
 negative number will be returned.</p>
+</section>
 
-<p><b>IFF screens</b><br>
+<section id="10-iff-screens">
+<h2>IFF screens</h2>
 
-IFF stands for Interchangeable File Format, commonly used to pass data between computers.
+<p>IFF stands for Interchangeable File Format, commonly used to pass data between computers.
 IFF pictures from Dpaint are a classic example. As well as importing your own IFF drawings,
 AMOS Professional allows you to make use of legally available, ready-made pictures in the
 public domain, for your own programs.</p>
@@ -625,11 +623,12 @@ An optional parameter can be added after the filename, which selects whether or 
 is to be compacted before it is saved. A value of 1 specifies that the standard AMOS Professional
 compression system is to be used, whereas a zero saves the picture without any compression.</p>
 
-<!-- section -->
+</section>
 
-<p><b>Extra Half Bright mode</b><br>
-	
-The colour of every point on the screen is governed by a value held in one of the Amiga's colour
+<section id="11-extra-half-bright-mode">
+<h2>Extra Half Bright mode</h2>
+
+<p>The colour of every point on the screen is governed by a value held in one of the Amiga's colour
 registers. Each register can be loaded from a selection of 4096 different colours.</p>
 
 <p>
@@ -668,10 +667,12 @@ E> Screen Close 0
     Bar 160,(C-1)*5 To 319,(2+C-1)*5
    Next C
 </pre>
+</section>
 
-<p><b>Hold And Modify mode</b><br>
+<section id="12-hold-and-modify-mode">
+<h2>Hold And Modify mode</h2>
 
-For an artist to carry around 4096 tubes of different coloured paint would be expensive and
+<p>For an artist to carry around 4096 tubes of different coloured paint would be expensive and
 stupid, so an artist makes use of common colours, and mixes them together to create the exact
 shade needed. Computers use exactly the same process, allowing the programmer to hold on to
 an existing colour and modify it very slightly, time and time again. This is the theory behind the
@@ -680,8 +681,6 @@ Amiga's Hold And Modify (HAM) mode.</p>
 HAM mode splits up colour values into four separate groups. Colours 0 to 15 are normal, and
 the others exploit the way that all colours are made up from basic Red, Green and Blue
 components.
-
-<!-- section -->
 
 <p>
 It must be stated that HAM mode is difficult to use, but AMOS Professional is able to exploit its
@@ -706,10 +705,12 @@ This ensures that HAM screens are re-drawn at a new position using their origina
 <p>
 Do not try to scroll a HAM screen horizontally, unless you wish to see fringes of spurious colour
 at the side of the picture. This problem does not occur with vertical scrolls.</p>
+</section>
 
-<p><b>Interlaced screens</b><br>
+<section id="13-interlaced-screens">
+<h2>Interlaced screens</h2>
 
-Interlaced mode is perfect for displaying pictures, but is not recommended for much else.</p>
+<p>Interlaced mode is perfect for displaying pictures, but is not recommended for much else.</p>
 
 <p><b>LACED</b><br>
 <i>reserved variable: return a value in conjunction with screen resolution</i><br>
@@ -743,7 +744,7 @@ value=<b>Screen Mode</b></p>
 This simple function is used to report the mode of the current screen. If the screen is LACED,
 4 or $8004 will be returned. If the screen is LOWRES, a value of $0 is given.
 For a HIRES screen, $8000 will be returned.</p>
-
+</section>
 
 </BODY>
 </HTML>

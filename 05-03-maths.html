@@ -13,7 +13,7 @@
 </head>
 
 <body bgcolor="white">
-
+<section>
 <h1>Maths</h1>
 
 <br>
@@ -21,10 +21,12 @@
 
 <P>This Chapter provides a full explanation of using standard mathematical and 
 trigonometric functions, as well an insight into how AMOS Professional exploits numbers.</P>
+</section>
 
+<section id="01-arithmetical-calculations">
+<h2>Arithmetical calculations</h2>
 
-<P><b>Arithmetical calculations</b><br>
-Nothing could be simpler than asking AMOS Professional to run this sum:</P>
+<p>Nothing could be simpler than asking AMOS Professional to run this sum:</P>
 
 <pre>
 D&gt; Print 2+2
@@ -56,10 +58,12 @@ D&gt; Print 3^5
 
 <P><b>MOD</b> is the "modulo" operator, which acts as a constant multiplier.
 <b>AND</b>, <b>OR</b> and <b>XOR</b> are the three logical operations.</p>
+</section>
 
-<p><b>Calculation priorities</b><br>
+<section id="02-calculation-priorities">
+<h2>Calculation priorities</h2>
 
-Arithmetical instructions are taken literally, using a set of built-in priorities. So the 
+<p>Arithmetical instructions are taken literally, using a set of built-in priorities. So the
 following lines give the results 6 and 8 respectively:</P>
 
 <pre>
@@ -87,8 +91,6 @@ the following strict order of priority:</P>
 <P>Any calculation placed inside a pair of round brackets is evaluated first, and treated 
 as a single number.</P>
 
-<!-- section -->
-
 <p>
 The next calculation gives a result of 43, because it evaluated in the following order:</P>
 
@@ -115,9 +117,12 @@ D&gt; Print (10+2)*(5-8/4+5)^2
       8^2 = 64
     12*64 = 768
 </pre>
+</section>
 
-<P><b>Fast calculations</b><br>
-There are three instructions that can be used to speedflip the process of simple calculations.</P>
+<section id="03-fast-calculations">
+<h2>Fast calculations</h2>
+
+<p>There are three instructions that can be used to speedflip the process of simple calculations.</P>
 
 <P><b>INC</b><BR>
 <i>instruction: increment an integer variable by 1</i><BR>
@@ -146,8 +151,6 @@ D&gt; V=10 : Dec V : Print V
 <b>Add</b> variable,expression<BR>
 <b>Add</b> variable,expression,base <b>To</b> top</P>
 
-<!-- section -->
-
 <p>
 The ADD command can be used to add the result of an expression to a whole number variabk.
 immediately. It is the equivalent to variable=variable+ expression but performs the 
@@ -175,10 +178,12 @@ E&gt; Dim A(10)
     Print A(V)
    Until V=11 : Rem This loop is infinite as V is always &lt;11
 </pre>
+</section>
 
-<P><b>Relative values</b><br>
+<section id="04-relative-values">
+<h2>Relative values</h2>
 
-It is obvious that every expression has a value, but expressions are not restricted to 
+<p>It is obvious that every expression has a value, but expressions are not restricted to
 whole numbers (integers), or any sort of numbers. Expressions can be created from real numbers 
 or strings of characters. If you need to compare two expressions, the following functions are
 provided to examine them and establish their relative values.</P>
@@ -207,8 +212,6 @@ value=<b>Min</b>(a,b)<BR>
 value#=<b>Min</b>(a#,b#)<BR>
 value$=<b>Min</b>(a$,b$)</P>
 
-<!-- section -->
-
 <P>
 Similarly, the MIN function returns the smaller value of two expressions. Expressions can consist
 of strings, integers or real numbers, but only compare like with like, as follows:</P>
@@ -217,10 +220,12 @@ of strings, integers or real numbers, but only compare like with like, as follow
 D&gt; A=Min(99,1) : Print A
    Print Min("AMOS Professional","AMOS")
 </pre>
+</section>
 
-<P><b>Values and signs</b><br>
+<section id="05-values-and-signs">
+<h2>Values and signs</h2>
 
-Any number can have one of three values: negative, positive or zero, and these are represented
+<p>Any number can have one of three values: negative, positive or zero, and these are represented
 by the "sign" of a number.</P>
 
 <P><b>SGN</b><BR>
@@ -253,18 +258,18 @@ positive or negative, in other words, ignoring its sign.</P>
 <pre>
 D&gt; Print Abs(-1),Abs(1)
 </pre>
-	
-<P><b>Floating point numbers</b><br>
+	</section>
 
-Numbers that consist of many digits either side of a decimal point can often give very 
+<section id="06-floating-point-numbers">
+<h2>Floating point numbers</h2>
+
+<p>Numbers that consist of many digits either side of a decimal point can often give very
 messy results in Basic programming. The movement of the decimal point slows down the processing,
 and levels of accuracy may be too great for your needs.</P>
 
 <P><b>INT</b><BR>
 <i>function: convert floating point number into an integer</i><BR>
 integer=<b>Int</b>(number#)</P>
-
-<!-- section -->
 
 <P>
 The INT function rounds <b>down</b> a floating point number to the nearest whole number (integer),
@@ -304,16 +309,18 @@ E&gt; Fix (2) : Print Pi# : Rem Two digits after decimal point
    Fix(-4) : Print Pi# : Rem Exponential with four digits after decimal point
    Fix(16) : Print Pi# : Rem Revert to normal mode
 </pre>
+</section>
 
-<P><b>Single and double precision</b><br>
+<section id="07-single-and-double-precision">
+<h2>Single and double precision</h2>
 
-Although the standard floating point system is perfect for general use, it may not be 
+<p>Although the standard floating point system is perfect for general use, it may not be
 accurate enough for genuine scientific applications, or advanced simulations. AMOS Professional 
 offers a choice of two separate calculation systems.</P>
 
 <P><b>Single Precision</b><br>
 
-This is the default mode, and is automatically used whenever an AMOS Professional 
+This is the default mode, and is automatically used whenever an AMOS Professional
 program is RUN. Single precision is accurate to about seven decimal digits, it is very fast 
 and it is ideal for the vast majority of applications.</P>
 
@@ -327,8 +334,6 @@ precision can handle numbers with up to 16 significant digits.</P>
 it will also cause a great slowing down of calculations. It should only be used when extra 
 accuracy is absolutely vital.</P>
 
-<!-- section -->
-
 <P>
 <b>SET DOUBLE PRECISION</b><BR>
 <i>instruction: engage double precision accuracy</i><BR>
@@ -339,8 +344,10 @@ Double precision should be set at the start of your program, and all floating po
 calculations will be performed using the more accurate mode. Because the two modes are completely
 separate, single precision and double precision modes cannot be mixed in the same 
 program.</P>
+</section>
 
-<P><b>Standard mathematical functions</b></P>
+<section id="08-standard-mathematical-functions">
+<h2>Standard mathematical functions</h2>
 
 <P><b>SQR</b><BR>
 <i>function: calculate square root</i><BR>
@@ -382,8 +389,6 @@ E&gt; Print Log(10)
 <i>function: return natural logarithm</i><BR>
 a#=<b>Ln</b>(value#)</P>
 
-<!-- section -->
-
 <P>
 The LN Function calculates the natural logarithm (Naperian logarithm) of the given value. 
 For example:</P>
@@ -392,10 +397,12 @@ For example:</P>
 E&gt; Print Ln(10)
    A#=Ln(100) : Print A#
 </pre>
+</section>
 
-<P><b>Trigonometry</b><br>
+<section id="09-trigonometry">
+<h2>Trigonometry</h2>
 
-The AMOS Professional trigonometric functions are often used for calculating angles, 
+<p>The AMOS Professional trigonometric functions are often used for calculating angles,
 creating graphic design effects, calculating trajectories in gameplay, as well as making intricate 
 musical wave forms.</P>
 
@@ -422,8 +429,6 @@ In conventional trigonometry, a circle is divided into 360 degrees, so <b>a</b> 
 number of degrees in the angle between the x-axis and the line from the centre of the circle to 
 point <b>b</b>. However, your Amiga uses a default by which it expects all angles to be given in "radians" 
 and not degrees.
-
-<!-- section -->
 
 <P>
 <b>DEGREE</b><BR>
@@ -485,8 +490,6 @@ E&gt; Y#=Cos(X)
    Plot X,Y#*50+100
 </pre>
 
-<!-- section -->
-
 <p>
 <b>TAN</b><BR>
 <i>function: calculate tangent of an angle</i><BR>
@@ -547,8 +550,6 @@ coordinate axes.</P>
 h#=<b>Hsin</b>(angle)<BR>
 h#=<b>Hsin</b>(angle#)</P>
 
-<!-- section -->
-
 <P>
 The HSIN function calculates the hyperbolic sine of a given angle.</P>
 
@@ -567,10 +568,12 @@ h#=<b>Htan</b>(angle)<BR>
 h#=<b>Htan</b>(angle#)</P>
 
 <P> HTAN returns the hyperbolic tangent of the given angle.</p>
+</section>
 
-<p><b>Random numbers</b><BR>
-	
-The easiest way to introduce an element of chance or surprise into a program is to throw 
+<section id="10-random-numbers">
+<h2>Random numbers</h2>
+
+<p>The easiest way to introduce an element of chance or surprise into a program is to throw
 some numbered options into an electronic pot and allow AMOS Professional to pull one out at
 random. After a number has been selected and used, it is thrown back into the pot once 
 again. It then has the same chance as any other number offered for selection, when the next random
@@ -639,7 +642,7 @@ X&gt; Randomize Timer
 The best place to use this technique is immediately after the user has entered some 
 data into the computer. Even a simple key-press to start a game will work perfectly, and generate truly
 random numbers.</P>
-
+</section>
 
 </BODY>
 </HTML>
