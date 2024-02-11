@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>AREXX</h1>
 
-<br>
 
 
 <p>
@@ -47,9 +47,11 @@ Professional and tested on screen, in one operation.</p>
 <p>
 In order to fully exploit these features, a lot of memory and a fast hard disc is required.
 Unexpanded machines will be unable to make use of these features.</p>
+</section>
 
-<b>Using AREXX</b><br>
-
+<section id="01-using-arexx">
+<h2>Using AREXX</h2>
+<p>
 AMOS Professional has an advanced internal control system, and a small AMOS Professional
 program is needed to serve as an intermediary to an AREXX-compatible editor. The AMOS
 Professional program can now be run as an Editor Accessory, and external commands can be
@@ -77,7 +79,6 @@ your Amiga is used. AREXX will now be available from your applications.</p>
 It is important to realise that not all programs can make use of the AREXX interface, and the
 relevant documentation should be checked before proceeding. Here is the general procedure.</p>
 
-<!-- section -->
 
 <p>Firstly, open a CLI and type:</p>
 
@@ -100,11 +101,12 @@ This example would run an AREXX program called Arexxdemo.REX:</p>
 <p>
 When you return to AMOS Professional, you will be able to communicate with the external
 program using the commands that are ,detailed below.</p>
+</section>
 
-<p><b>AREXX-Compatible Instructions</b></p>
+<section id="02-arexx-compatible-instructions">
+<h2>AREXX-Compatible Instructions</h2>
 
 <p>
-<b>AREXX OPEN</b><br>
 <i>instruction: open an AREXX communication port</i><br>
 <b>Arexx</b> Open "PORT_NAME"</p>
 
@@ -119,7 +121,6 @@ checked by the AREXX EXIST function, explained below.</p>
 upper case. The name should be less than 32 characters long, and AMOS Professional will ignore
 any characters with an Ascii code below 32.</p>
 
-<!-- section -->
 
 <p>
 Before the port is opened, AMOS Professional opens the "rexxsyslib.library" file from the libs:
@@ -183,7 +184,6 @@ status=<b>Arexx</b></p>
 The AREXX function performs a GET MESSAGE command
 from the Amiga's operating system.</p>
 
-<!-- section -->
 
 <p>There are three possible values that can be returned, depending on the message status, as follows:</p>
 
@@ -246,6 +246,7 @@ the AREXX program is waiting for a string, but it is accidentally omitted from t
 empty string will be sent by AMOS Professional automatically.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

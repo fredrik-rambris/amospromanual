@@ -14,10 +14,8 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Graphics</h1>
-
-<br>
-
 
 <p>In this Chapter, you will learn how to master the arts of form and colour.</p>
 
@@ -29,8 +27,10 @@ pixels high, and there are potentially 4096 different colours to exploit. In ord
 chosen colour to the correct point, you will need to know the coordinates of each available pixel,
 and as long as these graphic coordinates are not confused with the broader scale of text
 coordinates, all will be well.</p>
+</section>
 
-<p><b>Graphic coordinates</b></p>
+<section id="01-graphic-coordinates">
+<h2>Graphic coordinates</h2>
 
 <p><b>PLOT</b><br>
 <i>instruction: plot a single point</i><br>
@@ -64,8 +64,10 @@ like this:</p>
 Cls : Plot 160,100
 Print "The colour is ";Point(160,100)
 </pre>
+</section>
 
-<p><b>Setting the graphics cursor</b></p>
+<section id="02-setting-the-graphics-cursor">
+<h2>Setting the graphics cursor</h2>
 
 <p><b>GR LOCATE</b><br>
 <i>instruction: position the graphics cursor</i><br>
@@ -75,7 +77,6 @@ Print "The colour is ";Point(160,100)
 The graphics cursor sets the starting point for most drawing operations. To establish this point,
 use GR LOCATE to position the graphics cursor at your chosen coordinates.</p>
 
-<!-- section -->
 
 <p>For example:</p>
 
@@ -101,8 +102,10 @@ location for future drawing operations. For example:</p>
 E> Cls : Circle 100,100,50
    Print Xgr,Ygr
 </pre>
+</section>
 
-<p><b>Drawing lines</b></p>
+<section id="03-drawing-lines">
+<h2>Drawing lines</h2>
 
 <p><b>DRAW</b><br>
 <i>instruction: draw a line</i><br>
@@ -129,7 +132,6 @@ colour. So a normal solid line can be imagined as having all its bits set to one
 
 <pre>%01111111111111111</pre>
 
-<!-- section -->
 
 <p><b>SET LINE</b><br>
 <i>instruction: set a line style</i><br>
@@ -147,9 +149,11 @@ E> Cls : Ink 2
    Set Line %1100110011001100
    Box 60,110 To 160,160
 </pre>
+</section>
 
-<p><b>Drawing outline shapes</b><br>
-
+<section id="04-drawing-outline-shapes">
+<h2>Drawing outline shapes</h2>
+<p>
 Here is a range of AMOS Professional short-cuts for drawing outline shapes on the screen.</p>
 
 <p>
@@ -188,7 +192,6 @@ shape is to be drawn, followed by the radius of the circle (the distance between
 and the circumference or rim of the circle.) If the x,y-coordinates are omitted, the circle will be
 drawn from the current graphic cursor position.</p>
 
-<!-- section -->
 
 <p>For example:</p>
 
@@ -237,16 +240,17 @@ E> Clip 150,5 To 280,199
     Ellipse ,,R+9,R
    Next R
 </pre>
+</section>
 
-<p><b>Selecting colours</b><br>
-
+<section id="05-selecting-colours">
+<h2>Selecting colours</h2>
+<p>
 The next part of this Chapter explains how the AMOS Professional programmer is free to exploit
 the Amiga's superb colour-handling features. Although the Amiga only provides 32 colour
 registers, AMOS Professional allows the use of colour numbers ranging from 0 to 63. This is in
 order to make full use of the extra colours available from the Half-Bright and HAM modes, as
 explained in <a href="6/601.html">Chapter 6.1</a>.</p>
 
-<!-- section -->
 
 <p><b>INK</b><br>
 <i>instruction: set drawing colour</i><br>
@@ -307,7 +311,6 @@ E> Curs Off : Flash Off
    Next C
 </pre>
 
-<!-- section -->
 
 <p>
 That example creates a lit of 16 colour values in hex code, alongside a ripple of circles in those
@@ -351,9 +354,11 @@ E> Cls : Colour 1,$A74
 This command is used to assign your choice of RGB components for the screen's background
 colour, which fills unused areas at the top and bottom of the visible screen. Alternatively,
 existing colours may also be specified when enclosed in brackets.</p>
+</section>
 
-<p><b>Setting several colours</b><br>
-
+<section id="06-setting-several-colours">
+<h2>Setting several colours</h2>
+<p>
 Impressive effects can be programmed using multi-colour changes, but assigning individual
 colours to every colour index would be a tedious business. AMOS Professional handles all the
 donkey work as usual.</p>
@@ -364,7 +369,6 @@ donkey work as usual.</p>
 
 <p>This is a much more powerful command than COLOUR, and it can be used to set as few or as</p>
 
-<!-- section -->
 
 <p>many colours in your artist's palette as are needed. Your programs always begin using a list of
 default colour values, and these values may be changed as in the next example.</p>
@@ -392,9 +396,11 @@ E> Palette $BAD,$0DD,$B0D,$FAB,$F1B
     Bar 50,8*C To 150,8*C+8
    Next C
 </pre>
+</section>
 
-<p><b>Filled shapes</b><br>
-You should now be familiar with drawing basic shapes and setting choices of colour. The next
+<section id="07-filled-shapes">
+<h2>Filled shapes</h2>
+<p>You should now be familiar with drawing basic shapes and setting choices of colour. The next
 stage explains how to combine these skills. Re-set your colours now, by getting rid of any
 customised PALETTE commands, before continuing.</p>
 
@@ -424,7 +430,6 @@ painting operation at any colour which is different from the existing ink colour
 gaps in the boundaries of the sections you wish to fill, colour will leak out and stain the
 adjoining area.</p>
 
-<!-- section -->
 
 <p><b>BAR</b><br>
 <i>instruction: draw a filled rectangle</i><br>
@@ -453,9 +458,11 @@ E> Do
     Polygon X1,Y1 To X1+W,Y1 To X1+W/2,Y1+H To X1,Y1
    Loop
 </pre>
+</section>
 
-<p><b>Alternative fill style</b><br>
-
+<section id="08-alternative-fill-style">
+<h2>Alternative fill style</h2>
+<p>
 Filling shapes with plain colours is a useful technique, but the AMOS Professional programmer
 has a much wider choice of fill effects.</p>
 
@@ -476,7 +483,6 @@ If SET PATTERN is followed by a positive number from 1 to 34, shapes are filled 
 made selection of patterns.</p>
 
 
-<!-- section -->
 
 <p>View them now, by running this routine:</p>
 
@@ -540,7 +546,6 @@ E> Flash Off : Cls 0
    Paint 102,102
 </pre>
 
-<!-- section -->
 
 <p><b>SET PAINT</b><br>
 <i>instruction: toggle outline mode</i><br>
@@ -570,9 +575,11 @@ X> Ink 3: Rem Set ink colour
    Ink 0,8,2: Rem Set ink, fill colour and border
    Ink 6,13: Rem Set ink and background fill colour
 </pre>
+</section>
 
-<p><b>Overwriting styles</b><br>
-
+<section id="09-overwriting-styles">
+<h2>Overwriting styles</h2>
+<p>
 When graphics are drawn, they normally get "written" over what is already displayed on the
 screen. There are four alternative drawing modes that change the way your graphics appear,
 and they may be used individually or combined to generate a whole range of effects.</p>
@@ -600,7 +607,6 @@ E> Ink 2,5 : Text 100,80, "NORMAL TEXT"
    Text 10 ,80, "REPLACE"
 </pre>
 
-<!-- section -->
 
 <p>Try the next example for some simple demonstrations of alternative settings:</p>
 
@@ -613,9 +619,11 @@ E> Ink 2,5 : Text 100,80,"NORMAL TEXT"
    Wait 100 : Gr Writing 5
    Text 100,100, "REVERSE"
 </pre>
+</section>
 
-<p><b>Advanced techniques</b><br>
-
+<section id="10-advanced-techniques">
+<h2>Advanced techniques</h2>
+<p>
 Whenever AMOS Professional performs a fill command, a special area of memory is reserved to
 hold the fill pattern. This memory is automatically returned to the system after the fill
 instruction has been performed. The size of the memory buffer is equivalent to a single bit plane
@@ -652,8 +660,7 @@ additional memory may be called for, causing the system to crash.</p>
 <p>
 The buffer area can be restored to its original value by calling SET TEMPRAS with no
 parameters.</p>
-
+</section>
 
 </BODY>
 </HTML>
-

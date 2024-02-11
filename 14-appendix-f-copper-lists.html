@@ -14,13 +14,15 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>App. F: Copper Lists</h1>
 
-<br>
 
+</section>
 
-<p><b>The Amiga co-processor</b><br>
-
+<section id="01-the-amiga-co-processor">
+<h2>The Amiga co-processor</h2>
+<p>
 While AMOS Professional allows you to harness the power of the Amiga with the greatest of
 ease, it has to perform a great deal of work behind the scenes when manipulating entire screens
 at great speed. The source of much of this power is a special hardware chip called the "co-
@@ -39,9 +41,11 @@ used by AMOS Professional screens are held in the colour registers from $180 to 
 the appearance of every line displayed on your screen is controlled by the copper, a massive
 number of special effects can be created by changing these registers during a program, using a
 list of instructions known as the "copper list".</p>
+</section>
 
-<p><b>The Copper List</b><br>
-
+<section id="02-the-copper-list">
+<h2>The Copper List</h2>
+<p>
 The copper list is executed automatically, fifty times every second, at the same time that the
 screen is re-drawn. This is how the AMOS Professional RAINBOW commands work, waiting for
 a rainbow line to appear on screen and then immediately poking a new value into the selected
@@ -63,8 +67,10 @@ who insist on meddling with the copper directly, AMOS Professional includes a po
 door into the realms of the co-processor. This allows advanced programmers to generate
 astounding effects, and also allows novices to send their displays berserk and crash their
 computers. You have been warned!</p>
+</section>
 
-<p><b>Accessing the Copper</b></p>
+<section id="03-accessing-the-copper">
+<h2>Accessing the Copper</h2>
 
 <p><b>COPPER OFF</b><br>
 <i>instruction: turn off the standard copper list</i><br>
@@ -105,9 +111,11 @@ From now on, you are on your own!</p>
   machine code, and as before, the current address is available via the COP LOGIC function. Note
   that this address will change during the course of a program, and it must be entered every time
   the machine code routine is called.</p>
+</section>
 
-<p><b>Recommended Procedures</b><br>
-
+<section id="04-recommended-procedures">
+<h2>Recommended Procedures</h2>
+<p>
   If you want to create copper lists from beginning to end, you must take personal control over
   the hardware Sprites, the display positioning, the location of screens, and their sizes. You must
   then ensure that the resulting screens have the correct amount of memory, before loading the
@@ -130,7 +138,6 @@ From now on, you are on your own!</p>
   Professional drawing commands, including SCREEN COPY, DRAW, PRINT and PLOT. As well
   as this, there should be no problems using Blitter Objects.</p>
 
-<!-- section -->
 
 <p>
   However, multiple screens and Sprites are only supported by the standard AMOS Professional
@@ -187,7 +194,6 @@ X> Cop Wait 0,Y : Rem Y is starting coordinate of next colour shift
    Cop Move $180,$777 : Rem $180 is address of colour 0 and $777 is new colour
 </pre>
 
-<!-- section -->
 
 <p>
   The x-coordinate is a hardware coordinate from 0 to 448. Since the Amiga is only capable of
@@ -244,6 +250,7 @@ X> Cop Swap : Wait Vbl
   by using assembly language.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

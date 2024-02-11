@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>App. E: Memory Bank Structures</h1>
 
-<br>
 
 
 <p>
@@ -54,9 +54,11 @@ you will crash your computer!</p>
 For those genuine professional programmers who are about to persevere with innovation and
 exploitation of the AMOS Professional system, you should be able to generate some amazing
 accessories by analysing this information. Go ahead. Make our day!</p>
+</section>
 
-<p><b>General Information</b><br>
-
+<section id="01-general-information">
+<h2>General Information</h2>
+<p>
 Each AMOS Professional program can have its own unique list of associated memory banks.</p>
 
 <p>All banks are introduced by a standard memory header.</p>
@@ -100,9 +102,11 @@ address is terminated with a value of <b>zero</b>.</p>
 </p>
 
 <p>You are more than welcome to add your own bank definitions to this list.</p>
+</section>
 
-<p><b>Memory bank headers</b><br>
-
+<section id="02-memory-bank-headers">
+<h2>Memory bank headers</h2>
+<p>
   The header is stored in the following format:</p>
 
 
@@ -129,7 +133,6 @@ Start                                                    *
   These pointers are swapped around whenever the BANK SWAP command is called from AMOS
   Professional Basic.</p>
 
-<!-- section -->
 
 <p><b>Length_Of_Bank+16</b><br>
 
@@ -190,7 +193,6 @@ Bit #3: 1 => Icon bank (list of pointers)
   If you need to use several Object banks, images can be placed into any bank you wish, and these
   banks can be switched using the BANK SWAP command, before they are displayed.</p>
 
-<!-- section -->
 
 <p>For example:</p>
 
@@ -213,13 +215,17 @@ X> Bank Swap 1,10: Rem Swap over banks 10 and 1, bank 10 is the new Sprite bank
 
   This is the address returned by the START function, and indicates the beginning of the actual
   data.</p>
+</section>
 
-<p><b>WORK BANKS and DATA BANKS</b><br>
-
+<section id="03-work-banks-and-data-banks">
+<h2>WORK BANKS and DATA BANKS</h2>
+<p>
   These are the backbone of many AMOS Professional programs, and are used to hold a variety of
   types of information. They may be stored either in memory or on disc, as follows:</p>
+</section>
 
-<p><b>Work Banks and Data Banks stored in memory</b></p>
+<section id="04-work-banks-and-data-banks-stored-in-memory">
+<h2>Work Banks and Data Banks stored in memory</h2>
 
 <pre>
 WORK BANKS
@@ -245,10 +251,11 @@ Start                                     Returned by START function
           ds.b  Length_Of_Bank            Returned by LENGTH function
 </pre>
 
-<!-- section -->
+</section>
 
-<p><b>Work banks and data banks stored on disc</b><br>
-
+<section id="05-work-banks-and-data-banks-stored-on-disc">
+<h2>Work banks and data banks stored on disc</h2>
+<p>
   Before AMOS Professional saves your banks onto disc, the header is discarded and replaced by
   the following:</p>
 
@@ -265,9 +272,11 @@ ds.b  Length_Of_The_Bank     * the bank itself!
 <p>
   These files will normally end with ".abk" and can be loaded into AMOS Professional Basic using
   the LOAD command.</p>
+</section>
 
-<p><b>Saving several Banks at once</b><br>
-
+<section id="06-saving-several-banks-at-once">
+<h2>Saving several Banks at once</h2>
+<p>
   AMOS Professional allows you to save a group of banks in a single ".abs" file. The format of
   these files is as follows:</p>
 
@@ -277,14 +286,18 @@ dc.w  Number_Of_Banks
 </pre>
 
 <p>The memory banks are then listed onto the appropriate disc, one after another.</p>
+</section>
 
-<p><b>Format of Object banks and Icon banks</b><br>
-
+<section id="07-format-of-object-banks-and-icon-banks">
+<h2>Format of Object banks and Icon banks</h2>
+<p>
   As before, the manner in which Objects and Icons are stored in memory will be examined,
   followed by an explanation of their storage on disc.</p>
+</section>
 
-<p><b>Object banks and Icon banks stored in memory</b><br>
-
+<section id="08-object-banks-and-icon-banks-stored-in-memory">
+<h2>Object banks and Icon banks stored in memory</h2>
+<p>
   Icons and Objects are stored in a special way. Rather than hold the data in a single continuous
   package, AMOS Professional splits these banks into a separate list of images. These images are
   stored in their own independent memory locations, and are scattered through the Amiga's Chip
@@ -306,7 +319,6 @@ dc.w  Number_Of_Banks
   name "Sprites" rather than "Objects", but they can be used to hold either Sprite or Bob images as
   required.</p>
 
-<!-- section -->
 
 <pre>
 Header           dc.l    Address_Of_Next_Bank    Start-24
@@ -357,7 +369,6 @@ Image_Address.img
   The image definition is merely a small bitmap containing the actual picture. The planes are
   stored one after another, starling from plane 0.</p>
 
-<!-- section -->
 
 <pre>
 X_Size              This holds the width of the image, divided by 16.
@@ -387,9 +398,11 @@ Mask_Address:
   dc.l   Size_Of_The_Mask In_Bytes
   dcb.w  X_Size * Y_Size
 </pre>
+</section>
 
-<p><b>Object banks and Icon banks stored on disc</b><br>
-
+<section id="09-object-banks-and-icon-banks-stored-on-disc">
+<h2>Object banks and Icon banks stored on disc</h2>
+<p>
   An Object or Icon bank is stored very differently on disc, as all information relating to the
   pointer is discarded.</p>
 
@@ -416,7 +429,6 @@ Mask_Address:
   dcb.w 32
 </pre>
 
-<!-- section -->
 
 <p>Please note the following three points:</p>
 
@@ -435,14 +447,18 @@ dc.w 0
 <p>
   All Objects or Icons are flipped back to their original state before they are saved, so the bits 14
   and 15 of the X Hot Spot are always <b>zero</b>.</p>
+</section>
 
-<p><b>MUSIC BANKS</b><br>
-
+<section id="10-music-banks">
+<h2>MUSIC BANKS</h2>
+<p>
   In this section, music banks held in memory will be dealt with first, followed by an examination
   of music banks saved onto disc.</p>
+</section>
 
-<p><b>Music banks stored in memory</b><br>
-
+<section id="11-music-banks-stored-in-memory">
+<h2>Music banks stored in memory</h2>
+<p>
   The AMOS Professional Music system is stored as an ,extension, so it is completely separate from
   the rest of the AMOS Professional language. The source code is available and can be changed or
   modified to your own needs. This means that the system will not be made redundant by any
@@ -474,7 +490,6 @@ dc.w 0
   <b>Musics</b>: this contains a list of pattern numbers to play in sequence.<br>
   <b>Patterns</b>: this a simple list of notes.</p>
 
-<!-- section -->
 
 <p>
   At the start of the music bank, AMOS Professional stores offsets to the various components of
@@ -527,7 +542,6 @@ Loop.inst:
 *
 </pre>
 
-<!-- section -->
 
 <pre>
 * The Music part starts here, as a list of patterns to be played in sequence
@@ -578,7 +592,6 @@ Patterns:
 * Repeat for each pattern
 </pre>
 
-<!-- section -->
 
 <pre>
          REPT     Number_of_patterns
@@ -597,9 +610,11 @@ Voice_3_Note_List.pat:
          ENDR
 * End Repeat
 </pre>
+</section>
 
-<p><b>The Patterns</b><br>
-
+<section id="12-the-patterns">
+<h2>The Patterns</h2>
+<p>
   Unlike the <i>Soundtracker</i> system, Patterns are held as a simple list of notes, and they can be
   assigned to any of the four voices independently. Providing that the correct offset values are set,
   you can play the same pattern through all of the available voices simultaneously.</p>
@@ -640,7 +655,6 @@ Voice_3_Note_List.pat:
          * vvvvvvvv : volume level from 0 to 63
 </pre>
 
-<!-- section -->
 
 <pre>
 + STOP_EFFECT               label 4
@@ -693,7 +707,6 @@ Voice_3_Note_List.pat:
   <li>Everything is relocatable.</li>
 </ul>
 
-<!-- section -->
 
 <ul>
   <li>The AMOS Professional Music player does not modify anything in the bank before the music
@@ -703,9 +716,11 @@ Voice_3_Note_List.pat:
   <li>With a little work, you are able to save a lot of space. The same pattern can be re-used by
     different songs, and may be repeated several times in your Soundtrack.</li>
 </ul>
+</section>
 
-<p><b>Music banks stored on disc</b><br>
-
+<section id="13-music-banks-stored-on-disc">
+<h2>Music banks stored on disc</h2>
+<p>
   The AMOS Professional music banks are saved to disc "as is", with only a simple header.</p>
 
 
@@ -716,9 +731,11 @@ dc.l    $80000000 + Length_Of_The_Bank
 
 Note that $80000000 indicates a CHIP memory bank.
 </pre>
+</section>
 
-<p><b>SAMPLE BANKS</b><br>
-
+<section id="14-sample-banks">
+<h2>SAMPLE BANKS</h2>
+<p>
   All sample banks are loaded in CHIP Ram.</p>
 
 <pre>
@@ -742,9 +759,11 @@ Sample XX  dc.b   "Namesamp"           Name of the sample in 8 bytes
 <p>
   On disc, the sample bank is saved directly in the above format. The disc header is exactly the
   same as for a CHIP DATA bank.</p>
+</section>
 
-<p><b>AMAL BANKS</b><br>
-
+<section id="15-amal-banks">
+<h2>AMAL BANKS</h2>
+<p>
   An AMAL bank can hold two separate types of information. Either a list of AMAL command
   strings, or a recorded series of Object movements for use with the PLay instruction. The bank is
   therefore divided into sections, as shown below:</p>
@@ -758,7 +777,6 @@ The movement table
 * (NN= number of the move)
 </pre>
 
-<!-- section -->
 
 <pre>
 * For NN=1 To the Number of Recordings
@@ -804,9 +822,11 @@ YMove_NN
              1/50 counts to wait until the next
              movement
 </pre>
+</section>
 
-<p><b>The AMAL programs</b><br>
-
+<section id="16-the-amal-programs">
+<h2>The AMAL programs</h2>
+<p>
   AMAL command strings are stored in normal Ascii format.</p>
 
 
@@ -817,7 +837,6 @@ Progs   dc.w      Number_Of_Programs        Holds the number of AMAL programs
            dc.w (Prog_NN-Progs)/2           Distance to the NN'th program
 </pre>
 
-<!-- section -->
 
 <pre>
                                                    measured in WORDS
@@ -828,9 +847,11 @@ Prog_NN     dc.w Length Of Prog_NN
             dc.b "The program in plain Ascii"
          ENDR
 </pre>
+</section>
 
-<p><b>THE RESOURCE BANK</b><br>
-
+<section id="17-the-resource-bank">
+<h2>THE RESOURCE BANK</h2>
+<p>
   The Resource bank is used to hold all the control buttons and icons used by the AMOS
   Professional INTERFACE commands. The Resource bank is split into three main sections. There
   is one area for the button definitions, another for the command strings and a third for messages.</p>
@@ -874,7 +895,6 @@ Res_NN:
 * to put the comment line BEFORE the button definition
 </pre>
 
-<!-- section -->
 
 <pre>
 *
@@ -905,9 +925,11 @@ Prog_N:                                  One of these for each program
 Prog_N_End:
         ENDR
 </pre>
+</section>
 
-<p><b>COMPRESSED PICTURES (PIC.PAC)</b><br>
-
+<section id="18-compressed-pictures-pic-pac">
+<h2>COMPRESSED PICTURES (PIC.PAC)</h2>
+<p>
   The internal structure of these pictures is very complex, and this explanation is limited to the
   header file. A full source listing of the compaction code is available from the extensions folder.</p>
 
@@ -929,7 +951,6 @@ Pkdx    dc.w  x
 * Y coordinate of the original source data
 </pre>
 
-<!-- section -->
 
 <pre>
 Pkdy       dc.w   y
@@ -969,6 +990,7 @@ PsNPlan   dc.w   planes           Number of bitplanes
 PsPal     dcb.w  32               Holds the colour palette
 </pre>
 
+</section>
+
 </BODY>
 </HTML>
-

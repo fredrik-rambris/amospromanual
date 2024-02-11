@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Advanced Control Panels</h1>
 
-<br>
 
 
 <p>
@@ -38,11 +38,12 @@ user enters new values into a dialogue box.</p>
 <p>
 In order to access these features, a little preparation must be made in advance in order to exploit
 dialogue channels.</p>
+</section>
 
-<p><b>Dialogue channels</b></p>
+<section id="01-dialogue-channels">
+<h2>Dialogue channels</h2>
 
 <p>
-<b>DIALOG OPEN</b><br>
 <i>instruction: open a channel to an Interface program</i><br>
 <b>Dialog Open</b> channel number,Interface string<br>
 <b>Dialog Open</b> channel number,Interface string,nvar,buffer</p>
@@ -75,7 +76,6 @@ Note that the DIALOG OPEN command only initialises the communication <b>channel<
 not start the program running or generate any graphics on the screen. To accomplish this, the
 following function is used.</p>
 
-<!-- section -->
 
 <p>
 <b>DIALOG RUN</b><br>
@@ -136,7 +136,6 @@ E> A$=A$+"BA 50,50;SI 180,60;SA 1 ;IN 5,0,0;GB 0,0,170,50;"
 
 <p>This command closes one or more dialogue channels on the screen.</p>
 
-<!-- section -->
 
 <p>
 Interface programs are terminated and removed from memory immediately. If the Interface
@@ -166,8 +165,10 @@ X> On ErrOr Goto TRAP: Rem Add this line before a DIALOG OPEN command
    ...: Rem The rest of your program goes here
    TRAP: Print Mid$(DB$,Edialog,80) : Wait Key : End : Rem Error handler
 </pre>
+</section>
 
-<b>Testing an active zone</b></p>
+<section id="02-testing-an-active-zone">
+<h2>Testing an active zone</h2>
 
 <p>
 DIALOG
@@ -195,7 +196,6 @@ returned:</p>
 Once the value of the contents held by the DIALOG function has been checked, it will be re-set
 to zero.</p>
 
-<!-- section -->
 
 <p>Here is an example of a simple check:</p>
 
@@ -242,14 +242,15 @@ text string=<b>RDIALOG$</b>(channel number,zone number,object number)</p>
 Use this function to return a string of text Assigned to a zone. If the selected zone does not
 contain any text, an empty string will be presented. Please see the Interface EDit command for
 more details.</p>
+</section>
 
-<b>Accessing a variable array</b></p>
+<section id="03-accessing-a-variable-array">
+<h2>Accessing a variable array</h2>
 
 <p>
 Variables that have been assigned to an active Interface channel can be read and modified
 directly from the main AMOS Professional program.</p>
 
-<!-- section -->
 
 <p>
 <b>VDIALOG</b><br>
@@ -275,14 +276,18 @@ strings rather than numbers.</p>
 <p>
 Specify the channel number and the variable number, and then string$ holds a new AMOS
 Professional string to be stored in the Interface variable array.</p>
+</section>
 
-<p><b>Advanced Control Panels</b><br>
-
+<section id="04-advanced-control-panels">
+<h2>Advanced Control Panels</h2>
+<p>
 There now follows a detailed examination of some of the additional zone commands which
 make the AMOS Professional Interface so special!</p>
+</section>
 
-<p><b>Editing zones</b><br>
-
+<section id="05-editing-zones">
+<h2>Editing zones</h2>
+<p>
 The AMOS Professional Interface allows for both text and numbers to be input into screen zones.</p>
 
 <p>
@@ -308,7 +313,6 @@ characters to be accommodated, rounded <b>up</b> to the nearest even number. Nex
 length of the text string must be given in characters, and an area of this size will be reserved in
 the channel buffer.</p>
 
-<!-- section -->
 
 <p>
 The 'string' parameter enters a string of characters that will be initially loaded into the text edit
@@ -363,7 +367,6 @@ E> A$=A$+"BA 50,50;SI 200,60; SA 1; set things up"
 
 <p>The numerical equivalent of a text zone is examined next.</p>
 
-<!-- section -->
 
 <p>
 <b>DIgit</b><br>
@@ -410,9 +413,11 @@ E> A$=A$+"BA 50,50; SI 200,90; SA 1;"
    Print "Hello ";Rdialog$(1,2) : Print "You are ";Rdialog(1,3); "years old"
    Dialog Close
 </pre>
+</section>
 
-<p><b>Sliders and Selectors</b><br>
-
+<section id="06-sliders-and-selectors">
+<h2>Sliders and Selectors</h2>
+<p>
 One of the most powerful features of the Interface system is the facility to create a wide variety
 of sliders and selection boxes in AMOS Professional programs. The next part of this Chapter
 provides a detailed examination of the commands that make this possible.</p>
@@ -425,7 +430,6 @@ provides a detailed examination of the commands that make this possible.</p>
 <p>The HS command draws an animated horizontal slider bar on the screen.</p>
 
 
-<!-- section -->
 
 <p>
 It is similar to the AMOS Professional HSLIDER command, with the additional facility of
@@ -484,7 +488,6 @@ E> B$=B$+"BA 112,50; set base coordinates to the screen centre"
    Dialog Close
 </pre>
 
-<!-- section -->
 
 <p>
 <b>V</b>ertical<b>S</b>lider<br>
@@ -505,9 +508,11 @@ X> position=RDIALOG(channel number,zone number)
 Once slider bars have been created, they can be used to produce attractive selector boxes. These
 allow you to scroll through a list of items directly on the screen, and select them individually
 using the mouse, again, as demonstrated by the AMOS Professional file selector.</p>
+</section>
 
-<p><b>Reading arrays</b><br>
-
+<section id="07-reading-arrays">
+<h2>Reading arrays</h2>
+<p>
 In order to generate an Interface selector, a method is needed of grabbing an entire list of items
 from the AMOS Professional main program. A simple function is provided for transferring
 complete arrays into an Interface routine.</p>
@@ -547,7 +552,6 @@ the first item in the array, followed by the number of the item in that array wh
 returned. Obviously, if the number of the specified element is higher than the dimension of the
 array, an error will be generated.</p>
 
-<!-- section -->
 
 <p>
 <b>A</b>rray<b>S</b>ize<br>
@@ -558,9 +562,11 @@ size=address <b>AS</b></p>
 The ArraySize function is used to return the number of elements in an AMOS Professional array,
 stored at the specified address. The address is the location of the array in memory which has
 been loaded from the ARRAY function.</p>
+</section>
 
-<p><b>Displaying items on the screen</b><br>
-
+<section id="08-displaying-items-on-the-screen">
+<h2>Displaying items on the screen</h2>
+<p>
 After an item array has been entered into the Interface, it can be displayed on the screen using
 the powerful ActiveList command.</p>
 
@@ -604,7 +610,6 @@ this number goes past the end of the array, the selector will be filled with bla
 Bit 0 If this is set to one, each string will be preceded by a number representing its position in the
 array. The count normally starts from zero, but this can be changed as explained next.</p>
 
-<!-- section -->
 
 <pre>
 Bit 1 is only active if the automatic numbering system has been turned on by setting Bit 0 to one.
@@ -673,7 +678,6 @@ command. The following example line would create zone 1 at coordinates 10,10, wi
 X> AL 1,10,10,30,15,0 VA,0,0,0,1;[]
 </pre>
 
-<!-- section -->
 
 <p>
 Now open an Interface communication channel with a DIALOG OPEN command, and grab the
@@ -689,9 +693,11 @@ X> Dialog Open A$,1
 <pre>
 X> R=Dialog Run(1)
 </pre>
+</section>
 
-<p><b>Creating a selector</b><br>
-
+<section id="09-creating-a-selector">
+<h2>Creating a selector</h2>
+<p>
 The ActiveList command is very useful, but it is not intended to operate in isolation. To create a
 working selection box, an appropriate set of sliders, buttons and edit zones need to be linked up,
 as explained in the next part of this Chapter.</p>
@@ -734,7 +740,6 @@ by the user.</p>
 
 <p><b>Active lists</b>. In this case, the selection window is scrolled up or down the string array.</p>
 
-<!-- section -->
 
 <p>
 The ZoneChange command can be used to great effect with the ZonePosition function, to link
@@ -803,7 +808,6 @@ UPDATE command for a detailed explanation.</p>
 It is sometimes necessary to link up a number of zones in sequence, and relative
 values instead of absolute zone numbers can be used for this purpose.</p>
 
-<!-- section -->
 
 <p>
 <b>Z</b>one<b>N</b>umber<br>
@@ -817,8 +821,10 @@ used in conjunction with the ZoneChange command, like this:</p>
 <pre>
 X> [ZChange ZNumber 1+ZPosition] loads the next zone with existing position value.
 </pre>
+</section>
 
-<p><b>Controlling a selector from the main program</b></p>
+<section id="10-controlling-a-selector-from-the-main-program">
+<h2>Controlling a selector from the main program</h2>
 
 <p>
 <p><b>DIALOG UPDATE</b><br>
@@ -859,7 +865,6 @@ for certain applications.
 Slider      Changes the "total" parameter
 </pre>
 
-<!-- section -->
 
 <p>
 <b>DIALOG FREEZE</b><br>
@@ -891,9 +896,11 @@ leaving the specified channel open. The Interface program can now be re-run from
 beginning, using a further call to the DIALOG RUN command.
 As always, if the background area has been saved using the SA option, it will be restored to its
 original position.</p>
+</section>
 
-<p><b>HyperText</b><br>
-
+<section id="11-hypertext">
+<h2>HyperText</h2>
+<p>
 The impressive interactive Help system is one of the most user-friendly aspects of the AMOS
 Professional system, allowing detailed information to be called up using single mouse key-
 presses from the Editor. More impressive than this is the fact that the Help system was entirely
@@ -918,7 +925,6 @@ additional text, or call up an appropriate routine from the main program.</p>
 The zone number is given as usual, followed by x,y-coordinates. The x-coordinate will be
 rounded down to the nearest multiple of 16.</p>
 
-<!-- section -->
 
 <p>
 Next the width and height parameters are specified to define the size of the text window that
@@ -959,9 +965,11 @@ and the background window will be filled with the paper colour when it is initia
 The square brackets hold an Interface function that will be called up whenever the mouse is
 clicked on the HyperText zone. If the zone returns a number, it will now be available directly
 from the ZPosition function.</p>
+</section>
 
-<p><b>Creating some HyperText</b><br>
-
+<section id="12-creating-some-hypertext">
+<h2>Creating some HyperText</h2>
+<p>
 The text can include a number of active zones if required. These are defined using curled
 brackets, and their are two alternative formats, as follows:</p>
 
@@ -979,7 +987,6 @@ can now be read directly from a [changes] routine using the ZPosition function. 
 entered, such as {[Hello everybody]...}, the main program will grab it with RDIALOG$ instead,
 and the ZPosition function will return a value of zero.</p>
 
-<!-- section -->
 
 <p>
 Supposing an automatic jump to a specific page of text is required. The HyperText command
@@ -1047,6 +1054,7 @@ X> BUtton 6,24,0,SX,10,0,0,0;[][ScreenMove;]
 </pre>
 
 
+</section>
+
 </BODY>
 </HTML>
-

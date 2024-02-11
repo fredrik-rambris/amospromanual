@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Menus</h1>
 
-<br>
 
 
 <p>
@@ -34,9 +34,11 @@ When reading your menus, branching to user-selected points in your programs can 
 automatic, whether triggered by the mouse or directly from the keyboard. And if you cannot
 wait to see all this in action, the Chapter is accompanied by a full range of ready-made
 demonstration programs available on the AMOSPro Tutorial disc.</p>
+</section>
 
-<p><b>Using AMOS Professional menus</b><br>
-
+<section id="01-using-amos-professional-menus">
+<h2>Using AMOS Professional menus</h2>
+<p>
 SELECTING. All of these menus are activated by holding down the right mouse button. Once
 the relevant menu has appeared on screen, drag the mouse cursor over the option you wish to
 select and release the button. The selected option number is automatically returned to your
@@ -55,7 +57,6 @@ prefer to use the menu defining program supplied on disc.</p>
 
 <p><b>Simple menus</b></p>
 
-<p><b>MENU$</b><br>
 <i>reserved variable: define a menu title or option</i><br>
 <b>Menu$</b>(number)=title$<br>
 <b>Menu$</b>(number,option)=option$</p>
@@ -73,7 +74,6 @@ E> Menu$(1)," Action"
    Menu$(2)," Mouse"
 </pre>
 
-<!-- section -->
 
 <p>
 The second type of usage of MENU$ defines a set of options that will be displayed in the vertical
@@ -114,8 +114,10 @@ E> Menu On
 Trigger the menu and its options now, and use the left mouse button to re-locate the title bar.
 Now that this simple menu has been activated, the selected options must be read and reported
 back to the system.</p>
+</section>
 
-<p><b>Reading a simple menu</b></p>
+<section id="02-reading-a-simple-menu">
+<h2>Reading a simple menu</h2>
 
 <p><b>CHOICE</b><br>
 <i>function: read a menu</i><br>
@@ -130,7 +132,6 @@ CHOICE is automatically re-set to zero.</p>
 
 <p>CHOICE(1) will return the value of the title number which has been chosen.</p>
 
-<!-- section -->
 
 <p>CHOICE(2) will return the value of the option number which has been selected.</p>
 
@@ -145,9 +146,11 @@ E> Do
     If Choice(1)=2 and Choice(2)<>0 Then Change Mouse Choice(2)
    Loop
 </pre>
+</section>
 
-<p><b>Creating advanced menus</b><br>
-
+<section id="03-creating-advanced-menus">
+<h2>Creating advanced menus</h2>
+<p>
 The use of MENU$ and CHOICE is not limited to the creation of simple menus. In fact, their use
 can be extremely sophisticated.</p>
 
@@ -191,7 +194,6 @@ if it is omitted, inactive items are automatically displayed in italics.</p>
 The background$ creates a background effect for menu items when they are initially drawn, such
 as a box or a border created by the internal BAR or line drawing commands.</p>
 
-<!-- section -->
 
 <p>
 Similarly, the CHOICE function can return the option selected at a required level in the menu
@@ -244,7 +246,6 @@ the menu system before jumping back to the main program with a RETURN. Also note
 labels used with this command cannot be replaced by expressions, because the label will be
 evaluated once only when the program is run.</p>
 
-<!-- section -->
 
 <p><b>ON MENU GOTO</b><br>
 <i>instruction: automatic menu selection</i><br>
@@ -280,8 +281,10 @@ loading and saving information to disc. Menus are reactivated using ON MENU ON.<
 Use ON MENU DEL to erase the internal list of labels or procedures created by the range of ON
 MENU commands. You are warned that this command can only be used after menus have been
 deactivated by ON MENU OFF.</p>
+</section>
 
-<p><b>The Menu control commands</b></p>
+<section id="04-the-menu-control-commands">
+<h2>The Menu control commands</h2>
 
 <p><b>MENU ON</b><br>
 <i>instruction: activate a menu</i><br>
@@ -298,7 +301,6 @@ the numbered memory bank. Please see MAKE MENU BANK, below.</p>
 <i>instruction: deactivate a menu</i><br>
 <b>Menu Off</b></p>
 
-<!-- section -->
 
 <p>
 This command temporarily turns a menu off, making it inactive. The menu can be reactivated at
@@ -355,7 +357,6 @@ individual menu options can be updated depending on the user's actions. After th
 been defined, items may be added and options replaced as you please, and everything will be
 repositioned automatically as soon as the menu is called up with the right mouse button.</p>
 
-<!-- section -->
 
 <p>
 This is process may take a few seconds, particularly with very large menus, and the MENU CALC
@@ -366,9 +367,11 @@ order to minimise any delays.</p>
 You are advised to freeze your menus with MENU OFF at the start of the recalculation
 procedure, to prevent the user calling the menu half way through an update. It may then be
 made active again using MENU ON after the updating process is over.</p>
+</section>
 
-<p><b>Alternative menu styles</b><br>
-
+<section id="05-alternative-menu-styles">
+<h2>Alternative menu styles</h2>
+<p>
 The AMOS Professional programmer is free to change the display format of any level of any
 menu, and design a customised layout. As a default, all titles are displayed in a horizontal bar
 with their related options arranged below in a vertical block. Here are the alternatives:</p>
@@ -410,7 +413,6 @@ definitions.</p>
 <b>Menu Bar</b> level number<br>
 <b>Menu Bar</b>(single item parameters)</p>
 
-<!-- section -->
 
 <p>
 This instruction displays.the selected menu items as a vertical bar whose width is automatically
@@ -463,15 +465,16 @@ inactive string will appear.</p>
 <b>Menu Active</b> level number<br>
 <b>Menu Active</b>(single item parameters)</p>
 
-<!-- section -->
 
 <p>
 MENU ACTIVE reverses the effect of a previous MENU INACTIVE command. An entire level or
 single item specified by its parameters can be re-activated and the original appearance of their
 title strings will be re-displayed.</p>
+</section>
 
-<p><b>Moving menu displays</b><br>
-
+<section id="06-moving-menu-displays">
+<h2>Moving menu displays</h2>
+<p>
 As has been explained, AMOS Professional menus can be displayed anywhere on your screen.
 he display positions can be moved either by the user or by your program.</p>
 
@@ -515,7 +518,6 @@ setting the level or item at which the entire menu becomes immovable by the user
 <b>Menu Item Movable</b> level number<br>
 <b>Menu Item Movable</b>(single item parameters)</p>
 
-<!-- section -->
 
 <p>
 This is similar to MENU MOVABLE, but it allows the re-arrangement of various options in a
@@ -572,13 +574,14 @@ option on screen. This information can be used to set up very powerful menus.</p
 <i>function: return the graphical y-coordinate of a menu item</i><br>
 y=<b>Y Menu</b>(single item parameters)</p>
 
-<!-- section -->
 
 <p>
 Y MENU returns the y-coordinate of a menu option, measured relatively to the previous item on
 screen. Please refer to the demonstration program above.</p>
+</section>
 
-<p><b>Moving a menu within a program</b></p>
+<section id="07-moving-a-menu-within-a-program">
+<h2>Moving a menu within a program</h2>
 
 <p><b>MENU BASE</b><br>
 <i>instruction: move the starting position of a menu</i><br>
@@ -611,9 +614,11 @@ MENU MOUSE OFF</b><br>
 Use these commands to toggle the display of all menus starting from the current position of the
 mouse cursor. The mouse coordinates are added to the MENU BASE to calculate the menu
 position, so it is possible to lace a menu at a fixed distance from the mouse pointer.</p>
+</section>
 
-<p><b>Keyboard shortcuts</b><br>
-
+<section id="08-keyboard-shortcuts">
+<h2>Keyboard shortcuts</h2>
+<p>
 Menus are an extremely useful system of selecting from a clear choice of options. They present
 the user with a simple method of performing some complex operations, and they are
 particularly suitable for the less experienced or younger user. But the AMOS Professional
@@ -626,7 +631,6 @@ AMOS Professional allows you to assign a keyboard shortcut to any of your menu i
 these key presses are interpreted as their exact equivalents. They can be used with any menu
 command, including the ON MENU range.</p>
 
-<!-- section -->
 
 <p><b>MENU KEY</b><br>
 <i>instruction: assign a key to a menu item</i><br>
@@ -685,7 +689,6 @@ Here are the alternatives:</p>
 7    right [Amiga]
 </pre>
 
-<!-- section -->
 
 <p>
 If more than a single bit is set in this pattern, several keys must be pressed at the same time in
@@ -710,9 +713,11 @@ E> Menu$(1)="Function Keys"
     If Choice Then Print "You have pressed Function Key ";Choice(2)
    Loop
 </pre>
+</section>
 
-<p><b>Embedded menu commands</b><br>
-
+<section id="09-embedded-menu-commands">
+<h2>Embedded menu commands</h2>
+<p>
 AMOS Professional menus offer complete freedom to make use of any text styles of graphics
 you want. The final part of this Chapter deals with the commands that make this possible.</p>
 
@@ -749,7 +754,6 @@ make up the command are in upper case bold type.</p>
 <i>embedded command: move the graphics cursor</i><br>
 <b>LO</b>cate x,y</p>
 
-<!-- section -->
 
 <p>
 The LOcate embedded command moves the graphics cursor to coordinates x,y measured
@@ -806,7 +810,6 @@ SFont sets the current menu font to the selected graphics font number. This font
 used for all subsequent menu items. GET FONTS must be called before this instruction is
 executed.</p>
 
-<!-- section -->
 
 <p><b>SSTYLE</b><br>
 <i>embedded command: set font style</i><br>
@@ -858,7 +861,6 @@ PAttern changes the fill pattern used by the BAr command to the numbered style.
 OUtline draws a border in the current outline colour (set to ink colour 3) around all subsequent
 bars. A value of 1 activates the border and a value of 0 removes it.</p>
 
-<!-- section -->
 
 <p><b>ELLIPSE</b><br>
 <i>embedded command: draw an ellipse</i><br>
@@ -911,7 +913,6 @@ otherwise it will contain a value of 0.</p>
 AREG(1) holds the address of the zone created with RESERVE. It is used to allow different
 procedures to communicate with one another.</p>
 
-<!-- section -->
 
 <p>Here is the general structure of a menu procedure:</p>
 
@@ -953,9 +954,11 @@ REserve allocates the chosen number of bytes of memory for a menu item. This are
 accessed from within your menu procedure using the address held in AREG(1). The data area
 that is reserved in this way is for the storage of variables. This area is local to the menu item that
 calls the procedure.</p>
+</section>
 
-<p><b>Automatic re-drawing of menus</b><br>
-
+<section id="10-automatic-re-drawing-of-menus">
+<h2>Automatic re-drawing of menus</h2>
+<p>
 The last two commands in this Chapter affect the automatic process which re-draws the selected
 menu 50 times every second.</p>
 
@@ -968,7 +971,6 @@ MENU CALLED engages the automatic re-drawing process. This command is normally u
 with a menu procedure to generate animated menu items, often with spectacular moving
 graphic effects.</p>
 
-<!-- section -->
 
 <p>
 To use this facility, a menu procedure should first be defined, as explained above. Next, add a
@@ -994,6 +996,7 @@ X> Menu Once(1,1)
 </pre>
 
 
+</section>
+
 </BODY>
 </HTML>
-

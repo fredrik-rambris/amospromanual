@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Interface Language</h1>
 
-<br>
 
 
 <p>
@@ -28,9 +28,11 @@ The Interface is a complete language, and includes a full set of general instruc
 used to great effect in dialogue boxes. There is an extensive range of graphics commands, a
 testing facility and a pair of important program control instructions for making jumps. The
 Interface even provides fully-operative procedures and user-defined functions!</p>
+</>
 
-<p><b>The graphics functions</b><br>
-
+<section id="01-the-graphics-functions">
+<h2>The graphics functions</h2>
+<p>
 When defining a number of buttons, it is important to be able to arrange them neatly as part of
 the display. The AMOS Professional Interface provides a number of simple functions to
 shoulder the burden of these problems.</p>
@@ -39,7 +41,6 @@ shoulder the burden of these problems.</p>
 As usual, these functions read their values directly from the number stack, so the numbers go
 before the operations.</p>
 
-<p><b>B</b>ase<b>X</b><br>
 <b>B</b>ase<b>Y</b><br>
 <i>Interface functions: get the coordinate base location</i><br>
 x=<b>BX</b><br>
@@ -78,7 +79,6 @@ X> Size 240.100;
    BAse SW SX 2/-,SH SY 2/-;
 </pre>
 
-<!-- section -->
 
 <p>
 The next pair of functions keep track of the graphics cursor. This is automatically positioned at
@@ -120,14 +120,18 @@ X> BUtton 1,160,100,...;[][]
 X> PRint 0,8,"Hello, first line",2;
    PRint XA,YB,"This line will be directly under!",2;
 </pre>
+</section>
 
-<p><b>The Graphics Commands</b><br>
-
+<section id="02-the-graphics-commands">
+<h2>The Graphics Commands</h2>
+<p>
 Here are all of the AMOS Professional Interface graphics commands. They fall into the following
 main groups: boxes and bars, lines and outlines, and the text commands. Most of these Interface
 instructions are very similar to their normal AMOS Professional equivalents.</p>
+</section>
 
-<p><b>Boxes and Bars</b></p>
+<section id="03-boxes-and-bars">
+<h2>Boxes and Bars</h2>
 
 <p>
 <b>G</b>raphic<b>B</b>ox<br>
@@ -139,7 +143,6 @@ To draw a box that is filled with the current colour, the GraphicBox command is 
 familiar top left-hand corner coordinates, and then the coordinates of the diagonally opposite
 corner.</p>
 
-<!-- section -->
 
 <p>
 All coordinates are measured from the start location of the dialogue box, which can be set by the
@@ -196,9 +199,10 @@ activated, bars will be automatically enclosed by a hollow box in the current ou
 This is the equivalent to the normal BOX command, and it is used to draw a hollow rectangle,
 determined by the coordinates of the top left and bottom right-hand corners.</p>
 
-<!-- section -->
+</section>
 
-<p><b>Lines and Outlines</b></p>
+<section id="04-lines-and-outlines">
+<h2>Lines and Outlines</h2>
 
 <p>
 <b>S</b>et<b>L</b>ine<br>
@@ -238,9 +242,11 @@ This simple Interface command is used to draw hollow ellipses or circles. The ce
 figure is set by coordinates x,y relative to the BAse location, and then the height and width of
 the figure are set by specifying the length of the appropriate radii in pixels. To draw a circle,
 simply specify the same value for both radii.</p>
+</section>
 
-<p><b>Displaying text</b><br>
-
+<section id="05-displaying-text">
+<h2>Displaying text</h2>
+<p>
 Once the surroundings of the requester have been generated, the following commands will be
 needed to display text in these dialogue boxes. The PRint command is examined in <a href="9/901.html">Chapter 9.1</a>,
 here are some more instructions to affect the way text is displayed.</p>
@@ -257,7 +263,6 @@ The parameters are self-explanatory, and consist of the starting coordinates for
 screen, the string of text enclosed in single quotation marks and the index numbers of the
 outline and text colours.</p>
 
-<!-- section -->
 
 <p>
 One side effect of the PrintOutline command is that the drawing mode is automatically re-set to
@@ -324,7 +329,6 @@ SetVar 0,"Hello, this is the text"
 PRint 0VA CentreX,0,0 VA,2;
 </pre>
 
-<!-- section -->
 
 <p>
 <b>V</b>ert<b>T</b>ext<br>
@@ -334,9 +338,11 @@ PRint 0VA CentreX,0,0 VA,2;
 <p>
 The VertText command is used to display a column of vertical text using the specified colour
 index number, starting at your chosen coordinates.</p>
+</section>
 
-<p><b>Labels and Tests</b><br>
-
+<section id="06-labels-and-tests">
+<h2>Labels and Tests</h2>
+<p>
 The AMOS Professional Interface also supports a number of program control instructions,
 allowing simple tests to be performed and jumps to be made to various routines. These controls
 make it easy to create complex multi-level user interfaces.</p>
@@ -383,7 +389,6 @@ X> JumP 10;
 Interface labels are also used to mark the start of various subroutines, which are entered and left
 as explained next.</p>
 
-<!-- section -->
 
 <p>
 <b>J</b>ump<b>S</b>ubroutine<br>
@@ -404,9 +409,11 @@ a maximum of 128 calls that can be made from each routine.</p>
 An Interface sub-routine must be terminated by a ReTurn command. The Interface program will
 now re-commence from the command immediately after the initial JumpSubroutine call. If a
 ReTurn call is encountered out of sequence, an error will be generated.</p>
+</section>
 
-<p><b>Interface conditional tests</b><br>
-
+<section id="07-interface-conditional-tests">
+<h2>Interface conditional tests</h2>
+<p>
 <p>Constructing a test facility inside the AMOS Professional Interface is relatively simple.</p>
 
 <p>
@@ -448,10 +455,11 @@ X> IF 0VA 1=; if the contents of variable zero is equal to one
 |           logical OR
 </pre>
 
-<!-- section -->
+</section>
 
-<p><b>User-defined functions</b><br>
-User-defined Interface commands are treated in exactly the same way as any of the existing
+<section id="08-user-defined-functions">
+<h2>User-defined functions</h2>
+<p>User-defined Interface commands are treated in exactly the same way as any of the existing
 instructions, and they can be used to create whole libraries of box definitions, button types and
 selectors.</p>
 
@@ -508,7 +516,6 @@ behave exactly like the built-in graphics operations.</p>
 The XY instruction loads the internal variables XA, YA, XB and YB with the position of the
 graphics cursor before and after the new operation.</p>
 
-<!-- section -->
 
 <p>
 The xa,ya parameters hold the values to be loaded into XA and YA, and these store the
@@ -569,10 +576,11 @@ X> 'This user instruction defines a button made of text only
    [PRint 0,0,ZoneVariable,1][] zvar permanently installs text into the new button
 </pre>
 
-<!-- section -->
+</section>
 
-<p><b>Machine code extensions</b><br>
-
+<section id="09-machine-code-extensions">
+<h2>Machine code extensions</h2>
+<p>
 The final part of this Chapter explains how to add your own machine code extensions directly
 into the AMOS Professional Interface.</p>
 
@@ -612,6 +620,7 @@ A3= Parameter stack. Use this to grab values from the Interface stack.
 </pre>
 
 
+</section>
+
 </BODY>
 </HTML>
-

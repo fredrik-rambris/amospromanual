@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Samples</h1>
 
-<br>
 
 
 <p>
@@ -39,10 +39,11 @@ there are thousands of public domain sound effects and musical instrument sample
 Professional can import and transform for your own purposes, perfectly and legally. AMOS
 Professional sound samples are held in their own memory banks, and bank number 5 is usually
 held as the default sample bank.</p>
+</section>
 
-<p><b>Playing a sound sample</b></p>
+<section id="01-playing-a-sound-sample">
+<h2>Playing a sound sample</h2>
 
-<p><b>SAM PLAY</b><br>
 <i>instruction: play a sound sample from the sample bank</i><br>
 <b>Sam Play</b> sample number<br>
 <b>Sam Play</b> voice,sample number<br>
@@ -65,7 +66,6 @@ thumb, a rate of 4000 is acceptable for simple sound effects, with 10000 for rec
 By changing this playback rate, the sample pitch can be adjusted over a very wide range,
 allowing a single sample to generate many different sounds.</p>
 
-<!-- section -->
 
 <p>
 The following example loads up a bank of ready-made samples stored on your
@@ -123,10 +123,11 @@ Bitmap %1111
 X> Sam Stop %1010
 </pre>
 
-<!-- section -->
+</section>
 
-<p><b>Changing a sample bank</b><br>
-
+<section id="02-changing-a-sample-bank">
+<h2>Changing a sample bank</h2>
+<p>
 Digital sound samples are normally stored in memory bank 5, but there are no restrictions on
 assigning other banks to hold samples.</p>
 
@@ -152,9 +153,11 @@ E> Load "AMOSPro_Productivity:Wonderland/Wonderland Samples.Abk"
     Next B
    Next A
 </pre>
+</section>
 
-<p><b>Playing a sample from memory</b><br>
-
+<section id="03-playing-a-sample-from-memory">
+<h2>Playing a sample from memory</h2>
+<p>
 Samples do not have to be held in a special bank. In fact, a "raw" sound sample can be stored
 anywhere in the computer's memory using BLOAD, and then played with the following
 command:</p>
@@ -182,7 +185,6 @@ E> Reserve as work 10,21480
    Sam Raw 15,Start(10),length(10),3000
 </pre>
 
-<!-- section -->
 
 <p><b>SAM LOOP ON</b><br>
 <b>SAM LOOP OFF</b><br>
@@ -196,9 +198,11 @@ LOOP ON ensures that all sound samples which follow this instruction will be loo
 continuously. To turn off the looping facility, simply call the SAM LOOP OFF command. Add a
 SAM LOOP ON instruction to the last example, before the SAM RAW command, and hear the
 result.</p>
+</section>
 
-<p><b>Double buffered sampling</b><br>
-
+<section id="04-double-buffered-sampling">
+<h2>Double buffered sampling</h2>
+<p>
 Samples are ideal for generating realistic sound effects directly from AMOS Professional
 programs. However, as the samples get longer, their memory requirements become prohibitive!
 If sound samples are used sparingly, several seconds of perfect audio effects can be conjured up
@@ -240,7 +244,6 @@ sample data.</p>
       these banks will depend on the playback frequency, and the amount of background graphics</li>
 </ul>
 
-<!-- section -->
 
 <ul>
       It is good practice to start with a small value, such as 8k, and then increase this value until the
@@ -293,7 +296,6 @@ SWAP command! This is explained below.</p>
 opened with OPEN OUT or APPEND. Use the LOF, POF and EOF functions to control where
 you want to position the data within the file.</p>
 
-<!-- section -->
 
 <p><b>SAM SWAP</b><br>
 <i>instruction: activate sample-switching</i><br>
@@ -352,7 +354,6 @@ SAM RAW command has finished playing a sample.</p>
 
 <p><b>Zero</b> means that the physical sample is currently being played, and there is a fresh logical</p>
 
-<!-- section -->
 
 <p>
 sample waiting for the automatic switching operation. In this case, there is no need to load any
@@ -400,6 +401,7 @@ X> Reserve As Chip Work 10,10000
 </pre>
 
 
+</section>
+
 </BODY>
 </HTML>
-

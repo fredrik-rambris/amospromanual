@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Accessing a Serial Port</h1>
 
-<br>
 
 
 <p>
@@ -33,14 +33,15 @@ for the following purposes:</p>
   <li>MIDI interfacing for musicians, between the Amiga and synthesizers, drum machines and
       sequencers.</li>
 </ul>
+</section>
 
-<p><b>Opening the Serial Port</b><br>
-
+<section id="01-opening-the-serial-port">
+<h2>Opening the Serial Port</h2>
+<p>
 A serial device refers to any machine that can communicate with the Amiga via its Serial Port.
 These devices include modems, MIDI systems and of course, other Amigas.</p>
 
 <p>
-<b>SERIAL OPEN</b><br>
 <i>instruction: open a channel for Serial Input/Output</i><br>
 <b>Serial Open</b> Channel number,Port number<br>
 <b>Serial Open</b> Channel number, Port number,Shared,Xmode,7wires</p>
@@ -81,7 +82,6 @@ The last of the three optional parameters concerns the "7 wires system" of commu
 The default value for this parameter is set to zero (False), and a value of -1 (True)
 tells the device to use this system.</p>
 
-<!-- section -->
 
 <p>
 When the SERIAL OPEN command is called for the first time, the Serial Device library is loaded
@@ -101,9 +101,11 @@ normal error checks.</p>
 <p>
 Whenever a program is run from AMOS Professional, any opened channels will be closed
 automatically.</p>
+</section>
 
-<p><b>Setting the serial parameters</b><br>
-
+<section id="02-setting-the-serial-parameters">
+<h2>Setting the serial parameters</h2>
+<p>
 The default settings for Serial Channels correspond to the standard Minitel protocol used in
 France, as follows:</p>
 
@@ -145,7 +147,6 @@ number of Stop bits to be used.</p>
 The SERIAL PARITY instruction sets the parity checking to be used for the specified
 serial channel.</p>
 
-<!-- section -->
 
 <p>Here is a list of the available settings for the Parity parameter:</p>
 
@@ -180,8 +181,10 @@ specified in the following format:</p>
 <pre>
 X> Xmode=XON110000000+XOFF*$1000
 </pre>
+</section>
 
-<p><b>Sending and receiving Serial information</b></p>
+<section id="03-sending-and-receiving-serial-information">
+<h2>Sending and receiving Serial information</h2>
 
 <p>
 <b>SERIAL SEND</b><br>
@@ -214,7 +217,6 @@ To read a single byte from a serial device, use the SERIAL GET function and
 specify which channel is to be examined. If no data is available,
 a value of -1 will be returned.</p>
 
-<!-- section -->
 
 <p>
 <b>SERIAL INPUT$</b><br>
@@ -243,8 +245,10 @@ avoid corrupting data, the following system should be employed:</p>
   <li>Use the SERIAL OUT command and set the address parameter to contain the location of a
       memory bank that has been previously reserved.</li>
 </ul>
+</section>
 
-<p><b>Other Serial commands</b></p>
+<section id="04-other-serial-commands">
+<h2>Other Serial commands</h2>
 
 <p>
 <b>SERIAL BUF</b><br>
@@ -276,7 +280,6 @@ protocol is changed to: even parity, no XON/XOFF and 8 bits.</p>
 This instruction slows the serial device transmission back to normal speed, and all of the internal
 error checks are enabled once more.</p>
 
-<!-- section -->
 
 <p>
 <b>SERIAL CHECK</b><br>
@@ -334,7 +337,6 @@ The SERIAL ERROR function is used to look for the Error byte in the serial devic
 A value of zero (False) confirms that all is well, whereas 4 (True) indicates
 that there was an error in the last transmission.</p>
 
-<!-- section -->
 
 <p>
 <b>SERIAL ABORT</b><br>
@@ -359,6 +361,7 @@ function unless you know precisely what you are doing, otherwise any mistakes ca
 computer.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

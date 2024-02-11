@@ -14,34 +14,40 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Fonts</h1>
 
-<br>
 
 
 <p>
 A "font" refers to the physical shape of a set of printed characters. This Chapter explains how to
 exploit the ready-made AMOS Professional fonts, how to import new ones, and how to design
 your own fonts using the ready-made Font Editor program.</p>
+</section>
 
-<p><b>Text Fonts</b><br>
-
+<section id="01-text-fonts">
+<h2>Text Fonts</h2>
+<p>
 Tile sets of fonts used by commands like PRINT, are known as "text fonts", and each AMOS
 Professional window can have its own individual set, as required. Styles and special effects for
 text fonts are controlled by instructions such as TEXT STYLE and WRITING, which are fully
 explained in <a href="5/550.html">Chapter 5.6</a>.</p>
+</section>
 
-<p><b>Graphic Text Fonts</b><br>
-
+<section id="02-graphic-text-fonts">
+<h2>Graphic Text Fonts</h2>
+<p>
 Although text fonts are suitable for normal uses, an infinite variety of styles can be achieved by
 exploiting the much more flexible category of fonts known as "graphic text". Text fonts are
 positioned by referring to their location in terms of characters, but graphic text can be controlled
 much more accurately, because it is positioned using x,y-coordinates numbered in pixels. AMOS
 Professional supports the thousands of graphic fonts, available in commercial packages or in the
 public domain.</p>
+</section>
 
-<p><b>ROM Fonts</b><br>
-
+<section id="03-rom-fonts">
+<h2>ROM Fonts</h2>
+<p>
 There are also alternative fonts built into the Amiga's ROM chips, and these are also available for
 use by the AMOS Professional system.</p>
 
@@ -56,7 +62,6 @@ in the current list of available fonts, it will be loaded, but the next time it 
 there will be no need to load it again.</p>
 
 <p>
-<b>GET FONTS</b><br>
 <i>instruction: create a list of available fonts from System disc</i><br>
 <b>Get Fonts</b></p>
 
@@ -80,7 +85,6 @@ E> Get Fonts
    Next F
 </pre>
 
-<!-- section -->
 
 <p>
 <b>GET DISC FONTS</b><br>
@@ -140,7 +144,6 @@ E> Get Fonts
    Set Font 2 : Text 100,100,"AMOS" : Set Font 1: Text 100,120,"Professional"
 </p>
 
-<!-- section -->
 
 <p>
 <b>TEXT</b><br>
@@ -186,9 +189,11 @@ E> TS="Centred Text"
    L=Text Length(T$)
    Text 160-L/2,100,T$
 </pre>
+</section>
 
-<p><b>Wiping fonts from memory</b><br>
-
+<section id="04-wiping-fonts-from-memory">
+<h2>Wiping fonts from memory</h2>
+<p>
 As fonts are called, they build up in memory. Valuable memory is consumed, and it may be
 necessary to wipe fonts, using a line like this:</p>
 
@@ -202,10 +207,11 @@ been stored. Obviously the huge amount of RAM that has been requested cannot pos
 reserved, even after the fonts have been cleared, and an "out of memory" error will be
 generated. A TRAP is included to cater for this event.</p>
 
-<!-- section -->
+</section>
 
-<b>Assigning fonts</b><br>
-
+<section id="05-assigning-fonts">
+<h2>Assigning fonts</h2>
+<p>
 In the original AMOS system, you were obliged to go back to the Amiga Disc Operating System
 every time that the current font directory needed changing. With AMOS Professional, ill('
 ASSIGN instruction solves this problem.</p>
@@ -229,9 +235,11 @@ X> Assign "Fonts:" To "Df0:Fonts"
 <p>
 Now, every time that GET FONTS or GET DISC FONTS is called, the internal drive will be used
 instead of your hard disc.</p>
+</section>
 
-<b>Converting font coordinates</b><br>
-
+<section id="06-converting-font-coordinates">
+<h2>Converting font coordinates</h2>
+<p>
 Obviously, with graphic fonts using coordinates measured in pixels, and text fonts positioned by
 character coordinates, a set of conversion functions between the two systems is vital.</p>
 
@@ -259,10 +267,11 @@ graphic y-coordinate=<b>Ytext</b>(text y-coordinate)</p>
 This pair of functions performs the conversion of text format coordinates to graphic format
 coordinates, and can be used to position text over an area of graphics on the screen.</p>
 
-<!-- section -->
+</section>
 
-<p><b>The AMOS Professional Text Font Editor</b><br>
-
+<section id="07-the-amos-professional-text-font-editor">
+<h2>The AMOS Professional Text Font Editor</h2>
+<p>
 No matter how many fonts are available in your collection, there may be occasions when you
 need to create your own character sets, or edit existing fonts for a specific purpose or special
 effect. Nothing could be simpler!</p>
@@ -315,6 +324,7 @@ You are warned <b>not</b> to destroy the default font, otherwise AMOS Profession
 the next time it is initialised!</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

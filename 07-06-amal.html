@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>AMAL</h1>
 
-<br>
 
 
 <p>
@@ -26,9 +26,11 @@ animation language that is unique to the AMOS system, and which provides the mos
 animation effects in the simplest way.</p>
 
 <p>A detailed tutorial is held in the AMAL folder on your Tutorial disc.</p>
+</section>
 
-<p><b>The AMOS Animation Language (AMAL)</b><br>
-
+<section id="01-the-amos-animation-language-amal-">
+<h2>The AMOS Animation Language (AMAL)</h2>
+<p>
 To generate professional quality computer simulations and arcade games, dozens of objects may
 need to be animated on screen simultaneously, and each object must be moved dozens of times
 every second. This presents problems for machine code programmers, and as far as normal Basic
@@ -61,9 +63,11 @@ vocabulary, with the huge advantage of the fact that all instructions have been 
 greatest possible speed. There are commands for all the features you might expect, such as
 program control, decision making and loops, but not only are they executed incredibly fast,
 AMAL programs are automatically <b>compiled</b> before they are run!</p>
+</section>
 
-<p><b>How AMAL is used</b><br>
-
+<section id="02-how-amal-is-used">
+<h2>How AMAL is used</h2>
+<p>
 AMAL commands consist of the shortest possible keywords, so an AMAL instruction is
 recognised by only one or two <b>capital</b> letters. <b>Everything in lower case is ignored.</b></p>
 
@@ -79,7 +83,6 @@ X> Anim
    Anything
 </pre>
 
-<!-- section -->
 
 <p>
 Individual AMAL instructions can be separated from one another by almost any of the unused
@@ -102,16 +105,19 @@ is intended as an introductory tutorial. This is followed by a full list of all 
 along with detailed explanations of their use. Then advanced techniques will be dealt with. At
 the end of the Chapter, problems with AMAL errors are solved, followed by a final section that
 provides full compatibility for STOS programmers.</p>
+</section>
 
-<p><b>The AMAL guided tour</b><br>
-
+<section id="03-the-amal-guided-tour">
+<h2>The AMAL guided tour</h2>
+<p>
 In this section, Sprites will be used to demonstrate the wonders of AMAL. All of these
 techniques work equally well with Bobs, so you can take full advantage of both types of Object
 in your AMAL programs.</p>
+</section>
 
-<p><b>Moving an Object</b></p>
+<section id="04-moving-an-object">
+<h2>Moving an Object</h2>
 
-<p><b>MOVE</b><br>
 <i>AMAL instruction: move an Object</i><br>
 <b>Move</b> horizontal number,vertical number,step</p>
 
@@ -140,7 +146,6 @@ example:</p>
 E> Amal 8, "M 100,100,50" : Amal On 8 : Wait Key : Rem Slow diagonal movement
 </pre>
 
-<!-- section -->
 
 <p>
 The parameters in a Move command are not limited to numbers. You can also employ
@@ -154,8 +159,10 @@ E> Load "AMOSPro_Tutorial:Objects/Sprites.abk" : Get Sprite Palette
    Amal 8,"Move XM-X,YM-Y,32"
    Amal On 8 : Wait Key
 </pre>
+</section>
 
-<p><b>Animating an Object</b></p>
+<section id="05-animating-an-object">
+<h2>Animating an Object</h2>
 
 <p><b>ANIM</b><br>
 <i>AMAL instruction: animate an Object</i><br>
@@ -187,8 +194,10 @@ E> Load "AMOSPro Tutorial:Objects/Sprites.Abk"
 <pre>
 LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_1.AMOS"
 </pre>
+</section>
 
-<p><b>Moving within AMAL programs</b></p>
+<section id="06-moving-within-amal-programs">
+<h2>Moving within AMAL programs</h2>
 
 <p><b>JUMP</b><br>
 <i>AMAL instruction: move to a label in AMAL program</i><br>
@@ -199,7 +208,6 @@ As you begin to use the facilities of AMAL with confidence, you will soon need t
 jump from one part of a program to another. This is achieved by defining a label, and then using
 the Jump command to move to that label.</p>
 
-<!-- section -->
 
 <p>
 All AMAL labels are defined using a single capital letter, followed by a colon. In the same way
@@ -220,8 +228,10 @@ starting with the same letter, an error message will be generated.</p>
 <p>
 Each AMAL program can have its own unique set of labels, so it is perfectly acceptable to use
 identical labels in several different programs.</p>
+</section>
 
-<p><b>AMAL registers</b></p>
+<section id="07-amal-registers">
+<h2>AMAL registers</h2>
 
 <p><b>LET</b><br>
 <i>AMAL instruction: assign a value to a register</i><br>
@@ -260,7 +270,6 @@ There is a set of three values which control the status of an Object, and these 
 special registers. X and Y contain the coordinates of the Object, and A stores the number of the
 image which is displayed by a Sprite or a Bob.</p>
 
-<!-- section -->
 
 <p>
 By changing the values in these registers, the Object can be moved around the screen and
@@ -269,9 +278,11 @@ animated. Here is an instant example:</p>
 <pre>
 LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_2.AMOS"
 </pre>
+</section>
 
-<p><b>Logical decisions</b><br>
-
+<section id="08-logical-decisions">
+<h2>Logical decisions</h2>
+<p>
 You can trigger a Jump to a label as the result of a simple test performed in an AMAL program.</p>
 
 <p><b>IF</b><br>
@@ -323,7 +334,6 @@ any of the internal registers from RO to R9, or any external register from RA to
 registers cannot be used. Loops may be nested as usual, but the step size of a loop can only be
 set to 1.</p>
 
-<!-- section -->
 
 <p>
 Please note that AMAL automatically waits for the next vertical blank before jumping back to
@@ -374,15 +384,16 @@ You are recommended to use Pause before a Jump command to ensure that the number
 jumps is less than the maximum of ten per VBL. This frees valuable processor time and can have
 a superb effect on the overall speed of your Basic program.</p>
 
-<!-- section -->
 
 <p><b>WAIT</b><br>
 <b>W</b>ait</p>
 
 <p>The Wait command freezes your AMAL program and executes an Autotest only.</p>
+</section>
 
-<p><b>Generating movement patterns</b><br>
-
+<section id="09-generating-movement-patterns">
+<h2>Generating movement patterns</h2>
+<p>
 Elaborate movement patterns can be recorded directly into the AMAL memory bank, using the
 AMAL Editor. This superb accessory is fully detailed in <a href="13/1335.html">Chapter 13.5</a>. To create less ambitious
 movement patterns, AMAL loops can be used to great effect.</p>
@@ -412,8 +423,11 @@ E> Load "AMOSPro Tutorial:Objects/Sprites.abk" : Get Sprite Palette
    Amal SP,C$ : Amal On SP
    Direct
 </pre>
-<p><b>Playing a complex movement path</b><br>
+</section>
 
+<section id="10-playing-a-complex-movement-path">
+<h2>Playing a complex movement path</h2>
+<p>
 Migrating birds, car-assembly robots, sheep dogs and hostile aliens have one thing in common,
 they all seem to move in intelligent patterns. If you have ever envied the animated sequences
 featured in the latest video arcade game, your envy is at an end. AMAL allows you complete
@@ -431,7 +445,6 @@ bank. Once patterns have been defined in this way, they can be assigned to any O
 screen, and that Object will reproduce your original patterns perfectly. the AMAL Editor is fully
 explained in <a href="13/1335.html">Chapter 13.5</a>.</p>
 
-<!-- section -->
 
 <p>
 The PLay command is followed by the number of the pre-recorded path stored in the AMAL
@@ -472,9 +485,11 @@ made program:</p>
 <pre>
 LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_5.AMOS"
 </pre>
+</section>
 
-<p><b>AMAL functions list</b><br>
-
+<section id="11-amal-function-list">
+<h2>AMAL function list</h2>
+<p>
 Here is a full alphabetical list of all the available AMAL functions:</p>
 
 <p><b>BC</b><br>
@@ -490,7 +505,6 @@ range to be monitored. If a collision is detected, a value of -1 (true) is retur
 This instruction may <b>not</b> be performed within an interrupt, so it is only available when AMAL
 routines are directly executed from Basic using the SYNCHRO command.</p>
 
-<!-- section -->
 
 <p><b>C</b><br>
 value=<b>C</b>ol(number)</p>
@@ -548,7 +562,6 @@ intensity=<b>VU</b>(voice)</p>
 The VU function samples one of the sound channels and returns the intensity of the current
 voice. This information can then be used to animate objects in synchronisation to sound.</p>
 
-<!-- section -->
 
 <p>
 Give the voice number to be checked, from 0 to 3, and the intensity is returned in the form of
@@ -604,7 +617,6 @@ random=<b>Z</b>(bit-mask)</p>
 
 <p>This number may be limited to a specific range using an optional bit-mask.</p>
 
-<!-- section -->
 
 <p>
 A logical AND operation is performed between this bit-mask and the random number to
@@ -621,8 +633,10 @@ AMAL register using AMREG.</p>
 <pre>
 LD> Load "AMOSPro Tutorial:Tutorials/AMAL/AMAL_3.AMOS"
 </pre>
+</section>
 
-<p><b>Calling an AMAL program from AMOS Professional</b></p>
+<section id="12-calling-an-amal-program-from-amos-professional">
+<h2>Calling an AMAL program from AMOS Professional</h2>
 
 <p><b>AMAL</b><br>
 <i>instruction: call an AMAL program</i><br>
@@ -670,14 +684,15 @@ Address+4  Holds the current value of Y
 Address+6  Stores the value of A
  </pre>
                                                                       
-<!-- section -->
 
 <p>
 Note that these values can be accessed from your program using the DEEK function. Note also
 that this AMAL option overrides any previous CHANNEL assignments.</p>
+</section>
 
-<p><b>Controlling update timings</b><br>
-
+<section id="13-controlling-update-timings">
+<h2>Controlling update timings</h2>
+<p>
 Although most AMAL programs are performed incredibly quickly, all Objects that are
 manipulated must be drawn on screen individually, and updated at regular intervals. Tim
 amount of time needed for this updating procedure can vary during the course of a program,
@@ -700,9 +715,11 @@ until the animation becomes smooth.</p>
 One useful effect of using UPDATE EVERY is to reserve more time for AMOS Professional to
 execute the main program. In fact, with careful use of this instruction, it is possible to speed up
 programs by as much as one third, and still maintain excellent animation.</p>
+</section>
 
-<p><b>Assigning Objects to Channels</b><br>
-
+<section id="14-assigning-objects-to-channels">
+<h2>Assigning Objects to Channels</h2>
+<p>
 Up to 64 different AMAL programs can be executed simultaneously, and each program must be
 assigned to a specific animation "channel". The first 16 channels can be performed using
 interrupts, but if more than 16 animations are needed, interrupts must be turned off using the
@@ -724,7 +741,6 @@ channels, if necessary.</p>
 As a default, channels 0 to 7 are allocated to the equivalent hardware Sprite number, and
 channels 8 to 15 are reserved for the equivalent computed Sprite numbers.</p>
 
-<!-- section -->
 
 <p>
 To animate computed Sprite numbers 16 to 63, they must be directly allocated to an animation
@@ -749,9 +765,11 @@ hold the current Bob position in <b>screen</b> coordinates.</p>
 <pre>
 LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_4.AMOS"
 </pre>
+</section>
 
-<p><b>Animating more than 16 Objects</b><br>
-
+<section id="15-animating-more-than-16-objects">
+<h2>Animating more than 16 Objects</h2>
+<p>
 As has been explained, up to 16 different AMAL programs can normally be executed at one
 time. This limitation is imposed by the Amiga's interrupt capabilities being unable to cope
 with more. Fortunately, the AMOS Professional programmer is provided with the means to
@@ -780,14 +798,15 @@ please load the following program:</p>
 <pre>
 LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_6.AMOS"
 </pre>
+</section>
 
-<p><b>Manipulating screens</b><br>
-
+<section id="16-manipulating-screens">
+<h2>Manipulating screens</h2>
+<p>
 The CHANNEL command is not restricted to assigning Objects. It can also be used to affect
 entire screens in four different ways: positioning screens, scrolling screens, changing the screen
 size and generating rainbow effects.</p>
 
-<!-- section -->
 
 <p><b>CHANNEL</b><br>
 <i>instruction: manipulate a screen</i><br>
@@ -844,7 +863,6 @@ E> Screen Open 0,320,500,32,Lowres : Rem Open tall screen
 
 <p>Similarly to moving and scrolling a screen with the CHANNEL command, the size of a screen</p>
 
-<!-- section -->
 
 <p>
 can be changed when CHANNEL is used in conjunction with SCREEN SIZE. When the channel
@@ -874,9 +892,11 @@ the scrolling rainbow effect in this instant example:</p>
 <pre>
 LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_4.AMOS"
 </pre>
+</section>
 
-<p><b>The Autotest system</b><br>
-
+<section id="17-the-autotest-system">
+<h2>The Autotest system</h2>
+<p>
 Normally, all AMAL programs are performed in sequence, from start to finish. There are certain
 routines that will take a few seconds to complete, such as a For ... Next loop or a Move. In most
 cases this does not cause any problem, but sometimes delays can be caused. The Autotest feature
@@ -908,7 +928,6 @@ will be able to rewrite that example and solve the problem.</p>
 The feature is activated by a call to AUtotest, followed by a pair of brackets
 containing the series of the tests you want to use.</p>
 
-<!-- section -->
 
 <p>These tests consist of any of the following commands:</p>
 
@@ -967,7 +986,6 @@ X> (... Direct M)
    ... M:
 </pre>
 
-<!-- section -->
 
 <p><b>IF</b><br>
 <b>I</b>f expression <b>J</b>ump label<br>
@@ -1008,10 +1026,11 @@ please load the following program and remember to watch the birdie!</p>
 <pre>
 LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_7.AMOS"
 </pre>
+</section>
 
-<p>
-AMAL program control from AMOS Professional
-Once an AMAL program has been defined, you will need to be able to execute and control
+<section id="18-amal-program-control-from-amos-professional">
+<h2>AMAL program control from AMOS Professional</h2>
+<p>Once an AMAL program has been defined, you will need to be able to execute and control
 it from inside an ordinary AMOS Professional program. Here are the commands provided for
 this purpose.</p>
 
@@ -1025,7 +1044,6 @@ this purpose.</p>
 
 <p>AMAL ON is used to activate all AMAL programs.</p>
 
-<!-- section -->
 
 <p>
 If an optional number is given, then only that AMAL routine will be activated. Similarly, AMAL
@@ -1079,7 +1097,6 @@ E> Load "AMOSPro_Tutorial:Objects/Sprites.abk" : Get Sprite Palette
 
 <p>Movement sequences that have been produced using the PLay command are controlled</p>
 
-<!-- section -->
 
 <p>
 through the internal registers R0 and R1. Every animated Object is assigned its own unique set
@@ -1142,7 +1159,6 @@ value=<b>Chanmv</b>(channel number)</p>
 The CHANMV function is used to check if the Object assigned to the
 specified channel is currently moving.</p>
 
-<!-- section -->
 
 <p>
 A value of -1 (true).is given if the Object is in motion, otherwise zero (false) is returned. When
@@ -1159,8 +1175,10 @@ E> Load "AMOSPro Tutorial:Objects/Sprites.abk" : Get Sprite Palette
    Wend
    Print "Movement complete!"
 </pre>
+</section>
 
-<p><b>AMAL errors</b></p>
+<section id="19-amal-errors">
+<h2>AMAL errors</h2>
 
 <p><b>AMALERR</b><br>
 <i>function: give position of an AMAL error</i><br>
@@ -1186,9 +1204,11 @@ type the following line from Direct Mode:</p>
 <pre>
 D> Print Mid$(A$,Amalerr,Amalerr+5)
 </pre>
+</section>
 
-<p><b>AMAL error messages</b><br>
-
+<section id="20-amal-error-messages">
+<h2>AMAL error messages</h2>
+<p>
 As soon as a mistake is encountered in an AMAL program, AMOS Professional will exit back to
 Basic with an appropriate error message. Here is a list of the errors that can be generated by this
 system, and an explanation of their most likely causes.</p>
@@ -1200,7 +1220,6 @@ movement data into memory. This should be created with the AMAL accessory progra
 PLay command is not in use, then check that any Pause and Let commands are separated in
 your listing.</p>
 
-<!-- section -->
 
 <p><b>Instruction only valid in autotest</b><br>
 The Direct or the eXit instructions have been called from the main AMAL program, by mistake.</p>
@@ -1231,9 +1250,11 @@ loops for an unnecessary Next.</p>
 <p><b>Syntax error in animation string</b><br>
 A mistake has been made when typing in an animation string. AMAL commands consist of one
 or two capital letters only, and not full keywords as used in AMOS Professional Basic.</p>
+</section>
 
-<p><b>Compatibility with STOS animation commands</b><br>
-
+<section id="21-compatibility-with-stos-animation-commands">
+<h2>Compatibility with STOS animation commands</h2>
+<p>
 AMOS Professional has evolved from the original STOS Basic, written by Fran&ccedil;ois Lionet and
 released in 1988 for the Atari-ST. STOS included a celebrated and powerful animation system
 using interrupts, which allowed Sprites to be moved in complex patterns. Although this system
@@ -1256,7 +1277,6 @@ X> Channel 1 To Bob 1
    Channel 2 To Bob 2
 </pre>
 
-<!-- section -->
 
 <p>
 Remember to call DOUBLE BUFFER during the initialisation procedure, to prevent unwanted
@@ -1316,7 +1336,6 @@ E> Load "AMOSPro_Tutorial:Objects/Sprites.Abk" :Get Sprite Palette
 An alternative ending to the movement string is to use the E option, followed by the value of an
 x-coordinate.</p>
 
-<!-- section -->
 
 <p>
 This stops the Object when it reaches the specified coordinate value, which must be less than (or
@@ -1372,7 +1391,6 @@ MOVE Y command. A value of -1 (true) is returned while the Object is in motion, 
 (false) is given for static Objects. Please note that MOVON does not search for patterns
 generated by AMAL.</p>
 
-<!-- section -->
 
 <p><b>MOVE FREEZE</b><br>
 <i>instruction: suspend Object movement</i><br>
@@ -1427,7 +1445,6 @@ individual sequence is specified by number, then only that sequence will be affe
 sequences started by ANIM ON may be turned off by the ANIM OFF command.</p>
 
 
-<!-- section -->
 
 <p><b>ANIM FREEZE</b><br>
 <i>instruction: freeze an animation</i><br>
@@ -1438,14 +1455,17 @@ sequences started by ANIM ON may be turned off by the ANIM OFF command.</p>
 The ANIM FREEZE command suspends all animation sequences on screen, leaving them frozen
 in place. An optional number may be given to freeze that specific sequence only. Animations can
 be started again with a simple call to ANIM ON.</p>
+</section>
 
-<p><b>The AMAL Editor</b><br>
-
+<section id="22-the-amal-editor">
+<h2>The AMAL Editor</h2>
+<p>
 As a final reminder, the AMAL Editor is a vital accessory program for AMOS Professional
 programmers wishing to create detailed or complex movement patters. It is fully explained in
 <a href="13/1335.html">Chapter 13.5</a>.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

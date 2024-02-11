@@ -14,18 +14,20 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Libraries and Devices</h1>
 
-<br>
 
 
 <p>
 This Chapter deals with the exploitation of the Amiga's operating system, providing a vast range
 of possibilities for the experienced system programmer. System libraries are dealt with first, and
 then devices are examined.</p>
+</section>
 
-<p><b>Accessing the system libraries</b><br>
-
+<section id="01-accessing-the-system-libraries">
+<h2>Accessing the system libraries</h2>
+<p>
 All of the most useful calls to the Amiga's internal system libraries are already built in to AMOS
 Professional. You are able to call <b>any</b> library directly from an AMOS Professional program, as
 well as access all devices connected to your computer. If you really need to make contact with
@@ -39,7 +41,6 @@ structures. Total access to all the standard data structures is also provided vi
 STRUC function, which automatically senses the type of element to be manipulated.</p>
 
 <p>
-<b>LIB OPEN</b><br>
 <i>instruction: open a library for use</i><br>
 <b>Lib Open</b> channel number,"name.library",version</p>
 
@@ -82,7 +83,6 @@ This important function acts as the gateway to <b>all</b> the functions in the s
 It calls the required function and returns the result to your
 AMOS Professional program.</p>
 
-<!-- section -->
 
 <p>
 The function offset parameter holds the offset value to the library function that you wish to
@@ -139,7 +139,6 @@ The EXECALL function performs a call to the Amiga's EXEC library, with the speci
 value. On entry, D0 to D7 and A0 to A2 <b>must</b> be loaded with the control settings required by the
 function. A value is returned holding the contents of D0.</p>
 
-<!-- section -->
 
 <p>
 <b>GFXCALL</b><br>
@@ -163,9 +162,11 @@ to A3. This can be done with the AREG and DREG variables from an AMOS Profession
 program. When the function has been executed, the contents of D0 will be returned back to your
 program as the result. Please note that this function is particularly dangerous, unless you are
 familiar with the Intuition library.</p>
+</section>
 
-<p><b>Equates and Offsets</b><br>
-
+<section id="02-equates-and-offsets">
+<h2>Equates and Offsets</h2>
+<p>
 Experienced programmers of C or Assembler languages will be used to calling most library
 functions directly, by name. These names are converted invisibly into the appropriate offset
 values when a program is compiled into machine code. Unfortunately, this technique only
@@ -197,7 +198,6 @@ bank number to be used for your equates, ranging from 1 to 65535. Any existing b
 same number will be <b>erased</b> when the equates are installed in memory, without warning, so
 take care!</p>
 
-<!-- section -->
 
 <p>
 <b>LVO</b><br>
@@ -260,7 +260,6 @@ value=<b>Struc</b>(address,"Offset Name")<br>
 The STRUC reserved variable provides a simple way of assigning a value to any one of the
 elements of a system structure, and it is intelligent!</p>
 
-<!-- section -->
 
 <p>
 There can be problems with these structures, because the type of an element varies dramatically
@@ -307,9 +306,11 @@ address refers to the address of the structure in memory, as returned by the LIB
 BASE functions.</p>
 
 <p>In both cases, the offset name refers to the name of the item to be manipulated.</p>
+</section>
 
-<p><b>Adding equates to the equates file</b><br>
-
+<section id="03-adding-equates-to-the-equates-file">
+<h2>Adding equates to the equates file</h2>
+<p>
 If your own non-standard libraries are to be used, equate files can easily be expanded in order to
 make use of your new routines.</p>
 
@@ -319,10 +320,11 @@ standard Devpak format. This listing should then be run through the
 "Equates_Generator.AMOS" program, which can be found in the root directory of the
 AMOSPro_System disc.</p>
 
-<!-- section -->
+</section>
 
-<p><b>The Requester Extension</b><br>
-
+<section id="04-the-requester-extension">
+<h2>The Requester Extension</h2>
+<p>
 As a default, the AMOS Professional requester routine will be used in preference to hit'
 Workbench system requester.</p>
 
@@ -359,9 +361,11 @@ routine.</p>
 If this instruction is used, AMOS Professional will automatically select the [CANCEL] button of
 the requester, and the actual requester will not be displayed. This is ideal for error trapping
 Within a program.</p>
+</section>
 
-<p><b>Control of devices</b><br>
-
+<section id="05-control-of-devices">
+<h2>Control of devices</h2>
+<p>
 AmigaDOS supports a wide range of devices for your use. Some devices are provided to control
 specific items of hardware, such as printers and disc drives, while others offer access to internal
 facilities like the synthetic speech handler. The following two functions need no expert
@@ -380,7 +384,6 @@ satisfies a chosen search path in the current device list.</p>
 DEV FIRST$("**") will list everything, DEV FIRST$("D/**") will only list disks, and DEV
 FIRST$(A/**") is used if you only want to list assigns.</p>
 
-<!-- section -->
 
 <p>
 <b>DEV NEXT$</b><br>
@@ -445,7 +448,6 @@ if applicable. Please refer to your system documentation for details.</p>
 
 <p>Use this command to close one or more open devices.</p>
 
-<!-- section -->
 
 <p>
 Memory used by the IO structure will be returned back to AMOS Professional and the message
@@ -505,6 +507,7 @@ This function returns the base address of the IO structure assigned to the curre
 structure can now be manipulated directly, using the STRUC commands, as required.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>IFF Animation</h1>
 
-<br>
 
 
 <p>
@@ -30,7 +30,6 @@ IFF graphics have already been discussed as sources for screen pictures and Bob 
 you should be familiar with the LOAD IFF and SAVE IFF commands in the relevant Screens and
 Bobs Chapters. Here is a brief reminder:</p>
 
-<p><b>LOAD IFF</b><br>
 <i>instruction: load an IFF screen from a disc</i><br>
 <b>Load IFF</b> "filename"<br>
 <b>Load IFF</b> "filename",any screen number</p>
@@ -53,9 +52,11 @@ X> Save Iff "My Programs:Iff/Picture_Name.Iff" : Rem Compressed
 <p>
 Remember that the saved IFF data includes any pre-sets such as SCREEN DISPLAY, SCREEN
 OFFSET, SCREEN HIDE and SCREEN SHOW.</p>
+</section>
 
-<p><b>Optimising IFF animation</b><br>
-
+<section id="01-optimising-iff-animation">
+<h2>Optimising IFF animation</h2>
+<p>
 It is perfectly possible to create high definition "true video" animation on your Amiga with
 AMOS Professional. Unfortunately, you are normally restricted by available memory. Smooth
 animations need to display at least 24 "frames" (separate still pictures) every second, and every
@@ -73,10 +74,11 @@ So instead of needing to store a long sequence of complete images, only the diff
 one image and the next are recorded. This only requires a fraction of the conventional storage
 space and as a bonus it means that data can be unpacked extremely quickly.</p>
 
-<!-- section -->
+</section>
 
-<p><b>An overview of IFF animation</b><br>
-
+<section id="02-an-overview-of-iff-animation">
+<h2>An overview of IFF animation</h2>
+<p>
 AMOS Professional IFF animation files are divided into a number of separate components, the
 "frames" of your animation sequence. A frame may be either a normal screen or one image in
 the sequence, but it is important to understand that the first frame sets up the background
@@ -110,9 +112,11 @@ you want to miss out.</p>
 You should be aware that even with delta-encoding, large, colourful and lengthy animations
 will still consume huge amounts of memory, but AMOS Professional can release this memory
 ready for re-use, as you are about to discover.</p>
+</section>
 
-<p><b>Creating an IFF animation</b><br>
-
+<section id="03-creating-an-iff-animation">
+<h2>Creating an IFF animation</h2>
+<p>
 Many hours can be spent in the creative art of designing home-grown IFF pictures, and
 adapting them for animation sequences. On the other hand, you can cheat! If a video digitiser is
 beyond your budget there are plenty of public domain images to be found, but the most flexible
@@ -129,7 +133,6 @@ Deluxe Paint users can produce animations using the following procedure:</p>
       created, containing an exact copy of your background picture. There will now be two numbers</li>
 </ul>
 
-<!-- section -->
 
 <ul>
       on screen indicating the number of the frame being currently edited, and the total number of
@@ -144,7 +147,10 @@ Deluxe Paint users can produce animations using the following procedure:</p>
       This animation can now be loaded directly into AMOS Professional Basic, and animated with
       the first command listed below.</li>
 </ul>
-<p><b>Playing an IFF animation</b></p>
+</section>
+
+<section id="04-playing-an-iff-animation">
+<h2>Playing an IFF animation</h2>
 
 <p><b>IFF ANIM</b><br>
 <i>instruction: play an animation file</i><br>
@@ -178,13 +184,14 @@ D> Iff Anim Fsel$("**") To 0,10
 <p>
 When the file is requested, your animation sequence will be loaded into screen 0 and cycled
 through ten times.</p>
+</section>
 
-<p><b>Direct IFF animation</b><br>
-Because the standard AMOS Professional drawing commands may be used with IFF animations,
+<section id="05-direct-iff-animation">
+<h2>Direct IFF animation</h2>
+<p>Because the standard AMOS Professional drawing commands may be used with IFF animations,
 you are provided with a range of functions for loading and manipulating animated sequences
 directly in your programs.</p>
 
-<!-- section -->
 
 <p><b>FRAME LOAD</b><br>
 <i>function: load frames into memory</i><br>
@@ -241,7 +248,6 @@ size=<b>Frame Length</b>(channel,number of frames)</p>
 This function is used to calculate the precise amount of memory needed to hold the selected
 frames of an IFF animation file. To find the exact size of the required data area with FRAME</p>
 
-<!-- section -->
 
 <p>
 LENGTH, simply give the channel number of the IFF file previously opened with the OPEN IN
@@ -298,7 +304,6 @@ Once the FRAME PLAY function has been called, the start address of the next fram
 sequence will be returned, and this address can be used to display the following frame of the
 animation.</p>
 
-<!-- section -->
 
 <p>For example:</p>
 
@@ -356,7 +361,6 @@ This function returns the amount of time needed to successfully display an anima
 measured in 50ths of a second. It is used after FRAME PLAY or FRAME SKIP to delay the
 program until the screen has been totally re-drawn.</p>
 
-<!-- section -->
 
 <p>
 Deluxe Paint users may need to slow down the speed of AMOS Professional animations by one
@@ -370,9 +374,11 @@ X> Wait Form Param+1
 This has nothing to do with the Deluxe Paint package, but takes into account the extra efficiency
 of the AMOS Professional double buffering and copper calculations, when compared to the
 standard Workbench routines!</p>
+</section>
 
-<p><b>Iff Masking</b><br>
-
+<section id="06-iff-masking">
+<h2>IFF Masking</h2>
+<p>
 AMOS Professional does not restrict you to loading all of an IFF picture file. It is possible to load
 specific parts of the file that hold such items as the palette and the bit-maps only. The PICTURE
 function is used in conjunction with the MASK IFF function to achieve this.</p>
@@ -400,9 +406,11 @@ X> Mask Iff Picture
 X> Mask Iff %100 : Rem Load palette of picture only
    Mask Iff %10000 : Rem Load bitmaps only
 </pre>
+</section>
 
-<p><b>Freezing the display</b><br>
-
+<section id="07-freezing-the-display">
+<h2>Freezing the display</h2>
+<p>
 In the next Chapter, the AMOS Professional animation language AMAL is explained. AMAL
 animations can be frozen with an AMAL FREEZE instruction, and unfrozen with AMAL ON.
 The following commands are equivalents to these two instructions, and also offer STOS
@@ -421,6 +429,7 @@ Use these commands in your AMOS Professional programs to perform
 a simple freezing and unfreezing of moving displays.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

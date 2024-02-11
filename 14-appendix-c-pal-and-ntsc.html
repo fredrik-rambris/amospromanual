@@ -16,11 +16,9 @@
 
 <h1>App. C: PAL and NTSC</h1>
 
-<br>
-
-
-<p><b>International television standard systems</b><br>
-
+<section id="01-international-television-standard-systems1">
+<h2>International television standard systems1</h2>
+<p>
 With millions of Amigas is use all over the world, it is vital to ensure that programs written with
 the AMOS Professional system can operate in as many territories as possible. For historical
 reasons, different standards of television systems have evolved in different territories, which
@@ -44,9 +42,11 @@ When AMOS Professional code is run on a system that differs from the one used by
 author of the program, it undergoes two obvious changes. These are the size of the screen
 display and the speed at which the program runs. Here are the crucial differences between the
 two systems.</p>
+</section>
 
-<p><b>PAL versus NTSC</b><br>
-
+<section id="02-pal-versus-ntsc">
+<h2>PAL versus NTSC</h2>
+<p>
 <b>PAL</b> updates images 50 times a second, and can theoretically display up to 312 lines on screen. The
 actual limit will vary depending on your TV set or monitor, but it is likely to be about 270 lines.</p>
 
@@ -60,9 +60,11 @@ It might seem that PAL has a clear advantage over the NTSC system, but this is n
 so. Although NTSC screens are about one fifth shorter than their PAL cousins, their faster
 updating time provides a higher quality picture, which is brighter, more stable and more restful
 for the eyes. Here is a synopsis of the compatibility problems between the two systems.</p>
+</section>
 
-<p><b>The display size</b><br>
-
+<section id="03-the-display-size">
+<h2>The display size</h2>
+<p>
 Supposing you have created a 320 wide by 256 high screen. Under the PAL system, the picture
 occupies the entire display, but on NTSC, the bottom section of the screen is hidden from view.
 Any error messages are not visible and wandering Objects are likely to fall from view, through
@@ -86,9 +88,11 @@ or 261 if an NTSC machine is being used.</p>
 E> Screen Open 0,320,Display Height-56,16,Lowres
    Print Display Height
 </pre>
+</section>
 
-<p><b>Screen updating and running speeds</b><br>
-
+<section id="04-screen-updating-and-running-speeds">
+<h2>Screen updating and running speeds</h2>
+<p>
   It is obviously impossible to slow down an NTSC television, just for the benefit of AMOS
   Professional! If you want your programs to work at the same speed in either mode, special
   action has to be taken. Look at this routine:</p>
@@ -137,10 +141,11 @@ E> For T=0 To 60*50
   for extra speed. Furthermore, if there are many Bobs on screen, replace the smaller, faster Bobs
   with Sprites, and be prepared for some encouraging results!</p>
 
-<!-- section -->
+</section>
 
-<p><b>Restricting programs to a single mode</b><br>
-
+<section id="05-restricting-programs-to-a-single-mode">
+<h2>Restricting programs to a single mode</h2>
+<p>
   Many AMOS Professional programmers may decide to ignore these problems completely,
   satisfied that their work will not be seen outside of their immediate circle of contacts, let alone
   outside of their country. However, this is not a professional attitude, and if you have any
@@ -169,9 +174,11 @@ E> If Ntsc=0
     End
    End If
 </pre>
+</section>
 
-<p><b>Dual mode programs</b><br>
-
+<section id="06-dual-mode-programs">
+<h2>Dual mode programs</h2>
+<p>
   Whereas synchronisation problems can be overcome, the difficulties caused by the two different
   sized screens causes a bigger problem. The smaller working area of NTSC displays has to be
   taken into account at the beginning of your program. To open a perfect screen in either display
@@ -196,7 +203,6 @@ E> Global YSIZE,YPOSITION
   To return the complement, PAL users should restrict the size of their menus, activity buttons,
   dialogue boxes, and similar features, to no more than a quarter of the total screen area.</p>
 
-<!-- section -->
 
 <p>
   Even better practice is to use pull-down menus rather than dialogue boxes. Before "releasing" a
@@ -225,9 +231,11 @@ E> Global YSIZE,YPOSITION
   200 lines, but the update frequency will be 50 hertz. A hybrid PAL/NTSC mode!</p>
 
 <p>Nothing can prevent this, other than the purchase of a genuine NTSC machine!</p>
+</section>
 
-<p><b>International television standard systems</b><br>
-
+<section id="07-international-television-standard-systems2">
+<h2>International television standard systems2</h2>
+<p>
   The following lists catalogue the different standard systems adopted in various territories
   around the world.</p>
 
@@ -250,7 +258,6 @@ E> Global YSIZE,YPOSITION
   Rico, Saint Christopher and Nevis, Saint Lucia, Samoa, South Korea, Surinam, Taiwan, Trinidad
   and Tobago, United States of America, Venezuela</p>
 
-<!-- section -->
 
 <p>
   <b>SECAM</b> systems that are immediately compatible with the built-in PAL setting of the AMOS
@@ -258,7 +265,7 @@ E> Global YSIZE,YPOSITION
   territories not listed above, most areas of the Commonwealth of Independent States (formally
   USSR) and former Soviet satellite nations.</p>
 
+</section>
 
 </BODY>
 </HTML>
-

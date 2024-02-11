@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Music</h1>
 
-<br>
 
 
 <p>
@@ -33,16 +33,17 @@ All AMOS Professional sound commands operate independently from games and utilit
 routines, so that they can never interfere with your programming. On the contrary, they should
 enhance your work in any way that you chose, acting as markers, adding realism, soothing,
 shocking or providing comic relief.</p>
+</section>
 
-<p><b>Ready-made sound effects</b><br>
-
+<section id="01-ready-made-sound-effects">
+<h2>Ready-made sound effects</h2>
+<p>
 Any imaginable sound effect can be used in an AMOS Professional program, whether it is
 natural, synthetic, pre-recorded or composed by you. In fact the choice is so vast that the next
 two Chapters are devoted to the wonders of sound samples! A whole bank of pre-recorded
 effects has been prepared for your use, but there are three common sound effects that can
 be called up by their own commands and used for testing and punctuating your routines.</p>
 
-<p><b>BOOM</b><br>
 <i>instruction: generate explosive sound effect</i><br>
 <b>Boom</b></p>
 
@@ -78,7 +79,6 @@ E> Shoot : Wait 25: Shoot : Print "Ouch!"
 
 <p>Unlike the built-in explosive sound effects, BELL produces a simple pure tone.</p>
 
-<!-- section -->
 
 <p>
 The frequency or "pitch" of this sound can be changed by adding a pitch value after the BELL
@@ -90,9 +90,11 @@ E> For F=1 To 96
     Bell F : Wait F/10+1 : Rem Vary delay
    Next F
 </pre>
+</section>
 
-<p><b>Musical pitch</b><br>
-
+<section id="02-musical-pitch">
+<h2>Musical pitch</h2>
+<p>
 The values from 1 to 96 that are used to control the pitch of the BELL sound correspond to the
 notes on the keyboard of a piano. The white key at the extreme left-hand side of the keyboard is
 known as Bottom C, and corresponds to pitch value 1. Value 2 is the equivalent to the black note
@@ -123,9 +125,11 @@ A    10  22  34  46  58  70  82  94
 A#   11  23  35  47  59  71  83  95
 B    12  24  36  48  60  72  84  96
 </pre>
+</section>
 
-<p><b>Channels and voices</b><br>
-
+<section id="03-channels-and-voices">
+<h2>Channels and voices</h2>
+<p>
 The Amiga produces sound like a river, and AMOS Professional allows you to split this river
 into four separate channels, all pouring out at the same time, but each capable of individual
 control. These channels can be heard individually, or mixed together, or directed to the left and
@@ -136,7 +140,6 @@ dammed up altogether.</p>
 Each of these channels can be given a different "voice", and each voice can be controlled in
 terms of volume and direction.</p>
 
-<!-- section -->
 
 <p><b>VOLUME</b><br>
 <i>instruction: control sound volume</i><br>
@@ -200,9 +203,10 @@ easier:</p>
 8     3            use voice 3
 </pre>
 
-<!-- section -->
+</section>
 
-<p><b>Playing notes</b></p>
+<section id="04-playing-notes">
+<h2>Playing notes</h2>
 
 <p><b>PLAY</b><br>
 <i>instruction: play a voice</i><br>
@@ -247,9 +251,11 @@ simply turn it off like this:</p>
 <pre>
 D> Play Off
 </pre>
+</section>
 
-<p><b>Making waves</b><br>
-
+<section id="05-making-waves">
+<h2>Making waves</h2>
+<p>
 Every individual sound has its own identity pattern, which is the equivalent of an audio
 fingerprint. This is because each sound is composed of its own unique frequencies. In the same
 way that a hospital monitor displays a moving "wave" which pulses in lime to the frequencies of
@@ -257,7 +263,6 @@ a heartbeat, different sounds create their own wave forms. For example, a cymbal
 wave form of jagged peaks very close together, whereas the smooth harmonics of a cello make
 much more rounded waves.</p>
 
-<!-- section -->
 
 <p>
 With AMOS Professional, the shape of a wave form is set using a list of 256 numbers, with each
@@ -305,7 +310,6 @@ be entered as 206, like this:</p>
 X> -50+256=206
 </pre>
 
-<!-- section -->
 
 <p>
 The following program shows how the sort of wave form in the above diagram could be created
@@ -354,7 +358,6 @@ E> SHAPE$=" " : Degree
 The WAVE command is used to assign the specified wave number to one or more sound
 channels.</p>
 
-<!-- section -->
 
 <p>
 The voice parameter contains a bit-map in the standard format, and if a bit pattern is set to 1
@@ -416,14 +419,15 @@ between 10 and 50 is satisfactory.</p>
 To delete a wave that has been set up with a SET WAVE instruction, simply use this command
 followed by the number of the wave to be erased.</p>
 
-<!-- section -->
 
 <p>
 When this has been done, all deleted voices will be set to the standard default sine wave. The
 pre-set wave numbers zero and 1 can be manipulated, but they <b>cannot</b> be eradicated.</p>
+</section>
 
-<p><b>Making audio envelopes</b><br>
-
+<section id="06-making-audio-envelopes">
+<h2>Making audio envelopes</h2>
+<p>
 An "envelope" is audio jargon for how a sound is manipulated during the brief period of tin
 that it is played. In other words, whether it bursts into life or makes a more subtle entry (attack),
 whether it fades away with dignity or lives life to the full (decay), how long it hangs on for
@@ -476,7 +480,6 @@ Most tape recorders and hi-fl systems have some sort of filtering system to "cle
 eliminating the high frequencies that generate unwanted hiss. When filters are used, there is
 always a trade off between overall sound quality and clear definition.</p>
 
-<!-- section -->
 
 <p>
 For example, although some distortion may be eliminated, certain percussion sounds will be
@@ -523,9 +526,11 @@ volume (63).</p>
 The best way to understand the effect of all the commands in this Chapter is to hear them
 working. Be sure to try out all of the demonstration programs that are available via the HELP
 feature.</p>
+</section>
 
-<p><b>Playing music</b><br>
-
+<section id="07-playing-music">
+<h2>Playing music</h2>
+<p>
 The AMOS Professional music system allows backing tracks to be added to any program. Music
 can be created from a variety of sources, including original samples and compositions, which are
 explained in the following two Chapters. These backing tracks are converted into the AMOS
@@ -536,7 +541,6 @@ Music tracks are loaded with the MUSIC command, volume is controlled by MVOLUME,
 speed by MVOLUME. Individual music passages can be halted using the MUSIC STOP
 instruction, and all music is halted by MUSIC OFF.</p>
 
-<!-- section -->
 
 <p>For a taster of these techniques in action, load this ready-made example:</p>
 
@@ -546,6 +550,7 @@ D> Load "AMOSPro_Examples:Music/Music.Abk"
 </pre>
 
 
+</section>
+
 </BODY>
 </HTML>
-

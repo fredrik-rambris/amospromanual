@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Multi-Tasking</h1>
 
-<br>
 
 
 <p>
@@ -34,7 +34,6 @@ leaving only a limited amount of processing power for other tasks, and the follo
 is provided to solve this problem.</p>
 
 <p>
-<b>MULTI WAIT</b><br>
 <i>instruction: force a multi-task wait vbl</i><br>
 <b>Multi Wait</b></p>
 
@@ -80,7 +79,6 @@ The AMOS LOCK command disables the facility to toggle between AMOS Professional 
 Workbench by pressing [Amiga]+[A]. This can be used to prevent other users from discovering
 how your program was written!</p>
 
-<!-- section -->
 
 <p>
 <b>AMOS UNLOCK</b><br>
@@ -100,9 +98,11 @@ status=<b>Amos Here</b></p>
 AMOS HERE is used to provide a simple report. A value of -1(True) is returned if AMOS
 Professional is currently displayed, otherwise zero (False) indicates that the Workbench is in
 view.</p>
+</section>
 
-<p><b>Communication between programs</b><br>
-
+<section id="01-communication-between-programs">
+<h2>Communication between programs</h2>
+<p>
 As well as multi-tasking between AMOS Professional and other programs, communication is
 allowed between different AMOS Professional programs previously installed in memory.</p>
 
@@ -139,7 +139,6 @@ When PRUN is called, it has the following effect:</p>
       command.</li>
 </ul>
 
-<!-- section -->
 
 <p>Here is an example of a boot menu, demonstrating a very simple version of this technique:</p>
 
@@ -199,7 +198,6 @@ as the use of the BGRAB command.</p>
 A value of -1 means that the program has been run via another program, using PRUN. In this
 case, memory banks can be grabbed, but remote editor commands <b>cannot</b> be sent.</p>
 
-<!-- section -->
 
 <p>
 <b>EXEC</b><br>
@@ -247,6 +245,7 @@ originally run. PRG STATE can return one of three possible values, as follows:</
 </pre>
 
 
+</section>
+
 </BODY>
 </HTML>
-

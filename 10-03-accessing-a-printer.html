@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Accessing a Printer</h1>
 
-<br>
 
 
 <p>
@@ -25,9 +25,11 @@ taken directly from your Preferences settings, allowing printer control with a s
 "escape codes".</p>
 
 <p>Any AMOS Professional screen can also be dumped directly onto paper via your printer.</p>
+</section>
 
-<p><b>The printer device</b><br>
-
+<section id="01-the-printer-device">
+<h2>The printer device</h2>
+<p>
 Details of your printer are taken from the settings that have been previously entered from the
 Workbench Preferences utility. A printer can be connected to the Serial Port or the Parallel Port,
 mid AMOS Professional will choose the appropriate device for all printing operations
@@ -54,7 +56,6 @@ X> Trap Printer Open
 </pre>
 
 <p>
-<b>PRINTER OPEN</b><br>
 <i>instruction: open the standard printer device for use</i><br>
 <b>Printer Open</b></p>
 
@@ -81,15 +82,16 @@ the system becomes short of memory and requires more.</p>
 The PRINTER SEND command sends a string of text to the printer,
 using multi-tasking.</p>
 
-<!-- section -->
 
 <p>
 The command does not wait for the text to be printed, and returns immediately to the program.
 All printing operations are performed "invisibly" in the background. Obviously, if the printer is
 not ready, the appropriate requester will appear.</p>
+</section>
 
-<p><b>Embedded commands</b><br>
-
+<section id="02-embedded-commands">
+<h2>Embedded commands</h2>
+<p>
 The text string to be printed can contain embedded commands, and these will be converted into
 the appropriate control sequences for the current printer automatically. This means that all the
 effects such as underline, bold, italic and subscript can be included in your programs.</p>
@@ -143,7 +145,6 @@ aSGR24  ESC[24m   underline off
 aSGR1   ESC[1m    boldface on
 </pre>
 
-<!-- section -->
 
 <pre>
 aSGR22     ESC[22m   normal pitch
@@ -181,9 +182,11 @@ X> ESC$=Chr$(27)
 The state of printer output can be monitored by the PRINTER CHECK and PRINTER ERROR
 functions, and printing can be abandoned completely using PRINTER ABORT, which are all
 explained later.</p>
+</section>
 
-<p><b>Screen dumps</b><br>
-
+<section id="03-screen-dumps">
+<h2>Screen dumps</h2>
+<p>
 There are three alternative ways of using the PRINTER DUMP command to perform a screen
 dump.</p>
 
@@ -204,7 +207,6 @@ A selected area of the screen can be transmitted to the printer, retaining the c
 and screen size. In other words, if only half of the current display is to be printed,
 it will take up exactly half of the space of a complete print-out.</p>
 
-<!-- section -->
 
 <p>
 The section of screen to be dumped is set by giving the top left-hand coordinates followed by
@@ -266,7 +268,6 @@ height=FULLROWS*py/$FFFF.<br>
 This means that if px =$8000 the print width will be $8000/$FFF,
 which equals half of FULLCOLS. So the pint-out will take up half the width of the paper.</p>
 
-<!-- section -->
 
 <p>
 For example, to dump a 100x100 section of the current screen onto a full page, retaining the
@@ -293,8 +294,10 @@ X> Printer Dump 0,0 To 200,200,$5555,0,$8 Or $10
 <p>
 You are warned not to attempt to change the current screen during a screen dump operation,
 otherwise the resultant print-out will become scrambled.</p>
+</section>
 
-<p><b>Other printer commands</b></p>
+<section id="04-other-printer-commands">
+<h2>Other printer commands</h2>
 
 <p>
 <b>PRINTER OUT</b><br>
@@ -338,7 +341,6 @@ Use the PRINTER CHECK function to return a value of -1 (True) if the printer
 is available for use, or zero (False) if it is in active mid-operation.</p>
 
 
-<!-- section -->
 
 <p>
 <b>PRINTER ONLINE</b><br>
@@ -368,9 +370,11 @@ address=<b>Printer Base</b></p>
 The PRINTER BASE function is used to return the address of the i/o structure used to control the
 printer. It is intended for use by skilled operators only! Poking around the internal device
 structures is a very dangerous operation indeed!</p>
+</section>
 
-<p><b>Other ports and devices</b><br>
-
+<section id="05-other-ports-and-devices">
+<h2>Other ports and devices</h2>
+<p>
 The <b>serial</b> Port is examined in the next Chapter, and it is also possible to access the <b>parallel</b> port
 directly, which provides a number of advantages over the printer device. Please refer to <a href="1038.html">Chapter
 10.5</a> for full details.</p>
@@ -393,7 +397,6 @@ channel to the Parallel Interface, or the RS232 Port, or the printer chosen in y
 settings. All standard sequential file commands can be performed as usual, except for commands
 that are specific to disc operations, such as LOF and POF.</p>
 
-<!-- section -->
 
 This example would print out ten lines via the device connected to the Amiga's RS232 port:
 
@@ -415,6 +418,7 @@ The PORT function is used to test the status of readiness of the specified chann
 waiting to be read a value of -1 (True) is returned, otherwise zero (False) is given.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

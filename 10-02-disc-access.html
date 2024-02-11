@@ -14,13 +14,15 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Disc Access</h1>
 
-<br>
 
+</section>
 
-<p><b>Disc drive names</b><br>
-
+<section id="01-disc-drive-names">
+<h2>Disc drive names</h2>
+<p>
 Each disc drive used by your Amiga is identified by a simple three-character code, followed by
 he colon character to distinguish the name of the drive from a file name. The internal floppy
 disc drive is referred to like this:</p>
@@ -37,9 +39,11 @@ second a one, and so on, like this:</p>
 <pre>
 Dh0:
 </pre>
+</section>
 
-<p><b>Volume names</b><br>
-
+<section id="02-volume-names">
+<h2>Volume names</h2>
+<p>
 The Amiga is happy to refer to an individual disc by name instead of looking for the disc drive
 code, as long as the string of characters that make up the name of the disc carries the colon
 character, as follows:</p>
@@ -65,9 +69,11 @@ X> Dir "Df0:"
 </pre>
 
 <p>The DIR command is used to print out a directory index of a disc, and is explained below.</p>
+</section>
 
-<p><b>Files and directories</b><br>
-
+<section id="03-files-and-directories">
+<h2>Files and directories</h2>
+<p>
 If you think of a disc as a self-contained "volume" , then that volume can contain one or more
 "folders" of information, and each folder can hold all sorts of "files". Before any file can be
 accessed and used, it has to be found in the file directory of its disc. The next section of this
@@ -80,7 +86,6 @@ important system files, such as the fonts used for text characters and the devic
 for peripherals. Each device is normally assigned to a specific directory on the current
 start-up disc.</p>
 
-<!-- section -->
 
 <p>
 For example, the directory containing the current fonts used by AMOS Professional is called
@@ -92,7 +97,6 @@ D> Dir "Libs:"
 </pre>
 
 <p>
-<b>DIR</b><br>
 <i>instruction: print directory of the current disc</i><br>
 <b>Dir</b><br>
 <b>Dir</b> path$</p>
@@ -146,7 +150,6 @@ X> Dir "Objects/"
    Dir "AMOSPro_Examples:Objects/"
 </pre>
 
-<!-- section -->
 
 <p>
 The pathway for a listing can be further narrowed by requesting that only the filenames that
@@ -219,7 +222,6 @@ Because certain filenames are too long to fit neatly in a display listing, parti
 the DIR/W option is in use, there is a simple way of setting the style of
 directory commands.</p>
 
-<!-- section -->
 
 <p>
 <b>LDIR</b><br>
@@ -277,7 +279,6 @@ D> Set Dir 5,".IFF"
 The first two characters displayed are folder markers, this is why the value five is used instead of
 three.</p>
 
-<!-- section -->
 
 <p>That line would result in this amended display:</p>
 
@@ -342,7 +343,6 @@ FOLDERA/
  FOLDERD/
 </pre>
 
-<!-- section -->
 
 <p>
 The effect of the PARENT command is to load the current directory with the parent of the
@@ -367,9 +367,11 @@ In the original AMOS system, you were obliged to go back to AmigaDOS every time 
 particular directories needed changing, for example, when changing the font directories.
 The ASSIGN command has been provided to solve this problem, and is fully explained in
 <a href="11/1101.html">Chapter 11.1</a>.</p>
+</section>
 
-<p><b>Checking for the existence of a file</b><br>
-
+<section id="04-checking-for-the-existence-of-a-file">
+<h2>Checking for the existence of a file</h2>
+<p>
 It is possible to keep a tidy mind and a tidy desk, and maintain up to date records on discs. On
 the other hand, you may be normal. AMOS Professional provides three, ways to check for
 elusive files.</p>
@@ -402,7 +404,6 @@ E> F$=Fsel$("*.IFF"," ","Load an IFF file")
    If Exist(F$) Then Load Iff F$,0
 </pre>
 
-<!-- section -->
 
 <p>
 <b>DIR FIRST$</b><br>
@@ -444,8 +445,10 @@ E> F$=Dir First$("*.*")
     F$=Dir Next$
    Wend
 </pre>
+</section>
 
-<p><b>Selecting a file</b></p>
+<section id="05-selecting-a-file">
+<h2>Selecting a file</h2>
 
 <p>
 <b>FSEL$</b><br>
@@ -469,7 +472,6 @@ file. The following optional parameters may also be included:</p>
 The optional default string is used to choose a filename that will be
 automatically selected if you press [Return] and abort the process.</p>
 
-<!-- section -->
 
 <p>
 Title$ and title2$ are optional text strings that set up a title to be displayed at the top of your file
@@ -481,9 +483,11 @@ E> F$=Fsel$("AMOSPro_Examples:Objects/*.Abk")
    Load F$: Rem Load file and display first Bob
    Flash Off : Bob 1,100,100,1 : Get Bob Palette : Wait Vbl
 </pre>
+</section>
 
-<p><b>Naming files</b><br>
-
+<section id="06-naming-files">
+<h2>Naming files</h2>
+<p>
 To create a new folder that can be used to hold files of data, a suitable disc should be ready in
 the appropriate drive.</p>
 
@@ -513,8 +517,10 @@ already in use by another file, the appropriate error message will be given.</p>
 <pre>
 X> Rename "Ancient" To "Modern"
 </pre>
+</section>
 
-<p><b>Running programs from disc</b></p>
+<section id="07-running-programs-from-a-disc">
+<h2>Running programs from a disc</h2>
 
 <p>
 <b>RUN</b><br>
@@ -533,7 +539,6 @@ the storage space of a single disc or the memory available in your Amiga. Each l
 be written as a separate program and then saved as a different filename. This means that at the
 end of one level of play, the next stage can be loaded from disc automatically.</p>
 
-<!-- section -->
 
 <p>For example:</p>
 
@@ -594,10 +599,12 @@ Save Program 2, and call it "Program2.AMOS". Now run Program 2, which should sti
 memory. After the first blank communication, the two programs will greet one another until you
 break into their conversation with [Ctrl]+[C].</p>
 
-<!-- section -->
 
 <p>
-<b>Disc space</b></p>
+</section>
+
+<section id="08-disc-space">
+<h2>Disc space</h2>
 
 <p>
 <b>DFREE</b><br>
@@ -637,9 +644,11 @@ E> A$=Disc Info$("Df0:")
 Be extremely careful with this command. It obliterates the named file from the current disc, once
 and for all. The file that is erased with this command cannot be retrieved.
 Kill "Permanently"</p>
+</section>
 
-<p><b>Disc files</b><br>
-
+<section id="09-disc-files">
+<h2>Disc files</h2>
+<p>
 Files are simply packages of information stored together at a particular location on disc. Each file
 is assigned its own name, which may contain anything from 1 to 255 characters.</p>
 
@@ -653,10 +662,11 @@ identify the file you are currently working with.</p>
 Your Amiga uses two types of disc files: "sequential" files and "random access" files. Here is how
 AMOS Professional exploits them fully.</p>
 
-<!-- section -->
+</section>
 
-<p><b>Sequential files</b><br>
-
+<section id="10-sequential-files">
+<h2>Sequential files</h2>
+<p>
 A sequential file is one that allows you to read your information only in the sequence in which it
 was originally created. Normally with an Amiga, if you need to change a single item of data in
 t lie middle of a sequential file, you must call up that file from disc, read the whole file up to and
@@ -718,7 +728,6 @@ words it will be added to the end of that file.</p>
 Use this command to prepare a file so that data may be read from it. If the filename
 does not already exist, AMOS Professional will report a "File not found" error.</p>
 
-<!-- section -->
 
 <p>
 <b>CLOSE</b><br>
@@ -780,7 +789,6 @@ a carriage return sequence, instead of the standard comma.</p>
 When reading text documents, LINE INPUT # is always recommended, because the commas
 used in normal written English will be treated as separators by the INPUT # structure.</p>
 
-<!-- section -->
 
 <p>
 <b>SET INPUT</b><br>
@@ -847,10 +855,11 @@ X> Pof(1)=1000
 Because disc drives are inherently random, this may be used to provide
 a crude form of random access with sequential files.</p>
 
-<!-- section -->
+</section>
 
-<p><b>Random access files</b><br>
-
+<section id="11-random-access-files">
+<h2>Random access files</h2>
+<p>
 AMOS Professional takes full advantage of the second type of file used by the Amiga. Random
 access files are extremely useful, because they allow the programmer to access data stored on a
 disc in any random order. A random access file is made up of units of data called "records", and
@@ -903,7 +912,6 @@ name, then repeat the process as necessary. For example:
 X> Field 1,20 As SURNAME$,15 As F1RSTNAME$,10 As TEL$
 </pre>
 
-<!-- section -->
 
 <p>
 You can now place some records in the strings that have been set up by the FIELD command,
@@ -967,7 +975,6 @@ X> Get 1,1
 GET then loads this record into your field strings, and these strings may be manipulated as you
 like. Obviously you can only GET record numbers that have been PUT onto the disc.</p>
 
-<!-- section -->
 
 <p>Now try this example:</p>
 
@@ -982,9 +989,11 @@ E> Open Random 1,"ADDRESS"
    Loop
    Close 1
 </pre>
+</section>
 
-<b>Included files</b><br>
-
+<section id="12-included-files">
+<h2>Included files</h2>
+<p>
 The AMOS Professional Editor cannot rationalise your source code around the entire memory of
 the Amiga. This means that if you are editing an extremely long program, the insertion of a line
 can be tedious. It can take a few seconds to move the memory around before allowing the next
@@ -1027,10 +1036,11 @@ included file will generate an error when the program is run. The re-created buf
 soon as the program is left, so the specified files must be loaded every time the program is
 tested. If programs are included which have memory banks, these banks will be left out.</p>
 
-<!-- section -->
+</section>
 
-<b>IBM and ST users</b><br>
-
+<section id="13-ibm-and-st-users">
+<h2>IBM and ST users</h2>
+<p>
 The commercially available Cross Dos package allows AMOS Professional to access discs in IBM-
 clone format or Atari-ST format. Discs that are in either of these formats are identified by a three-
 character code of the two letters "Di" followed by the number of your drive. So an ST format
@@ -1052,6 +1062,7 @@ but you will be rewarded by the fact that the Amiga's superior power over the ST
 your programs for the better!</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

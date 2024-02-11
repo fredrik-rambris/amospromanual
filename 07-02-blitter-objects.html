@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Blitter Objects</h1>
 
-<br>
 
 
 <p>
@@ -47,9 +47,11 @@ Naturally, all this power carries a price tag, and although Bobs are more flexib
 they are also slightly slower and consume additional memory. So the ideal solution is to use
 both Sprites and Bobs to their full advantage in the same program. They make a superb team,
 just like your Amiga, AMOS Professional and you!</p>
+</section>
 
-<p><b>Displaying a Bob</b><br>
-
+<section id="01-displaying-a-bob">
+<h2>Displaying a Bob</h2>
+<p>
 Images to be used as Bobs are stored in memory Bank 1, and are each referred to by a simple
 number, which ranges from 1 up to the maximum number of objects in the bank. Load up some
 images now, like this:</p>
@@ -71,7 +73,6 @@ This Object Bank is also used for any Sprite images, so the same objects can be 
 or Sprites with great ease. To create a Bob, the image of an object is taken from the bank, and
 allocated for display as follows.</p>
 
-<p><b>BOB</b><br>
 <i>instruction: display a Bob on screen</i><br>
 <b>Bob</b> number,image<br>
 <b>Bob</b> number,x,y,image</p>
@@ -80,7 +81,6 @@ allocated for display as follows.</p>
 Each Bob must be given an identification number from 0 to 63. As a default, only 64 Bobs may be
 displayed on screen at once, but this limit can be increased if necessary.</p>
 
-<!-- section -->
 
 <p>
 Unlike Sprites, which use complex hardware coordinates, Bobs are displayed using standard
@@ -143,7 +143,6 @@ X> Curs Off: Flash Off : Cls 0
         simple DOUBLE BUFFER command. The theory and practice of this is explained later, but in</li>
   </ul>
 
-<!-- section -->
   <ul>
         essence, double buffering creates an invisible copy of the current screen where drawing
         operations take place, resulting in beautifully smooth movement effects.
@@ -151,8 +150,10 @@ X> Curs Off: Flash Off : Cls 0
     <li>Finally, your Bobs are assigned their individual starting positions. This could be a simple series
         of BOB commands, or a complex pattern of off-screen starting points for each level of an arcade game.</li>
   </ul>
+</section>
 
-<p><b>General Bob Commands</b></p>
+<section id="02-general-bob-commands">
+<h2>General Bob Commands</h2>
 
 <p><b>BOB OFF</b><br>
 <i>instruction: remove a Bob from display</i><br>
@@ -203,7 +204,6 @@ E> Load "AMOSPro_Tutorial:Objects/Bobs.abk"
    Loop
 </pre>
 
-<!-- section -->
 
 <p>
 AMOS Professional provides many alternative methods of moving Bobs, and each Bob can
@@ -251,14 +251,15 @@ you would copy the first four colours like this:</p>
 <pre>
 X> Get Bob Palette %0000000000001111
 </pre>
+</section>
 
-<p><b>Unmasking Bobs</b></p>
+<section id="03-unmasking-bobs">
+<h2>Unmasking Bobs</h2>
 
 <p><b>NO MASK</b><br>
 <i>instruction: remove colour zero mask from Bob</i><br>
 <b>No Mask</b> number</p>
 
-<!-- section -->
 
 <p>
 A "mask" means that the background colour (colour zero) around a Bob is made transparent, so
@@ -271,9 +272,11 @@ followed by the number of the Bob image you are interested in.</p>
 <p>
 Never remove a mask from a Bob while it is being displayed on screen, or its image will be
 scrambled! Remember to always use the BOB OFF command first.</p>
+</section>
 
-<p><b>Bob Priority</b><br>
-
+<section id="04-bob-priority">
+<h2>Bob Priority</h2>
+<p>
 It is important to understand that every Bob automatically possesses a priority of importance,
 and that this priority is based on the Bob's number. So a Bob carries a priority value from 0 to 63,
 and AMOS Professional uses this value to decide in which order Bobs are displayed and which
@@ -311,16 +314,17 @@ is to use the PRIORITY OFF command.</p>
 <i>instruction: toggle off Reverse Priority of Bobs</i><br>
 <b>Priority Reverse Off</b></p>
 
-<!-- section -->
 
 <p>
 The PRIORITY REVERSE ON command changes around the entire priority table based on Bob
 numbers. Not only does it give a lower Bob number priority over a higher Bob number, when
 used with PRIORITY ON it also gives priority to a Bob with the lowest y-coordinate. As you
 would expect, PRIORITY REVERSE OFF sets the priority system back to normal.</p>
+</section>
 
-<p><b>Bobs and screens</b><br>
-AMOS Professional offers a full range of commands to allow Bobs and screens to interact.</p>
+<section id="05-bobs-and-screens">
+<h2>Bobs and screens</h2>
+<p>AMOS Professional offers a full range of commands to allow Bobs and screens to interact.</p>
 
 <p><b>LIMIT BOB</b><br>
 <i>instruction: limit Bob to part of screen</i><br>
@@ -370,7 +374,6 @@ The old logical screen is flicked onto the display, and the old physical screen 
 become the new logical screen. The entire process now cycles continuously, producing a solid,
 smooth display, even when dozens of Bobs are moving on the same screen.</p>
 
-<!-- section -->
 
 <p>
 Any complexities of this technique are completely automatic, so once DOUBLE BUFFER has
@@ -433,7 +436,6 @@ E> Curs Off : Cls 0 : Double Buffer : Flash Off
    Next B
 </pre>
 
-<!-- section -->
 
 <p>
 GET BOB is an extremely useful command, allowing any section of a screen to be loaded into a
@@ -489,7 +491,6 @@ add the WAIT VBL commands before proceeding.</p>
 It is important to note that the coordinates for the given image number are measured from the
 top left-hand corner of the image, and take no account of the current hot spot setting!</p>
 
-<!-- section -->
 
 <p>
 PASTE BOB is just like any other graphics instruction, so it does not need a double buffered
@@ -513,8 +514,10 @@ E> Flash Off : Curs Off : Cis 0
     Paste Bob X,Y,N
    Loop
 </pre>
+</section>
 
-<b>Bob Bank Commands</b></p>
+<section id="06-bob-bank-commands">
+<h2>Bob Bank Commands</h2>
 
 <p><b>DEL BOB</b><br>
 <i>instruction: delete an image from the Object Bank</i><br>
@@ -548,7 +551,6 @@ X> Del Bob 4 To 7
 <p>
 After the last image has been deleted from the Object Bank, the entire Bank is erased automatically.</p>
 
-<!-- section -->
 
 <p><b>INS BOB</b><br>
 <i>instruction: insert a blank Bob image into the Object bank</i><br>
@@ -572,9 +574,11 @@ Both DEL BOB and INS BOB are provided to be used with the GET BOB and GET SPRITE
 commands. They allow you to modify and adjust your Bob images from inside AMOS
 Professional programs, with complete freedom. They may be used to create numerous special
 effects such as interactive screen animations and animated brushes, as used in Deluxe Paint.</p>
+</section>
 
-<p><b>Flipping Bob Images</b><br>
-
+<section id="07-flipping-bob-images">
+<h2>Flipping Bob Images</h2>
+<p>
 AMOS Professional is designed to meet every programming need when it comes to animating
 images. You will often need to animate mechanical objects and cartoon characters as realistically
 as possible, so every movement sequence must be created from a number of images, and each
@@ -601,7 +605,6 @@ specifying the existing image number (in brackets) to be flipped horizontally, i
 new identification number for the reversed image. This new image number can be freely used
 with any of the standard Bob commands.</p>
 
-<!-- section -->
 
 <p>Here is an example:</p>
 
@@ -661,7 +664,6 @@ VREV is identical to HREV, except that it takes the specified image and turns it
 before displaying it on the screen. This is best used for animated objects that move vertically,
 although comic effects can be achieved with cartoon characters.</p>
 
-<!-- section -->
 
 <p>
 As with HREV, there is an equivalent hexadecimal version of the VREV function, which can be
@@ -706,9 +708,11 @@ E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
 <p>
 Don't forget to try the HELP programs for a demonstration. If your own attempts at flipping
 Bob images cause any problems, you may wish to consult the Bob Doctor, below.</p>
+</section>
 
-<p><b>The Bob Doctor</b><br>
-
+<section id="08-the-bob-doctor">
+<h2>The Bob Doctor</h2>
+<p>
 Here are some free consultations which answer common problems encountered when flipping
 Bobs.</p>
 
@@ -721,7 +725,6 @@ screen. Once reversed, images stay in this new state until displayed in a differ
 Whenever AMOS Professional flips a reversed image, it first needs to restore the image to its
 original state. This takes a great deal of processor time, and slows down your display.</p>
 
-<!-- section -->
 
 <p>
 <b>Problem:</b> Can I reverse an image for later use, without displaying it on screen?<br>
@@ -764,6 +767,7 @@ should be acceptable, but if the hot spot is asymmetrical you will generate unpr
 problems.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

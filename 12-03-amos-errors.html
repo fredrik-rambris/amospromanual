@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>AMOS Errors</h1>
 
-<br>
 
 
 <p>
@@ -26,9 +26,11 @@ Program error messages can happen when you test your work. Run time messages com
 complete with their own number code, and they pinpoint errors while your program is running.
 Error messages appear in the information line of your screen, and are automatically displayed to
 help and inform you.</p>
+</section>
 
-<p><b>Editing error messages</b><br>
-
+<section id="01-editing-error-messages">
+<h2>Editing error messages</h2>
+<p>
 While you are editing programs, one of the following messages may appear.</p>
 
 <p><b>Bottom of text</b><br>
@@ -71,7 +73,6 @@ The Editor has been unable to load a configuration file, include file, or librar
 current disc. If the file is on a floppy, try re-inserting it a couple of times. If all else
 fails, use DISCDOCTOR to salvage your data and try again with a fresh disc.</p>
 
-<!-- section -->
 
 <p><b>Editor command not runnable</b><br>
 ASK EDITOR and CALL EDITOR can only be used by EDITOR ACCESSORIES. These are
@@ -120,7 +121,6 @@ You've attempted to load the wrong sort of program into the Editor. AMOS Profess
 compatible with all versions of AMOS and Easy AMOS. But you can't load .AMOS format
 compiled programs created from the original AMOS Compiler.</p>
 
-<!-- section -->
 
 <p><b>Not done</b><br>
 This "error" is generated when you abort from an operation such as [Load], [New], or [Quit]
@@ -170,7 +170,6 @@ directly to a fixed memory location, your assembler will have placed extra reloc
 at the end of your machine code. This cannot be used by AMOS Professional, so your program
 will be rejected out of hand.</p>
 
-<!-- section -->
 
 <p><b>Program already running</b><br>
 This will occur if a program trys to PRUN itself.</p>
@@ -221,7 +220,6 @@ You've attempted to use INSERT PROGRAM to install the wrong type of program into
 procedure. This program file must contain a 68000 machine code routine in PC relative
 (relocatable) format. Programs created with the AMOS Compiler are NOT acceptable!</p>
 
-<!-- section -->
 
 <p><b>This is not a 'User' menu option!</b><br>
 The Delete Option command can only be used to delete entries from the User Menu. If you try
@@ -270,10 +268,11 @@ You've called a menu option from the user menu which doesn't have a program assi
 Use the "Set Program To Menu" feature from the Config menu to install an AMOS program to
 this option.</p>
 
-<!-- section -->
+</section>
 
-<p><b>Program errors</b><br>
-There is no need to wait until your programs are executed before any errors become obvious. By
+<section id="02-program-errors">
+<h2>Program errors</h2>
+<p>There is no need to wait until your programs are executed before any errors become obvious. By
 making use of the [Test] option, an automatic check is made of all the instructions in your
 current program while you are still editing. The following messages may also appear when a
 program is [Run].</p>
@@ -317,7 +316,6 @@ You are trying to use a FOR command, but have forgotten to follow it with a NEXT
 A structured IF test must be ended by a single ENDIF statement. This sort of IF test is totally
 different from an IF ... THEN command.</p>
 
-<!-- section -->
 
 <p><b>Illegal direct mode</b><br>
 Direct mode only permits you to run certain types of instructions from the command line. All
@@ -364,7 +362,6 @@ a GOTO or GOSUB statement.</p>
 You have specified a larger count of loops than the number of active loops available in your
 EXIT or EXIT IF command.</p>
 
-<!-- section -->
 
 <p><b>Out of memory</b><br>
 During a [Test] operation, this error message may appear when there is not enough memory
@@ -412,7 +409,6 @@ You are not allowed to define the same variable more than once in a single proce
 The TRAP command runs an AMOS instruction and automatically traps any error before
 returning to the next line.</p>
 
-<!-- section -->
 
 <p><b>UNTIL without REPEAT</b><br>
 You have used an UNTIL command that does not refer to a previous REPEAT statement.</p>
@@ -445,9 +441,11 @@ There is no WHILE command to go with your WEND statement.</p>
 
 <p><b>WHILE without matching WEND</b><br>
 There is no matching WEND statement to go with your WHILE command.</p>
+</section>
 
-<p><b>Run time errors</b><br>
-
+<section id="03-run-time-errors">
+<h2>Run-time errors</h2>
+<p>
 When AMOS Professional comes across a mistake while your program is running, it will
 automatically halt the program, pinpoint the offending instruction and display the relevant
 error message. As soon as you continue editing your program, the cursor will go to the line in
@@ -467,7 +465,6 @@ Audio waves can only be created by a list of 256 bytes.</p>
 You are trying to read an odd address in a DEEK or LEEK command, which must
 always be even. Similarly, DOKE and LOKE cannot load these addresses.</p>
 
-<!-- section -->
 
 <p><b>Amal bank not reserved (116)</b><br>
 You've tried to use an Amal PLay command in a program without defining a movement pattern
@@ -515,7 +512,6 @@ IFF screens into memory and not general purpose IFF files.</p>
 You've made a mistake when setting up the serial port with SERIAL SPEED, SERIAL BITS,
 SERIAL PARITY, or SERIAL X. Check your current set up.</p>
 
-<!-- section -->
 
 <p><b>Bank already reserved (35)</b><br>
 You have tried to create a memory bank that already exists.</p>
@@ -568,7 +564,6 @@ You have tried to use LOAD I FF to load a picture into an existing screen of a d
 type. AMOS Professional will automatically create a screen of the right type if
 you specify a screen number in the correct range of 0 to 7.</p>
 
-<!-- section -->
 
 <p>You should tag the number of the destination screen to the LOAD IFF command like this:</p>
 
@@ -622,7 +617,6 @@ name with an instruction such as:</p>
 X> Dir$="Df0:"
 </pre>
 
-<!-- section -->
 
 <p><b>Device not opened (141)</b><br>
 You've called a printer, parallel, or serial command without previously opening a channel with
@@ -675,7 +669,6 @@ RESUME.</p>
 You may not exit from an error-handling procedure using END PROC.
 Use one of the special RESUME commands instead.</p>
 
-<!-- section -->
 
 <p><b>File already exists (76)</b><br>
 You cannot RENAME a file with the same name already belonging to another file or directory
@@ -724,7 +717,6 @@ be available from the FONTS: directory of your current start-up disc.</p>
 You must first create a list of available fonts using GET FONTS before you can use the SET
 FONT command.</p>
 
-<!-- section -->
 
 <p><b>Hardware data overrun (150)</b><br>
 This error can be generated if you wait too long before loading your data from the serial port
@@ -778,7 +770,6 @@ You are trying to use the wrong number of colours on screen at once.
 Check the syntax of your SCREEN OPEN commands, or check this
 User Guide for a full list of available screen colour options.</p>
 
-<!-- section -->
 
 <p><b>Illegal print dimensions (164)</b><br>
 The PRINTER DUMP command is unable to print your screen with the selected dimensions.
@@ -827,7 +818,6 @@ You've typed too few, or too many values into one of your AMOS Interface functio
 EDIALOG to located the mistake, and the AMOS HELP menu to find the correct number of
 parameters for your instruction.</p>
 
-<!-- section -->
 
 <p><b>Interface Error: Label defined twice (122)</b><br>
 This is a mistake with the LA or LAbel command in your AMOS Interface program. You appear
@@ -879,7 +869,6 @@ You've tried to open the same library twice with LIB OPEN.</p>
 LIB CALL has been used with a non-existent channel number.
 You'll need to open this channel first using LIB OPEN.</p>
 
-<!-- section -->
 
 <p><b>Menu item not defined (39)</b><br>
 The item specified in a MENU command has not been previously defined using MENU$.</p>
@@ -928,7 +917,6 @@ memory for your zones with RESERVE ZONE.</p>
 <p><b>Non dimensioned array (27)</b><br>
 You are trying to refer to an array, but it has not yet been defined.</p>
 
-<!-- section -->
 
 <p><b>Not an AmigaDOS disc (92)</b><br>
 AMOS Professional can only read discs created on an Amiga. If you want to use discs that are of
@@ -980,7 +968,6 @@ Normally, AMOS Professional allocates 8k of storage space for your strings and a
 To increase variable space, use the SET BUFFER command at the beginning
 of your program.</p>
 
-<!-- section -->
 
 <p><b>Overflow (29)</b><br>
 The result of a calculation has exceeded the maximum size of a variable.</p>
@@ -1030,7 +1017,6 @@ The label you have specified in a RESUME command does not exist.</p>
 The RESUME command cannot be executed unless an error has been discovered in your
 program.</p>
 
-<!-- section -->
 
 <p><b>Sample not defined (179)</b><br>
 The sample that you want to play does not exist in the current sample bank.</p>
@@ -1083,7 +1069,6 @@ OPEN. So it won't close the original text window.</p>
 <p><b>This window has no border (63)</b><br>
 A BORDER command has been used on a window which has no border.</p>
 
-<!-- section -->
 
 <p><b>Time-out error (155)</b><br>
 The SERIAL INPUTS command or SERIAL GET command have waited in vain for information
@@ -1134,6 +1119,7 @@ The requested window is smaller than the minimum permitted size. Please see WIND
 and WIND SIZE for a full explanation.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

@@ -14,17 +14,19 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Playing Music Modules</h1>
 
-<br>
 
 
 <p>
 A complete range of facilities i provided for playing music composed with the AMOS
 Professional system, as well as module created with the popular Tracker and Med systems.</p>
+</section>
 
-<p><b>Playing AMOS Professional music</b><br>
-
+<section id="01-playing-amos-professional-music">
+<h2>Playing AMOS Professional music</h2>
+<p>
 Any pieces of AMOS Professional music that are to be used with your programs must be held in
 the Music Bank, which is normally Bank 3. These musical pieces can be played without affecting
 tiny other part of the main program. If sound effects are triggered on a channel that is currently
@@ -35,7 +37,6 @@ again from its last position once the effect is over.</p>
 Several musical arrangements can be stored in the same bank, provided that there is enough
 memory, and to identify melodies each piece of music must be given its own number.</p>
 
-<p><b>MUSIC</b><br>
 <i>instruction: play a piece of AMOS Professional music</i><br>
 <b>Music</b> number</p>
 
@@ -80,7 +81,6 @@ To set the volume of a piece of music, or to change its current volume, this com
 is followed by a number ranging from zero for complete silence, up to 63 for
 as loud as possible.</p>
 
-<!-- section -->
 
 <p>Obviously, by setting up a simple loop, you can fade your music up or down.</p>
 
@@ -107,9 +107,11 @@ E> Load "AMOSPro_Examples:Music/Music.Abk"
 <p>
 Please note that music created using the Tracker and MED systems may include their own
 tempo and volume labels, and these will override the settings specified by AMOS Professional.</p>
+</section>
 
-<p><b>Playing Tracker modules</b><br>
-
+<section id="02-playing-tracker-modules">
+<h2>Playing Tracker modules</h2>
+<p>
 If you are unable or unwilling to write your own musical masterpieces, there is no need to
 worry. AMOS Professional lets you take other composers' soundtracks and add them to your
 original games and utilities. There are thousands of public domain soundtracks written with
@@ -137,7 +139,6 @@ bank will be called "Tracker".</p>
 <b>Track Play</b><br>
 <b>Track Play</b> bank number,pattern number</p>
 
-<!-- section -->
 
 <p>
 To start your Tracker module playing, give this command followed by the appropriate bank
@@ -175,9 +176,11 @@ E> Track Load "AMOSPro_Examples:Music/Mod.Tracker"
 <b>Track Stop</b></p>
 
 <p>This command is used to halt all Tracker modules playing.</p>
+</section>
 
-<p><b>Playing Med modules</b><br>
-
+<section id="03-playing-med-modules">
+<h2>Playing Med modules</h2>
+<p>
 If you wish to play Med modules, the "Medplayer.library" file must be in your "Libs:" folder.
 Naturally, if you have no intention of exploiting the Med library, there is no need to load it and
 allocate unnecessary memory. Both "MMDO" and "MMD1" modules can be used for your
@@ -196,7 +199,6 @@ with your program, so Med modules must be loaded anew each time that the program
 This command will open the "Medplayer.library" file, and you may be asked to insert
 your System disc into the drive if this file is not available on the current disc.</p>
 
-<!-- section -->
 
 <p>
 As with Tracker modules, AMOS Professional sound samples can be played while Med modules
@@ -248,6 +250,7 @@ controlling keyboards, drum machines and so on, the MED MIDI ON command must be 
 opened.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

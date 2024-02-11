@@ -14,20 +14,21 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Using the Keyboard</h1>
 
-<br>
 
 
 <p>This Chapter reveals how AMOS Professional exploits the potential of your keyboard.</p>
+</section>
 
-<p><b>Checking for a key-press</b><br>
-
+<section id="01-checking-for-a-key-press">
+<h2>Checking for a key-press</h2>
+<p>
 The keyboard can be used to interact with your routines once they are running. This is vital for
 any sort of arcade game, adventure gaming or for more practical items such as word processing.</p>
 
 <p>
-<b>INKEY$</b><br>
 <i>function: check for a key-press</i><br>
 k$=<b>Inkeys$</b></p>
 
@@ -75,7 +76,6 @@ SCANCODE returns the internal scan code of a key that has already been entered u
 INKEY$ function. The next example may be tested by pressing the function keys, [Del] and
 [Help]. To interrupt the example, press [Ctrl]+[C].
 
-<!-- section -->
 
 <pre>
 E> Do
@@ -134,7 +134,6 @@ E> Do
    Loop
 </pre>
 
-<!-- section -->
 
 <p>
 <b>KEY SHIFT</b><br>
@@ -190,9 +189,10 @@ buffer may be filled with unwanted information. CLEAR KEY can also be called imm
 before a WAIT KEY command, to make sure that the program waits for a fresh key-press before
 proceeding.</p>
 
-<!-- section -->
+</section>
 
-<p><b>Keyboard inputs</b></p>
+<section id="02-keyboard-inputs">
+<h2>Keyboard inputs</h2>
 
 <p>
 <b>WAIT KEY</b><br>
@@ -251,7 +251,6 @@ the keyboard, and each variable in the list must be matched by a single value en
 user. These values must be of exactly the same type as the original variables, and should be
 separated by commas.</p>
 
-<!-- section -->
 
 <p>For example:</p>
 
@@ -299,9 +298,11 @@ E> Do
     If B$="NO" Then Boom : Wait 50: Exit
    Loop
 </pre>
+</section>
 
-<p><b>Keyboard Macros</b><br>
-
+<section id="03-keyboard-macros">
+<h2>Keyboard Macros</h2>
+<p>
 AMOS Professional allows the creation of keyboard macros from the [Macros] option of the
 main [Editor] Menu, as detailed in <a href="4/401.html">Chapter 4.1</a>. A macro is simply a command string assigned to
 one of the function keys, which is called up by pressing the appropriate function key and one of
@@ -315,7 +316,6 @@ As well as assigning macro definitions by means of the [Macro] option in the Edi
 they can also be defined directly from an AMOS Professional program using
 the powerful KEY$ reserved variable.</p>
 
-<!-- section -->
 
 <p>
 <b>KEY$</b><br>
@@ -355,9 +355,11 @@ x$=<b>Scan$</b>(scan-code,mask)</p>
 The scan-code parameter refers to the scan-code of a key that is to be used in one of your macro
 definitions. There is also an optional mask parameter, which sets special keys such as [Ctrl] and
 [Alt], and the format is the same as for KEY SHIFT, explained earlier.</p>
+</section>
 
-<p><b>Improving your typing skills</b><br>
-
+<section id="04-improving-your-typing-skills">
+<h2>Improving your typing skills</h2>
+<p>
 The AMOS Professional programmer is offered as much help as possible to enter listings quickly
 and correctly. As many structures as possible are automatically recognised and correctly
 formatted, even if upper and lower case is sometimes confused and spacings are not quite
@@ -375,7 +377,6 @@ you change the repeat rate while a key is held down, to your own particular pref
 the time-lag you want to use between pressing a key and the start of the repeat sequence,
 measured in 50ths of a second.</p>
 
-<!-- section -->
 
 <p>
 Follow this by the delay-speed between each character you type, also in 50ths of a second. This
@@ -392,6 +393,7 @@ D> Key Speed 1,1: Rem Ridiculously fast
 </pre>
 
 
+</section>
+
 </BODY>
 </HTML>
-

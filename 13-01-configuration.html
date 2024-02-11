@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Configuration</h1>
 
-<br>
 
 
 <p>
@@ -47,9 +47,11 @@ in that order.</p>
 <p>
 The use of the [AMOS] main menu, regarding loaded accessory programs is explained in
 <a href="4/401.html">Chapter 4.1</a>.</p>
+</section>
 
-<p><b>Defining a new accessory</b><br>
-
+<section id="01-defining-a-new-accessory">
+<h2>Defining a new accessory</h2>
+<p>
 Additional Editor accessory programs can be defined, provided that the program to be defined
 as an accessory is a hidden program (with no window from the Editor), and that the program is
 called from the Editor via the [AMOS] main menu or via a "Program to Menu" operation.</p>
@@ -75,7 +77,6 @@ Use this command to send instructions to the Editor. The function parameter refe
 number, which is understood by the Editor to refer to a particular function. A list of all available
 functions, along with their code numbers, is featured in the [Editor] Help menu.</p>
 
-<!-- section -->
 
 <p>
 <b>ASK EDITOR</b><br>
@@ -86,9 +87,11 @@ functions, along with their code numbers, is featured in the [Editor] Help menu.
 ASK EDITOR returns parameters from the Editor, including actual lines from the program
 listing! This means that source code that is currently being edited can be examined. Please refer
 to the Procedure List example on Productivity disc 2 for more details.
+</section>
 
-<p><b>AMOS Professional Configuration Files</b><br>
-AMOS Professional can be tailored to suit your own needs and preferences. There are two
+<section id="02-amos-professional-configuration-files">
+<h2>AMOS Professional Configuration Files</h2>
+<p>AMOS Professional can be tailored to suit your own needs and preferences. There are two
 configuration files which make this possible:</p>
 
 <p><b>AMOSPro.Interpreter_Config</b><br>
@@ -118,9 +121,11 @@ quite simple and straightforward.</p>
 <p>
 The options in the [Config] menu were outlined in <a href="4/401.html">Chapter 4.1</a>. All of the configuration settings
 available via the [Set Editor] and [Set Interpreter] options will now be examined in detail.</p>
+</section>
 
-<p><b>Setting the Editor configuration</b><br>
-
+<section id="03-setting-the-editor-configuration">
+<h2>Setting the Editor configuration</h2>
+<p>
 From the main [Config] menu, select the [Set Editor] option. The Editor_Config.AMOS program
 can only be called from this sub-menu option, and a requester will be displayed if you attempt
 to run it independently.</p>
@@ -130,7 +135,6 @@ All loading and saving of the Editor configuration must be performed under the c
 Editor, because the Editor configuration program only affects the configuration within the
 Editor's data zone.</p>
 
-<!-- section -->
 
 
 <p>
@@ -191,7 +195,6 @@ you want a decent block editing facility.</p>
 The default setting of being able to recall 20 previous Direct Mode commands
 can be changed to a number from zero to 128, using the slider bar.</p>
 
-<!-- section -->
 
 <p>
 [Set Editor Files]
@@ -224,9 +227,11 @@ Editor.</p>
 <p><b>[Run-Time Messages]</b><br>
 The last two options in the [Editor set-up] menu operate in exactly the same way as the [Menu
 Messages] option. Error messages are examined in <a href="12/1211.html">Chapter 12.3</a>.</p>
+</section>
 
-<p><b>Setting the Interpreter Configuration</b><br>
-The stand-alone Interpreter_Config.AMOS program can be called from the [Config] main menu,
+<section id="04-setting-the-interpreter-configuration">
+<h2>Setting the Interpreter Configuration</h2>
+<p>The stand-alone Interpreter_Config.AMOS program can be called from the [Config] main menu,
 by selecting the [Set Interpreter] option. This program is an accessory, so the Edit Screen is not
 erased, but remains underneath.</p>
 
@@ -243,7 +248,6 @@ A File Selector is displayed, inviting you to choose an Interpreter_Config file.
 acceptable to have several such files on your start-up disc. All configurations should be kept in
 the APSystem folder, and assigned individual names.</p>
 
-<!-- section -->
 
 <p><b>[Save Configuration]</b><br>
 This saves the current configuration settings onto the program disc. These settings will be
@@ -302,7 +306,6 @@ If set to [Yes], files will be sorted as they are read from the current path nam
 [File Selector: Display File Size?]<br>
 The size of files can be removed from the File Selector display, revealing</p>
 
-<!-- section -->
 
 <p>
 [File Selector: Store Directories?]<br>
@@ -356,13 +359,14 @@ Click on the [Prt:] or [Aux:] panel, and type in your preferences from the keybo
 <p>
 When you have selected your new preferences, and quit these menus, a dialogue box will
 appear regarding saving and re-booting.</p>
+</section>
 
-<p><b>Saving memory</b><br>
-
+<section id="05-saving-memory">
+<h2>Saving memory</h2>
+<p>
 If your system uses an external 3.5-inch disc drive, approximately 30k of memory can be saved
 by deactivating it <b>before</b> switching on and loading AMOS Professional.</p>
 
-<!-- section -->
 
 <p>
 Turning off this drive while the Amiga is operating will have <b>no</b> effect at all, because the
@@ -406,6 +410,7 @@ automatically erase the current display and revert to the standard default scree
 [Esc] to summon up the Editor as usual!</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

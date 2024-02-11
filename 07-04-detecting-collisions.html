@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Detecting Collisions</h1>
 
-<br>
 
 
 <p>
@@ -33,9 +33,11 @@ combination of these different types. The detection routines are sensitive to th
 your objects, so all results are incredibly accurate. There is not a single "classic" computer game
 that you cannot match in terms of speed and sensitivity when it comes to detecting collisions.
 Here is a synopsis of the options available.</p>
+</>
 
-<p><b>Collision detection options</b><br>
-
+<section id="01-collision-detection-options">
+<h2>Collision detection options</h2>
+<p>
 AMOS Professional permits effortless checking for a collision between any group of screen
 objects, by means of four powerful functions. Each function uses the same principle, which takes
 a single source object and then searches for collisions between that object and one or more
@@ -50,7 +52,6 @@ range is set by specifying the number of the first object in the range to the nu
 target object you are interested in.</p>
 
 <p>
-Here is a list of the four available collision tests:<br>
 BOB COL monitors for collisions between Bobs.<br>
 SPRITE COL monitors for collisions between Sprites.<br>
 SPRITEBOB COL checks a single Sprite for collisions with Bobs.<br>
@@ -67,9 +68,11 @@ where the number relates to one of the objects being checked.</p>
 <p>
 Most of these options are also available in the built-in AMAL animation system, to which
 <a href="7/748.html">Chapter 7.6</a> is devoted.</p>
+</section>
 
-<p><b>Types of collisions</b><br>
-
+<section id="02-types-of-collisions">
+<h2>Types of collisions</h2>
+<p>
 There are three general categories of collision which can occur in a computer game:</p>
 
 <ul>
@@ -81,7 +84,6 @@ There are three general categories of collision which can occur in a computer ga
       checked for collision with an entire armoury of user-controlled objects.</li>
 </ul>
 
-<!-- section -->
 
 <p>
 Before a detailed explanation of the collision functions, it is worth examining AMOS
@@ -121,9 +123,11 @@ ball only:</p>
 <pre>
 E> If Bobsprite 001(1,2 To 4) Then Bell 10
 </pre>
+</section>
 
-<p><b>Masks</b><br>
-Invisible "masks" are created around images for two main reasons. Firstly they ensure that the
+<section id="03-masks">
+<h2>Masks</h2>
+<p>Invisible "masks" are created around images for two main reasons. Firstly they ensure that the
 background colour (zero) is transparent, so a masked Bob will merge with the current screen
 display. The second reason for masking an image is to provide AMOS Professional with a
 mechanism for detecting collisions. The collision detection functions will only work if a mask
@@ -142,14 +146,15 @@ collision detection, it is vital to ensure that all your objects are wearing the
 
 <p>This command creates a mask around every one of the images in the Object Bank, and may take</p>
 
-<!-- section -->
 
 <p>
 a little time, depending on the number of objects involved. If an optional number is given, then
 a mask is created for that specified image only.</p>
+</section>
 
-<b>The collision functions</b><br>
-
+<section id="04-the-collision-functions">
+<h2>The collision functions</h2>
+<p>
 <p><b>BOB COL</b><br>
 <i>function: detect for collision between Blitter Objects</i><br>
 c=<b>Bob Col</b>(number)<br>
@@ -201,7 +206,6 @@ to set the range of the Sprite numbers you are interested in.</p>
 Note that any mixture of hardware Sprites and computed Sprites can be tested in the same
 SPRITE COL instruction. Also that the equivalent AMAL function is SC.</p>
 
-<!-- section -->
 
 <p><b>SPRITEBOB COL</b><br>
 <i>function: test for collision between one Sprite and range of Bobs</i><br>
@@ -258,7 +262,6 @@ Give the number of the object you wish to test, either a Bob or a Sprite, depend
 circumstances, and its status will be reported with a value of -1 (true)
 if it has collided, or 0 (false) if it remains untouched.</p>
 
-<!-- section -->
 
 <p>
 Supposing you are testing Bob 1 for a collision between Bobs 2,3 and 4. The initial test could look
@@ -325,10 +328,11 @@ function can be used to read the system register CLXDAT, returning zero (False) 
 collision, or -1 (True) if a collision is detected. The COL function can then be used to return the
 identification number of the colliding Sprite.</p>
 
-<!-- section -->
+</section>
 
-<p><b>Collisions with rectangular blocks</b><br>
-
+<section id="05-collisions-with-rectangular-blocks">
+<h2>Collisions with rectangular blocks</h2>
+<p>
 The last part of this Chapter explains how rapid checks can be made to see if an Object has
 entered a rectangular area of the screen. These screen "zones" can be used for collision
 detection in computer games, as well as for setting up buttons, control panels and dialogue
@@ -380,7 +384,6 @@ has entered a specific screen zone, as follows:</p>
 X> N=Zone(X Bob(n),Y Bob(n))
 </pre>
 
-<!-- section -->
 
 <p><b>HZONE</b><br>
 <i>function: return the zone number under the specified hardware coordinates</i><br>
@@ -415,6 +418,7 @@ only that zone will be erased. The RESET ZONE instruction does not return the me
 allocated by RESERVE ZONE to the main program.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-

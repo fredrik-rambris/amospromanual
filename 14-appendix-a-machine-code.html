@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>App. A: Machine Code</h1>
 
-<br>
 
 
 <p>
@@ -31,9 +31,11 @@ exploit the Amiga's full potential using the simple commands already detailed in
 Guide. In other words, if you prefer to opt for the simple life, you are free to ignore this machine
 code section altogether. You certainly do not need these functions to create superb computer
 games.</p>
+</section>
 
-<p><b>Converting numbers</b><br>
-
+<section id="01-converting-numbers">
+<h2>Converting numbers</h2>
+<p>
 Human beings normally count in multiples of ten, based on the number of fingers most of us
 possess. These "decimal" numbers are expressed by a group of characters from 0 to 9, and the
 relative position of these "digits" determines whether a character represents the number of ones,
@@ -135,7 +137,6 @@ E> Print %101
   decimal value to be converted is specified in brackets. The hex number that is returned will
   automatically have a leading $ (dollar) character added to it.</p>
 
-<!-- section -->
 
 <p>
   This character acts as an introduction sign, to indicate that the number which follows it is in
@@ -174,9 +175,11 @@ E> Print $64
 <p>
   Do not confuse the use of the <b>leading</b> $ character for a hex number with the use of a <b>trailing</b> $
   character for a string. $A is a hexadecimal number, but A$ is a variable!</p>
+</section>
 
-<p><b>Manipulating memory</b><br>
-
+<section id="02-manipulating-memory">
+<h2>Manipulating memory</h2>
+<p>
   A "byte" is a single unit of data, resident at an address in memory. If no unit of data exists at a
   particular address, the address remains empty. Each byte can hold a number between 0 and 255.
   Each byte is made up of eight smaller units of memory called "bits", and a bit is the smallest unit
@@ -199,7 +202,6 @@ E> Print $64
   provoke your Amiga into taking horrible reprisals!</p>
 
 
-<!-- section -->
 
 <p><b>DEEK</b><br>
   <i>function: read two bytes from an even address</i><br>
@@ -254,7 +256,6 @@ E> A=$FFFFFFFE
   location, one character at a time. The address parameter holds the address of the first byte to be
   loaded with the new string data.</p>
 
-<!-- section -->
 
 <p>
   The copying operation will continue until the last character of the source string is reached, and
@@ -317,7 +318,6 @@ X> Reserve As Data 10,1000 : Rem Reserve a memory bank
   with multiple copies of a specified four-byte pattern. The addresses of the start and finish
   determine the size and position of the memory block, and they must both be even.</p>
 
-<!-- section -->
 
 <p>
   The fill pattern is a standard four-byte integer, but if you need to fill the area with multiple
@@ -345,8 +345,10 @@ first=<b>Hunt</b>(start <b>To</b> finish,s$)</p>
   If the search is successful, the position of the first character in memory is returned, otherwise a
   value of zero will be given. When using this function, take great care in selecting the start and
   finish points for the search.</p>
+</section>
 
-<p><b>Direct access to variables</b></p>
+<section id="03-direct-access-to-variables">
+<h2>Direct access to variables</h2>
 
 <p><b>VARPTR</b><br>
   <i>function: read the address of a variable</i><br>
@@ -377,7 +379,6 @@ E> TEST=0
   There should be few problems encountered when reading the variables, but changing them is a
   very hazardous process!</p>
 
-<!-- section -->
 
 <p>
   The slightest error made in your address calculations will crash AMOS Professional, so it is vital
@@ -444,7 +445,6 @@ X> A=Peek(Varptr(A$)+C)
 X> X=Free
 </pre>
 
-<!-- section -->
 
 <p>
   The address of the string can now be established, and passed to the procedure. So providing
@@ -505,9 +505,10 @@ X> Varptr TEST(0,0)
   altogether! If you ignore this advice and try to access them using VARPTR, you are risking real
   danger.</p>
 
-<!-- section -->
+</section>
 
-<p><b>Manipulating bits</b></p>
+<section id="04-manipulating-bits">
+<h2>Manipulating bits</h2>
 
 <p><b>ROL</b><br>
   <i>instruction: rotate left</i><br>
@@ -563,7 +564,6 @@ E> Curs Off : Locate 0,20 : Centre "Press a key to ROL the number"
    Loop
 </pre>
 
-<!-- section -->
 
 <p><b>ROR</b><br>
   <i>instruction: rotate right</i><br>
@@ -620,7 +620,6 @@ E> B=%1010
 
 <p>This instruction flips a binary bit from 0 to 1, or from 1 to 0, as appropriate.</p>
 
-<!-- section -->
 
 <p>
   As usual, the bit is specified by giving the number of its position, followed by either a variable or
@@ -635,8 +634,10 @@ E> B=%1010
   The BCLR command clears a bit by setting it to zero. The bit number can be from 0 to 31, and
   pinpoints the single binary digit to be cleared. If the value is an expression, it will be used as an
   address in memory.</p>
+</section>
 
-<p><b>Using assembly language</b></p>
+<section id="05-using-assembly-language">
+<h2>Using assembly language</h2>
 
 <p>
   AMOS Professional exploits the most useful machine code routines and transforms them into
@@ -649,9 +650,11 @@ E> B=%1010
   several methods of accessing machine code directly from AMOS Professional Basic. These
   features are strictly for experts, and should be ignored by anyone not familiar with assembly
   language.</p>
+</section>
 
-<p><b>Machine code procedures</b><br>
-
+<section id="06-machine-code-procedures">
+<h2>Machine code procedures</h2>
+<p>
   The easiest option for exploiting assembly language is to install machine code directly into an
   AMOS Professional procedure. These procedures can be saved and loaded using standard
   commands, and then executed from the Basic program simply by typing their name! Apart from
@@ -679,7 +682,6 @@ E> B=%1010
     program is changed, otherwise the Amiga will crash!</li>
 </ul>
 
-<!-- section -->
 
 <ul>
   <li>When the routine i's called from AMOS Professional Basic, certain registers will contain
@@ -689,9 +691,11 @@ E> B=%1010
   <li>Although routines can alter any register, the <b>A7</b> stack should be left unchanged. Also note that
     registers <b>A3</b> to <b>A6</b> will not be returned in AREG functions.</li>
 </ul>
+</section>
 
-<p><b>Creating a machine code language procedure</b><br>
-
+<section id="07-creating-a-machine-code-language-procedure">
+<h2>Creating a machine code language procedure</h2>
+<p>
   Machine code procedures are installed using the [Inset Program] option from the
   [Editor/Procedures] menu. The following steps should be followed:</p>
 
@@ -734,9 +738,11 @@ X> Procedure _MACHINE[A,A$]
 <p>
   Once the machine code is installed in this manner, it will be called automatically whenever the
   new procedure is run from AMOS Professional Basic.</p>
+</section>
 
-<p><b>Communicating with a machine code procedure</b><br>
-
+<section id="08-communicating-with-a-machine-code-procedure">
+<h2>Communicating with a machine code procedure</h2>
+<p>
   There are two methods of exchanging information with a machine code procedure.</p>
 
 <p>
@@ -748,7 +754,6 @@ X> Dreg(0)=1 : Dreg(1)=Varptr(A$) : _MACHINE
    Procedure _MACHINE
 </pre>
 
-<!-- section -->
 
 <p>
   Note that AREG(3) to AREG(6) will <b>not</b> be transferred to the routine. These registers cannot be
@@ -805,12 +810,13 @@ Move.l (a3)+,d0             * Grab "A"
 <p>
   To return values to AMOS Professional Basic, the value of DO is available from the PARAM
   function automatically.</p>
+</section>
 
-<p><b>Calling machine code from an address or bank</b><br>
-
+<section id="09-calling-machine-code-from-an-address-or-bank">
+<h2>Calling machine code from an address or bank</h2>
+<p>
   There is another option for calling machine code directly from a memory bank or an address.</p>
 
-<!-- section -->
 
 <p><b>PLOAD</b><br>
   <i>instruction: load machine code directly into memory</i><br>
@@ -863,7 +869,6 @@ Move.l (a3)+,d0             * Grab "A"
   so the last value in the list will be the first on the stack. The format of a parameter depends on
   what type of variable they are, as follows:</p>
 
-<!-- section -->
 
 <p>
   <b>Integers</b>. The parameter holds a long word, containing a normal AMOS Professional number. It
@@ -936,7 +941,6 @@ X> Areg(0)=Varptr(A$) : Rem Load the address of A$ into A0
   Basic and the 68000's Data registers, by specifying the number of
   a data register from 0 to 7.</p>
 
-<!-- section -->
 
 <p>
   This function can be thought of as an array which holds an exact copy of registers DO to D7. This
@@ -950,6 +954,7 @@ E> Dreg(0)=10 : Rem Save 10 into DO
    Print Dreg(0) : Rem Print the contents of DO
 </pre>
 
+</section>
+
 </BODY>
 </HTML>
-

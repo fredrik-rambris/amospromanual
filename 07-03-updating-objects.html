@@ -14,18 +14,20 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>Updating Objects</h1>
 
-<br>
 
 
 <p>
 This Chapter explains the theory behind the AMOS Professional system for updating and
 drawing moving objects. As well as a comprehensive range of commands, a completely
 automatic system is provided for your use.</p>
+</section>
 
-<p><b>Moving multiple objects</b><br>
-
+<section id="01-moving-multiple-objects">
+<h2>Moving multiple objects</h2>
+<p>
 As a default condition, AMOS Professional manages the position of each and every object on the
 screen automatically. The moment that the coordinates of these objects change, they are re-
 drawn almost instantly. When it comes to programming complex arcade games, that "almost
@@ -76,10 +78,11 @@ E> Load "AMOSPro Tutorial:Objects/Bobs.Abk"
    Next X
 </pre>
 
-<!-- section -->
+</section>
 
-<p><b>Displaying objects over a changing background</b><br>
-
+<section id="02-displaying-objects-over-a-changing-background">
+<h2>Displaying objects over a changing background</h2>
+<p>
 When objects need to be displayed against a rapidly changing background picture, other
 problems can occur. The most important thing to understand is that although they can hold the
 same images, Sprites and Bobs are completely different from one another. The following tables
@@ -109,9 +112,11 @@ DOUBLE BUFFER system. It is the complete independence of Sprites that make them 
 <p>
 AMOS Professional allows you to use Bobs with animated screens, and the next section explains
 how screens are updated to permit this.</p>
+</section>
 
-<p><b>The update process</b><br>
-
+<section id="03-the-update-process">
+<h2>The update process</h2>
+<p>
 This explanation of the Bob movement system is very detailed. If you are not interested in the
 theory, then the BOB CLEAR and BOB DRAW commands are explained later in this Chapter,
 and will be enough to allow you to proceed.</p>
@@ -135,7 +140,6 @@ single Witter Object on the screen. The following steps need to be undertaken:</
   <li>Finally, update by re-drawing the Bob at its new screen position.</li>
 </ul>
 
-<!-- section -->
 
 <p>
 If you are using double buffered screens, a separate copy of the background area is created for
@@ -169,9 +173,11 @@ E> Double Buffer
     Screen Swap : Wait Vbl
    Loop
 </pre>
+</section>
 
-<p><b>The updating commands</b><br>
-
+<section id="04-the-updating-commands">
+<h2>The updating commands</h2>
+<p>
 Under normal circumstances, AMOS Professional displays all Bobs at once. So if any Bob
 coordinates are changed, that Bob can be expected to appear at its new position immediately.</p>
 
@@ -182,7 +188,6 @@ it is almost inevitable that some of those objects will be re-positioned at slig
 This phenomenon generates unpleasant jerky movements. Thankfully, AMOS Professional
 provides a simple solution to this problem.</p>
 
-<p><b>BOB UPDATE</b><br>
 <i>instruction: move many Bobs simultaneously</i><br>
 <b>Bob Update</b><br>
 <b>Bob Update</b> Off<br>
@@ -194,7 +199,6 @@ the same instant in your program. The resulting movement effects are now incredi
 even with dozens of objects on screen at once. BOB UPDATE is extremely easy to use,
 as the following technique explains.</p>
 
-<!-- section -->
 
 <ul>
   <li>First, turn off the automatic system with BOB UPDATE OFF</li>
@@ -250,7 +254,6 @@ to add a WAIT VBL instruction to ensure a smooth effect.</p>
 
 <p>UPDATE ON returns the updating system back to the original automatic setting.</p>
 
-<!-- section -->
 
 <p><b>BOB CLEAR</b><br>
 <i>instruction: clear all Bobs from the screen</i><br>
@@ -305,7 +308,6 @@ correct procedure.</p>
   <li>Finally, re-draw your objects at their new positions using BOB DRAW.</li>
 </ul>
 
-<!-- section -->
 
 <p>
 If you are using double buffering, you must make sure that there is a genuine connection
@@ -317,9 +319,11 @@ When scrolling the playing area of a computer game, it is often possible to ensu
 are already in step, so BOB CLEAR and BOB DRAW can be used without any problems. In other
 situations, you may need to make radical changes from screen to screen, so ensure that these are
 made both copies of the current screen.</p>
+</section>
 
-<p><b>The Autoback command</b><br>
-
+<section id="05-the-autoback-command">
+<h2>The Autoback command</h2>
+<p>
 The standard Bob routines only work if the logical and physical screens are in perfect harmony.
 The instant that text or graphics are drawn, or the SCREEN COPY command is used, the two
 screens fall out of step with one another, ruining any smooth effects. In the case of SCREEN
@@ -368,15 +372,16 @@ graphics, this mode is perfect.</p>
 X> Autoback 2
 </pre>
 
-<!-- section -->
 
 <p>
 <b>Fully-automatic.</b> This setting re-activates the normal AUTOBACK system. Under mode 2,
 whenever graphics are drawn on screen, they will be synchronised with any active Bobs
 automatically. All worries are taken care of by the system.</p>
+</section>
 
-<p><b>Bob drawing modes</b><br>
-Once Bobs have been set up, you are allowed to change the way that they react with other
+<section id="06-bob-drawing-modes">
+<h2>Bob drawing modes</h2>
+<p>Once Bobs have been set up, you are allowed to change the way that they react with other
 screen graphics.</p>
 
 <p><b>SET BOB</b><br>
@@ -432,7 +437,6 @@ Plane: 543210
 Digit: %111111
 </pre>
 
-<!-- section -->
 
 <p>
 By changing these planes, selected colours can be omitted from the Bob when it is drawn on
@@ -470,6 +474,8 @@ C                  Destination Screen
 </pre>
 
 
+</section>
+</>
+
 </BODY>
 </HTML>
-

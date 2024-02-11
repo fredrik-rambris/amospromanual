@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>AMOS Interface</h1>
 
-<br>
 
 
 <p>
@@ -24,9 +24,11 @@ Section 9 of this User Manual is devoted to the AMOS Professional Interface. You
 warned that this is a very advanced feature of the system, and will take a while to fully
 understand, even for experts! Unfortunately there can be no short-cuts with such a technical
 subject, so please persevere.</p>
+</section>
 
-<p><b>Introducing the Interface</b><br>
-
+<section id="01-introducing-the-interface">
+<h2>Introducing the Interface</h2>
+<p>
 Imagine the possibilities of including all of the features of the AMOS Professional Editor <b>inside</b>
 your own programs, and that they can be controlled directly from the screen via icons, buttons
 and selectors!</p>
@@ -71,14 +73,15 @@ following ready-made example program:</p>
 <pre>
 LD> Load "AMOSPro_Tutorial:Tutorials/Interface/Full_Example.AMOS"
 </pre>
+</section>
 
-<p><b>The need for the AMOS Professional Interface</b><br>
-
+<section id="02-the-need-for-the-amos-professional-interface">
+<h2>The need for the AMOS Professional Interface</h2>
+<p>
 Experienced AMOS programmers will know that the features demonstrated in the above
 example program could also be created using standard AMOS screen zones, so why is a separate
 Interface language required?</p>
 
-<!-- section -->
 
 <p>
 In fact, the traditional system may well be useful, but it has many limitations. The SET ZONE
@@ -113,9 +116,11 @@ absorb! With over one hundred powerful instructions on board, embarking on the I
 seem a daunting prospect, but fear not, once the fundamental principles have been mastered,
 everything will fall into place. You will be creating amazing dialogue boxes worthy of a true
 AMOS Professional!</p>
+</section>
 
-<p><b>Introducing the AMOS Professional Interface</b><br>
-
+<section id="03-introducing-the-amos-professional-interface">
+<h2>Introducing the AMOS Professional Interface</h2>
+<p>
 The Interface is a complete language in its own right, dedicated to the single task of generating
 attractive dialogue boxes, buttons and control panels. It works in a similar manner to the AMOS
 Professional AMAL and MENU languages. Here are the rules of use:</p>
@@ -138,9 +143,7 @@ Professional AMAL and MENU languages. Here are the rules of use:</p>
 X> EXit;
 </pre>
 
-<!-- section -->
 
-<p><b>EX</b>it<br>
 <i>Interface instruction: leave Interface and return to AMOS Professional Basic</i><br>
 <b>EX</b>;</p>
 
@@ -149,9 +152,11 @@ The EXit command must always be the last instruction in an Interface program. It
 return to the more familiar environment of AMOS Professional Basic programs, by informing
 I lie system that the last line of an Interface program has been reached. If the EXit command is
 omitted, a syntax error will be generated when the routine is tested or run.</p>
+</section>
 
-<p><b>Variables and numbers</b><br>
-
+<section id="04-variables-and-numbers">
+<h2>Variables and numbers</h2>
+<p>
 The AMOS Professional Interface provides a standard way of performing calculations, and
 saving the results into variables.</p>
 
@@ -181,8 +186,10 @@ value=index number <b>VA</b>;</p>
 VA will return the value associated with the item number index, making it available for your
 Interface program. As a default, up to 17 variables can be used at one time, but this number can
 be increased via the DIALOG OPEN command, which is explained later.</p>
+</section>
 
-<p><b>Setting a variable</b></p>
+<section id="05-setting-a-variable">
+<h2>Setting a variable</h2>
 
 <p><b>S</b>et <b>V</b>ariable<br>
 <i>Interface instruction: set an Interface variable</i><br>
@@ -200,7 +207,6 @@ X> SetVar 0,42:                   this loads the value forty two into item numbe
    SetVar 1,'The answer is';      this loads a string into item number one.
 </pre>
 
-<!-- section -->
 
 <p>
 The use of quotation' marks in Interface programs is very important. You are recommended to
@@ -244,9 +250,11 @@ syntax must be observed:</p>
 <pre>
 X> PRint 0,110,1 VA #,2;
 </pre>
+</section>
 
-<p><b>Expressions</b><br>
-
+<section id="06-expressions">
+<h2>Expressions</h2>
+<p>
 AMOS Professional Interface expressions have been carefully optimised for speed, which is why
 they appear very different from the standard system.</p>
 
@@ -268,7 +276,6 @@ to add one to the variable zero (0 VA). This could be achieved by using a line s
 X> SetVar 0,0 VA 1+;
 </pre>
 
-<!-- section -->
 
 <p>
 To perform more complex calculation's some theoretical understanding is needed. Every time a
@@ -329,18 +336,21 @@ MAx      6 9 MAx       9         give maximum of two values
 A separate set of logical operators that can be used to perform tests
 is explained in <a href="915.html">Chapter 9.2</a>.</p>
 
-<!-- section -->
+</section>
 
-<p><b>Resources</b><br>
-
+<section id="07-resources">
+<h2>Resources</h2>
+<p>
 Each Interface program has access to a number of objects, known as <b>resources</b>. These resources
 contain a set of images to be used for background effects, as well as a list of messages for titles or
 interactive buttons. There is a Resource Editor program on the Accessory Disc, which can be
 installed into a permanent memory bank ready for instant use. As a default, the Interface grabs
 the internal resources assigned to the Editor, allowing a complete range of useful images to be
 employed in your own programs. Resources are examined in detail in <a href="942.html">Chapter 9.4</a>.</p>
+</section>
 
-<p><b>Calling an AMOS Professional Interface program</b></p>
+<section id="08-calling-an-amos-professional-interface-program">
+<h2>Calling an AMOS Professional Interface program</h2>
 
 <p><b>DIALOG BOX</b><br>
 <i>function: display dialogue box on screen</i><br>
@@ -384,7 +394,6 @@ E> A$=A$+"SetVar 1,'The answer is', set variable one to a message"
    D=Dialog Box(B$,42,"The Answer",100,100)
 </pre>
 
-<!-- section -->
 
 <p>
 Please note that if the Interface program is to wait for user input, a RunUntil command must be
@@ -397,9 +406,11 @@ The DIALOG BOX facility is only intended for simple requesters. To control the d
 directly from an AMOS Professional program, the DIALOG OPEN and DIALOG RUN
 commands must be used instead. These are fully explained at the beginning of <a href="925.html">Chapter 9.3</a>,
 which is devoted to advanced control panels.</p>
+</section>
 
-<p><b>Creating a simple requester</b><br>
-
+<section id="09-creating-a-simple-requester">
+<h2>Creating a simple requester</h2>
+<p>
 If a large requester with a  lot of graphics is to be generated, it can be very difficult to keep track
 of all of the coordinates. You can simplify things enormously by entering all of the coordinates
 relative to the top left-hand corner of the requester box.</p>
@@ -425,9 +436,11 @@ E> A$=A$+"BAse 50,50; set the coordinate base"
    A$=A$+"EXit; leave the interface program"
    D=Dialog Box(A$) : Wait Key
 </pre>
+</section>
 
-<p><b>Saving the background graphics</b><br>
-
+<section id="10-saving-the-background-graphics">
+<h2>Saving the background graphics</h2>
+<p>
 The simple drawing operations used in these examples would destroy any existing graphics on
 the screen. But AMOS Professional dialogue boxes should wink into place over an existing
 display, and then return the screen to its original state after use. The Interface includes
@@ -443,7 +456,6 @@ system to save the background graphics. The location of this screen area is set 
 number of pixels for the width of the zone, followed by the number of pixels for its height,
 measured relative to the reference point already set by the BAse command.</p>
 
-<!-- section -->
 
 <p><b>SA</b>ve<br>
 <i>Interface instruction: save background under the dialogue box</i><br>
@@ -479,8 +491,10 @@ immediately after they have been drawn! This is because DIALOG BOX executes the 
 Interface program in a single burst, and jumps back to the main AMOS Professional program as
 soon as it is completed. In order to use a dialogue box, the Interface must be instructed to wait
 for an event of some sort. To make that example work properly, read on!</p>
+</section>
 
-<p><b>Waiting for an event</b></p>
+<section id="11-waiting-for-an-event">
+<h2>Waiting for an event</h2>
 
 <p><b>R</b>un<b>U</b>ntil<br>
 <i>Interface instruction: run until conditions are satisfied</i><br>
@@ -501,7 +515,6 @@ soon as the program returns to AMOS Professional Basic.</p>
 The RunUntil command is ideal for use with dialogue boxes that do not need to interact with
 the main AMOS Professional program.</p>
 
-<!-- section -->
 
 <p>
 The delay parameter holds the interval time for the dialogue to remain on screen, specified in
@@ -551,8 +564,10 @@ options.</p>
 The last part of this Chapter deals with simple button commands Advanced control panels will
 be explained in <a href="925.html">Chapter 9.3</a>. All these commands are used to display an object on the screen
 which is automatically assigned its own zone, and can then be manipulated in a variety of ways.</p>
+</section>
 
-<p><b>Interface buttons</b></p>
+<section id="12-interface-buttons">
+<h2>Interface buttons</h2>
 
 <p><b>BU</b>tton<br>
 <i>Interface instruction: define an Interface button</i><br>
@@ -563,7 +578,6 @@ The BUtton command defines a simple Interface button, which can then be selected
 using the mouse. This button system is very flexible, and can be used to generate dozens of
 different button types in a few simple lines of code.</p>
 
-<!-- section -->
 
 <p>
 These buttons can be read in several ways. If the RUn command has been used in the program
@@ -622,7 +636,6 @@ There is a second set of square brackets, which can remain empty, or contain opt
 commands. These are used to define any "change" routine, to be called every time the button is
 released.</p>
 
-<!-- section -->
 
 <p>
 Note that there is <b>no semi-colon</b> after this final set of brackets. if one is included a syntax error
@@ -666,9 +679,11 @@ been selected. For example:</p>
 <pre>
 X> BU 1,80,38,50,10,0,0,1 ;[PR 1,2,'Button 1',6;][BQ;]
 </pre>
+</section>
 
-<p><b>Drawing a button</b><br>
-
+<section id="13-drawing-a-button">
+<h2>Drawing a button</h2>
+<p>
 Buttons can be drawn in a variety of styles, using any of the Interface graphics commands. A full
 list of all these commands is fully explained in <a href="915.html">Chapter 9.2</a>. Here are some typical options:</p>
 
@@ -682,7 +697,6 @@ X> BUtton 2,120,16,40,1,0,0,1;
    [INk 1,0,0; GraphicBox 0,0,33,10; PRint 1,2,'Quit',4;][ButtonQuit;]
 </pre>
 
-<!-- section -->
 
 <p><b>Vertical buttons</b> can be drawn using the Vertical Text command, like this:</p>
 
@@ -709,9 +723,11 @@ made example to examine:</p>
 <pre>
 LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Simple_Requester.AMOS"
 </pre>
+</section>
 
-<p><b>Changing a button</b><br>
-
+<section id="14-changing-a-button">
+<h2>Changing a button</h2>
+<p>
 The ability to call an Interface routine whenever the status of a button is changed allows a range
 of useful effects to be generated. The key to these effects is held by three Interface button
 functions, BPosition, BReturn and BChange.</p>
@@ -744,7 +760,6 @@ X> BUtton 2,90,38,50,10,0,0,1;
 
 <p>As mentioned earlier, another possibility is to display a packed image from the resource bank.</p>
 
-<!-- section -->
 
 <p>
 The value of BPosition can be use4 to choose between two pictures representing ON and OFF in
@@ -811,10 +826,11 @@ button, the BReturn command should be used instead.</p>
 LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Working Buttons.AMOS"
 </pre>
 
-<!-- section -->
+</section>
 
-<p><b>Keyboard short-cuts</b><br>
-
+<section id="15-keyboard-short-cuts">
+<h2>Keyboard short-cuts</h2>
+<p>
 Any of your buttons can be optionally assigned to an equivalent control-key combination from
 the keyboard.</p>
 
@@ -853,6 +869,7 @@ X> BUtton 1,120,16,40,10,0,0,1;[In 1,0,0; GB 0,0,33,10; PR 1,2,'Quit',4;][NoWait
 </pre>
 
 
+</section>
+
 </BODY>
 </HTML>
-

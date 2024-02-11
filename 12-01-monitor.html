@@ -14,9 +14,9 @@
 
 <body bgcolor="white">
 
+<section>
 <h1>The Monitor</h1>
 
-<br>
 
 
 <p>
@@ -30,9 +30,11 @@ The AMOS Professional Monitor is a very simple idea, but it is also incredibly p
 summoned up to examine any AMOS Professional routine, or even a single expression. The
 Monitor is used to find out exactly what is happening and why, and to make an instant report
 on screen.</p>
+</section>
 
-<p><b>Calling the Monitor</b><br>
-
+<section id="01-calling-the-monitor">
+<h2>Calling the Monitor</h2>
+<p>
 To call up the AMOS Professional Monitor from the Editor, simply click on the [Monitor] option
 in the Project Menu, or press the [F5] key.</p>
 
@@ -58,9 +60,11 @@ E> Print "Time to call the Monitor!"
 <p>
 Before the next instruction is executed, the Monitor Screen appears, and the system is ready to
 be exploited.</p>
+</section>
 
-<p><b>Using the Monitor</b><br>
-
+<section id="02-using-the-monitor">
+<h2>Using the Monitor</h2>
+<p>
 The AMOS Professional Monitor is totally icon-driven and controlled by the mouse, so there is
 no need to type anything at all! To prepare for a step-by-step guide of the Monitor, you are
 recommended to load one of the demos on the AMOSPro Examples disc, so that the Monitor
@@ -78,7 +82,6 @@ LD> Load "AMOSPro_Examples:Examples/H-0/Help7.AMOS"
 Run the example from the Editor, to remind yourself how it looks, then break into it with
 [Ctrl]+[C] and press [Spacebar] to return to the Editor.</p>
 
-<!-- section -->
 
 <p>
 Now trigger the [Monitor] option or press [F5], and the Monitor Screen will appear looking
@@ -109,10 +112,11 @@ something like this:</p>
 </ul>
 
 
-<!-- section -->
+</section>
 
-<b>The Graphic Output Window</b><br>
-
+<section id="03-the-graphic-output-window">
+<h2>The Graphic Output Window</h2>
+<p>
 The window that occupies the top left-hand quarter of the Monitor Screen displays the graphic
 output of the current program screen. The screen number is displayed above it. Lowres screens
 are reduced to exactly half of their original size, so that a 320x200 screen fits perfectly into this
@@ -131,9 +135,11 @@ Experiment with the directional arrows, and then click anywhere in the graphic o
 with the left mouse button. This returns to the original program display for as long as the button
 remains pressed, and is a useful feature to-remind you of exactly what is on the screen you are
 dealing with.</p>
+</section>
 
-<p><b>The Program Listing Window</b><br>
-
+<section id="04-the-program-listing-window">
+<h2>The Program Listing Window</h2>
+<p>
 This window gives you a view of the current program listing. Any items to be examined can be
 marked out, but nothing in this window can be changed. Once the Monitor has been initialised,
 helpful markers will be shown in the program listing, acting as reminders for the following
@@ -145,9 +151,11 @@ points:</p>
   <li>You are allowed to set a "break point" in the listing, and these are marked in <b>inverse video</b>.</li>
   <li>Any item that you want information about will be <b>underlined</b>.</li>
 </ul>
+</section>
 
-<p><b>The Information Window</b><br>
-
+<section id="05-the-information-window">
+<h2>The Information Window</h2>
+<p>
 This is where all of the Monitor information appears. It commences by displaying the next
 instruction to be examined, but as more of the Monitor features become active, information is
 displayed in the following order, from top to bottom in this window:</p>
@@ -159,23 +167,26 @@ displayed in the following order, from top to bottom in this window:</p>
   <li>The first parameter of the next instruction</li>
   <li>The second parameter, the third parameter, and so on.</li>
 </ul>
+</section>
 
-<p><b>Changing the window displays</b><br>
-
+<section id="06-changing-the-window-displays">
+<h2>Changing the window displays</h2>
+<p>
 Scroll bars are provided to move the display of the program listing, vertically and horizontally in
 the Program Listing Window. The "centre" button at the top right-hand corner of this window is
 used to centre the display on the <b>next</b> instruction to be executed. A vertical scroll bar is also
 available for the Information Window.</p>
 
-<!-- section -->
 
 <p>
 The horizontal line between the Program Listing Window and the Information Window can also
 be dragged up and down, in order to enlarge one of these windows and reduce the other to a
 minimum of three lines.</p>
+</section>
 
-<p><b>The control keypad</b><br>
-
+<section id="07-the-control-keypad">
+<h2>The control keypad</h2>
+<p>
 Each of the push-buttons in the control keypad is triggered via the mouse. Here is au
 explanation of the controls.</p>
 
@@ -246,7 +257,6 @@ This button will run the program from the Monitor and update the graphic display
 information windows will not be updated until a stop in the program. To stop the process,
 simply use the stop button.</p>
 
-<!-- section -->
 
 <p><b>Fast-Run Button</b><br>
 
@@ -297,9 +307,11 @@ at your service.</p>
 This button takes you back to the Editor. If the Monitor system has been called up from
 inside a program using the MONITOR command, you will be returned to the program at
 the instruction immediately after that command.</p>
+</section>
 
-<p><b>Evaluating expressions</b><br>
-
+<section id="08-evaluating-expressions">
+<h2>Evaluating expressions</h2>
+<p>
 The Monitor may be simple to use, but it is incredibly skilful in the way it analyses expressions,
 and reports the results back to you. here are the ground rules for a simple demonstration. First,
 run this example to give yourself something to work on, and then call up the Monitor.</p>
@@ -318,7 +330,6 @@ something that is plainly idiotic! On the other hand, if you ask for an evaluati
 self evident, like "1", it will be given. Also, the expression must be at the same level of procedure
 as the program pointer.</p>
 
-<!-- section -->
 
 <p>
 With the black program cursor still on the first line of the example program, trigger [VAL] and
@@ -340,6 +351,7 @@ the expressions in the listing. Explore one of the AMOS Professional example pro
 and test out the Monitor on the most complex expressions you can find.</p>
 
 
+</section>
+
 </BODY>
 </HTML>
-
