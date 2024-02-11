@@ -62,7 +62,7 @@ automatically.</p>
 <b>Parallel Send</b> text$</p>
 
 <p>
-This is very similar to the PRINTER SEND command, which is explained in <a href="10/1025.html">Chapter 10.3</a>, except
+This is very similar to the PRINTER SEND command, which is explained in <a href="10-03-accessing-a-printer.html">Chapter 10.3</a>, except
 that text data is transmitted exactly as it appears in the original source string. There is no
 translation of code, so that any Escape codes will be interpreted directly by a printer. Please
 check your printer documentation for details of allowable control codes.</p>
@@ -95,7 +95,7 @@ The PARALLEL INPUTS function waits for a specific number of characters from the 
 Port. Because this port does not have an internal buffer area, the AMOS Professional program
 will halt completely until all characters have been successfully received. If the requested bytes
 have not arrived after a reasonable amount of time, a time-out error will be generated. This may
-be detected using the TRAP instruction, explained in <a href="12/1207.html">Chapter 12.2</a>.</p>
+be detected using the TRAP instruction, explained in <a href="12-02-error-handling.html">Chapter 12.2</a>.</p>
 
 <p>
 The PARALLEL INPUTS parameters are as follows: length holds the number of characters to be
@@ -169,4 +169,3 @@ of the PARALLEL BASE function can easily result in problems.</p>
 </section>
 </BODY>
 </HTML>
-

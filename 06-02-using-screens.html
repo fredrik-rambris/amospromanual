@@ -29,7 +29,7 @@ led notes in their listings.</p>
 
 <p>Any rectangular part of a screen can be copied and moved on the current screen or to any other
 screen, time and time again, at great speed. Copying between the "physical" and "logical"
-screens is fully discussed in <a href="7/713.html">Chapter 7.2</a>, along with detailed explanations of double buffering.</p>
+screens is fully discussed in <a href="07-02-blitter-objects.html">Chapter 7.2</a>, along with detailed explanations of double buffering.</p>
 
 <p><b>SCREEN COPY</b><br>
 <i>instruction: copy an area of a screen</i><br>
@@ -185,7 +185,7 @@ The physical screen is displayed as usual, then once the new image has been draw
 logical screen, they are swapped over. The old physical screen becomes the current logical
 screen, and is used to receive the drawing operations that will make up the next image. This
 process is completely automatic when using the DOUBLE BUFFER command, which is fully
-explained in <a href="7/713.html">Chapter 7.2</a>.</p>
+explained in <a href="07-02-blitter-objects.html">Chapter 7.2</a>.</p>
 
 <p><b>SCREEN SWAP</b><br>
 <i>instruction: swap over logical and, physical screens</i><br>
@@ -317,7 +317,7 @@ your images using several alternative strategies. It will then choose the method
 the least amount of memory. You are requested to be patient during the five or six seconds that
 this process takes, and are assured that unpacking takes less than a second, so your programs
 will run smoothly. If a one second delay is not acceptable to you, please see the alternative
-system that uses GET CBLOCK and PUT CBLOCK in <a href="7/773.html">Chapter 7.7</a>.</p>
+system that uses GET CBLOCK and PUT CBLOCK in <a href="07-07-icons-and-blocks.html">Chapter 7.7</a>.</p>
 
 <p><b>PACK</b><br>
 <i>picture compactor extension: pack screen data</i><br>
@@ -334,7 +334,7 @@ exactly the same way as with the SPACK command, and x-coordinates are rounded to
 nearest 8 pixel boundary too.</p>
 
 <p>
-SPACK is fully compatible with the standard AUTOBACK system explained in <a href="7/713.html">Chapter 7.2</a>, so it
+SPACK is fully compatible with the standard AUTOBACK system explained in <a href="07-02-blitter-objects.html">Chapter 7.2</a>, so it
 is easy to combine compacted images with moving screens. Images can even be unpacked
 behind existing Bobs, so it is possible to exploit this command together with SCREEN OFFSET to
 create superb scrolling backgrounds.</p>
@@ -380,4 +380,3 @@ within one second.</p>
 
 </BODY>
 </HTML>
-
