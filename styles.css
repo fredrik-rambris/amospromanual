@@ -16,3 +16,7 @@ h2.menu-line {
     background-color: black;
     color: white;
 }
+
+table#command-index th {
+    text-align: left;
+}
