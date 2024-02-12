@@ -29,8 +29,8 @@ familiar with the standard syntax used.</P>
 <section id="01-reading-characters-in-a-string">
 <h2>Reading characters in a string</h2>
 
-<P><b>LEFT$</b><BR>
-<i>function: return the leftmost characters of a string</i><BR>
+<h3 id="fn-left-dollar">LEFT$</h3>
+<p><i>function: return the leftmost characters of a string</i><BR>
 destination$=<b>Left$</b>(source$,number)<BR>
 <b>Left$</b>(destination$,number)=source$</P>
 
@@ -60,8 +60,8 @@ E&gt; A$="**** Basic"
 <P>Exactly the same processes can be performed with characters from the right-hand side of
 a string, by using the equivalent RIGHT$ function.</P>
 
-<P><b>RIGHT$</b><BR>
-<i>function: return the rightmost characters of a string</i><BR>
+<h3 id="fn-right-dollar">RIGHT$</h3>
+<p><i>function: return the rightmost characters of a string</i><BR>
 destination$=<b>Right$</b>(source$,number)<BR>
 <b>Right$</b>(destination$,number)=source$</P>
 
@@ -80,8 +80,8 @@ E&gt; B$="AMOS ************"
 </PRE>
 
 <!-- section -->
-<P><b>MID$</b><BR>
-<i>function: return a number of characters from the middle of a string</i><br>
+<h3 id="fn-mid-dollar">MID$</h3>
+<p><i>function: return a number of characters from the middle of a string</i><br>
 destination$=<b>Mid$</b>(source$,offset,number)<BR>
 <b>Mid$</b>(destination$,offset,number)=source$</P>
 
@@ -110,8 +110,8 @@ E&gt; A$="AMOS Professional ***"
 other words, to search through strings for individual characters or sub-strings. Similarly, you may
 wish to write an adventure game where lines of text must be broken down into individual commands.</p>
 
-<P><b>INSTR</b><BR>
-<i>function: search for occurrences of one string within another string</i><br>
+<h3 id="fn-instr">INSTR</h3>
+<p><i>function: search for occurrences of one string within another string</i><br>
 x=<b>Instr</b>(host$,guest$)<BR>
 x=<b>Instr</b>(host$,guest$,start of search position)</P>
 
@@ -156,8 +156,8 @@ E&gt; Print Instr("AMOS PROFESSIONAL","O",0)
 <section id="03-converting-strings">
 <h2>Converting strings</h2>
 
-<P><b>UPPER$</b><BR>
-<i>function: convert a string of text to upper case</i><BR>
+<h3 id="fn-upper-dollar">UPPER$</h3>
+<p><i>function: convert a string of text to upper case</i><BR>
 new$=<b>Upper$</b>(old$)</P>
 
 <P>This function converts the characters in a string into upper case (capital) letters,
@@ -167,8 +167,8 @@ and places the result into a new string. For example:</P>
 D&gt; Print Upper$("aMoS pRoFeSsIoNaL")
 </pre>
 
-<P><b>LOWER$</b><BR>
-<i>function: convert a string of text to lower case</i><BR>
+<h3 id="fn-lower-dollar">LOWER$</h3>
+<p><i>function: convert a string of text to lower case</i><BR>
 new$=<b>Lower$</b>(old$)</P>
 
 <P>
@@ -183,8 +183,8 @@ E&gt; Input "Do you want to continue? (Yes or No)";ANSWER$
    Print "OK. Continuing with your program"
 </pre>
 
-<P><b>STR$</b><BR>
-<i>function: convert a number into a string</i><BR>
+<h3 id="fn-str-dollar">STR$</h3>
+<p><i>function: convert a number into a string</i><BR>
 s$=<b>Str$</b>(number)</P>
 
 <P>
@@ -196,8 +196,8 @@ happily with parameters in the form of strings. Here is an example:</P>
 E&gt; Centre "Remaining memory is"+Str$(Chip Free)+" Bytes"
 </pre>
 
-<P><b>VAL</b><BR>
-<i>function: convert a string of digits into a number</i><BR>
+<h3 id="fn-val">VAL</h3>
+<p><i>function: convert a string of digits into a number</i><BR>
 v=<b>Val</b>(x$)<BR>
 v#=<b>Val</b>(x$)</P>
 
@@ -210,8 +210,8 @@ zero will be returned. For example:</P>
 D&gt; X=Val("1234") : Print X
 </pre>
 
-<P><b>STRING$</b><BR>
-<i>function: create a new string from an existing string</i><BR>
+<h3 id="fn-string-dollar">STRING$</h3>
+<p><i>function: create a new string from an existing string</i><BR>
 new$=<b>String$</b>(existing$, number)</P>
 
 <P>
@@ -233,8 +233,8 @@ E&gt; Print String$("AMOS Professional is a joy forever",10)
 wish to pad out a piece of text before it gets printed onto the screen, you will need an
 accurate method of creating spaces in the string.</p>
 
-<P><b>SPACE$</b><BR>
-<i>function: space out a string</i><BR>
+<h3 id="fn-space-dollar">SPACE$</h3>
+<p><i>function: space out a string</i><BR>
 s$=<b>Space$</b>(number of spaces)</P>
 
 <P>Try the following example:</p>
@@ -243,8 +243,8 @@ s$=<b>Space$</b>(number of spaces)</P>
 E&gt; Print "Ten";Space$(10);"spaces"
 </pre>
 
-<P><b>FLIP$</b><BR>
-<i>function: invert a string</i><BR>
+<h3 id="fn-flip-dollar">FLIP$</h3>
+<p><i>function: invert a string</i><BR>
 inverted$=<b>Flip$</b>(original$)</P>
 
 <P>This function simply reverses the order of the characters held in an existing string.
@@ -254,8 +254,8 @@ For example:</P>
 D&gt; Print Flip$("SOMA gnippilf")
 </pre>
 
-<P><b>REPEAT$</b><BR>
-<i>function: repeat a string</i><BR>
+<h3 id="fn-repeat-dollar">REPEAT$</h3>
+<p><i>function: repeat a string</i><BR>
 r$=<b>Repeat$</b>(text$,number)</P>
 
 <P>
@@ -273,8 +273,8 @@ Chr$(27)+"RO"+A$+Chr$(27)+"R"+Chr$(48+n)
 <h2>Getting information about strings</h2>
 The next three functions are provided to discover particular properties of strings.</P>
 
-<P><b>CHR$</b><BR>
-<i>function: return the character with a given ASCII code</i><BR>
+<h3 id="fn-chr-dollar">CHR$</h3>
+<p><i>function: return the character with a given ASCII code</i><BR>
 s$=<b>Chr$</b>(code number)</P>
 
 <P>
@@ -287,8 +287,8 @@ using this routine:</P>
 E&gt; For S=32 To 255: Print Chr$(S); : Next S
 </pre>
 
-<P><b>ASC</b><BR>
-<i>function: Give the ASCII code of a character</i><BR>
+<h3 id="fn-asc">ASC</h3>
+<p><i>function: Give the ASCII code of a character</i><BR>
 code=<b>Asc</b>(a$)</P>
 
 <P>To get the internal ASCII code of the first character in a string, use the ASC function
@@ -299,8 +299,8 @@ E&gt; Print Asc("B")
    Print Asc("AMOS Professional")
 </pre>
 
-<P><b>LEN</b><BR>
-<i>function: give the length of a string</i><BR>
+<h3 id="fn-len">LEN</h3>
+<p><i>function: give the length of a string</i><BR>
 length=<b>Len</b>(a$)</P>
 
 <P>The LEN function returns the number of characters stored in a string. For example:</P>
@@ -316,8 +316,8 @@ D&gt; Print Len("0123456789")
 
 <P>To end this Chapter, here are a pair of useful instructions for manipulating arrays.</P>
 
-<P><b>SORT</b><BR>
-<i>instruction: sort all elements in an array</i><BR>
+<h3 id="i-sort">SORT</h3>
+<p><i>instruction: sort all elements in an array</i><BR>
 <b>Sort</b> a(0)<BR>
 <b>Sort</b> a#(0)<BR>
 <b>Sort</b> a$(0)</P>
@@ -349,8 +349,8 @@ E&gt; N=5 : P=0
   Next X
 </pre>
 
-<P><b>MATCH</b><BR>
-<i>function: search an array for a value</i><BR>
+<h3 id="fn-match">MATCH</h3>
+<p><i>function: search an array for a value</i><BR>
 x=<b>Match</b>(array(0),value)<br>
 x=<b>Match</b>(array#(0),value#)<br>
 x=<b>Match</b>(array$(0),value$)</P>

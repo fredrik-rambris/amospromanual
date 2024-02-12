@@ -34,9 +34,8 @@ Routines can be set up in advance for handling errors inside an AMOS Professiona
 that when a mistake is spotted, error trapping swings into action. This process is triggered by the
 following command:</p>
 
-<p>
-<b>ON ERROR</b><br>
-<i>structure: trap an error within a Basic program</i><br>
+<h3 id="str-on-error">ON ERROR</h3>
+<p><i>structure: trap an error within a Basic program</i><br>
 <b>On Error</b> Goto label</p>
 
 <p>
@@ -91,9 +90,8 @@ X> On Error Goto 0
 To get back to your program after ON ERROR has been called, you must use RESUME. Never
 use GOTO for this purpose.</p>
 
-<p>
-<b>RESUME</b><br>
-<i>structure: resume the execution of current program after an error trapping routine</i><br>
+<h3 id="str-resume">RESUME</h3>
+<p><i>structure: resume the execution of current program after an error trapping routine</i><br>
 <b>Resume</b><br>
 <b>Resume Next</b><br>
 <b>Resume</b> labelname<br>
@@ -105,9 +103,8 @@ again. To return to the instruction immediately after the one that caused the er
 NEXT. Alternatively, to jump to a specific point in your main program, simply follow RESUME
 with a reference to a chosen label or a normal line number.</p>
 
-<p>
-<b>ON ERROR PROC</b><br>
-<i>structure: trap an error using a procedure</i><br>
+<h3 id="str-on-error-proc">ON ERROR PROC</h3>
+<p><i>structure: trap an error using a procedure</i><br>
 <b>On Error Proc</b> name</p>
 
 <p>
@@ -138,9 +135,8 @@ marker must be placed inside that procedure. This is achieved with the RESUME LA
 structure.</p>
 
 
-<p>
-<b>RESUME LABEL</b><br>
-<i>structure: jump to a label after an error has been isolated using a procedure</i><br>
+<h3 id="str-resume-label">RESUME LABEL</h3>
+<p><i>structure: jump to a label after an error has been isolated using a procedure</i><br>
 <b>Resume Label</b> label</p>
 
 <p>
@@ -148,9 +144,8 @@ This defines the label which is to be returned to after an error. It must be cal
 error handler, immediately after the original ON ERROR PROC or ON ERROR GOTO
 statement. For an example of RESUME LABEL, please see the last routine in this Chapter.</p>
 
-<p>
-<b>ERRN</b><br>
-<i>function: return the error code number of the last error</i><br>
+<h3 id="fn-errn">ERRN</h3>
+<p><i>function: return the error code number of the last error</i><br>
 number=<b>Errn</b><br>
 Print <b>Errn</b></p>
 
@@ -160,9 +155,8 @@ what sort of error has happened in the main program. Errors discovered while you
 running each have a specific error code number, and the number of the last error to be isolated
 can be returned by using the ERRN function.</p>
 
-<p>
-<b>ERROR</b><br>
-<i>instruction: deliberately generate an error and return to Editor</i><br>
+<h3 id="i-error">ERROR</h3>
+<p><i>instruction: deliberately generate an error and return to Editor</i><br>
 <b>Error</b> number</p>
 
 <p>
@@ -202,9 +196,8 @@ E> On Error Proc HELP
 </pre>
 
 
-<p>
-<b>TRAP</b><br>
-<i>instruction: trap an error</i><br>
+<h3 id="i-trap">TRAP</h3>
+<p><i>instruction: trap an error</i><br>
 <b>Trap</b> instruction</p>
 
 <p>
@@ -229,9 +222,8 @@ example the second usage of the LOCATE instruction <b>will</b> cause an error!</
 E> Trap Locate -1,-1 : Locate -1,-1
 </pre>
 
-<p>
-<b>ERRTRAP</b><br>
-<i>function: return an error code number after a TRAP</i><br>
+<h3 id="fn-errtrap">ERRTRAP</h3>
+<p><i>function: return an error code number after a TRAP</i><br>
 number=<b>Errtrap</b></p>
 
 <p>
@@ -239,9 +231,8 @@ This function is used to return the error status after a previous TRAP command. 
 been detected, a zero is returned, otherwise the appropriate error number is given. The related
 error message can then be returned using the ERR$ function, explained next.</p>
 
-<p>
-<b>ERR$</b><br>
-<i>function: return an error message string</i><br>
+<h3 id="fn-err-dollar">ERR$</h3>
+<p><i>function: return an error message string</i><br>
 text$=<b>Err$</b>(error number)</p>
 
 <p>

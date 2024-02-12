@@ -86,9 +86,8 @@ E> Get Fonts
 </pre>
 
 
-<p>
-<b>GET DISC FONTS</b><br>
-<i>instruction: create a list of available fonts from current disc</i><br>
+<h3 id="i-get-disc-fonts">GET DISC FONTS</h3>
+<p><i>instruction: create a list of available fonts from current disc</i><br>
 <b>Get Disc Fonts</b></p>
 
 <p>
@@ -96,9 +95,8 @@ This instruction is exactly the same as the GET FONTS command, except that it tr
 through the "Fonts" folder of your current disc only. If new fonts are to be used, then they must
 first be copied into this folder.</p>
 
-<p>
-<b>GET ROM FONTS</b><br>
-<i>instruction: create a list of available ROM fonts</i><br>
+<h3 id="i-get-rom-fonts">GET ROM FONTS</h3>
+<p><i>instruction: create a list of available ROM fonts</i><br>
 <b>Get Rom Fonts</b></p>
 
 <p>
@@ -114,9 +112,8 @@ E> Screen Open 0,640,200,16,Hires
    Next A
 </pre>
 
-<p>
-<b>FONT$</b><br>
-<i>function: return details of available fonts</i><br>
+<h3 id="fn-font-dollar">FONT$</h3>
+<p><i>function: return details of available fonts</i><br>
 report$=<b>Font$</b>(font number)</p>
 
 <p>
@@ -130,9 +127,8 @@ E> Get Fonts : Set Font 2
    Print Font$(2)
 </pre>
 
-<p>
-<b>SET FONT</b><br>
-<i>instruction: select font for use by Text command</i><br>
+<h3 id="i-set-font">SET FONT</h3>
+<p><i>instruction: select font for use by Text command</i><br>
 <b>Set Font</b> font number</p>
 
 <p>
@@ -145,9 +141,8 @@ E> Get Fonts
 </p>
 
 
-<p>
-<b>TEXT</b><br>
-<i>instruction: print graphical text</i><br>
+<h3 id="i-text">TEXT</h3>
+<p><i>instruction: print graphical text</i><br>
 <b>Text</b> x,y,text$</p>
 
 <p>
@@ -163,9 +158,8 @@ E> Do
    Loop
 </pre>
 
-<p>
-<b>TEXT BASE</b><br>
-<i>function: return the text base of the current character set</i><br>
+<h3 id="fn-text-base">TEXT BASE</h3>
+<p><i>function: return the text base of the current character set</i><br>
 baseline=<b>Text base</b></p>
 
 <p>
@@ -173,9 +167,8 @@ This function is used to get the reference position of the current font's baseli
 number of pixels between the top of the character, and the point that it will be printed on the
 screen. It is similar to the hot-spot of an Object.</p>
 
-<p>
-<b>TEXT LENGTH</b><br>
-<i>function: return the length of a section of graphical text</i><br>
+<h3 id="fn-text-length">TEXT LENGTH</h3>
+<p><i>function: return the length of a section of graphical text</i><br>
 width=<b>Text Length</b>(text$)</p>
 
 <p>

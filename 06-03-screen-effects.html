@@ -24,8 +24,8 @@ more spectacular routines that are only made possible by the power of the comput
 <p>When the image of one screen dissolves and melts into the image of another screen, various
 "fade" effects are produced.</p>
 
-<p><b>APPEAR</b><br>
-<i>instruction: fade between two screens</i><br>
+<h3 id="i-appear">APPEAR</h3>
+<p><i>instruction: fade between two screens</i><br>
 <b>Appear</b> source screen <b>To</b> destination screen, pixels<br>
 <b>Appear</b> source screen <b>To</b> destination screen, number pixels, range</p>
 
@@ -58,8 +58,8 @@ E> Load "AMOSPro_Tutorial:Objects/Bobs.Abk"
 That example fades the top part of your default screen into the newly opened Screen 1.
 Obviously, the appearance of fades will vary, depending on the screen mode being used.</p>
 
-<p><b>FADE</b><br>
-<i>instruction: blend colours to new values</i><br>
+<h3 id="i-fade">FADE</h3>
+<p><i>instruction: blend colours to new values</i><br>
 <b>Fade</b> speed<br>
 <b>Fade</b> speed,colour list<br>
 <b>Fade</b> speed <b>To</b> screen number<br>
@@ -146,8 +146,8 @@ E> Load "AMOSPro_Tutorial:Objects/Bobs.Abk"
 default setting for the text cursor. By using interrupts, any colour index can be cycled through a
 series of colour changes, producing complex flashing effects.</p>
 
-<p><b>FLASH</b><br>
-<i>instruction: set flashing colour sequence</i><br>
+<h3 id="i-flash">FLASH</h3>
+<p><i>instruction: set flashing colour sequence</i><br>
 <b>Flash</b> index number,"(colour,delay)(colour,delay)(colour,delay)..."<br>
 <b>Flash</b> Off</p>
 
@@ -175,8 +175,8 @@ E> Cls : Centre "SILENT MOVIES"
    Curs Off : Wait 250 : Flash Off
 </pre>
 
-<p><b>SHIFT UP</b><br>
-<i>instruction: rotate colour values upwards</i><br>
+<h3 id="i-shift-up">SHIFT UP</h3>
+<p><i>instruction: rotate colour values upwards</i><br>
 <b>Shift Up</b> delay,first,last,flag</p>
 
 <p>
@@ -198,8 +198,8 @@ first, causing the colours to rotate continuously on screen.</p>
 Each of your screens can have its own set of animated colour rotations, and because they are
 executed using interrupts they will not affect the running of your programs.</p>
 
-<p><b>SHIFT DOWN</b><br>
-<i>instruction: rotate colour values downwards</i><br>
+<h3 id="i-shift-down">SHIFT DOWN</h3>
+<p><i>instruction: rotate colour values downwards</i><br>
 <b>Shift Down</b> delay,first,last,flag</p>
 
 <p>
@@ -208,8 +208,8 @@ opposite direction, so that the second colour is copied into the first, the thir
 so on. With the final flag set to zero, all colours are eventually replaced with the last colour in
 the list.</p>
 
-<p><b>SHIFT OFF</b><br>
-<i>instruction: turn off all colour shifts for current screen</i><br>
+<h3 id="i-shift-off">SHIFT OFF</h3>
+<p><i>instruction: turn off all colour shifts for current screen</i><br>
 <b>Shift Off</b></p>
 
 <p>
@@ -226,8 +226,8 @@ changed depending on specific screen locations. This means that a single colour 
 used to generate hundreds of colours in some spectacular rainbow effects. Before any rainbows
 can be conjured up, their parameters must first be set.</p>
 
-<p><b>SET RAINBOW</b><br>
-<i>instruction: define a rainbow</i><br>
+<h3 id="i-set-rainbow">SET RAINBOW</h3>
+<p><i>instruction: define a rainbow</i><br>
 <b>Set Rainbow</b> number,index,height,red$,green$,blue$</p>
 
 <p>Try the next example before analysing how it works:</p>
@@ -271,8 +271,8 @@ Number refers to the number of scan lines assigned to one colour value. Think of
 controlling the "speed" of the sequence. Step is a value to be added to the colour, which controls
 the colour change. Count is simply the number of times this whole process is performed.</p>
 
-<p><b>RAINBOW</b><br>
-<i>instruction: display a rainbow</i><br>
+<h3 id="i-rainbow">RAINBOW</h3>
+<p><i>instruction: display a rainbow</i><br>
 <b>Rainbow</b> number,offset,vertical position,height</p>
 
 <p>
@@ -297,8 +297,8 @@ and the one with the lowest identification number will be drawn in front of any 
 However, experienced Amiga users will be able to start more than one rainbow at the same line,
 using the Copper. See <a href="14/1442.html">Appendix F</a> for an explanation of this technique.</p>
 
-<p><b>RAINBOW DEL</b><br>
-<i>instruction: delete a rainbow</i><br>
+<h3 id="i-rainbow-del">RAINBOW DEL</h3>
+<p><i>instruction: delete a rainbow</i><br>
 <b>Rainbow Del</b><br>
 <b>Rainbow Del</b> number</p>
 
@@ -306,8 +306,8 @@ using the Copper. See <a href="14/1442.html">Appendix F</a> for an explanation o
 Use this command on its own to get rid of all rainbows that have been set up. If a rainbow
 identity number is added, then only that particular rainbow will be deleted.</p>
 
-<p><b>RAIN</b><br>
-<i>function: change the colour of a rainbow line</i><br>
+<h3 id="resv-rain">RAIN</h3>
+<p><i>function: change the colour of a rainbow line</i><br>
 <b>Rain</b>(number,line)=colour</p>
 
 <p>

@@ -32,9 +32,8 @@ programs, both ports can be used. To make a joystick interact with your programs
 !Weds to be able to read its movements and actions. AMOS Professional offers a number of
 useful functions to do just that.</p>
 
-<p>
-<b>JOY</b><br>
-<i>function: read status of joystick</i><br>
+<h3 id="fn-joy">JOY</h3>
+<p><i>function: read status of joystick</i><br>
 status=<b>Joy</b>(port number)</p>
 
 <p>This inspects what is happening with the joystick and makes a report. If the joystick you are
@@ -69,9 +68,8 @@ meanings.</p>
 Each of those aspects of the joystick status can be accessed individually, using the following
 functions:</p>
 
-<p>
-<b>JLEFT</b><br>
-<i>function: test for joystick movement towards the left</i><br>
+<h3 id="fn-jleft">JLEFT</h3>
+<p><i>function: test for joystick movement towards the left</i><br>
 x=<b>Jleft</b>(port number)</p>
 
 <p>This returns a value of -1 (meaning True) if the joystick connected to the given port number has
@@ -79,19 +77,16 @@ been pushed to the left, otherwise a value of 0 is returned (meaning False).</p>
 
 <p>The three other function in this family are self-evident, as follows:</p>
 
-<p>
-<b>JRIGHT</b><br>
-<i>function: test for joystick movement towards the right</i><br>
+<h3 id="fn-jright">JRIGHT</h3>
+<p><i>function: test for joystick movement towards the right</i><br>
 x=<b>Jright</b>(port number)</p>
 
-<p>
-<b>JUP</b><br>
-<i>function: test for joystick movement upwards</i><br>
+<h3 id="fn-jup">JUP</h3>
+<p><i>function: test for joystick movement upwards</i><br>
 x=<b>Jup</b>(port number)</p>
 
-<p>
-<b>JDOWN</b><br>
-<i>function: test for joystick movement downwards</i><br>
+<h3 id="fn-jdown">JDOWN</h3>
+<p><i>function: test for joystick movement downwards</i><br>
 x=<b>Jdown</b>(port number)</p>
 
 <p>These functions can be demonstrated by the following example:</p>
@@ -105,9 +100,8 @@ E> Do
    Loop
 </pre>
 
-<p>
-<b>FIRE</b><br>
-<i>function: test status of fire-button</i><br>
+<h3 id="fn-fire">FIRE</h3>
+<p><i>function: test status of fire-button</i><br>
 x=<b>Fire</b>(port number)</p>
 
 <p>To set up a routine for testing to see if the fire-button has been pressed, use the FIRE function
@@ -142,9 +136,8 @@ assigned the numbers one to three, as follows:</p>
 3      Clock
 </pre>
 
-<p>
-<b>CHANGE MOUSE</b><br>
-<i>instruction: change the shape of the mouse pointer</i><br>
+<h3 id="i-change-mouse">CHANGE MOUSE</h3>
+<p><i>instruction: change the shape of the mouse pointer</i><br>
 <b>Change Mouse</b> number</p>
 
 <p>
@@ -168,9 +161,8 @@ more than four colours, and they must be exactly 16 pixels wide, although any he
 For such oversized sprites, the SET SPRITE BUFFER command should be used, which is
 explained in <a href="07-01-hardware-sprites.html">Chapter 7.1</a>.</p>
 
-<p>
-<b>HIDE</b><br>
-<i>instruction: remove the mouse pointer from the screen</i><br>
+<h3 id="i-hide">HIDE</h3>
+<p><i>instruction: remove the mouse pointer from the screen</i><br>
 <b>Hide</b><br>
 <b>Hide</b> On</p>
 
@@ -185,9 +177,8 @@ system, use the special ON version of the instruction, like this:</p>
 X> Hide On
 </pre>
 
-<p>
-<b>SHOW</b><br>
-<i>instruction: reveal the mouse pointer back on screen</i><br>
+<h3 id="i-show">SHOW</h3>
+<p><i>instruction: reveal the mouse pointer back on screen</i><br>
 <b>Show</b><br>
 <b>Show</b> On</p>
 
@@ -214,9 +205,8 @@ E> Do
 make any use of the mouse. It needs to recognise where the mouse pointer is as well as if any of
 the mouse buttons have been pressed.</p>
 
-<p>
-<b>X MOUSE</b><br>
-<i>reserved variable: report or set the x-co-ordinate of the mouse pointer</i><br>
+<h3 id="resv-x-mouse">X MOUSE</h3>
+<p><i>reserved variable: report or set the x-co-ordinate of the mouse pointer</i><br>
 <b>X Mouse</b><br>
 x=<b>X Mouse</b></p>
 
@@ -242,9 +232,8 @@ E> For N=200 To 350
    Next N
 </pre>
 
-<p>
-<b>Y MOUSE</b><br>
-<i>reserved variable: report or set the y-coordinate of the mouse pointer</i><br>
+<h3 id="resv-y-mouse">Y MOUSE</h3>
+<p><i>reserved variable: report or set the y-coordinate of the mouse pointer</i><br>
 <b>Y Mouse</b><br>
 y=<b>Y Mouse</b></p>
 
@@ -260,9 +249,8 @@ E> For N=150 To 300
    Next N
 </pre>
 
-<p>
-<b>MOUSE KEY</b><br>
-<i>function: read status of mouse buttons</i><br>
+<h3 id="fn-mouse-key">MOUSE KEY</h3>
+<p><i>function: read status of mouse buttons</i><br>
 k=<b>Mouse Key</b></p>
 
 <p>
@@ -288,9 +276,8 @@ E> Curs Off
    Loop
 </pre>
 
-<p>
-<b>MOUSE CLICK</b><br>
-<i>function: check for click of mouse button</i><br>
+<h3 id="fn-mouse-click">MOUSE CLICK</h3>
+<p><i>function: check for click of mouse button</i><br>
 c=<b>Mouse Click</b></p>
 
 <p>
@@ -328,9 +315,8 @@ control panels. AMOS Professional relies on them extensively for ease of use and
 Supposing you need to set up a control panel on your screen, but you want to prevent the
 mouse pointer from wandering outside the area of that panel.</p>
 
-<p>
-<b>LIMIT MOUSE</b><br>
-<i>instruction: limit mouse pointer to part of the screen</i><br>
+<h3 id="i-limit-mouse">LIMIT MOUSE</h3>
+<p><i>instruction: limit mouse pointer to part of the screen</i><br>
 <b>Limit Mouse</b> x1 ,y1 To x2,y2<br>
 <b>Limit Mouse</b></p>
 
@@ -376,9 +362,8 @@ following line:</p>
 X> X=Hzone(X Mouse,Y Mouse)
 </pre>
 
-<p>
-<b>MOUSE SCREEN</b><br>
-<i>function: check which screen the mouse pointer is occupying</i><br>
+<h3 id="fn-mouse-screen">MOUSE SCREEN</h3>
+<p><i>function: check which screen the mouse pointer is occupying</i><br>
 screen number=<b>Mouse Screen</b></p>
 
 <p>

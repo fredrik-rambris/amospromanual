@@ -87,9 +87,8 @@ tells the device to use this system.</p>
 When the SERIAL OPEN command is called for the first time, the Serial Device library is loaded
 from the System disc automatically, so make sure that this disc is available in the current drive.</p>
 
-<p>
-<b>SERIAL CLOSE</b><br>
-<i>instruction: close one or more Serial channels</i><br>
+<h3 id="i-serial-close">SERIAL CLOSE</h3>
+<p><i>instruction: close one or more Serial channels</i><br>
 <b>Serial Close</b><br>
 <b>Serial Close</b> Channel number</p>
 
@@ -118,9 +117,8 @@ Even parity.
 
 <p>These settings can be changed using the instructions that are explained next.</p>
 
-<p>
-<b>SERIAL SPEED</b><br>
-<i>instruction: set transfer rate for a serial channel</i><br>
+<h3 id="i-serial-speed">SERIAL SPEED</h3>
+<p><i>instruction: set transfer rate for a serial channel</i><br>
 <b>Serial Speed</b> Channel number,Baud rate</p>
 
 <p>
@@ -128,9 +126,8 @@ This sets the current data transfer rate (the Baud rate) of the given channel, f
 and receiving operations. A Baud rate cannot be split for a. single channel. If the specified
 transfer rate is not supported by the current serial device, it may be rejected by the system.</p>
 
-<p>
-<b>SERIAL BITS</b><br>
-<i>instruction: set the number of bits for transmission of characters</i><br>
+<h3 id="i-serial-bits">SERIAL BITS</h3>
+<p><i>instruction: set the number of bits for transmission of characters</i><br>
 <b>Serial Bits</b> Channel number,number of bits,number of Stop bits</p>
 
 <p>
@@ -138,9 +135,8 @@ This command is used to assign the number of bits that are to be used for each c
 transmitted. After the channel number is specified, give the number of bits followed by the
 number of Stop bits to be used.</p>
 
-<p>
-<b>SERIAL PARITY</b><br>
-<i>instruction: set parity checking for a serial channel</i><br>
+<h3 id="i-serial-parity">SERIAL PARITY</h3>
+<p><i>instruction: set parity checking for a serial channel</i><br>
 <b>Serial Parity</b> Channel number, Parity</p>
 
 <p>
@@ -167,9 +163,8 @@ X> P=0 : Bset 0,P: Rem Odd parity
    Serial Parity 1,P : Rem Set parity using the value in P
 </pre>
 
-<p>
-<b>SERIAL X</b><br>
-<i>instruction: set handshaking system of serial channel</i><br>
+<h3 id="i-serial-x">SERIAL X</h3>
+<p><i>instruction: set handshaking system of serial channel</i><br>
 <b>Serial X</b> Channel number,Xmode</p>
 
 <p>
@@ -186,9 +181,8 @@ X> Xmode=XON110000000+XOFF*$1000
 <section id="03-sending-and-receiving-serial-information">
 <h2>Sending and receiving Serial information</h2>
 
-<p>
-<b>SERIAL SEND</b><br>
-<i>instruction: output a string via a serial channel</i><br>
+<h3 id="i-serial-send">SERIAL SEND</h3>
+<p><i>instruction: output a string via a serial channel</i><br>
 <b>Serial Send</b> Channel number,string</p>
 
 <p>
@@ -197,9 +191,8 @@ for the data to be transmitted through the actual port. This means that the SERI
 function must be used to detect when the transmission of data has been completed, and this is
 explained below.</p>
 
-<p>
-<b>SERIAL OUT</b><br>
-<i>instruction: output a block of raw data via a serial channel</i><br>
+<h3 id="i-serial-out">SERIAL OUT</h3>
+<p><i>instruction: output a block of raw data via a serial channel</i><br>
 <b>Serial Out</b> Channel number,address,length</p>
 
 <p>
@@ -207,9 +200,8 @@ This command is identical to SERIAL SEND, except for the fact that it works with
 instead of a string. Specify the channel number as usual, followed by the address in memory of
 the data to be transmitted, and the length of the data given in the number of bytes to be sent.</p>
 
-<p>
-<b>SERIAL GET</b><br>
-<i>function: get a byte from a serial device</i><br>
+<h3 id="fn-serial-get">SERIAL GET</h3>
+<p><i>function: get a byte from a serial device</i><br>
 value=<b>Serial Get</b>(Channel number)</p>
 
 <p>
@@ -218,9 +210,8 @@ specify which channel is to be examined. If no data is available,
 a value of -1 will be returned.</p>
 
 
-<p>
-<b>SERIAL INPUT$</b><br>
-<i>function: get a string from the Serial Port</i><br>
+<h3 id="fn-serial-input-dollar">SERIAL INPUT$</h3>
+<p><i>function: get a string from the Serial Port</i><br>
 string=<b>Serial Input$</b>(Channel number)</p>
 
 <p>
@@ -250,9 +241,8 @@ avoid corrupting data, the following system should be employed:</p>
 <section id="04-other-serial-commands">
 <h2>Other Serial commands</h2>
 
-<p>
-<b>SERIAL BUF</b><br>
-<i>instruction: set the size of the serial buffer</i><br>
+<h3 id="i-serial-buf">SERIAL BUF</h3>
+<p><i>instruction: set the size of the serial buffer</i><br>
 <b>Serial Buffer</b> Channel number,length</p>
 
 <p>
@@ -260,9 +250,8 @@ This allocates the length of the buffer space for the required channel, specifie
 bytes to be allocated. The minimum allocation is 64 bytes, and the default setting is 512 bytes.
 You are recommended to increase the buffersize for high speed transfers of data.</p>
 
-<p>
-<b>SERIAL FAST</b><br>
-<i>instruction: engage fast mode for data transfer</i><br>
+<h3 id="i-serial-fast">SERIAL FAST</h3>
+<p><i>instruction: engage fast mode for data transfer</i><br>
 <b>Serial Fast</b> Channel number</p>
 
 <p>
@@ -271,9 +260,8 @@ the internal checking process that can slow down the communication process. This
 recommended for high speed transfers. Please note that when SERIAL FAST is called, the
 protocol is changed to: even parity, no XON/XOFF and 8 bits.</p>
 
-<p>
-<b>SERIAL SLOW</b><br>
-<i>instruction: re-set slow mode for data transfer</i><br>
+<h3 id="i-serial-slow">SERIAL SLOW</h3>
+<p><i>instruction: re-set slow mode for data transfer</i><br>
 <b>Serial Slow</b> Channel number</p>
 
 <p>
@@ -281,9 +269,8 @@ This instruction slows the serial device transmission back to normal speed, and 
 error checks are enabled once more.</p>
 
 
-<p>
-<b>SERIAL CHECK</b><br>
-<i>function: report current serial device activity</i><br>
+<h3 id="fn-serial-check">SERIAL CHECK</h3>
+<p><i>function: report current serial device activity</i><br>
 status=<b>Serial Check</b>(Channel number)</p>
 
 <p>
@@ -292,9 +279,8 @@ whether all of the information to be transmitted by a previous SERIAL SEND comma
 been sent. If a value of zero (False) is returned, the last Serial command is still being executed. If
 the value is -1 (True) the transmission has been completed.</p>
 
-<p>
-<b>SERIAL STATUS</b><br>
-<i>function: report status of the serial port</i><br>
+<h3 id="fn-serial-status">SERIAL STATUS</h3>
+<p><i>function: report status of the serial port</i><br>
 bit-map=<b>Serial Status</b>(channel number)</p>
 
 <p>
@@ -327,9 +313,8 @@ currently idle.</p>
 15      -       Reserved
 </pre>
 
-<p>
-<b>SERIAL ERROR</b><br>
-<i>function: report success of the last data transfer</i><br>
+<h3 id="fn-serial-error">SERIAL ERROR</h3>
+<p><i>function: report success of the last data transfer</i><br>
 status=<b>Serial Error</b>(Channel number)</p>
 
 <p>
@@ -338,9 +323,8 @@ A value of zero (False) confirms that all is well, whereas 4 (True) indicates
 that there was an error in the last transmission.</p>
 
 
-<p>
-<b>SERIAL ABORT</b><br>
-<i>instruction: stop current data transfer</i><br>
+<h3 id="i-serial-abort">SERIAL ABORT</h3>
+<p><i>instruction: stop current data transfer</i><br>
 <b>Serial Abort</b>(channel number)</p>
 
 <p>
@@ -348,9 +332,8 @@ This command halts any serial operations that have been commenced by a SERIAL SE
 SERIAL OUT command, and leaves the channel clear. It allows an instant quit from a transfer,
 without the need to wait for current activities to be completed.</p>
 
-<p>
-<b>SERIAL BASE</b><br>
-<i>function: get the address of the serial base</i><br>
+<h3 id="fn-serial-base">SERIAL BASE</h3>
+<p><i>function: get the address of the serial base</i><br>
 address=<b>Serial Base</b></p>
 
 <p>

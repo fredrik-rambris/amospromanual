@@ -155,8 +155,8 @@ X> Curs Off: Flash Off : Cls 0
 <section id="02-general-bob-commands">
 <h2>General Bob Commands</h2>
 
-<p><b>BOB OFF</b><br>
-<i>instruction: remove a Bob from display</i><br>
+<h3 id="i-bob-off">BOB OFF</h3>
+<p><i>instruction: remove a Bob from display</i><br>
 <b>Bob Off</b><br>
 <b>Bob Off</b> number</p>
 
@@ -173,12 +173,12 @@ X> Bob Off 1: Rem Remove Bob1 only
 The BOB OFF instruction also turns off any animation or collision routines associated with these
 Bobs.</p>
 
-<p><b>X BOB</b><br>
-<i>function: get x-coordinate of a Bob</i><br>
+<h3 id="fn-x-bob">X BOB</h3>
+<p><i>function: get x-coordinate of a Bob</i><br>
 x-coordinate=<b>X Bob</b>(number)</p>
 
-<p><b>Y BOB</b><br>
-<i>function: get y-coordinate of a Bob</i><br>
+<h3 id="fn-y-bob">Y BOB</h3>
+<p><i>function: get y-coordinate of a Bob</i><br>
 y-coordinate=<b>Y Bob</b>(number)</p>
 
 <p>
@@ -211,8 +211,8 @@ display a sequence of different images to create animation. When animating Bobs 
 is possible to loose track of the precise image currently displayed, so the next function has been
 supplied to rectify this.</p>
 
-<p><b>I BOB</b><br>
-<i>function: get image number used by a Bob</i><br>
+<h3 id="fn-i-bob">I BOB</h3>
+<p><i>function: get image number used by a Bob</i><br>
 image=<b>IBob</b>(number)</p>
 
 <p>
@@ -235,8 +235,8 @@ E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
    Loop
 </pre>
 
-<p><b>GET BOB PALETTE</b><br>
-<i>instruction: load image colours into current screen</i><br>
+<h3 id="i-get-bob-palette">GET BOB PALETTE</h3>
+<p><i>instruction: load image colours into current screen</i><br>
 <b>Get Bob Palette</b><br>
 <b>Get Bob Palette</b> mask</p>
 
@@ -256,8 +256,9 @@ X> Get Bob Palette %0000000000001111
 <section id="03-unmasking-bobs">
 <h2>Unmasking Bobs</h2>
 
-<p><b>NO MASK</b><br>
-<i>instruction: remove colour zero mask from Bob</i><br>
+<h3 id="i-no-mask">NO MASK</h3>
+<p><i>instruction: remove colour zero mask from Bob</i><br>
+<b>No Mask</b> number</p>
 <b>No Mask</b> number</p>
 
 
@@ -292,12 +293,12 @@ number your Bobs.</p>
 AMOS Professional allows changes in the priority system to suit your needs, this first system
 offers an alternative based not on Bob numbers, but on the position of Bobs on the screen.</p>
 
-<p><b>PRIORITY ON</b><br>
-<i>instruction: set Bob priority to highest y-coordinate</i><br>
+<h3 id="i-priority-on">PRIORITY ON</h3>
+<p><i>instruction: set Bob priority to highest y-coordinate</i><br>
 <b>Priority On</b></p>
 
-<p><b>PRIORITY OFF</b><br>
-<i>instruction: set Bob priority to default status</i><br>
+<h3 id="i-priority-off">PRIORITY OFF</h3>
+<p><i>instruction: set Bob priority to default status</i><br>
 <b>Priority Off</b></p>
 
 <p>
@@ -306,12 +307,12 @@ is usually best to set hot spots at the bottom of Bobs to exploit this priority,
 perspective effects can be created. All that is needed to re-set the original Bob number priorities
 is to use the PRIORITY OFF command.</p>
 
-<p><b>PRIORITY REVERSE ON</b><br>
-<i>instruction: toggle on Reverse Priority of Bobs</i><br>
+<h3 id="i-priority-reverse-on">PRIORITY REVERSE ON</h3>
+<p><i>instruction: toggle on Reverse Priority of Bobs</i><br>
 <b>Priority Reverse On</b></p>
 
-<p><b>PRIORITY REVERSE OFF</b><br>
-<i>instruction: toggle off Reverse Priority of Bobs</i><br>
+<h3 id="i-priority-reverse-off">PRIORITY REVERSE OFF</h3>
+<p><i>instruction: toggle off Reverse Priority of Bobs</i><br>
 <b>Priority Reverse Off</b></p>
 
 
@@ -326,8 +327,8 @@ would expect, PRIORITY REVERSE OFF sets the priority system back to normal.</p>
 <h2>Bobs and screens</h2>
 <p>AMOS Professional offers a full range of commands to allow Bobs and screens to interact.</p>
 
-<p><b>LIMIT BOB</b><br>
-<i>instruction: limit Bob to part of screen</i><br>
+<h3 id="i-limit-bob">LIMIT BOB</h3>
+<p><i>instruction: limit Bob to part of screen</i><br>
 <b>Limit Bob</b> x1 ,y1 <b>To</b> x2,y2<br>
 <b>Limit Bob</b> number,x1,y1 <b>To</b> x2,y2<br>
 <b>Limit Bob</b></p>
@@ -356,8 +357,8 @@ whole screen, use the command without any coordinates, like this:</p>
 X> Limit Bob
 </pre>
 
-<p><b>DOUBLE BUFFER</b><br>
-<i>instruction: activate Double Buffering system</i><br>
+<h3 id="i-double-buffer">DOUBLE BUFFER</h3>
+<p><i>instruction: activate Double Buffering system</i><br>
 <b>Double Buffer</b></p>
 
 <p>
@@ -410,8 +411,8 @@ are updated at the same time as the screen images, this sort of flickering effec
 including a DOUBLE BUFFER command, screens are switched <b>after</b> the drawing process is
 complete, and as explained above, the process is completely automatic.</p>
 
-<p><b>GET BOB</b><br>
-<i>instruction: grab an image from part of screen</i><br>
+<h3 id="i-get-bob">GET BOB</h3>
+<p><i>instruction: grab an image from part of screen</i><br>
 <b>Get Bob</b> image,x1,x2 <b>To</b> x2,y2<br>
 <b>Get Bob</b> screen number,image,x1,y1 <b>To</b> x2,y2</p>
 
@@ -462,8 +463,8 @@ E> Double Buffer : Flash Off : Curs Off
    Loop
 </pre>
 
-<p><b>PUT BOB</b><br>
-<i>instruction: put a fixed copy of a Bob on screen</i><br>
+<h3 id="i-put-bob">PUT BOB</h3>
+<p><i>instruction: put a fixed copy of a Bob on screen</i><br>
 <b>Put Bob</b> number</p>
 
 <p>
@@ -478,8 +479,8 @@ old Atari STOS programs compatible with AMOS Professional. Because it only works
 buffered screens, it is not particularly useful, and PASTE BOB is recommended as the preferred
 command. Please see below.</p>
 
-<p><b>PASTE BOB</b><br>
-<i>instruction: draw an image from Object Bank</i><br>
+<h3 id="i-paste-bob">PASTE BOB</h3>
+<p><i>instruction: draw an image from Object Bank</i><br>
 <b>Paste Bob</b> x,y,image</p>
 
 <p>
@@ -519,8 +520,8 @@ E> Flash Off : Curs Off : Cis 0
 <section id="06-bob-bank-commands">
 <h2>Bob Bank Commands</h2>
 
-<p><b>DEL BOB</b><br>
-<i>instruction: delete an image from the Object Bank</i><br>
+<h3 id="i-del-bob">DEL BOB</h3>
+<p><i>instruction: delete an image from the Object Bank</i><br>
 <b>Del Bob</b> number<br>
 <b>Del Bob</b> first <b>To</b> last</p>
 
@@ -552,8 +553,8 @@ X> Del Bob 4 To 7
 After the last image has been deleted from the Object Bank, the entire Bank is erased automatically.</p>
 
 
-<p><b>INS BOB</b><br>
-<i>instruction: insert a blank Bob image into the Object bank</i><br>
+<h3 id="i-ins-bob">INS BOB</h3>
+<p><i>instruction: insert a blank Bob image into the Object bank</i><br>
 <b>Ins Bob</b> number<br>
 <b>Ins Bob</b> first <b>To</b> last</p>
 
@@ -595,8 +596,8 @@ AMOS Professional cuts such waste of memory to a minimum. This is achieved by al
 to display the same image in different orientations, so that a character can be mirrored and
 turned upside down, simply by flipping its image.</p>
 
-<p><b>HREV</b><br>
-<i>function: flip an image horizontally</i><br>
+<h3 id="fn-hrev">HREV</h3>
+<p><i>function: flip an image horizontally</i><br>
 new number=<b>Hrev</b>(image number)</p>
 
 <p>
@@ -655,8 +656,8 @@ in the top right-hand corner: Depending on the image involved, this can have a g
 the way your image is displayed on screen. Be careful to position your hot spots sensibly, or
 avoid any risks by setting them centrally, using the appropriate HOT SPOT command.</p>
 
-<p><b>VREV</b><br>
-<i>function: flip an image vertically</i><br>
+<h3 id="fn-vrev">VREV</h3>
+<p><i>function: flip an image vertically</i><br>
 new number=<b>Vrev</b>(image number)</p>
 
 <p>
@@ -681,8 +682,8 @@ X> "Anim 0,($4000+1,2)($4000+2,2)($4000+3,2)($4000+4,2)"
 X> "Anim 0,($4001,2)($4002,2)($4003,2)($4004,2)"
 </pre>
 
-<p><b>REV</b><br>
-<i>function: double-flip an image vertically and horizontally</i><br>
+<h3 id="fn-rev">REV</h3>
+<p><i>function: double-flip an image vertically and horizontally</i><br>
 new number=<b>Rev</b>(image number)</p>
 
 <p>

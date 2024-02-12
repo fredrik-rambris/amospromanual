@@ -55,16 +55,16 @@ DL> Load "AMOSPro_Examples:Music/Music.Abk"
 If you do not want your music to play through to the end, it can be halted in either of the two
 following ways.</p>
 
-<p><b>MUSIC STOP</b><br>
-<i>instruction: stop a single passage of music</i><br>
+<h3 id="i-music-stop">MUSIC STOP</h3>
+<p><i>instruction: stop a single passage of music</i><br>
 <b>Music Stop</b></p>
 
 <p>
 This instruction brings the current single passage of music to a halt. If there is any other active
 music held in the stack and waiting to be played, that music will begin to play at once.</p>
 
-<p><b>MUSIC OFF</b><br>
-<i>instruction: turn off all music</i><br>
+<h3 id="i-music-off">MUSIC OFF</h3>
+<p><i>instruction: turn off all music</i><br>
 <b>Music Off</b></p>
 
 <p>
@@ -72,8 +72,8 @@ The MUSIC OFF command is used to turn off all AMOS Professional music in your pr
 completely. After this command has been called, the sound track can only be re-started by
 executing a MUSIC command all over again.</p>
 
-<p><b>MVOLUME</b><br>
-<i>instruction: set the volume of a piece of music</i><br>
+<h3 id="i-mvolume">MVOLUME</h3>
+<p><i>instruction: set the volume of a piece of music</i><br>
 <b>Mvolume</b> level</p>
 
 <p>
@@ -84,8 +84,8 @@ as loud as possible.</p>
 
 <p>Obviously, by setting up a simple loop, you can fade your music up or down.</p>
 
-<p><b>TEMPO</b><br>
-<i>instruction: change the speed of a piece of music</i><br>
+<h3 id="i-tempo">TEMPO</h3>
+<p><i>instruction: change the speed of a piece of music</i><br>
 <b>Tempo</b> speed</p>
 
 <p>
@@ -125,8 +125,8 @@ AMOS Professional music, otherwise some bizarre noises are likely to be generate
 Professional VOLUME and TEMPO commands will have no effect on Tracker modules, which
 have their own built-in controls.</p>
 
-<p><b>TRACK LOAD</b><br>
-<i>instruction: load a Tracker module</i><br>
+<h3 id="i-track-load">TRACK LOAD</h3>
+<p><i>instruction: load a Tracker module</i><br>
 <b>Track Load</b> "modulename",bank number</p>
 
 <p>
@@ -134,8 +134,8 @@ Use this command to load a specified Tracker module into the memory bank number 
 choice. Any existing data in this bank will be erased before the module is loaded, and the new
 bank will be called "Tracker".</p>
 
-<p><b>TRACK PLAY</b><br>
-<i>instruction: play a Tracker module</i><br>
+<h3 id="i-track-play">TRACK PLAY</h3>
+<p><i>instruction: play a Tracker module</i><br>
 <b>Track Play</b><br>
 <b>Track Play</b> bank number,pattern number</p>
 
@@ -171,8 +171,8 @@ E> Track Load "AMOSPro_Examples:Music/Mod.Tracker"
    Track Loop On
 </pre>
 
-<p><b>TRACK STOP</b><br>
-<i>instruction: stop all Tracker music</i><br>
+<h3 id="i-track-stop">TRACK STOP</h3>
+<p><i>instruction: stop all Tracker music</i><br>
 <b>Track Stop</b></p>
 
 <p>This command is used to halt all Tracker modules playing.</p>
@@ -186,8 +186,8 @@ Naturally, if you have no intention of exploiting the Med library, there is no n
 allocate unnecessary memory. Both "MMDO" and "MMD1" modules can be used for your
 programs.</p>
 
-<p><b>MED LOAD</b><br>
-<i>instruction: load a Med module</i><br>
+<h3 id="i-med-load">MED LOAD</h3>
+<p><i>instruction: load a Med module</i><br>
 <b>Med Load</b> "Module name",bank number</p>
 
 <p>
@@ -205,8 +205,8 @@ As with Tracker modules, AMOS Professional sound samples can be played while Med
 are active. When a sound effect is triggered, any Med music will be stopped on all four voices,
 and will start again as soon as the sample has been played.</p>
 
-<p><b>MED PLAY</b><br>
-<i>instruction: play a Med module</i><br>
+<h3 id="i-med-play">MED PLAY</h3>
+<p><i>instruction: play a Med module</i><br>
 <b>Med Play</b><br>
 <b>Med Play</b> bank number,song number</p>
 
@@ -222,24 +222,24 @@ X> Med Play 2
    Med Play 2,2
 </pre>
 
-<p><b>MED STOP</b><br>
-<i>instruction: stop the current Med module</i><br>
+<h3 id="i-med-stop">MED STOP</h3>
+<p><i>instruction: stop the current Med module</i><br>
 <b>Med Stop</b></p>
 
 <p>
 This simple instruction halts the current Med song being played. The song can now be started
 from the beginning with a new call to MED PLAY, or continued using a MED CONT command.</p>
 
-<p><b>MED CONT</b><br>
-<i>instruction: continue a Med module</i><br>
+<h3 id="i-med-cont">MED CONT</h3>
+<p><i>instruction: continue a Med module</i><br>
 <b>Med Cont</b></p>
 
 <p>
 This command is used to re-commence a Med module that has been halted by a MED STOP
 instruction. The song will continue from the exact point at which it was stopped.</p>
 
-<p><b>MED MIDI ON</b><br>
-<i>instruction: access MIDI instructions in a Med module</i><br>
+<h3 id="i-med-midi-on">MED MIDI ON</h3>
+<p><i>instruction: access MIDI instructions in a Med module</i><br>
 <b>Med Midi On</b></p>
 
 <p>

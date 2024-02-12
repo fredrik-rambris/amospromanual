@@ -34,9 +34,8 @@ E> For 0=32 To 255
 
 <p>The PRINT instruction is one of the most familiar command words in most Basic languages.</p>
 
-<p>
-<b>PRINT</b><br>
-<i>instruction: print items on screen</i><br>
+<h3 id="i-print">PRINT</h3>
+<p><i>instruction: print items on screen</i><br>
 <b>Print</b> items</p>
 
 <p>Items are printed on the screen, starting from the current cursor position, and they may include
@@ -79,9 +78,8 @@ E> Print "AMOS"
 <section id="02-setting-text-options">
 <h2>Setting text options</h2>
 
-<p>
-<b>PEN</b><br>
-<i>instruction: set the colour of text</i><br>
+<h3 id="i-pen">PEN</h3>
+<p><i>instruction: set the colour of text</i><br>
 <b>Pen</b> index number</p>
 
 <p>This command sets the colour of the text displayed in the current window, when followed by
@@ -96,9 +94,8 @@ E> For INDEX=0 To 15
    Next INDEX
 </pre>
 
-<p>
-<b>PEN$</b><br>
-<i>function: return a control index number to set the pen colour</i><br>
+<h3 id="fn-pen-dollar">PEN$</h3>
+<p><i>function: return a control index number to set the pen colour</i><br>
 p$=Pen$(index number)</p>
 
 <p>This function returns a special control sequence that changes the pen colour inside a string.
@@ -113,9 +110,8 @@ E> P$=Pen$(2)+"Well all WHITE, "+Pen$(6)+" I still got the BLUES"
    Print "In the RED"
 </pre>
 
-<p>
-<b>PAPER</b><br>
-<i>instruction: set colour of text background</i><br>
+<h3 id="i-paper">PAPER</h3>
+<p><i>instruction: set colour of text background</i><br>
 <b>Paper</b> index number</p>
 
 <p>To select a background colour on which your text is to be printed, the PAPER command is
@@ -130,9 +126,8 @@ E> Pen 2: For INDEX=0 To 15
    Next INDEX
 </pre>
 
-<p>
-<b>PAPER$</b><br>
-<i>function: return a control index number to set background colour</i><br>
+<h3 id="fn-paper-dollar">PAPER$</h3>
+<p><i>function: return a control index number to set background colour</i><br>
 b$=<b>PAPER$</b>(index number)</p>
 
 <p>Similarly to the PEN$ function, PAPER$ returns a character string that automatically sets the
@@ -208,9 +203,8 @@ E> Cls: For S=0 To 7: Set Text S
    Text 100,S*20+20,AMOS Professional" : Next S
 </pre>
 
-<p>
-<b>SET TEXT</b><br>
-<i>instruction: set the style of a text font</i><br>
+<h3 id="i-set-text">SET TEXT</h3>
+<p><i>instruction: set the style of a text font</i><br>
 <b>Set Text</b> style number</p>
 
 <p>The SET TEXT command allows you to change the style of a font by selecting one of eight
@@ -225,9 +219,8 @@ Bit 2 <i>Italic</i>
 
 <p>Set the appropriate bits in the form of a style number from 0 to 7, as in the last example.</p>
 
-<p>
-<b>TEXT STYLES</b><br>
-<i>function: return current text style</i><br>
+<h3 id="fn-text-styles">TEXT STYLES</h3>
+<p><i>function: return current text style</i><br>
 s=<b>Text Styles</b></p>
 
 <p>This function returns the index reference of the text style you last selected using SET TEXT. The
@@ -245,9 +238,8 @@ Print Text Styles
 <p>For even more flexibility in presenting your text on screen, you can select the way it is combined
 with other screen data.</p>
 
-<p>
-<b>WRITING</b><br>
-<i>instruction: select text writing mode of subsequent text</i><br>
+<h3 id="i-writing">WRITING</h3>
+<p><i>instruction: select text writing mode of subsequent text</i><br>
 <b>Writing</b> value1<br>
 <b>Writing</b> value1,optional value2</p>
 
@@ -287,9 +279,8 @@ screen, as follows:</p>
 Professional programmer is offered several methods of controlling the cursor in order to make
 text look more orderly, attractive or eye-catching.</p>
 
-<p>
-<b>LOCATE</b><br>
-<i>instruction: position the text cursor</i><br>
+<h3 id="i-locate">LOCATE</h3>
+<p><i>instruction: position the text cursor</i><br>
 <b>Locate</b> x,<br>
 <b>Locate</b> ,y<br>
 <b>Locate</b> x,y</p>
@@ -315,9 +306,8 @@ E> Print "0,0": Locate 10, : Print "Stay on current line"
    Locate 10,10 : Print "Ten down and ten across"
 </pre>
 
-<p>
-<b>HOME</b><br>
-<i>instruction: force text cursor home</i><br>
+<h3 id="i-home">HOME</h3>
+<p><i>instruction: force text cursor home</i><br>
 <b>Home</b></p>
 
 <p>
@@ -330,9 +320,8 @@ E> Cls: Locate 10,10: Print "I am going"
    Wait 100: Home : Print "Home!"
 </pre>
 
-<p>
-<b>CMOVE</b><br>
-<i>instruction: move text cursor</i><br>
+<h3 id="i-cmove">CMOVE</h3>
+<p><i>instruction: move text cursor</i><br>
 <b>Cmove</b> width<br>
 <b>Cmove</b> height<br>
 <b>Cmove</b> width,height</p>
@@ -352,9 +341,8 @@ E> Cls : Print "Iceland"
    Cmove 10,14: Print "France"
 </pre>
 
-<p>
-<b>CMOVE$</b><br>
-<i>function: return control string to move text cursor</i><br>
+<h3 id="fn-cmove-dollar">CMOVE$</h3>
+<p><i>function: return control string to move text cursor</i><br>
 a$=<b>Cmove$</b>(x,y)</p>
 
 <p>Characters can be printed relative to the current cursor position by setting up a string using the
@@ -367,9 +355,8 @@ E> A$=Cmove$(10,10)
    Print A$
 </pre>
 
-<p>
-<b>AT</b><br>
-<i>function: return a string to position the text cursor</i><br>
+<h3 id="fn-at">AT</h3>
+<p><i>function: return a string to position the text cursor</i><br>
 a$=<b>At</b>(x,y)</p>
 
 <p>You may also change the position of the text cursor directly from inside a character string. This
@@ -405,9 +392,8 @@ E> HI_SCORES=At(12,10)+"Hi Score"
    Print HI_SCORE$;SCORE
 </pre>
 
-<p>
-<b>CENTRE</b><br>
-<i>instruction: print text centrally on current line</i><br>
+<h3 id="i-centre">CENTRE</h3>
+<p><i>instruction: print text centrally on current line</i><br>
 <b>Centre</b> a$</p>
 
 <p>Programmers often need to position text in the centre of the screen, and to save you the effort of
@@ -422,9 +408,8 @@ E> Locate 0,1
    Centre "suspicion"
 </pre>
 
-<p>
-<b>TAB$</b><br>
-<i>function: move text cursor to next Tab</i><br>
+<h3 id="fn-tab-dollar">TAB$</h3>
+<p><i>function: move text cursor to next Tab</i><br>
 t$=<b>Tab$</b></p>
 
 <p>The TAB$ function returns a special control character called TAB, which carries the Ascii code of
@@ -433,9 +418,8 @@ column setting (Tab) to the right.</p>
 
 <p>The default setting for this is four characters, which can be changed as follows:</p>
 
-<p>
-<b>SET TAB</b><br>
-<i>instruction: change Tab setting</i><br>
+<h3 id="i-set-tab">SET TAB</h3>
+<p><i>instruction: change Tab setting</i><br>
 <b>Set Tab</b> number</p>
 
 <p>This simple command specifies the number of characters that the text cursor will move to the
@@ -447,9 +431,8 @@ E> Cls : Print "Home"
    Set Tab 10 : Print Tab$;"Away"
 </pre>
 
-<p>
-<b>CDOWN</b><br>
-<i>instruction: move text cursor down</i><br>
+<h3 id="i-cdown">CDOWN</h3>
+<p><i>instruction: move text cursor down</i><br>
 <b>Cdown</b></p>
 
 <p>Use this command to force the text cursor down a single line, like this:</p>
@@ -458,9 +441,8 @@ E> Cls : Print "Home"
 E> Cls: Print "Over" : Cdown : Print "the Moon"
 </pre>
 
-<p>
-<b>CDOWN$</b><br>
-<i>function: return control character to move text cursor down</i><br>
+<h3 id="fn-cdown-dollar">CDOWN$</h3>
+<p><i>function: return control character to move text cursor down</i><br>
 c$=<b>Cdown$</b></p>
 
 <p>The effect of summoning up the special control character (Ascii 31) is exactly the same as
@@ -475,42 +457,35 @@ E> C$="Going Down"+Cdown$
    Next A
 </pre>
 
-<p>
-<b>CUP</b><br>
-<i>instruction: move text cursor one line up</i><br>
+<h3 id="i-cup">CUP</h3>
+<p><i>instruction: move text cursor one line up</i><br>
 <b>Cup</b></p>
 
-<p>
-<b>CLEFT</b><br>
-<i>instruction: move text cursor one character left</i><br>
+<h3 id="i-cleft">CLEFT</h3>
+<p><i>instruction: move text cursor one character left</i><br>
 <b>Cleft</b></p>
 
-<p>
-<b>CRIGHT</b><br>
-<i>instruction: move text cursor one character right</i><br>
+<h3 id="i-cright">CRIGHT</h3>
+<p><i>instruction: move text cursor one character right</i><br>
 <b>Cright</b></p><br>
 
 <p>These three commands are self-explanatory, and work in exactly the same way as CDOWN.
 their equivalent functions are listed below, and work in the same way as CDOWN$:</p>
 
-<p>
-<b>CUP$</b><br>
-<i>function: return control character (30) to move cursor up one line</i><br>
+<h3 id="fn-cup-dollar">CUP$</h3>
+<p><i>function: return control character (30) to move cursor up one line</i><br>
 x$=<b>Cup$</b></p>
 
-<p>
-<b>CLEFT$</b><br>
-<i>function: return control character (29) to move cursor left one character</i><br>
+<h3 id="fn-cleft-dollar">CLEFT$</h3>
+<p><i>function: return control character (29) to move cursor left one character</i><br>
 x$=<b>Cleft$</b></p>
 
-<p>
-<b>CRIGHT$</b><br>
-<i>function: return control character (28) to move cursor right one character</i><br>
+<h3 id="fn-cright-dollar">CRIGHT$</h3>
+<p><i>function: return control character (28) to move cursor right one character</i><br>
 x$=<b>Cright$</b></p>
 
-<p>
-<b>CLINE</b><br>
-<i>instruction: clear some or all text on current cursor line</i><br>
+<h3 id="i-cline">CLINE</h3>
+<p><i>instruction: clear some or all text on current cursor line</i><br>
 <b>Cline</b><br>
 <b>Cline</b> number</p>
 
@@ -574,9 +549,8 @@ CURS command, which is below.</p>
 <section id="08-changing-the-text-cursor">
 <h2>Changing the text cursor</h2>
 
-<p>
-<b>CURS PEN</b><br>
-<i>instruction: select colour of text cursor</i><br>
+<h3 id="i-curs-pen">CURS PEN</h3>
+<p><i>instruction: select colour of text cursor</i><br>
 <b>Curs Pen</b> index number</p>
 
 <p>As a default, whenever your screen mode provides four or more colours the text cursor is set to
@@ -597,9 +571,8 @@ last example, you could add this line before the CURS PEN command:</p>
 X> Flash 2,"(FFF,15)(000,15)"
 </pre>
 
-<p>
-<b>SET CURS</b><br>
-<i>instruction: set the shape of the text cursor</i><br>
+<h3 id="i-set-curs">SET CURS</h3>
+<p><i>instruction: set the shape of the text cursor</i><br>
 <b>Set Curs</b> L1,L2,L3,L4,L5,L6,L7,L8</p>
 
 <p>To customise the text cursor into something a little more personalised, you can change its shape
@@ -637,9 +610,8 @@ effect at all on any cursors used in other windows.</p>
 <section id="09-advanced-text-commands">
 <h2>Advanced text commands</h2>
 
-<p>
-<b>ZONE$</b><br>
-<i>function: create a zone around text</i><br>
+<h3 id="fn-zone-dollar">ZONE$</h3>
+<p><i>function: create a zone around text</i><br>
 z$=<b>ZONE$</b>(text$,zone number)</p>
 
 <p>
@@ -657,9 +629,8 @@ ZONE command. The format for the control string is as follows:</p>
 Chr$(27)+"ZO"+A$+Chr$(27)+"R"+Chr$(48+n)
 </pre>
 
-<p>
-<b>BORDER$</b><br>
-<i>function: create a border around text</i><br>
+<h3 id="fn-border-dollar">BORDER$</h3>
+<p><i>function: create a border around text</i><br>
 b$=<b>Border$</b>(text$, border number)</p>
 
 <p>This works in much the same way as ZONES, by returning a string of characters that create a
@@ -679,9 +650,8 @@ E> Locate 1,1: Print Border$("AMOS Professional",2)
 Chr$(27)+"E0"+A$+Chr$(27)+"R"+Chr$(48+n)
 </pre>
 
-<p>
-<b>HSCROLL</b><br>
-<i>instruction: scroll text horizontally</i><br>
+<h3 id="i-hscroll">HSCROLL</h3>
+<p><i>instruction: scroll text horizontally</i><br>
 <b>Hscroll</b> number</p>
 
 <p>This command scrolls all text in the current open window horizontally, by a single character
@@ -695,9 +665,8 @@ position. The following numbers can be used:</p>
 4      Scroll entire screen to the right
 </pre>
 
-<p>
-<b>VSCROLL</b><br>
-<i>instruction: scroll text vertical</i><br>
+<h3 id="i-vscroll">VSCROLL</h3>
+<p><i>instruction: scroll text vertical</i><br>
 <b>Vscroll</b> number</p>
 
 <p>Similarly to HSCROLL, the values given to this command result in different vertical scrolling
@@ -737,9 +706,8 @@ entered into your listing.</p>
 E> ? "AMOS Professional"
 </pre>
 
-<p>
-<b>USING</b><br>
-<i>instruction: format printed output</i><br>
+<h3 id="i-using">USING</h3>
+<p><i>instruction: format printed output</i><br>
 <b>Print Using</b> format$;variable list</p>
 
 <p>USING is always employed with the PRINT command to allow subtle changes in the way
@@ -829,9 +797,8 @@ E> Print Using "This is an exponential number^";10000*10000.5
 following command offers easy access to a printer from inside an AMOS Professional program
 or via Direct mode.</p>
 
-<p>
-<b>LPRINT</b><br>
-<i>instruction: output a list of variables to a printer</i><br>
+<h3 id="i-lprint">LPRINT</h3>
+<p><i>instruction: output a list of variables to a printer</i><br>
 <b>Lprint</b> variable list</p>
 
 <p>The LPRINT command is exactly the same as a PRINT command, but it sends data to a printer

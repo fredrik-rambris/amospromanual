@@ -73,9 +73,8 @@ If the Narrator system appears to fumble over a particular phrase, you are free 
 by adding spaces at the end of a sentence, or using phonetic spellings. As always, you cannot do
 any harm by experimenting.</p>
 
-<p>
-<b>SET TALK</b><br>
-<i>instruction: set style of speech</i><br>
+<h3 id="i-set-talk">SET TALK</h3>
+<p><i>instruction: set style of speech</i><br>
 <b>Set Talk</b> sex,mode,pitch,rate</p>
 
 <p>
@@ -110,9 +109,8 @@ E> Set Talk 1,1,, : Say "A rhythmic lady."
    Set Talk 0,,155,70 : Say "Hello, John Major speaking"
 </pre>
 
-<p>
-<b>TALK MISC</b><br>
-<i>instruction: set volume and frequency for speech</i><br>
+<h3 id="i-talk-misc">TALK MISC</h3>
+<p><i>instruction: set volume and frequency for speech</i><br>
 <b>Talk Misc</b> volume,frequency</p>
 
 <p>Existing AMOS users will find that the AMOS Professional speech facilities have been
@@ -136,9 +134,8 @@ E> For V=16 To 64 Step 8
    Next V
 </pre>
 
-<p>
-<b>TALK STOP</b><br>
-<i>instruction: stop speech in multitask mode</i><br>
+<h3 id="i-talk-stop">TALK STOP</h3>
+<p><i>instruction: stop speech in multitask mode</i><br>
 <b>Talk Stop</b></p>
 
 <p>
@@ -154,27 +151,24 @@ Another feature of the narrator device exploited by AMOS Professional is the MOU
 which can be displayed in multitask mode only. The MOUTH functions are used to govern the
 shape and movement of an animated mouth on screen, as follows:</p>
 
-<p>
-<b>MOUTH WIDTH</b><br>
-<i>function: return the width of animated mouth</i><br>
+<h3 id="fn-mouth-width">MOUTH WIDTH</h3>
+<p><i>function: return the width of animated mouth</i><br>
 width=<b>Mouth Width</b></p>
 
 <p>
 MOUTH WIDTH reports the width of the mouth at any instant, in pixels. This function will
 return a negative value if the current speech has finished.</p>
 
-<p>
-<b>MOUTH HEIGHT</b><br>
-<i>function: return the height of animated mouth</i><br>
+<h3 id="fn-mouth-height">MOUTH HEIGHT</h3>
+<p><i>function: return the height of animated mouth</i><br>
 height=<b>Mouth Height</b></p>
 
 <p>
 Similarly to MOUTH WIDTH, a negative value is returned if the speech is over, otherwise the
 current height of the mouth is given in pixels.</p>
 
-<p>
-<b>MOUTH READ</b><br>
-<i>function: read position of animated mouth</i><br>
+<h3 id="fn-mouth-read">MOUTH READ</h3>
+<p><i>function: read position of animated mouth</i><br>
 position=<b>Mouth Read</b></p>
 
 <p>

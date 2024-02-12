@@ -60,8 +60,8 @@ E> Curs Off : Centre "Thunderbolt and Lightning"
    Wait 50 : Boom
 </pre>
 
-<p><b>SHOOT</b><br>
-<i>instruction: generate percussive sound effect</i><br>
+<h3 id="i-shoot">SHOOT</h3>
+<p><i>instruction: generate percussive sound effect</i><br>
 <b>Shoot</b></p>
 
 <p>
@@ -72,8 +72,8 @@ example:</p>
 E> Shoot : Wait 25: Shoot : Print "Ouch!"
 </pre>
 
-<p><b>BELL</b><br>
-<i>instruction: generate pure tone</i><br>
+<h3 id="i-bell">BELL</h3>
+<p><i>instruction: generate pure tone</i><br>
 <b>Bell</b><br>
 <b>Bell</b> pitch</p>
 
@@ -208,13 +208,13 @@ easier:</p>
 <section id="04-playing-notes">
 <h2>Playing notes</h2>
 
-<p><b>PLAY</b><br>
-<i>instruction: play a voice</i><br>
+<h3 id="i-play">PLAY</h3>
+<p><i>instruction: play a voice</i><br>
 <b>Play</b> pitch,delay<br>
 <b>Play</b> voice,pitch,delay</p>
 
-<p><b>PLAY OFF</b><br>
-<i>instruction: stop a voice playing</i><br>
+<h3 id="i-play-off">PLAY OFF</h3>
+<p><i>instruction: stop a voice playing</i><br>
 <b>Play Off</b></p>
 
 <p>
@@ -268,8 +268,8 @@ much more rounded waves.</p>
 With AMOS Professional, the shape of a wave form is set using a list of 256 numbers, with each
 number representing the intensity of an individual section of the wave.</p>
 
-<p><b>SET WAVE</b><br>
-<i>instruction: define a wave form</i><br>
+<h3 id="i-set-wave">SET WAVE</h3>
+<p><i>instruction: define a wave form</i><br>
 <b>Set Wave</b> number,shape$</p>
 
 <p>
@@ -350,8 +350,8 @@ E> SHAPE$=" " : Degree
    For N=10 To 60: Play N,10 : Next N
 </pre>
 
-<p><b>WAVE</b><br>
-<i>instruction: assign a wave to sound channel</i><br>
+<h3 id="i-wave">WAVE</h3>
+<p><i>instruction: assign a wave to sound channel</i><br>
 <b>Wave</b> number <b>To</b> voices</p>
 
 <p>
@@ -372,8 +372,8 @@ E> Wave 1 To %1111 : Rem Play pure tone through all voices
    Play 20,10
 </pre>
 
-<p><b>NOISE TO</b><br>
-<i>instruction: assign noise wave to sound channel</i><br>
+<h3 id="i-noise-to">NOISE TO</h3>
+<p><i>instruction: assign noise wave to sound channel</i><br>
 <b>Noise To</b> voices</p>
 
 <p>
@@ -388,8 +388,8 @@ E> Noise To 15 Rem All four voices
    Play 30,0
 </pre>
 
-<p><b>SAMPLE</b><br>
-<i>instruction: assign a sample to the current wave</i><br>
+<h3 id="i-sample">SAMPLE</h3>
+<p><i>instruction: assign a sample to the current wave</i><br>
 <b>Sample</b> number <b>To</b> voices</p>
 
 <p>
@@ -411,8 +411,8 @@ E> Load "AMOSPro_Examples:Samples/Mixture.Abk",6
 The pitch values that can be applied to any particular sample will vary, but normally anything
 between 10 and 50 is satisfactory.</p>
 
-<p><b>DEL WAVE</b><br>
-<i>instruction: delete a wave</i><br>
+<h3 id="i-del-wave">DEL WAVE</h3>
+<p><i>instruction: delete a wave</i><br>
 <b>Del Wave</b> number</p>
 
 <p>
@@ -434,8 +434,8 @@ whether it fades away with dignity or lives life to the full (decay), how long i
 (sustain) and finally, the manner in which it meets its end (release). All of this is achieved simply
 by changing the volume of individual sections of the wave form.</p>
 
-<p><b>SET ENVEL</b><br>
-<i>instruction: create a volume envelope</i><br>
+<h3 id="i-set-envel">SET ENVEL</h3>
+<p><i>instruction: create a volume envelope</i><br>
 <b>Set Envel</b> wave number,phase number <b>To</b> duration,volume</p>
 
 <p>
@@ -508,8 +508,8 @@ The name LED derives from the light-emitting diode that activates the power ligh
 Amiga. When the LED filter is toggled off and on, this light is also turned off and on to indicate
 the status of the filter.</p>
 
-<p><b>VUMETER</b><br>
-<i>function: test volume of a voice</i><br>
+<h3 id="fn-vumeter">VUMETER</h3>
+<p><i>function: test volume of a voice</i><br>
 volume=<b>Vumeter</b>(voice)</p>
 
 <p>

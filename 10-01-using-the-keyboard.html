@@ -67,9 +67,8 @@ carry as Ascii code at all, and if INKEY$ detects that this type of key has been
 character with a value of zero will be returned. When this happens, the internal "scan codes" of
 these keys can be found.</p>
 
-<p>
-<b>SCANCODE</b><br>
-<i>function: return the scancode of a key entered with INKEY$</i><br>
+<h3 id="fn-scancode">SCANCODE</h3>
+<p><i>function: return the scancode of a key entered with INKEY$</i><br>
 s=<b>Scancode</b></p>
 
 SCANCODE returns the internal scan code of a key that has already been entered using the
@@ -88,9 +87,8 @@ E> Do
    Loop
 </pre>
 
-<p>
-<b>SCANSHIFT</b><br>
-<i>function: return shift status of key entered with INKEY$</i><br>
+<h3 id="fn-scanshift">SCANSHIFT</h3>
+<p><i>function: return shift status of key entered with INKEY$</i><br>
 s=<b>Scanshift</b></p>
 
 <p>
@@ -117,9 +115,8 @@ E> Do
    Loop
 </pre>
 
-<p>
-<b>KEY STATE</b><br>
-<i>function: test for a specific key press</i><br>
+<h3 id="fn-key-state">KEY STATE</h3>
+<p><i>function: test for a specific key press</i><br>
 k=<b>Key State</b>(scan code)</p>
 
 <p>
@@ -135,9 +132,8 @@ E> Do
 </pre>
 
 
-<p>
-<b>KEY SHIFT</b><br>
-<i>function: test the status of control keys</i><br>
+<h3 id="fn-key-shift">KEY SHIFT</h3>
+<p><i>function: test the status of control keys</i><br>
 bitmap=<b>Key Shift</b></p>
 
 <p>
@@ -175,9 +171,8 @@ E> Centre "Please press some Control keys"
 These keys can also be used when setting up macro definitions, using the SCAN$ and KEY$
 functions, and this is explained below.</p>
 
-<p>
-<b>CLEAR KEY</b><br>
-<i>instruction: re-set the keyboard buffer</i><br>
+<h3 id="i-clear-key">CLEAR KEY</h3>
+<p><i>instruction: re-set the keyboard buffer</i><br>
 <b>Clear Key</b></p>
 
 <p>
@@ -194,9 +189,8 @@ proceeding.</p>
 <section id="02-keyboard-inputs">
 <h2>Keyboard inputs</h2>
 
-<p>
-<b>WAIT KEY</b><br>
-<i>instruction: wait for a key-press</i><br>
+<h3 id="i-wait-key">WAIT KEY</h3>
+<p><i>instruction: wait for a key-press</i><br>
 <b>Wait Key</b></p>
 
 <p>
@@ -205,9 +199,8 @@ example:</p>
 
 <p>E> Print "Please press a key" : Wait key : Print "Thank you!"</p>
 
-<p>
-<b>INPUT$</b><br>
-<i>function: anticipate a number of characters to input into a string</i><br>
+<h3 id="fn-input-dollar">INPUT$</h3>
+<p><i>function: anticipate a number of characters to input into a string</i><br>
 v$=<b>Input$</b>(number)</p>
 
 <p>
@@ -224,9 +217,8 @@ E> Clear Key : Print "Please type in ten characters"
 There is another version of INPUT$ which operates with a number of characters from a disc.
 Please see <a href="10-02-disc-access.html">Chapter 10.2</a> for details.</p>
 
-<p>
-<b>INPUT</b><br>
-<i>instruction: load a value into a variable</i><br>
+<h3 id="i-input">INPUT</h3>
+<p><i>instruction: load a value into a variable</i><br>
 <b>Input</b> variables;<br>
 <b>Input</b> "Prompt string";variables;</p>
 
@@ -264,9 +256,8 @@ E> Print "Type in a number"
    Locate 23, : Print "Hello ";Name$
 </pre>
 
-<p>
-<b>LINE INPUT</b><br>
-<i>instruction: input a list of variables separated by [Return]</i><br>
+<h3 id="i-line-input">LINE INPUT</h3>
+<p><i>instruction: input a list of variables separated by [Return]</i><br>
 <b>Line Input</b> variables;<br>
 <b>Line Input</b> "Prompt string";variables;</p>
 
@@ -279,9 +270,8 @@ E> Line Input "Type in three numbers";A,B,C
    Print A,B,C
 </pre>
 
-<p>
-<b>PUT KEY</b><br>
-<i>instruction:load a string into the keyboard buffer</i><br>
+<h3 id="i-put-key">PUT KEY</h3>
+<p><i>instruction:load a string into the keyboard buffer</i><br>
 <b>Put Key</b> a$</p>
 
 <p>
@@ -317,9 +307,8 @@ they can also be defined directly from an AMOS Professional program using
 the powerful KEY$ reserved variable.</p>
 
 
-<p>
-<b>KEY$</b><br>
-<i>reserved variable: define a keyboard macro</i><br>
+<h3 id="resv-key-dollar">KEY$</h3>
+<p><i>reserved variable: define a keyboard macro</i><br>
 <b>Key$</b>(number)=command$<br>
 command$=<b>Key$</b>(number)</p>
 
@@ -345,9 +334,8 @@ If you need to generate a key press that has no Ascii equivalent, such as an [up
 appropriate scan-code can be included in a macro definition. This is achieved by using the
 SCAN$ function, explained next.</p>
 
-<p>
-<b>SCAN$</b><br>
-<i>function: return a scan-code for use with Key$</i><br>
+<h3 id="fn-scan-dollar">SCAN$</h3>
+<p><i>function: return a scan-code for use with Key$</i><br>
 x$=<b>Scan$</b>(scan-code)<br>
 x$=<b>Scan$</b>(scan-code,mask)</p>
 
@@ -365,9 +353,8 @@ and correctly. As many structures as possible are automatically recognised and c
 formatted, even if upper and lower case is sometimes confused and spacings are not quite
 perfect. But even the most experienced programmer can be fumble-fingered at times.</p>
 
-<p>
-<b>KEY SPEED</b><br>
-<i>instruction: change key repeat speed.</i><br>
+<h3 id="i-key-speed">KEY SPEED</h3>
+<p><i>instruction: change key repeat speed.</i><br>
 <b>Key Speed</b> time-lag,delay-speed</p>
 
 <p>

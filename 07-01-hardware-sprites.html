@@ -250,8 +250,8 @@ E> Load "AMOSPro Tutorial:Objects/Sprites.Abk"
    Sprite 8,,,2
 </pre>
 
-<p><b>DEL SPRITE</b><br>
-<i>instruction: delete an image from the Object Bank</i><br>
+<h3 id="i-del-sprite">DEL SPRITE</h3>
+<p><i>instruction: delete an image from the Object Bank</i><br>
 <b>Del Sprite</b> number<br>
 <b>Del Sprite</b> first <b>To</b> last</p>
 
@@ -283,8 +283,8 @@ X> Del Sprite 4 To 7
 After the last image has been deleted from the Object Bank, the entire Bank is erased
 automatically.</p>
 
-<p><b>INS SPRITE</b><br>
-<i>instruction: insert a blank Sprite image into the Object bank</i><br>
+<h3 id="i-ins-sprite">INS SPRITE</h3>
+<p><i>instruction: insert a blank Sprite image into the Object bank</i><br>
 <b>Ins Sprite</b> number<br>
 <b>Ins Sprite</b> first <b>To</b> last</p>
 
@@ -363,8 +363,8 @@ the course of your program, so it is vital that the three colours used by each p
 sprites are exactly the same. A procedure is provided to accomplish this, and it may be found
 along with a host of other useful procedures, in <a href="14/1419.html">Appendix C</a>.</p>
 
-<p><b>GET SPRITE PALETTE</b><br>
-<i>instruction: grab sprite colours into screen</i><br>
+<h3 id="i-get-sprite-palette">GET SPRITE PALETTE</h3>
+<p><i>instruction: grab sprite colours into screen</i><br>
 <b>Get Sprite Palette</b><br>
 <b>Get Sprite Palette</b> mask</p>
 
@@ -405,8 +405,8 @@ X> Get Sprite Palette $FFFF0000
 Please note that the GET BOB PALETTE and GET OBJECT PALETTE instructions perform an
 identical task to the GET SPRITE PALETTE command.</p>
 
-<p><b>GET SPRITE</b><br>
-<i>instruction: grab screen image into the Object Bank</i><br>
+<h3 id="i-get-sprite">GET SPRITE</h3>
+<p><i>instruction: grab screen image into the Object Bank</i><br>
 <b>Get Sprite</b> image number,x1,y1 <b>To</b> x2,y2<br>
 <b>Get Sprite</b> screen number,image number,x1,y1 <b>To</b> x2,y2</p>
 
@@ -429,8 +429,8 @@ the Sprite Bank will be reserved by AMOS Professional, if it is not already defi
 It should be noted that the GET BOB instruction is identical to GET SPRITE, making them
 interchangeable.</p>
 
-<p><b>SET SPRITE BUFFER</b><br>
-<i>instruction: set maximum height of Sprites</i><br>
+<h3 id="i-set-sprite-buffer">SET SPRITE BUFFER</h3>
+<p><i>instruction: set maximum height of Sprites</i><br>
 <b>Set Sprite Buffer</b> number</p>
 
 <p>
@@ -456,8 +456,8 @@ X> Set Sprite Buffer 256
 <section id="06-sprite-commands">
 <h2>Sprite Commands</h2>
 
-<p><b>SPRITE UPDATE</b><br>
-<i>instruction: control Sprite movements</i><br>
+<h3 id="i-sprite-update">SPRITE UPDATE</h3>
+<p><i>instruction: control Sprite movements</i><br>
 <b>Sprite Update</b><br>
 <b>Sprite Update</b> Off<br>
 <b>Sprite Update</b> On</p>
@@ -475,8 +475,8 @@ When the Sprites have been moved successfully, a call to SPRITE UPDATE will repo
 Sprites that have been moved since the last update. Alternatively, SPRITE UPDATE ON returns
 to the default status of automatic updating.</p>
 
-<p><b>SPRITE OFF</b><br>
-<i>instruction: remove Sprites from screen</i><br>
+<h3 id="i-sprite-off">SPRITE OFF</h3>
+<p><i>instruction: remove Sprites from screen</i><br>
 <b>Sprite Off</b><br>
 <b>Sprite Off</b> number</p>
 
@@ -492,8 +492,8 @@ Please note that Sprites are de-activated every time the AMOS Professional edito
 Sprites are automatically returned to their original positions the next time Direct Mode is
 entered.</p>
 
-<p><b>X SPRITE</b><br>
-<i>function: return x-coordinate of a Sprite</i><br>
+<h3 id="fn-x-sprite">X SPRITE</h3>
+<p><i>function: return x-coordinate of a Sprite</i><br>
 x=<b>X Sprite</b>(number)</p>
 
 <p>
@@ -501,14 +501,14 @@ This function returns the current x-coordinate of the Sprite whose number is giv
 The Sprite number can range from 0 to 63, and positions are given in hardware coordinates. Use
 X SPRITE to check if a Sprite has passed off the edge of the screen.</p>
 
-<p><b>Y SPRITE</b><br>
-<i>function: return y-coordinate of a Sprite</i><br>
+<h3 id="fn-y-sprite">Y SPRITE</h3>
+<p><i>function: return y-coordinate of a Sprite</i><br>
 y=<b>Y Sprite</b>(number)</p>
 
 <p>This gives the vertical position of the specified Sprite, measured in hardware coordinates.</p>
 
-<p><b>I SPRITE</b><br>
-<i>function: return current image number of a Sprite</i><br>
+<h3 id="fn-i-sprite">I SPRITE</h3>
+<p><i>function: return current image number of a Sprite</i><br>
 image=<b>I Sprite</b>(number)</p>
 
 <p>
@@ -519,13 +519,13 @@ is not displayed, a value of zero will be returned.</p>
 <section id="07-conversion-functions">
 <h2>Conversion Functions</h2>
 
-<p><b>X SCREEN</b><br>
-<i>function: convert hardware x-coordinate to screen x-coordinate</i><br>
+<h3 id="fn-x-screen">X SCREEN</h3>
+<p><i>function: convert hardware x-coordinate to screen x-coordinate</i><br>
 x=<b>X Screen</b>(xcoordinate)<br>
 x=<b>X Screen</b>(screen number,xcoordinate)</p>
 
-<p><b>Y SCREEN</b><br>
-<i>function: convert hardware y-coordinate to screen y-coordinate</i><br>
+<h3 id="fn-y-screen">Y SCREEN</h3>
+<p><i>function: convert hardware y-coordinate to screen y-coordinate</i><br>
 y=<b>Y Screen</b>(ycoordinate)<br>
 y=<b>Y Screen</b>(screen number,ycoordinate)</p>
 
@@ -536,13 +536,13 @@ relative offsets from the screen boundaries. An optional screen number may be in
 which case the coordinates will be returned relative to that screen.</p>
 
 
-<p><b>X HARD</b><br>
-<i>function: convert screen x-coordinate into hardware x-coordinate</i><br>
+<h3 id="fn-x-hard">X HARD</h3>
+<p><i>function: convert screen x-coordinate into hardware x-coordinate</i><br>
 x=<b>X Hard</b>(xcoordinate)<br>
 x=<b>X Hard</b>(screen number,xcoordinate)</p>
 
-<p><b>Y HARD</b><br>
-<i>function: convert screen y-coordinate into hardware y-coordinate</i><br>
+<h3 id="fn-y-hard">Y HARD</h3>
+<p><i>function: convert screen y-coordinate into hardware y-coordinate</i><br>
 y=<b>Y Hard</b>(ycoordinate)<br>
 y=<b>Y Hard</b>(screen number,ycoordinate)</p>
 
@@ -595,8 +595,8 @@ using an invisible reference point known as the "hot spot". This reference point
 all coordinate calculations.</p>
 
 
-<p><b>HOT SPOT</b><br>
-<i>instruction: set reference point for all coordinate calculations</i><br>
+<h3 id="i-hot-spot">HOT SPOT</h3>
+<p><i>instruction: set reference point for all coordinate calculations</i><br>
 <b>Hot Spot</b> image number,x,y<br>
 <b>Hot Spot</b> image number,pre-set value</p>
 

@@ -224,8 +224,8 @@ to the size of arrays and string variables is the amount of memory available in 
 
 <!-- section -->
 
-<P><b>SET BUFFER</b><BR>
-<i>instruction: set the size of the variable area</i><BR>
+<h3 id="i-set-buffer">SET BUFFER</h3>
+<p><i>instruction: set the size of the variable area</i><BR>
 <b>Set Buffer</b> number of kilobytes</P>
 
 <P>
@@ -248,8 +248,8 @@ Supposing you have 100 titles in your record collection, and you need to tell AM
 Professional the size of the table of variables needed for your array. There is a special command for
 setting up this dimension.</P>
 
-<P><b>DIM</b><BR>
-<i>instruction: dimension an array</i><BR>
+<h3 id="i-dim">DIM</h3>
+<p><i>instruction: dimension an array</i><BR>
 <b>Dim</b> variable name(number,number,number...)</P>
 
 <P>
@@ -328,8 +328,8 @@ value of the number always remains exactly the same.</P>
 "functions". These are command words that have one thing in common: they all work with numbers in
 order to give a result.</P>
 
-<P><b>FREE</b><BR>
-<i>function: give the amount of free memory in the variable buffer area</i><br>
+<h3 id="fn-free">FREE</h3>
+<p><i>function: give the amount of free memory in the variable buffer area</i><br>
 memory=<b>Free</b></P>
 
 <P>For an example of a function in operation, the FREE function checks how many "bytes" of
@@ -353,8 +353,8 @@ different functions as you like! These "user-defined" functions are set up insid
 programs, and they can be used to compute commonly used values very quickly and very
 simply.</P>
 
-<P><b>DEF FN</b><BR>
-<i>structure: create a user-defined function</i><BR>
+<h3 id="str-def-fn">DEF FN</h3>
+<p><i>structure: create a user-defined function</i><BR>
 <b>Def Fn</b> name (list of variables)=expression</P>
 
 <P>
@@ -371,8 +371,8 @@ X&gt; Def Fn NAME$(A$)=LOWER$(A$)
 When a user-defined function is called up my variables that are entered with it will be
 substituted in the appropriate positions, as demonstrated below.</p>
 
-<p><b>FN</b><BR>
-<i>structure: call a user-defined function</i><BR>
+<h3 id="str-fn">FN</h3>
+<p><i>structure: call a user-defined function</i><BR>
 <b>Fn</b> name(list of variables)</p>
 
 <p>The following examples show how DEF FN is first used to define a function, and how FN
@@ -460,8 +460,8 @@ E&gt; Print "I am the first instruction."
    Print "I am the next instruction."
 </pre>
 
-<P><b>END</b><BR>
-<i>instruction: end the current program</i><BR>
+<h3 id="i-end">END</h3>
+<p><i>instruction: end the current program</i><BR>
 <b>End</b></P>
 
 <P>
@@ -476,8 +476,8 @@ E&gt; Print "I am the first instruction."
    Print "This instruction will never be executed!"
 </pre>
 
-<P><b>STOP</b><BR>
-<i>instruction: interrupt the current program</i><BR>
+<h3 id="i-stop">STOP</h3>
+<p><i>instruction: interrupt the current program</i><BR>
 <b>Stop</b></P>
 
 <P>To stop the current program. The <b>STOP</b> instruction is used like this:</P>
@@ -489,8 +489,8 @@ E&gt; Print "Interrupt in two seconds!"
    Print "I have been abandoned"
 </pre>
 
-<P><b>EDIT</b><BR>
-<i>instruction: leave current program and return to Edit Screen</i><BR>
+<h3 id="i-edit">EDIT</h3>
+<p><i>instruction: leave current program and return to Edit Screen</i><BR>
 <b>Edit</b></P>
 
 <P>Similarly, the EDIT instruction forces the program to be abandoned, and returns you
@@ -503,8 +503,8 @@ E&gt; Print "Wait four seconds and then EDIT"
    Print "I have been ignored!"
 </pre>
 
-<P><b>DIRECT</b><BR>
-<i>instruction: leave current program and return to Direct Mode</i><BR>
+<h3 id="i-direct">DIRECT</h3>
+<p><i>instruction: leave current program and return to Direct Mode</i><BR>
 <b>Direct</b></P>
 
 <P>Use the DIRECT command to jump out of the current program and go straight to Direct
@@ -598,8 +598,8 @@ a simple and effective way of marking any part of an AMOS Professional program, 
 typed messages to remind yourself exactly what this section of program is for. These
 little comments or messages are known as "Rem statements".</P>
 
-<P><b>REM</b><BR>
-<i>structure: insert a reminder message into a program</i><BR>
+<h3 id="str-rem">REM</h3>
+<p><i>structure: insert a reminder message into a program</i><BR>
 <b>Rem</b> Typed in statement<BR>
 <b>'</b> Typed in statement</P>
 

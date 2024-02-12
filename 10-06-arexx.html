@@ -128,9 +128,8 @@ folder, which should be installed on your hard disc. The selected port is then c
 possible problems, and if it is already opened, an error will be generated and the program
 aborted.</p>
 
-<p>
-<b>AREXX CLOSE</b><br>
-<i>instruction: close a communications port</i><br>
+<h3 id="i-arexx-close">AREXX CLOSE</h3>
+<p><i>instruction: close a communications port</i><br>
 <b>Arexx Close</b></p>
 
 <p>
@@ -140,9 +139,8 @@ generated. If you then leave the AMOS Professional program without responding, t
 be closed with an error code of 20, which is fatal! Please see below, for a further explanation of
 these error code values</p>.
 
-<p>
-<b>AREXX EXIST</b><br>
-<i>function: check availability of a communications port</i><br>
+<h3 id="fn-arexx-exist">AREXX EXIST</h3>
+<p><i>function: check availability of a communications port</i><br>
 value=<b>Arexx Exist</b>("PORT_NAME")</p>
 
 <p>
@@ -165,9 +163,8 @@ E> If Arexx Exist("REXX")=0
    Endif
 </pre>
 
-<p>
-<b>AREXX WAIT</b><br>
-<i>instruction: wait for a message from an AREXX program</i><br>
+<h3 id="i-arexx-wait">AREXX WAIT</h3>
+<p><i>instruction: wait for a message from an AREXX program</i><br>
 <b>Arexx Wait</b></p>
 
 <p>
@@ -175,9 +172,8 @@ This command halts an AMOS Professional program until a message arrives from an 
 program. This operation can be aborted at any time as usual, by pressing [Ctrl]+[C] to return to
 the AMOS Professional Editor.</p>
 
-<p>
-<b>AREXX</b><br>
-<i>function: check for a message from an AREXX program</i><br>
+<h3 id="fn-arexx">AREXX</h3>
+<p><i>function: check for a message from an AREXX program</i><br>
 status=<b>Arexx</b></p>
 
 <p>
@@ -202,9 +198,8 @@ X> Do
    Loop
 </pre>
 
-<p>
-<b>AREXX$</b><br>
-<i>function: get a message from an AREXX program</i><br>
+<h3 id="fn-arexx-dollar">AREXX$</h3>
+<p><i>function: get a message from an AREXX program</i><br>
 message$=<b>Arexx$</b>(message number)</p>
 
 <p>
@@ -215,9 +210,8 @@ program, this function can be used to read its contents.</p>
 The number refers to the number of the message you wish to read, ranging from zero to 15. If it
 is not included, an empty string will be returned.</p>
 
-<p>
-<b>AREXX ANSWER</b><br>
-<i>instruction: answer a message from an AREXX program</i><br>
+<h3 id="i-arexx-answer">AREXX ANSWER</h3>
+<p><i>instruction: answer a message from an AREXX program</i><br>
 <b>Arexx Answer</b> error value<br>
 <b>Arexx Answer</b> error value,return$</p>
 

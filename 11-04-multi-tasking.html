@@ -51,27 +51,24 @@ on the number of tasks being run simultaneously.</p>
 The following simple commands are provided to allow complete control over multi-tasking
 facilities.</p>
 
-<p>
-<b>AMOS TO BACK</b><br>
-<i>instruction: hide AMOS Professional and reveal the Workbench</i><br>
+<h3 id="i-amos-to-back">AMOS TO BACK</h3>
+<p><i>instruction: hide AMOS Professional and reveal the Workbench</i><br>
 <b>Amos To Back</b></p>
 
 <p>
 This instruction allows other programs to be accessed, by bringing forward the Workbench
 display and hiding AMOS Professional from view.</p>
 
-<p>
-<b>AMOS TO FRONT</b><br>
-<i>instruction: hide the Workbench and reveal AMOS Professional</i><br>
+<h3 id="i-amos-to-front">AMOS TO FRONT</h3>
+<p><i>instruction: hide the Workbench and reveal AMOS Professional</i><br>
 <b>Amos To Front</b></p>
 
 <p>
 Similarly, this instruction forces AMOS Professional back onto the display, leaving the
 Workbench environment hidden.</p>
 
-<p>
-<b>AMOS LOCK</b><br>
-<i>instruction: disable [Amiga]+[A] toggle</i><br>
+<h3 id="i-amos-lock">AMOS LOCK</h3>
+<p><i>instruction: disable [Amiga]+[A] toggle</i><br>
 <b>Amos Lock</b></p>
 
 <p>
@@ -80,18 +77,16 @@ Workbench by pressing [Amiga]+[A]. This can be used to prevent other users from 
 how your program was written!</p>
 
 
-<p>
-<b>AMOS UNLOCK</b><br>
-<i>instruction: re-activate toggle between AMOS Professional and Workbench</i><br>
+<h3 id="i-amos-unlock">AMOS UNLOCK</h3>
+<p><i>instruction: re-activate toggle between AMOS Professional and Workbench</i><br>
 <b>Amos Unlock</b></p>
 
 <p>
 Use this instruction to restore the facility for flipping between AMOS Professional and the
 Workbench, via the [Amiga]+[A] keys.</p>
 
-<p>
-<b>AMOS HERE</b><br>
-<i>function: report if AMOS Professional is currently at the front of the display</i><br>
+<h3 id="fn-amos-here">AMOS HERE</h3>
+<p><i>function: report if AMOS Professional is currently at the front of the display</i><br>
 status=<b>Amos Here</b></p>
 
 <p>
@@ -106,9 +101,8 @@ view.</p>
 As well as multi-tasking between AMOS Professional and other programs, communication is
 allowed between different AMOS Professional programs previously installed in memory.</p>
 
-<p>
-<b>PRUN</b><br>
-<i>instruction: run a program from memory</i><br>
+<h3 id="i-prun">PRUN</h3>
+<p><i>instruction: run a program from memory</i><br>
 <b>Prun</b> "program name"</p>
 
 <p>
@@ -175,9 +169,8 @@ current screens. This will also free as much memory as possible. Similarly, if y
 about the display after running another program with PRUN, you should also close all of the
 screens, and then call the main screen initialisation of your original program again.</p>
 
-<p>
-<b>PRG UNDER</b><br>
-<i>function: report the availability of a program "under" the current program</i><br>
+<h3 id="fn-prg-under">PRG UNDER</h3>
+<p><i>function: report the availability of a program "under" the current program</i><br>
 status=<b>Prg Under</b></p>
 
 <p>
@@ -199,9 +192,8 @@ A value of -1 means that the program has been run via another program, using PRU
 case, memory banks can be grabbed, but remote editor commands <b>cannot</b> be sent.</p>
 
 
-<p>
-<b>EXEC</b><br>
-<i>instruction: send a CLI command to a device</i><br>
+<h3 id="i-exec">EXEC</h3>
+<p><i>instruction: send a CLI command to a device</i><br>
 <b>Exec</b> "CLI Command","Output"</p>
 
 <p>
@@ -228,9 +220,8 @@ X> Amos To Back : Rem Reveal the Workbench
    Amos To Front : Rem Return to AMOS Pro after the program
 </pre>
 
-<p>
-<b>PRG STATE</b><br>
-<i>function: return the status of how the current program was originally run</i><br>
+<h3 id="fn-prg-state">PRG STATE</h3>
+<p><i>function: return the status of how the current program was originally run</i><br>
 status=<b>Prg State</b></p>
 
 <p>

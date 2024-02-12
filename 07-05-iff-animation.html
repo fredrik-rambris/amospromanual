@@ -152,8 +152,8 @@ Deluxe Paint users can produce animations using the following procedure:</p>
 <section id="04-playing-an-iff-animation">
 <h2>Playing an IFF animation</h2>
 
-<p><b>IFF ANIM</b><br>
-<i>instruction: play an animation file</i><br>
+<h3 id="i-iff-anim">IFF ANIM</h3>
+<p><i>instruction: play an animation file</i><br>
 <b>Iff Anim</b> "filename" <b>To</b> screen number<br>
 <b>Iff Anim</b> "filename" <b>To</b> screen number, times</p>
 
@@ -193,8 +193,8 @@ you are provided with a range of functions for loading and manipulating animated
 directly in your programs.</p>
 
 
-<p><b>FRAME LOAD</b><br>
-<i>function: load frames into memory</i><br>
+<h3 id="fn-frame-load">FRAME LOAD</h3>
+<p><i>function: load frames into memory</i><br>
 frames=<b>Frame Load</b>(channel <b>To</b> bank/address)<br>
 frames=<b>Frame Load</b>(channel <b>To</b> bank/address,number of frames)</p>
 
@@ -239,8 +239,8 @@ E> Rem Open animation file for reading
    Print "Number of frames in this file is ";N
 </pre>
 
-<p><b>FRAME LENGTH</b><br>
-<i>function: return the length of frames in bytes</i><br>
+<h3 id="fn-frame-length">FRAME LENGTH</h3>
+<p><i>function: return the length of frames in bytes</i><br>
 size=<b>Frame Length</b>(channel)<br>
 size=<b>Frame Length</b>(channel,number of frames)</p>
 
@@ -275,8 +275,8 @@ E> Open In 1 ,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
    Print "Required memory for frame 1=";L
 </pre>
 
-<p><b>FRAME PLAY</b><br>
-<i>function: play frames on screen</i><br>
+<h3 id="fn-frame-play">FRAME PLAY</h3>
+<p><i>function: play frames on screen</i><br>
 frame=<b>Frame Play</b>(bank/address,number)<br>
 frame=<b>Frame Play</b>(bank/address,number,screen)</p>
 
@@ -336,8 +336,8 @@ E> Open In 1,"AMOSPro_Tutorialiff_Anim/AMOS.Anim"
    Loop
 </pre>
 
-<p><b>FRAME SKIP</b><br>
-<i>function: skip past an animation frame</i><br>
+<h3 id="fn-frame-skip">FRAME SKIP</h3>
+<p><i>function: skip past an animation frame</i><br>
 s=<b>Frame Skip</b>(bank/address)<br>
 s=<b>Frame Skip</b>(bank/address,number)</p>
 
@@ -352,8 +352,8 @@ Use FRAME SKIP carefully, because frames are stored relative to the existing scr
 This means that the animation will only re-commence when an identical frame is reached to the
 one currently being displayed.</p>
 
-<p><b>FRAME PARAM</b><br>
-<i>function: return a parameter after playing a frame</i><br>
+<h3 id="fn-frame-param">FRAME PARAM</h3>
+<p><i>function: return a parameter after playing a frame</i><br>
 p=<b>Frame Param</b></p>
 
 <p>
@@ -383,12 +383,12 @@ AMOS Professional does not restrict you to loading all of an IFF picture file. I
 specific parts of the file that hold such items as the palette and the bit-maps only. The PICTURE
 function is used in conjunction with the MASK IFF function to achieve this.</p>
 
-<p><b>PICTURE</b><br>
-<i>function: return mask details of an IFF image</i><br>
+<h3 id="fn-picture">PICTURE</h3>
+<p><i>function: return mask details of an IFF image</i><br>
 mask=<b>Picture</b></p>
 
-<p><b>MASK IFF</b><br>
-<i>instruction: mask IFF picture data</i><br>
+<h3 id="i-mask-iff">MASK IFF</h3>
+<p><i>instruction: mask IFF picture data</i><br>
 <b>Mask Iff</b> bit-map</p>
 
 <p>
@@ -416,12 +416,12 @@ animations can be frozen with an AMAL FREEZE instruction, and unfrozen with AMAL
 The following commands are equivalents to these two instructions, and also offer STOS
 compatibility.</p>
 
-<p><b>FREEZE</b><br>
-<i>instruction: freeze the display</i><br>
+<h3 id="i-freeze">FREEZE</h3>
+<p><i>instruction: freeze the display</i><br>
 <b>Freeze</b></p>
 
-<p><b>UNFREEZE</b><br>
-<i>instruction: unfreeze the display</i><br>
+<h3 id="i-unfreeze">UNFREEZE</h3>
+<p><i>instruction: unfreeze the display</i><br>
 <b>Unfreeze</b></p>
 
 <p>

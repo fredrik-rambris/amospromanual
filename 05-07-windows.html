@@ -33,9 +33,8 @@ opened by you, and you are advised not to re-open window zero or change its size
 <section id="01-creating-windows">
 <h2>Creating windows</h2>
 
-<p>
-<b>WIND OPEN</b><br>
-<i>instruction: create a window</i><br>
+<h3 id="i-wind-open">WIND OPEN</h3>
+<p><i>instruction: create a window</i><br>
 <b>Wind Open</b> number,x,y,width,height<br>
 <b>Wind Open</b> number,x,y,width,height,border</p>
 
@@ -64,9 +63,8 @@ E> For W=1 To 3
    Next W
 </pre>
 
-<p>
-<b>WINDOW</b><br>
-<i>instruction: change the current window</i><br>
+<h3 id="i-window">WINDOW</h3>
+<p><i>instruction: change the current window</i><br>
 <b>Window</b> number</p>
 
 <p>This command sets the window number specified as the active window, to be used for all future
@@ -84,9 +82,8 @@ D> Window 2: "lets me"
 <p>The active window is host to the flashing text cursor, unless it has been made invisible with a
 CURS OFF command.</p>
 
-<p>
-<b>BORDER</b><br>
-<i>instruction: change window border</i><br>
+<h3 id="i-border">BORDER</h3>
+<p><i>instruction: change window border</i><br>
 <b>Border</b> number,paper, pen</p>
 
 <p>This command allows you to change the style and colour of the current window border. Border
@@ -100,9 +97,8 @@ D> Border 3,2,3
 D> Border 2,,
 </pre>
 
-<p>
-<b>TITLE TOP</b><br>
-<i>instruction: set title at top of current window</i><br>
+<h3 id="i-title-top">TITLE TOP</h3>
+<p><i>instruction: set title at top of current window</i><br>
 <b>Title Top</b> title$</p>
 
 <p>Use this command to set a border title at the top of the current window to your chosen title
@@ -113,9 +109,8 @@ E> Cls: Wind Open 4,1,1,20,10,1
    Title Top "Top of the morning"
 </pre>
 
-<p>
-<b>TITLE BOTTOM</b><br>
-<i>instruction: set title at bottom of current window</i><br>
+<h3 id="i-title-bottom">TITLE BOTTOM</h3>
+<p><i>instruction: set title at bottom of current window</i><br>
 <b>Title Bottom</b> title$</p>
 
 <p>Similarly, this instruction assigns a string to the bottom title of the current window, like this:</p>
@@ -130,9 +125,8 @@ E> Cls : Wind Open 5,75,50,24,15
 <section id="02-manipulating-windows">
 <h2>Manipulating windows</h2>
 
-<p>
-<b>WINDON</b><br>
-<i>function: return the value of the current window</i><br>
+<h3 id="fn-windon">WINDON</h3>
+<p><i>function: return the value of the current window</i><br>
 w=<b>Windon</b></p>
 
 <p>Before using windows in your programs, you will need to refer to their identification numbers.
@@ -145,9 +139,8 @@ E> Do
    Loop
 </pre>
 
-<p>
-<b>WIND SAVE</b><br>
-<i>instruction: save the contents of the current window</i><br>
+<h3 id="i-wind-save">WIND SAVE</h3>
+<p><i>instruction: save the contents of the current window</i><br>
 <b>Wind Save</b></p>
 
 <p>
@@ -166,9 +159,8 @@ over the zone you want to save. Now execute your WIND SAVE command and continue 
 your program. When this dialogue box is called up, the area beneath it will be saved as part of
 your dummy window, so it will automatically be restored after your box has been removed.</p>
 
-<p>
-<b>WIND CLOSE</b><br>
-<i>instruction: close the current window</i><br>
+<h3 id="i-wind-close">WIND CLOSE</h3>
+<p><i>instruction: close the current window</i><br>
 <b>Wind Close</b></p>
 
 <p>
@@ -182,9 +174,8 @@ E> Wind Open 1,1,8,35,18,1 : Print "Press a key to close this window"
    Wind Close
 </pre>
 
-<p>
-<b>WIND MOVE</b><br>
-<i>instruction: move the current window</i><br>
+<h3 id="i-wind-move">WIND MOVE</h3>
+<p><i>instruction: move the current window</i><br>
 <b>Wind Move</b> x,y</p>
 	
 <p>
@@ -213,9 +204,8 @@ turns off the scrolling, and whenever the cursor passes beyond the bottom of the
 reappear from the top. SCROLL ON starts the scrolling process again, so that a new line is
 inserted when the cursor tries to pass beyond the bottom of the window.</p>
 
-<p>
-<b>WIND SIZE</b><br>
-<i>instruction: change the size of the current window</i><br>
+<h3 id="i-wind-size">WIND SIZE</h3>
+<p><i>instruction: change the size of the current window</i><br>
 <b>Wind Size</b> width, height</p>
 
 <p>
@@ -235,9 +225,8 @@ E> Wind Open 1,16,16,22,10,2
    Wind Size 30,10
 </pre>
 
-<p>
-<b>CLW</b><br>
-<i>instruction: clear the current window</i><br>
+<h3 id="i-clw">CLW</h3>
+<p><i>instruction: clear the current window</i><br>
 <b>Clw</b></p>
 
 <p>This simple command erases the contents of the current window and replaces it with a block of
@@ -258,9 +247,8 @@ E> Cls: Paper 4 : Wind Open 1,1,1,12,5,1
 <p>One of the standard uses of windows is to create interactive slider bars, like the one at the right-
 hand side of your AMOS Professional Edit Screen.</p>
 
-<p>
-<b>HSLIDER</b><br>
-<i>instruction: draw a horizontal slider bar</i><br>
+<h3 id="i-hslider">HSLIDER</h3>
+<p><i>instruction: draw a horizontal slider bar</i><br>
 <b>Hslider</b> x1 ,y1 To x2,y2, units, position, length</p>
 
 <p>
@@ -283,9 +271,8 @@ E> Hslider 10,10 To 100,20,100,20,5
    Hslider 10,50 To 150,100,25,10,10
 </pre>
 
-<p>
-<b>VSLIDER</b><br>
-<i>instruction: draw a vertical slider</i><br>
+<h3 id="i-vslider">VSLIDER</h3>
+<p><i>instruction: draw a vertical slider</i><br>
 <b>Vslider</b> x1 ,y1 To x2,y2,units,position,length</p>
 
 <p>This works in the same way as Hslider, and sets up vertical slider bars. For a working
@@ -299,9 +286,8 @@ E> Vslider 10,10 To 20,100,100,20,5
    Vslider 250,0 To 319,199,10,2,6
 </pre>
 
-<p>
-<b>SET SLIDER</b><br>
-<i>instruction: set fill pattern for slider bar</i><br>
+<h3 id="i-set-slider">SET SLIDER</h3>
+<p><i>instruction: set fill pattern for slider bar</i><br>
 <b>Set Slider</b> ink1,paper1,outline1,pattern1,ink2,paper2,outline2,pattern2</p>
 
 <p>SET SLIDER is used to set up the colours and patterns used for your slider bars and their
@@ -337,9 +323,8 @@ display of a text file directly on screen. Text can be displayed in its own inde
 may be scrolled through at will, the display window can be dragged around the screen and
 there is even a facility to include a title line.</p>
 
-<p>
-<b>READ TEXT$</b><br>
-<i>instruction: display a text window on screen</i><br>
+<h3 id="i-read-text-dollar">READ TEXT$</h3>
+<p><i>instruction: display a text window on screen</i><br>
 <b>Read Text$</b> name$<br>
 <b>Read Text$</b> name$,address, length</p>
 

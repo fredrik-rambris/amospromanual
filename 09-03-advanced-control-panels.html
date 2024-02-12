@@ -77,9 +77,8 @@ not start the program running or generate any graphics on the screen. To accompl
 following function is used.</p>
 
 
-<p>
-<b>DIALOG RUN</b><br>
-<i>function: run a dialogue box from an open channel</i><br>
+<h3 id="fn-dialog-run">DIALOG RUN</h3>
+<p><i>function: run a dialogue box from an open channel</i><br>
 button=<b>DIALOG RUN</b>(channel number)<br>
 button=<b>DIALOG RUN</b>(channel number,label,x,y)</p>
 
@@ -128,9 +127,8 @@ E> A$=A$+"BA 50,50;SI 180,60;SA 1 ;IN 5,0,0;GB 0,0,170,50;"
    Dialog Close
 </pre>
 
-<p>
-<b>DIALOG CLOSE</b><br>
-<i>instruction: close one or more dialogue channels</i><br>
+<h3 id="i-dialog-close">DIALOG CLOSE</h3>
+<p><i>instruction: close one or more dialogue channels</i><br>
 <b>Dialog Close</b><br>
 <b>Dialog Close</b> channel number</p>
 
@@ -210,9 +208,8 @@ X> Do
    Loop
 </pre>
 
-<p>
-<b>RDIALOG</b><br>
-<i>function: read the status of a zone or button</i><br>
+<h3 id="fn-rdialog">RDIALOG</h3>
+<p><i>function: read the status of a zone or button</i><br>
 button=<b>RDIALOG</b>(channel number,button number)<br>
 button=<b>RDIALOG</b>(channel number,button number, object number)</p>
 
@@ -232,9 +229,8 @@ zones (explained later) which will return a new value entered by the user. If a 
 checked in this way, a result of zero will given, and the RDIALOG$ function should be used
 instead. This is explained next.</p>
 
-<p>
-<b>RDIALOG$</b><br>
-<i>function: return text string entered into an edit zone</i><br>
+<h3 id="fn-rdialog-dollar">RDIALOG$</h3>
+<p><i>function: return text string entered into an edit zone</i><br>
 text string=<b>RDIALOG$</b>(channel number,zone number)<br>
 text string=<b>RDIALOG$</b>(channel number,zone number,object number)</p>
 
@@ -252,9 +248,8 @@ Variables that have been assigned to an active Interface channel can be read and
 directly from the main AMOS Professional program.</p>
 
 
-<p>
-<b>VDIALOG</b><br>
-<i>function: assign or read an Interface string</i><br>
+<h3 id="fn-vdialog">VDIALOG</h3>
+<p><i>function: assign or read an Interface string</i><br>
 <b>Vdialog</b>(channel number,variable number)=value<br>
 value=<b>Vdialog</b>(channel number,variable number)</p>
 
@@ -263,9 +258,8 @@ This function can be used to either read or change the variables in any active I
 The active channel number is selected, followed by the number of the variable you are
 interested in. The value refers to the new integer value that has been selected for this variable.</p>
 
-<p>
-<b>VDIALOG$</b><br>
-<i>function: assign or read an Interface value</i><br>
+<h3 id="fn-vdialog-dollar">VDIALOG$</h3>
+<p><i>function: assign or read an Interface value</i><br>
 <b>Vdialog$</b>(channel number,variable number)=string$<br>
 string$=<b>Vdialog$</b>(channel number,variable number)</p>
 
@@ -517,9 +511,8 @@ In order to generate an Interface selector, a method is needed of grabbing an en
 from the AMOS Professional main program. A simple function is provided for transferring
 complete arrays into an Interface routine.</p>
 
-<p>
-<b>ARRAY</b><br>
-<i>function: load the address of an array into a program</i><br>
+<h3 id="fn-array">ARRAY</h3>
+<p><i>function: load the address of an array into a program</i><br>
 address=<b>ARRAY</b>(list$(0))</p>
 
 <p>
@@ -866,9 +859,8 @@ Slider      Changes the "total" parameter
 </pre>
 
 
-<p>
-<b>DIALOG FREEZE</b><br>
-<i>instruction: stop dialogue channel input</i><br>
+<h3 id="i-dialog-freeze">DIALOG FREEZE</h3>
+<p><i>instruction: stop dialogue channel input</i><br>
 <b>Dialog Freeze</b> [channel number]</p>
 
 <p>
@@ -876,18 +868,16 @@ This command is used to freeze all input from one or more active dialogue channe
 number of a single dialogue routine that is to be suspended is specified in square brackets. If this
 number is omitted all current channels will be frozen.</p>
 
-<p>
-<b>DIALOG UNFREEZE</b><br>
-<i>instruction: re-activate a frozen dialogue channel</i><br>
+<h3 id="i-dialog-unfreeze">DIALOG UNFREEZE</h3>
+<p><i>instruction: re-activate a frozen dialogue channel</i><br>
 <b>Dialog Unfreeze</b> [channel number]</p>
 
 <p>
 Use this instruction to re-activate one or more dialogue channels from the point at which they
 were frozen.</p>
 
-<p>
-<b>DIALOG CLR</b><br>
-<i>instruction: clear a dialogue box</i><br>
+<h3 id="i-dialog-clr">DIALOG CLR</h3>
+<p><i>instruction: clear a dialogue box</i><br>
 <b>Dialog Clr</b> channel number</p>
 
 <p>
