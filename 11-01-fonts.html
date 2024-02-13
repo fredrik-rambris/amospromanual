@@ -1,89 +1,88 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - fonts</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - fonts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Fonts</h1>
+    <h1>Fonts</h1>
 
 
-
-<p>
-A "font" refers to the physical shape of a set of printed characters. This Chapter explains how to
-exploit the ready-made AMOS Professional fonts, how to import new ones, and how to design
-your own fonts using the ready-made Font Editor program.</p>
+    <p>
+        A "font" refers to the physical shape of a set of printed characters. This Chapter explains how to
+        exploit the ready-made AMOS Professional fonts, how to import new ones, and how to design
+        your own fonts using the ready-made Font Editor program.</p>
 </section>
 
 <section id="01-text-fonts">
-<h2>Text Fonts</h2>
-<p>
-Tile sets of fonts used by commands like PRINT, are known as "text fonts", and each AMOS
-Professional window can have its own individual set, as required. Styles and special effects for
-text fonts are controlled by instructions such as TEXT STYLE and WRITING, which are fully
-explained in <a href="05-06-text.html">Chapter 5.6</a>.</p>
+    <h2>Text Fonts</h2>
+    <p>
+        Tile sets of fonts used by commands like PRINT, are known as "text fonts", and each AMOS
+        Professional window can have its own individual set, as required. Styles and special effects for
+        text fonts are controlled by instructions such as TEXT STYLE and WRITING, which are fully
+        explained in <a href="05-06-text.html">Chapter 5.6</a>.</p>
 </section>
 
 <section id="02-graphic-text-fonts">
-<h2>Graphic Text Fonts</h2>
-<p>
-Although text fonts are suitable for normal uses, an infinite variety of styles can be achieved by
-exploiting the much more flexible category of fonts known as "graphic text". Text fonts are
-positioned by referring to their location in terms of characters, but graphic text can be controlled
-much more accurately, because it is positioned using x,y-coordinates numbered in pixels. AMOS
-Professional supports the thousands of graphic fonts, available in commercial packages or in the
-public domain.</p>
+    <h2>Graphic Text Fonts</h2>
+    <p>
+        Although text fonts are suitable for normal uses, an infinite variety of styles can be achieved by
+        exploiting the much more flexible category of fonts known as "graphic text". Text fonts are
+        positioned by referring to their location in terms of characters, but graphic text can be controlled
+        much more accurately, because it is positioned using x,y-coordinates numbered in pixels. AMOS
+        Professional supports the thousands of graphic fonts, available in commercial packages or in the
+        public domain.</p>
 </section>
 
 <section id="03-rom-fonts">
-<h2>ROM Fonts</h2>
-<p>
-There are also alternative fonts built into the Amiga's ROM chips, and these are also available for
-use by the AMOS Professional system.</p>
+    <h2>ROM Fonts</h2>
+    <p>
+        There are also alternative fonts built into the Amiga's ROM chips, and these are also available for
+        use by the AMOS Professional system.</p>
 
-<p>
-All fonts are referred to by an individual index number in a font list. No matter what type of font
-is to be used, you must first "get" it from wherever it is being stored, and then "set" it, ready for
-use. Users who are familiar with the AMOS system will find that the AMOS Professional system
-for handling fonts has been streamlined and improved. When a SET FONT command is given,
-the system will do an automatic search to see if the required font is already in memory, and if all
-is well, the specified font is immediately made available for use. If the required font is not found
-in the current list of available fonts, it will be loaded, but the next time it is called by SET FONT
-there will be no need to load it again.</p>
+    <p>
+        All fonts are referred to by an individual index number in a font list. No matter what type of font
+        is to be used, you must first "get" it from wherever it is being stored, and then "set" it, ready for
+        use. Users who are familiar with the AMOS system will find that the AMOS Professional system
+        for handling fonts has been streamlined and improved. When a SET FONT command is given,
+        the system will do an automatic search to see if the required font is already in memory, and if all
+        is well, the specified font is immediately made available for use. If the required font is not found
+        in the current list of available fonts, it will be loaded, but the next time it is called by SET FONT
+        there will be no need to load it again.</p>
 
-<p>
-<i>instruction: create a list of available fonts from System disc</i><br>
-<b>Get Fonts</b></p>
+    <p>
+        <i>instruction: create a list of available fonts from System disc</i><br>
+        <b>Get Fonts</b></p>
 
-<p>
-The GET FONTS command creates an internal list of all available fonts on the System disc, and it
-should always be called at least once before any changes in settings are made. In practice, you
-will probably want to use this instruction at the beginning of a program, so that SET FONT may
-be used freely at any later point.</p>
+    <p>
+        The GET FONTS command creates an internal list of all available fonts on the System disc, and it
+        should always be called at least once before any changes in settings are made. In practice, you
+        will probably want to use this instruction at the beginning of a program, so that SET FONT may
+        be used freely at any later point.</p>
 
-<p>
-It is <b>very</b> important to remember that if you are distributing run-only or compiled programs to
-be used by other people, and these programs make use of alternative fonts, then the required
-font files <b>must</b> be included.</p>
+    <p>
+        It is <b>very</b> important to remember that if you are distributing run-only or compiled programs to
+        be used by other people, and these programs make use of alternative fonts, then the required
+        font files <b>must</b> be included.</p>
 
-<pre>
+    <pre>
 E> Get Fonts
    For F=0 To 10
     Set Font F : T$="AMOS Professional Font: "+Str$(F)
@@ -93,24 +92,24 @@ E> Get Fonts
 </pre>
 
 
-<h3 id="i-get-disc-fonts">GET DISC FONTS</h3>
-<p><i>instruction: create a list of available fonts from current disc</i><br>
-<b>Get Disc Fonts</b></p>
+    <h3 id="i-get-disc-fonts">GET DISC FONTS</h3>
+    <p><i>instruction: create a list of available fonts from current disc</i><br>
+        <b>Get Disc Fonts</b></p>
 
-<p>
-This instruction is exactly the same as the GET FONTS command, except that it triggers a search
-through the "Fonts" folder of your current disc only. If new fonts are to be used, then they must
-first be copied into this folder.</p>
+    <p>
+        This instruction is exactly the same as the GET FONTS command, except that it triggers a search
+        through the "Fonts" folder of your current disc only. If new fonts are to be used, then they must
+        first be copied into this folder.</p>
 
-<h3 id="i-get-rom-fonts">GET ROM FONTS</h3>
-<p><i>instruction: create a list of available ROM fonts</i><br>
-<b>Get Rom Fonts</b></p>
+    <h3 id="i-get-rom-fonts">GET ROM FONTS</h3>
+    <p><i>instruction: create a list of available ROM fonts</i><br>
+        <b>Get Rom Fonts</b></p>
 
-<p>
-As you might expect, this command produces a list of the fonts that are built into the computer's
-ROM chips. At time of writing, the choice is rather limited:</p>
+    <p>
+        As you might expect, this command produces a list of the fonts that are built into the computer's
+        ROM chips. At time of writing, the choice is rather limited:</p>
 
-<pre>
+    <pre>
 E> Screen Open 0,640,200,16,Hires
    Get Rom Fonts
    For A=1 To 10
@@ -119,72 +118,72 @@ E> Screen Open 0,640,200,16,Hires
    Next A
 </pre>
 
-<h3 id="fn-font-dollar">FONT$</h3>
-<p><i>function: return details of available fonts</i><br>
-report$=<b>Font$</b>(font number)</p>
+    <h3 id="fn-font-dollar">FONT$</h3>
+    <p><i>function: return details of available fonts</i><br>
+        report$=<b>Font$</b>(font number)</p>
 
-<p>
-This function is used to examine an existing font list and make a report, giving details of the
-specified font number. The report is given as a string of 38 characters, holding the following
-information: the name of the font, its physical height in pixels and its status set to either Disc or
-Rom. For example:</p>
+    <p>
+        This function is used to examine an existing font list and make a report, giving details of the
+        specified font number. The report is given as a string of 38 characters, holding the following
+        information: the name of the font, its physical height in pixels and its status set to either Disc or
+        Rom. For example:</p>
 
-<pre>
+    <pre>
 E> Get Fonts : Set Font 2
    Print Font$(2)
 </pre>
 
-<h3 id="i-set-font">SET FONT</h3>
-<p><i>instruction: select font for use by Text command</i><br>
-<b>Set Font</b> font number</p>
+    <h3 id="i-set-font">SET FONT</h3>
+    <p><i>instruction: select font for use by Text command</i><br>
+        <b>Set Font</b> font number</p>
 
-<p>
-This simple command is used to select the character set to be employed by a TEXT instruction,
-like this:</p>
+    <p>
+        This simple command is used to select the character set to be employed by a TEXT instruction,
+        like this:</p>
 
-<p>
-E> Get Fonts
-   Set Font 2 : Text 100,100,"AMOS" : Set Font 1: Text 100,120,"Professional"
-</p>
+    <p>
+        E> Get Fonts
+        Set Font 2 : Text 100,100,"AMOS" : Set Font 1: Text 100,120,"Professional"
+    </p>
 
 
-<h3 id="i-text">TEXT</h3>
-<p><i>instruction: print graphical text</i><br>
-<b>Text</b> x,y,text$</p>
+    <h3 id="i-text">TEXT</h3>
+    <p><i>instruction: print graphical text</i><br>
+        <b>Text</b> x,y,text$</p>
 
-<p>
-This command is used to print text at the specified <b>graphical</b> coordinates. All coordinates are
-measured relative to the "baseline" of the current character set, which can be found using the
-TEXT BASE function, explained next. Normally, the baseline is the notional line on which all
-characters sit, and the "tails" of certain characters (like g,j,p,q and y) drop below this baseline.
-The next example demonstrates how text can be placed at any pixel position on the screen:</p>
+    <p>
+        This command is used to print text at the specified <b>graphical</b> coordinates. All coordinates are
+        measured relative to the "baseline" of the current character set, which can be found using the
+        TEXT BASE function, explained next. Normally, the baseline is the notional line on which all
+        characters sit, and the "tails" of certain characters (like g,j,p,q and y) drop below this baseline.
+        The next example demonstrates how text can be placed at any pixel position on the screen:</p>
 
-<pre>
+    <pre>
 E> Do
     Ink Rnd(15)+1,Rnd(15) : Text Rnd(320)+1,Rnd(198)+1,"AMOS Professional"
    Loop
 </pre>
 
-<h3 id="fn-text-base">TEXT BASE</h3>
-<p><i>function: return the text base of the current character set</i><br>
-baseline=<b>Text base</b></p>
+    <h3 id="fn-text-base">TEXT BASE</h3>
+    <p><i>function: return the text base of the current character set</i><br>
+        baseline=<b>Text base</b></p>
 
-<p>
-This function is used to get the reference position of the current font's baseline, given as the
-number of pixels between the top of the character, and the point that it will be printed on the
-screen. It is similar to the hot-spot of an Object.</p>
+    <p>
+        This function is used to get the reference position of the current font's baseline, given as the
+        number of pixels between the top of the character, and the point that it will be printed on the
+        screen. It is similar to the hot-spot of an Object.</p>
 
-<h3 id="fn-text-length">TEXT LENGTH</h3>
-<p><i>function: return the length of a section of graphical text</i><br>
-width=<b>Text Length</b>(text$)</p>
+    <h3 id="fn-text-length">TEXT LENGTH</h3>
+    <p><i>function: return the length of a section of graphical text</i><br>
+        width=<b>Text Length</b>(text$)</p>
 
-<p>
-This function returns the number of pixels that make up the width of the characters in the
-current font, in a given string. This can vary for the same string, depending on the font in use.
-Furthermore, there are special fonts which assign different widths for each character in the same
-character set, known as "proportional" fonts. Here is a simple example:</p>
+    <p>
+        This function returns the number of pixels that make up the width of the characters in the
+        current font, in a given string. This can vary for the same string, depending on the font in use.
+        Furthermore, there are special fonts which assign different widths for each character in the same
+        character set, known as "proportional" fonts. Here is a simple example:</p>
 
-<pre>
+    <pre>
 E> TS="Centred Text"
    L=Text Length(T$)
    Text 160-L/2,100,T$
@@ -192,136 +191,136 @@ E> TS="Centred Text"
 </section>
 
 <section id="04-wiping-fonts-from-memory">
-<h2>Wiping fonts from memory</h2>
-<p>
-As fonts are called, they build up in memory. Valuable memory is consumed, and it may be
-necessary to wipe fonts, using a line like this:</p>
+    <h2>Wiping fonts from memory</h2>
+    <p>
+        As fonts are called, they build up in memory. Valuable memory is consumed, and it may be
+        necessary to wipe fonts, using a line like this:</p>
 
-<pre>
+    <pre>
 X> Trap Reserve As Data 10,1000000000
 </pre>
 
-<p>
-This forces AmigaDOS to clear out all unused memory, which will affect the fonts that have
-been stored. Obviously the huge amount of RAM that has been requested cannot possibly be
-reserved, even after the fonts have been cleared, and an "out of memory" error will be
-generated. A TRAP is included to cater for this event.</p>
+    <p>
+        This forces AmigaDOS to clear out all unused memory, which will affect the fonts that have
+        been stored. Obviously the huge amount of RAM that has been requested cannot possibly be
+        reserved, even after the fonts have been cleared, and an "out of memory" error will be
+        generated. A TRAP is included to cater for this event.</p>
 
 </section>
 
 <section id="05-assigning-fonts">
-<h2>Assigning fonts</h2>
-<p>
-In the original AMOS system, you were obliged to go back to the Amiga Disc Operating System
-every time that the current font directory needed changing. With AMOS Professional, ill('
-ASSIGN instruction solves this problem.</p>
+    <h2>Assigning fonts</h2>
+    <p>
+        In the original AMOS system, you were obliged to go back to the Amiga Disc Operating System
+        every time that the current font directory needed changing. With AMOS Professional, ill('
+        ASSIGN instruction solves this problem.</p>
 
-<p>
-<b>ASSIGN</b><br>
-<i>instruction: assign a name to a file or device</i><br>
-<b>Assign</b> "Name:" <b>To</b> "New_Pathname"<br>
-<b>Assign</b> "Name:" <b>To</b> "Device"</p>
+    <p>
+        <b>ASSIGN</b><br>
+        <i>instruction: assign a name to a file or device</i><br>
+        <b>Assign</b> "Name:" <b>To</b> "New_Pathname"<br>
+        <b>Assign</b> "Name:" <b>To</b> "Device"</p>
 
-<p>
-Supposing that you have an extensive library of fonts installed on a hard disc, as part of your
-development system, but you are writing programs for users who only have use of the internal
-floppy drive. You will need to test your programs with a reduced number of fonts, and employ
-the internal drive instead of your hard disc. This is easily achieved with the following line:</p>
+    <p>
+        Supposing that you have an extensive library of fonts installed on a hard disc, as part of your
+        development system, but you are writing programs for users who only have use of the internal
+        floppy drive. You will need to test your programs with a reduced number of fonts, and employ
+        the internal drive instead of your hard disc. This is easily achieved with the following line:</p>
 
-<pre>
+    <pre>
 X> Assign "Fonts:" To "Df0:Fonts"
 </pre>
 
-<p>
-Now, every time that GET FONTS or GET DISC FONTS is called, the internal drive will be used
-instead of your hard disc.</p>
+    <p>
+        Now, every time that GET FONTS or GET DISC FONTS is called, the internal drive will be used
+        instead of your hard disc.</p>
 </section>
 
 <section id="06-converting-font-coordinates">
-<h2>Converting font coordinates</h2>
-<p>
-Obviously, with graphic fonts using coordinates measured in pixels, and text fonts positioned by
-character coordinates, a set of conversion functions between the two systems is vital.</p>
+    <h2>Converting font coordinates</h2>
+    <p>
+        Obviously, with graphic fonts using coordinates measured in pixels, and text fonts positioned by
+        character coordinates, a set of conversion functions between the two systems is vital.</p>
 
-<p>
-<b>XTEXT</b><br>
-<b>YTEXT</b><br>
-<i>functions: convert graphic coordinates to text coordinates</i><br>
-text x-coordinate=<b>Xtext</b>(graphic x-coordinate)<br>
-text y-coordinate=<b>Ytext</b>(graphic y-coordinate)</p>
+    <p>
+        <b>XTEXT</b><br>
+        <b>YTEXT</b><br>
+        <i>functions: convert graphic coordinates to text coordinates</i><br>
+        text x-coordinate=<b>Xtext</b>(graphic x-coordinate)<br>
+        text y-coordinate=<b>Ytext</b>(graphic y-coordinate)</p>
 
-<p>
-These self-explanatory functions convert coordinates from the standard graphical screen
-coordinates that use pixels, to text coordinates, that are given in character lines and column
-spacings. The resulting text coordinates are relative to the current window, and if the screen
-coordinate lies outside of this window, a negative value will be returned.</p>
+    <p>
+        These self-explanatory functions convert coordinates from the standard graphical screen
+        coordinates that use pixels, to text coordinates, that are given in character lines and column
+        spacings. The resulting text coordinates are relative to the current window, and if the screen
+        coordinate lies outside of this window, a negative value will be returned.</p>
 
-<p>
-<b>XGRAPHIC</b><br>
-<b>YGRAPHIC</b><br>
-<i>functions: convert text coordinates to graphic coordinates</i><br>
-graphic x-coordinate=<b>Xtext</b>(text x-coordinate)<br>
-graphic y-coordinate=<b>Ytext</b>(text y-coordinate)</p>
+    <p>
+        <b>XGRAPHIC</b><br>
+        <b>YGRAPHIC</b><br>
+        <i>functions: convert text coordinates to graphic coordinates</i><br>
+        graphic x-coordinate=<b>Xtext</b>(text x-coordinate)<br>
+        graphic y-coordinate=<b>Ytext</b>(text y-coordinate)</p>
 
-<p>
-This pair of functions performs the conversion of text format coordinates to graphic format
-coordinates, and can be used to position text over an area of graphics on the screen.</p>
+    <p>
+        This pair of functions performs the conversion of text format coordinates to graphic format
+        coordinates, and can be used to position text over an area of graphics on the screen.</p>
 
 </section>
 
 <section id="07-the-amos-professional-text-font-editor">
-<h2>The AMOS Professional Text Font Editor</h2>
-<p>
-No matter how many fonts are available in your collection, there may be occasions when you
-need to create your own character sets, or edit existing fonts for a specific purpose or special
-effect. Nothing could be simpler!</p>
+    <h2>The AMOS Professional Text Font Editor</h2>
+    <p>
+        No matter how many fonts are available in your collection, there may be occasions when you
+        need to create your own character sets, or edit existing fonts for a specific purpose or special
+        effect. Nothing could be simpler!</p>
 
-<p>
-The AMOS Professional Text Font Editor is available on your Accessories disc, allowing fast,
-precise and fool-proof loading, editing and saving of text fonts.</p>
+    <p>
+        The AMOS Professional Text Font Editor is available on your Accessories disc, allowing fast,
+        precise and fool-proof loading, editing and saving of text fonts.</p>
 
-<pre>
+    <pre>
 LD> Load "AMOSPro_Accessories:Font8x8_Editor.AMOS"
 </pre>
 
-<p>
-The Font Editor screen is divided into three practical areas. The left-hand side of the screen is
-used to display an entire character set. The top right-hand area of the screen displays an
-enlarged 8 x 8 grid, which holds the individual character to be edited This is the working area.
-The bottom right-hand screen contains a simple panel of options.</p>
+    <p>
+        The Font Editor screen is divided into three practical areas. The left-hand side of the screen is
+        used to display an entire character set. The top right-hand area of the screen displays an
+        enlarged 8 x 8 grid, which holds the individual character to be edited This is the working area.
+        The bottom right-hand screen contains a simple panel of options.</p>
 
-<p><b>[LOAD FONT]</b><br>
-Click on this option now, and a file requester will appear, asking you to load a font for editing.
-This may be the Default Font which is available in the APSystem folder,
-(AMOSPro.Default.Font).</p>
+    <p><b>[LOAD FONT]</b><br>
+        Click on this option now, and a file requester will appear, asking you to load a font for editing.
+        This may be the Default Font which is available in the APSystem folder,
+        (AMOSPro.Default.Font).</p>
 
-<p>
-After clicking on your choice of font, the individual characters in the set are displayed on the
-Font Editor working screen, and any of these characters can be selected by the mouse, for your
-attention. As soon as a character is selected, its enlarged image appears in the editing window at
-the top right-hand section of the screen.</p>
+    <p>
+        After clicking on your choice of font, the individual characters in the set are displayed on the
+        Font Editor working screen, and any of these characters can be selected by the mouse, for your
+        attention. As soon as a character is selected, its enlarged image appears in the editing window at
+        the top right-hand section of the screen.</p>
 
-<p><b>[CLEAR][SET]</b><br>
-This pair of options are used to affect <b>all</b> of the pixels that make up the current character, by
-either clearing or setting them. Alternatively, individual pixels can be cleared or set by clicking
-on them with any mouse button, to toggle their current status.</p>
+    <p><b>[CLEAR][SET]</b><br>
+        This pair of options are used to affect <b>all</b> of the pixels that make up the current character, by
+        either clearing or setting them. Alternatively, individual pixels can be cleared or set by clicking
+        on them with any mouse button, to toggle their current status.</p>
 
-<p><b>[STORE]</b><br>
-The current character also appears in the [STORE] option panel. When you are satisfied with the
-edited appearance of the current character, click on this panel to store it into the current font's
-character set, before moving to the next operation.</p>
+    <p><b>[STORE]</b><br>
+        The current character also appears in the [STORE] option panel. When you are satisfied with the
+        edited appearance of the current character, click on this panel to store it into the current font's
+        character set, before moving to the next operation.</p>
 
-<p><b>[SAVE FONT]</b><br>
-After your editing session is finished, the new font is saved to disc by clicking on this option,
-and calling up the familiar file selector. After saving, you can continue the editing process, or call
-up a new font to be edited.</p>
+    <p><b>[SAVE FONT]</b><br>
+        After your editing session is finished, the new font is saved to disc by clicking on this option,
+        and calling up the familiar file selector. After saving, you can continue the editing process, or call
+        up a new font to be edited.</p>
 
-<p><b>[QUIT]</b><br>
-Select this option to return to the AMOS Professional Edit screen.</p>
+    <p><b>[QUIT]</b><br>
+        Select this option to return to the AMOS Professional Edit screen.</p>
 
-<p>
-You are warned <b>not</b> to destroy the default font, otherwise AMOS Professional will be unusable
-the next time it is initialised!</p>
+    <p>
+        You are warned <b>not</b> to destroy the default font, otherwise AMOS Professional will be unusable
+        the next time it is initialised!</p>
 
 
 </section>

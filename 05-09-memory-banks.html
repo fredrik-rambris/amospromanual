@@ -1,89 +1,89 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - memory banks</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - memory banks</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Memory Banks</h1>
+    <h1>Memory Banks</h1>
 
-<p>This Chapter explains what memory banks are, the sort of information they can hold and how
-they are used.</p>
+    <p>This Chapter explains what memory banks are, the sort of information they can hold and how
+        they are used.</p>
 
-<p>
-Any AMOS Professional program can include optional lists of images, audio samples or music
-themes. These items are managed by the AMOS Professional system automatically, and they can
-be permanently installed as part of your programs. This means that once these items have been
-set up, they may be exploited instantly.</p>
+    <p>
+        Any AMOS Professional program can include optional lists of images, audio samples or music
+        themes. These items are managed by the AMOS Professional system automatically, and they can
+        be permanently installed as part of your programs. This means that once these items have been
+        set up, they may be exploited instantly.</p>
 
-<p>
-AMOS Professional stores this information in special areas of accommodation known as
-memory banks", and these banks can be created by certain accessories such as the Object
-Editor, or directly inside a program with the RESERVE command. Memory banks are also
-generated as a direct result of certain instructions, such as GET SPRITE and FRAME LOAD.</p>
+    <p>
+        AMOS Professional stores this information in special areas of accommodation known as
+        memory banks", and these banks can be created by certain accessories such as the Object
+        Editor, or directly inside a program with the RESERVE command. Memory banks are also
+        generated as a direct result of certain instructions, such as GET SPRITE and FRAME LOAD.</p>
 </section>
 
 <section id="01-memory-bank-numbers-names-and-types">
-<h2>Memory bank numbers, names and types</h2>
+    <h2>Memory bank numbers, names and types</h2>
 
-<p>Every memory bank is assigned its own unique number, ranging from 1 up to 65535. Bank
-numbers 1 to 4 are normally reserved for Objects, icons, music and AMAL programs, and the
-remaining banks can be used for any information you choose.</p>
+    <p>Every memory bank is assigned its own unique number, ranging from 1 up to 65535. Bank
+        numbers 1 to 4 are normally reserved for Objects, icons, music and AMAL programs, and the
+        remaining banks can be used for any information you choose.</p>
 
-<p>
-As well as their identification number, most memory banks also have a name, indicating the
-type of information that they are holding. Here are some typical names:</p>
+    <p>
+        As well as their identification number, most memory banks also have a name, indicating the
+        type of information that they are holding. Here are some typical names:</p>
 
-<p>
-"Sprites" can contain Objects used for Sprite and Bob images.<br>
-"Samples" can hold sound samples.<br>
-"Music" can store melodies and background music.<br>
-"Resource" can store definitions for control buttons and boxes.</p>
+    <p>
+        "Sprites" can contain Objects used for Sprite and Bob images.<br>
+        "Samples" can hold sound samples.<br>
+        "Music" can store melodies and background music.<br>
+        "Resource" can store definitions for control buttons and boxes.</p>
 
-<p>There are two main types of memory bank, "data banks" and "work banks".</p>
+    <p>There are two main types of memory bank, "data banks" and "work banks".</p>
 
-<p>A <b>data</b> bank is used to hold vital information which must be permanently available for your
-programs to use. Data banks are saved along with the program's Basic listings automatically.
-This means that once they have been installed, there is no need to worry about them any
-further.</p>
+    <p>A <b>data</b> bank is used to hold vital information which must be permanently available for your
+        programs to use. Data banks are saved along with the program's Basic listings automatically.
+        This means that once they have been installed, there is no need to worry about them any
+        further.</p>
 
-<p>A <b>work</b> bank is temporary, and is freshly defined every time that a program is run. Work banks
-are totally discarded when programs are saved onto disc.</p>
+    <p>A <b>work</b> bank is temporary, and is freshly defined every time that a program is run. Work banks
+        are totally discarded when programs are saved onto disc.</p>
 
-<p>Memory banks are also organised according to the type of memory that they make use of.</p>
+    <p>Memory banks are also organised according to the type of memory that they make use of.</p>
 
-<p>
-<b>Fast banks</b> are stored in fast memory, if this type of memory is available. Fast memory cannot be
-used for items that need to be accessed by the Amiga's hardware chips, such as Sprites or
-samples, but they are fine for AMAL programs or menu definitions.</p>
+    <p>
+        <b>Fast banks</b> are stored in fast memory, if this type of memory is available. Fast memory cannot be
+        used for items that need to be accessed by the Amiga's hardware chips, such as Sprites or
+        samples, but they are fine for AMAL programs or menu definitions.</p>
 
-<p>
-<b>Chip banks</b> are reserved using the Amiga's chip memory, and they can be used directly with the
-Amiga's own sound and graphics chips. Depending on the model of Amiga in use, there can be
-anything between 512k and 2024k of chip Ram at your disposal.</p>
+    <p>
+        <b>Chip banks</b> are reserved using the Amiga's chip memory, and they can be used directly with the
+        Amiga's own sound and graphics chips. Depending on the model of Amiga in use, there can be
+        anything between 512k and 2024k of chip Ram at your disposal.</p>
 
-<p>
-Here is a list of the most common types of memory bank that will be used with AMOS
-Professional programs:</p>
+    <p>
+        Here is a list of the most common types of memory bank that will be used with AMOS
+        Professional programs:</p>
 
-<pre>
+    <pre>
 <b>Bank Name         Items Stored                    Bank Type        Memory          Notes</b>
 Sprites           Sprite or Bob images            Permanent         Chip           Bank 1 only
 Icons             Icon images                     Permanent         Chip           Bank 2 only
@@ -102,43 +102,43 @@ Fast Data         constant fast data              Permanent         Fast        
 </section>
 
 <section id="02-reserving-a-bank">
-<h2>Reserving a bank</h2>
+    <h2>Reserving a bank</h2>
 
-<p>It has already been explained that AMOS Professional allocates certain types of bank
-automatically. To create any other required memory bank, they must first be "reserved". The
-RESERVE AS command is followed by the type of bank that you want to create, a comma, then
-the number of bytes needed for the length of this bank.</p>
+    <p>It has already been explained that AMOS Professional allocates certain types of bank
+        automatically. To create any other required memory bank, they must first be "reserved". The
+        RESERVE AS command is followed by the type of bank that you want to create, a comma, then
+        the number of bytes needed for the length of this bank.</p>
 
-<p>If a selected bank already exists, it will be erased to make room for the new definition.</p>
+    <p>If a selected bank already exists, it will be erased to make room for the new definition.</p>
 
-<p>
-Allowable <b>bank numbers</b> range from 1 to 65535, but because bank numbers 1 to 4 are already
-used internally by the AMOS Professional system, new banks should be reserved using the bank
-numbers 5 and above. For users who have upgraded from earlier versions of the AMOS system,
-you will have noted the increase in the range of available bank numbers from the original 15.
-There are four alternative types of bank that can be reserved, and these will now be explained.</p>
+    <p>
+        Allowable <b>bank numbers</b> range from 1 to 65535, but because bank numbers 1 to 4 are already
+        used internally by the AMOS Professional system, new banks should be reserved using the bank
+        numbers 5 and above. For users who have upgraded from earlier versions of the AMOS system,
+        you will have noted the increase in the range of available bank numbers from the original 15.
+        There are four alternative types of bank that can be reserved, and these will now be explained.</p>
 
-<h3 id="i-reserve-as-data">RESERVE AS DATA</h3>
-<p><i>instruction: reserve a new data bank</i><br>
-<b>Reserve As Data</b> bank number,length</p>
+    <h3 id="i-reserve-as-data">RESERVE AS DATA</h3>
+    <p><i>instruction: reserve a new data bank</i><br>
+        <b>Reserve As Data</b> bank number,length</p>
 
-<p>
-This reserves the selected bank number with the number of bytes specified as its length. Data
-banks are <b>permanent</b>, and wherever possible, their memory will be allocated from fast memory,
-so this type of bank should <b>not</b> be used for information such as Objects and samples which need
-to be accessed directly by the Amiga's hardware chips.</p>
+    <p>
+        This reserves the selected bank number with the number of bytes specified as its length. Data
+        banks are <b>permanent</b>, and wherever possible, their memory will be allocated from fast memory,
+        so this type of bank should <b>not</b> be used for information such as Objects and samples which need
+        to be accessed directly by the Amiga's hardware chips.</p>
 
-<h3 id="i-reserve-as-work">RESERVE AS WORK</h3>
-<p><i>instruction: reserve a new work bank</i><br>
-<b>Reserve as Work</b> bank number,length</p>
+    <h3 id="i-reserve-as-work">RESERVE AS WORK</h3>
+    <p><i>instruction: reserve a new work bank</i><br>
+        <b>Reserve as Work</b> bank number,length</p>
 
-<p>This allocates a <b>temporary</b> workspace of the requested length from fast memory, if it is available.</p>
+    <p>This allocates a <b>temporary</b> workspace of the requested length from fast memory, if it is available.</p>
 
-<p>The work data will be erased every time the program is run from the Editor, and it will be
-discarded when the listing is saved onto disc. A quick check can be made to see if the data area
-has been successfully assigned to fast memory, using the FAST FREE function, like this:</p>
+    <p>The work data will be erased every time the program is run from the Editor, and it will be
+        discarded when the listing is saved onto disc. A quick check can be made to see if the data area
+        has been successfully assigned to fast memory, using the FAST FREE function, like this:</p>
 
-<pre>
+    <pre>
 E> M=Fast Free : Rem Give the amount of available FAST memory
    Reserve As Work 10,1000
    If M<>Fast Free
@@ -148,34 +148,34 @@ E> M=Fast Free : Rem Give the amount of available FAST memory
    End If
 </pre>
 
-<h3 id="i-reserve-as-chip-data">RESERVE AS CHIP DATA</h3>
-<p><i>instruction: reserve a new chip data bank</i><br>
-<b>Reserve As Chip Data</b> bank number,length</p>
+    <h3 id="i-reserve-as-chip-data">RESERVE AS CHIP DATA</h3>
+    <p><i>instruction: reserve a new chip data bank</i><br>
+        <b>Reserve As Chip Data</b> bank number,length</p>
 
-<p>
-Use this variation of the RESERVE AS instruction to allocate a <b>permanent</b> area of memory using
-Chip Ram. If there is none available, an "Out of Memory" error will be reported. You can obtain
-an instant read-out of the remaining chip memory by calling the CHIP FREE function, as
-follows:</p>
+    <p>
+        Use this variation of the RESERVE AS instruction to allocate a <b>permanent</b> area of memory using
+        Chip Ram. If there is none available, an "Out of Memory" error will be reported. You can obtain
+        an instant read-out of the remaining chip memory by calling the CHIP FREE function, as
+        follows:</p>
 
-<pre>
+    <pre>
 E> CF=Chip Free
    Print "Remaining Chip memory = ";CF;" bytes."
 </pre>
 
-<p>Once a bank has been defined by this command, it will be saved automatically, along with your
-AMOS Professional Basic program.</p>
+    <p>Once a bank has been defined by this command, it will be saved automatically, along with your
+        AMOS Professional Basic program.</p>
 
-<h3 id="i-reserve-as-chip-work">RESERVE AS CHIP WORK</h3>
-<p><i>instruction: reserve a new chip work bank</i><br>
-<b>Reserve As Chip Work</b> bank number,length</p>
+    <h3 id="i-reserve-as-chip-work">RESERVE AS CHIP WORK</h3>
+    <p><i>instruction: reserve a new chip work bank</i><br>
+        <b>Reserve As Chip Work</b> bank number,length</p>
 
-<p>
-This command allocates the selected block of <b>temporary</b> memory using Chip Ram, and it is often
-used with the DOUBLE BUFFERED sampling system, to play samples directly from hard disc.
-Here are some typical examples of the different RESERVE AS commands:</p>
+    <p>
+        This command allocates the selected block of <b>temporary</b> memory using Chip Ram, and it is often
+        used with the DOUBLE BUFFERED sampling system, to play samples directly from hard disc.
+        Here are some typical examples of the different RESERVE AS commands:</p>
 
-<pre>
+    <pre>
 X> Reserve As Chip Work 10,10000: Rem 10000 bytes of chip workspace to bank 10
    Reserve As Work 11,5000: Rem 5000 bytes of fast workspace to bank 11
    Reserve As Chip Data 12,2000 : Rem 2000 bytes of permanent chip data to bank 12
@@ -184,32 +184,32 @@ X> Reserve As Chip Work 10,10000: Rem 10000 bytes of chip workspace to bank 10
 </section>
 
 <section id="03-saving-memory-banks">
-<h2>Saving memory banks</h2>
+    <h2>Saving memory banks</h2>
 
-<p>AMOS Professional provides the simplest of instructions for saving memory banks.</p>
+    <p>AMOS Professional provides the simplest of instructions for saving memory banks.</p>
 
-<h3 id="i-save">SAVE</h3>
-<p><i>instruction: save one or more memory banks onto disc</i><br>
-<b>Save</b> "filename.abk"<br>
-<b>Save</b> "filename.abk",bank number</p>
+    <h3 id="i-save">SAVE</h3>
+    <p><i>instruction: save one or more memory banks onto disc</i><br>
+        <b>Save</b> "filename.abk"<br>
+        <b>Save</b> "filename.abk",bank number</p>
 
-<p>
-If a bank has been created using RESERVE, or some screen Objects have been defined with a
-command such as GET BOB, the new data can be saved onto a suitable disc in one of two ways.</p>
+    <p>
+        If a bank has been created using RESERVE, or some screen Objects have been defined with a
+        command such as GET BOB, the new data can be saved onto a suitable disc in one of two ways.</p>
 
-<p>
-When the SAVE command is followed by a string containing a filename, <b>all</b> current memory
-banks will be saved into a single large file, bearing that name. The filename can be anything at
-all, but it is common practice to add the ".Abk" extension at the end, to remind yourself that this
-is an AMOS Professional memory bank. Similarly, an ".Abs" extension is used to indicate a file
-containing a group of several memory banks.</p>
+    <p>
+        When the SAVE command is followed by a string containing a filename, <b>all</b> current memory
+        banks will be saved into a single large file, bearing that name. The filename can be anything at
+        all, but it is common practice to add the ".Abk" extension at the end, to remind yourself that this
+        is an AMOS Professional memory bank. Similarly, an ".Abs" extension is used to indicate a file
+        containing a group of several memory banks.</p>
 
-<p>By adding an optional bank number after the filename, only that selected bank will be stored in
-the named file onto disc.</p>
+    <p>By adding an optional bank number after the filename, only that selected bank will be stored in
+        the named file onto disc.</p>
 
-<p>Here is an example of an instant image-bank generator:</p>
+    <p>Here is an example of an instant image-bank generator:</p>
 
-<pre>
+    <pre>
 E> N=1 : Rem Set number of first new image to create
    S=1 : Rem Set size of image*16
    Rem Create images in bank one
@@ -234,105 +234,105 @@ E> N=1 : Rem Set number of first new image to create
 </section>
 
 <section id="04-loading-memory-banks">
-<h2>Loading memory banks</h2>
+    <h2>Loading memory banks</h2>
 
-<p>Once saved, memory banks need to be retrieved and loaded, ready for use. AMOS Professional
-makes this process very easy too.</p>
+    <p>Once saved, memory banks need to be retrieved and loaded, ready for use. AMOS Professional
+        makes this process very easy too.</p>
 
-<h3 id="i-load">LOAD</h3>
-<p><i>instruction: load one or more banks into memory</i><br>
-<b>Load</b> "filename"<br>
-<b>Load</b> "filename",bank number</p>
+    <h3 id="i-load">LOAD</h3>
+    <p><i>instruction: load one or more banks into memory</i><br>
+        <b>Load</b> "filename"<br>
+        <b>Load</b> "filename",bank number</p>
 
-<p>
-Remember it has been suggested that memory bank filenames should have the following
-extensions, acting as reminders for human eyes, and identification flags for computer searches:</p>
+    <p>
+        Remember it has been suggested that memory bank filenames should have the following
+        extensions, acting as reminders for human eyes, and identification flags for computer searches:</p>
 
-<p>"filename.Abk" to indicate a single AMOS Professional memory bank<br>
-"filename.Abs" for a file containing a group of several memory banks.</p>
+    <p>"filename.Abk" to indicate a single AMOS Professional memory bank<br>
+        "filename.Abs" for a file containing a group of several memory banks.</p>
 
-<p>These identifiers can be very useful when employed with certain instructions, as follows:</p>
+    <p>These identifiers can be very useful when employed with certain instructions, as follows:</p>
 
-<pre>
+    <pre>
 E> Rem Load an Object bank from current disc
    Load Fsel$("*.Abk"," ","Load an Object bank")
    List Bank : Rem List bank details on screen
 </pre>
 
-<p>
-As can be seen, the LOAD command will load the selected memory bank directly from the
-appropriate disc file. An optional destination bank number can be added after the filename to be
-loaded, but if it is omitted, or given the number zero, data will be re-loaded into the <b>same</b> bank
-numbers from which it was originally saved. Any current information in these existing banks
-will be completely lost!</p>
+    <p>
+        As can be seen, the LOAD command will load the selected memory bank directly from the
+        appropriate disc file. An optional destination bank number can be added after the filename to be
+        loaded, but if it is omitted, or given the number zero, data will be re-loaded into the <b>same</b> bank
+        numbers from which it was originally saved. Any current information in these existing banks
+        will be completely lost!</p>
 
-<p>
-Object and Icon files are treated slightly differently. If the bank number is greater than zero, any
-additional images will be added to the end of the existing bank of images.</p>
+    <p>
+        Object and Icon files are treated slightly differently. If the bank number is greater than zero, any
+        additional images will be added to the end of the existing bank of images.</p>
 </section>
 
 <section id="05-saving-and-loading-memory-blocks">
-<h2>Saving and loading memory blocks</h2>
+    <h2>Saving and loading memory blocks</h2>
 
-<h3 id="i-bsave">BSAVE</h3>
-<p><i>instruction: save an unformatted memory block</i><br>
-<b>Bsave</b> file$,start <b>To</b> end</p>
+    <h3 id="i-bsave">BSAVE</h3>
+    <p><i>instruction: save an unformatted memory block</i><br>
+        <b>Bsave</b> file$,start <b>To</b> end</p>
 
-<p>
-A block of memory between a specified start and end location can be saved into a specified file
-on disc. For example:</p>
+    <p>
+        A block of memory between a specified start and end location can be saved into a specified file
+        on disc. For example:</p>
 
-<pre>
+    <pre>
 Bsave "Test",Start(5) To Start(5)+Length(5) : Rem Save memory bank 5
 </pre>
 
-<p>
-The above example would save the data in memory bank number 5 to a suitable disc. The
-difference between this file and a file saved as a normal memory bank is that while SAVE causes
-a special bank header to be written, containing information about the bank, this header is not
-written for a file when BSAVE is used. This means that LOAD cannot be used for this type of
-file. It is also not suitable for Object banks.</p>
+    <p>
+        The above example would save the data in memory bank number 5 to a suitable disc. The
+        difference between this file and a file saved as a normal memory bank is that while SAVE causes
+        a special bank header to be written, containing information about the bank, this header is not
+        written for a file when BSAVE is used. This means that LOAD cannot be used for this type of
+        file. It is also not suitable for Object banks.</p>
 
-<h3 id="i-bload">BLOAD</h3>
-<p><i>instruction: load block of binary data into bank or address</i><br>
-<b>Bload</b> file$,bank number<br>
-<b>Bload</b> file$, address</p>
+    <h3 id="i-bload">BLOAD</h3>
+    <p><i>instruction: load block of binary data into bank or address</i><br>
+        <b>Bload</b> file$,bank number<br>
+        <b>Bload</b> file$, address</p>
 
-<p>
-The BLOAD instruction loads a file of binary data into memory. It does not alter the data in any
-way. To load this data into a memory bank, the bank must first be reserved, otherwise an error
-will be generated. Also note that files to be loaded must not be any larger than the reserved
-bank, or other areas of memory will be corrupted.</p>
+    <p>
+        The BLOAD instruction loads a file of binary data into memory. It does not alter the data in any
+        way. To load this data into a memory bank, the bank must first be reserved, otherwise an error
+        will be generated. Also note that files to be loaded must not be any larger than the reserved
+        bank, or other areas of memory will be corrupted.</p>
 
-<p>The file of data can also be loaded from disc into a specified address, using BLOAD.</p>
+    <p>The file of data can also be loaded from disc into a specified address, using BLOAD.</p>
 
 </section>
 
 <section id="06-deleting-memory-banks">
-<h2>Deleting memory banks</h2>
+    <h2>Deleting memory banks</h2>
 
-<p>During the course of a program, it may be necessary to define temporary memory banks for
-specific purposes. For instance, a title screen may need to be enhanced by an animation
-sequence or some background music. Since this data would only be needed at the beginning of
-the program, it would serve very little purpose to hold it in memory permanently, and the extra
-memory space could be better used for additional graphics and sound in the actual program.
-AMOS Professional allows you to delete memory banks directly from inside your programs.</p>
+    <p>During the course of a program, it may be necessary to define temporary memory banks for
+        specific purposes. For instance, a title screen may need to be enhanced by an animation
+        sequence or some background music. Since this data would only be needed at the beginning of
+        the program, it would serve very little purpose to hold it in memory permanently, and the extra
+        memory space could be better used for additional graphics and sound in the actual program.
+        AMOS Professional allows you to delete memory banks directly from inside your programs.</p>
 
-<p>The Amiga's memory system is notoriously wasteful, so care should be taken not to overuse this
-technique, otherwise although the CHIP FREE and FAST FREE functions may insist that there is
-plenty of memory available, you can still run out! If this should happen, it would be necessary to
-quit the program and re-start the Amiga, but providing you are aware of the potential problem
-and provided that memory banks are kept as small as is practical, all should be well.</p>
+    <p>The Amiga's memory system is notoriously wasteful, so care should be taken not to overuse this
+        technique, otherwise although the CHIP FREE and FAST FREE functions may insist that there is
+        plenty of memory available, you can still run out! If this should happen, it would be necessary to
+        quit the program and re-start the Amiga, but providing you are aware of the potential problem
+        and provided that memory banks are kept as small as is practical, all should be well.</p>
 
-<h3 id="i-erase">ERASE</h3>
-<p><i>instruction: clear a single memory bank</i><br>
-<b>Erase</b> bank number</p>
+    <h3 id="i-erase">ERASE</h3>
+    <p><i>instruction: clear a single memory bank</i><br>
+        <b>Erase</b> bank number</p>
 
-<p>
-The ERASE command clears the memory space used by the specified bank number, and returns
-this memory to the main program, for future use. For example:</p>
+    <p>
+        The ERASE command clears the memory space used by the specified bank number, and returns
+        this memory to the main program, for future use. For example:</p>
 
-<pre>
+    <pre>
 E> Reserve as Chip Work 5,1000: Rem Reserve temporary work bank 5
    Print "Free Chip Memory = ";Chip Free
    Wait Key
@@ -340,37 +340,37 @@ E> Reserve as Chip Work 5,1000: Rem Reserve temporary work bank 5
    Print "There is now ";Chip Free; "available bytes."
 </pre>
 
-<h3 id="i-erase-all">ERASE ALL</h3>
-<p><i>instruction: clear all current memory banks</i><br>
-<b>Erase All</b></p>
+    <h3 id="i-erase-all">ERASE ALL</h3>
+    <p><i>instruction: clear all current memory banks</i><br>
+        <b>Erase All</b></p>
 
-<p>
-This command is used to erase all memory banks that are assigned to the current program,
-quickly and completely!</p>
+    <p>
+        This command is used to erase all memory banks that are assigned to the current program,
+        quickly and completely!</p>
 
-<p>
-Memory banks allocated to certain types of computer games can often become much larger than
-the actual program listings. In this case, it is sensible to store all Objects in separate files on disc,
-and only load them into memory when they are specifically needed in the game. This
-dramatically reduces the size of program files and makes it very easy to change the Objects
-independently of the main routines. It also allows the same Objects to be used for several
-different programs.</p>
+    <p>
+        Memory banks allocated to certain types of computer games can often become much larger than
+        the actual program listings. In this case, it is sensible to store all Objects in separate files on disc,
+        and only load them into memory when they are specifically needed in the game. This
+        dramatically reduces the size of program files and makes it very easy to change the Objects
+        independently of the main routines. It also allows the same Objects to be used for several
+        different programs.</p>
 
-<p>
-In order to exploit this system, all the memory banks used by the program need to be carefully
-erased before the program is saved to disc, otherwise masses of useless data could be stored as
-part of the program listing. Use the ERASE ALL command carefully to save large amounts of
-valuable disc space.</p>
+    <p>
+        In order to exploit this system, all the memory banks used by the program need to be carefully
+        erased before the program is saved to disc, otherwise masses of useless data could be stored as
+        part of the program listing. Use the ERASE ALL command carefully to save large amounts of
+        valuable disc space.</p>
 
-<h3 id="i-erase-temp">ERASE TEMP</h3>
-<p><i>instruction: clear temporary memory banks</i><br>
-<b>Erase Temp</b></p>
+    <h3 id="i-erase-temp">ERASE TEMP</h3>
+    <p><i>instruction: clear temporary memory banks</i><br>
+        <b>Erase Temp</b></p>
 
-<p>This instruction is used to erase all of the temporary work banks from the current program. Any
-permanent data banks used for holding Sprites, music or samples will be completely unaffected.
-For example:</p>
+    <p>This instruction is used to erase all of the temporary work banks from the current program. Any
+        permanent data banks used for holding Sprites, music or samples will be completely unaffected.
+        For example:</p>
 
-<pre>
+    <pre>
 E> Reserve As Data 5,1000: Rem Reserve 1000 bytes of permanent data
    Reserve As Work 6,1000: Rem Reserve 1000 bytes of temporary workspace
    Reserve As Chip Work 7,2000: Rem Reserve 2000 bytes of chip memory
@@ -378,20 +378,20 @@ E> Reserve As Data 5,1000: Rem Reserve 1000 bytes of permanent data
    List Bank
 </pre>
 
-<h3 id="i-bank-shrink">BANK SHRINK</h3>
-<p><i>instruction: reduce the size of a bank to new length</i><br>
-<b>Bank Shrink</b> bank number <b>To</b> length</p>
+    <h3 id="i-bank-shrink">BANK SHRINK</h3>
+    <p><i>instruction: reduce the size of a bank to new length</i><br>
+        <b>Bank Shrink</b> bank number <b>To</b> length</p>
 
-<p>This instruction does not erase a bank at all, but shrinks it! BANK SHRINK will not work with
-Object or Icon banks, but it is used to reduce the length of a previously reserved memory bank
-to the specified smaller length. The excess memory will be returned for use by the main program
-without complications.</p>
+    <p>This instruction does not erase a bank at all, but shrinks it! BANK SHRINK will not work with
+        Object or Icon banks, but it is used to reduce the length of a previously reserved memory bank
+        to the specified smaller length. The excess memory will be returned for use by the main program
+        without complications.</p>
 
-<p>
-This feature is very useful if you create a bank by poking it into memory, and wish to save it
-with a more suitable size. For example:</p>
+    <p>
+        This feature is very useful if you create a bank by poking it into memory, and wish to save it
+        with a more suitable size. For example:</p>
 
-<pre>
+    <pre>
 E> Reserve As Data 10,1000000: Rem Very large bank
    Poke$ Start(10)-8,"My Bank" : Rem Rename bank 8 bytes
    Poke$ Start(10),"This is a small bank!" : Rem Poke some data
@@ -401,61 +401,63 @@ E> Reserve As Data 10,1000000: Rem Very large bank
 </section>
 
 <section id="07-swapping-banks">
-<h2>Swapping banks</h2>
+    <h2>Swapping banks</h2>
 
-<h3 id="i-bank-swap">BANK SWAP</h3>
-<p><i>instruction: swap over two memory banks</i><br>
-<b>Bank Swap</b> first bank number, second bank number</p>
+    <h3 id="i-bank-swap">BANK SWAP</h3>
+    <p><i>instruction: swap over two memory banks</i><br>
+        <b>Bank Swap</b> first bank number, second bank number</p>
 
-<p>The BANK SWAP command switches over the memory pointers assigned to a pair of selected
-banks, so that the first bank is assigned to the second bank's memory block and the second bank
-grabs the locations used by the first.</p>
+    <p>The BANK SWAP command switches over the memory pointers assigned to a pair of selected
+        banks, so that the first bank is assigned to the second bank's memory block and the second bank
+        grabs the locations used by the first.</p>
 
-<p>
-Note that the items held in these banks are completely unaffected by this operation, and the
-only thing that changes is the number and type of the memory bank to which the items are
-assigned.</p>
+    <p>
+        Note that the items held in these banks are completely unaffected by this operation, and the
+        only thing that changes is the number and type of the memory bank to which the items are
+        assigned.</p>
 
-<p>
-BANK SWAP is commonly used in conjunction with Objects, Icons and music banks. For
-example, it can be used to instantly flick between the images in an Icon bank and an Object
-bank, like this:</p>
+    <p>
+        BANK SWAP is commonly used in conjunction with Objects, Icons and music banks. For
+        example, it can be used to instantly flick between the images in an Icon bank and an Object
+        bank, like this:</p>
 
-<pre>
+    <pre>
 X> Load "Objects.Abk" : Rem Please use your own filename
    Load "Icons.Abk" : Rem Select appropriate filename
    Bank Swap 1,2 : Rem Banks 1 and 2 normally used for Sprites and Icons
 </pre>
 
-<p>Another possibility is to store several different music banks in memory, and swap them as
-required.</p>
+    <p>Another possibility is to store several different music banks in memory, and swap them as
+        required.</p>
 </section>
 
 <section id="08-listing-banks-on-the-screen">
-<h2>Listing banks on the screen</h2>
+    <h2>Listing banks on the screen</h2>
 
-<h3 id="i-list-bank">LIST BANK</h3>
-<p><i>instruction: list all current banks in memory</i><br>
-<b>List Bank</b></p>
+    <h3 id="i-list-bank">LIST BANK</h3>
+    <p><i>instruction: list all current banks in memory</i><br>
+        <b>List Bank</b></p>
 
-<p>
-The LIST BANK instruction is used to provide a complete list of all the banks that are available
-from the current program. Information about the banks is listed in the following order:</p>
+    <p>
+        The LIST BANK instruction is used to provide a complete list of all the banks that are available
+        from the current program. Information about the banks is listed in the following order:</p>
 
-<ul>
-  <li>The bank number, ranging from 1 to 65536</li>
-  <li>A single letter indicating the type of bank, with "F" for Fast or "C" indicating Chip Ram.</li>
-  <li>The name of the bank, held in a string of eight characters. Please note that Object banks are
-      identified with the letters "Sprite", even though the same images can be used equally well for
-      Sprites or Bobs.</li>
-  <li>The address of the start of the bank in memory, using hexadecimal notation.</li>
-  <li>The length of the bank in normal decimal format. In the case of "Sprite" or "Icon" banks, the
-      number of images in the bank will be given instead.</li>
-</ul>
+    <ul>
+        <li>The bank number, ranging from 1 to 65536</li>
+        <li>A single letter indicating the type of bank, with "F" for Fast or "C" indicating Chip Ram.</li>
+        <li>The name of the bank, held in a string of eight characters. Please note that Object banks are
+            identified with the letters "Sprite", even though the same images can be used equally well for
+            Sprites or Bobs.
+        </li>
+        <li>The address of the start of the bank in memory, using hexadecimal notation.</li>
+        <li>The length of the bank in normal decimal format. In the case of "Sprite" or "Icon" banks, the
+            number of images in the bank will be given instead.
+        </li>
+    </ul>
 
-<p>LIST BANK will result in the following sort of report appearing on the screen:</p>
+    <p>LIST BANK will result in the following sort of report appearing on the screen:</p>
 
-<pre>
+    <pre>
 1-C- SpritesS:C61298            L:0000005
 3-C- Music  S:C60E80            L:0001000
 6-F- Work   S:100000            L:0010000
@@ -463,42 +465,42 @@ from the current program. Information about the banks is listed in the following
 </section>
 
 <section id="09-memory-bank-functions">
-<h2>Memory bank functions</h2>
+    <h2>Memory bank functions</h2>
 
-<p>AMOS Professional provides a full range of memory bank functions, which are used to provide
-information about the status of available banks.</p>
+    <p>AMOS Professional provides a full range of memory bank functions, which are used to provide
+        information about the status of available banks.</p>
 
-<h3 id="fn-length">LENGTH</h3>
-<p><i>function: return the length of a memory bank</i><br>
-length=<b>Length</b>(bank number)</p>
+    <h3 id="fn-length">LENGTH</h3>
+    <p><i>function: return the length of a memory bank</i><br>
+        length=<b>Length</b>(bank number)</p>
 
-<p>
-The LENGTH function is used to find the size of the bank whose number is specified in
-brackets. Normally, this is measured in bytes, but if the bank contains Objects or Icon data, the
-number of images in that bank will be given.</p>
+    <p>
+        The LENGTH function is used to find the size of the bank whose number is specified in
+        brackets. Normally, this is measured in bytes, but if the bank contains Objects or Icon data, the
+        number of images in that bank will be given.</p>
 
-<p>A value of zero is returned for any bank that has not been defined. For example:</p>
+    <p>A value of zero is returned for any bank that has not been defined. For example:</p>
 
-<pre>
+    <pre>
 E> Load Fsel$("*.Abk"," ","Load an Object bank") : Rem Bank 1
    Print "There are ";Length(1);" images available."
 </pre>
 
-<h3 id="fn-start">START</h3>
-<p><i>function: return the address of a memory bank</i><br>
-address=<b>Start</b>(bank number)</p>
+    <h3 id="fn-start">START</h3>
+    <p><i>function: return the address of a memory bank</i><br>
+        address=<b>Start</b>(bank number)</p>
 
-<p>
-Use the START function to reveal the address of the memory area allocated to a bank, whose
-number is specified in brackets. The address will usually remain fixed for the duration of a
-program, but it can be changed by a BANK SWAP command.</p>
+    <p>
+        Use the START function to reveal the address of the memory area allocated to a bank, whose
+        number is specified in brackets. The address will usually remain fixed for the duration of a
+        program, but it can be changed by a BANK SWAP command.</p>
 
-<p>
-If the specified bank number does not exist, AMOS Professional will give a "Bank not reserved"
-error report. This can be avoided by checking the status of a bank with the LENGTH function,
-like this:</p>
+    <p>
+        If the specified bank number does not exist, AMOS Professional will give a "Bank not reserved"
+        error report. This can be avoided by checking the status of a bank with the LENGTH function,
+        like this:</p>
 
-<pre>
+    <pre>
 E> If Length(N)>0: Rem give N a suitable bank number
     Print "Address of the bank is ";Start(N)
    Else
@@ -506,75 +508,75 @@ E> If Length(N)>0: Rem give N a suitable bank number
    End If
 </pre>
 
-<p>
-The FAST FREE and CHIP FREE functions that are used to find the amount of relevant free
-memory have already been explained. These should not be confused with the FREE function,
-which reports the amount of free memory in the variable area.</p>
+    <p>
+        The FAST FREE and CHIP FREE functions that are used to find the amount of relevant free
+        memory have already been explained. These should not be confused with the FREE function,
+        which reports the amount of free memory in the variable area.</p>
 </section>
 
 <section id="10-grabbing-accessory-program-memory-banks">
-<h2>Grabbing accessory program memory banks</h2>
+    <h2>Grabbing accessory program memory banks</h2>
 
-<p>Any memory banks that are used by an accessory are independent from the main program.
-Existing AMOS users will find that the system for grabbing memory banks has been greatly
-enhanced for AMOS Professional programmers.</p>
+    <p>Any memory banks that are used by an accessory are independent from the main program.
+        Existing AMOS users will find that the system for grabbing memory banks has been greatly
+        enhanced for AMOS Professional programmers.</p>
 
-<p>
-The PRG UNDER command is used to check whether a program is accessible "under" the
-current program, and if all is well, its memory banks can be grabbed for the current program. As
-many different programs as memory allows can be run using the PRUN command, and full
-details of these commands as well as communication between programs is explained in <a href="11-04-multi-tasking.html">Chapter
-11.4</a>. Here are the available bank-grabbing instructions and functions:</p>
+    <p>
+        The PRG UNDER command is used to check whether a program is accessible "under" the
+        current program, and if all is well, its memory banks can be grabbed for the current program. As
+        many different programs as memory allows can be run using the PRUN command, and full
+        details of these commands as well as communication between programs is explained in <a href="11-04-multi-tasking.html">Chapter
+        11.4</a>. Here are the available bank-grabbing instructions and functions:</p>
 
-<h3 id="fn-blength">BLENGTH</h3>
-<p><i>function: return the length of a memory bank from a previous program</i><br>
-length=<b>Blength</b>(bank number)</p>
+    <h3 id="fn-blength">BLENGTH</h3>
+    <p><i>function: return the length of a memory bank from a previous program</i><br>
+        length=<b>Blength</b>(bank number)</p>
 
-<p>
-This function is used to get the length of the specified bank number from a previous AMOS
-Professional program, if this is possible. A value of zero will be returned if the specified bank has
-not been defined in the previous program, or if there is no previous program accessible at all
-(PRG UNDER= 0).</p>
+    <p>
+        This function is used to get the length of the specified bank number from a previous AMOS
+        Professional program, if this is possible. A value of zero will be returned if the specified bank has
+        not been defined in the previous program, or if there is no previous program accessible at all
+        (PRG UNDER= 0).</p>
 
-<h3 id="fn-bstart">BSTART</h3>
-<p><i>function: return the address of a memory bank from a previous program</i><br>
-address=<b>BSTART</b>(bank number)</p>
+    <h3 id="fn-bstart">BSTART</h3>
+    <p><i>function: return the address of a memory bank from a previous program</i><br>
+        address=<b>BSTART</b>(bank number)</p>
 
-<p>Similarly, the BSTART function will give the address of the specified memory bank from a
-previous program, if possible. An error will be returned if no such bank has been reserved.</p>
+    <p>Similarly, the BSTART function will give the address of the specified memory bank from a
+        previous program, if possible. An error will be returned if no such bank has been reserved.</p>
 
-<h3 id="i-bgrab">BGRAB</h3>
-<p><i>instruction: grab a memory bank used by the previous program</i><br>
-<b>Bgrab</b> bank number</p>
+    <h3 id="i-bgrab">BGRAB</h3>
+    <p><i>instruction: grab a memory bank used by the previous program</i><br>
+        <b>Bgrab</b> bank number</p>
 
-<p>
-This command is used to grab a memory bank from the previous program. The selected bank is
-<b>erased</b> from its former program and appropriated to the current program's list of memory
-banks. If a selected bank number already exists in the current program, then it will be erased
-before being replaced by the grabbed bank. However, a grabbed bank is not automatically
-replaced at its original location. This must be achieved using a BSEND instruction, which is
-explained next.</p>
+    <p>
+        This command is used to grab a memory bank from the previous program. The selected bank is
+        <b>erased</b> from its former program and appropriated to the current program's list of memory
+        banks. If a selected bank number already exists in the current program, then it will be erased
+        before being replaced by the grabbed bank. However, a grabbed bank is not automatically
+        replaced at its original location. This must be achieved using a BSEND instruction, which is
+        explained next.</p>
 
-<p>
-If the bank which is specified to be grabbed does not exist a "Bank not reserved" message will be
-generated.</p>
+    <p>
+        If the bank which is specified to be grabbed does not exist a "Bank not reserved" message will be
+        generated.</p>
 
-<h3 id="i-bsend">BSEND</h3>
-<p><i>instruction: transfer a memory bank from the current program to the previous program</i><br>
-<b>Bsend</b> bank number</p>
+    <h3 id="i-bsend">BSEND</h3>
+    <p><i>instruction: transfer a memory bank from the current program to the previous program</i><br>
+        <b>Bsend</b> bank number</p>
 
-<p>
-This command is the exact opposite of the BGRAB instruction. The specified bank is erased from
-the current program list of banks, and appears in the list of banks belonging to the previous
-program. If a bank already occupies this position in the previous program, it will be erased. Both
-the BGRAB and BSEND commands are very fast, and blocks of data are not reserved first.</p>
+    <p>
+        This command is the exact opposite of the BGRAB instruction. The specified bank is erased from
+        the current program list of banks, and appears in the list of banks belonging to the previous
+        program. If a bank already occupies this position in the previous program, it will be erased. Both
+        the BGRAB and BSEND commands are very fast, and blocks of data are not reserved first.</p>
 
-<p>
-Here is an example of how to grab memory banks safely. The example lists all of the banks of the
-previous program before they are grabbed, and it should be noted that the name of the bank is
-located eight bytes before the BSTART address:</p>
+    <p>
+        Here is an example of how to grab memory banks safely. The example lists all of the banks of the
+        previous program before they are grabbed, and it should be noted that the name of the bank is
+        located eight bytes before the BSTART address:</p>
 
-<pre>
+    <pre>
 X> If Prg Under : Rem Check availability of a previous program
     For B=1 To 1000: Rem Check the first 1000 banks!
      If Blength(B)
@@ -587,60 +589,62 @@ X> If Prg Under : Rem Check availability of a previous program
 </section>
 
 <section id="11-automatic-bank-grabbing">
-<h2>Automatic bank grabbing</h2>
+    <h2>Automatic bank grabbing</h2>
 
-<p>This feature is a unique bonus! It allows memory banks to be passed between programs
-completely automatically. You could be in the middle of writing an arcade game, call up the</p>
+    <p>This feature is a unique bonus! It allows memory banks to be passed between programs
+        completely automatically. You could be in the middle of writing an arcade game, call up the</p>
 
-<p>
-Object Editor, change the Bobs in the game, and return to the creation of your program routines
-bringing the new Bobs with you!</p>
+    <p>
+        Object Editor, change the Bobs in the game, and return to the creation of your program routines
+        bringing the new Bobs with you!</p>
 
-<p>
-No loading and saving are necessary, everything is handled by AMOS Professional, and your
-working life is made that much easier! An example of this technique is featured in <a href="13/1346.html">Chapter 13.7</a>.</p>
+    <p>
+        No loading and saving are necessary, everything is handled by AMOS Professional, and your
+        working life is made that much easier! An example of this technique is featured in <a href="13/1346.html">Chapter 13.7</a>.</p>
 </section>
 
 <section id="12-creating-your-own-utilities">
-<h2>Creating your own utilities</h2>
+    <h2>Creating your own utilities</h2>
 
-<p>The following functions are provided in order to provide developers with full access to the inner
-workings of the AMOS Professional system. They are definitely not intended for the casual
-programmer, but they do allow advanced users to create customised AMOS Professional
-utilities.</p>
+    <p>The following functions are provided in order to provide developers with full access to the inner
+        workings of the AMOS Professional system. They are definitely not intended for the casual
+        programmer, but they do allow advanced users to create customised AMOS Professional
+        utilities.</p>
 
-<h3 id="fn-screen-base">SCREEN BASE</h3>
-<p><i>function: get screen table</i><br>
-address=<b>Screen Base</b></p>
+    <h3 id="fn-screen-base">SCREEN BASE</h3>
+    <p><i>function: get screen table</i><br>
+        address=<b>Screen Base</b></p>
 
-<p>This function returns the base address of the internal table that is used to hold the number and
-position of AMOS Professional screens.</p>
+    <p>This function returns the base address of the internal table that is used to hold the number and
+        position of AMOS Professional screens.</p>
 
-<h3 id="fn-icon-base">ICON BASE</h3>
-<p><i>function: get Icon base</i><br>
-address=<b>Icon Base</b>(number)
+    <h3 id="fn-icon-base">ICON BASE</h3>
+    <p><i>function: get Icon base</i><br>
+        address=<b>Icon Base</b>(number)
 
-<p>ICON BASE returns the address of the Icon whose number is specified in brackets. The format
-of this information is exactly the same as for the SPRITE BASE function, explained below.</p>
+    <p>ICON BASE returns the address of the Icon whose number is specified in brackets. The format
+        of this information is exactly the same as for the SPRITE BASE function, explained below.</p>
 
-<h3 id="fn-sprite-base">SPRITE BASE</h3>
-<p><i>function: get Sprite table</i><br>
-n=<b>Sprite Base</b>(number)</p>
+    <h3 id="fn-sprite-base">SPRITE BASE</h3>
+    <p><i>function: get Sprite table</i><br>
+        n=<b>Sprite Base</b>(number)</p>
 
-<p>
-SPRITE BASE provides the address of the internal data list for whichever Sprite number is
-specified in brackets. If the Sprite does not exist, then the address of the table is returned as zero.
-Negative values for the Sprite number will return the address of the optional mask associated
-with that Sprite, and the number that is returned can contain one of three possible values, as
-follows:</p>
+    <p>
+        SPRITE BASE provides the address of the internal data list for whichever Sprite number is
+        specified in brackets. If the Sprite does not exist, then the address of the table is returned as zero.
+        Negative values for the Sprite number will return the address of the optional mask associated
+        with that Sprite, and the number that is returned can contain one of three possible values, as
+        follows:</p>
 
-<ul>
-  <li>A <b>negative</b> number indicates that there is no mask for this Sprite.</li>
-  <li><b>Zero</b> indicates that the specified Sprite does have a mask, but it is yet to be generated by the
-      system.</li>
-  <li>A <b>positive</b> number indicates the address of the mask in memory. The first "long word" of this
-      area holds the length of the mask, and the next gives the actual definition.</li>
-</ul>
+    <ul>
+        <li>A <b>negative</b> number indicates that there is no mask for this Sprite.</li>
+        <li><b>Zero</b> indicates that the specified Sprite does have a mask, but it is yet to be generated by the
+            system.
+        </li>
+        <li>A <b>positive</b> number indicates the address of the mask in memory. The first "long word" of this
+            area holds the length of the mask, and the next gives the actual definition.
+        </li>
+    </ul>
 </section>
 
 

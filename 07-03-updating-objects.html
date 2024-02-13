@@ -1,63 +1,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - updating objects</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - updating objects</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Updating Objects</h1>
+    <h1>Updating Objects</h1>
 
 
-
-<p>
-This Chapter explains the theory behind the AMOS Professional system for updating and
-drawing moving objects. As well as a comprehensive range of commands, a completely
-automatic system is provided for your use.</p>
+    <p>
+        This Chapter explains the theory behind the AMOS Professional system for updating and
+        drawing moving objects. As well as a comprehensive range of commands, a completely
+        automatic system is provided for your use.</p>
 </section>
 
 <section id="01-moving-multiple-objects">
-<h2>Moving multiple objects</h2>
-<p>
-As a default condition, AMOS Professional manages the position of each and every object on the
-screen automatically. The moment that the coordinates of these objects change, they are re-
-drawn almost instantly. When it comes to programming complex arcade games, that "almost
-instantly" can cause problems!</p>
+    <h2>Moving multiple objects</h2>
+    <p>
+        As a default condition, AMOS Professional manages the position of each and every object on the
+        screen automatically. The moment that the coordinates of these objects change, they are re-
+        drawn almost instantly. When it comes to programming complex arcade games, that "almost
+        instantly" can cause problems!</p>
 
-<p>
-The next two ready-made programs demonstrate a typical problem, first with Sprites and then
-with Bobs. If you examine them, you will see that the objects are moving at slightly irregular
-times, because even though AMOS Professional is updating their positions at regular intervals, it
-is not keeping pace with the FOR ... NEXT loop.</p>
+    <p>
+        The next two ready-made programs demonstrate a typical problem, first with Sprites and then
+        with Bobs. If you examine them, you will see that the objects are moving at slightly irregular
+        times, because even though AMOS Professional is updating their positions at regular intervals, it
+        is not keeping pace with the FOR ... NEXT loop.</p>
 
-<p>
-To avoid wobbly Sprites and Bobs, all objects must be re-drawn at the same instant in your
-program, and AMOS Professional provides three commands for this purpose. SPRITE UPDATE,
-is to be used for updating Sprites, BOB UPDATE displays Blitter Objects and the UPDATE
-command re-draws both Sprites and Bobs in the same operation.</p>
+    <p>
+        To avoid wobbly Sprites and Bobs, all objects must be re-drawn at the same instant in your
+        program, and AMOS Professional provides three commands for this purpose. SPRITE UPDATE,
+        is to be used for updating Sprites, BOB UPDATE displays Blitter Objects and the UPDATE
+        command re-draws both Sprites and Bobs in the same operation.</p>
 
-<p>
-Before calling any of these commands, the automatic updating system must be disengaged
-using the relevant command, SPRITE UPDATE OFF, BOB UPDATE OFF or UPDATE OFF, as
-appropriate. Here are two working examples to type in yourself:</p>
+    <p>
+        Before calling any of these commands, the automatic updating system must be disengaged
+        using the relevant command, SPRITE UPDATE OFF, BOB UPDATE OFF or UPDATE OFF, as
+        appropriate. Here are two working examples to type in yourself:</p>
 
-<pre>
+    <pre>
 E> Load "AMOSPro_Tutorial:Objects/Sprites.Abk"
    Curs Off : Flash Off : Cls 0
    Set Sprite Buffer 256
@@ -88,89 +87,93 @@ E> Load "AMOSPro Tutorial:Objects/Bobs.Abk"
 </section>
 
 <section id="02-displaying-objects-over-a-changing-background">
-<h2>Displaying objects over a changing background</h2>
-<p>
-When objects need to be displayed against a rapidly changing background picture, other
-problems can occur. The most important thing to understand is that although they can hold the
-same images, Sprites and Bobs are completely different from one another. The following tables
-set out these differences.</p>
+    <h2>Displaying objects over a changing background</h2>
+    <p>
+        When objects need to be displayed against a rapidly changing background picture, other
+        problems can occur. The most important thing to understand is that although they can hold the
+        same images, Sprites and Bobs are completely different from one another. The following tables
+        set out these differences.</p>
 
 
-<p><b>Sprites</b></p>
-<ul>
-  <li>exist independently in the Amiga's memory</li>
-  <li>are created by the Amiga's DMA hardware</li>
-  <li>are stored independently from the screen, in a separate memory area</li>
-  <li>use hardware coordinates</li>
-</ul>
+    <p><b>Sprites</b></p>
+    <ul>
+        <li>exist independently in the Amiga's memory</li>
+        <li>are created by the Amiga's DMA hardware</li>
+        <li>are stored independently from the screen, in a separate memory area</li>
+        <li>use hardware coordinates</li>
+    </ul>
 
-<p><b>Bobs</b></p>
-<ul>
-  <li>do not exist independently, their appearance on screen is all there is!</li>
-  <li>are created by software using the Blitter chip</li>
-  <li>are stored as part of the current display</li>
-  <li>use screen coordinates</li>
-</ul>
+    <p><b>Bobs</b></p>
+    <ul>
+        <li>do not exist independently, their appearance on screen is all there is!</li>
+        <li>are created by software using the Blitter chip</li>
+        <li>are stored as part of the current display</li>
+        <li>use screen coordinates</li>
+    </ul>
 
-<p>
-This has far reaching implications for your programming, and is the crucial reason for the entire
-DOUBLE BUFFER system. It is the complete independence of Sprites that make them so useful.</p>
+    <p>
+        This has far reaching implications for your programming, and is the crucial reason for the entire
+        DOUBLE BUFFER system. It is the complete independence of Sprites that make them so useful.</p>
 
-<p>
-AMOS Professional allows you to use Bobs with animated screens, and the next section explains
-how screens are updated to permit this.</p>
+    <p>
+        AMOS Professional allows you to use Bobs with animated screens, and the next section explains
+        how screens are updated to permit this.</p>
 </section>
 
 <section id="03-the-update-process">
-<h2>The update process</h2>
-<p>
-This explanation of the Bob movement system is very detailed. If you are not interested in the
-theory, then the BOB CLEAR and BOB DRAW commands are explained later in this Chapter,
-and will be enough to allow you to proceed.</p>
+    <h2>The update process</h2>
+    <p>
+        This explanation of the Bob movement system is very detailed. If you are not interested in the
+        theory, then the BOB CLEAR and BOB DRAW commands are explained later in this Chapter,
+        and will be enough to allow you to proceed.</p>
 
-<p>
-The updating of single buffered screens will now be examined. Supposing you want to display a
-single Witter Object on the screen. The following steps need to be undertaken:</p>
+    <p>
+        The updating of single buffered screens will now be examined. Supposing you want to display a
+        single Witter Object on the screen. The following steps need to be undertaken:</p>
 
-<ul>
-  <li>Draw up the display screen as usual.</li>
-  <li>Discover the start position where the Bob is going to be displayed, and establish the
-      background area underneath the Bob.</li>
-  <li>Copy this background area to a safe location in memory.</li>
-  <li>Display the Bob over the original graphics in the target area, using the appropriate image from
-      the Object Bank.</li>
-  <li>Discover the next position where the Bob is going to move.</li>
-  <li>Clear the Bob from its current position, by displaying the safely copied background image at
-      its original screen location.</li>
-  <li>Examine each Bob in turn to see if it has moved since the previous update. If so, make a copy
-      of the original screen image at the new coordinates.</li>
-  <li>Finally, update by re-drawing the Bob at its new screen position.</li>
-</ul>
+    <ul>
+        <li>Draw up the display screen as usual.</li>
+        <li>Discover the start position where the Bob is going to be displayed, and establish the
+            background area underneath the Bob.
+        </li>
+        <li>Copy this background area to a safe location in memory.</li>
+        <li>Display the Bob over the original graphics in the target area, using the appropriate image from
+            the Object Bank.
+        </li>
+        <li>Discover the next position where the Bob is going to move.</li>
+        <li>Clear the Bob from its current position, by displaying the safely copied background image at
+            its original screen location.
+        </li>
+        <li>Examine each Bob in turn to see if it has moved since the previous update. If so, make a copy
+            of the original screen image at the new coordinates.
+        </li>
+        <li>Finally, update by re-drawing the Bob at its new screen position.</li>
+    </ul>
 
 
-<p>
-If you are using double buffered screens, a separate copy of the background area is created for
-each of the two screens. At the end of a display routine, the logical and physical screens are
-swapped around by the system, to ensure that these two screens are perfectly synchronised. All
-the time that the contents of an animated screen stay completely still, there can be no problems
-with updating a static image. Unfortunately, as soon as the contents of a screen changes, the
-saved sections of the previous picture will be copied straight onto the updated screen, and
-corrupt the picture. This can only be solved if all of the standard drawing commands are
-synchronised with both the physical and logical screens, and AMOS Professional achieves this
-by means of the powerful AUTOBACK system.</p>
+    <p>
+        If you are using double buffered screens, a separate copy of the background area is created for
+        each of the two screens. At the end of a display routine, the logical and physical screens are
+        swapped around by the system, to ensure that these two screens are perfectly synchronised. All
+        the time that the contents of an animated screen stay completely still, there can be no problems
+        with updating a static image. Unfortunately, as soon as the contents of a screen changes, the
+        saved sections of the previous picture will be copied straight onto the updated screen, and
+        corrupt the picture. This can only be solved if all of the standard drawing commands are
+        synchronised with both the physical and logical screens, and AMOS Professional achieves this
+        by means of the powerful AUTOBACK system.</p>
 
-<p>
-AUTOBACK is extremely intelligent and completely automatic, but it can only synchronise
-graphics and text commands. If you wish to manipulate the screen directly with SCREEN COPY
-or SCROLL, you must handle the process yourself. In other words, you will have to keep the
-logical and physical screens in step with one another and perform exactly the same operations
-in both screens.</p>
+    <p>
+        AUTOBACK is extremely intelligent and completely automatic, but it can only synchronise
+        graphics and text commands. If you wish to manipulate the screen directly with SCREEN COPY
+        or SCROLL, you must handle the process yourself. In other words, you will have to keep the
+        logical and physical screens in step with one another and perform exactly the same operations
+        in both screens.</p>
 
-<p>
-This routine demonstrates the danger of flicking between these screens when different items are
-held in the two components of double buffering:</p>
+    <p>
+        This routine demonstrates the danger of flicking between these screens when different items are
+        held in the two components of double buffering:</p>
 
-<pre>
+    <pre>
 E> Double Buffer
    Autoback 0
    Do
@@ -183,297 +186,303 @@ E> Double Buffer
 </section>
 
 <section id="04-the-updating-commands">
-<h2>The updating commands</h2>
-<p>
-Under normal circumstances, AMOS Professional displays all Bobs at once. So if any Bob
-coordinates are changed, that Bob can be expected to appear at its new position immediately.</p>
+    <h2>The updating commands</h2>
+    <p>
+        Under normal circumstances, AMOS Professional displays all Bobs at once. So if any Bob
+        coordinates are changed, that Bob can be expected to appear at its new position immediately.</p>
 
-<p>
-Unfortunately, the Amiga's hardware is only capable of re-drawing a limited number of objects
-on screen in any single display cycle. This means that if you try and move several Bobs at once,
-it is almost inevitable that some of those objects will be re-positioned at slightly different times.
-This phenomenon generates unpleasant jerky movements. Thankfully, AMOS Professional
-provides a simple solution to this problem.</p>
+    <p>
+        Unfortunately, the Amiga's hardware is only capable of re-drawing a limited number of objects
+        on screen in any single display cycle. This means that if you try and move several Bobs at once,
+        it is almost inevitable that some of those objects will be re-positioned at slightly different times.
+        This phenomenon generates unpleasant jerky movements. Thankfully, AMOS Professional
+        provides a simple solution to this problem.</p>
 
-<i>instruction: move many Bobs simultaneously</i><br>
-<b>Bob Update</b><br>
-<b>Bob Update</b> Off<br>
-<b>Bob Update</b> On<br>
+    <i>instruction: move many Bobs simultaneously</i><br>
+    <b>Bob Update</b><br>
+    <b>Bob Update</b> Off<br>
+    <b>Bob Update</b> On<br>
 
-<p>
-BOB UPDATE performs all Bob movements in a single, mighty burst, so all objects are moved at
-the same instant in your program. The resulting movement effects are now incredibly smooth,
-even with dozens of objects on screen at once. BOB UPDATE is extremely easy to use,
-as the following technique explains.</p>
-
-
-<ul>
-  <li>First, turn off the automatic system with BOB UPDATE OFF</li>
-  <li>Execute your main loop as normal.</li>
-  <li>Now call a BOB UPDATE command at the point when objects are to be drawn on screen. This
-      command automatically flips the results onto the display, using the internal equivalent of a
-      SCREEN SWAP.</li>
-  <li>Finally, wait for the updates to be completed, by using WAIT VBL.</li>
-</ul>
-
-<p>
-BOB UPDATE is now used as the standard technique in the vast majority of AMOS arcade
-games.</p>
-
-<p>
-If you need to restore the re-drawing system to its default status, BOB UPDATE ON sets the
-situation back to normal. One word of warning though, if you are already swapping the screens
-manually with SCREEN SWAP, use BOB UPDATE carefully, because it will switch between the
-logical and physical screens immediately after your Bobs have been updated. The simplest
-remedy for any problems this may cause is to use BOB CLEAR and BOB DRAW instead. These
-are explained later.</p>
-
-<p><b>SPRITE UPDATE</b><br>
-<i>instruction: move all Sprites at once</i><br>
-<b>Sprite Update</b><br>
-<b>Sprite Update</b> Off<br>
-<b>Sprite Update</b> On</p>
-
-<p>
-You may want to remind yourself of this family of commands, which are explained in <a href="07-01-hardware-sprites.html">Chapter
-7.1</a>. They parallel the BOB UPDATE commands, and are used in the same way.</p>
-
-<p>
-You are recommended to add a WAIT VBL instruction after each SPRITE UPDATE, to make sure
-that Sprite movements are perfectly synchronised with the existing screen display.</p>
-
-<h3 id="i-update">UPDATE</h3>
-<p><i>instruction: move all objects at once</i><br>
-<b>Update</b><br>
-<b>Update</b> Off<br>
-<b>Update</b> On</p>
-
-<p>
-The UPDATE commands are a combination of the BOB UPDATE and SPRITE UPDATE families,
-and they are used to re-draw all objects on the screen in a single operation.
-UPDATE OFF turns off the automatic re-drawing system, so that any Bob or Sprite commands
-will appear to be completely ignored. In actual fact, they are still going on invisibly, in the
-background.</p>
-
-<p>
-UPDATE displays any objects which have moved since the last update. You are recommended
-to add a WAIT VBL instruction to ensure a smooth effect.</p>
-
-<p>UPDATE ON returns the updating system back to the original automatic setting.</p>
+    <p>
+        BOB UPDATE performs all Bob movements in a single, mighty burst, so all objects are moved at
+        the same instant in your program. The resulting movement effects are now incredibly smooth,
+        even with dozens of objects on screen at once. BOB UPDATE is extremely easy to use,
+        as the following technique explains.</p>
 
 
-<h3 id="i-bob-clear">BOB CLEAR</h3>
-<p><i>instruction: clear all Bobs from the screen</i><br>
-<b>Bob Clear</b></p>
+    <ul>
+        <li>First, turn off the automatic system with BOB UPDATE OFF</li>
+        <li>Execute your main loop as normal.</li>
+        <li>Now call a BOB UPDATE command at the point when objects are to be drawn on screen. This
+            command automatically flips the results onto the display, using the internal equivalent of a
+            SCREEN SWAP.
+        </li>
+        <li>Finally, wait for the updates to be completed, by using WAIT VBL.</li>
+    </ul>
 
-<h3 id="i-bob-draw">BOB DRAW</h3>
-<p><i>instruction: re-draw all Bobs on screen</i><br>
-<b>Bob Draw</b></p>
+    <p>
+        BOB UPDATE is now used as the standard technique in the vast majority of AMOS arcade
+        games.</p>
 
-<p>
-This pair of commands is used to synchronise Bob updates with complex screen movements,
-and generate superbly smooth scrolling screen effects. The technique is achieved by the
-following steps.</p>
+    <p>
+        If you need to restore the re-drawing system to its default status, BOB UPDATE ON sets the
+        situation back to normal. One word of warning though, if you are already swapping the screens
+        manually with SCREEN SWAP, use BOB UPDATE carefully, because it will switch between the
+        logical and physical screens immediately after your Bobs have been updated. The simplest
+        remedy for any problems this may cause is to use BOB CLEAR and BOB DRAW instead. These
+        are explained later.</p>
 
-<ul>
-  <li>Remove all Bobs from the logical screen display with BOB CLEAR. Background areas are
-      copied from their invisible hiding places in memory, and the display is returned to its original
-      condition.</li>
-  <li>Each Bob is now examined in turn, and checked to see if it has been repositioned. If so, the
-      area beneath the new coordinates are copied invisibly, as they will be needed to return the
-      screen back to normal, when the Bob is next moved. You can now perform your drawing
-      operations as required, and move your Bobs to any point on the screen.
-  <li>Now use BOB DRAW to re-draw any Bobs that have moved at their new screen coordinates,
-      using the appropriate image from the Object Bank.</li>
-</ul>
+    <p><b>SPRITE UPDATE</b><br>
+        <i>instruction: move all Sprites at once</i><br>
+        <b>Sprite Update</b><br>
+        <b>Sprite Update</b> Off<br>
+        <b>Sprite Update</b> On</p>
 
-<p>
-Note that BOB CLEAR and BOB DRAW will only work on the current logical screen, so if
-DOUBLE BUFFER has been activated, a SCREEN SWAP command will be needed to call the
-relevant display, as follows:</p>
+    <p>
+        You may want to remind yourself of this family of commands, which are explained in <a href="07-01-hardware-sprites.html">Chapter
+        7.1</a>. They parallel the BOB UPDATE commands, and are used in the same way.</p>
 
-<pre>
+    <p>
+        You are recommended to add a WAIT VBL instruction after each SPRITE UPDATE, to make sure
+        that Sprite movements are perfectly synchronised with the existing screen display.</p>
+
+    <h3 id="i-update">UPDATE</h3>
+    <p><i>instruction: move all objects at once</i><br>
+        <b>Update</b><br>
+        <b>Update</b> Off<br>
+        <b>Update</b> On</p>
+
+    <p>
+        The UPDATE commands are a combination of the BOB UPDATE and SPRITE UPDATE families,
+        and they are used to re-draw all objects on the screen in a single operation.
+        UPDATE OFF turns off the automatic re-drawing system, so that any Bob or Sprite commands
+        will appear to be completely ignored. In actual fact, they are still going on invisibly, in the
+        background.</p>
+
+    <p>
+        UPDATE displays any objects which have moved since the last update. You are recommended
+        to add a WAIT VBL instruction to ensure a smooth effect.</p>
+
+    <p>UPDATE ON returns the updating system back to the original automatic setting.</p>
+
+
+    <h3 id="i-bob-clear">BOB CLEAR</h3>
+    <p><i>instruction: clear all Bobs from the screen</i><br>
+        <b>Bob Clear</b></p>
+
+    <h3 id="i-bob-draw">BOB DRAW</h3>
+    <p><i>instruction: re-draw all Bobs on screen</i><br>
+        <b>Bob Draw</b></p>
+
+    <p>
+        This pair of commands is used to synchronise Bob updates with complex screen movements,
+        and generate superbly smooth scrolling screen effects. The technique is achieved by the
+        following steps.</p>
+
+    <ul>
+        <li>Remove all Bobs from the logical screen display with BOB CLEAR. Background areas are
+            copied from their invisible hiding places in memory, and the display is returned to its original
+            condition.
+        </li>
+        <li>Each Bob is now examined in turn, and checked to see if it has been repositioned. If so, the
+            area beneath the new coordinates are copied invisibly, as they will be needed to return the
+            screen back to normal, when the Bob is next moved. You can now perform your drawing
+            operations as required, and move your Bobs to any point on the screen.
+        <li>Now use BOB DRAW to re-draw any Bobs that have moved at their new screen coordinates,
+            using the appropriate image from the Object Bank.
+        </li>
+    </ul>
+
+    <p>
+        Note that BOB CLEAR and BOB DRAW will only work on the current logical screen, so if
+        DOUBLE BUFFER has been activated, a SCREEN SWAP command will be needed to call the
+        relevant display, as follows:</p>
+
+    <pre>
 X> Screen Swap : Wait Vbl
 </pre>
 
-<p>
-Also remember to turn off the automatic updating system completely before use. Here is the
-correct procedure.</p>
+    <p>
+        Also remember to turn off the automatic updating system completely before use. Here is the
+        correct procedure.</p>
 
-<ul>
-  <li>Turn off the AUTOBACK system to stop the synchronisation between your graphics and Bobs,
-      like this:</li>
-</ul>
+    <ul>
+        <li>Turn off the AUTOBACK system to stop the synchronisation between your graphics and Bobs,
+            like this:
+        </li>
+    </ul>
 
-<p>Autoback 0</p>
+    <p>Autoback 0</p>
 
-<ul>
-  <li>Now that all graphical operations have been forced to work with the logical screen, turn off
-      the standard updating system, with BOB UPDATE OFF.</li>
-  <li>Next add a BOB CLEAR command at the start of your main loop. You can now draw your
-      graphics on screen, and move your objects as required.</li>
-  <li>Finally, re-draw your objects at their new positions using BOB DRAW.</li>
-</ul>
+    <ul>
+        <li>Now that all graphical operations have been forced to work with the logical screen, turn off
+            the standard updating system, with BOB UPDATE OFF.
+        </li>
+        <li>Next add a BOB CLEAR command at the start of your main loop. You can now draw your
+            graphics on screen, and move your objects as required.
+        </li>
+        <li>Finally, re-draw your objects at their new positions using BOB DRAW.</li>
+    </ul>
 
 
-<p>
-If you are using double buffering, you must make sure that there is a genuine connection
-between the logical and physical screens. To achieve smooth graphics, there must be a sensible
-progression from screen to screen, otherwise flickering distortions will be displayed.</p>
+    <p>
+        If you are using double buffering, you must make sure that there is a genuine connection
+        between the logical and physical screens. To achieve smooth graphics, there must be a sensible
+        progression from screen to screen, otherwise flickering distortions will be displayed.</p>
 
-<p>
-When scrolling the playing area of a computer game, it is often possible to ensure that screens
-are already in step, so BOB CLEAR and BOB DRAW can be used without any problems. In other
-situations, you may need to make radical changes from screen to screen, so ensure that these are
-made both copies of the current screen.</p>
+    <p>
+        When scrolling the playing area of a computer game, it is often possible to ensure that screens
+        are already in step, so BOB CLEAR and BOB DRAW can be used without any problems. In other
+        situations, you may need to make radical changes from screen to screen, so ensure that these are
+        made both copies of the current screen.</p>
 </section>
 
 <section id="05-the-autoback-command">
-<h2>The Autoback command</h2>
-<p>
-The standard Bob routines only work if the logical and physical screens are in perfect harmony.
-The instant that text or graphics are drawn, or the SCREEN COPY command is used, the two
-screens fall out of step with one another, ruining any smooth effects. In the case of SCREEN
-COPY, you must take control over the system with the BOB DRAW and BOB CLEAR
-commands, but when using standard graphics commands, the situation is much easier.</p>
+    <h2>The Autoback command</h2>
+    <p>
+        The standard Bob routines only work if the logical and physical screens are in perfect harmony.
+        The instant that text or graphics are drawn, or the SCREEN COPY command is used, the two
+        screens fall out of step with one another, ruining any smooth effects. In the case of SCREEN
+        COPY, you must take control over the system with the BOB DRAW and BOB CLEAR
+        commands, but when using standard graphics commands, the situation is much easier.</p>
 
-<p>
-AMOS Professional includes a powerful feature that automatically synchronises all text and
-graphics operations with all Bob updates. This means that once DOUBLE BUFFER is activated,
-graphics and text can be displayed as normal. This is the principle of the AUTOBACK system.</p>
+    <p>
+        AMOS Professional includes a powerful feature that automatically synchronises all text and
+        graphics operations with all Bob updates. This means that once DOUBLE BUFFER is activated,
+        graphics and text can be displayed as normal. This is the principle of the AUTOBACK system.</p>
 
-<h3 id="i-autoback">AUTOBACK</h3>
-<p><i>instruction: set mode for graphics operations on double buffered screen</i><br>
-<b>Autoback</b> mode</p>
+    <h3 id="i-autoback">AUTOBACK</h3>
+    <p><i>instruction: set mode for graphics operations on double buffered screen</i><br>
+        <b>Autoback</b> mode</p>
 
-<p>
-There are three AUTOBACK modes, and you can toggle between them by setting the mode
-values as follows:</p>
+    <p>
+        There are three AUTOBACK modes, and you can toggle between them by setting the mode
+        values as follows:</p>
 
-<pre>
+    <pre>
 X> Autoback 0
 </pre>
 
-<p>
-Manual mode. This mode deactivates the AUTOBACK system completely, so that graphics are
-drawn directly on the logical screen, for maximum speed. It is recommended for use with the
-BOB DRAW and BOB CLEAR commands.</p>
+    <p>
+        Manual mode. This mode deactivates the AUTOBACK system completely, so that graphics are
+        drawn directly on the logical screen, for maximum speed. It is recommended for use with the
+        BOB DRAW and BOB CLEAR commands.</p>
 
-<p>
-AUTOBACK 0 is useful when large amounts of graphics are drawn on screens being switched
-manually with SCREEN SWAP, because it is much faster than the standard system. But
-remember that you must take responsibility for synchronising between the logical and physical
-screens.</p>
+    <p>
+        AUTOBACK 0 is useful when large amounts of graphics are drawn on screens being switched
+        manually with SCREEN SWAP, because it is much faster than the standard system. But
+        remember that you must take responsibility for synchronising between the logical and physical
+        screens.</p>
 
-<pre>
+    <pre>
 X> Autoback 1
 </pre>
 
-<p>
-Semi-automatic. In mode 1, AUTOBACK performs all graphical operations on both the logical
-and physical screens. Although Bob updates are not taken into account, this is an ideal mode for
-displaying hi-score tables and control panels. So as long as your Bobs are kept clear of any new
-graphics, this mode is perfect.</p>
+    <p>
+        Semi-automatic. In mode 1, AUTOBACK performs all graphical operations on both the logical
+        and physical screens. Although Bob updates are not taken into account, this is an ideal mode for
+        displaying hi-score tables and control panels. So as long as your Bobs are kept clear of any new
+        graphics, this mode is perfect.</p>
 
-<pre>
+    <pre>
 X> Autoback 2
 </pre>
 
 
-<p>
-<b>Fully-automatic.</b> This setting re-activates the normal AUTOBACK system. Under mode 2,
-whenever graphics are drawn on screen, they will be synchronised with any active Bobs
-automatically. All worries are taken care of by the system.</p>
+    <p>
+        <b>Fully-automatic.</b> This setting re-activates the normal AUTOBACK system. Under mode 2,
+        whenever graphics are drawn on screen, they will be synchronised with any active Bobs
+        automatically. All worries are taken care of by the system.</p>
 </section>
 
 <section id="06-bob-drawing-modes">
-<h2>Bob drawing modes</h2>
-<p>Once Bobs have been set up, you are allowed to change the way that they react with other
-screen graphics.</p>
+    <h2>Bob drawing modes</h2>
+    <p>Once Bobs have been set up, you are allowed to change the way that they react with other
+        screen graphics.</p>
 
-<h3 id="i-set-bob">SET BOB</h3>
-<p><i>instruction: set drawing mode for Bobs</i><br>
-<b>Set Bob</b> number,background,planes,mask</p>
+    <h3 id="i-set-bob">SET BOB</h3>
+    <p><i>instruction: set drawing mode for Bobs</i><br>
+        <b>Set Bob</b> number,background,planes,mask</p>
 
-<p>
-SET BOB is used to change the drawing mode used to display a particular Blitter Object. It is
-best used <b>before</b> displaying a Bob on the screen. This command has several parameters, of
-which the first is simply the number of the Bob to be affected.</p>
+    <p>
+        SET BOB is used to change the drawing mode used to display a particular Blitter Object. It is
+        best used <b>before</b> displaying a Bob on the screen. This command has several parameters, of
+        which the first is simply the number of the Bob to be affected.</p>
 
-<p>
-The second parameter is a number that sets the mode of the background, in other words, the
-way that graphics underneath the Bob are to be re-drawn. There are three alternative
-background mode settings. A value of <b>zero</b> automatically replaces the screen background
-beneath the Bob, after it moves away. This is the standard drawing system, and gives a smooth
-animation effect when the Bob is moved across the screen.</p>
+    <p>
+        The second parameter is a number that sets the mode of the background, in other words, the
+        way that graphics underneath the Bob are to be re-drawn. There are three alternative
+        background mode settings. A value of <b>zero</b> automatically replaces the screen background
+        beneath the Bob, after it moves away. This is the standard drawing system, and gives a smooth
+        animation effect when the Bob is moved across the screen.</p>
 
-<p>
-If the background is a <b>positive</b> number, then the original background graphics are completely
-forgotten when the Bob moves away, and the area beneath the Bob is replaced by a solid block
-of colour. The colour is calculated with this formula:</p>
+    <p>
+        If the background is a <b>positive</b> number, then the original background graphics are completely
+        forgotten when the Bob moves away, and the area beneath the Bob is replaced by a solid block
+        of colour. The colour is calculated with this formula:</p>
 
-<p>Colour = Background-1</p>
+    <p>Colour = Background-1</p>
 
-So the following line sets the mode of Bob 1, and draws a block of graphics in colour 9
-(calculated as 10-1) whenever the Bob is moved. Notice how commas must be included if other
-parameter values are omitted.
+    So the following line sets the mode of Bob 1, and draws a block of graphics in colour 9
+    (calculated as 10-1) whenever the Bob is moved. Notice how commas must be included if other
+    parameter values are omitted.
 
-<pre>
+    <pre>
 X> Set Bob 1,10,,
 </pre>
 
-<p>
-Since this operation is much faster than the standard system, it is recommended for bursts of
-extra speed. It can be used for moving Bobs across areas such as clear blue sky, and is also
-extremely effective when operated with the various rainbow effects.</p>
+    <p>
+        Since this operation is much faster than the standard system, it is recommended for bursts of
+        extra speed. It can be used for moving Bobs across areas such as clear blue sky, and is also
+        extremely effective when operated with the various rainbow effects.</p>
 
-<p>
-The final alternative background setting is to use a <b>negative</b> value. This turns off the re-drawing
-process, allowing you to fill the old background areas with any colours or patterns you like,
-using the standard AMOS Professional graphics commands.</p>
+    <p>
+        The final alternative background setting is to use a <b>negative</b> value. This turns off the re-drawing
+        process, allowing you to fill the old background areas with any colours or patterns you like,
+        using the standard AMOS Professional graphics commands.</p>
 
-<p>
-After the two parameters that set the Bob number, and the background mode, SET BOB requires
-a parameter to establish which of the screen planes is to be used for the Bob. The planes setting
-is a bit-map, consisting of a binary number where each digit represents one plane of the screen,
-and each plane represents one bit of the final colour to be displayed on screen. The numbering
-system works like this:</p>
+    <p>
+        After the two parameters that set the Bob number, and the background mode, SET BOB requires
+        a parameter to establish which of the screen planes is to be used for the Bob. The planes setting
+        is a bit-map, consisting of a binary number where each digit represents one plane of the screen,
+        and each plane represents one bit of the final colour to be displayed on screen. The numbering
+        system works like this:</p>
 
-<pre>
+    <pre>
 Plane: 543210
 Digit: %111111
 </pre>
 
 
-<p>
-By changing these planes, selected colours can be omitted from the Bob when it is drawn on
-screen. For example:</p>
+    <p>
+        By changing these planes, selected colours can be omitted from the Bob when it is drawn on
+        screen. For example:</p>
 
-<pre>
+    <pre>
 X Set Bob 1,0,$000111 : Rem Display bits drawn in colours 0 to 7
   Set Bob 1,0,$111111 : Rem Display all bit-planes
 </pre>
 
-<p>
-The last SET BOB parameter is another bit pattern, that selects one of 255 possible Miler modes
-used to draw Bobs on screen. This can set a mask, so that colour zero is transparent, and a full
-description of the available modes is given at the beginning of <a href="06-02-using-screens.html">Chapter 6.2</a>, in the SCREEN
-COPY section. In fact, the mask parameter is usually set to one of two values:</p>
+    <p>
+        The last SET BOB parameter is another bit pattern, that selects one of 255 possible Miler modes
+        used to draw Bobs on screen. This can set a mask, so that colour zero is transparent, and a full
+        description of the available modes is given at the beginning of <a href="06-02-using-screens.html">Chapter 6.2</a>, in the SCREEN
+        COPY section. In fact, the mask parameter is usually set to one of two values:</p>
 
-<p>%11100010 if no mask is to be used.</p>
+    <p>%11100010 if no mask is to be used.</p>
 
-<p>%11001010 if the Bob is to be used with a mask, in other words, if colour zero is to be
-transparent.</p>
+    <p>%11001010 if the Bob is to be used with a mask, in other words, if colour zero is to be
+        transparent.</p>
 
-<p>So the following line would set Bob 1 moving across the original screen colours, with a mask set:</p>
+    <p>So the following line would set Bob 1 moving across the original screen colours, with a mask set:</p>
 
-<pre>
+    <pre>
 E> Set Bob 1,0,%111111, %11001010
 </pre>
 
-<p>Advanced users may find the following information useful:</p>
+    <p>Advanced users may find the following information useful:</p>
 
-<pre>
+    <pre>
 <b>Blitter Source     Purpose</b>
 A                  Blitter Mask
 B                  Blitter Object
@@ -482,7 +491,8 @@ C                  Destination Screen
 
 
 </section>
-</>
+</
+>
 
 
 </body>

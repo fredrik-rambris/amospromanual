@@ -1,839 +1,854 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - the editor</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - the editor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 <section>
-<h1>The Editor</h1>
+    <h1>The Editor</h1>
 
-<P>Welcome to the AMOS Professional Editor! It is assumed that you have either read the
-last Chapter, or are already familiar with AMOS or Easy AMOS.</P>
+    <P>Welcome to the AMOS Professional Editor! It is assumed that you have either read the
+        last Chapter, or are already familiar with AMOS or Easy AMOS.</P>
 
-<P>AMOS Professional provides one of the most effective and powerful creative environments for
-the Amiga programmer. It is also incredibly simple to use. Here is a synopsis of the AMOS
-Professional enhancements and improvements over the previous incarnations of the Editor.</P>
+    <P>AMOS Professional provides one of the most effective and powerful creative environments for
+        the Amiga programmer. It is also incredibly simple to use. Here is a synopsis of the AMOS
+        Professional enhancements and improvements over the previous incarnations of the Editor.</P>
 
-<UL>
-  <LI>The size of the Editor working area has been dramatically increased.</LI>
+    <UL>
+        <LI>The size of the Editor working area has been dramatically increased.</LI>
 
-  <LI>The increased working area is made possible by the provision of a comprehensive 
-  system of pull-down menus. The main menu headings are invisible until they are revealed by 
-  pressing the <b>right</b> mouse button. The second part of this Chapter provides a detailed guided tour 
-  of the vast selection of menu options.</LI>
+        <LI>The increased working area is made possible by the provision of a comprehensive
+            system of pull-down menus. The main menu headings are invisible until they are revealed by
+            pressing the <b>right</b> mouse button. The second part of this Chapter provides a detailed guided tour
+            of the vast selection of menu options.
+        </LI>
 
-  <LI>The on-line Help system that was offered by Easy AMOS has been enhanced beyond
-  recognition! Instant Help is available for any command, offering definitions, correct 
-  syntax and working examples. This allows instant insights into the hundreds of new commands
-  provided by AMOS Professional for existing AMOS and Easy AMOS users. <a href="04-02-help.html">Chapter 4.2</a>
-  contains a full analysis of the Help system.</LI>
+        <LI>The on-line Help system that was offered by Easy AMOS has been enhanced beyond
+            recognition! Instant Help is available for any command, offering definitions, correct
+            syntax and working examples. This allows instant insights into the hundreds of new commands
+            provided by AMOS Professional for existing AMOS and Easy AMOS users. <a href="04-02-help.html">Chapter 4.2</a>
+            contains a full analysis of the Help system.
+        </LI>
 
-  <LI>A Monitor accessory can be called for analysis and reports of actual program 
-  listings, and this is explained in <a href="12-01-the-monitor.html">Chapter 12.1</a>.</LI>
+        <LI>A Monitor accessory can be called for analysis and reports of actual program
+            listings, and this is explained in <a href="12-01-the-monitor.html">Chapter 12.1</a>.
+        </LI>
 
-  <LI>AMOS Professional features a split-screen Editor, allowing you to flick from program 
-  to program with a single mouse click.</LI>
+        <LI>AMOS Professional features a split-screen Editor, allowing you to flick from program
+            to program with a single mouse click.
+        </LI>
 
-  <LI>There is immediate access to printer support, and listings can be printed by 
-  selecting a single menu option.</LI>
+        <LI>There is immediate access to printer support, and listings can be printed by
+            selecting a single menu option.
+        </LI>
 
-  <LI>The block system has been dramatically improved, and given its own mode. Block Mode 
-  can be entered by double clicking on the <b>left</b> mouse button, or by summoning the [Block] 
-  menu.</LI>
+        <LI>The block system has been dramatically improved, and given its own mode. Block Mode
+            can be entered by double clicking on the <b>left</b> mouse button, or by summoning the [Block]
+            menu.
+        </LI>
 
-  <LI>The SET BUFFER command is now intelligent, allowing you to increase the memory area 
-  at any time, without the necessity to save programs first.</LI>
+        <LI>The SET BUFFER command is now intelligent, allowing you to increase the memory area
+            at any time, without the necessity to save programs first.
+        </LI>
 
-  <LI>Finally, the File Selector is new, improved and extremely friendly!</LI>
+        <LI>Finally, the File Selector is new, improved and extremely friendly!</LI>
 
-</UL>
+    </UL>
 
-<P>The AMOS Professional Editor is very easy to use, and it may be tempting to pick up the 
-system as you go along, particularly if you have experience of AMOS or Easy AMOS. After a few 
-weeks of use, the exploitation of the Editor features will become almost instinctive.</P>
+    <P>The AMOS Professional Editor is very easy to use, and it may be tempting to pick up the
+        system as you go along, particularly if you have experience of AMOS or Easy AMOS. After a few
+        weeks of use, the exploitation of the Editor features will become almost instinctive.</P>
 
-<P><b>However,</b>
-	
- if you plunge into the system without a little guidance, you may well end up 
-using only a fraction of the Editor's potential capability. The sheer power of the system is 
-vast, and it would be a pity to overlook some of its exciting features. It is possible 
-that you may only need to refer to this Chapter once, but please make sure that you are 
-aware of everything that the AMOS Professional Editor has to offer.</P>
+    <P><b>However,</b>
+
+        if you plunge into the system without a little guidance, you may well end up
+        using only a fraction of the Editor's potential capability. The sheer power of the system is
+        vast, and it would be a pity to overlook some of its exciting features. It is possible
+        that you may only need to refer to this Chapter once, but please make sure that you are
+        aware of everything that the AMOS Professional Editor has to offer.</P>
 </section>
 
 <section id="01-the-amos-professional-editor">
-<h2>The AMOS Professional Editor</h2>
+    <h2>The AMOS Professional Editor</h2>
 
-<P>The purpose of the Editor is to make it as easy as possible to create, adapt and modify
-AMOS Professional programs via your screen. To achieve this, the Editor provides a range of 
-tools that have been designed with the sole purpose of saving Amiga programmers time, trouble,
-frustration and confusion. It also short-circuits the need for ugly, complex program 
-listings!</P>
+    <P>The purpose of the Editor is to make it as easy as possible to create, adapt and modify
+        AMOS Professional programs via your screen. To achieve this, the Editor provides a range of
+        tools that have been designed with the sole purpose of saving Amiga programmers time, trouble,
+        frustration and confusion. It also short-circuits the need for ugly, complex program
+        listings!</P>
 
-<P>The Editor is intelligent, and will recognise AMOS Professional instructions as they 
-are typed in, allowing mistakes to be corrected immediately.</P>
+    <P>The Editor is intelligent, and will recognise AMOS Professional instructions as they
+        are typed in, allowing mistakes to be corrected immediately.</P>
 
-<P>
-You can even tidy up your program listings with an automatic indenting option, and make
-them pleasing to the eye and more accessible to the brain.</P>
+    <P>
+        You can even tidy up your program listings with an automatic indenting option, and make
+        them pleasing to the eye and more accessible to the brain.</P>
 
-<P>
-You are able to move through your streamlined listings at high speed, jumping from one label
-or procedure to the next. The procedures themselves are complete program modules that can be
-compacted into a single line of your listing by "closing" them.</P>
+    <P>
+        You are able to move through your streamlined listings at high speed, jumping from one label
+        or procedure to the next. The procedures themselves are complete program modules that can be
+        compacted into a single line of your listing by "closing" them.</P>
 
-<P>
-Wherever possible, the AMOS Professional Editor will call up Help at the touch of a button,
-whenever you need it.</P>
+    <P>
+        Wherever possible, the AMOS Professional Editor will call up Help at the touch of a button,
+        whenever you need it.</P>
 </section>
 
 <section id="02-the-edit-screen">
-<h2>The Edit Screen</h2>
+    <h2>The Edit Screen</h2>
 
-<P>Here is a diagram of the AMOS Professional Edit Screen. There follows a short guided tour of its
-features.</P>
+    <P>Here is a diagram of the AMOS Professional Edit Screen. There follows a short guided tour of its
+        features.</P>
 
-<img alt="Amos Professional Editor screen"
- src="images/402.jpg" >
+    <img alt="Amos Professional Editor screen"
+         src="images/402.jpg">
 </section>
 
 <section id="03-the-edit-icons">
-<h2>The Edit Icons</h2>
+    <h2>The Edit Icons</h2>
 
-<P>
-<img alt="Direct mode button"
- src="images/402direct.jpg" align="top" height="27"
- width="27" /> The [&lt;D] button at the top-left of the screen is used to go into Direct Mode. This 
-is also achieved by pressing the [Esc] key. Direct Mode is fully explored later.</P>
+    <P>
+        <img alt="Direct mode button"
+             src="images/402direct.jpg" align="top" height="27"
+             width="27"/> The [&lt;D] button at the top-left of the screen is used to go into Direct Mode. This
+        is also achieved by pressing the [Esc] key. Direct Mode is fully explored later.</P>
 
-<p>
-<img alt="Workbench button"
- src="images/402wb.jpg" align="top" height="27"
- width="28" /> The [WB] button at the top-right of the screen is used to go to the Workbench. If 
-AMOS Professional has been loaded from the Workbench, it will remain in memory, and you can return 
-to AMOS Professional by pressing [Left Amiga]+[A].</P>
+    <p>
+        <img alt="Workbench button"
+             src="images/402wb.jpg" align="top" height="27"
+             width="28"/> The [WB] button at the top-right of the screen is used to go to the Workbench. If
+        AMOS Professional has been loaded from the Workbench, it will remain in memory, and you can return
+        to AMOS Professional by pressing [Left Amiga]+[A].</P>
 
-<P>
-The [WB] button will have no effect if the CLOSE WORKBENCH command has been called
-from one of your programs, as explained in <a href="13-01-configuration.html">Chapter 13.1</a>.</P>
+    <P>
+        The [WB] button will have no effect if the CLOSE WORKBENCH command has been called
+        from one of your programs, as explained in <a href="13-01-configuration.html">Chapter 13.1</a>.</P>
 
-<P>
-Between the [DIR] and [WB] buttons, there is a line of icons that provide rapid access to various
-features, directly from the screen. From left to right, they have the following uses:</P>
+    <P>
+        Between the [DIR] and [WB] buttons, there is a line of icons that provide rapid access to various
+        features, directly from the screen. From left to right, they have the following uses:</P>
 
-<p>
-<img alt="Run button"
- src="images/402run.jpg" align="top" /> 
-As usual, all of these icons are activated by the <b>left</b> mouse button. 
-This is the [RUN] button, and it is used to run the current program listing. 
-If any errors are encountered in the program, a message will be displayed in the Information Line.</p>
+    <p>
+        <img alt="Run button"
+             src="images/402run.jpg" align="top"/>
+        As usual, all of these icons are activated by the <b>left</b> mouse button.
+        This is the [RUN] button, and it is used to run the current program listing.
+        If any errors are encountered in the program, a message will be displayed in the Information Line.</p>
 
 
-<p>
-<img alt="Test button"
- src="images/402test.jpg" align="top" /> 
- The [TEST] button instructs AMOS Professional to test the current program for errors, 
-without running the program. A full list of error messages is listed in <a href="12-03-amos-errors.html">Chapter 12.3</a>, 
-and the Help facility is available to explain the correct use and syntax of instructions.</P>
+    <p>
+        <img alt="Test button"
+             src="images/402test.jpg" align="top"/>
+        The [TEST] button instructs AMOS Professional to test the current program for errors,
+        without running the program. A full list of error messages is listed in <a href="12-03-amos-errors.html">Chapter 12.3</a>,
+        and the Help facility is available to explain the correct use and syntax of instructions.</P>
 
-<P>
-<img alt="Indent button"
- src="images/402indent.jpg" align="top" /> 
- [INDENT]. Use this button to automatically indent your program listings.
-  Where example programs are printed in this User Guide, they are displayed in indented format.</P>
+    <P>
+        <img alt="Indent button"
+             src="images/402indent.jpg" align="top"/>
+        [INDENT]. Use this button to automatically indent your program listings.
+        Where example programs are printed in this User Guide, they are displayed in indented format.</P>
 
-<P>
-<img alt="Monitor button"
- src="images/402monitor.jpg" align="top" /> 	
- This icon is used to summon up the AMOS Professional [MONITOR], which provides
- detailed help and analysis of your programs. A full explanation of the Monitor can be 
- found in <a href="12-01-the-monitor.html">Chapter 12.1</a>.</P>
+    <P>
+        <img alt="Monitor button"
+             src="images/402monitor.jpg" align="top"/>
+        This icon is used to summon up the AMOS Professional [MONITOR], which provides
+        detailed help and analysis of your programs. A full explanation of the Monitor can be
+        found in <a href="12-01-the-monitor.html">Chapter 12.1</a>.</P>
 
-<P>
-<img alt="Help button"
- src="images/402help.jpg" align="top" /> 
-[HELP]. The next Chapter provides a detailed examination of the AMOS 
-Professional help facilities. Use this button to call up the Help main menu.</P>
+    <P>
+        <img alt="Help button"
+             src="images/402help.jpg" align="top"/>
+        [HELP]. The next Chapter provides a detailed examination of the AMOS
+        Professional help facilities. Use this button to call up the Help main menu.</P>
 
-<P>
-<img alt="Under button"
- src="images/402under.jpg" align="top" />
+    <P>
+        <img alt="Under button"
+             src="images/402under.jpg" align="top"/>
 
- <img alt="Above button"
- src="images/402above.jpg" align="top" /> [UNDER] and [ABOVE]. This pair of buttons is used to display the window 
- which is under or above the current window, in other words it moves to the previous or next window.</P>
+        <img alt="Above button"
+             src="images/402above.jpg" align="top"/> [UNDER] and [ABOVE]. This pair of buttons is used to display the window
+        which is under or above the current window, in other words it moves to the previous or next window.</P>
 
-<P>
-<img alt="Insert/Overwrite button"
- src="images/402ins.jpg" align="top" /> The [INSERT/OVERWRITE] button toggles between the two modes of editing, 
- which are explained in the paragraphs concerning the Information Line, below.</P>
+    <P>
+        <img alt="Insert/Overwrite button"
+             src="images/402ins.jpg" align="top"/> The [INSERT/OVERWRITE] button toggles between the two modes of editing,
+        which are explained in the paragraphs concerning the Information Line, below.</P>
 
-<P>
-<img alt="Procedures button"
- src="images/402procedures.jpg" align="top" /> The [PROCEDURES] icon is used to open or close a procedure.
- Unlike the image of the last button, which is a toggle, this icon is an animation, and after being activated 
-  it returns to its original state.</P>
+    <P>
+        <img alt="Procedures button"
+             src="images/402procedures.jpg" align="top"/> The [PROCEDURES] icon is used to open or close a procedure.
+        Unlike the image of the last button, which is a toggle, this icon is an animation, and after being activated
+        it returns to its original state.</P>
 
-<P>
-<img alt="Return button"
- src="images/402return.jpg" align="top" /> This icon represents [INSERT A RETURN], and its use is dealt with in the 
-explanations of the menu options.</P>
+    <P>
+        <img alt="Return button"
+             src="images/402return.jpg" align="top"/> This icon represents [INSERT A RETURN], and its use is dealt with in the
+        explanations of the menu options.</P>
 
-<P>
-<img alt="Under button"
- src="images/402chipfast.jpg" align="top" /> The two indicator bars to the right of the above
-  icon buttons display the amount of <b>Chip</b> and <b>Fast</b> memory that is currently being used.</P>
+    <P>
+        <img alt="Under button"
+             src="images/402chipfast.jpg" align="top"/> The two indicator bars to the right of the above
+        icon buttons display the amount of <b>Chip</b> and <b>Fast</b> memory that is currently being used.</P>
 </section>
 
 <section id="04-the-editor-window">
-<h2>The Editor Window</h2>
+    <h2>The Editor Window</h2>
 
-<P>The windows that hold program listings appear immediately below the row of Edit
-icons.</P>
+    <P>The windows that hold program listings appear immediately below the row of Edit
+        icons.</P>
 
-<P>At the top of each window is an Information Line, that displays the title of the 
-current "project" and provides a status report. It also displays three Edit Window Icons, 
-as follows:</P>
+    <P>At the top of each window is an Information Line, that displays the title of the
+        current "project" and provides a status report. It also displays three Edit Window Icons,
+        as follows:</P>
 
-<p>
-<img alt="Close button"
- src="images/402close.jpg" align="top" /> At the left-hand side of the Information Line, there is a small [CLOSE] icon. This 
-closes the current window and erases its contents.</P>
+    <p>
+        <img alt="Close button"
+             src="images/402close.jpg" align="top"/> At the left-hand side of the Information Line, there is a small [CLOSE] icon. This
+        closes the current window and erases its contents.</P>
 
-<P>Since this is a drastic action, you will be asked to confirm your intentions before the 
-window is
-closed. Select [Cancel] to abort the closing operation, and leave the current program 
-intact.
-Please note that when the last window is closed in this way, the program will be erased 
-and the
-window will be left clean, ready for your next editing action.</P>
+    <P>Since this is a drastic action, you will be asked to confirm your intentions before the
+        window is
+        closed. Select [Cancel] to abort the closing operation, and leave the current program
+        intact.
+        Please note that when the last window is closed in this way, the program will be erased
+        and the
+        window will be left clean, ready for your next editing action.</P>
 
-<P>You may wish to open a new window now, before experimenting any further. Please hold
-down the <b>right</b> mouse button and with the button held down, drag the mouse pointer to the
-[Project] menu heading and highlight the [Open New] option. Now release the right mouse
-button, and a new window will be opened at once. You can open more windows if you wish,
-to prove how simple this is, and then close them again with the [CLOSE] button.</P>
+    <P>You may wish to open a new window now, before experimenting any further. Please hold
+        down the <b>right</b> mouse button and with the button held down, drag the mouse pointer to the
+        [Project] menu heading and highlight the [Open New] option. Now release the right mouse
+        button, and a new window will be opened at once. You can open more windows if you wish,
+        to prove how simple this is, and then close them again with the [CLOSE] button.</P>
 
-<P>You are allowed as many active windows as you wish, providing that there is enough 
-screen space. Once a window has been opened, it may be re-positioned by dragging its Information
-Line using the <b>left</b> mouse button, and its size can be changed by dragging its lower border 
-in the same way.</P>
+    <P>You are allowed as many active windows as you wish, providing that there is enough
+        screen space. Once a window has been opened, it may be re-positioned by dragging its Information
+        Line using the <b>left</b> mouse button, and its size can be changed by dragging its lower border
+        in the same way.</P>
 
-<P>Only one window can be active at a time, and this is used for all current editing 
-operations, and menu selections. If there is more than one window open, an individual window is selected 
-by simply clicking on its contents with the mouse. A flashing cursor will be positioned over 
-the relevant programming line. The Information Lines of any inactive windows are reduced to a
-dull display, leaving the current active window's display in its original bright 
-condition.</P>
+    <P>Only one window can be active at a time, and this is used for all current editing
+        operations, and menu selections. If there is more than one window open, an individual window is selected
+        by simply clicking on its contents with the mouse. A flashing cursor will be positioned over
+        the relevant programming line. The Information Lines of any inactive windows are reduced to a
+        dull display, leaving the current active window's display in its original bright
+        condition.</P>
 
-<P>There are two other icons at the right-hand end of the Information Line.</P>
+    <P>There are two other icons at the right-hand end of the Information Line.</P>
 
-<P>
-<img alt="Hide button"
- src="images/402hide.jpg" align="top" />
-  The [HIDE] icon is used to hide a normal program from the display. Hidden 
-"accessory" programs are available directly from the [AMOS] main menu. Accessories are discussed 
-  at the beginning of <a href="13-01-configuration.html">Chapter 13.1</a>.</P>
+    <P>
+        <img alt="Hide button"
+             src="images/402hide.jpg" align="top"/>
+        The [HIDE] icon is used to hide a normal program from the display. Hidden
+        "accessory" programs are available directly from the [AMOS] main menu. Accessories are discussed
+        at the beginning of <a href="13-01-configuration.html">Chapter 13.1</a>.</P>
 
-<P>
-<img alt="Compressor button"
- src="images/402compress.jpg" align="top" /> 
- This icon is the [COMPRESSOR] button, and it is used to compress a window to a single
- title line, revealing and windows underneath. To expand a window to its original state, 
- simply click on this icon again.</P>
+    <P>
+        <img alt="Compressor button"
+             src="images/402compress.jpg" align="top"/>
+        This icon is the [COMPRESSOR] button, and it is used to compress a window to a single
+        title line, revealing and windows underneath. To expand a window to its original state,
+        simply click on this icon again.</P>
 </section>
 
 <section id="05-the-information-line">
-<h2>The Information Line</h2>
+    <h2>The Information Line</h2>
 
-<P>Between the window icons, the Information Line offers the following status reports,
-from left to right.</P>
+    <P>Between the window icons, the Information Line offers the following status reports,
+        from left to right.</P>
 
-<P>The <b>number</b> of the window is displayed first, starting from 1.</P>
+    <P>The <b>number</b> of the window is displayed first, starting from 1.</P>
 
-<P>The current Editing mode is displayed next. An I means that new characters that are 
-typed in will be <b>inserted</b> wherever the edit cursor is on the screen. This is the default status. 0 
-indicates that new characters will <b>overwrite</b> characters that are already displayed in the 
-Edit Window.</P>
+    <P>The current Editing mode is displayed next. An I means that new characters that are
+        typed in will be <b>inserted</b> wherever the edit cursor is on the screen. This is the default status. 0
+        indicates that new characters will <b>overwrite</b> characters that are already displayed in the
+        Edit Window.</P>
 
-<P><b>L</b> and <b>C</b> indicate which <b>line</b> and which <b>column</b> are currently being edited, in other words,
- the current location of the program cursor.</P>
+    <P><b>L</b> and <b>C</b> indicate which <b>line</b> and which <b>column</b> are currently being edited, in other words,
+        the current location of the program cursor.</P>
 
 
-<P><b>Free</b> indicates the amount of memory available to hold your listing. The normal setting 
-of approximately 32k can be increased at any time, via a simple menu option.</P>
+    <P><b>Free</b> indicates the amount of memory available to hold your listing. The normal setting
+        of approximately 32k can be increased at any time, via a simple menu option.</P>
 
-<P><b>Edit</b> lists the filename of the current program. If it is not yet saved onto disc, it 
-will be assigned the name "New project".</P>
+    <P><b>Edit</b> lists the filename of the current program. If it is not yet saved onto disc, it
+        will be assigned the name "New project".</P>
 </section>
 
 <section id="06-the-scroll-bar">
-<h2>The Scroll Bar</h2>
+    <h2>The Scroll Bar</h2>
 
-<P>To the right of the window area, there is a thin vertical bar. This can be dragged with
-the mouse to move your window over the current program listing. The window may also be scrolled
-vertically or horizontally by clicking anywhere along the edges of the display. Moving 
-through a long program listing is explained later, in the menu options and their 
-equivalent keyboard short-cuts.</P>
+    <P>To the right of the window area, there is a thin vertical bar. This can be dragged with
+        the mouse to move your window over the current program listing. The window may also be scrolled
+        vertically or horizontally by clicking anywhere along the edges of the display. Moving
+        through a long program listing is explained later, in the menu options and their
+        equivalent keyboard short-cuts.</P>
 
-<P>If you click on the <b>left</b> mouse button and then hold down the <b>right</b> mouse button, the 
-slider will move rapidly through the listing, page by page. All AMOS Professional sliders operate on a
-similar principle.</P>
+    <P>If you click on the <b>left</b> mouse button and then hold down the <b>right</b> mouse button, the
+        slider will move rapidly through the listing, page by page. All AMOS Professional sliders operate on a
+        similar principle.</P>
 </section>
 
 <section id="07-direct-mode">
-<h2>Direct Mode</h2>
+    <h2>Direct Mode</h2>
 
-<P>If you read through the last Chapter, you will be familiar with the purpose of the AMOS
-Professional Direct Mode, otherwise it is assumed that you already have experience of the
-AMOS or Easy AMOS Direct Mode operations.</P>
+    <P>If you read through the last Chapter, you will be familiar with the purpose of the AMOS
+        Professional Direct Mode, otherwise it is assumed that you already have experience of the
+        AMOS or Easy AMOS Direct Mode operations.</P>
 
-<P>The AMOS Professional Direct Mode has been completely redesigned and vastly improved!
-Here is a synopsis of the major enhancements,</P>
+    <P>The AMOS Professional Direct Mode has been completely redesigned and vastly improved!
+        Here is a synopsis of the major enhancements,</P>
 
-<UL>
-  <LI>It is completely independent of the current program screen.</LI>
+    <UL>
+        <LI>It is completely independent of the current program screen.</LI>
 
-  <LI>The size and position of the Direct Mode Window can be changed instantly.</LI>
+        <LI>The size and position of the Direct Mode Window can be changed instantly.</LI>
 
-  <LI>If necessary, all screen and graphics operations can be forced onto the Direct Mode 
-  Window rather than the current program screen, using the new [OUTPUT] facility.</LI>
+        <LI>If necessary, all screen and graphics operations can be forced onto the Direct Mode
+            Window rather than the current program screen, using the new [OUTPUT] facility.
+        </LI>
 
-  <LI>[OUTPUT] also allows directory listings and the contents of variables to be 
-  displayed via Direct Mode, without destroying an existing game or utility screens.</LI>
+        <LI>[OUTPUT] also allows directory listings and the contents of variables to be
+            displayed via Direct Mode, without destroying an existing game or utility screens.
+        </LI>
 
-  <LI>The "history buffer" that stores lines already typed via Direct mode is now accessed 
-  with the [up arrow] and [down arrow] keys, similar to the Shell program from the Workbench. The
-  contents of the history buffer is remembered when you leave Direct Mode, ready to be 
-  called up when you return.</LI>
+        <LI>The "history buffer" that stores lines already typed via Direct mode is now accessed
+            with the [up arrow] and [down arrow] keys, similar to the Shell program from the Workbench. The
+            contents of the history buffer is remembered when you leave Direct Mode, ready to be
+            called up when you return.
+        </LI>
 
-</UL>
+    </UL>
 
-<P>Please enter Direct Mode, now either by clicking on the [DIR] button in the Edit Window,
- or by pressing the [Esc] key.</P>
+    <P>Please enter Direct Mode, now either by clicking on the [DIR] button in the Edit Window,
+        or by pressing the [Esc] key.</P>
 
-<p>
-The Direct Mode working screen will appear, looking like this:</P>
+    <p>
+        The Direct Mode working screen will appear, looking like this:</P>
 
-<img alt="Direct mode" src="images/406directmode.jpg" />
+    <img alt="Direct mode" src="images/406directmode.jpg"/>
 
-<P>
-The Direct Mode screen has a bar of useful icons above a large window area where commands
-are entered and their results displayed.</P>
+    <P>
+        The Direct Mode screen has a bar of useful icons above a large window area where commands
+        are entered and their results displayed.</P>
 
-<P>
-<img alt="Edit mode button"
- src="images/402close.jpg" align="top" /> 
- The [&lt;E] button at the top-left of the screen is 
- used to return to Edit Mode. This is also achieved by pressing the [Esc] key.</P>
+    <P>
+        <img alt="Edit mode button"
+             src="images/402close.jpg" align="top"/>
+        The [&lt;E] button at the top-left of the screen is
+        used to return to Edit Mode. This is also achieved by pressing the [Esc] key.</P>
 
-<P>
-<img alt="Workbench button"
- src="images/402wb.jpg" align="top" />
-The [WB] button at the top-right of the screen is used to go to the Workbench. If AMOS 
-Professional has been loaded from the Workbench, it will remain in memory, and you 
-can return to AMOS Professional by pressing [Amiga]+[A]. The [WB] button will have 
-<b>no</b> effect if the CLOSE WORKBENCH command has been called from one of your programs, 
-as explained in <a href="13-01-configuration.html">Chapter 13.1</a>.</P>
+    <P>
+        <img alt="Workbench button"
+             src="images/402wb.jpg" align="top"/>
+        The [WB] button at the top-right of the screen is used to go to the Workbench. If AMOS
+        Professional has been loaded from the Workbench, it will remain in memory, and you
+        can return to AMOS Professional by pressing [Amiga]+[A]. The [WB] button will have
+        <b>no</b> effect if the CLOSE WORKBENCH command has been called from one of your programs,
+        as explained in <a href="13-01-configuration.html">Chapter 13.1</a>.</P>
 
-<p>
-<img alt="Output button"
- src="images/406outputbutton.jpg" align="top" /> 
-To the right of the "DIRECT" identification panel is the [OUTPUT] icon. This is used to
-toggle the display of all operations between the Direct Mode window and your program
-screen. If selected, operations will be performed in the Direct Mode window, and the
-program display will remain untouched. To return to normal, simply select the [OUTPUT]
-button again. Please note that only text output is permitted within this window.</p>
+    <p>
+        <img alt="Output button"
+             src="images/406outputbutton.jpg" align="top"/>
+        To the right of the "DIRECT" identification panel is the [OUTPUT] icon. This is used to
+        toggle the display of all operations between the Direct Mode window and your program
+        screen. If selected, operations will be performed in the Direct Mode window, and the
+        program display will remain untouched. To return to normal, simply select the [OUTPUT]
+        button again. Please note that only text output is permitted within this window.</p>
 
-<p>
-The row of ten icons between the [OUTPUT] and [WB] icons are the equivalent of pressing 
-one of the Direct Mode <b>function key pre-sets</b> [Fl] to [F10]. Selecting one of these icons with 
-the left mouse button is the same as pressing the equivalent function key. Selecting a 
-button with the <b>right</b> mouse button is the equivalent of pressing [Shift]+[Function key].</p>
+    <p>
+        The row of ten icons between the [OUTPUT] and [WB] icons are the equivalent of pressing
+        one of the Direct Mode <b>function key pre-sets</b> [Fl] to [F10]. Selecting one of these icons with
+        the left mouse button is the same as pressing the equivalent function key. Selecting a
+        button with the <b>right</b> mouse button is the equivalent of pressing [Shift]+[Function key].</p>
 
-<P>
-Here is a list of the pre-set commands called by these icons. Experienced AMOS programmers
-will already be familiar with their meanings, and new users will be introduced to them in the
-following Chapters. The following function key assignments are for Direct Mode only, and
-should not be confused with the operation of function keys from Edit Mode.</P>
+    <P>
+        Here is a list of the pre-set commands called by these icons. Experienced AMOS programmers
+        will already be familiar with their meanings, and new users will be introduced to them in the
+        following Chapters. The following function key assignments are for Direct Mode only, and
+        should not be confused with the operation of function keys from Edit Mode.</P>
 
-<P>
-Left Mouse Button (LMB). Right Mouse Button (RMB)
-</P>
-<!-- User-specified pre-formatted text -->
-<PRE>
+    <P>
+        Left Mouse Button (LMB). Right Mouse Button (RMB)
+    </P>
+    <!-- User-specified pre-formatted text -->
+    <PRE>
 <img alt="List Bank button"
- src="images/407listbank.jpg" align="top" /> LMB LIST BANK                   [F1]
+     src="images/407listbank.jpg" align="top"/> LMB LIST BANK                   [F1]
     RMB SCREEN CLOSE        [Shift]+[F1]
 
 <img alt="Default button"
- src="images/407def.jpg" align="top" /> LMB DEFAULT                     [F2]
+     src="images/407def.jpg" align="top"/> LMB DEFAULT                     [F2]
     RMB SCREEN OPEN         [Shift]+[F2]
 
 <img alt="DIR button"
- src="images/407dir.jpg" align="top" /> LMB DIR                         [F3]
+     src="images/407dir.jpg" align="top"/> LMB DIR                         [F3]
     RMB WIND OPEN           [Shift]+[F3]
 
 <img alt="DIR$ button"
- src="images/407dirs.jpg" align="top" /> LMB DIR$                        [F4]
+     src="images/407dirs.jpg" align="top"/> LMB DIR$                        [F4]
     RMB SCREEN CLOSE        [Shift]+[F4]
 
 <img alt="Parent button"
- src="images/407parent.jpg" align="top" /> LMB PARENT                      [F5]
+     src="images/407parent.jpg" align="top"/> LMB PARENT                      [F5]
     RMB BOB OFF: SPRITE OFF [Shift]+[F5]
 
 <img alt="Load Bank button"
- src="images/407loadb.jpg" align="top" /> LMB LOAD BANK                   [F6]
+     src="images/407loadb.jpg" align="top"/> LMB LOAD BANK                   [F6]
     RMB FREEZE              [Shift]+[F6]
 
 <img alt="Save Bank button"
- src="images/407saveb.jpg" align="top" /> LMB SAVE BANK                   [F7]
+     src="images/407saveb.jpg" align="top"/> LMB SAVE BANK                   [F7]
     RMB UNFREEZE            [Shift]+[F7]
 
 <img alt="Load IFF button"
- src="images/407loadiff.jpg" align="top" /> LMB LOAD IFF                    [F8]
+     src="images/407loadiff.jpg" align="top"/> LMB LOAD IFF                    [F8]
     RMB AMAL OFF            [Shift]+[F8]
 
 <img alt="Save IFF button"
- src="images/407saveiff.jpg" align="top" /> LMB SAVE IFF                    [F9]
+     src="images/407saveiff.jpg" align="top"/> LMB SAVE IFF                    [F9]
     RMB EDIT                [Shift]+[F9]
 </PRE>
 
-<PRE>
+    <PRE>
 <img alt="Path String button"
- src="images/408pstring.jpg" align="top" /> LMB return a file's full path string [F10]
+     src="images/408pstring.jpg" align="top"/> LMB return a file's full path string [F10]
     RMB SYSTEM                   [Shift]+[F10]
 </PRE>
 
-<P>
-The Direct Mode window can be moved around the screen by dragging it with the left mouse
-button, or by pressing the [Ctrl] + [Up Arrow] and [Ctrl] + [Down Arrow] keys. The size of 
-the Direct Mode window is changed by dragging its bottom border, or by using the
-[Shift]+[Up Arrow] and [Shift]+[Down Arrow] keys.</P>
+    <P>
+        The Direct Mode window can be moved around the screen by dragging it with the left mouse
+        button, or by pressing the [Ctrl] + [Up Arrow] and [Ctrl] + [Down Arrow] keys. The size of
+        the Direct Mode window is changed by dragging its bottom border, or by using the
+        [Shift]+[Up Arrow] and [Shift]+[Down Arrow] keys.</P>
 
-<P>
-You are reminded that the [Up Arrow] and [Down Arrow] keys are also used to recall up 
-to twenty previous lines entered in Direct Mode. Simply hit the [Return] key to execute any
-recalled line. The number of lines that can be recalled may be changed from twenty to anything
-in the range of zero to 128, and this process is explained in <a href="13-01-configuration.html">Chapter 13.1</a>.</P>
+    <P>
+        You are reminded that the [Up Arrow] and [Down Arrow] keys are also used to recall up
+        to twenty previous lines entered in Direct Mode. Simply hit the [Return] key to execute any
+        recalled line. The number of lines that can be recalled may be changed from twenty to anything
+        in the range of zero to 128, and this process is explained in <a href="13-01-configuration.html">Chapter 13.1</a>.</P>
 
-<P>
-To end this examination of AMOS Professional Direct Mode, your attention is drawn to 
-the prompt line at the lower left of the Direct Mode Window. The <b>AMOS Pro&gt;</b> prompt is
-highlighted, and marks the position at which your typed instructions will appear. The prompt
-itself awaits your instructions, which will be executed as soon as you press the [Return] key.</P>
+    <P>
+        To end this examination of AMOS Professional Direct Mode, your attention is drawn to
+        the prompt line at the lower left of the Direct Mode Window. The <b>AMOS Pro&gt;</b> prompt is
+        highlighted, and marks the position at which your typed instructions will appear. The prompt
+        itself awaits your instructions, which will be executed as soon as you press the [Return] key.</P>
 </section>
 
 <section id="08-the-file-selector">
-<h2>The File Selector</h2>
+    <h2>The File Selector</h2>
 
-<P>Please summon up the File Selector now. Simply go to Direct Mode and press [F10] on your
-keyboard.</P>
+    <P>Please summon up the File Selector now. Simply go to Direct Mode and press [F10] on your
+        keyboard.</P>
 
-<P>
-Programs are stored on discs as "files", and each is given an individual file name. The File
-Selector is a means to gain access to individual files, and <a href="10-02-disc-access.html">Chapter 10.2</a> 
-is devoted to all the aspects of files stored on disc.</P>
+    <P>
+        Programs are stored on discs as "files", and each is given an individual file name. The File
+        Selector is a means to gain access to individual files, and <a href="10-02-disc-access.html">Chapter 10.2</a>
+        is devoted to all the aspects of files stored on disc.</P>
 
-<P>
-The AMOS Professional File Selector is faster than its AMOS and Easy AMOS predecessors, it
-offers more features and it happens to be a lot better looking! The physical size and positioning
-of the File Selector can be changed to your own preferences and this is explained in 
-<a href="13-01-configuration.html">Chapter 13.1</a>. When the AMOS Professional File Selector is summoned, 
-it appears like this:</P>
+    <P>
+        The AMOS Professional File Selector is faster than its AMOS and Easy AMOS predecessors, it
+        offers more features and it happens to be a lot better looking! The physical size and positioning
+        of the File Selector can be changed to your own preferences and this is explained in
+        <a href="13-01-configuration.html">Chapter 13.1</a>. When the AMOS Professional File Selector is summoned,
+        it appears like this:</P>
 
-<img alt="Amos File Selector"
- src="images/408fileselect.jpg" />
+    <img alt="Amos File Selector"
+         src="images/408fileselect.jpg"/>
 
-<!-- section -->
+    <!-- section -->
 
-<P>
-Please note that a maximum of 10k is needed to open the AMOS Professional File 
-Selector. If memory does not allow for the File Selector to be opened, a simple <b>input line</b> will be 
-displayed instead, inviting you to enter a file name. If this very rare situation happens, type in 
-the name of the file you wish to load or save, and press [Return].</P>
+    <P>
+        Please note that a maximum of 10k is needed to open the AMOS Professional File
+        Selector. If memory does not allow for the File Selector to be opened, a simple <b>input line</b> will be
+        displayed instead, inviting you to enter a file name. If this very rare situation happens, type in
+        the name of the file you wish to load or save, and press [Return].</P>
 
-<P>
-The standard AMOS Professional File Selector features a window displaying the names of 
-all the files stored on the current disc. There is a slider bar to the right of this window, as 
-well as a pair of Up/Down arrows, allowing you to scroll through the file names. By using 
-this slider, all available paths can be displayed, without the need to specify path names.</P>
+    <P>
+        The standard AMOS Professional File Selector features a window displaying the names of
+        all the files stored on the current disc. There is a slider bar to the right of this window, as
+        well as a pair of Up/Down arrows, allowing you to scroll through the file names. By using
+        this slider, all available paths can be displayed, without the need to specify path names.</P>
 
-<P>
-On the right-hand side of the File Selector is a column of buttons offering the 
-following facilities, from top to bottom:</P>
+    <P>
+        On the right-hand side of the File Selector is a column of buttons offering the
+        following facilities, from top to bottom:</P>
 
-<P>[OK]<br>
-This affirmative button informs AMOS Professional that you are satisfied with 
-the current situation and dismisses the File Selector, returning you to 
-the current program. It can be used to save the current program to disc, after 
-you have typed in the new program name in the input line at the bottom of the File Selector. 
-Whenever you click on [OK], AMOS Professional automatically sets its current 
-directory to the directory of the File Selector.</P>
+    <P>[OK]<br>
+        This affirmative button informs AMOS Professional that you are satisfied with
+        the current situation and dismisses the File Selector, returning you to
+        the current program. It can be used to save the current program to disc, after
+        you have typed in the new program name in the input line at the bottom of the File Selector.
+        Whenever you click on [OK], AMOS Professional automatically sets its current
+        directory to the directory of the File Selector.</P>
 
-<P>[Cancel]<br>
-Cancel your current operation by clicking on this button.</P>
+    <P>[Cancel]<br>
+        Cancel your current operation by clicking on this button.</P>
 
-<P>[Parent]<br>
-Because the hierarchy of individual files can get complex, it is sometimes necessary to
-negotiate a path through the current directory. A full explanation of this subject is
-covered in <a href="10-02-disc-access.html">Chapter 10.2</a>.</P>
-
-
-<p>[Devices]<br>
-This is used to call up a list of all devices. In other words, the available hardware
-items, such as disc drives.</p>
-
-<P>[Assigns]<br>
-When this option is selected, only the current assigns are listed.</P>
-
-<P>[Sort]<br>
-If this button is in the "on" position, files will be automatically sorted when they
-are read from the disc, and listed in order. The File Selector will remember the
-setting of the [Sort] button when it is next called.</P>
-
-<P>[Sizes]<br>
-If this button is "on", the size of each file will be displayed. 
-This setting is also remembered when the File Selector is subsequently called.</p>
-
-<p>[Get Dir]<br>
-This button re-reads the current disc directory, and can be useful if the floppy disc
-has been changed.</p>
-
-<P>[Store]<BR>
-The system works normally if this button is "off", but as soon as it is clicked "on", the 
-directory is stored in memory. If there is enough memory available, up to ten different 
-directories may be stored with this facility. The positions in the list are stored along 
-with the list of files themselves, so that next lime you request a directory, AMOS 
-Professional will scan the list of stored directories and attempt to match any requested 
-path names. If successful, the directory is displayed instantly, and if unsuccessful, a 
-normal search of the disc will take place.</P>
+    <P>[Parent]<br>
+        Because the hierarchy of individual files can get complex, it is sometimes necessary to
+        negotiate a path through the current directory. A full explanation of this subject is
+        covered in <a href="10-02-disc-access.html">Chapter 10.2</a>.</P>
 
 
-<P>
-Below this column of buttons, there is a small slider display indicating available 
-memory. The small [X] button to the right of this slider is used to erase the 
-current directory from memory. Note that releasing the [Store] button will 
-erase <b>all</b> stored directories.</P>
+    <p>[Devices]<br>
+        This is used to call up a list of all devices. In other words, the available hardware
+        items, such as disc drives.</p>
 
-<P>Please note that before available memory is exhausted, AMOS Professional will 
-automatically "flush" stored directories, freeing as much memory as possible.</P>
+    <P>[Assigns]<br>
+        When this option is selected, only the current assigns are listed.</P>
 
-<UL>
-  <LI>You can move the File Selector to another position on screen by dragging the title 
-  bar with the left mouse button.</LI>
+    <P>[Sort]<br>
+        If this button is in the "on" position, files will be automatically sorted when they
+        are read from the disc, and listed in order. The File Selector will remember the
+        setting of the [Sort] button when it is next called.</P>
 
-  <LI>The [Up Arrow] and [Down Arrow] keys can be used to scroll through the list of 
-  files.</LI>
+    <P>[Sizes]<br>
+        If this button is "on", the size of each file will be displayed.
+        This setting is also remembered when the File Selector is subsequently called.</p>
 
-  <LI>The [Tab] key can be used to change the path or name of the edit zone.</LI>
+    <p>[Get Dir]<br>
+        This button re-reads the current disc directory, and can be useful if the floppy disc
+        has been changed.</p>
 
-  <LI>To summon a new directory, either use the [Get Dir] button or press the [Enter] key.</LI>
+    <P>[Store]<BR>
+        The system works normally if this button is "off", but as soon as it is clicked "on", the
+        directory is stored in memory. If there is enough memory available, up to ten different
+        directories may be stored with this facility. The positions in the list are stored along
+        with the list of files themselves, so that next lime you request a directory, AMOS
+        Professional will scan the list of stored directories and attempt to match any requested
+        path names. If successful, the directory is displayed instantly, and if unsuccessful, a
+        normal search of the disc will take place.</P>
 
-  <LI>If error messages are displayed in a small requester, they can be dismissed by a 
-  mouse click or by pressing any key.</LI>
 
-  <LI>Because AMOS Professional stores directories in their most recent state, you should 
-  use the [Get Dir] option to re-display a large directory that has not had time to be fully 
-  displayed when it was stored.</LI>
+    <P>
+        Below this column of buttons, there is a small slider display indicating available
+        memory. The small [X] button to the right of this slider is used to erase the
+        current directory from memory. Note that releasing the [Store] button will
+        erase <b>all</b> stored directories.</P>
 
-  <LI>The amount of RAM used by the File Selector depends on the size of the screen and 
-  the number of files. File selector routines require 2k, and each file requires its length 
-  plus ten bytes (so 100 files of 16 characters needs 3k.)</LI>
+    <P>Please note that before available memory is exhausted, AMOS Professional will
+        automatically "flush" stored directories, freeing as much memory as possible.</P>
 
-</UL>
+    <UL>
+        <LI>You can move the File Selector to another position on screen by dragging the title
+            bar with the left mouse button.
+        </LI>
+
+        <LI>The [Up Arrow] and [Down Arrow] keys can be used to scroll through the list of
+            files.
+        </LI>
+
+        <LI>The [Tab] key can be used to change the path or name of the edit zone.</LI>
+
+        <LI>To summon a new directory, either use the [Get Dir] button or press the [Enter] key.</LI>
+
+        <LI>If error messages are displayed in a small requester, they can be dismissed by a
+            mouse click or by pressing any key.
+        </LI>
+
+        <LI>Because AMOS Professional stores directories in their most recent state, you should
+            use the [Get Dir] option to re-display a large directory that has not had time to be fully
+            displayed when it was stored.
+        </LI>
+
+        <LI>The amount of RAM used by the File Selector depends on the size of the screen and
+            the number of files. File selector routines require 2k, and each file requires its length
+            plus ten bytes (so 100 files of 16 characters needs 3k.)
+        </LI>
+
+    </UL>
 </section>
 
 <section id="09-saving-and-loading-a-program">
-<h2>Saving and loading a program</h2>
+    <h2>Saving and loading a program</h2>
 
-<P>Once you have created an AMOS Professional program, it can be saved onto disc using the
-[Save] option from the [Project] menu, or by pressing [Amiga]+[S]. The File Selector 
-will appear, and you can enter your file name, them press [return] to save it onto the 
-disc.</P>
+    <P>Once you have created an AMOS Professional program, it can be saved onto disc using the
+        [Save] option from the [Project] menu, or by pressing [Amiga]+[S]. The File Selector
+        will appear, and you can enter your file name, them press [return] to save it onto the
+        disc.</P>
 
-<P>
-Programs are loaded using the same system. Select the [Load] option from the [Project] 
-menu, or press [Amiga]+[L]. Alternatively, you can load a program into a brand new window 
-using the [Open &amp; Load] option, explained later. Choose the name of the program to load by
-highlighting it in the File Selector window, then press [Return]. It's as simple as that.</P>
+    <P>
+        Programs are loaded using the same system. Select the [Load] option from the [Project]
+        menu, or press [Amiga]+[L]. Alternatively, you can load a program into a brand new window
+        using the [Open &amp; Load] option, explained later. Choose the name of the program to load by
+        highlighting it in the File Selector window, then press [Return]. It's as simple as that.</P>
 
-<P>
-If your current program is too large for the current Editor window, a dialogue box will 
-appear asking if you wish to adapt its size. Selecting the [Yes] option will increase the memory 
-to the <b>minimum</b> amount required for holding your program. To add extra lines will prove impossible
-unless you make some deletions first. By pressing the [No] option, a SET TEXT BUFFER
-operation will be called, setting the buffer area to the <b>exact</b> size required for the 
-current program. You can now increase the size of the buffer area as required.</P>
+    <P>
+        If your current program is too large for the current Editor window, a dialogue box will
+        appear asking if you wish to adapt its size. Selecting the [Yes] option will increase the memory
+        to the <b>minimum</b> amount required for holding your program. To add extra lines will prove impossible
+        unless you make some deletions first. By pressing the [No] option, a SET TEXT BUFFER
+        operation will be called, setting the buffer area to the <b>exact</b> size required for the
+        current program. You can now increase the size of the buffer area as required.</P>
 </section>
 
 <section id="10-auto-save-and-autoresume">
-<h2>Auto-save and Autoresume</h2>
+    <h2>Auto-save and Autoresume</h2>
 
-<P>As a default, you will be automatically prompted to save the results of your current
-programming session every 30 minutes. A separate Autosave dialogue box will be displayed 
-for <b>each</b> window on screen. Pressing [Return] or clicking on the [Yes] button will save your
-program to disc under its current file name automatically. If the program has not been
-previously saved, the File Selector will be summoned inviting you to enter the new program
-name. The time elapse between Autosaves can be changed to your own choice, using the
-configuration options detailed later.</P>
+    <P>As a default, you will be automatically prompted to save the results of your current
+        programming session every 30 minutes. A separate Autosave dialogue box will be displayed
+        for <b>each</b> window on screen. Pressing [Return] or clicking on the [Yes] button will save your
+        program to disc under its current file name automatically. If the program has not been
+        previously saved, the File Selector will be summoned inviting you to enter the new program
+        name. The time elapse between Autosaves can be changed to your own choice, using the
+        configuration options detailed later.</P>
 
-<P>
-The [Quit options] item from the [Config] menu allows the automatic saving of the 
-current programming environment to disc, whenever you leave AMOS Professional. This environment
-includes all current programs, along with a complete list of currently open windows. Even 
-the cursor positions are saved! This means that when you return to AMOS Professional, your 
-screen is exactly as it was, and you can re-commence your programming session at the point from
-which it was left. This facility is intended for hard drive users, although it can be 
-exploited if you have an additional floppy disc drive, provided that you boot AMOS 
-Professional directly, as opposed to from the Workbench, and save your programs on the 
-additional external floppy drive. Your start-up disc should be write-enabled to allow 
-AMOS Professional to load in this way.</P>
+    <P>
+        The [Quit options] item from the [Config] menu allows the automatic saving of the
+        current programming environment to disc, whenever you leave AMOS Professional. This environment
+        includes all current programs, along with a complete list of currently open windows. Even
+        the cursor positions are saved! This means that when you return to AMOS Professional, your
+        screen is exactly as it was, and you can re-commence your programming session at the point from
+        which it was left. This facility is intended for hard drive users, although it can be
+        exploited if you have an additional floppy disc drive, provided that you boot AMOS
+        Professional directly, as opposed to from the Workbench, and save your programs on the
+        additional external floppy drive. Your start-up disc should be write-enabled to allow
+        AMOS Professional to load in this way.</P>
 
-<P><b>The AMOS Professional Editor Menus</b><br>
+    <P><b>The AMOS Professional Editor Menus</b><br>
 
-The following section of this Chapter contains a comprehensive explanation of every 
-option available from the AMOS Professional Editor Menus. The menus are examined in the order 
-that they appear, from left to right, when the <b>right</b> mouse button is pressed to reveal them. 
-All menu headings, menu options and sub-menu items that can be selected via the mouse are shown
-between square brackets. Where selections can also be made via the keyboard, the keys are 
-also shown in square brackets. A function key appears like this [F1], and a key in the numeric 
-keypad appears like this [N1]. For example:</P>
+        The following section of this Chapter contains a comprehensive explanation of every
+        option available from the AMOS Professional Editor Menus. The menus are examined in the order
+        that they appear, from left to right, when the <b>right</b> mouse button is pressed to reveal them.
+        All menu headings, menu options and sub-menu items that can be selected via the mouse are shown
+        between square brackets. Where selections can also be made via the keyboard, the keys are
+        also shown in square brackets. A function key appears like this [F1], and a key in the numeric
+        keypad appears like this [N1]. For example:</P>
 
-<P>[About AMOS Professional]<BR>
-	
-This indicates that the menu option is selected by highlighting it with the mouse pointer, and
-then releasing the mouse button.</P>
+    <P>[About AMOS Professional]<BR>
 
-<P>[Run] or [F1]<BR>
-	
-This means that the option can be chosen via the mouse, or it can be summoned by pressing a
-single function key.</P>
+        This indicates that the menu option is selected by highlighting it with the mouse pointer, and
+        then releasing the mouse button.</P>
 
-<P>[Save As] or [Amiga]+[Shift]+[S]<BR>
-	
-In this case, the option may be selected using the mouse, or by pressing the indicated
-combination of keys together.</P>
+    <P>[Run] or [F1]<BR>
 
-<P>
-Main menu headings are shown in large bold type, with their options printed in smaller bold
-type. Where an option has its own sub-menu, the items in the sub-menu are shown in standard
-type, as follows: </P>
+        This means that the option can be chosen via the mouse, or it can be summoned by pressing a
+        single function key.</P>
+
+    <P>[Save As] or [Amiga]+[Shift]+[S]<BR>
+
+        In this case, the option may be selected using the mouse, or by pressing the indicated
+        combination of keys together.</P>
+
+    <P>
+        Main menu headings are shown in large bold type, with their options printed in smaller bold
+        type. Where an option has its own sub-menu, the items in the sub-menu are shown in standard
+        type, as follows: </P>
 
 
-<PRE>
+    <PRE>
 <font style="background-color: #000000" color="#ffffff">Config</font>       Main menu heading
 <b>[Set Editor]</b> Menu option
 [Setup]      Item in option sub-menu
 </PRE>
 
-<P>Here is the list of the AMOS Professional Editor Menu options.</P>
+    <P>Here is the list of the AMOS Professional Editor Menu options.</P>
 
-<section id="11-amos">
-<h2 class="menu-line">AMOS</h2>
+    <section id="11-amos">
+        <h2 class="menu-line">AMOS</h2>
 
-<P>
-The [AMOS] menu appears in the top left-hand corner of the screen, and provides 
-information and control of accessory programs via the following options:</P>
+        <P>
+            The [AMOS] menu appears in the top left-hand corner of the screen, and provides
+            information and control of accessory programs via the following options:</P>
 
-<P><b>[About AMOS Professional]</b><BR>
-	
-This displays a title box, and indicates the number of any extension files that have been 
-installed into AMOS Professional, such as the music extension or picture compactor 
-extension.</P>
+        <P><b>[About AMOS Professional]</b><BR>
 
-<P><b>[About Loaded Extensions]</b><BR>
-	
-This option displays detailed information about all extensions that are currently loaded. 
-Each extension has its own title screen, and the list can be examined via the [Prey] and [Next] 
-buttons. Click on [Cancel] to return to the Editor Screen. You are free to create your own 
-extensions for use with the AMOS Professional system, and more information on this topic 
-can be found in <a href="14/1424.html">Appendix D</a> of this User Guide.</P>
+            This displays a title box, and indicates the number of any extension files that have been
+            installed into AMOS Professional, such as the music extension or picture compactor
+            extension.</P>
 
-<P><b>[Load Accessory]</b><BR>
+        <P><b>[About Loaded Extensions]</b><BR>
 
-When this option is selected, a file selector is opened, allowing any AMOS Professional 
-program to be loaded as an accessory. Unlike normal programs, accessories are hidden away in 
-memory, and do not need their own window in order to work. Accessories can be run by selecting 
-their name from this [AMOS] menu list, and if this is done, the following options are 
-presented:</P>
+            This option displays detailed information about all extensions that are currently loaded.
+            Each extension has its own title screen, and the list can be examined via the [Prey] and [Next]
+            buttons. Click on [Cancel] to return to the Editor Screen. You are free to create your own
+            extensions for use with the AMOS Professional system, and more information on this topic
+            can be found in <a href="14/1424.html">Appendix D</a> of this User Guide.</P>
 
-<P>[Run]<BR>
-	
-This runs the accessory immediately, without affecting the existing programs.</P>
+        <P><b>[Load Accessory]</b><BR>
 
-<P>[Edit]<BR>
-	
-Use the [Edit] option to copy the selected accessory into a new window, allowing it to be 
-edited directly on screen.</P>
+            When this option is selected, a file selector is opened, allowing any AMOS Professional
+            program to be loaded as an accessory. Unlike normal programs, accessories are hidden away in
+            memory, and do not need their own window in order to work. Accessories can be run by selecting
+            their name from this [AMOS] menu list, and if this is done, the following options are
+            presented:</P>
 
-<P>[New]<BR>
-	
-This erases the accessory from memory, and removes its reference from the AMOS 
-Professional menu.</P>
+        <P>[Run]<BR>
 
-<P>Please note that the last three options may <b>not</b> be assigned to a keyboard short-cut. If 
-you want to install the program as a normal menu item, the [Set Program to Menu] option 
-should be used instead. Please refer to the [Config] main menu for details.</P>
+            This runs the accessory immediately, without affecting the existing programs.</P>
 
-<P><b>[New All Accessories]</b><BR>
-	
-This option is used to delete all accessories from memory. You will be asked to confirm 
-your action before the deletions are executed.</P>
+        <P>[Edit]<BR>
 
-<P><b>[Quit]</b><BR>
-	
-This quits AMOS Professional completely, and returns you directly the Workbench or 
-CLI.</P>
+            Use the [Edit] option to copy the selected accessory into a new window, allowing it to be
+            edited directly on screen.</P>
 
-<P>
-A number of features are provided to save vital data to disc automatically before you 
-quit AMOS Professional, and these are explained near the end of this Chapter in the [Config] Main 
-menu section.</P>
-</section>
+        <P>[New]<BR>
 
-<section id="12-project">
-<h2 class="menu-line">Project</h2>
+            This erases the accessory from memory, and removes its reference from the AMOS
+            Professional menu.</P>
 
-<P>
-This menu provides all of the options that are used to manipulate program listings, and 
-existing AMOS and Easy AMOS users will find some familiar commands here.</P>
+        <P>Please note that the last three options may <b>not</b> be assigned to a keyboard short-cut. If
+            you want to install the program as a normal menu item, the [Set Program to Menu] option
+            should be used instead. Please refer to the [Config] main menu for details.</P>
 
-<P><b>[Run]</b> or <b>[F1]</b><BR>
-	
-This runs the AMOS Professional program that is in the active window.</P>
+        <P><b>[New All Accessories]</b><BR>
 
-<P><b>[Test]</b> or <b>[F2]</b><BR>
-	
-This triggers a check through your program listing, searching for any syntax errors. If a 
-problem is encountered, a report is given on the screen.</P>
+            This option is used to delete all accessories from memory. You will be asked to confirm
+            your action before the deletions are executed.</P>
 
-<P><b>[Indent]</b> or <b>[F3]</b><BR>
+        <P><b>[Quit]</b><BR>
 
-Use the automatic indentation system to make program listings easier to read. Extra spaces 
-are added at the beginning of all lines that belong to particular sorts of routines, and 
-similar indenting is shown throughout the example programs printed in this User Guide.</P>
+            This quits AMOS Professional completely, and returns you directly the Workbench or
+            CLI.</P>
 
-<P><b>[Monitor]</b> or <b>[F4]</b><BR>
-	
-See how your programs run and operate under the AMOS Professional Monitor. <a href="12-01-the-monitor.html">Chapter 12.1</a>
-explains all the monitor's operations in details.</P>
+        <P>
+            A number of features are provided to save vital data to disc automatically before you
+            quit AMOS Professional, and these are explained near the end of this Chapter in the [Config] Main
+            menu section.</P>
+    </section>
 
-<P><b>[Open New]</b> or <b>[Amiga]+[Shift]+[W]</b><BR>
-	
-This is used to open a completely new window on the editor screen.</P>
+    <section id="12-project">
+        <h2 class="menu-line">Project</h2>
 
-<P><b>[Open &amp; Load]</b> or <b>[Amiga]+[Shift]+[L]</b><BR>
-	
-This is a fast method of loading a program directly into a new window. After it opens the
-window, the program is loaded via a standard File Selector.</P>
+        <P>
+            This menu provides all of the options that are used to manipulate program listings, and
+            existing AMOS and Easy AMOS users will find some familiar commands here.</P>
 
-<P><b>[Load]</b> or <b>[Amiga]+[L]</b><BR>
-	
-This will load a program into the current window, and any existing contents of this window 
-will be completely erased. If the new program is larger than the available editor buffer space, 
-the following dialogue box appears on screen:</P>
+        <P><b>[Run]</b> or <b>[F1]</b><BR>
 
-<BLOCKQUOTE>
-  <P>Text Buffer too small. Adapt size?</P>
-</BLOCKQUOTE>
+            This runs the AMOS Professional program that is in the active window.</P>
 
-<P>
-If you click on the [YES] response, the size of the buffer will be set to the absolute 
-minimum needed to hold the program, and it should only be used if you do <b>not</b> intend to make any
-further changes, because the buffer will be filled to capacity.</P>
+        <P><b>[Test]</b> or <b>[F2]</b><BR>
 
-<P>
-By selecting [NO], the [Set Text Buffer] option will be called from the [Editor] main 
-menu, allowing you to expand the buffer to any required value.</P>
+            This triggers a check through your program listing, searching for any syntax errors. If a
+            problem is encountered, a report is given on the screen.</P>
 
-<P><b>[Save]</b> or <b>[Amiga]+[S]</b><BR>
-	
-This option is used to save your AMOS Professional program to disc. If there is no 
-existing filename for the program, a request is made to enter a new name via a standard File 
-Selector. If the name already exists, the program will be copied into the original file 
-immediately.</P>
+        <P><b>[Indent]</b> or <b>[F3]</b><BR>
 
-<P><b>[Save As]</b> or <b>[Amiga]+[Shift]+[S]</b><BR>
-	
-This saves the existing program under a new name. A selector will be displayed on screen 
-to allow the destination file to be selected.</P>
+            Use the automatic indentation system to make program listings easier to read. Extra spaces
+            are added at the beginning of all lines that belong to particular sorts of routines, and
+            similar indenting is shown throughout the example programs printed in this User Guide.</P>
 
-<P><b>[Close]</b> or <b>[Amiga]+[Shift]+[Q]</b><BR>
-	
-When this option is chosen, the active window is closed down and its contents are 
-completely erased. If the window has been set up using the split-screen option, the <b>original</b> source 
-listing will remain intact.</P>
+        <P><b>[Monitor]</b> or <b>[F4]</b><BR>
 
-<P><b>[New]</b> or <b>[Amiga]+[Q]</b><BR>
-	
-Using this option will delete the current program, leaving its window in position, ready 
-for further editing.</P>
+            See how your programs run and operate under the AMOS Professional Monitor. <a href="12-01-the-monitor.html">Chapter 12.1</a>
+            explains all the monitor's operations in details.</P>
 
-<P><b>[Hide]</b> or <b>[Amiga]+[H]</b><BR>
-	
-This closes the present screen window, and hides the program into memory as an accessory.
-This program may now be called from the [AMOS] Main menu heading directly.</P>
+        <P><b>[Open New]</b> or <b>[Amiga]+[Shift]+[W]</b><BR>
 
-<P>[Hide]<br>
+            This is used to open a completely new window on the editor screen.</P>
 
-can only be used if there are at least two windows on the screen, and the last 
-window on display cannot be hidden. If a split screen is hidden, all splits are erased and the 
-window is then hidden.</P>
+        <P><b>[Open &amp; Load]</b> or <b>[Amiga]+[Shift]+[L]</b><BR>
 
-<P><b>[Print]</b> or <b>[Amiga]+[P]</b><BR>
-	
-If there is an active printer connected to your Amiga, this option can be used to list the 
-current program directly onto paper.</P>
+            This is a fast method of loading a program directly into a new window. After it opens the
+            window, the program is loaded via a standard File Selector.</P>
 
-<P><b>[Merge]</b> or <b>[Amiga]+[M]</b><BR>
-	
-With this option you can merge in from disc another file that was previously saved as an 
-normal AMOS Professional program. This allows you to merge in libraries of routines when you need
-them.</P>
+        <P><b>[Load]</b> or <b>[Amiga]+[L]</b><BR>
 
-<P><b>[Merge Ascii]</b> or <b>[Amiga]+[Shift]+[M]</b><BR>
-	
-This merges an Ascii text file into the current program listing.</P>
+            This will load a program into the current window, and any existing contents of this window
+            will be completely erased. If the new program is larger than the available editor buffer space,
+            the following dialogue box appears on screen:</P>
 
-<P>
-For large listings, the merging-process can take a few minutes to complete, so patience 
-may be needed.</P>
+        <BLOCKQUOTE>
+            <P>Text Buffer too small. Adapt size?</P>
+        </BLOCKQUOTE>
 
-<P><b>[Check 1.3]</b> or <b>[Amiga]+[Shift]+[I]</b><BR>
-	
-Calling all AMOS users of version 1.3! This option performs an automatic test on your AMOS
-Professional programs to see if they are compatible with AMOS v1.3. A search is made for 
-any commands that are <b>not</b> available to AMOS v1.3, as well as any memory banks with an index
-number above 16. A message will be generated informing you whether or not your AMOS
-Professional program can run under AMOS v1.3.</P>
+        <P>
+            If you click on the [YES] response, the size of the buffer will be set to the absolute
+            minimum needed to hold the program, and it should only be used if you do <b>not</b> intend to make any
+            further changes, because the buffer will be filled to capacity.</P>
 
-<P>
-The Editor will save the correct header automatically. If it is compatible with 
-AMOS v1.3, that header will be used, otherwise the AMOS Professional header will be employed.</P>
+        <P>
+            By selecting [NO], the [Set Text Buffer] option will be called from the [Editor] main
+            menu, allowing you to expand the buffer to any required value.</P>
 
-<P><b>[Information]</b> or <b>[Amiga]+[I]</b><BR>
-	
-This option calls up a useful information panel, where details of the current programming
-session are summarised like this:</P>
+        <P><b>[Save]</b> or <b>[Amiga]+[S]</b><BR>
 
-<BLOCKQUOTE>
+            This option is used to save your AMOS Professional program to disc. If there is no
+            existing filename for the program, a request is made to enter a new name via a standard File
+            Selector. If the name already exists, the program will be copied into the original file
+            immediately.</P>
+
+        <P><b>[Save As]</b> or <b>[Amiga]+[Shift]+[S]</b><BR>
+
+            This saves the existing program under a new name. A selector will be displayed on screen
+            to allow the destination file to be selected.</P>
+
+        <P><b>[Close]</b> or <b>[Amiga]+[Shift]+[Q]</b><BR>
+
+            When this option is chosen, the active window is closed down and its contents are
+            completely erased. If the window has been set up using the split-screen option, the <b>original</b> source
+            listing will remain intact.</P>
+
+        <P><b>[New]</b> or <b>[Amiga]+[Q]</b><BR>
+
+            Using this option will delete the current program, leaving its window in position, ready
+            for further editing.</P>
+
+        <P><b>[Hide]</b> or <b>[Amiga]+[H]</b><BR>
+
+            This closes the present screen window, and hides the program into memory as an accessory.
+            This program may now be called from the [AMOS] Main menu heading directly.</P>
+
+        <P>[Hide]<br>
+
+            can only be used if there are at least two windows on the screen, and the last
+            window on display cannot be hidden. If a split screen is hidden, all splits are erased and the
+            window is then hidden.</P>
+
+        <P><b>[Print]</b> or <b>[Amiga]+[P]</b><BR>
+
+            If there is an active printer connected to your Amiga, this option can be used to list the
+            current program directly onto paper.</P>
+
+        <P><b>[Merge]</b> or <b>[Amiga]+[M]</b><BR>
+
+            With this option you can merge in from disc another file that was previously saved as an
+            normal AMOS Professional program. This allows you to merge in libraries of routines when you need
+            them.</P>
+
+        <P><b>[Merge Ascii]</b> or <b>[Amiga]+[Shift]+[M]</b><BR>
+
+            This merges an Ascii text file into the current program listing.</P>
+
+        <P>
+            For large listings, the merging-process can take a few minutes to complete, so patience
+            may be needed.</P>
+
+        <P><b>[Check 1.3]</b> or <b>[Amiga]+[Shift]+[I]</b><BR>
+
+            Calling all AMOS users of version 1.3! This option performs an automatic test on your AMOS
+            Professional programs to see if they are compatible with AMOS v1.3. A search is made for
+            any commands that are <b>not</b> available to AMOS v1.3, as well as any memory banks with an index
+            number above 16. A message will be generated informing you whether or not your AMOS
+            Professional program can run under AMOS v1.3.</P>
+
+        <P>
+            The Editor will save the correct header automatically. If it is compatible with
+            AMOS v1.3, that header will be used, otherwise the AMOS Professional header will be employed.</P>
+
+        <P><b>[Information]</b> or <b>[Amiga]+[I]</b><BR>
+
+            This option calls up a useful information panel, where details of the current programming
+            session are summarised like this:</P>
+
+        <BLOCKQUOTE>
 <PRE>
   <b>AMOS Pro Editor Information</b>
   Free Chip Ram:           (the amount of available memory for sound and graphics)
@@ -844,754 +859,762 @@ session are summarised like this:</P>
   Number of visible lines: (the size of the program in lines)
   Number of instructions : (the total number of instructions in the program)
 </PRE>
-</BLOCKQUOTE>
-</section>
+        </BLOCKQUOTE>
+    </section>
 
-<section id="13-editor">
-<h2 class="menu-line">Editor</h2>
+    <section id="13-editor">
+        <h2 class="menu-line">Editor</h2>
 
-<p>
-The [Editor] main menu heading provides the gateway to all of the vital editing commands. 
-It is divided into a set of sub-menus, each of which provides a group of important related 
-options.</p>
+        <p>
+            The [Editor] main menu heading provides the gateway to all of the vital editing commands.
+            It is divided into a set of sub-menus, each of which provides a group of important related
+            options.</p>
 
-<p><b>[Procedures]</b><BR>
-	
-This displays a small sub-menu that contains all of the options needed to fold and unfold
-procedure definitions. The use of procedures is described in detail in <a href="05-05-procedures.html">Chapter 5.5</a>.</p>
-	
-<p>[Open/Close] or [F9]<BR>
-	
-This option is used to fold or unfold the single procedure which is currently under the 
-cursor. After this has been done, the <b>whole</b> program is checked for errors, and if a problem is
-encountered, an appropriate message is displayed on screen, and the operation is aborted.
-If all is well, a closed procedure will be opened to reveal all of its original contents, or an 
-open procedure will be folded away and be replaced by a single line containing nothing but the
-procedure's name.</p>
+        <p><b>[Procedures]</b><BR>
 
-<p>
-Closed procedures can be cut and pasted as usual, but they cannot be 
-deleted using the editor keys. To remove a folded procedure, the [Cut] option should be used.</p>
+            This displays a small sub-menu that contains all of the options needed to fold and unfold
+            procedure definitions. The use of procedures is described in detail in <a href="05-05-procedures.html">Chapter 5.5</a>.</p>
 
-<p>[Open All] or [Amiga]+[Shift]+[O]<BR>
-	
-Use this option to open all currently folded procedures, displaying the current program in 
-its original glory.</p>
+        <p>[Open/Close] or [F9]<BR>
 
-<p>[Close All] or [Amiga]+[Shift]+[C]<BR>
-	
-This folds all procedures into memory, leaving a single procedure name line for each one.</p>
+            This option is used to fold or unfold the single procedure which is currently under the
+            cursor. After this has been done, the <b>whole</b> program is checked for errors, and if a problem is
+            encountered, an appropriate message is displayed on screen, and the operation is aborted.
+            If all is well, a closed procedure will be opened to reveal all of its original contents, or an
+            open procedure will be folded away and be replaced by a single line containing nothing but the
+            procedure's name.</p>
 
-<p>[Insert Program]<BR>
-	
-This option is used to load a machine language routine directly into the selected 
-procedure. This procedure will now be closed and its existing contents will be replaced by the new code. 
-Please see <a href="14/1401.html">Appendix A</a> for full details.</p>
+        <p>
+            Closed procedures can be cut and pasted as usual, but they cannot be
+            deleted using the editor keys. To remove a folded procedure, the [Cut] option should be used.</p>
 
-<p><b>[Windows]</b><BR>
-	
-The windows menu is used to set the size and position of editor windows. Here is a list of 
-the menu items:</p>
+        <p>[Open All] or [Amiga]+[Shift]+[O]<BR>
 
-<P>[Previous] or [F6]<BR>
-This moves the cursor up to the window above the currently active window.</P>
+            Use this option to open all currently folded procedures, displaying the current program in
+            its original glory.</p>
 
-<P>[Next] or [F7]<BR>
-When this option is selected, the cursor is positioned over the next window on the 
-display.</P>
+        <p>[Close All] or [Amiga]+[Shift]+[C]<BR>
 
-<P>[Flip Size] or [Amiga]+[N5]<BR>
-This reduces the window to a single title line, keeping it displayed and out of the way.</P>
+            This folds all procedures into memory, leaving a single procedure name line for each one.</p>
 
-<P>[Split] or [Amiga]+[Shift]+[V]<BR>
-	
-When a new window is opened on the current program via this option, it can be freely
-positioned anywhere in the listing. This allows several different sections of the program 
-to be displayed on screen simultaneously.</P>
+        <p>[Insert Program]<BR>
 
-<P>
-Please note that this option does <b>not</b> create a separate copy of the program listing in 
-memory, it simply splits a single listing between a number of different windows. This means that any
-changes will be shown on <b>all</b> of the relevant windows as soon as they are made.</P>
+            This option is used to load a machine language routine directly into the selected
+            procedure. This procedure will now be closed and its existing contents will be replaced by the new code.
+            Please see <a href="14/1401.html">Appendix A</a> for full details.</p>
 
-<P>
-The [Split Screen] option can be de-activated by the [Close] command in the [Project] 
-menu, explained earlier. It can also be turned off with the [Close Window] icon 
-on the window title.</P>
+        <p><b>[Windows]</b><BR>
 
-<P>
-The window title lines will change automatically to reflect the new mode, with the 
-"Edit" message to the left of the filename being replaced by "Split".</P>
+            The windows menu is used to set the size and position of editor windows. Here is a list of
+            the menu items:</p>
 
-<P>[Link cursor] or [Amiga]+[C]<BR>
-	
-This links the movements of the text cursor between any two windows. This means that
-whenever one of the selected windows is scrolled through, the other will keep in step.</P>
+        <P>[Previous] or [F6]<BR>
+            This moves the cursor up to the window above the currently active window.</P>
 
-<P>
-The source window is the window which is currently active, and a request will be made to select
-the destination window as soon as [Link cursor] is selected. To make your choice, move the
-mouse pointer over a window and click once on the <b>left</b> mouse button. The source and
-destination windows are now linked together. To separate them, trigger [Link Cursor] again and
-click on the source window.</P>
+        <P>[Next] or [F7]<BR>
+            When this option is selected, the cursor is positioned over the next window on the
+            display.</P>
 
-<P>
-This option is very useful for copying data from one program to another, as well as for
-comparing two programs, line by line.</P>
+        <P>[Flip Size] or [Amiga]+[N5]<BR>
+            This reduces the window to a single title line, keeping it displayed and out of the way.</P>
 
+        <P>[Split] or [Amiga]+[Shift]+[V]<BR>
 
-<p>[Move up] or [Amiga]+[Shift]+[N8]<br>
-[Move down] or [Amiga]+[Shift]+[N2]<br>
+            When a new window is opened on the current program via this option, it can be freely
+            positioned anywhere in the listing. This allows several different sections of the program
+            to be displayed on screen simultaneously.</P>
 
-These two options move the top of the current window up or down in units of eight pixels,
-which is one screen line. It is also possible to position the window directly, by dragging the
-mouse pointer on the window title with the <b>left</b> button.</p>
+        <P>
+            Please note that this option does <b>not</b> create a separate copy of the program listing in
+            memory, it simply splits a single listing between a number of different windows. This means that any
+            changes will be shown on <b>all</b> of the relevant windows as soon as they are made.</P>
 
-<P>[Expand] or [Amiga]+[N2]<BR>
-	
-This moves the bottom border of the window eight pixels downwards, increasing its size by 
-one screen line.</P>
+        <P>
+            The [Split Screen] option can be de-activated by the [Close] command in the [Project]
+            menu, explained earlier. It can also be turned off with the [Close Window] icon
+            on the window title.</P>
 
-<P>[Reduce] or [Amiga]+[N8]<BR>
-To reduce the bottom border of the window, use this option to position it higher by one 
-screen</P>
-</section>
+        <P>
+            The window title lines will change automatically to reflect the new mode, with the
+            "Edit" message to the left of the filename being replaced by "Split".</P>
 
-<section id="14-macros">
-<h2 class="menu-line">Macros</h2>
+        <P>[Link cursor] or [Amiga]+[C]<BR>
 
-<p>
-The [Macros] menu allows a whole string of editor commands to be assigned to a single key-press.</P>
+            This links the movements of the text cursor between any two windows. This means that
+            whenever one of the selected windows is scrolled through, the other will keep in step.</P>
+
+        <P>
+            The source window is the window which is currently active, and a request will be made to select
+            the destination window as soon as [Link cursor] is selected. To make your choice, move the
+            mouse pointer over a window and click once on the <b>left</b> mouse button. The source and
+            destination windows are now linked together. To separate them, trigger [Link Cursor] again and
+            click on the source window.</P>
+
+        <P>
+            This option is very useful for copying data from one program to another, as well as for
+            comparing two programs, line by line.</P>
 
 
-<P>[Enter a New Macro] or [Ctrl]+[M]<BR>
-	
-After selecting this option, you will be asked which key-press is to be allocated to the 
-new Macro. This can be a single character or a combination of keys that are to be pressed 
-together. Macros work by referring to the "scan code" of keys rather than the actual character 
-value. This means that <b>any</b> key or combination of keys can be assigned independently, including the 
-keys from the numeric keypad, providing that the following rules are obeyed:</P>
+        <p>[Move up] or [Amiga]+[Shift]+[N8]<br>
+            [Move down] or [Amiga]+[Shift]+[N2]<br>
 
-<UL>
-  <LI>Other Macro definitions may not be included. They will be completely ignored!</LI>
+            These two options move the top of the current window up or down in units of eight pixels,
+            which is one screen line. It is also possible to position the window directly, by dragging the
+            mouse pointer on the window title with the <b>left</b> button.</p>
 
-  <LI>Each Macro definition can hold up to 400 key presses.</LI>
+        <P>[Expand] or [Amiga]+[N2]<BR>
 
-  <LI>Menu short-cuts can only be used if they do not call up a dialogue box, so the keys 
-  allocated   to [Search New] are <b>not</b> available, but the [Search Next] and [Search previous] 
-  keys will work without problems.</LI>
+            This moves the bottom border of the window eight pixels downwards, increasing its size by
+            one screen line.</P>
 
-  <LI>If your key combination has been previously assigned to a menu item, the existing 
-  short-cut keys will be de-activated and the new Macro definition will take priority.</LI>
+        <P>[Reduce] or [Amiga]+[N8]<BR>
+            To reduce the bottom border of the window, use this option to position it higher by one
+            screen</P>
+    </section>
 
-</UL>
+    <section id="14-macros">
+        <h2 class="menu-line">Macros</h2>
 
-<P>
-Once a new Macro has been defined, click on a mouse button to save it into memory. To 
-keep Macro definitions, they can be saved directly onto disc using the [Save Macro] option 
-explained below.</P>
+        <p>
+            The [Macros] menu allows a whole string of editor commands to be assigned to a single key-press.</P>
 
-<P>[Delete One Macro]<BR>
-Simply select the Macro to be deleted by pressing its key combination. It will then be 
-deleted from memory. This memory space will now be released to the main AMOS Professional 
-system.</P>
 
-<P>[Delete All Macros]<BR>
-This option is used to erase all Macro definitions in a single operation.</P>
+        <P>[Enter a New Macro] or [Ctrl]+[M]<BR>
 
-<P>[Load Macros]<BR>
-This loads a named Macro file from disc.</P>
+            After selecting this option, you will be asked which key-press is to be allocated to the
+            new Macro. This can be a single character or a combination of keys that are to be pressed
+            together. Macros work by referring to the "scan code" of keys rather than the actual character
+            value. This means that <b>any</b> key or combination of keys can be assigned independently, including the
+            keys from the numeric keypad, providing that the following rules are obeyed:</P>
 
-<P>[Load Default Macros]<BR>
-Use this option to load the AMOSPro.Macros file from the APSystem folder.</P>
+        <UL>
+            <LI>Other Macro definitions may not be included. They will be completely ignored!</LI>
 
-<P>[Save Default Macros]<BR>
-	
-This saves all defined Macros into a special file on disc, named AMOSPro.Macros. In future,
-whenever AMOS Professional is run, the saved Macros will be loaded instantly.</P>
+            <LI>Each Macro definition can hold up to 400 key presses.</LI>
 
-<P>
-If necessary, Macro definitions can be saved automatically, whenever you leave AMOS
-Professional. This process is detailed below, under [Quit Options] in the [Config] Main 
-Menu heading.</P>
+            <LI>Menu short-cuts can only be used if they do not call up a dialogue box, so the keys
+                allocated to [Search New] are <b>not</b> available, but the [Search Next] and [Search previous]
+                keys will work without problems.
+            </LI>
 
-<P>[Save Macros]<BR>
-When this option is called, a file selector is opened with a request for a filename to be 
-given. All Macro definitions will be saved in the chosen file onto disc. This can be used 
-to create special Macro lists for particular programming tasks.</P>
+            <LI>If your key combination has been previously assigned to a menu item, the existing
+                short-cut keys will be de-activated and the new Macro definition will take priority.
+            </LI>
 
-<P>
-While working on a very long program, a great deal of time can be wasted moving back 
-and forth through the listing. The next selection of menu options is used to control up to ten
-markers, which allow a specific position in the listing to be marked and saved.</P>
+        </UL>
 
-<P><b>[System Marks]</b><BR>
-The first, second and third Marks are automatically loaded with your last three cursor 
-positions, so if you move to a new label, or execute a [Search/Replace] operation, for example, you can
-jump back to the previous location instantly.</P>
+        <P>
+            Once a new Macro has been defined, click on a mouse button to save it into memory. To
+            keep Macro definitions, they can be saved directly onto disc using the [Save Macro] option
+            explained below.</P>
 
-<P>
-The Mark system works like a stack, and every time you move to a new location in the program
-listing, the position of the cursor in added at the bottom of the stack, with the oldest Mark
-being discarded from the top of the stack.</P>
+        <P>[Delete One Macro]<BR>
+            Simply select the Macro to be deleted by pressing its key combination. It will then be
+            deleted from memory. This memory space will now be released to the main AMOS Professional
+            system.</P>
 
-<P>When the [System Mark] option is chosen, the following simple sub-menu is presented:</P>
+        <P>[Delete All Macros]<BR>
+            This option is used to erase all Macro definitions in a single operation.</P>
 
-<PRE>
+        <P>[Load Macros]<BR>
+            This loads a named Macro file from disc.</P>
+
+        <P>[Load Default Macros]<BR>
+            Use this option to load the AMOSPro.Macros file from the APSystem folder.</P>
+
+        <P>[Save Default Macros]<BR>
+
+            This saves all defined Macros into a special file on disc, named AMOSPro.Macros. In future,
+            whenever AMOS Professional is run, the saved Macros will be loaded instantly.</P>
+
+        <P>
+            If necessary, Macro definitions can be saved automatically, whenever you leave AMOS
+            Professional. This process is detailed below, under [Quit Options] in the [Config] Main
+            Menu heading.</P>
+
+        <P>[Save Macros]<BR>
+            When this option is called, a file selector is opened with a request for a filename to be
+            given. All Macro definitions will be saved in the chosen file onto disc. This can be used
+            to create special Macro lists for particular programming tasks.</P>
+
+        <P>
+            While working on a very long program, a great deal of time can be wasted moving back
+            and forth through the listing. The next selection of menu options is used to control up to ten
+            markers, which allow a specific position in the listing to be marked and saved.</P>
+
+        <P><b>[System Marks]</b><BR>
+            The first, second and third Marks are automatically loaded with your last three cursor
+            positions, so if you move to a new label, or execute a [Search/Replace] operation, for example, you can
+            jump back to the previous location instantly.</P>
+
+        <P>
+            The Mark system works like a stack, and every time you move to a new location in the program
+            listing, the position of the cursor in added at the bottom of the stack, with the oldest Mark
+            being discarded from the top of the stack.</P>
+
+        <P>When the [System Mark] option is chosen, the following simple sub-menu is presented:</P>
+
+        <PRE>
    [Goto 1] or [Ctrl]+[N1]
    [Goto 2] or [Ctrl]+[N2]
    [Goto 3] or [Ctrl]+[N3]
 </PRE>
 
-<p>
-These three options are used to jump directly to the last, second to last and third from 
-last cursor positions.<p>
-	
-<p><b>[User Marks]</b><BR>
-	
-These marker points can be user-defined anywhere in the current program. The Marks are set
-by holding down the [Ctrl]+[Shift] keys, and pressing a key from [4] to [9].Once a Mark 
-has been set in this way, it can be jumped to by holding down the [Ctrl] key and pressing the
-appropriate number key.</p>
+        <p>
+            These three options are used to jump directly to the last, second to last and third from
+            last cursor positions.
+        <p>
 
-<p>
-The [User Marks] option presents two lists of Mark numbers from [4] to [9]. By 
-highlighting one of these items, an additional menu is presented allowing you to [Set] or [Goto] 
-the chosen Mark.</p>
+        <p><b>[User Marks]</b><BR>
 
-<p>[Cursor Move]<BR>
-	
-This option is provided to show a representation of the movement keys from within the 
-menu. Once you have become familiar with the various key combinations, it is probably faster to
-control movements directly from the keyboard. Here are the various items in this menu:</p>
-
-<p>[Goto Line Number] or [Amiga]+[G]<BR>
-	
-This is used to move the cursor directly to a specified line, and a dialogue box is 
-presented ready for the line number to be entered. The lines in the listing are counted 
-from the top, starting at line number one. Closed procedures are treated as a <b>single</b> line. 
-Press [Return] or click on the [OK] button to jump to the specified line.</p>
+            These marker points can be user-defined anywhere in the current program. The Marks are set
+            by holding down the [Ctrl]+[Shift] keys, and pressing a key from [4] to [9].Once a Mark
+            has been set in this way, it can be jumped to by holding down the [Ctrl] key and pressing the
+            appropriate number key.</p>
 
-<P>[Previous Label] or [Alt]+[Up Arrow]<BR>
-This is used to jump directly to the previous label or procedure definition in the program 
-listing.</P>
+        <p>
+            The [User Marks] option presents two lists of Mark numbers from [4] to [9]. By
+            highlighting one of these items, an additional menu is presented allowing you to [Set] or [Goto]
+            the chosen Mark.</p>
 
-<P>(Next Label] or [Alt]+[Down Arrow]<BR>
-Use this option to jump to the next label or procedure definition in the listing.</P>
+        <p>[Cursor Move]<BR>
 
-<P>[Text Top] or [Ctrl]+[Shift]+[Up Arrow]<BR>
-This will display the program listing from the very first line.</P>
+            This option is provided to show a representation of the movement keys from within the
+            menu. Once you have become familiar with the various key combinations, it is probably faster to
+            control movements directly from the keyboard. Here are the various items in this menu:</p>
 
-<P>[Page Up] or [Ctrl]+[Up Arrow]<BR>
-Scroll the program listing up by one window page, using this option.</P>
-
+        <p>[Goto Line Number] or [Amiga]+[G]<BR>
 
-<P>[Page Top] or [Shift]+[Up Arrow]<BR>
-This moves to the top of the current window.</P>
-
-<P>[Page Bottom] or [Shift]+[Down Arrow]<BR>
-Jumps directly to the bottom of the current window.</P>
+            This is used to move the cursor directly to a specified line, and a dialogue box is
+            presented ready for the line number to be entered. The lines in the listing are counted
+            from the top, starting at line number one. Closed procedures are treated as a <b>single</b> line.
+            Press [Return] or click on the [OK] button to jump to the specified line.</p>
 
-<P>[Page Down] or [Ctrl]+[Down Arrow]<BR>
-Scrolls the program listing down by a single window page.</P>
-
-<P>[Text Bottom] or [Ctrl]+[Shift]+[Down Arrow]<br>
-Use this option to move directly to the last line in the program listing.</P>
-
-<P>[Line Start] or [Ctrl]+[Left Arrow]<BR>
-jump to the beginning of the current line in the listing.</P>
-
-<P>[Word Left] or [Shift]+[Left Arrow]<BR>
-This is used to move to the previous word in the program listing.</P>
-
-<P>[Word Right] or [Shift]+[Right Arrow]<BR>
-The cursor is placed over the next word in the program listing.</P>
+        <P>[Previous Label] or [Alt]+[Up Arrow]<BR>
+            This is used to jump directly to the previous label or procedure definition in the program
+            listing.</P>
 
-<P>[Line End] or [Ctrl]+[Right Arrow]<BR>
-This option moves the cursor to a position immediately after the last character in the 
-current line.</P>
+        <P>(Next Label] or [Alt]+[Down Arrow]<BR>
+            Use this option to jump to the next label or procedure definition in the listing.</P>
 
-<P><b>[Insert/Delete]</b><BR>
-Here is a list of the options available for inserting and deleting in program 
-listings:</P>
+        <P>[Text Top] or [Ctrl]+[Shift]+[Up Arrow]<BR>
+            This will display the program listing from the very first line.</P>
 
-<P>[Clear Line] or [Ctrl]+[Q]<BR>
-This is used to delete the entire line in which the cursor is currently positioned, 
-leaving a blank line in its place.</P>
+        <P>[Page Up] or [Ctrl]+[Up Arrow]<BR>
+            Scroll the program listing up by one window page, using this option.</P>
 
-<P>[Delete to S.O.L.] or [Ctrl]+[Backspace]<BR>
-This erases all characters from the current position of the cursor backwards to the Start 
-Of the current Line.</P>
 
-<P>[Delete Left Word] or [Shift]+[Backspace]<BR>
-The word to the immediate left of the cursor is deleted by this option.</P>
+        <P>[Page Top] or [Shift]+[Up Arrow]<BR>
+            This moves to the top of the current window.</P>
 
-<P>[Delete Right Word] or [Shift]+[Del]<BR>
-This erases the word in the current line immediately to the right of the cursor.</P>
-
-<P>[Delete to E.O.L.] or [Ctrl]+[Del]<BR>
-Use this option to erase all characters from the current cursor position forwards to the 
-End Of the current Line.</P>
-
-<P>[Delete Line] or [Ctrl]+[Y]<BR>
-This completely erases the current line, and the program listing scrolls upwards one line 
-to fill the gap.</P>
-
-<P>[Insert Line] or [F10]<BR>
-This option is used to insert a blank line at the present position in the program 
-listing.</P>
-
-<P>[Tab Right] or [Tab]<BR>
-Move the cursor right, to the next Tab setting.</P>
-
-<P>[Tab Left] or [Shift]+[Tab]<BR>
-This is used to move the cursor one position left to the previous Tab setting.</P>
-
-<P>[Set Tab] or [Ctrl]+[Tab]<BR>
-This option is used to set the distance in characters between successive Tab stops.</P>
-
-<P><b>[Set Text Buffer]</b> or <b>[Amiga]+[Shift]+[T]</b><BR>
-This is the option which is used to change the size of the memory area assigned for 
-program listings. Each window has its own separate text buffer, which can be set 
-independently.</P>
-
-<P>
-A dialogue box appears, allowing a new text buffer size to be entered directly. If the 
-memory allocation is increased, the new space can be used immediately from the Editor. However, 
-if the new memory setting is <b>smaller</b> than the previous value, the existing contents of the window 
-will be <b>lost!</b></P>
-
-<P><b>[Undo]</b> or <b>[Control]+[U]</b><BR>
-This powerful option is used to erase every character edit, movement and block operation 
-that has been created in the current editing session. You simply keep calling Undo to work back
-through the changes you made before calling Undo.</P>
-
-<P>A call to CLOSE EDITOR or the running of a program will clear all the Undo memory store.</P>
-
-<P><b>[Redo]</b> or <b>[Control]+[Shift]+[U]</b><BR>
-As a fail-safe against a hasty undoing operation, this option is provided to re-write 
-everything that has been erased by an [Undo].</P>
-</section>
-
-<section id="15-block">
-<h2 class="menu-line">Block</h2>
-
-<p>
-The [Block] Main Menu heading reveals all of the cut-and-paste commands which enable the
-fast copying, movement and deletion of blocks of a program listing. Here are all the 
-options:</P>
-
-<P><b>[On/Off]</b> or <b>[Ctrl]+[B]</b><BR>
-Use this option to toggle between the Block mode and the normal Editing mode. The same
-change is achieved by double clicking on the <b>left</b> mouse button.</P>
-
-<P>
-As soon as the Block mode is entered, the text cursor is replaced by a solid block 
-cursor, at the current position.</P>
-
-<P>
-A Block is set by holding down the <b>left</b> mouse button, and dragging the cursor to the 
-desired destination point. Alternatively, the dimension of the Block can be set directly from the
-keyboard using the [Up Arrow] and [Down Arrow] keys. When a Block is set, it will be 
-marked by inverse video highlighting.</P>
-
-<P>
-Unlike the original AMOS system, AMOS Professional Blocks can be marked out in units of 
-a single character, so the beginning and end Block positions should include <b>whole</b> command words.</P>
-
-<P>
-Blocks can be freely copied between different windows, by grabbing a Block into memory 
-from the source window with [Store] or [Ctr1]+[S], and then clicking in the relevant line of 
-the destination window followed by [Paste] or [Ctrl]+[P].</P>
-
-
-<P><b>[All Text]</b> or <b>[Ctrl]+[A]</b><BR>
-This selects all text in the current file, ready for block operations.</P>
-
-<P><b>[Store]</b> or <b>[Ctrl]+[S]</b><BR>
-This option is used to store the marked Block into memory, ready for a subsequent [Paste]
-operation. The highlighting of the Block will be removed, and you will be returned to 
-Editing
-mode.</P>
-
-<P><b>[Cut]</b> or <b>[Ctrl]+[C]</b><BR>
-This grabs the marked block into memory, and cuts it out of the program listing 
-completely.</P>
-
-<P><b>[Paste]</b> or <b>[Ctrl]+[P]</b><BR>
-To insert an exact copy of the Block at the current cursor position, use this option for a 
-Block that has been saved with a [Store] or a [Cut] option.</P>
-
-<P><b>[Forget]</b> or <b>[Ctrl]+[F]</b><BR>
-This option is used to erase a stored Block from the computer's memory.</P>
-
-<P><b>[Print]</b> or <b>[Ctrl]+[Shift]+[P]</b><BR>
-	
-If a printer is connected and ready to print, this option is used to list the Block 
-directly onto
-paper.</P>
-
-<P>[Save] or [Ctrl]+[Shift]+[S]<BR>
-	
-This will save the Block as a normal AMOS Professional program. It is vital that the start 
-and end points of the Block are perfectly aligned, to avoid including nonsense in the 
-final program.</P>
-
-<P>[Save Ascii] or [Ctrl]+[Shift]+[A]<BR>
-	
-This option saves the Block as an Ascii file. This allows it to be edited by a commercial 
-text editor.</P>
-</section>
-
-<section id="16-search">
-<h2 class="menu-line">Search</h2>
-
-<P>
-The [Search] menu provides all of the options that are used to search through program 
-listings, hunting for specific strings of characters. Once located, these strings can be 
-automatically replaced by alternative characters. Users of the original AMOS and Easy AMOS 
-systems will find several new features here.</P>
-
-<P>
-A Search dialogue box is called up by the relevant option, and this is used to type in 
-the string of characters to be sought. The search string can be up to 32 characters long 
-and can include any combination of characters, words or instructions.</P>
-
-<P>
-Normally all searches will be made forwards in pursuit of exact matches of the given 
-characters, but by selecting various options that are explained below, this can be changed. Apart from 
-menu options, there are two settings available from the dialogue box, as follows:</P>
-
-<P>[Backward]<BR>
-If ticked for selection, the search will start from the current cursor position backwards 
-through the program listing.</P>
-
-<P>[Upper Case = Lower Case]<BR>
-If ticked, this ignores any distinction between upper and lower case letters in the search string.</P>
-
-<P>After the characters have been typed in, and any options selected, the search is 
-launched by pressing the [Return] key or clicking on the [OK] button.</P>
-
-<P>If the search is successful, the cursor will be positioned over the <b>first</b> character in 
-the target string, otherwise a "Not found" message is displayed.</P>
-
-<P>Current search preferences are kept, so that next time a search or replace operation is 
-carried out in the programming session, your selected options will be ready for use.</P>
-
-<P>[Search New] or [Amiga]+[F]<BR>
-	
-This searches through the program for the <b>first</b> occurrence of the selected string of 
-characters, starting from the current cursor position.</P>
-
-<P>[Search Next] or [Amiga]+[N]<BR>
-	
-Use this option to search for the next occurrence of the string, after a [Search New] or 
-[Replace] operation.</P>
-
-<P><b>[Search Previous]</b> or <b>[Amiga]+[B]</b><BR>
-	
-This will search backwards through the listing until an example of the target string is 
-found, or the beginning of the program is reached.</P>
-
-<P><b>[Replace New]</b> or <b>[Amiga]+[Shift]+[F]</b><BR>
-	
-This replaces any string of characters or any AMOS Professional instruction with your 
-given text. The dialogue box for this option contains two editing zones:</P>
-
-<P>
-The target characters that are to be located and then replaced are to be found in the 
-Search string. This will be the same as any previously called [Search] operation, or a new string 
-can be specified. The Replace string holds the text that will be substituted in place of the 
-original characters. Click on the appropriate zone using the <b>left</b> mouse button, or flick between 
-the Search and Replace strings using the [Tab] key.</P>
-
-<P>
-As well as the [Backward] and [Upper Case = Lower Case] options, two more settings 
-are available when a Replace operation is chosen.</P>
-
-<P>[All Occurrences]<BR>
-	
-This automatically replaces <b>every</b> instance of the target string with the new characters.
-Obviously this can be a drastic operation, so you will be asked to confirm your wishes 
-before they are obeyed.</P>
-
-<P>[All in Marked Block]<BR>
-This restricts the Search and Replace operation to all instances of the target characters 
-within the currently highlighted Block.</P>
-
-<P>
-Once the strings have been set, a Replace operation is commenced by pressing [Return] 
-or triggering the [OK] button. After a successful Replace operation, the cursor is positioned
-immediately after the amended text. If the search fails, a "Not found" report will be 
-given in the title line.</P>
-
-<P><b>[Replace next]</b> or <b>[Amiga]+[Shift]+[N]</b><BR>
-	
-Use this option to scan the program listing for another example of the search string. If 
-this is successful, the cursor is placed immediately after the replaced text.</P>
-
-<P><b>[Replace Previous]</b> or <b>[Amiga]+[Shift]+[B]</b><BR>
-This checks backwards through the program listing, and replaces the targeted characters 
-with the replacement string entered by a [Replace New] option.</P>
-</section>
-
-<section id="17-config">
-<h2 class="menu-line">Config</h2>
-
-The AMOS Professional editor can be totally re-configured, allowing you to tailor it 
-precisely to your own needs and preferences. All of the keyboard assignments can be changed, all of the
-system messages may be freely customised and you can even assign existing menu items
-directly to your own programs and call them straight from the screen!</P>
-
-<P>
-This sort of feature allows you to use sophisticated techniques with the utmost 
-simplicity, making your programming truly professional.</P>
-
-<P><b>[Show Keys]</b> or <b>[Amiga]+[K]</b><BR>
-	
-As a default, all menu options have their equivalent keyboard commands displayed 
-alongside. This option is used to remove these explanations from the menus. Keyboard short-cuts can 
-still be used as normal, even if the constant reminders of their settings are removed. A tick 
-mark is added against this item to show that it has been selected.</P>
-
-<P><b>[Insert Mode]</b> or <b>[F8]</b><BR>
-This toggles the Editor between Insert and Overwrite mode, as explained earlier in this 
-Chapter.</P>
-
-<P><b>[Sounds]</b><BR>
-	
-Sound effects may be used by the AMOS Professional Editor, and this option loads a list of 
-audio samples from the AMOSPro.Samples folder, providing accompanying effects when various
-options are called up.</P>
-
-<P>
-To turn these sound effects off, simply click on the [Sound] option again. The creation 
-of your own sound effects is dealt with in <a href="08-02-samples.html">Chapter 8.2</a>.</P>
-
-<P><b>[Set Key Short-cut]</b><BR>
-Most menu items can be assigned to an equivalent combination of control keys. This allows
-menu commands to be accessed directly from the keyboard for extra speed.</P>
-
-<P>
-AMOS Professional is equipped with its own pre-defined set of keyboard options, but 
-these can be changed from the Editor at any time. Experienced AMOS programmers and users of
-commercial word processing packages may want to change the AMOS Professional layout to
-something more familiar, and any new definitions can be saved as part of the configuration file.</P>
-
-<P>
-This means that your favourite keyboard settings will be available automatically, every 
-time you begin a programming session.</P>
-
-<P>Setting a keyboard short-cut is extremely simple. Here is the procedure:</P>
-
-<ul>
-	<li>Call the [Set Key Short-cut] option from the [Config] menu.</li>
-	<li>Select any target menu option. This can be any option except accessory items that are
-	    assigned to the [AMOS] Main menu heading.</li>
-	<li>Enter your keyboard short-cut directly from the keyboard. This can comprise a single
-	    key press, as well as any combination of the [Shift], [Ctrl], [Alt], [Amiga], [Function]
-	    or [Cursor Arrow] keys.</li>
-</ul>
-
-<P>
-Remember that AMOS Professional uses the scancode of keys, and not their Ascii values. 
-This means that the keys in the numeric' keypad can be assigned different functions from the
-standard number keys. If a selected combination of keys is already in use, you will be 
-asked to confirm your choice before proceeding. A response of [YES] will erase the original 
-short-cut, and replace it with your new setting.</P>
-
-<P>
-Obviously, if these settings are played with casually, the resulting confusion may be 
-difficult to rectify. If this happens, reload the AMOS Professional standard settings from 
-the "AMOSPro.Configuration.Backup" file located within the "Extra_Configs" folder on the
-"AMOSPro_System" disc.</P>
-
-<P><b>[Set Program to menu]</b><BR>
-	
-Ths option allows any menu option to be replaced with a simple call to an AMOS 
-Professional program. This can be loaded from disc automatically, and executed every time the 
-appropriate menu option is called. Alternatively, the program can be permanently installed in memory,
-ready for instant use.</P>
-
-
-<P>
-If the program has been defined as an Editor Accessory with the SET ACCESSORY 
-instruction, it will even be able to call up a program listing directly, and display the results on the 
-Editor screen. This means that the Editor can be extended as much as you like! Please see <a href="13-01-configuration.html">Chapter 13.1</a>
-for a complete explanation of this superb feature.</P>
-
-<P>Here is the procedure for replacing a menu option with a program:</P>
-
-<UL>
-  <LI>Call [Set Program to Menu] from the [Config] main menu heading.</LI>
-
-  <LI>After the prompt, select the menu item that you want to redefine, which can be any 
-  option other than the Accessory list in the [AMOS] menu.</LI>
-
-  <LI>A standard File Selector will now appear, and is used to enter the program that is 
-  to be assigned to the menu option.</LI>
-
-  <LI>Finally, enter your selection of run options from the following items in the 
-  dialogue box which appears:</LI>
-</UL>
-
-<P>[Command Line:]<BR>
-	
-This holds some text that will be available from the COMMAND LINE$ function when the
-program is run. If this is left blank, AMOS Professional will grab all of the characters to the <b>right</b>
-of the Editor cursor into the COMMAND LINE$ string. This provides a simple way of creating
-your own "Help" routines.</P>
-
-<P>The program can be loaded in one of two ways:</P>
-
-<P>[Load As Accessory]<BR>
-This will load the program as an accessory, which will not be available from the [AMOS] 
-main menu heading, but will be hidden away in memory.</p>
-
-<p>[Load in current window]<BR>
-This saves the current program onto disc, and replaces it with the new menu routine.</p>
-
-<p>[Keep After Run]<BR>
-After the program has been run, there are two alternative choices as to what can 
-happen:</P>
-
-<P>[Un-ticked]<BR>
-If the program was loaded as an accessory, it will be removed from memory. If it was 
-entered via the current window, it will be erased and the previous program will be re-loaded automatically.</P>
-
-<P>[Ticked]<BR>
-The program will remain permanently in memory after it has been run. It will be stored as 
-an accessory or directly in the current window, depending on the option that has been selected.</P>
-
-<P><b>[Quit Options]</b><BR>
-This menu controls what happens when you choose to quit the Editor. A large dialogue box 
-is displayed, offering these possibilities:</P>
-
-<P>[Confirm Quit]<BR>
-If this option is ticked, AMOS Professional will always ask for confirmation before 
-allowing you to quit.</P>
-
-<P>[Save Configuration]<BR>
-If the Editor configuration has been changed during the current editing session, these 
-changes will be saved directly into the "AMOSPro.Configuration" file in the APSystem folder, 
-before quitting.</P>
-
-<P>[Save Macros]<BR>
-This forces any new Macro definitions to be saved onto disc whenever AMOS Professional is quit.</P>
-
-<P>[Auto-resume]<BR>
-If this option is selected, <b>all</b> programs in memory will be stored on disc automatically, 
-before allowing you to leave AMOS Professional. The next time AMOS Professional is loaded, it 
-will be restored to the exact state in which it was left. This important facility allows the AMOS
-Professional programmer to re-commence work at the exact point and in the exact state of 
-the last working session!</P>
-
-<P><b>[Autosave]</b><BR>
-The Autosave feature provides a regular prompt to remind you that all listings are to be 
-saved to disc. A dialogue box is displayed at regular intervals for each program in memory.</P>
-
-<P>
-Selecting the [YES] button saves a program to disc, under its present filename. If [NO] 
-is chosen, the next program in the list is moved to.</P>
-
-<P>
-The [Autosave] option offers a choice of the delay interval between each reminder to 
-save your programs, set in minutes. To turn the reminder system off, simply enter a value of zero.</P>
-
-<P><b>[Set Editor]</b><BR>
-Use this option to reveal the following sub-menu, for setting your own preferences.</P>
-
-<P>[Setup]<BR>
-The Editor set-up can be changed via the simple dialogue box presented by this option. The
-AMOS Professional configuration is fully dealt with in <a href="13-01-configuration.html">Chapter 13.1</a>.</P>
-
-<P>[Colour Palette]<BR>
-The On Screen colours can be set to your desired requirements when you click on this menu item.</P>
-
-<P>[Menu Messages]<BR>
-This option allows you to change the default text of the menu messages to your own wording,
-or into a non-English language. Menus are explained in <a href="06-05-menus.html">Chapter 6.5</a>, and the menu editor is
-examined in <a href="13/1322.html">Chapter 13.3</a>.</P>
-
-<P>[Dialog messages]<BR>
-Similarly, the wording of the AMOS Professional dialogue boxes can be changed. The whole 
-of <a href="09-01-amos-interface.html">Section 9</a> of this User Guide is devoted to dialogue boxes, buttons and icons, 
-and <a href="13/1346.html">Chapter 13.7</a> explains how to create your own resources.</P>
-
-<P>[Test-Time Messages]<BR>
-The information messages and error messages that appear when a program is tested can also 
-be changed. A full list of these messages is contained in <a href="12-03-amos-errors.html">Chapter 12.3</a>.</P>
-
-<P>[Run-Time Messages]<BR>
-Similarly, the messages that are called up when a program is run may be changed to your 
-own wording. These are also listed in <a href="12-03-amos-errors.html">Chapter 12.3</a>.</P>
-
-<P><b>[Load Configuration]</b><BR>
-When this option is selected, a named configuration file is loaded, which holds all of 
-your options for Editor settings.</P>
-
-<P><b>[Load Default Configuration]</b><BR>
-This option loads a file named AMOSPro.Configuration from the APSystem folder, and the
-Editor is returned to its pre-set default settings.</P>
-
-<P><b>[Save Default Configuration]</b><BR>
-Use this option to save your own current settings as the default settings, into the 
-default AMOSPro.Configuration file. These settings will then be presented whenever AMOS
-Professional is run.</P>
-
-<P><b>[Save Configuration]</b><BR>
-this item is used to save the current configuration, ready to be loaded with [Load
-Configuration].</P>
-
-<P><b>[Set Interpreter]</b><BR>
-Selecting this option will call up a special AMOS written Accessory which allows you to 
-define many special features of the AMOS Professional Interpreter. See <a href="13-01-configuration.html">Chapter 13.1</a> for further 
-details.</P>
-</section>
-
-<section id="18-user">
-<h2 class="menu-line">User</h2>
-
-<P>
-The [User] Main Menu heading presents the options that are used to create your own menu
-entries in the AMOS Professional Editor. These entries can be assigned to any AMOS
-Professional program, and the selected program will be loaded and run whenever the 
-assigned option is selected. Please see the SET ACCESSORY command for details of .how to define 
-Editor Accessories, which can access the current program directly.</P>
-
-<P><b>[Add Option]</b> or <b>[Amiga]+[U]</b><BR>
-When this option is selected, a dialogue box appears asking for the name of the new option 
-to be inserted at the first blank position in this [User] menu. The new name can contain up to 
-16 letters, and there is a maximum of 20 available options.</P>
-
-<P>
-After the new name has been typed in, you can assign a program to the new option, using 
-the [Set Program to Menu] command, which is called automatically during this procedure. The 
-new menu option can now be selected with the mouse, and the associated program file can be
-chosen from disc. Finally, the [Set Key Short-cut] feature is presented, allowing a 
-keyboard equivalent to be selected immediately.</P>
-
-<P><b>[Delete Option]</b> or <b>[Amiga]+[Shift]+[U]</b><BR>
-This removes an option from the [User] menu. After selecting this feature, you will be 
-asked to choose an option to be deleted, using the mouse.</P>
-</section>
-
-<section id="19-help">
-<h2 class="menu-line">Help</h2>
-
-<P><a href="04-02-help.html">Chapter 4.2</a> provides a detailed examination of the AMOS Professional Help system. The 
-[Help] menu offers a list of topics for which additional help is directly available. Select the 
-item that you need help with, and an instant explanation will be provided on screen.</P>
-
-<P><b>[Help]</b> or <b>[Help key]</b><BR>
-Use this to call up a quick definition, explanation and syntax example of any AMOS 
-Professional instruction at the current cursor position. The program cursor should be over the first 
-character of the instruction with which you need assistance.</P>
-
-<P><b>[Help Menu]</b><BR>
-This calls up the Main Menu of the AMOS Professional Help system, which is detailed in
-<a href="04-02-help.html">Chapter 4.2</a>.</P>
-</section>
+        <P>[Page Bottom] or [Shift]+[Down Arrow]<BR>
+            Jumps directly to the bottom of the current window.</P>
+
+        <P>[Page Down] or [Ctrl]+[Down Arrow]<BR>
+            Scrolls the program listing down by a single window page.</P>
+
+        <P>[Text Bottom] or [Ctrl]+[Shift]+[Down Arrow]<br>
+            Use this option to move directly to the last line in the program listing.</P>
+
+        <P>[Line Start] or [Ctrl]+[Left Arrow]<BR>
+            jump to the beginning of the current line in the listing.</P>
+
+        <P>[Word Left] or [Shift]+[Left Arrow]<BR>
+            This is used to move to the previous word in the program listing.</P>
+
+        <P>[Word Right] or [Shift]+[Right Arrow]<BR>
+            The cursor is placed over the next word in the program listing.</P>
+
+        <P>[Line End] or [Ctrl]+[Right Arrow]<BR>
+            This option moves the cursor to a position immediately after the last character in the
+            current line.</P>
+
+        <P><b>[Insert/Delete]</b><BR>
+            Here is a list of the options available for inserting and deleting in program
+            listings:</P>
+
+        <P>[Clear Line] or [Ctrl]+[Q]<BR>
+            This is used to delete the entire line in which the cursor is currently positioned,
+            leaving a blank line in its place.</P>
+
+        <P>[Delete to S.O.L.] or [Ctrl]+[Backspace]<BR>
+            This erases all characters from the current position of the cursor backwards to the Start
+            Of the current Line.</P>
+
+        <P>[Delete Left Word] or [Shift]+[Backspace]<BR>
+            The word to the immediate left of the cursor is deleted by this option.</P>
+
+        <P>[Delete Right Word] or [Shift]+[Del]<BR>
+            This erases the word in the current line immediately to the right of the cursor.</P>
+
+        <P>[Delete to E.O.L.] or [Ctrl]+[Del]<BR>
+            Use this option to erase all characters from the current cursor position forwards to the
+            End Of the current Line.</P>
+
+        <P>[Delete Line] or [Ctrl]+[Y]<BR>
+            This completely erases the current line, and the program listing scrolls upwards one line
+            to fill the gap.</P>
+
+        <P>[Insert Line] or [F10]<BR>
+            This option is used to insert a blank line at the present position in the program
+            listing.</P>
+
+        <P>[Tab Right] or [Tab]<BR>
+            Move the cursor right, to the next Tab setting.</P>
+
+        <P>[Tab Left] or [Shift]+[Tab]<BR>
+            This is used to move the cursor one position left to the previous Tab setting.</P>
+
+        <P>[Set Tab] or [Ctrl]+[Tab]<BR>
+            This option is used to set the distance in characters between successive Tab stops.</P>
+
+        <P><b>[Set Text Buffer]</b> or <b>[Amiga]+[Shift]+[T]</b><BR>
+            This is the option which is used to change the size of the memory area assigned for
+            program listings. Each window has its own separate text buffer, which can be set
+            independently.</P>
+
+        <P>
+            A dialogue box appears, allowing a new text buffer size to be entered directly. If the
+            memory allocation is increased, the new space can be used immediately from the Editor. However,
+            if the new memory setting is <b>smaller</b> than the previous value, the existing contents of the window
+            will be <b>lost!</b></P>
+
+        <P><b>[Undo]</b> or <b>[Control]+[U]</b><BR>
+            This powerful option is used to erase every character edit, movement and block operation
+            that has been created in the current editing session. You simply keep calling Undo to work back
+            through the changes you made before calling Undo.</P>
+
+        <P>A call to CLOSE EDITOR or the running of a program will clear all the Undo memory store.</P>
+
+        <P><b>[Redo]</b> or <b>[Control]+[Shift]+[U]</b><BR>
+            As a fail-safe against a hasty undoing operation, this option is provided to re-write
+            everything that has been erased by an [Undo].</P>
+    </section>
+
+    <section id="15-block">
+        <h2 class="menu-line">Block</h2>
+
+        <p>
+            The [Block] Main Menu heading reveals all of the cut-and-paste commands which enable the
+            fast copying, movement and deletion of blocks of a program listing. Here are all the
+            options:</P>
+
+        <P><b>[On/Off]</b> or <b>[Ctrl]+[B]</b><BR>
+            Use this option to toggle between the Block mode and the normal Editing mode. The same
+            change is achieved by double clicking on the <b>left</b> mouse button.</P>
+
+        <P>
+            As soon as the Block mode is entered, the text cursor is replaced by a solid block
+            cursor, at the current position.</P>
+
+        <P>
+            A Block is set by holding down the <b>left</b> mouse button, and dragging the cursor to the
+            desired destination point. Alternatively, the dimension of the Block can be set directly from the
+            keyboard using the [Up Arrow] and [Down Arrow] keys. When a Block is set, it will be
+            marked by inverse video highlighting.</P>
+
+        <P>
+            Unlike the original AMOS system, AMOS Professional Blocks can be marked out in units of
+            a single character, so the beginning and end Block positions should include <b>whole</b> command words.</P>
+
+        <P>
+            Blocks can be freely copied between different windows, by grabbing a Block into memory
+            from the source window with [Store] or [Ctr1]+[S], and then clicking in the relevant line of
+            the destination window followed by [Paste] or [Ctrl]+[P].</P>
+
+
+        <P><b>[All Text]</b> or <b>[Ctrl]+[A]</b><BR>
+            This selects all text in the current file, ready for block operations.</P>
+
+        <P><b>[Store]</b> or <b>[Ctrl]+[S]</b><BR>
+            This option is used to store the marked Block into memory, ready for a subsequent [Paste]
+            operation. The highlighting of the Block will be removed, and you will be returned to
+            Editing
+            mode.</P>
+
+        <P><b>[Cut]</b> or <b>[Ctrl]+[C]</b><BR>
+            This grabs the marked block into memory, and cuts it out of the program listing
+            completely.</P>
+
+        <P><b>[Paste]</b> or <b>[Ctrl]+[P]</b><BR>
+            To insert an exact copy of the Block at the current cursor position, use this option for a
+            Block that has been saved with a [Store] or a [Cut] option.</P>
+
+        <P><b>[Forget]</b> or <b>[Ctrl]+[F]</b><BR>
+            This option is used to erase a stored Block from the computer's memory.</P>
+
+        <P><b>[Print]</b> or <b>[Ctrl]+[Shift]+[P]</b><BR>
+
+            If a printer is connected and ready to print, this option is used to list the Block
+            directly onto
+            paper.</P>
+
+        <P>[Save] or [Ctrl]+[Shift]+[S]<BR>
+
+            This will save the Block as a normal AMOS Professional program. It is vital that the start
+            and end points of the Block are perfectly aligned, to avoid including nonsense in the
+            final program.</P>
+
+        <P>[Save Ascii] or [Ctrl]+[Shift]+[A]<BR>
+
+            This option saves the Block as an Ascii file. This allows it to be edited by a commercial
+            text editor.</P>
+    </section>
+
+    <section id="16-search">
+        <h2 class="menu-line">Search</h2>
+
+        <P>
+            The [Search] menu provides all of the options that are used to search through program
+            listings, hunting for specific strings of characters. Once located, these strings can be
+            automatically replaced by alternative characters. Users of the original AMOS and Easy AMOS
+            systems will find several new features here.</P>
+
+        <P>
+            A Search dialogue box is called up by the relevant option, and this is used to type in
+            the string of characters to be sought. The search string can be up to 32 characters long
+            and can include any combination of characters, words or instructions.</P>
+
+        <P>
+            Normally all searches will be made forwards in pursuit of exact matches of the given
+            characters, but by selecting various options that are explained below, this can be changed. Apart from
+            menu options, there are two settings available from the dialogue box, as follows:</P>
+
+        <P>[Backward]<BR>
+            If ticked for selection, the search will start from the current cursor position backwards
+            through the program listing.</P>
+
+        <P>[Upper Case = Lower Case]<BR>
+            If ticked, this ignores any distinction between upper and lower case letters in the search string.</P>
+
+        <P>After the characters have been typed in, and any options selected, the search is
+            launched by pressing the [Return] key or clicking on the [OK] button.</P>
+
+        <P>If the search is successful, the cursor will be positioned over the <b>first</b> character in
+            the target string, otherwise a "Not found" message is displayed.</P>
+
+        <P>Current search preferences are kept, so that next time a search or replace operation is
+            carried out in the programming session, your selected options will be ready for use.</P>
+
+        <P>[Search New] or [Amiga]+[F]<BR>
+
+            This searches through the program for the <b>first</b> occurrence of the selected string of
+            characters, starting from the current cursor position.</P>
+
+        <P>[Search Next] or [Amiga]+[N]<BR>
+
+            Use this option to search for the next occurrence of the string, after a [Search New] or
+            [Replace] operation.</P>
+
+        <P><b>[Search Previous]</b> or <b>[Amiga]+[B]</b><BR>
+
+            This will search backwards through the listing until an example of the target string is
+            found, or the beginning of the program is reached.</P>
+
+        <P><b>[Replace New]</b> or <b>[Amiga]+[Shift]+[F]</b><BR>
+
+            This replaces any string of characters or any AMOS Professional instruction with your
+            given text. The dialogue box for this option contains two editing zones:</P>
+
+        <P>
+            The target characters that are to be located and then replaced are to be found in the
+            Search string. This will be the same as any previously called [Search] operation, or a new string
+            can be specified. The Replace string holds the text that will be substituted in place of the
+            original characters. Click on the appropriate zone using the <b>left</b> mouse button, or flick between
+            the Search and Replace strings using the [Tab] key.</P>
+
+        <P>
+            As well as the [Backward] and [Upper Case = Lower Case] options, two more settings
+            are available when a Replace operation is chosen.</P>
+
+        <P>[All Occurrences]<BR>
+
+            This automatically replaces <b>every</b> instance of the target string with the new characters.
+            Obviously this can be a drastic operation, so you will be asked to confirm your wishes
+            before they are obeyed.</P>
+
+        <P>[All in Marked Block]<BR>
+            This restricts the Search and Replace operation to all instances of the target characters
+            within the currently highlighted Block.</P>
+
+        <P>
+            Once the strings have been set, a Replace operation is commenced by pressing [Return]
+            or triggering the [OK] button. After a successful Replace operation, the cursor is positioned
+            immediately after the amended text. If the search fails, a "Not found" report will be
+            given in the title line.</P>
+
+        <P><b>[Replace next]</b> or <b>[Amiga]+[Shift]+[N]</b><BR>
+
+            Use this option to scan the program listing for another example of the search string. If
+            this is successful, the cursor is placed immediately after the replaced text.</P>
+
+        <P><b>[Replace Previous]</b> or <b>[Amiga]+[Shift]+[B]</b><BR>
+            This checks backwards through the program listing, and replaces the targeted characters
+            with the replacement string entered by a [Replace New] option.</P>
+    </section>
+
+    <section id="17-config">
+        <h2 class="menu-line">Config</h2>
+
+        The AMOS Professional editor can be totally re-configured, allowing you to tailor it
+        precisely to your own needs and preferences. All of the keyboard assignments can be changed, all of the
+        system messages may be freely customised and you can even assign existing menu items
+        directly to your own programs and call them straight from the screen!</P>
+
+        <P>
+            This sort of feature allows you to use sophisticated techniques with the utmost
+            simplicity, making your programming truly professional.</P>
+
+        <P><b>[Show Keys]</b> or <b>[Amiga]+[K]</b><BR>
+
+            As a default, all menu options have their equivalent keyboard commands displayed
+            alongside. This option is used to remove these explanations from the menus. Keyboard short-cuts can
+            still be used as normal, even if the constant reminders of their settings are removed. A tick
+            mark is added against this item to show that it has been selected.</P>
+
+        <P><b>[Insert Mode]</b> or <b>[F8]</b><BR>
+            This toggles the Editor between Insert and Overwrite mode, as explained earlier in this
+            Chapter.</P>
+
+        <P><b>[Sounds]</b><BR>
+
+            Sound effects may be used by the AMOS Professional Editor, and this option loads a list of
+            audio samples from the AMOSPro.Samples folder, providing accompanying effects when various
+            options are called up.</P>
+
+        <P>
+            To turn these sound effects off, simply click on the [Sound] option again. The creation
+            of your own sound effects is dealt with in <a href="08-02-samples.html">Chapter 8.2</a>.</P>
+
+        <P><b>[Set Key Short-cut]</b><BR>
+            Most menu items can be assigned to an equivalent combination of control keys. This allows
+            menu commands to be accessed directly from the keyboard for extra speed.</P>
+
+        <P>
+            AMOS Professional is equipped with its own pre-defined set of keyboard options, but
+            these can be changed from the Editor at any time. Experienced AMOS programmers and users of
+            commercial word processing packages may want to change the AMOS Professional layout to
+            something more familiar, and any new definitions can be saved as part of the configuration file.</P>
+
+        <P>
+            This means that your favourite keyboard settings will be available automatically, every
+            time you begin a programming session.</P>
+
+        <P>Setting a keyboard short-cut is extremely simple. Here is the procedure:</P>
+
+        <ul>
+            <li>Call the [Set Key Short-cut] option from the [Config] menu.</li>
+            <li>Select any target menu option. This can be any option except accessory items that are
+                assigned to the [AMOS] Main menu heading.
+            </li>
+            <li>Enter your keyboard short-cut directly from the keyboard. This can comprise a single
+                key press, as well as any combination of the [Shift], [Ctrl], [Alt], [Amiga], [Function]
+                or [Cursor Arrow] keys.
+            </li>
+        </ul>
+
+        <P>
+            Remember that AMOS Professional uses the scancode of keys, and not their Ascii values.
+            This means that the keys in the numeric' keypad can be assigned different functions from the
+            standard number keys. If a selected combination of keys is already in use, you will be
+            asked to confirm your choice before proceeding. A response of [YES] will erase the original
+            short-cut, and replace it with your new setting.</P>
+
+        <P>
+            Obviously, if these settings are played with casually, the resulting confusion may be
+            difficult to rectify. If this happens, reload the AMOS Professional standard settings from
+            the "AMOSPro.Configuration.Backup" file located within the "Extra_Configs" folder on the
+            "AMOSPro_System" disc.</P>
+
+        <P><b>[Set Program to menu]</b><BR>
+
+            Ths option allows any menu option to be replaced with a simple call to an AMOS
+            Professional program. This can be loaded from disc automatically, and executed every time the
+            appropriate menu option is called. Alternatively, the program can be permanently installed in memory,
+            ready for instant use.</P>
+
+
+        <P>
+            If the program has been defined as an Editor Accessory with the SET ACCESSORY
+            instruction, it will even be able to call up a program listing directly, and display the results on the
+            Editor screen. This means that the Editor can be extended as much as you like! Please see <a href="13-01-configuration.html">Chapter 13.1</a>
+            for a complete explanation of this superb feature.</P>
+
+        <P>Here is the procedure for replacing a menu option with a program:</P>
+
+        <UL>
+            <LI>Call [Set Program to Menu] from the [Config] main menu heading.</LI>
+
+            <LI>After the prompt, select the menu item that you want to redefine, which can be any
+                option other than the Accessory list in the [AMOS] menu.
+            </LI>
+
+            <LI>A standard File Selector will now appear, and is used to enter the program that is
+                to be assigned to the menu option.
+            </LI>
+
+            <LI>Finally, enter your selection of run options from the following items in the
+                dialogue box which appears:
+            </LI>
+        </UL>
+
+        <P>[Command Line:]<BR>
+
+            This holds some text that will be available from the COMMAND LINE$ function when the
+            program is run. If this is left blank, AMOS Professional will grab all of the characters to the <b>right</b>
+            of the Editor cursor into the COMMAND LINE$ string. This provides a simple way of creating
+            your own "Help" routines.</P>
+
+        <P>The program can be loaded in one of two ways:</P>
+
+        <P>[Load As Accessory]<BR>
+            This will load the program as an accessory, which will not be available from the [AMOS]
+            main menu heading, but will be hidden away in memory.</p>
+
+        <p>[Load in current window]<BR>
+            This saves the current program onto disc, and replaces it with the new menu routine.</p>
+
+        <p>[Keep After Run]<BR>
+            After the program has been run, there are two alternative choices as to what can
+            happen:</P>
+
+        <P>[Un-ticked]<BR>
+            If the program was loaded as an accessory, it will be removed from memory. If it was
+            entered via the current window, it will be erased and the previous program will be re-loaded automatically.</P>
+
+        <P>[Ticked]<BR>
+            The program will remain permanently in memory after it has been run. It will be stored as
+            an accessory or directly in the current window, depending on the option that has been selected.</P>
+
+        <P><b>[Quit Options]</b><BR>
+            This menu controls what happens when you choose to quit the Editor. A large dialogue box
+            is displayed, offering these possibilities:</P>
+
+        <P>[Confirm Quit]<BR>
+            If this option is ticked, AMOS Professional will always ask for confirmation before
+            allowing you to quit.</P>
+
+        <P>[Save Configuration]<BR>
+            If the Editor configuration has been changed during the current editing session, these
+            changes will be saved directly into the "AMOSPro.Configuration" file in the APSystem folder,
+            before quitting.</P>
+
+        <P>[Save Macros]<BR>
+            This forces any new Macro definitions to be saved onto disc whenever AMOS Professional is quit.</P>
+
+        <P>[Auto-resume]<BR>
+            If this option is selected, <b>all</b> programs in memory will be stored on disc automatically,
+            before allowing you to leave AMOS Professional. The next time AMOS Professional is loaded, it
+            will be restored to the exact state in which it was left. This important facility allows the AMOS
+            Professional programmer to re-commence work at the exact point and in the exact state of
+            the last working session!</P>
+
+        <P><b>[Autosave]</b><BR>
+            The Autosave feature provides a regular prompt to remind you that all listings are to be
+            saved to disc. A dialogue box is displayed at regular intervals for each program in memory.</P>
+
+        <P>
+            Selecting the [YES] button saves a program to disc, under its present filename. If [NO]
+            is chosen, the next program in the list is moved to.</P>
+
+        <P>
+            The [Autosave] option offers a choice of the delay interval between each reminder to
+            save your programs, set in minutes. To turn the reminder system off, simply enter a value of zero.</P>
+
+        <P><b>[Set Editor]</b><BR>
+            Use this option to reveal the following sub-menu, for setting your own preferences.</P>
+
+        <P>[Setup]<BR>
+            The Editor set-up can be changed via the simple dialogue box presented by this option. The
+            AMOS Professional configuration is fully dealt with in <a href="13-01-configuration.html">Chapter 13.1</a>.</P>
+
+        <P>[Colour Palette]<BR>
+            The On Screen colours can be set to your desired requirements when you click on this menu item.</P>
+
+        <P>[Menu Messages]<BR>
+            This option allows you to change the default text of the menu messages to your own wording,
+            or into a non-English language. Menus are explained in <a href="06-05-menus.html">Chapter 6.5</a>, and the menu editor is
+            examined in <a href="13/1322.html">Chapter 13.3</a>.</P>
+
+        <P>[Dialog messages]<BR>
+            Similarly, the wording of the AMOS Professional dialogue boxes can be changed. The whole
+            of <a href="09-01-amos-interface.html">Section 9</a> of this User Guide is devoted to dialogue boxes, buttons and icons,
+            and <a href="13/1346.html">Chapter 13.7</a> explains how to create your own resources.</P>
+
+        <P>[Test-Time Messages]<BR>
+            The information messages and error messages that appear when a program is tested can also
+            be changed. A full list of these messages is contained in <a href="12-03-amos-errors.html">Chapter 12.3</a>.</P>
+
+        <P>[Run-Time Messages]<BR>
+            Similarly, the messages that are called up when a program is run may be changed to your
+            own wording. These are also listed in <a href="12-03-amos-errors.html">Chapter 12.3</a>.</P>
+
+        <P><b>[Load Configuration]</b><BR>
+            When this option is selected, a named configuration file is loaded, which holds all of
+            your options for Editor settings.</P>
+
+        <P><b>[Load Default Configuration]</b><BR>
+            This option loads a file named AMOSPro.Configuration from the APSystem folder, and the
+            Editor is returned to its pre-set default settings.</P>
+
+        <P><b>[Save Default Configuration]</b><BR>
+            Use this option to save your own current settings as the default settings, into the
+            default AMOSPro.Configuration file. These settings will then be presented whenever AMOS
+            Professional is run.</P>
+
+        <P><b>[Save Configuration]</b><BR>
+            this item is used to save the current configuration, ready to be loaded with [Load
+            Configuration].</P>
+
+        <P><b>[Set Interpreter]</b><BR>
+            Selecting this option will call up a special AMOS written Accessory which allows you to
+            define many special features of the AMOS Professional Interpreter. See <a href="13-01-configuration.html">Chapter 13.1</a> for further
+            details.</P>
+    </section>
+
+    <section id="18-user">
+        <h2 class="menu-line">User</h2>
+
+        <P>
+            The [User] Main Menu heading presents the options that are used to create your own menu
+            entries in the AMOS Professional Editor. These entries can be assigned to any AMOS
+            Professional program, and the selected program will be loaded and run whenever the
+            assigned option is selected. Please see the SET ACCESSORY command for details of .how to define
+            Editor Accessories, which can access the current program directly.</P>
+
+        <P><b>[Add Option]</b> or <b>[Amiga]+[U]</b><BR>
+            When this option is selected, a dialogue box appears asking for the name of the new option
+            to be inserted at the first blank position in this [User] menu. The new name can contain up to
+            16 letters, and there is a maximum of 20 available options.</P>
+
+        <P>
+            After the new name has been typed in, you can assign a program to the new option, using
+            the [Set Program to Menu] command, which is called automatically during this procedure. The
+            new menu option can now be selected with the mouse, and the associated program file can be
+            chosen from disc. Finally, the [Set Key Short-cut] feature is presented, allowing a
+            keyboard equivalent to be selected immediately.</P>
+
+        <P><b>[Delete Option]</b> or <b>[Amiga]+[Shift]+[U]</b><BR>
+            This removes an option from the [User] menu. After selecting this feature, you will be
+            asked to choose an option to be deleted, using the mouse.</P>
+    </section>
+
+    <section id="19-help">
+        <h2 class="menu-line">Help</h2>
+
+        <P><a href="04-02-help.html">Chapter 4.2</a> provides a detailed examination of the AMOS Professional Help system. The
+            [Help] menu offers a list of topics for which additional help is directly available. Select the
+            item that you need help with, and an instant explanation will be provided on screen.</P>
+
+        <P><b>[Help]</b> or <b>[Help key]</b><BR>
+            Use this to call up a quick definition, explanation and syntax example of any AMOS
+            Professional instruction at the current cursor position. The program cursor should be over the first
+            character of the instruction with which you need assistance.</P>
+
+        <P><b>[Help Menu]</b><BR>
+            This calls up the Main Menu of the AMOS Professional Help system, which is detailed in
+            <a href="04-02-help.html">Chapter 4.2</a>.</P>
+    </section>
 
 
 </body>

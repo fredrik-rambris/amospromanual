@@ -1,152 +1,153 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - the parallel port</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - the parallel port</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>The Parallel Port</h1>
+    <h1>The Parallel Port</h1>
 
-<br>
+    <br>
 
 
-<p>
-This Chapter provides the bridge between the Amiga's Parallel Port and AMOS Professional.
-One parallel channel may be opened at a time, so if a printer is already attached to the Parallel
-Port, the Parallel device may not be opened at the same time as the Printer device.</p>
+    <p>
+        This Chapter provides the bridge between the Amiga's Parallel Port and AMOS Professional.
+        One parallel channel may be opened at a time, so if a printer is already attached to the Parallel
+        Port, the Parallel device may not be opened at the same time as the Printer device.</p>
 
-<p>In fact, accessing the Parallel device has three main advantages over the Printer device:</p>
+    <p>In fact, accessing the Parallel device has three main advantages over the Printer device:</p>
 
-<ul>
-  <li>It only uses 5k of memory space, compared to the 50k that can be required for the printer
-      driver.</li>
-  <li>It needs comparatively few system resources.</li>
-  <li>It can also be used for input as well as output.</li>
-</ul>
+    <ul>
+        <li>It only uses 5k of memory space, compared to the 50k that can be required for the printer
+            driver.
+        </li>
+        <li>It needs comparatively few system resources.</li>
+        <li>It can also be used for input as well as output.</li>
+    </ul>
 
-<p>
-There are few disadvantages, although control over sequence conversion is not possible, and
-screen dumps cannot be made via the Parallel Port.</p>
+    <p>
+        There are few disadvantages, although control over sequence conversion is not possible, and
+        screen dumps cannot be made via the Parallel Port.</p>
 
-<h3 id="i-parallel-open">PARALLEL OPEN</h3>
-<p><i>instruction: open the Parallel Port for reading or writing</i><br>
-<b>Parallel Open</b></p>
+    <h3 id="i-parallel-open">PARALLEL OPEN</h3>
+    <p><i>instruction: open the Parallel Port for reading or writing</i><br>
+        <b>Parallel Open</b></p>
 
-<p>
-This instruction initialises the Parallel Port for use by an AMOS Professional program. The first
-time that this command is used in any programming session, the "Parallel.device" driver will be
-loaded into memory. If it is not available, you will be prompted to insert the relevant disc
-automatically.</p>
+    <p>
+        This instruction initialises the Parallel Port for use by an AMOS Professional program. The first
+        time that this command is used in any programming session, the "Parallel.device" driver will be
+        loaded into memory. If it is not available, you will be prompted to insert the relevant disc
+        automatically.</p>
 
-<h3 id="i-parallel-close">PARALLEL CLOSE</h3>
-<p><i>instruction: close the parallel port</i><br>
-<b>Parallel Close</b></p>
+    <h3 id="i-parallel-close">PARALLEL CLOSE</h3>
+    <p><i>instruction: close the parallel port</i><br>
+        <b>Parallel Close</b></p>
 
-<p>This command simply closes the Parallel port.</p>
+    <p>This command simply closes the Parallel port.</p>
 
-<h3 id="i-parallel-send">PARALLEL SEND</h3>
-<p><i>instruction: send a string of characters to the Parallel Port</i><br>
-<b>Parallel Send</b> text$</p>
+    <h3 id="i-parallel-send">PARALLEL SEND</h3>
+    <p><i>instruction: send a string of characters to the Parallel Port</i><br>
+        <b>Parallel Send</b> text$</p>
 
-<p>
-This is very similar to the PRINTER SEND command, which is explained in <a href="10-03-accessing-a-printer.html">Chapter 10.3</a>, except
-that text data is transmitted exactly as it appears in the original source string. There is no
-translation of code, so that any Escape codes will be interpreted directly by a printer. Please
-check your printer documentation for details of allowable control codes.</p>
+    <p>
+        This is very similar to the PRINTER SEND command, which is explained in <a href="10-03-accessing-a-printer.html">Chapter 10.3</a>, except
+        that text data is transmitted exactly as it appears in the original source string. There is no
+        translation of code, so that any Escape codes will be interpreted directly by a printer. Please
+        check your printer documentation for details of allowable control codes.</p>
 
-<p>
-If data is output to a printer via the Parallel Port, each line should be terminated by a single line-
-feed, which is Chr$(10). This tells the printer to print a new line onto paper, starting at the
-current position. If the line-feed is omitted, nothing will appear to happen!
-Characters are transmitted using multi-tasking, so your main program will not wait for printing
-to be completed, but will continue immediately from the next instruction.</p>
+    <p>
+        If data is output to a printer via the Parallel Port, each line should be terminated by a single line-
+        feed, which is Chr$(10). This tells the printer to print a new line onto paper, starting at the
+        current position. If the line-feed is omitted, nothing will appear to happen!
+        Characters are transmitted using multi-tasking, so your main program will not wait for printing
+        to be completed, but will continue immediately from the next instruction.</p>
 
-<!-- section -->
+    <!-- section -->
 
-<h3 id="i-parallel-out">PARALLEL OUT</h3>
-<p><i>instruction: send data from memory to the Parallel Port</i><br>
-<b>Parallel Out</b> address,length</p>
+    <h3 id="i-parallel-out">PARALLEL OUT</h3>
+    <p><i>instruction: send data from memory to the Parallel Port</i><br>
+        <b>Parallel Out</b> address,length</p>
 
-<p>
-This instruction is similar to the PRINTER OUT command, and transmits the specified number
-of characters defined by the length parameter, starting from a given address.</p>
+    <p>
+        This instruction is similar to the PRINTER OUT command, and transmits the specified number
+        of characters defined by the length parameter, starting from a given address.</p>
 
-<h3 id="fn-parallel-input-dollar">PARALLEL INPUT$</h3>
-<p><i>function: read a string from the Parallel Port</i><br>
-text$=<b>Parallel Input$</b>(length[,stop])</p>
+    <h3 id="fn-parallel-input-dollar">PARALLEL INPUT$</h3>
+    <p><i>function: read a string from the Parallel Port</i><br>
+        text$=<b>Parallel Input$</b>(length[,stop])</p>
 
-<p>
-The PARALLEL INPUTS function waits for a specific number of characters from the Parallel
-Port. Because this port does not have an internal buffer area, the AMOS Professional program
-will halt completely until all characters have been successfully received. If the requested bytes
-have not arrived after a reasonable amount of time, a time-out error will be generated. This may
-be detected using the TRAP instruction, explained in <a href="12-02-error-handling.html">Chapter 12.2</a>.</p>
+    <p>
+        The PARALLEL INPUTS function waits for a specific number of characters from the Parallel
+        Port. Because this port does not have an internal buffer area, the AMOS Professional program
+        will halt completely until all characters have been successfully received. If the requested bytes
+        have not arrived after a reasonable amount of time, a time-out error will be generated. This may
+        be detected using the TRAP instruction, explained in <a href="12-02-error-handling.html">Chapter 12.2</a>.</p>
 
-<p>
-The PARALLEL INPUTS parameters are as follows: length holds the number of characters to be
-received. The square brackets can hold an optional stop character, which will end the
-transmission as soon as it is encountered anywhere in an input string.</p>
+    <p>
+        The PARALLEL INPUTS parameters are as follows: length holds the number of characters to be
+        received. The square brackets can hold an optional stop character, which will end the
+        transmission as soon as it is encountered anywhere in an input string.</p>
 
-<p>
-If you intend to devise a communications protocol using the Parallel Port, then the first item to
-send should be the total number of bytes to be transmitted!</p>
+    <p>
+        If you intend to devise a communications protocol using the Parallel Port, then the first item to
+        send should be the total number of bytes to be transmitted!</p>
 
-<h3 id="i-parallel-abort">PARALLEL ABORT</h3>
-<p><i>instruction: stop a parallel operation</i><br>
-<b>Parallel Abort</b></p>
+    <h3 id="i-parallel-abort">PARALLEL ABORT</h3>
+    <p><i>instruction: stop a parallel operation</i><br>
+        <b>Parallel Abort</b></p>
 
-<p>
-This command is used to stop a PARALLEL SEND or PARALLEL OUT instruction from
-transmitting any additional information via the Parallel Port. Any characters that are currently in
-transit will be completely lost.</p>
+    <p>
+        This command is used to stop a PARALLEL SEND or PARALLEL OUT instruction from
+        transmitting any additional information via the Parallel Port. Any characters that are currently in
+        transit will be completely lost.</p>
 
-<h3 id="fn-parallel-check">PARALLEL CHECK</h3>
-<p><i>function: report the availability of the Parallel Port</i><br>
-value=<b>Parallel Check</b></p>
+    <h3 id="fn-parallel-check">PARALLEL CHECK</h3>
+    <p><i>function: report the availability of the Parallel Port</i><br>
+        value=<b>Parallel Check</b></p>
 
-<p>
-The PARALLEL CHECK function is used to return the readiness of the Parallel Port. The status
-is returned by either a value of zero (False) if it is not available, or -1 (True) if the port is ready for
-use.</p>
+    <p>
+        The PARALLEL CHECK function is used to return the readiness of the Parallel Port. The status
+        is returned by either a value of zero (False) if it is not available, or -1 (True) if the port is ready for
+        use.</p>
 
-<h3 id="fn-parallel-error">PARALLEL ERROR</h3>
-<p><i>function: check for an error in transmission via the Parallel Port</i><br>
-value=<b>Parallel Error</b></p>
+    <h3 id="fn-parallel-error">PARALLEL ERROR</h3>
+    <p><i>function: check for an error in transmission via the Parallel Port</i><br>
+        value=<b>Parallel Error</b></p>
 
-To check for errors during the current transmission via the Parallel Port, use this function.
+    To check for errors during the current transmission via the Parallel Port, use this function.
 
-<!-- section -->
+    <!-- section -->
 
-<p>
-A value of zero is returned all the time that everything is proceeding normally, but any other
-value indicates a problem in the current transmission operation.</p>
+    <p>
+        A value of zero is returned all the time that everything is proceeding normally, but any other
+        value indicates a problem in the current transmission operation.</p>
 
-<h3 id="fn-parallel-status">PARALLEL STATUS</h3>
-<p><i>function: return the current status of the Parallel Port</i><br>
-status=<b>Parallel Status</b></p>
+    <h3 id="fn-parallel-status">PARALLEL STATUS</h3>
+    <p><i>function: return the current status of the Parallel Port</i><br>
+        status=<b>Parallel Status</b></p>
 
-<p>
-This function is used to give information concerning the current status of the Parallel Port. Each
-possibility is represented by a single bit in the status report. Here is a table of the relevant bits:</p>
+    <p>
+        This function is used to give information concerning the current status of the Parallel Port. Each
+        possibility is represented by a single bit in the status report. Here is a table of the relevant bits:</p>
 
-<pre>
+    <pre>
 <b>Bit    Status</b>
 0      Printer selected
 1      Paper out
@@ -154,14 +155,14 @@ possibility is represented by a single bit in the status report. Here is a table
 3      Direction of transmission (0=read, 1=write)
 </pre>
 
-<h3 id="fn-parallel-base">PARALLEL BASE</h3>
-<p><i>function: get the base address of the Parallel Port</i><br>
-address=<b>Parallel Base</b></p>
+    <h3 id="fn-parallel-base">PARALLEL BASE</h3>
+    <p><i>function: get the base address of the Parallel Port</i><br>
+        address=<b>Parallel Base</b></p>
 
-<p>
-This function returns the address of the internal memory area that is used to handle the Parallel
-Port. Experienced programmers will be able to read and change various settings, but careless use
-of the PARALLEL BASE function can easily result in problems.</p>
+    <p>
+        This function returns the address of the internal memory area that is used to handle the Parallel
+        Port. Experienced programmers will be able to read and change various settings, but careless use
+        of the PARALLEL BASE function can easily result in problems.</p>
 
 </section>
 

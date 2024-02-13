@@ -1,141 +1,145 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - accessing a printer</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - accessing a printer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Accessing a Printer</h1>
+    <h1>Accessing a Printer</h1>
 
 
+    <p>
+        AMOS Professional offers total access to the Amiga's printer driver. The printer configuration is
+        taken directly from your Preferences settings, allowing printer control with a standard set of
+        "escape codes".</p>
 
-<p>
-AMOS Professional offers total access to the Amiga's printer driver. The printer configuration is
-taken directly from your Preferences settings, allowing printer control with a standard set of
-"escape codes".</p>
-
-<p>Any AMOS Professional screen can also be dumped directly onto paper via your printer.</p>
+    <p>Any AMOS Professional screen can also be dumped directly onto paper via your printer.</p>
 </section>
 
 <section id="01-the-printer-device">
-<h2>The printer device</h2>
-<p>
-Details of your printer are taken from the settings that have been previously entered from the
-Workbench Preferences utility. A printer can be connected to the Serial Port or the Parallel Port,
-mid AMOS Professional will choose the appropriate device for all printing operations
-automatically.</p>
+    <h2>The printer device</h2>
+    <p>
+        Details of your printer are taken from the settings that have been previously entered from the
+        Workbench Preferences utility. A printer can be connected to the Serial Port or the Parallel Port,
+        mid AMOS Professional will choose the appropriate device for all printing operations
+        automatically.</p>
 
-<p>
-The first time that a printer is used, the printer drivers are loaded into memory from your start-
-up disc. If this is not available, a requester will be displayed enabling you to insert the relevant
-disc.</p>
+    <p>
+        The first time that a printer is used, the printer drivers are loaded into memory from your start-
+        up disc. If this is not available, a requester will be displayed enabling you to insert the relevant
+        disc.</p>
 
-<p>
-The printer driver consumes a great deal Of memory, and can require up to 50k in order to
-operate. If available memory is running short, it may be easier to access the printer with the
-SERIAL or PARALLEL commands instead. Additionally, if multi-tasking is being used, it is
-important to realise that only one program is allowed to access the printer device at any one
-time. If a previous program has already grabbed the printer, an error message will be generated
-when an attempt is made to access the printer from an AMOS Professional program.</p>
+    <p>
+        The printer driver consumes a great deal Of memory, and can require up to 50k in order to
+        operate. If available memory is running short, it may be easier to access the printer with the
+        SERIAL or PARALLEL commands instead. Additionally, if multi-tasking is being used, it is
+        important to realise that only one program is allowed to access the printer device at any one
+        time. If a previous program has already grabbed the printer, an error message will be generated
+        when an attempt is made to access the printer from an AMOS Professional program.</p>
 
-<p>Such errors can be trapped using a command like this:</p>
+    <p>Such errors can be trapped using a command like this:</p>
 
-<pre>
+    <pre>
 X> Trap Printer Open
    If ERRTRAP : Print "Cannot open Printer Device!" : Endif
 </pre>
 
-<p>
-<i>instruction: open the standard printer device for use</i><br>
-<b>Printer Open</b></p>
+    <p>
+        <i>instruction: open the standard printer device for use</i><br>
+        <b>Printer Open</b></p>
 
-<p>This command opens the printer device using your current preferences.</p>
+    <p>This command opens the printer device using your current preferences.</p>
 
-<h3 id="i-printer-close">PRINTER CLOSE</h3>
-<p><i>instruction: close printer port</i><br>
-<b>Printer Close</b></p>
+    <h3 id="i-printer-close">PRINTER CLOSE</h3>
+    <p><i>instruction: close printer port</i><br>
+        <b>Printer Close</b></p>
 
-<p>
-Use this instruction to close the printer port that has been previously set with a PRINTER OPEN
-command. Note that the memory is not freed for use by your AMOS Professional program
-immediately. Memory is only returned if the following conditions are met: firstly, that no other
-program has requested the printer device during multi-tasking, as explained above. Secondly, if
-the system becomes short of memory and requires more.</p>
+    <p>
+        Use this instruction to close the printer port that has been previously set with a PRINTER OPEN
+        command. Note that the memory is not freed for use by your AMOS Professional program
+        immediately. Memory is only returned if the following conditions are met: firstly, that no other
+        program has requested the printer device during multi-tasking, as explained above. Secondly, if
+        the system becomes short of memory and requires more.</p>
 
-<h3 id="i-printer-send">PRINTER SEND</h3>
-<p><i>instruction: send a string to the printer</i><br>
-<b>Printer Send</b> text$</p>
+    <h3 id="i-printer-send">PRINTER SEND</h3>
+    <p><i>instruction: send a string to the printer</i><br>
+        <b>Printer Send</b> text$</p>
 
-<p>
-The PRINTER SEND command sends a string of text to the printer,
-using multi-tasking.</p>
+    <p>
+        The PRINTER SEND command sends a string of text to the printer,
+        using multi-tasking.</p>
 
 
-<p>
-The command does not wait for the text to be printed, and returns immediately to the program.
-All printing operations are performed "invisibly" in the background. Obviously, if the printer is
-not ready, the appropriate requester will appear.</p>
+    <p>
+        The command does not wait for the text to be printed, and returns immediately to the program.
+        All printing operations are performed "invisibly" in the background. Obviously, if the printer is
+        not ready, the appropriate requester will appear.</p>
 </section>
 
 <section id="02-embedded-commands">
-<h2>Embedded commands</h2>
-<p>
-The text string to be printed can contain embedded commands, and these will be converted into
-the appropriate control sequences for the current printer automatically. This means that all the
-effects such as underline, bold, italic and subscript can be included in your programs.</p>
+    <h2>Embedded commands</h2>
+    <p>
+        The text string to be printed can contain embedded commands, and these will be converted into
+        the appropriate control sequences for the current printer automatically. This means that all the
+        effects such as underline, bold, italic and subscript can be included in your programs.</p>
 
-<p>
-Most embedded commands begin with an "Escape" character, or Chr$(27), and they will work
-equally well on <b>any</b> printer. Provided that your particular printer has been installed using the
-Preferences utility, the entire system will be completely transparent. Here are the rules of
-successful printing:</p>
+    <p>
+        Most embedded commands begin with an "Escape" character, or Chr$(27), and they will work
+        equally well on <b>any</b> printer. Provided that your particular printer has been installed using the
+        Preferences utility, the entire system will be completely transparent. Here are the rules of
+        successful printing:</p>
 
-<ul>
-  <li>Each line of text should be terminated by a single Line Feed. Normally this will be Chr$(10),
-      but an embedded command can also be used like this:</li>
-</ul>
+    <ul>
+        <li>Each line of text should be terminated by a single Line Feed. Normally this will be Chr$(10),
+            but an embedded command can also be used like this:
+        </li>
+    </ul>
 
-<pre>
+    <pre>
 X> LF$=Chr$(27)+"E"
    Printer Send "Greetings" +LF$
 </pre>
 
-<ul>
-  <li>The LF +CR settings found in the AMOS_Interpreter configuration menus are ignored!</li>
-  <li>Zeros are printed as normal characters.</li>
-  <li>The PRINTER SEND command should not be used to output raw data. Such data may contain
-      embedded commands that can be misinterpreted by the printer device.</li>
-  <li>Because PRINTER SEND uses multi--tasking, there may be a slight delay while the text string
-      is being printed.</li>
-  <li>If any changes are made to a string while it is being output, the final print-out may become
-      corrupted.</li>
-  <li>To avoid unwanted "garbage collection", such an operation can be forced <b>before</b> transmission
-      begins of data to be printed, with a line such as X =Free.</li>
-</ul>
+    <ul>
+        <li>The LF +CR settings found in the AMOS_Interpreter configuration menus are ignored!</li>
+        <li>Zeros are printed as normal characters.</li>
+        <li>The PRINTER SEND command should not be used to output raw data. Such data may contain
+            embedded commands that can be misinterpreted by the printer device.
+        </li>
+        <li>Because PRINTER SEND uses multi--tasking, there may be a slight delay while the text string
+            is being printed.
+        </li>
+        <li>If any changes are made to a string while it is being output, the final print-out may become
+            corrupted.
+        </li>
+        <li>To avoid unwanted "garbage collection", such an operation can be forced <b>before</b> transmission
+            begins of data to be printed, with a line such as X =Free.
+        </li>
+    </ul>
 
-<p>
-Here is a list of the most useful embedded commands. Note that ESC is simply a standard name
-for the CHR$(27) character.</p>
+    <p>
+        Here is a list of the most useful embedded commands. Note that ESC is simply a standard name
+        for the CHR$(27) character.</p>
 
 
-<pre>
+    <pre>
 <b>Name    Code      Effect</b>
 aRIS    ESCc      hard re-set
 aRIN    ESC#1     initialise to defaults
@@ -151,7 +155,7 @@ aSGR1   ESC[1m    boldface on
 </pre>
 
 
-<pre>
+    <pre>
 aSGR22     ESC[22m   normal pitch
 aSHORP2    ESC[2w    Elite on
 aSHORP1    ESC[1w    Elite off
@@ -171,11 +175,11 @@ aSUS       ESC[4v    subscript on
 aSUS3      ESC3v     subscript off
 </pre>
 
-<p>
-In order to print a text string in Italics and underlined, for example, the following routine could
-be used:</p>
+    <p>
+        In order to print a text string in Italics and underlined, for example, the following routine could
+        be used:</p>
 
-<pre>
+    <pre>
 X> ESC$=Chr$(27)
    LF$=ESC$+"E"
    Printer Open
@@ -183,54 +187,54 @@ X> ESC$=Chr$(27)
    Printer Close
 </pre>
 
-<p>
-The state of printer output can be monitored by the PRINTER CHECK and PRINTER ERROR
-functions, and printing can be abandoned completely using PRINTER ABORT, which are all
-explained later.</p>
+    <p>
+        The state of printer output can be monitored by the PRINTER CHECK and PRINTER ERROR
+        functions, and printing can be abandoned completely using PRINTER ABORT, which are all
+        explained later.</p>
 </section>
 
 <section id="03-screen-dumps">
-<h2>Screen dumps</h2>
-<p>
-There are three alternative ways of using the PRINTER DUMP command to perform a screen
-dump.</p>
+    <h2>Screen dumps</h2>
+    <p>
+        There are three alternative ways of using the PRINTER DUMP command to perform a screen
+        dump.</p>
 
-<h3 id="i-printer-dump">PRINTER DUMP</h3>
-<p><i>instruction: print the contents of an AMOS Professional screen</i><br>
-<b>Printer Dump</b><br>
-<b>Printer Dump</b> x1 ,y1 <b>To</b> x2,y2<br>
-<b>Printer Dump</b> x1 ,y1 <b>To</b> x2,y2,px,py,setting</p>
+    <h3 id="i-printer-dump">PRINTER DUMP</h3>
+    <p><i>instruction: print the contents of an AMOS Professional screen</i><br>
+        <b>Printer Dump</b><br>
+        <b>Printer Dump</b> x1 ,y1 <b>To</b> x2,y2<br>
+        <b>Printer Dump</b> x1 ,y1 <b>To</b> x2,y2,px,py,setting</p>
 
-<p>
-Used without any parameters, PRINTER DUMP will perform an entire screen dump in a single
-operation. If the screen contains complex graphics, this may well take a considerable time to
-complete.</p>
+    <p>
+        Used without any parameters, PRINTER DUMP will perform an entire screen dump in a single
+        operation. If the screen contains complex graphics, this may well take a considerable time to
+        complete.</p>
 
-<p>
-A selected area of the screen can be transmitted to the printer, retaining the current aspect ratio
-and screen size. In other words, if only half of the current display is to be printed,
-it will take up exactly half of the space of a complete print-out.</p>
+    <p>
+        A selected area of the screen can be transmitted to the printer, retaining the current aspect ratio
+        and screen size. In other words, if only half of the current display is to be printed,
+        it will take up exactly half of the space of a complete print-out.</p>
 
 
-<p>
-The section of screen to be dumped is set by giving the top left-hand coordinates followed by
-the coordinates of the corner diagonally opposite.</p>
+    <p>
+        The section of screen to be dumped is set by giving the top left-hand coordinates followed by
+        the coordinates of the corner diagonally opposite.</p>
 
-<p>
-The third option allows you to change the size parameters and aspect ratio of the original screen
-image. This is achieved by including additional parameters after x1,y1 and x2,y2, as follows:</p>
+    <p>
+        The third option allows you to change the size parameters and aspect ratio of the original screen
+        image. This is achieved by including additional parameters after x1,y1 and x2,y2, as follows:</p>
 
-<p>
-Px and py specify the dimensions of the final print-out, and these values are measured in
-printer pixels rather than normal screen pixels. Printer pixels vary in size, depending on the
-command options that are given by the following settings:</p>
+    <p>
+        Px and py specify the dimensions of the final print-out, and these values are measured in
+        printer pixels rather than normal screen pixels. Printer pixels vary in size, depending on the
+        command options that are given by the following settings:</p>
 
-<p>
-Settings refers to a special command parameter, that is used to tell the printer precisely how to
-draw the current screen image on paper. Here is a list of these settings, which can be combined
-using AND as well as OR operations from AMOS Professional.</p>
+    <p>
+        Settings refers to a special command parameter, that is used to tell the printer precisely how to
+        draw the current screen image on paper. Here is a list of these settings, which can be combined
+        using AND as well as OR operations from AMOS Professional.</p>
 
-<pre>
+    <pre>
 <b>Value    Name          Description</b>
 $0001    MILCOLS       px is in 1/1000" (see Note 1)
 $0002    MILROWS       py is in 1/1000"
@@ -252,152 +256,151 @@ $1000    TRUSTME       do not re-set
 $2000    NOPRINT       do not print
 </pre>
 
-<p>
-Note 1. MILCOLS and MILROWS measure the px and py parameters in units of 1/1000th of an
-inch. So if px=10000, the print-out will measure ten inches wide.</p>
+    <p>
+        Note 1. MILCOLS and MILROWS measure the px and py parameters in units of 1/1000th of an
+        inch. So if px=10000, the print-out will measure ten inches wide.</p>
 
-<p>
-Note 2. FULLCOLS and FULLROWS make use of the maximum available width and height of
-the paper.</p>
+    <p>
+        Note 2. FULLCOLS and FULLROWS make use of the maximum available width and height of
+        the paper.</p>
 
-<p>
-Note 3. FRACCOLS and FRACROWS specify the width and height of the print-out as a fraction
-of the current paper size.</p>
+    <p>
+        Note 3. FRACCOLS and FRACROWS specify the width and height of the print-out as a fraction
+        of the current paper size.</p>
 
-<p>
-Px,py are assumed to be between $0000 and $FFFF, and the print width is calculated using the
-formula width =FULLCOLS*px/$FFFF whereas height is calculated by the formula
-height=FULLROWS*py/$FFFF.<br>
+    <p>
+        Px,py are assumed to be between $0000 and $FFFF, and the print width is calculated using the
+        formula width =FULLCOLS*px/$FFFF whereas height is calculated by the formula
+        height=FULLROWS*py/$FFFF.<br>
 
-This means that if px =$8000 the print width will be $8000/$FFF,
-which equals half of FULLCOLS. So the pint-out will take up half the width of the paper.</p>
+        This means that if px =$8000 the print width will be $8000/$FFF,
+        which equals half of FULLCOLS. So the pint-out will take up half the width of the paper.</p>
 
 
-<p>
-For example, to dump a 100x100 section of the current screen onto a full page, retaining the
-correct aspect ratio, the following line would be used:</p>
+    <p>
+        For example, to dump a 100x100 section of the current screen onto a full page, retaining the
+        correct aspect ratio, the following line would be used:</p>
 
-<pre>
+    <pre>
 X> Printer Dump 0,0 To 100,100,0,0,$80 Or $8 Or $4
 </pre>
 
-<p>The next example could be used for printing a low resolution screen to an eight by six inch area:</p>
+    <p>The next example could be used for printing a low resolution screen to an eight by six inch area:</p>
 
-<pre>
+    <pre>
 X> Printer Dump 0,0 To 320,200,8000,6000,$1 Or $2
 </pre>
 
-<p>
-Alternatively, part of the current screen could be dumped utilising the maximum available
-height, but with the width reduced by one third, as follows:</p>
+    <p>
+        Alternatively, part of the current screen could be dumped utilising the maximum available
+        height, but with the width reduced by one third, as follows:</p>
 
-<pre>
+    <pre>
 X> Printer Dump 0,0 To 200,200,$5555,0,$8 Or $10
 </pre>
 
-<p>
-You are warned not to attempt to change the current screen during a screen dump operation,
-otherwise the resultant print-out will become scrambled.</p>
+    <p>
+        You are warned not to attempt to change the current screen during a screen dump operation,
+        otherwise the resultant print-out will become scrambled.</p>
 </section>
 
 <section id="04-other-printer-commands">
-<h2>Other printer commands</h2>
+    <h2>Other printer commands</h2>
 
-<h3 id="i-printer-out">PRINTER OUT</h3>
-<p><i>instruction: print data from an address</i><br>
-<b>Printer Out</b> address,length</p>
+    <h3 id="i-printer-out">PRINTER OUT</h3>
+    <p><i>instruction: print data from an address</i><br>
+        <b>Printer Out</b> address,length</p>
 
-<p>
-This command is used to print some data directly from the memory location starting at a
-specified address. The data is not processed in any way, so embedded control sequences will be
-completely ignored. The PRINTER OUT instruction should be used to send simple text and
-graphics only.</p>
+    <p>
+        This command is used to print some data directly from the memory location starting at a
+        specified address. The data is not processed in any way, so embedded control sequences will be
+        completely ignored. The PRINTER OUT instruction should be used to send simple text and
+        graphics only.</p>
 
-<p>
-The address parameter refers to the first character which is to be output, and length specifies the
-number of characters to be printed. To send a string, the following type of line would be used:</p>
+    <p>
+        The address parameter refers to the first character which is to be output, and length specifies the
+        number of characters to be printed. To send a string, the following type of line would be used:</p>
 
-<pre>
+    <pre>
 Printer Out Varptr(A$),Len(A$)
 </pre>
 
-<p>
-Similarly to PRINTER SEND, it must be ensured that data remains unchanged during the
-printing process, otherwise the resultant print-out will become corrupted.</p>
+    <p>
+        Similarly to PRINTER SEND, it must be ensured that data remains unchanged during the
+        printing process, otherwise the resultant print-out will become corrupted.</p>
 
-<h3 id="i-printer-abort">PRINTER ABORT</h3>
-<p><i>instruction: stop a printer operation</i><br>
-<b>Printer Abort</b></p>
+    <h3 id="i-printer-abort">PRINTER ABORT</h3>
+    <p><i>instruction: stop a printer operation</i><br>
+        <b>Printer Abort</b></p>
 
-<p>
-This command halts the current printing operation. If your printer device has a large memory
-buffer, there may be a delay before the printing ceases.</p>
+    <p>
+        This command halts the current printing operation. If your printer device has a large memory
+        buffer, there may be a delay before the printing ceases.</p>
 
-<h3 id="fn-printer-check">PRINTER CHECK</h3>
-<p><i>function: return the status of the printer</i><br>
-status=<b>Printer Check</b></p>
+    <h3 id="fn-printer-check">PRINTER CHECK</h3>
+    <p><i>function: return the status of the printer</i><br>
+        status=<b>Printer Check</b></p>
 
-<p>
-Use the PRINTER CHECK function to return a value of -1 (True) if the printer
-is available for use, or zero (False) if it is in active mid-operation.</p>
+    <p>
+        Use the PRINTER CHECK function to return a value of -1 (True) if the printer
+        is available for use, or zero (False) if it is in active mid-operation.</p>
 
 
+    <h3 id="fn-printer-online">PRINTER ONLINE</h3>
+    <p><i>function: report if printer is on-line</i><br>
+        status=<b>Printer Online</b></p>
 
-<h3 id="fn-printer-online">PRINTER ONLINE</h3>
-<p><i>function: report if printer is on-line</i><br>
-status=<b>Printer Online</b></p>
+    <p>
+        This useful function provides a simple method of checking if the printer is connected and ready
+        for use. It returns a value of -1 (True) if the printer is on-line, otherwise zero (False) will be given.
+        This function only works with <b>parallel</b> printer devices.</p>
 
-<p>
-This useful function provides a simple method of checking if the printer is connected and ready
-for use. It returns a value of -1 (True) if the printer is on-line, otherwise zero (False) will be given.
-This function only works with <b>parallel</b> printer devices.</p>
+    <h3 id="fn-printer-error">PRINTER ERROR</h3>
+    <p><i>function: check for an error in printing operation</i><br>
+        status=<b>Printer Error</b></p>
 
-<h3 id="fn-printer-error">PRINTER ERROR</h3>
-<p><i>function: check for an error in printing operation</i><br>
-status=<b>Printer Error</b></p>
+    <p>
+        Use this function to check if the current printing operation is proceeding normally. A value of
+        zero suggests that all is well, but any other value indicates an error.</p>
 
-<p>
-Use this function to check if the current printing operation is proceeding normally. A value of
-zero suggests that all is well, but any other value indicates an error.</p>
+    <h3 id="fn-printer-base">PRINTER BASE</h3>
+    <p><i>function: get the address of printer base</i><br>
+        address=<b>Printer Base</b></p>
 
-<h3 id="fn-printer-base">PRINTER BASE</h3>
-<p><i>function: get the address of printer base</i><br>
-address=<b>Printer Base</b></p>
-
-<p>
-The PRINTER BASE function is used to return the address of the i/o structure used to control the
-printer. It is intended for use by skilled operators only! Poking around the internal device
-structures is a very dangerous operation indeed!</p>
+    <p>
+        The PRINTER BASE function is used to return the address of the i/o structure used to control the
+        printer. It is intended for use by skilled operators only! Poking around the internal device
+        structures is a very dangerous operation indeed!</p>
 </section>
 
 <section id="05-other-ports-and-devices">
-<h2>Other ports and devices</h2>
-<p>
-The <b>serial</b> Port is examined in the next Chapter, and it is also possible to access the <b>parallel</b> port
-directly, which provides a number of advantages over the printer device. Please refer to <a href="10-05-the-parallel-port.html">Chapter
-10.5</a> for full details.</p>
+    <h2>Other ports and devices</h2>
+    <p>
+        The <b>serial</b> Port is examined in the next Chapter, and it is also possible to access the <b>parallel</b> port
+        directly, which provides a number of advantages over the printer device. Please refer to <a href="10-05-the-parallel-port.html">Chapter
+        10.5</a> for full details.</p>
 
-<p>
-The complete control and exploitation of other devices that control hardware as well as internal
-features of the Amiga is dealt with in <a href="11-05-libraries-and-devices.html">Chapter 11.5</a>. This Chapter ends with a general instruction
-and function for dealing with ports.</p>
+    <p>
+        The complete control and exploitation of other devices that control hardware as well as internal
+        features of the Amiga is dealt with in <a href="11-05-libraries-and-devices.html">Chapter 11.5</a>. This Chapter ends with a general instruction
+        and function for dealing with ports.</p>
 
-<h3 id="i-open-port">OPEN PORT</h3>
-<p><i>instruction: open a channel to an 10 port</i><br>
-<b>Open Port</b> channel number,"PAR:"<br>
-<b>Open Port</b> channel number,"SER:"<br>
-<b>Open Port</b> channel number,"PRT:"</p>
+    <h3 id="i-open-port">OPEN PORT</h3>
+    <p><i>instruction: open a channel to an 10 port</i><br>
+        <b>Open Port</b> channel number,"PAR:"<br>
+        <b>Open Port</b> channel number,"SER:"<br>
+        <b>Open Port</b> channel number,"PRT:"</p>
 
-<p>
-The three versions of the OPEN PORT command are shown above, and they are used to open a
-channel to the Parallel Interface, or the RS232 Port, or the printer chosen in your preferences
-settings. All standard sequential file commands can be performed as usual, except for commands
-that are specific to disc operations, such as LOF and POF.</p>
+    <p>
+        The three versions of the OPEN PORT command are shown above, and they are used to open a
+        channel to the Parallel Interface, or the RS232 Port, or the printer chosen in your preferences
+        settings. All standard sequential file commands can be performed as usual, except for commands
+        that are specific to disc operations, such as LOF and POF.</p>
 
 
-This example would print out ten lines via the device connected to the Amiga's RS232 port:
+    This example would print out ten lines via the device connected to the Amiga's RS232 port:
 
-<pre>
+    <pre>
 X> Open Port 1,"SER:"
    For X=0 To 10
     Print #1 ,"Greetings from AMOS Professional!"
@@ -405,13 +408,13 @@ X> Open Port 1,"SER:"
    Close 1
 </pre>
 
-<h3 id="fn-port">PORT</h3>
-<p><i>function: test readiness of device</i><br>
-value=<b>Port</b>(channel number)</p>
+    <h3 id="fn-port">PORT</h3>
+    <p><i>function: test readiness of device</i><br>
+        value=<b>Port</b>(channel number)</p>
 
-<p>
-The PORT function is used to test the status of readiness of the specified channel. If the device is
-waiting to be read a value of -1 (True) is returned, otherwise zero (False) is given.</p>
+    <p>
+        The PORT function is used to test the status of readiness of the specified channel. If the device is
+        waiting to be read a value of -1 (True) is returned, otherwise zero (False) is given.</p>
 
 
 </section>

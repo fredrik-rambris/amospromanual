@@ -1,422 +1,425 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - the menu editor</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - the menu editor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>The Menu Editor</h1>
+    <h1>The Menu Editor</h1>
 
 
+    <p>
+        The AMOS Professional Menu Editor allows you to adapt and design your own menus simply
+        and rapidly, using the mouse! All the advantages and features of AMOS Professional menus are
+        fully explained in <a href="06-05-menus.html">Chapter 6.5</a>.</p>
 
-<p>
-The AMOS Professional Menu Editor allows you to adapt and design your own menus simply
-and rapidly, using the mouse! All the advantages and features of AMOS Professional menus are
-fully explained in <a href="06-05-menus.html">Chapter 6.5</a>.</p>
-
-<p>
-The menu system is not only extremely comprehensive, it is also very powerful. Menus can be
-saved onto disc as a memory bank, and this bank can then be loaded into an AMOS Professional
-program, allowing the entire menu to be accessed with a single command.</p>
+    <p>
+        The menu system is not only extremely comprehensive, it is also very powerful. Menus can be
+        saved onto disc as a memory bank, and this bank can then be loaded into an AMOS Professional
+        program, allowing the entire menu to be accessed with a single command.</p>
 </section>
 
 <section id="01-loading-the-menu-editor-accessory">
-<h2>Loading the Menu Editor accessory</h2>
-<p>
-Please load "Menu_Editor.AMOS" from your Accessories disc. The Main Menu appears in the
-lower part of the screen as soon as the Menu Editor is loaded.</p>
+    <h2>Loading the Menu Editor accessory</h2>
+    <p>
+        Please load "Menu_Editor.AMOS" from your Accessories disc. The Main Menu appears in the
+        lower part of the screen as soon as the Menu Editor is loaded.</p>
 
-<p>
-All operations are performed by clicking on options with the <b>left</b> mouse button, unless
-instructed otherwise. On-screen instructions and dialogue comments will appear at every stage
-of operating the Menu Editor, to help and guide you.</p>
+    <p>
+        All operations are performed by clicking on options with the <b>left</b> mouse button, unless
+        instructed otherwise. On-screen instructions and dialogue comments will appear at every stage
+        of operating the Menu Editor, to help and guide you.</p>
 </section>
 
 <section id="02-the-main-menu">
-<h2>The Main Menu</h2>
-<p>
-The Main Menu displays seven simple options that are used for loading, saving and initialising
-your menus, as follows:</p>
+    <h2>The Main Menu</h2>
+    <p>
+        The Main Menu displays seven simple options that are used for loading, saving and initialising
+        your menus, as follows:</p>
 
-<p><b>[Create a new menu]</b><br>
-This option is used to define a new screen to be used as the menu background. The screen's
-default status is displayed, and this current format can be changed by clicking on the new
-number of colours and the screen resolution, using the left mouse button. You can then proceed
-to the Main Editing Window by selecting [Edit it], or choose the [Prey, menu] option instead,
-which will call up the previous menu.</p>
+    <p><b>[Create a new menu]</b><br>
+        This option is used to define a new screen to be used as the menu background. The screen's
+        default status is displayed, and this current format can be changed by clicking on the new
+        number of colours and the screen resolution, using the left mouse button. You can then proceed
+        to the Main Editing Window by selecting [Edit it], or choose the [Prey, menu] option instead,
+        which will call up the previous menu.</p>
 
-<p><b>[Edit current menu]</b><br>
-This calls up the Main Editor Screen, which is detailed below, and the currently selected menu is
-initialised.</p>
+    <p><b>[Edit current menu]</b><br>
+        This calls up the Main Editor Screen, which is detailed below, and the currently selected menu is
+        initialised.</p>
 
-<p><b>[Save menu bank]</b><br>
-As soon as this option is triggered, the File Selector is called up. A memory bank can now be
-created for your menus, and saved to disc. This menu can be loaded into an AMOS Professional
-program be means of a line like this:</p>
+    <p><b>[Save menu bank]</b><br>
+        As soon as this option is triggered, the File Selector is called up. A memory bank can now be
+        created for your menus, and saved to disc. This menu can be loaded into an AMOS Professional
+        program be means of a line like this:</p>
 
-<pre>
+    <pre>
 X> Load "Filename.Abk"
 </pre>
 
-<p>The new menu can then be initialised with this:</p>
+    <p>The new menu can then be initialised with this:</p>
 
-<pre>
+    <pre>
 X> Bank To Menu 6
 </pre>
 
-<p>
-The menu can now be activated by a MENU ON command. These menu banks are permanent,
-and they will be saved along with the relevant program automatically. This means that once a
-menu has been installed, and the menu handler has been included in your program, it will look
-after itself.</p>
+    <p>
+        The menu can now be activated by a MENU ON command. These menu banks are permanent,
+        and they will be saved along with the relevant program automatically. This means that once a
+        menu has been installed, and the menu handler has been included in your program, it will look
+        after itself.</p>
 
 
-<p><b>[Load a menu]</b><br>
-After the File Selector appears, the selected menu file can be loaded from disc. This file must
-have been defined in a sequential .MENU file, using the [Save current menu] option explained
-next. Once the menu has been loaded successfully, the program will proceed straight to the
-Main Editor Screen.</p>
+    <p><b>[Load a menu]</b><br>
+        After the File Selector appears, the selected menu file can be loaded from disc. This file must
+        have been defined in a sequential .MENU file, using the [Save current menu] option explained
+        next. Once the menu has been loaded successfully, the program will proceed straight to the
+        Main Editor Screen.</p>
 
-<p><b>[Save current menu]</b><br>
-The File Selector is called, and an entire menu definition can be saved in a sequential .MENU
-file, ready for loading. If you prefer to access the menu directly from an AMOS Professional
-program, use the [Save menu bank] option instead.</p>
+    <p><b>[Save current menu]</b><br>
+        The File Selector is called, and an entire menu definition can be saved in a sequential .MENU
+        file, ready for loading. If you prefer to access the menu directly from an AMOS Professional
+        program, use the [Save menu bank] option instead.</p>
 
-<p><b>[Quit and grab bank]</b><br>
-This option will leave the Menu Editor and return you to the main AMOS Professional Editor. If
-the Menu Editor is being run as an accessory, the new menu bank will be installed
-automatically, and the newly created menu can now be accessed directly from the current
-program.</p>
+    <p><b>[Quit and grab bank]</b><br>
+        This option will leave the Menu Editor and return you to the main AMOS Professional Editor. If
+        the Menu Editor is being run as an accessory, the new menu bank will be installed
+        automatically, and the newly created menu can now be accessed directly from the current
+        program.</p>
 
-<p><b>[Quit]</b><br>
-This also exits to the AMOS Professional main program, but <b>be warned</b>, this option completely
-erases the new menu definition!</p>
+    <p><b>[Quit]</b><br>
+        This also exits to the AMOS Professional main program, but <b>be warned</b>, this option completely
+        erases the new menu definition!</p>
 </section>
 
 <section id="03-the-main-edit-screen">
-<h2>The Main Edit Screen</h2>
-<p>
-The Edit Screen is divided into three areas.</p>
+    <h2>The Main Edit Screen</h2>
+    <p>
+        The Edit Screen is divided into three areas.</p>
 
-<p><b>Vertical scroll bar</b><br>
+    <p><b>Vertical scroll bar</b><br>
 
-At the left-hand side of the screen there is a vertical bar, equipped with a pair of up and down
-arrows. This is used to scroll through very large menu definitions which exceed the dimensions
-of the Editor Window display.</p>
+        At the left-hand side of the screen there is a vertical bar, equipped with a pair of up and down
+        arrows. This is used to scroll through very large menu definitions which exceed the dimensions
+        of the Editor Window display.</p>
 
-<p><b>The Editor Menu</b><br>
-At the bottom of the screen, all of the Editor Menu options are displayed, and these are
-explained below.</p>
+    <p><b>The Editor Menu</b><br>
+        At the bottom of the screen, all of the Editor Menu options are displayed, and these are
+        explained below.</p>
 
-<p><b>Editor Window</b><br>
-The top section of the Main Edit Screen is where the menu that is currently being edited is
-displayed. Each item in the menu is represented as a small box with a number in it, and these
-boxes are organised as follows:</p>
+    <p><b>Editor Window</b><br>
+        The top section of the Main Edit Screen is where the menu that is currently being edited is
+        displayed. Each item in the menu is represented as a small box with a number in it, and these
+        boxes are organised as follows:</p>
 
-<p>
-All items in a single level of the menu are arranged in one vertical column. The first column on
-the left represents the title line of the menu, and the second column shows the various items of
-that menu.</p>
+    <p>
+        All items in a single level of the menu are arranged in one vertical column. The first column on
+        the left represents the title line of the menu, and the second column shows the various items of
+        that menu.</p>
 
-<p>
-Each item is numbered according to its position in the menu hierarchy. For example, the second
-menu option of title number 1 would be represented by a box numbered 1.2. This simple system
-means that you are able to read the entire structure of a menu at a single glance.</p>
+    <p>
+        Each item is numbered according to its position in the menu hierarchy. For example, the second
+        menu option of title number 1 would be represented by a box numbered 1.2. This simple system
+        means that you are able to read the entire structure of a menu at a single glance.</p>
 
 
-<p>
-If you click with the <b>right</b> mouse button to test the menu that is currently being edited, you can
-compare this display with the menu line that it actually represents!</p>
+    <p>
+        If you click with the <b>right</b> mouse button to test the menu that is currently being edited, you can
+        compare this display with the menu line that it actually represents!</p>
 </section>
 
 <section id="04-the-editor-menu">
-<h2>The Editor Menu</h2>
-<p>
-Here is a short guided tour through all of the options on offer in the Editor Menu, which
-occupies the bottom section of the Main Editor Window.</p>
+    <h2>The Editor Menu</h2>
+    <p>
+        Here is a short guided tour through all of the options on offer in the Editor Menu, which
+        occupies the bottom section of the Main Editor Window.</p>
 
-<p>
-This Editor Menu contains all of the commands needed to define the physical structure of a
-menu. All of these options are performed on the <b>current</b> menu item, which is selected from the
-Edit Window by clicking with the left mouse button. The current menu item is highlighted in
-reverse video.</p>
+    <p>
+        This Editor Menu contains all of the commands needed to define the physical structure of a
+        menu. All of these options are performed on the <b>current</b> menu item, which is selected from the
+        Edit Window by clicking with the left mouse button. The current menu item is highlighted in
+        reverse video.</p>
 
-<p>
-All menu options are toggle operations, with alternative options selected by each mouse click.
-There are three groups of options, which are from left to right, the Item status menu, the Tree
-editor menu and the Draw menu.</p>
+    <p>
+        All menu options are toggle operations, with alternative options selected by each mouse click.
+        There are three groups of options, which are from left to right, the Item status menu, the Tree
+        editor menu and the Draw menu.</p>
 </section>
 
 <section id="05-item-status">
-<h2>Item status</h2>
-<p>
-The Item status Menu options are used to change the status of the currently selected menu item,
-as follows:</p>
+    <h2>Item status</h2>
+    <p>
+        The Item status Menu options are used to change the status of the currently selected menu item,
+        as follows:</p>
 
-<p><b>[Active] / [Inact]</b><br>
-This option toggles the status of the current menu item between being active and inactive. Only
-active items can be selected from the finished menu.</p>
+    <p><b>[Active] / [Inact]</b><br>
+        This option toggles the status of the current menu item between being active and inactive. Only
+        active items can be selected from the finished menu.</p>
 
-<p><b>[Line] / [Bar] / [T.line]</b><br>
-This selection affects the <b>whole branch</b> of the menu, not just the current item, and it is used to
-specify the form of the branch as either a Line, a Bar or a Total Line.</p>
+    <p><b>[Line] / [Bar] / [T.line]</b><br>
+        This selection affects the <b>whole branch</b> of the menu, not just the current item, and it is used to
+        specify the form of the branch as either a Line, a Bar or a Total Line.</p>
 
-<p><b>[Linked] / [Separ.]</b><br>
-Use this option to choose whether each item in the menu is to be linked with the one above it, or
-separated. Refer to the MENU LINK command in <a href="06-05-menus.html">Chapter 6.5</a>, if you need reminding of this
-system.</p>
+    <p><b>[Linked] / [Separ.]</b><br>
+        Use this option to choose whether each item in the menu is to be linked with the one above it, or
+        separated. Refer to the MENU LINK command in <a href="06-05-menus.html">Chapter 6.5</a>, if you need reminding of this
+        system.</p>
 
-<p><b>[Br.sta] / [Br.mov]</b><br>
-This option also affects the <b>whole branch</b> of the menu, and is short for Branch Stationary and
-Branch Moveable. It specifies whether the current menu branch can be repositioned by the user,
-and is identical to the MENU MOVABLE and MENU STATIC commands.</p>
+    <p><b>[Br.sta] / [Br.mov]</b><br>
+        This option also affects the <b>whole branch</b> of the menu, and is short for Branch Stationary and
+        Branch Moveable. It specifies whether the current menu branch can be repositioned by the user,
+        and is identical to the MENU MOVABLE and MENU STATIC commands.</p>
 
-<p><b>[It.sta] / [It.mov]</b><br>
-Short for Item Stationary and Item Moveable, this option toggles between whether or not items
-can be individually rearranged in a menu. This is the same choice offered by the MENU ITEM
-STATIC and MENU ITEM MOVABLE commands.</p>
+    <p><b>[It.sta] / [It.mov]</b><br>
+        Short for Item Stationary and Item Moveable, this option toggles between whether or not items
+        can be individually rearranged in a menu. This is the same choice offered by the MENU ITEM
+        STATIC and MENU ITEM MOVABLE commands.</p>
 </section>
 
 <section id="06-tree-editor">
-<h2>Tree editor</h2>
-<p>
-The Tree editor menu occupies the central block of options in the Main Editor Screen. These
-options allow the menu tree to be changed to new preferences, and any additions and deletions
-are reflected in the main edit screen.</p>
+    <h2>Tree editor</h2>
+    <p>
+        The Tree editor menu occupies the central block of options in the Main Editor Screen. These
+        options allow the menu tree to be changed to new preferences, and any additions and deletions
+        are reflected in the main edit screen.</p>
 
 
-<p>
-After the menu has been edited, it may be tested by pressing the <b>right</b> mouse button. If items are
-moveable, they can be repositioned freely, using the mouse New positions are retained until an
-item is deleted in the current branch, or the [Reset menu position] option is chosen. In this case,
-the menu will be initialised all over again.</p>
+    <p>
+        After the menu has been edited, it may be tested by pressing the <b>right</b> mouse button. If items are
+        moveable, they can be repositioned freely, using the mouse New positions are retained until an
+        item is deleted in the current branch, or the [Reset menu position] option is chosen. In this case,
+        the menu will be initialised all over again.</p>
 
-<p><b>[Add item]</b><br>
-This option adds a new item at the <b>end</b> of the current menu. As a default, the new item is
-assigned to the text string "EMPTY". This default status can be changed using one of many
-options from the Draw menu, which appears below.</p>
+    <p><b>[Add item]</b><br>
+        This option adds a new item at the <b>end</b> of the current menu. As a default, the new item is
+        assigned to the text string "EMPTY". This default status can be changed using one of many
+        options from the Draw menu, which appears below.</p>
 
-<p><b>[Ins item]</b><br>
-Use this option to insert a new menu item at the <b>current cursor position</b>.</p>
+    <p><b>[Ins item]</b><br>
+        Use this option to insert a new menu item at the <b>current cursor position</b>.</p>
 
-<p><b>[Branch]</b><br>
-This is used to create a menu branch at the current cursor position, and add a new item to this
-branch.</p>
-<p><b>
-[Delete]</b><br>
-This simple option erases the selected item from the menu.</p>
+    <p><b>[Branch]</b><br>
+        This is used to create a menu branch at the current cursor position, and add a new item to this
+        branch.</p>
+    <p><b>
+        [Delete]</b><br>
+        This simple option erases the selected item from the menu.</p>
 
-<p><b>[Reset menu position]</b><br>
-When this option is selected, the coordinates of all items belonging to the current menu
-branch are re-set to their default positions. The message "All offsets erased!" confirms that this
-has been done.</p>
+    <p><b>[Reset menu position]</b><br>
+        When this option is selected, the coordinates of all items belonging to the current menu
+        branch are re-set to their default positions. The message "All offsets erased!" confirms that this
+        has been done.</p>
 </section>
 
 <section id="07-draw-menu">
-<h2>Draw menu</h2>
-<p>
-This menu is extremely important. It provides the gateway to the powerful Item Drawing
-Screen, which is where individual menu items are designed. When any one of the four options
-is selected, the Item Drawing Screen is called, so if you are simply exploring these options, you
-can click on the [previous menu] option at the bottom right-hand corner of the Item Drawing
-Screen to get back to this Draw menu.</p>
+    <h2>Draw menu</h2>
+    <p>
+        This menu is extremely important. It provides the gateway to the powerful Item Drawing
+        Screen, which is where individual menu items are designed. When any one of the four options
+        is selected, the Item Drawing Screen is called, so if you are simply exploring these options, you
+        can click on the [previous menu] option at the bottom right-hand corner of the Item Drawing
+        Screen to get back to this Draw menu.</p>
 
-<p><b>[Normal]</b><br>
-This option ensures that an item in the menu will have a normal appearance setting.
-[Highlighted]
-When this option is chosen, the shape of the displayed item will be highlighted if it is selected
-with the mouse.</p>
+    <p><b>[Normal]</b><br>
+        This option ensures that an item in the menu will have a normal appearance setting.
+        [Highlighted]
+        When this option is chosen, the shape of the displayed item will be highlighted if it is selected
+        with the mouse.</p>
 
-<p><b>[Inactive]</b><br>
-After this option is triggered, an Object can be drawn which will be displayed if a selected item
-has been de-activated by a MENU INACTIVE command.</p>
+    <p><b>[Inactive]</b><br>
+        After this option is triggered, an Object can be drawn which will be displayed if a selected item
+        has been de-activated by a MENU INACTIVE command.</p>
 
-<p><b>[Background]</b><br>
-Use this option to specify the background to be drawn behind the current item.</p>
+    <p><b>[Background]</b><br>
+        Use this option to specify the background to be drawn behind the current item.</p>
 
 </section>
 
 <section id="08-item-drawing-screen">
-<h2>Item Drawing Screen</h2>
-<p>
-I his is the heart of the AMOS Professional Menu Editor, and it is the screen where the exact
-appearance of each menu item is defined. All menu items are constructed from a list of 21
-different graphics elements, which correspond to the <b>embedded menu instructions</b> detailed in
-<a href="06-05-menus.html">Chapter 6.5</a> of this User Manual. Each of these elements can be edited completely separately
-from one another, so that menus can be modified after they have been created very quickly and
-very simply.</p>
+    <h2>Item Drawing Screen</h2>
+    <p>
+        I his is the heart of the AMOS Professional Menu Editor, and it is the screen where the exact
+        appearance of each menu item is defined. All menu items are constructed from a list of 21
+        different graphics elements, which correspond to the <b>embedded menu instructions</b> detailed in
+        <a href="06-05-menus.html">Chapter 6.5</a> of this User Manual. Each of these elements can be edited completely separately
+        from one another, so that menus can be modified after they have been created very quickly and
+        very simply.</p>
 
-<p>
-The top left-hand section of this screen is the Current Item Window, where all drawing
-operations are controlled.</p>
+    <p>
+        The top left-hand section of this screen is the Current Item Window, where all drawing
+        operations are controlled.</p>
 
-<p>
-The top right-hand section is the <b>Work Screen</b>, which holds a picture of the element being
-edited, as it will appear in the final menu. Below this Work Screen is a horizontal bar. There is a
-small panel on the left of this bar, which shows the current <b>fill pattern</b>. The rest of the bar is a
-<b>font window</b>, showing the current style and size of text being used.</p>
+    <p>
+        The top right-hand section is the <b>Work Screen</b>, which holds a picture of the element being
+        edited, as it will appear in the final menu. Below this Work Screen is a horizontal bar. There is a
+        small panel on the left of this bar, which shows the current <b>fill pattern</b>. The rest of the bar is a
+        <b>font window</b>, showing the current style and size of text being used.</p>
 
-<p>
-The <b>palette window</b> occupies a horizontal bar across the whole width of this screen, and the
-layout of this is explained below.</p>
+    <p>
+        The <b>palette window</b> occupies a horizontal bar across the whole width of this screen, and the
+        layout of this is explained below.</p>
 
-<p>
-The lower section of the screen contains the four menus used to control the drawing operations,
-headed from left to right, Draw functions, Settings, Object and Misc. Dialogue messages and
-comments appear in this line of menu headings, during the menu editing process.</p>
+    <p>
+        The lower section of the screen contains the four menus used to control the drawing operations,
+        headed from left to right, Draw functions, Settings, Object and Misc. Dialogue messages and
+        comments appear in this line of menu headings, during the menu editing process.</p>
 
-<p>
-Here is a guided tour of all the options in the four Item Drawing Screen menus, as they appear
-from left to right:</p>
+    <p>
+        Here is a guided tour of all the options in the four Item Drawing Screen menus, as they appear
+        from left to right:</p>
 </section>
 
 <section id="09-draw-functions">
-<h2>Draw functions</h2>
-<p>
-Colours for drawing an element must be selected from the horizontal Palette Window. The
-current ink colour is marked by the number 1, and the current paper setting is shown by the
-number 2. To change these settings, click on the top of half of the palette for the ink colour, and
-the bottom half of the palette to select a new paper colour. Note that the outline colour is set to
-the same choice as the current ink setting. Elements are drawn as follows:</p>
+    <h2>Draw functions</h2>
+    <p>
+        Colours for drawing an element must be selected from the horizontal Palette Window. The
+        current ink colour is marked by the number 1, and the current paper setting is shown by the
+        number 2. To change these settings, click on the top of half of the palette for the ink colour, and
+        the bottom half of the palette to select a new paper colour. Note that the outline colour is set to
+        the same choice as the current ink setting. Elements are drawn as follows:</p>
 
-<ul>
-  <li>Select an element to be defined using the Object menu, which is explained below.</li>
-  <li>Click on your choice of one of the drawing functions and move the mouse cursor into the
-      Current Item Window.</li>
-  <li>Click the left mouse button, keep it held down and drag it to create the shape of the element.
-      When the mouse button is released, the object that has just been created will be assigned to
-      the current brush automatically.</li>
-  <li>Paste the current object into position by clicking on the left mouse button again.</li>
-  <li>If the result is not satisfactory, erase the current brush setting by pressing <b>right</b> mouse button
-      while the mouse pointer is over the Work Screen.</li>
-  <li>Because each element in the menu can only be assigned to a single object from this Drawing
-      menu, you must increment the element number before adding to your design, otherwise the
-      existing element will be completely replaced.</li>
-</ul>
+    <ul>
+        <li>Select an element to be defined using the Object menu, which is explained below.</li>
+        <li>Click on your choice of one of the drawing functions and move the mouse cursor into the
+            Current Item Window.
+        </li>
+        <li>Click the left mouse button, keep it held down and drag it to create the shape of the element.
+            When the mouse button is released, the object that has just been created will be assigned to
+            the current brush automatically.
+        </li>
+        <li>Paste the current object into position by clicking on the left mouse button again.</li>
+        <li>If the result is not satisfactory, erase the current brush setting by pressing <b>right</b> mouse button
+            while the mouse pointer is over the Work Screen.
+        </li>
+        <li>Because each element in the menu can only be assigned to a single object from this Drawing
+            menu, you must increment the element number before adding to your design, otherwise the
+            existing element will be completely replaced.
+        </li>
+    </ul>
 
 
-<p>Here is a list of the drawing options:</p>
+    <p>Here is a list of the drawing options:</p>
 
-<p><b>[Line]</b><br>
-This draws a single straight line in the current ink colour.</p>
+    <p><b>[Line]</b><br>
+        This draws a single straight line in the current ink colour.</p>
 
-<p><b>[Box]</b><br>
-A hollow rectangle is drawn by clicking on the position for one corner, and then holding and
-dragging to set the position of the diagonally opposite corner.</p>
+    <p><b>[Box]</b><br>
+        A hollow rectangle is drawn by clicking on the position for one corner, and then holding and
+        dragging to set the position of the diagonally opposite corner.</p>
 
-<p><b>[Bar]</b><br>
-This draws a bar filled with the current fill pattern, displayed in the small Pattern Window. The
-pattern can be changed with the [-] and [+] options in the Settings menu.</p>
+    <p><b>[Bar]</b><br>
+        This draws a bar filled with the current fill pattern, displayed in the small Pattern Window. The
+        pattern can be changed with the [-] and [+] options in the Settings menu.</p>
 
-<p><b>[Ellipse]</b><br>
-Use this drawing function to create hollow ellipses or circles, in the usual way.</p>
+    <p><b>[Ellipse]</b><br>
+        Use this drawing function to create hollow ellipses or circles, in the usual way.</p>
 
-<p><b>[Icon]</b><br>
-To paste an Icon onto the menu item, an image number can be selected using the [left arrow]
-and [right arrow] keys. The Icon bank must first be loaded using the [Load a memory bank]
-option from the Misc: menu.</p>
+    <p><b>[Icon]</b><br>
+        To paste an Icon onto the menu item, an image number can be selected using the [left arrow]
+        and [right arrow] keys. The Icon bank must first be loaded using the [Load a memory bank]
+        option from the Misc: menu.</p>
 
-<p><b>[Bob]</b><br>
-This is identical in use to the [Icon] option, except that the image is taken directly from the
-Object bank.</p>
+    <p><b>[Bob]</b><br>
+        This is identical in use to the [Icon] option, except that the image is taken directly from the
+        Object bank.</p>
 
-<p><b>[Text]</b><br>
-After the screen prompt, type in the required text via the keyboard, and it will be assigned to the
-current menu element.</p>
+    <p><b>[Text]</b><br>
+        After the screen prompt, type in the required text via the keyboard, and it will be assigned to the
+        current menu element.</p>
 
-<p><b>[T.Len]</b><br>
-This is used to set the maximum length of the menu text.</p>
+    <p><b>[T.Len]</b><br>
+        This is used to set the maximum length of the menu text.</p>
 
-<p><b>[Make Inverse]</b><br>
-Use this option to reverse the text and paper colours in the current element, by swapping over
-their values.</p>
+    <p><b>[Make Inverse]</b><br>
+        Use this option to reverse the text and paper colours in the current element, by swapping over
+        their values.</p>
 
-<p><b>[Make Border]</b><br>
-This option adds a neat border around the entire element.</p>
+    <p><b>[Make Border]</b><br>
+        This option adds a neat border around the entire element.</p>
 </section>
 
 <section id="10-settings">
-<h2>Settings</h2>
-<p>The Settings menu allows the status of the various text and graphics options to be changed, as
-follows:</p>
+    <h2>Settings</h2>
+    <p>The Settings menu allows the status of the various text and graphics options to be changed, as
+        follows:</p>
 
-<p><b>[N] [N] [N] [-] [+]</b><br>
-The three [N] icons are used to select the various text modes, with Bold, Italic and Underline
-styles being shown in the Font Window, as they appear.</p>
+    <p><b>[N] [N] [N] [-] [+]</b><br>
+        The three [N] icons are used to select the various text modes, with Bold, Italic and Underline
+        styles being shown in the Font Window, as they appear.</p>
 
 
-<p>
-Fill patterns are selected by clicking on the [-] and [ +] buttons, and the current pattern is
-displayed in the Pattern Window at the left-hand end of the Font Window. If the Object bank is
-loaded, click on [-] to assign an Object image to the current fill pattern.</p>
+    <p>
+        Fill patterns are selected by clicking on the [-] and [ +] buttons, and the current pattern is
+        displayed in the Pattern Window at the left-hand end of the Font Window. If the Object bank is
+        loaded, click on [-] to assign an Object image to the current fill pattern.</p>
 
-<p><b>[Outline]</b><br>
-This option is used to add an outline to the current fill pattern.</p>
+    <p><b>[Outline]</b><br>
+        This option is used to add an outline to the current fill pattern.</p>
 
-<p><b>[S. Font]</b><br>
-As soon as this option is selected, the available fonts are loaded from the program disc, and a list
-appears for selection. You can now choose a new typeface for the menu text, and the current
-selection is shown in the Font Window.</p>
+    <p><b>[S. Font]</b><br>
+        As soon as this option is selected, the available fonts are loaded from the program disc, and a list
+        appears for selection. You can now choose a new typeface for the menu text, and the current
+        selection is shown in the Font Window.</p>
 </section>
 
 <section id="11-object">
-<h2>Object</h2>
-<p>
-This is the menu which controls the menu items, and it offers the following options:</p>
+    <h2>Object</h2>
+    <p>
+        This is the menu which controls the menu items, and it offers the following options:</p>
 
-<p><b>[-]</b><br>
-Click on these options to select which element is to be defined on screen. A picture of the item
-will be displayed in the Current Item Window.</p>
+    <p><b>[-]</b><br>
+        Click on these options to select which element is to be defined on screen. A picture of the item
+        will be displayed in the Current Item Window.</p>
 
-<p><b>[Ins]</b><br>
-Use this option to insert a new graphic element at the current position. All subsequent elements
-will be shunted down one place, and if a 20th item exists, it will fall off the end of the list and be
-permanently lost!</p>
+    <p><b>[Ins]</b><br>
+        Use this option to insert a new graphic element at the current position. All subsequent elements
+        will be shunted down one place, and if a 20th item exists, it will fall off the end of the list and be
+        permanently lost!</p>
 
-<p><b>[Del]</b><br>
-This option is used to delete the currently selected element.</p>
+    <p><b>[Del]</b><br>
+        This option is used to delete the currently selected element.</p>
 
-<p><b>[Push]</b><br>
-An element can be saved into a <b>temporary</b> memory area, by using this option for the current
-menu item. Please see the [Past] option below.</p>
+    <p><b>[Push]</b><br>
+        An element can be saved into a <b>temporary</b> memory area, by using this option for the current
+        menu item. Please see the [Past] option below.</p>
 
-<p><b>[Past]</b><br>
-This is used to copy an image from memory into the current element. The data must have been
-previously stored using the [Push] option.</p>
+    <p><b>[Past]</b><br>
+        This is used to copy an image from memory into the current element. The data must have been
+        previously stored using the [Push] option.</p>
 </section>
 
 <section id="12-misc">
-<h2>Misc</h2>
+    <h2>Misc</h2>
 
-<p><b>[Push ltm]</b><br>
-Similarly to the last option, [Push Itm] saves an entire item into a <b>temporary</b> memory area,
-allowing multiple copies of suitable Objects to be made.</p>
+    <p><b>[Push ltm]</b><br>
+        Similarly to the last option, [Push Itm] saves an entire item into a <b>temporary</b> memory area,
+        allowing multiple copies of suitable Objects to be made.</p>
 
-<p><b>[Paste Itm]</b><br>
-This is used to replace the current item with the contents of the temporary memory area filled
-by the last [Push Itm] command.</p>
+    <p><b>[Paste Itm]</b><br>
+        This is used to replace the current item with the contents of the temporary memory area filled
+        by the last [Push Itm] command.</p>
 
-<p><b>[Load a memory bank]</b><br>
-When this option is triggered, a chooser menu is displayed, allowing a set of Objects t
-o be loaded from disc. After the Object bank has been installed, the new palette
-is copied into the background screen automatically.</p>
+    <p><b>[Load a memory bank]</b><br>
+        When this option is triggered, a chooser menu is displayed, allowing a set of Objects t
+        o be loaded from disc. After the Object bank has been installed, the new palette
+        is copied into the background screen automatically.</p>
 
 
 </section>

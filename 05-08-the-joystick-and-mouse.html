@@ -1,67 +1,67 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - the joystick and mouse</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - the joystick and mouse</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>The Joystick and Mouse</h1>
+    <h1>The Joystick and Mouse</h1>
 
-This Chapter clarifies all aspects of controlling and exploiting the joystick and mouse in your
-programs.
+    This Chapter clarifies all aspects of controlling and exploiting the joystick and mouse in your
+    programs.
 </section>
 
 <section id="01-joysticks">
-<h2>Joysticks</h2>
+    <h2>Joysticks</h2>
 
-<p>A joystick can be used to control movement around the screen by pushing its handle in the
-desired direction, and to trigger all sorts of actions by pressing one or more buttons built in to its
-mechanism. Either of the two joystick sockets at the back or side of your Amiga will happily
-accept a joystick plug. If two users want to control one joystick each for specially written
-programs, both ports can be used. To make a joystick interact with your programs, the computer
-!Weds to be able to read its movements and actions. AMOS Professional offers a number of
-useful functions to do just that.</p>
+    <p>A joystick can be used to control movement around the screen by pushing its handle in the
+        desired direction, and to trigger all sorts of actions by pressing one or more buttons built in to its
+        mechanism. Either of the two joystick sockets at the back or side of your Amiga will happily
+        accept a joystick plug. If two users want to control one joystick each for specially written
+        programs, both ports can be used. To make a joystick interact with your programs, the computer
+        !Weds to be able to read its movements and actions. AMOS Professional offers a number of
+        useful functions to do just that.</p>
 
-<h3 id="fn-joy">JOY</h3>
-<p><i>function: read status of joystick</i><br>
-status=<b>Joy</b>(port number)</p>
+    <h3 id="fn-joy">JOY</h3>
+    <p><i>function: read status of joystick</i><br>
+        status=<b>Joy</b>(port number)</p>
 
-<p>This inspects what is happening with the joystick and makes a report. If the joystick you are
-interested in is plugged into the joystick port, the computer must be told to look at port number
-(1). If you are using the mouse port call that port number (0). For example:</p>
+    <p>This inspects what is happening with the joystick and makes a report. If the joystick you are
+        interested in is plugged into the joystick port, the computer must be told to look at port number
+        (1). If you are using the mouse port call that port number (0). For example:</p>
 
-<pre>
+    <pre>
 E> Do
     J=Joy(1)
     Print Bin$(J,5),J
 Loop
 </pre>
 
-<p>When you run that routine, reports are given about the movements of the joystick and the
-status of the fire-button in the form of binary numbers. The pattern of ones and zeros in the
-report can then be inspected. Binary bits shown as zero indicate that nothing is happening,
-whereas if any of the bits in the report is shown as a one, it means that the joystick has been
-moved in the direction that relates to that bit. Here is a list of those bits along with their
-meanings.</p>
+    <p>When you run that routine, reports are given about the movements of the joystick and the
+        status of the fire-button in the form of binary numbers. The pattern of ones and zeros in the
+        report can then be inspected. Binary bits shown as zero indicate that nothing is happening,
+        whereas if any of the bits in the report is shown as a one, it means that the joystick has been
+        moved in the direction that relates to that bit. Here is a list of those bits along with their
+        meanings.</p>
 
-<pre>
+    <pre>
 <b>Bit number  Meaning</b>
 0           Joystick has been moved Up
 1           Joystick has been moved Down
@@ -71,34 +71,34 @@ meanings.</p>
 </pre>
 
 
-<p>
-Each of those aspects of the joystick status can be accessed individually, using the following
-functions:</p>
+    <p>
+        Each of those aspects of the joystick status can be accessed individually, using the following
+        functions:</p>
 
-<h3 id="fn-jleft">JLEFT</h3>
-<p><i>function: test for joystick movement towards the left</i><br>
-x=<b>Jleft</b>(port number)</p>
+    <h3 id="fn-jleft">JLEFT</h3>
+    <p><i>function: test for joystick movement towards the left</i><br>
+        x=<b>Jleft</b>(port number)</p>
 
-<p>This returns a value of -1 (meaning True) if the joystick connected to the given port number has
-been pushed to the left, otherwise a value of 0 is returned (meaning False).</p>
+    <p>This returns a value of -1 (meaning True) if the joystick connected to the given port number has
+        been pushed to the left, otherwise a value of 0 is returned (meaning False).</p>
 
-<p>The three other function in this family are self-evident, as follows:</p>
+    <p>The three other function in this family are self-evident, as follows:</p>
 
-<h3 id="fn-jright">JRIGHT</h3>
-<p><i>function: test for joystick movement towards the right</i><br>
-x=<b>Jright</b>(port number)</p>
+    <h3 id="fn-jright">JRIGHT</h3>
+    <p><i>function: test for joystick movement towards the right</i><br>
+        x=<b>Jright</b>(port number)</p>
 
-<h3 id="fn-jup">JUP</h3>
-<p><i>function: test for joystick movement upwards</i><br>
-x=<b>Jup</b>(port number)</p>
+    <h3 id="fn-jup">JUP</h3>
+    <p><i>function: test for joystick movement upwards</i><br>
+        x=<b>Jup</b>(port number)</p>
 
-<h3 id="fn-jdown">JDOWN</h3>
-<p><i>function: test for joystick movement downwards</i><br>
-x=<b>Jdown</b>(port number)</p>
+    <h3 id="fn-jdown">JDOWN</h3>
+    <p><i>function: test for joystick movement downwards</i><br>
+        x=<b>Jdown</b>(port number)</p>
 
-<p>These functions can be demonstrated by the following example:</p>
+    <p>These functions can be demonstrated by the following example:</p>
 
-<pre>
+    <pre>
 E> Do
     If Jleft(1) Then Print "WEST"
     If Jright(1) Then Print "EAST"
@@ -107,15 +107,15 @@ E> Do
    Loop
 </pre>
 
-<h3 id="fn-fire">FIRE</h3>
-<p><i>function: test status of fire-button</i><br>
-x=<b>Fire</b>(port number)</p>
+    <h3 id="fn-fire">FIRE</h3>
+    <p><i>function: test status of fire-button</i><br>
+        x=<b>Fire</b>(port number)</p>
 
-<p>To set up a routine for testing to see if the fire-button has been pressed, use the FIRE function
-followed by the joystick port number. A value of -1 will be given only if the fire-button on the
-relevant joystick has been pressed.</p>
+    <p>To set up a routine for testing to see if the fire-button has been pressed, use the FIRE function
+        followed by the joystick port number. A value of -1 will be given only if the fire-button on the
+        relevant joystick has been pressed.</p>
 
-<pre>
+    <pre>
 E> Do
     F=Fire(1)
     If F=-1 Then Centre "BANG!": Shoot
@@ -125,33 +125,33 @@ E> Do
 </section>
 
 <section id="02-the-mouse-pointer">
-<h2>The mouse pointer</h2>
+    <h2>The mouse pointer</h2>
 
-<p>The mouse is often used in practical programming whereas joysticks have become associated
-with playing computer games, but they both do much the same thing. They can both control
-moving objects on screen and be used to select from a range of on-screen options, using a
-cursor.</p>
+    <p>The mouse is often used in practical programming whereas joysticks have become associated
+        with playing computer games, but they both do much the same thing. They can both control
+        moving objects on screen and be used to select from a range of on-screen options, using a
+        cursor.</p>
 
-<p>The mouse cursor has been pre-programmed to look like a pointer arrow, along with two
-additional standard shapes that can be selected at any time. The standard shapes have been
-assigned the numbers one to three, as follows:</p>
+    <p>The mouse cursor has been pre-programmed to look like a pointer arrow, along with two
+        additional standard shapes that can be selected at any time. The standard shapes have been
+        assigned the numbers one to three, as follows:</p>
 
-<pre>
+    <pre>
 <b>Number Shape of mouse cursor</b>
 1      Arrow pointer (default shape)
 2      Cross-hair
 3      Clock
 </pre>
 
-<h3 id="i-change-mouse">CHANGE MOUSE</h3>
-<p><i>instruction: change the shape of the mouse pointer</i><br>
-<b>Change Mouse</b> number</p>
+    <h3 id="i-change-mouse">CHANGE MOUSE</h3>
+    <p><i>instruction: change the shape of the mouse pointer</i><br>
+        <b>Change Mouse</b> number</p>
 
-<p>
-To change the shape of the pointer arrow, use this command followed by the number of the
-required shape listed above. For example:</p>
+    <p>
+        To change the shape of the pointer arrow, use this command followed by the number of the
+        required shape listed above. For example:</p>
 
-<pre>
+    <pre>
 E> Do
     For N=1 To 3
      Change Mouse N
@@ -160,43 +160,43 @@ E> Do
   Loop
 </pre>
 
-<p>There is no need to restrict your choice to these three shapes. If you select an image number
-greater than three, AMOS Professional will look at an image stored in the sprite bank, and install
-it as the mouse pointer. The first image in the bank may be called up by using Change Mouse 4,
-the second by specifying number 5, and so on. To make use of this option, sprites can feature no
-more than four colours, and they must be exactly 16 pixels wide, although any height is allowed.
-For such oversized sprites, the SET SPRITE BUFFER command should be used, which is
-explained in <a href="07-01-hardware-sprites.html">Chapter 7.1</a>.</p>
+    <p>There is no need to restrict your choice to these three shapes. If you select an image number
+        greater than three, AMOS Professional will look at an image stored in the sprite bank, and install
+        it as the mouse pointer. The first image in the bank may be called up by using Change Mouse 4,
+        the second by specifying number 5, and so on. To make use of this option, sprites can feature no
+        more than four colours, and they must be exactly 16 pixels wide, although any height is allowed.
+        For such oversized sprites, the SET SPRITE BUFFER command should be used, which is
+        explained in <a href="07-01-hardware-sprites.html">Chapter 7.1</a>.</p>
 
-<h3 id="i-hide">HIDE</h3>
-<p><i>instruction: remove the mouse pointer from the screen</i><br>
-<b>Hide</b><br>
-<b>Hide</b> On</p>
+    <h3 id="i-hide">HIDE</h3>
+    <p><i>instruction: remove the mouse pointer from the screen</i><br>
+        <b>Hide</b><br>
+        <b>Hide</b> On</p>
 
-<p>This instruction hides the mouse pointer by making it invisible. Although it cannot be seen, it is
-still active and sending back reports, and the position of the mouse pointer co-ordinates can still
-be read. AMOS Professional will automatically count the number of times that the HIDE
-instruction is used, and employ this number to SHOW the mouse pointer once again at your
-command. If you prefer to keep the mouse pointer invisible all the time and ignore the counting
-system, use the special ON version of the instruction, like this:</p>
+    <p>This instruction hides the mouse pointer by making it invisible. Although it cannot be seen, it is
+        still active and sending back reports, and the position of the mouse pointer co-ordinates can still
+        be read. AMOS Professional will automatically count the number of times that the HIDE
+        instruction is used, and employ this number to SHOW the mouse pointer once again at your
+        command. If you prefer to keep the mouse pointer invisible all the time and ignore the counting
+        system, use the special ON version of the instruction, like this:</p>
 
-<pre>
+    <pre>
 X> Hide On
 </pre>
 
-<h3 id="i-show">SHOW</h3>
-<p><i>instruction: reveal the mouse pointer back on screen</i><br>
-<b>Show</b><br>
-<b>Show</b> On</p>
+    <h3 id="i-show">SHOW</h3>
+    <p><i>instruction: reveal the mouse pointer back on screen</i><br>
+        <b>Show</b><br>
+        <b>Show</b> On</p>
 
-<p>This makes the mouse pointer visible again after a HIDE instruction.</p>
+    <p>This makes the mouse pointer visible again after a HIDE instruction.</p>
 
-<p>
-As a default, the system counts the number of times that the HIDE command has been used,
-then reveals the pointer on screen when the number of SHOWs equals the number of HIDEs. To
-bypass this counting system and reveal the mouse pointer immediately, use SHOW ON.</p>
+    <p>
+        As a default, the system counts the number of times that the HIDE command has been used,
+        then reveals the pointer on screen when the number of SHOWs equals the number of HIDEs. To
+        bypass this counting system and reveal the mouse pointer immediately, use SHOW ON.</p>
 
-<pre>
+    <pre>
 E> Do
     For N=1 To 10
      Hide : Wait N : Show
@@ -206,76 +206,76 @@ E> Do
 </section>
 
 <section id="03-reading-the-status-of-the-mouse">
-<h2>Reading the status of the mouse</h2>
+    <h2>Reading the status of the mouse</h2>
 
-<p>Whether or not the mouse pointer is visible, the computer must know two things in order to
-make any use of the mouse. It needs to recognise where the mouse pointer is as well as if any of
-the mouse buttons have been pressed.</p>
+    <p>Whether or not the mouse pointer is visible, the computer must know two things in order to
+        make any use of the mouse. It needs to recognise where the mouse pointer is as well as if any of
+        the mouse buttons have been pressed.</p>
 
-<h3 id="resv-x-mouse">X MOUSE</h3>
-<p><i>reserved variable: report or set the x-co-ordinate of the mouse pointer</i><br>
-<b>X Mouse</b><br>
-x=<b>X Mouse</b></p>
+    <h3 id="resv-x-mouse">X MOUSE</h3>
+    <p><i>reserved variable: report or set the x-co-ordinate of the mouse pointer</i><br>
+        <b>X Mouse</b><br>
+        x=<b>X Mouse</b></p>
 
-<p>X MOUSE reports the current location of the x-coordinate of the mouse pointer. Because
-movement is controlled by the mouse rather than by software, coordinates are given in
-hardware notation, which is demonstrated by the following example:</p>
+    <p>X MOUSE reports the current location of the x-coordinate of the mouse pointer. Because
+        movement is controlled by the mouse rather than by software, coordinates are given in
+        hardware notation, which is demonstrated by the following example:</p>
 
-<pre>
+    <pre>
 E> Do
     Print X Mouse
    Loop
 </pre>
 
-<p>
-This can also be used to set a new coordinate position for the mouse pointer and move it to a
-specific position on the screen. This is done by assigning a value to X MOUSE as if it was a Basic
-variable. For example:</p>
+    <p>
+        This can also be used to set a new coordinate position for the mouse pointer and move it to a
+        specific position on the screen. This is done by assigning a value to X MOUSE as if it was a Basic
+        variable. For example:</p>
 
-<pre>
+    <pre>
 E> For N=200 To 350
     X Mouse=N
     Print X Mouse
    Next N
 </pre>
 
-<h3 id="resv-y-mouse">Y MOUSE</h3>
-<p><i>reserved variable: report or set the y-coordinate of the mouse pointer</i><br>
-<b>Y Mouse</b><br>
-y=<b>Y Mouse</b></p>
+    <h3 id="resv-y-mouse">Y MOUSE</h3>
+    <p><i>reserved variable: report or set the y-coordinate of the mouse pointer</i><br>
+        <b>Y Mouse</b><br>
+        y=<b>Y Mouse</b></p>
 
-<p>
-Y MOUSE is used to give the y-coordinate of the mouse pointer in hardware co-ordinates, or to
-reposition the mouse pointer on screen, and it is employed in exactly the same way as X
-MOUSE.</p>
+    <p>
+        Y MOUSE is used to give the y-coordinate of the mouse pointer in hardware co-ordinates, or to
+        reposition the mouse pointer on screen, and it is employed in exactly the same way as X
+        MOUSE.</p>
 
-<pre>
+    <pre>
 E> For N=150 To 300
     X Mouse=N : Y Mouse=N/2
     Print X Mouse : Print Y Mouse
    Next N
 </pre>
 
-<h3 id="fn-mouse-key">MOUSE KEY</h3>
-<p><i>function: read status of mouse buttons</i><br>
-k=<b>Mouse Key</b></p>
+    <h3 id="fn-mouse-key">MOUSE KEY</h3>
+    <p><i>function: read status of mouse buttons</i><br>
+        k=<b>Mouse Key</b></p>
 
-<p>
-The MOUSE KEY function checks whether one of the mouse buttons has been pressed and
-makes a report in the form of a binary pattern made up of these elements:</p>
+    <p>
+        The MOUSE KEY function checks whether one of the mouse buttons has been pressed and
+        makes a report in the form of a binary pattern made up of these elements:</p>
 
-<pre>
+    <pre>
 <b>Pattern      Report</b>
 Bit 0        Left mouse button
 Bit 1        Right mouse button
 Bit 2        Third mouse button if it exists
 </pre>
 
-<p>
-As usual, the numbers zero and one make up the report, with a one displayed when the
-relevant button is held down, otherwise a zero is shown. Try this routine:</p>
+    <p>
+        As usual, the numbers zero and one make up the report, with a one displayed when the
+        relevant button is held down, otherwise a zero is shown. Try this routine:</p>
 
-<pre>
+    <pre>
 E> Curs Off
    Do
     Locate 0,0
@@ -283,28 +283,28 @@ E> Curs Off
    Loop
 </pre>
 
-<h3 id="fn-mouse-click">MOUSE CLICK</h3>
-<p><i>function: check for click of mouse button</i><br>
-c=<b>Mouse Click</b></p>
+    <h3 id="fn-mouse-click">MOUSE CLICK</h3>
+    <p><i>function: check for click of mouse button</i><br>
+        c=<b>Mouse Click</b></p>
 
-<p>
-This is similar to MOUSE KEY, but instead of checking to see whether or not a mouse button is
-held down, MOUSE CLICK is only interested in whether the user has just made a single click on
-a mouse button. It returns the familiar bit pattern of these elements:</p>
+    <p>
+        This is similar to MOUSE KEY, but instead of checking to see whether or not a mouse button is
+        held down, MOUSE CLICK is only interested in whether the user has just made a single click on
+        a mouse button. It returns the familiar bit pattern of these elements:</p>
 
 
-<pre>
+    <pre>
 <b>Pattern    Report</b>
 Bit 1      Single test for left mouse button
 Bit 2      Single test for right mouse button
 Bit 3      Single test for third mouse button, if available
 </pre>
 
-<p>
-These bits are automatically re-set to zero after one test has been made, so they will only check
-for a single key press at a time. Here is an example:</p>
+    <p>
+        These bits are automatically re-set to zero after one test has been made, so they will only check
+        for a single key press at a time. Here is an example:</p>
 
-<pre>
+    <pre>
 E> Curs Off
    Do
     M=Mouse Click
@@ -315,97 +315,97 @@ E> Curs Off
 </section>
 
 <section id="04-limiting-the-mouse-pointer">
-<h2>Limiting the mouse pointer</h2>
+    <h2>Limiting the mouse pointer</h2>
 
-<p>One of the commonest screen conventions for both leisure and serious programs is the use of
-control panels. AMOS Professional relies on them extensively for ease of use and clarity.
-Supposing you need to set up a control panel on your screen, but you want to prevent the
-mouse pointer from wandering outside the area of that panel.</p>
+    <p>One of the commonest screen conventions for both leisure and serious programs is the use of
+        control panels. AMOS Professional relies on them extensively for ease of use and clarity.
+        Supposing you need to set up a control panel on your screen, but you want to prevent the
+        mouse pointer from wandering outside the area of that panel.</p>
 
-<h3 id="i-limit-mouse">LIMIT MOUSE</h3>
-<p><i>instruction: limit mouse pointer to part of the screen</i><br>
-<b>Limit Mouse</b> x1 ,y1 To x2,y2<br>
-<b>Limit Mouse</b></p>
+    <h3 id="i-limit-mouse">LIMIT MOUSE</h3>
+    <p><i>instruction: limit mouse pointer to part of the screen</i><br>
+        <b>Limit Mouse</b> x1 ,y1 To x2,y2<br>
+        <b>Limit Mouse</b></p>
 
-<p>
-This command sets up a rectangular area for the mouse pointer to move around, and traps it
-inside the boundaries ,set by hardware coordinates, from the rectangle's top-left TO bottom
-right-hand corner. For example:</p>
+    <p>
+        This command sets up a rectangular area for the mouse pointer to move around, and traps it
+        inside the boundaries ,set by hardware coordinates, from the rectangle's top-left TO bottom
+        right-hand corner. For example:</p>
 
-<pre>
+    <pre>
 E> Limit Mouse 300,100 To 350,150
 </pre>
 
-<p>
-If you need to restore freedom to the mouse pointer and allow it to move around the entire
-screen, use the LIMIT MOUSE instruction on its own, without any coordinates after it. Note that
-SCREEN OPEN must be followed by a WAIT VBL command before LIMIT MOUSE can be used,
-otherwise no screen will be set up for screen limits to be set.</p>
+    <p>
+        If you need to restore freedom to the mouse pointer and allow it to move around the entire
+        screen, use the LIMIT MOUSE instruction on its own, without any coordinates after it. Note that
+        SCREEN OPEN must be followed by a WAIT VBL command before LIMIT MOUSE can be used,
+        otherwise no screen will be set up for screen limits to be set.</p>
 </section>
 
 <section id="05-finding-the-mouse-pointer">
-<h2>Finding the mouse pointer</h2>
+    <h2>Finding the mouse pointer</h2>
 
-<p>If you already understand the concept of different screens and screen zone numbers, you will
-appreciate that it is not difficult to lose track of the mouse pointer.</p>
+    <p>If you already understand the concept of different screens and screen zone numbers, you will
+        appreciate that it is not difficult to lose track of the mouse pointer.</p>
 
-<p>
-You may need to keep a check on various screens and screen zones in order to keep in control of
-the mouse pointer. If you do not already understand the concept of different screens and screen
-zone numbers, you will need to become familiar with the various SCREEN commands and
-ZONE functions.</p>
+    <p>
+        You may need to keep a check on various screens and screen zones in order to keep in control of
+        the mouse pointer. If you do not already understand the concept of different screens and screen
+        zone numbers, you will need to become familiar with the various SCREEN commands and
+        ZONE functions.</p>
 
-<p>
-<b>MOUSE ZONE</b><br>
-<i>function: check if the mouse pointer is in a zone</i><br>
-zone number=<b>Mouse Zone</b></p><br>
+    <p>
+        <b>MOUSE ZONE</b><br>
+        <i>function: check if the mouse pointer is in a zone</i><br>
+        zone number=<b>Mouse Zone</b></p><br>
 
-<p>
-The MOUSE ZONE function checks to see where the mouse pointer is currently located, and if
-it has entered a screen zone, the number of that zone is returned. It is equivalent to the
-following line:</p>
+    <p>
+        The MOUSE ZONE function checks to see where the mouse pointer is currently located, and if
+        it has entered a screen zone, the number of that zone is returned. It is equivalent to the
+        following line:</p>
 
-<pre>
+    <pre>
 X> X=Hzone(X Mouse,Y Mouse)
 </pre>
 
-<h3 id="fn-mouse-screen">MOUSE SCREEN</h3>
-<p><i>function: check which screen the mouse pointer is occupying</i><br>
-screen number=<b>Mouse Screen</b></p>
+    <h3 id="fn-mouse-screen">MOUSE SCREEN</h3>
+    <p><i>function: check which screen the mouse pointer is occupying</i><br>
+        screen number=<b>Mouse Screen</b></p>
 
-<p>
-Use MOUSE SCREEN to return the number of the screen where the mouse pointer is currently
-located, like this:</p>
+    <p>
+        Use MOUSE SCREEN to return the number of the screen where the mouse pointer is currently
+        located, like this:</p>
 
-<pre>
+    <pre>
 E> X=Mouse Screen
    Print X
 </pre>
 </section>
 
 <section id="06-displaying-menus-with-the-mouse-pointer">
-<h2>Displaying menus with the mouse pointer</h2>
+    <h2>Displaying menus with the mouse pointer</h2>
 
-<p>Finally, as an AMOS Professional programmer, you will want to make use of the automatic
-facility for displaying all the menus whose root starts from the current position of the mouse
-pointer.</p>
+    <p>Finally, as an AMOS Professional programmer, you will want to make use of the automatic
+        facility for displaying all the menus whose root starts from the current position of the mouse
+        pointer.</p>
 
-<p>
-<b>MENU MOUSE</b><br>
-<i>instruction: display menu under current mouse pointer location</i><br>
-<b>Menu Mouse On</b><br>
-<b>Menu Mouse Off</b></p>
+    <p>
+        <b>MENU MOUSE</b><br>
+        <i>instruction: display menu under current mouse pointer location</i><br>
+        <b>Menu Mouse On</b><br>
+        <b>Menu Mouse Off</b></p>
 
-<p>
-When this facility is turned ON, any menus that have been set up at the current location of the
-mouse pointer are instantly displayed on screen. The mouse coordinates are added to the
-MENU BASE in order to calculate the position where the menus are displayed, so you are able
-to place a menu at a pre-set distance away from the mouse pointer if you like. To stop this
-automatic process, simply use MENU MOUSE OFF.</p>
+    <p>
+        When this facility is turned ON, any menus that have been set up at the current location of the
+        mouse pointer are instantly displayed on screen. The mouse coordinates are added to the
+        MENU BASE in order to calculate the position where the menus are displayed, so you are able
+        to place a menu at a pre-set distance away from the mouse pointer if you like. To stop this
+        automatic process, simply use MENU MOUSE OFF.</p>
 
-<p>
-Please see <a href="06-05-menus.html">Chapter 6.5</a> which deals with all aspects of AMOS Professional menus, if you are not
-experienced in their use.</p>
+    <p>
+        Please see <a href="06-05-menus.html">Chapter 6.5</a> which deals with all aspects of AMOS Professional menus, if you are not
+        experienced in their use.</p>
 </section>
 
 

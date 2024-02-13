@@ -1,73 +1,73 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - speech</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - speech</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Speech</h1>
+    <h1>Speech</h1>
 
 
 </section>
 
 <section id="01-synthetic-speech">
-<h2>Synthetic speech</h2>
-<p>
-AMOS Professional programmers are not restricted to printing words on screen. You can
-corn ma nd your Amiga to say them! This can be invaluable for people whose eyesight is
-impaired, for the creation of teaching programs for younger users, as well as for adding
-atmosphere to computer games and sheer fun. Before uttering its first words of the day, a
-Narrator device is loaded off disc automatically, and this takes a few seconds. After that, speech
-is almost instant. Obviously, hard disc users must remember to install the Narrator on hard disc
-before the Amiga will speak.</p>
+    <h2>Synthetic speech</h2>
+    <p>
+        AMOS Professional programmers are not restricted to printing words on screen. You can
+        corn ma nd your Amiga to say them! This can be invaluable for people whose eyesight is
+        impaired, for the creation of teaching programs for younger users, as well as for adding
+        atmosphere to computer games and sheer fun. Before uttering its first words of the day, a
+        Narrator device is loaded off disc automatically, and this takes a few seconds. After that, speech
+        is almost instant. Obviously, hard disc users must remember to install the Narrator on hard disc
+        before the Amiga will speak.</p>
 
-<p>
-<i>instruction: speak a phrase</i><br>
-<b>Say</b> text$<br>
-<b>Say</b> text$,mode</p>
+    <p>
+        <i>instruction: speak a phrase</i><br>
+        <b>Say</b> text$<br>
+        <b>Say</b> text$,mode</p>
 
-<p>
-This is one of the simplest of all AMOS Professional commands to use, and it has one of the most
-satisfying results. Use the SAY instruction with a string of text, containing all the words and
-punctuation you want AMOS Professional to speak, like this:</p>
+    <p>
+        This is one of the simplest of all AMOS Professional commands to use, and it has one of the most
+        satisfying results. Use the SAY instruction with a string of text, containing all the words and
+        punctuation you want AMOS Professional to speak, like this:</p>
 
-<pre>
+    <pre>
 E> Say "Welcome, everybody!"
 </pre>
 
-<p>
-Normally, all other instructions, music or sound effects will wait until AMOS Professional has
-finished speaking before they are executed. This default speech mode has a value of zero. By
-adding an optional mode value of 1, synthetic speech can be delivered while the rest of the
-program is being executed. This will necessarily slow down the relevant routines. To return to
-the default mode, use a line like this:</p>
+    <p>
+        Normally, all other instructions, music or sound effects will wait until AMOS Professional has
+        finished speaking before they are executed. This default speech mode has a value of zero. By
+        adding an optional mode value of 1, synthetic speech can be delivered while the rest of the
+        program is being executed. This will necessarily slow down the relevant routines. To return to
+        the default mode, use a line like this:</p>
 
-<pre>
+    <pre>
 E> Say "Default mode.",0
 </pre>
 
-<p>
-Now get AMOS Professional to say anything you like, using the next simple routine, but please
-mind your language! Try experimenting with numbers and symbol characters too.</p>
+    <p>
+        Now get AMOS Professional to say anything you like, using the next simple routine, but please
+        mind your language! Try experimenting with numbers and symbol characters too.</p>
 
-<pre>
+    <pre>
 E> Do
     Input "Please tell me what to say:";S$
     S$=S$+"."
@@ -75,64 +75,64 @@ E> Do
    Loop
 </pre>
 
-<p>
-If the Narrator system appears to fumble over a particular phrase, you are free to clarify things
-by adding spaces at the end of a sentence, or using phonetic spellings. As always, you cannot do
-any harm by experimenting.</p>
+    <p>
+        If the Narrator system appears to fumble over a particular phrase, you are free to clarify things
+        by adding spaces at the end of a sentence, or using phonetic spellings. As always, you cannot do
+        any harm by experimenting.</p>
 
-<h3 id="i-set-talk">SET TALK</h3>
-<p><i>instruction: set style of speech</i><br>
-<b>Set Talk</b> sex,mode,pitch,rate</p>
+    <h3 id="i-set-talk">SET TALK</h3>
+    <p><i>instruction: set style of speech</i><br>
+        <b>Set Talk</b> sex,mode,pitch,rate</p>
 
-<p>
-The easiest way to test this command is to play with its parameters. These are given
-in the form of four values, and any of them can be omitted, providing
-the relevant commas are in position.</p>
+    <p>
+        The easiest way to test this command is to play with its parameters. These are given
+        in the form of four values, and any of them can be omitted, providing
+        the relevant commas are in position.</p>
 
 
-<p>The parameters are as follows:</p>
+    <p>The parameters are as follows:</p>
 
-<p>
-<b>Sex</b> can be set to zero for a male or 1 for a female voice. If you are not satisfied with these
-alternatives, zombies, leprechauns and much else besides can be created by playing with the
-other parameters.</p>
+    <p>
+        <b>Sex</b> can be set to zero for a male or 1 for a female voice. If you are not satisfied with these
+        alternatives, zombies, leprechauns and much else besides can be created by playing with the
+        other parameters.</p>
 
-<p>The <b>mode</b> parameter uses zero for normal speech or 1 for a bizarre rhythmic pattern.</p>
+    <p>The <b>mode</b> parameter uses zero for normal speech or 1 for a bizarre rhythmic pattern.</p>
 
-<p>
-<b>Pitch</b> is the parameter that changes the audio frequency of the synthetic voice from a deep bass
-(65) up to a high soprano (320).</p>
+    <p>
+        <b>Pitch</b> is the parameter that changes the audio frequency of the synthetic voice from a deep bass
+        (65) up to a high soprano (320).</p>
 
-<p>
-The final <b>rate</b> parameter tells AMOS Professional how many average-length words to recite per
-minute. This can range from a slow drawl (40) to complete gibberish (400).</p>
+    <p>
+        The final <b>rate</b> parameter tells AMOS Professional how many average-length words to recite per
+        minute. This can range from a slow drawl (40) to complete gibberish (400).</p>
 
-<p>Here are some examples:</p>
+    <p>Here are some examples:</p>
 
-<pre>
+    <pre>
 E> Set Talk 1,1,, : Say "A rhythmic lady."
    Set Talk 0,0,320,350 : Say "Bubbling fish face."
    Set Talk ,,65,40 : Say "I'm a very lazy bullfrog."
    Set Talk 0,,155,70 : Say "Hello, John Major speaking"
 </pre>
 
-<h3 id="i-talk-misc">TALK MISC</h3>
-<p><i>instruction: set volume and frequency for speech</i><br>
-<b>Talk Misc</b> volume,frequency</p>
+    <h3 id="i-talk-misc">TALK MISC</h3>
+    <p><i>instruction: set volume and frequency for speech</i><br>
+        <b>Talk Misc</b> volume,frequency</p>
 
-<p>Existing AMOS users will find that the AMOS Professional speech facilities have been
-augmented and improved. The TALK MISC command allows you to set the volume and
-frequency of the narrator voice used for SAY instructions.</p>
+    <p>Existing AMOS users will find that the AMOS Professional speech facilities have been
+        augmented and improved. The TALK MISC command allows you to set the volume and
+        frequency of the narrator voice used for SAY instructions.</p>
 
-<p>
-Synthetic speech can be delivered from a whisper to a shout, by setting the volume parameter
-between zero for silence, up to 64 for full volume. Frequency is directly adjusted by setting a
-value from 5000 to 25000, with some superb effects being generated at slower frequencies. Note
-that the higher the frequency setting, the more processor time will be taken in multitask mode.</p>
+    <p>
+        Synthetic speech can be delivered from a whisper to a shout, by setting the volume parameter
+        between zero for silence, up to 64 for full volume. Frequency is directly adjusted by setting a
+        value from 5000 to 25000, with some superb effects being generated at slower frequencies. Note
+        that the higher the frequency setting, the more processor time will be taken in multitask mode.</p>
 
-<p>Try this example:</p>
+    <p>Try this example:</p>
 
-<pre>
+    <pre>
 E> For V=16 To 64 Step 8
     For F=5000 To 25000 Step 5000
      Talk Misc V,F
@@ -141,47 +141,47 @@ E> For V=16 To 64 Step 8
    Next V
 </pre>
 
-<h3 id="i-talk-stop">TALK STOP</h3>
-<p><i>instruction: stop speech in multitask mode</i><br>
-<b>Talk Stop</b></p>
+    <h3 id="i-talk-stop">TALK STOP</h3>
+    <p><i>instruction: stop speech in multitask mode</i><br>
+        <b>Talk Stop</b></p>
 
-<p>
-This simple command is used to terminate synthetic speech delivered by a SAY instruction,
-while in multitask mode.</p>
+    <p>
+        This simple command is used to terminate synthetic speech delivered by a SAY instruction,
+        while in multitask mode.</p>
 
 </section>
 
 <section id="02-the-narrator-mouth">
-<h2>The narrator Mouth</h2>
-<p>
-Another feature of the narrator device exploited by AMOS Professional is the MOUTH system,
-which can be displayed in multitask mode only. The MOUTH functions are used to govern the
-shape and movement of an animated mouth on screen, as follows:</p>
+    <h2>The narrator Mouth</h2>
+    <p>
+        Another feature of the narrator device exploited by AMOS Professional is the MOUTH system,
+        which can be displayed in multitask mode only. The MOUTH functions are used to govern the
+        shape and movement of an animated mouth on screen, as follows:</p>
 
-<h3 id="fn-mouth-width">MOUTH WIDTH</h3>
-<p><i>function: return the width of animated mouth</i><br>
-width=<b>Mouth Width</b></p>
+    <h3 id="fn-mouth-width">MOUTH WIDTH</h3>
+    <p><i>function: return the width of animated mouth</i><br>
+        width=<b>Mouth Width</b></p>
 
-<p>
-MOUTH WIDTH reports the width of the mouth at any instant, in pixels. This function will
-return a negative value if the current speech has finished.</p>
+    <p>
+        MOUTH WIDTH reports the width of the mouth at any instant, in pixels. This function will
+        return a negative value if the current speech has finished.</p>
 
-<h3 id="fn-mouth-height">MOUTH HEIGHT</h3>
-<p><i>function: return the height of animated mouth</i><br>
-height=<b>Mouth Height</b></p>
+    <h3 id="fn-mouth-height">MOUTH HEIGHT</h3>
+    <p><i>function: return the height of animated mouth</i><br>
+        height=<b>Mouth Height</b></p>
 
-<p>
-Similarly to MOUTH WIDTH, a negative value is returned if the speech is over, otherwise the
-current height of the mouth is given in pixels.</p>
+    <p>
+        Similarly to MOUTH WIDTH, a negative value is returned if the speech is over, otherwise the
+        current height of the mouth is given in pixels.</p>
 
-<h3 id="fn-mouth-read">MOUTH READ</h3>
-<p><i>function: read position of animated mouth</i><br>
-position=<b>Mouth Read</b></p>
+    <h3 id="fn-mouth-read">MOUTH READ</h3>
+    <p><i>function: read position of animated mouth</i><br>
+        position=<b>Mouth Read</b></p>
 
-<p>
-This function waits for a mouth movement, and then reads the new mouth values directly into
-the MOUTH WIDTH and MOUTH HEIGHT functions, as demonstrated by the usual ready-
-made example program.</p>
+    <p>
+        This function waits for a mouth movement, and then reads the new mouth values directly into
+        the MOUTH WIDTH and MOUTH HEIGHT functions, as demonstrated by the usual ready-
+        made example program.</p>
 
 
 </section>

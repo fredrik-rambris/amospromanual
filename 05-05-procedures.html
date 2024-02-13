@@ -1,117 +1,117 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - procedures</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - procedures</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Procedures</h1>
+    <h1>Procedures</h1>
 
-<br>
+    <br>
 
 
-<P>
-A procedure is a component of a computer program that allows the AMOS Professional
-programmer to tackle one aspect of the program at a time, without becoming distracted or 
-side-tracked by other programming considerations. Procedures can be thought of as programming
-modules, each with a specific purpose and sphere of operation. This Chapter explains how
-procedures are created and fully exploited.</P>
+    <P>
+        A procedure is a component of a computer program that allows the AMOS Professional
+        programmer to tackle one aspect of the program at a time, without becoming distracted or
+        side-tracked by other programming considerations. Procedures can be thought of as programming
+        modules, each with a specific purpose and sphere of operation. This Chapter explains how
+        procedures are created and fully exploited.</P>
 </section>
 
 <section id="01-creating-a-procedure">
-<h2>Creating a procedure</h2>
+    <h2>Creating a procedure</h2>
 
-<h3 id="str-procedure">PROCEDURE</h3>
-<p><i>structure: create a procedure</i><BR>
-<b>Procedure</b> NAME [list of optional parameters]</P>
+    <h3 id="str-procedure">PROCEDURE</h3>
+    <p><i>structure: create a procedure</i><BR>
+        <b>Procedure</b> NAME [list of optional parameters]</P>
 
-<h3 id="str-end-proc">END PROC</h3>
-<p><i>structure: end a procedure</i><BR>
-<b>End Proc</b></p>
+    <h3 id="str-end-proc">END PROC</h3>
+    <p><i>structure: end a procedure</i><BR>
+        <b>End Proc</b></p>
 
-<p>
-A procedure is created in exactly the same way as a normal variable, by giving it a name. 
-The name is then followed by a list of parameters and the procedure must be ended with an END
-PROC command. PROCEDURE and END PROC commands must be placed on their own
-individual lines. For example:</P>
+    <p>
+        A procedure is created in exactly the same way as a normal variable, by giving it a name.
+        The name is then followed by a list of parameters and the procedure must be ended with an END
+        PROC command. PROCEDURE and END PROC commands must be placed on their own
+        individual lines. For example:</P>
 
-<pre>
+    <pre>
 E&gt; Procedure HELLO
    Print "Hello, I am a procedure!"
    End Proc
 </pre>
 
-<P>
-If you try and run that program, nothing will happen. This is because a procedure must 
-be called up by name from inside your program before it can do anything. Now add the 
-following line at the start of that last example, and then [Run] it.</P>
+    <P>
+        If you try and run that program, nothing will happen. This is because a procedure must
+        be called up by name from inside your program before it can do anything. Now add the
+        following line at the start of that last example, and then [Run] it.</P>
 
-<pre>
+    <pre>
 E&gt; HELLO
 </pre>
 
-<P>There is nothing preventing a procedure from calling itself, but this recursion is 
-limited by the
-area of storage allocated for local variables. If this local variable space is full, it 
-can be increased
-using the SET BUFFER command. Programs can also be held up if there is no more stack space
-available, and this problem is cured by the following command.</P>
+    <P>There is nothing preventing a procedure from calling itself, but this recursion is
+        limited by the
+        area of storage allocated for local variables. If this local variable space is full, it
+        can be increased
+        using the SET BUFFER command. Programs can also be held up if there is no more stack space
+        available, and this problem is cured by the following command.</P>
 
-<h3 id="i-set-stack">SET STACK</h3>
-<p><i>instruction: set stack space</i><BR>
-<b>Set Stack</b> number</P>
+    <h3 id="i-set-stack">SET STACK</h3>
+    <p><i>instruction: set stack space</i><BR>
+        <b>Set Stack</b> number</P>
 
-<P>When AMOS Professional procedures call themselves, an "Out of stack space" error 
-message will be generated after about fifty loops. Use the SET STACK instruction by specifying the 
-new number of procedure calls that an be made.</P>
+    <P>When AMOS Professional procedures call themselves, an "Out of stack space" error
+        message will be generated after about fifty loops. Use the SET STACK instruction by specifying the
+        new number of procedure calls that an be made.</P>
 </section>
 
 <section id="02-keeping-track-of-procedures">
-<h2>Keeping track of procedures</h2>
+    <h2>Keeping track of procedures</h2>
 
-<p>To help you find the starting positions of procedures in a very long program, there is
-a simple short-cut that uses just two keys.</P>
+    <p>To help you find the starting positions of procedures in a very long program, there is
+        a simple short-cut that uses just two keys.</P>
 
-<P>
-By pressing [Alt] and [Down Arrow] together, the edit cursor automatically jumps to the 
-next procedure definition in your program. To jump to the previous procedure, press [Alt] and 
-[Up Arrow] together. This shortcut works equally well with labels and line numbers!</P>
+    <P>
+        By pressing [Alt] and [Down Arrow] together, the edit cursor automatically jumps to the
+        next procedure definition in your program. To jump to the previous procedure, press [Alt] and
+        [Up Arrow] together. This shortcut works equally well with labels and line numbers!</P>
 
-<P>If you are using several procedures on the same line, you can avoid the risk of a 
-procedure being
-confused with a label by adding an extra space at the end of each statement. For 
-example:</P>
+    <P>If you are using several procedures on the same line, you can avoid the risk of a
+        procedure being
+        confused with a label by adding an extra space at the end of each statement. For
+        example:</P>
 
-<pre>
+    <pre>
 X&gt; HEY: HEY: HEY: Rem Perform HEY procedure three times
    HEY: HEY: HEY: Rem Define label HEY and perform HEY procedure twice
 </pre>
 
-<h3 id="str-proc">PROC</h3>
-<p><i>structure: flag a procedure</i><BR>
-<b>Proc</b> NAME</P>
+    <h3 id="str-proc">PROC</h3>
+    <p><i>structure: flag a procedure</i><BR>
+        <b>Proc</b> NAME</P>
 
-<P>Another way to identify a procedure is to precede it with a PROC statement. Run the 
-following example:</P>
+    <P>Another way to identify a procedure is to precede it with a PROC statement. Run the
+        following example:</P>
 
-<pre>
+    <pre>
 E&gt; Rem Demonstrate that a procedure is being called not simply a command
    Proc HELLO
    Rem The same can be achieved without the Proc
@@ -121,24 +121,24 @@ E&gt; Rem Demonstrate that a procedure is being called not simply a command
    End Proc
 </pre>
 
-<P>It is possible to place the procedure definition anywhere in your program. When AMOS
-Professional encounters a procedure statement, the procedure is recognised and a jump is 
-made to the final End Proc. In this way, there is no risk of executing your procedure by 
-accident.</P>
+    <P>It is possible to place the procedure definition anywhere in your program. When AMOS
+        Professional encounters a procedure statement, the procedure is recognised and a jump is
+        made to the final End Proc. In this way, there is no risk of executing your procedure by
+        accident.</P>
 
 </section>
 
 <section id="03-opening-and-closing-procedures">
-<h2>Opening and closing procedures</h2>
+    <h2>Opening and closing procedures</h2>
 
-<p>If a great many procedures are used, your listings may appear cluttered and confused by
-all of their definitions. Because of this problem, there is a simple method of "closing" a 
-procedure. Self-contained procedures can be neatly hidden away inside your main program if you need 
-to reduce the size and complexity of your listings.</P>
+    <p>If a great many procedures are used, your listings may appear cluttered and confused by
+        all of their definitions. Because of this problem, there is a simple method of "closing" a
+        procedure. Self-contained procedures can be neatly hidden away inside your main program if you need
+        to reduce the size and complexity of your listings.</P>
 
-<P>Type in the following procedure on your editing screen:</P>
+    <P>Type in the following procedure on your editing screen:</P>
 
-<pre>
+    <pre>
 E&gt; MAIN_TITLE
    Procedure MAIN TITLE
     Curs Off
@@ -148,75 +148,75 @@ E&gt; MAIN_TITLE
    End Proc
 </pre>
 
-<P>Run that if you like, and then return to the Edit screen.</P>
+    <P>Run that if you like, and then return to the Edit screen.</P>
 
-<P>
-Make sure that the edit cursor is over the procedure statement, select the [Procedures] 
-option rom the [Editor] menu and trigger the [Open/Close] option, or hit [F9] as a short-cut. The
-procedure definition is neatly folded away from view, and in normal practice you would be
-allowed to concentrate on your main program without the distraction of chunks of 
-procedures getting in the way. In other words, you can achieve greater programming clarity in your 
-listings by closing procedures from view. The last example should now look like this:</P>
+    <P>
+        Make sure that the edit cursor is over the procedure statement, select the [Procedures]
+        option rom the [Editor] menu and trigger the [Open/Close] option, or hit [F9] as a short-cut. The
+        procedure definition is neatly folded away from view, and in normal practice you would be
+        allowed to concentrate on your main program without the distraction of chunks of
+        procedures getting in the way. In other words, you can achieve greater programming clarity in your
+        listings by closing procedures from view. The last example should now look like this:</P>
 
-<pre>
+    <pre>
 X&gt; MAIN TITLE
    Procedure MAIN_TITLE
 </pre>
 
-<P>To reveal the procedure at any time, simply move the cursor back to the procedure line 
-and reveal its definitions with [F9] or [Open/Close].</P>
+    <P>To reveal the procedure at any time, simply move the cursor back to the procedure line
+        and reveal its definitions with [F9] or [Open/Close].</P>
 
-<P>Closed procedures can be executed as normal, and saved or loaded along with an AMOS
-Professional program listing. But a closed procedure cannot be deleted using the program
-cursor, and a deletion can only be made if the procedure is opened again or by means of 
-the [Cut] option.</P>
+    <P>Closed procedures can be executed as normal, and saved or loaded along with an AMOS
+        Professional program listing. But a closed procedure cannot be deleted using the program
+        cursor, and a deletion can only be made if the procedure is opened again or by means of
+        the [Cut] option.</P>
 
-<P>
-To open and close all of the procedures in the current program, the [Open All] and 
-[Close All] options are provided. Alternatively, you can use the keyboard short-cuts [Amiga]+[Shift]
-+[0] and [Amiga]+[Shift]+[C], as already explained under the full list of Editor options in
-<a href="04-01-the-editor.html">Chapter 4.1</a>.</P>
+    <P>
+        To open and close all of the procedures in the current program, the [Open All] and
+        [Close All] options are provided. Alternatively, you can use the keyboard short-cuts [Amiga]+[Shift]
+        +[0] and [Amiga]+[Shift]+[C], as already explained under the full list of Editor options in
+        <a href="04-01-the-editor.html">Chapter 4.1</a>.</P>
 </section>
 
 <section id="04-jumping-in-and-out-of-a-procedure">
-<h2>Jumping in and out of a procedure</h2>
+    <h2>Jumping in and out of a procedure</h2>
 
-<p>You should be familiar with the use of ON for jumping to a GOSUB routine. It is just as
-simple to use this structure with procedures.<BR>
+    <p>You should be familiar with the use of ON for jumping to a GOSUB routine. It is just as
+        simple to use this structure with procedures.<BR>
 
-<p>
-<b>ON ... PROC</b><BR>
-<i>structure: trigger a jump to a procedure</i><BR>
-<b>On</b> variable value <b>Proc</b> NAME</P>
+    <p>
+        <b>ON ... PROC</b><BR>
+        <i>structure: trigger a jump to a procedure</i><BR>
+        <b>On</b> variable value <b>Proc</b> NAME</P>
 
-<P>In this case, if a variable holds a particular value, a system is automatically 
-triggered that forces a
-jump to a named procedure. Of course you can have as many values triggering off as many
-jumps to different procedures as you want. For example:</P>
+    <P>In this case, if a variable holds a particular value, a system is automatically
+        triggered that forces a
+        jump to a named procedure. Of course you can have as many values triggering off as many
+        jumps to different procedures as you want. For example:</P>
 
-<pre>
+    <pre>
 X&gt; On X Proc PROCEDURE1,PROCEDURE2
 </pre>
 
-<P>Which is exactly the same as saying:</P>
+    <P>Which is exactly the same as saying:</P>
 
-<pre>
+    <pre>
 X&gt; If X=1 Then PROCEDURE1
 X&gt; If X=2 Then PROCEDURE2
 </pre>
 
-<P>Normally, procedures will only return to the main program when the END PROC instruction 
-is reached. But supposing you need to jump out of a procedure instantly.</P>
+    <P>Normally, procedures will only return to the main program when the END PROC instruction
+        is reached. But supposing you need to jump out of a procedure instantly.</P>
 
-<h3 id="str-pop-proc">POP PROC</h3>
-<p><i>structure: leave a procedure immediately</i><BR>
-<b>Pop Proc</b></P>
+    <h3 id="str-pop-proc">POP PROC</h3>
+    <p><i>structure: leave a procedure immediately</i><BR>
+        <b>Pop Proc</b></P>
 
-<P>
-The POP PROC instruction provides you with a fast getaway, if you ever find yourself in 
-need of escape. Try this:</P>
+    <P>
+        The POP PROC instruction provides you with a fast getaway, if you ever find yourself in
+        need of escape. Try this:</P>
 
-<pre>
+    <pre>
 E&gt; ESCAPE
    Procedure ESCAPE
     For PRISON=1 To 1000000000
@@ -227,14 +227,14 @@ E&gt; ESCAPE
    Print "I'm free!"
 </pre>
 
-<h3 id="str-on-break-proc">ON BREAK PROC</h3>
-<p><i>structure: jump to a procedure when break in program</i><BR>
-<b>On Break Proc</b> NAME</P>
+    <h3 id="str-on-break-proc">ON BREAK PROC</h3>
+    <p><i>structure: jump to a procedure when break in program</i><BR>
+        <b>On Break Proc</b> NAME</P>
 
-<P>A jump can also be made to a specified procedure when the program is interrupted. For
-example:</P>
+    <P>A jump can also be made to a specified procedure when the program is interrupted. For
+        example:</P>
 
-<pre>
+    <pre>
 E&gt; On Break Proc BROKEN
    Do
     Print "Unbroken" : Wait 50
@@ -246,34 +246,34 @@ E&gt; On Break Proc BROKEN
 </section>
 
 <section id="05-local-and-global-variables">
-<h2>Local and global variables</h2>
+    <h2>Local and global variables</h2>
 
-<p>All of the variables that are defined inside a procedure work completely separately
-from any other variables in your programs. We call these variables "local" to the procedure. All 
-local variables are automatically discarded after the procedure has finished executing, so that 
-in the following example the same value of 1 will always be printed, no matter how many times it 
-is called:</P>
+    <p>All of the variables that are defined inside a procedure work completely separately
+        from any other variables in your programs. We call these variables "local" to the procedure. All
+        local variables are automatically discarded after the procedure has finished executing, so that
+        in the following example the same value of 1 will always be printed, no matter how many times it
+        is called:</P>
 
-<pre>
+    <pre>
 X&gt; Procedure PLUS
     A=A+1 : Print A
    End Proc
 
 </pre>
 
-<P>
-All the variables OUTSIDE of procedures are known as "global" variables, and they are 
-not affected by any instructions inside a procedure. So it is perfectly possible to have the 
-same variable name referring to different variables, depending on whether or not they are local 
-or global.</P>
+    <P>
+        All the variables OUTSIDE of procedures are known as "global" variables, and they are
+        not affected by any instructions inside a procedure. So it is perfectly possible to have the
+        same variable name referring to different variables, depending on whether or not they are local
+        or global.</P>
 
-<P>When the next example is run, it can be seen that the values given to the global 
-variables are different to those of the local variables, even though they have the same name.</P>
+    <P>When the next example is run, it can be seen that the values given to the global
+        variables are different to those of the local variables, even though they have the same name.</P>
 
-<p>Because the global variables cannot be accessed from inside the procedure, the procedure
-assigns a value of zero to them no mater what value they are given globally.</p>
+    <p>Because the global variables cannot be accessed from inside the procedure, the procedure
+        assigns a value of zero to them no mater what value they are given globally.</p>
 
-<pre>
+    <pre>
 E> A=666 : B=999
    EXAMPLE
    Print A,B
@@ -282,16 +282,16 @@ E> A=666 : B=999
    End Proc
 </pre>
 
-<p>To avoid errors, you must treat procedures as separate programs with their own sets of variables
-and instructions. So it is very bad practice for the AMOS Professional programmer to use the
-same variable names inside and outside a procedure, because you might well be confused into
-believing that completely different variables were the same, and tracking down mistakes would
-become a nightmare. To make life easy, there are simple methods to overcome such problems.</p>
+    <p>To avoid errors, you must treat procedures as separate programs with their own sets of variables
+        and instructions. So it is very bad practice for the AMOS Professional programmer to use the
+        same variable names inside and outside a procedure, because you might well be confused into
+        believing that completely different variables were the same, and tracking down mistakes would
+        become a nightmare. To make life easy, there are simple methods to overcome such problems.</p>
 
-<p>One method is to define a list of parameters in a procedure. This creates a group of local
-variables that can be loaded directly from the main program. For example:</p>
+    <p>One method is to define a list of parameters in a procedure. This creates a group of local
+        variables that can be loaded directly from the main program. For example:</p>
 
-<pre>
+    <pre>
 E> Procedure HELLO[NAME$]
     Print "Hello ";NAME$
    End Proc
@@ -302,35 +302,35 @@ E> Procedure HELLO[NAME$]
    HELLO["nice to meet you!]
 </pre>
 
-<p>Note that the values to be loaded into NAME$ are entered between square brackets as part of
-the procedure call. This system works equally well with constants as well as variables, but
-although you are allowed to transfer integer, real or string variables, you may not transfer arrays
-by this method. If you need to enter more than one parameter, the variables must be separated
-by commas, like this:</p>
+    <p>Note that the values to be loaded into NAME$ are entered between square brackets as part of
+        the procedure call. This system works equally well with constants as well as variables, but
+        although you are allowed to transfer integer, real or string variables, you may not transfer arrays
+        by this method. If you need to enter more than one parameter, the variables must be separated
+        by commas, like this:</p>
 
-<pre>
+    <pre>
 X> Procedure TWINS[A,B]
    Procedure TRIPLETS[X$,Y$,Z$]
 </pre>
 
-<p>Those procedures could be called like this:</p>
+    <p>Those procedures could be called like this:</p>
 
-<pre>
+    <pre>
 X> TWINS[6,9]
    TRIPLETS["Xenon","Yak","Zygote"]
 </pre>
 
-<h3 id="str-shared">SHARED</h3>
-<p><i>structure: define a list of global variables</i><br>
-<b>Shared</b> list of variables</p>
+    <h3 id="str-shared">SHARED</h3>
+    <p><i>structure: define a list of global variables</i><br>
+        <b>Shared</b> list of variables</p>
 
-<p>There is an alternative method of passing data between a procedure and the main program.
-When SHARED is placed inside a procedure definition, it takes a list of local variables separated
-by commas and transforms them into global variables, which can be directly accessed from the
-main program. Of course, if you declare any arrays as global using this technique, they must
-already have been dimensioned in the main program. Here is an example:</p>
+    <p>There is an alternative method of passing data between a procedure and the main program.
+        When SHARED is placed inside a procedure definition, it takes a list of local variables separated
+        by commas and transforms them into global variables, which can be directly accessed from the
+        main program. Of course, if you declare any arrays as global using this technique, they must
+        already have been dimensioned in the main program. Here is an example:</p>
 
-<pre>
+    <pre>
 E> A=666: B=999
    EXAMPLE
    Print A,B
@@ -340,26 +340,26 @@ E> A=666: B=999
    End Proc
 </pre>
 
-<p>EXAMPLE can now read and write information to the global variables A and B. If you need to
-share an array, it should be defined as follows:</p>
+    <p>EXAMPLE can now read and write information to the global variables A and B. If you need to
+        share an array, it should be defined as follows:</p>
 
-<pre>
+    <pre>
 X> Shared A(),B#(),C$()
 </pre>
 
-<p>In a very large program, it is often convenient for different procedures to share the same set of
-global variables. This offers an easy way of transferring large amounts of information between
-your procedures.</p>
+    <p>In a very large program, it is often convenient for different procedures to share the same set of
+        global variables. This offers an easy way of transferring large amounts of information between
+        your procedures.</p>
 
-<h3 id="str-global">GLOBAL</h3>
-<p><i>structure: declare a list of global variables for procedures</i><br>
-<b>Global</b> list of variables</p>
+    <h3 id="str-global">GLOBAL</h3>
+    <p><i>structure: declare a list of global variables for procedures</i><br>
+        <b>Global</b> list of variables</p>
 
-<p>GLOBAL sets up a list of variables that can be accessed from absolutely anywhere in your
-program. This is a simplified single command, designed to be used without the need for an
-explicit SHARED statement in your procedure definitions. Here is an example:</p>
+    <p>GLOBAL sets up a list of variables that can be accessed from absolutely anywhere in your
+        program. This is a simplified single command, designed to be used without the need for an
+        explicit SHARED statement in your procedure definitions. Here is an example:</p>
 
-<pre>
+    <pre>
 E> A=6 : B=9
    Global A,B
    TEST1
@@ -373,65 +373,68 @@ E> A=6 : B=9
    End Proc
 </pre>
 
-<p>AMOS Professional programmers who are familiar with earlier versions of the AMOS system are
-now able to employ the new facility of using strings in procedure definitions. As with disc
-names, the "wild card" characters * and ? can also be included. In this case, the * character is</p>
+    <p>AMOS Professional programmers who are familiar with earlier versions of the AMOS system are
+        now able to employ the new facility of using strings in procedure definitions. As with disc
+        names, the "wild card" characters * and ? can also be included. In this case, the * character is</p>
 
-<P>
-used to mean "match this with any list of characters in the variable name, until the next 
-control character is reached", and the ? character means "match this with any single character in 
-the variable name". So the next line would define every variable as global:</P>
+    <P>
+        used to mean "match this with any list of characters in the variable name, until the next
+        control character is reached", and the ? character means "match this with any single character in
+        the variable name". So the next line would define every variable as global:</P>
 
-<pre>
+    <pre>
 X> Global "*"
 </pre>
 
-<P>Now look at the following example:</P>
+    <P>Now look at the following example:</P>
 
-<pre>
+    <pre>
 X> Shared A,"V*","VAR*END","A?0S*"
 </pre>
 
-<P>That line would declare the following variables as shared:</P>
+    <P>That line would declare the following variables as shared:</P>
 
-<UL>
-  <LI>A, as usual.</LI>
+    <UL>
+        <LI>A, as usual.</LI>
 
-  <LI>Any variable beginning with the character V, followed by any other characters, or on 
-  its own.</LI>
+        <LI>Any variable beginning with the character V, followed by any other characters, or on
+            its own.
+        </LI>
 
-  <LI>Any variable beginning with the letters VAR, followed by any other characters, and 
-  ending with the characters END.</LI>
+        <LI>Any variable beginning with the letters VAR, followed by any other characters, and
+            ending with the characters END.
+        </LI>
 
-  <LI>Any variable beginning with A, followed by any single letter, followed by OS, 
-  followed by any other characters.</LI>
-</UL>
+        <LI>Any variable beginning with A, followed by any single letter, followed by OS,
+            followed by any other characters.
+        </LI>
+    </UL>
 
-<P>
-GLOBAL or SHARED should be employed before the first use of the variable, otherwise it 
-will have no effect on an interpreted program, although it will affect programs compiled with 
-the AMOS Professional Compiler.</P>
+    <P>
+        GLOBAL or SHARED should be employed before the first use of the variable, otherwise it
+        will have no effect on an interpreted program, although it will affect programs compiled with
+        the AMOS Professional Compiler.</P>
 
-<P>
-Only strings may be used for this technique. Global and shared arrays cannot be defined 
-using wild cards. These must be defined individually, using brackets. Also, if you try to use an
-expression in this way, an error will be generated.<BR>
-For example:</P>
+    <P>
+        Only strings may be used for this technique. Global and shared arrays cannot be defined
+        using wild cards. These must be defined individually, using brackets. Also, if you try to use an
+        expression in this way, an error will be generated.<BR>
+        For example:</P>
 
-<pre>
+    <pre>
 X> A$="AM*"
    Global A$
 </pre>
 
-<P>
-In that case, the A$ variable would be regarded as global, and it would not be taken as 
-a wild card for subsequent use.</P>
+    <P>
+        In that case, the A$ variable would be regarded as global, and it would not be taken as
+        a wild card for subsequent use.</P>
 
-<P>With AMOS Professional, you are able to define global arrays from a procedure, even if 
-the array
-is not created at root level, as follows:</P>
+    <P>With AMOS Professional, you are able to define global arrays from a procedure, even if
+        the array
+        is not created at root level, as follows:</P>
 
-<pre>
+    <pre>
 X> Procedure VARIABLES
    Dim ARRAY(100,100)
    Global ARRAY()
@@ -440,25 +443,25 @@ X> Procedure VARIABLES
 </section>
 
 <section id="06-returning-values-from-a-procedure">
-<h2>Returning values from a procedure</h2>
+    <h2>Returning values from a procedure</h2>
 
-<p>If you want to return a parameter from inside a procedure, that is to say, if you need
-to send back a value from a local parameter, you need a way of telling your main program where to 
-find this local variable.</P>
+    <p>If you want to return a parameter from inside a procedure, that is to say, if you need
+        to send back a value from a local parameter, you need a way of telling your main program where to
+        find this local variable.</P>
 
 
-<h3 id="fn-param">PARAM</h3>
-<p><i>function: return a parameter from a procedure</i><BR>
-<b>Param</b><BR>
-<b>Param#</b><BR>
-<b>Param$</b></P>
+    <h3 id="fn-param">PARAM</h3>
+    <p><i>function: return a parameter from a procedure</i><BR>
+        <b>Param</b><BR>
+        <b>Param#</b><BR>
+        <b>Param$</b></P>
 
-<P>
-The PARAM function takes the result of an expression in an END PROC statement, and 
-returns it to the PARAM variable. If the variable you are interested in is a string variable, the 
-$ character is used. Also note how the pairs of square brackets are used in the next two examples:</P>
+    <P>
+        The PARAM function takes the result of an expression in an END PROC statement, and
+        returns it to the PARAM variable. If the variable you are interested in is a string variable, the
+        $ character is used. Also note how the pairs of square brackets are used in the next two examples:</P>
 
-<pre>
+    <pre>
 E> JOIN_STRINGS["one","two","three"]
    Print Param$
    Procedure JOIN_STRINGS[A$,B$,C$]
@@ -466,9 +469,9 @@ E> JOIN_STRINGS["one","two","three"]
    End Proc[A$+B$+C$]
 </pre>
 
-<P>For real number variables, the # character must be used as in the following example:</P>
+    <P>For real number variables, the # character must be used as in the following example:</P>
 
-<pre>
+    <pre>
 E> JOIN_NUMBERS[1.5,2.25]
    Print Param#
    Procedure JOIN_NUMBERS[A#,B#]
@@ -478,14 +481,14 @@ E> JOIN_NUMBERS[1.5,2.25]
 </section>
 
 <section id="07-local-data-statements">
-<h2>Local data statements</h2>
+    <h2>Local data statements</h2>
 
-<P>Any data statements defined inside your procedures are held completely separately from those
-in the main program. This means that each procedure can have its own individual areas of data.
-Let us end this Chapter with a modest example that calls the same procedure using different
-parameters, and then sets up additional data in variables.</P>
+    <P>Any data statements defined inside your procedures are held completely separately from those
+        in the main program. This means that each procedure can have its own individual areas of data.
+        Let us end this Chapter with a modest example that calls the same procedure using different
+        parameters, and then sets up additional data in variables.</P>
 
-<pre>
+    <pre>
 E> Curs Off : Paper 0
    RECORD["Francois","Lionet",29,"Genius"]
    RECORD["Mel","Croucher",44,"Unemployed"]

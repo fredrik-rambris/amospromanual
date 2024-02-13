@@ -1,68 +1,67 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - floating point numbers</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - floating point numbers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Floating Point Numbers</h1>
+    <h1>Floating Point Numbers</h1>
 
 
-
-<p>
-AMOS Professional performs all calculations using the standard library routines available from
-he Amiga. These library files are held in the LIBS: directory of your start-up disc.</p>
+    <p>
+        AMOS Professional performs all calculations using the standard library routines available from
+        he Amiga. These library files are held in the LIBS: directory of your start-up disc.</p>
 </section>
 
 <section id="01-floating-point-libraries">
-<h2>Floating Point Libraries</h2>
-<p>
-In order to save memory, the floating point libraries are only installed if they are specifically
-needed in one of your programs. The first time that a program which contains floating point
-operations is tested, AMOS Professional will install the relevant libraries into memory
-automatically.</p>
+    <h2>Floating Point Libraries</h2>
+    <p>
+        In order to save memory, the floating point libraries are only installed if they are specifically
+        needed in one of your programs. The first time that a program which contains floating point
+        operations is tested, AMOS Professional will install the relevant libraries into memory
+        automatically.</p>
 
-<p>
-Normal floating point operations require the "mathffp.library", and this is usually available
-directly from ROM, occupying about 8k of memory space. If your program contains
-"transcendental" functions such as SIN, COS or SQR, then AMOS Professional will also load the
-mathtrans.library", which uses an additional 4k of memory. This is the reason that your disc
-drive may come to life from time to time, when a program is tested. Once these libraries have
-been installed, they will remain in memory until the end of the current programming session.</p>
+    <p>
+        Normal floating point operations require the "mathffp.library", and this is usually available
+        directly from ROM, occupying about 8k of memory space. If your program contains
+        "transcendental" functions such as SIN, COS or SQR, then AMOS Professional will also load the
+        mathtrans.library", which uses an additional 4k of memory. This is the reason that your disc
+        drive may come to life from time to time, when a program is tested. Once these libraries have
+        been installed, they will remain in memory until the end of the current programming session.</p>
 
-<p>
-Alternatively, if a program is tested using the <b>double precision</b> mode, AMOS Professional will
-install the "mathieeedoubbas.library" and "mathieeedoubtrans.library" files instead. These
-require an additional 23k of valuable memory in order to operate.</p>
+    <p>
+        Alternatively, if a program is tested using the <b>double precision</b> mode, AMOS Professional will
+        install the "mathieeedoubbas.library" and "mathieeedoubtrans.library" files instead. These
+        require an additional 23k of valuable memory in order to operate.</p>
 
-<p>
-Because AMOS Professional uses the standard library routines, all floating point operations
-speed up dramatically if a maths co-processor is installed in your Amiga. This will require
-different library files from those held on the AMOS Professional start-up disc, and they will only
-be usable when AMOS Professional is executed from the CLI or Workbench. If you attempt to
-boot AMOS Professional directly from the internal disc drive, you will be limited to the original,
-slower versions of these routines.</p>
+    <p>
+        Because AMOS Professional uses the standard library routines, all floating point operations
+        speed up dramatically if a maths co-processor is installed in your Amiga. This will require
+        different library files from those held on the AMOS Professional start-up disc, and they will only
+        be usable when AMOS Professional is executed from the CLI or Workbench. If you attempt to
+        boot AMOS Professional directly from the internal disc drive, you will be limited to the original,
+        slower versions of these routines.</p>
 
-<p>Here are the formats for single and double precision numbers:</p>
+    <p>Here are the formats for single and double precision numbers:</p>
 
-<pre>
+    <pre>
 <b>Single Precision</b>
 Accuracy:      7 digits
 Range:         1E-14 to 1E+15
@@ -72,9 +71,9 @@ Accuracy:      16 digits
 Range:         10E-307 to 10E+308
 </pre>
 
-<p>
-Floating point numbers are fully discussed in <a href="05-03-maths.html">Chapter 5.3</a>, along with an examination of single
-and double precision.</p>
+    <p>
+        Floating point numbers are fully discussed in <a href="05-03-maths.html">Chapter 5.3</a>, along with an examination of single
+        and double precision.</p>
 
 
 </section>

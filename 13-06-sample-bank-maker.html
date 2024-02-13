@@ -1,283 +1,281 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - the sample bank maker</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - the sample bank maker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>The Sample Bank Maker</h1>
+    <h1>The Sample Bank Maker</h1>
 
 
+    <p>
+        The whole purpose of AMOS Professional accessories is to make all aspects of computer
+        programming as simple and friendly as possible, while saving the user the time, effort and cost
+        of having to go outside of the system.</p>
 
-<p>
-The whole purpose of AMOS Professional accessories is to make all aspects of computer
-programming as simple and friendly as possible, while saving the user the time, effort and cost
-of having to go outside of the system.</p>
+    <p>
+        A ready-made recording studio is provided for creating your own customised sample banks,
+        and it can be loaded from the "Accessories" disc now:</p>
 
-<p>
-A ready-made recording studio is provided for creating your own customised sample banks,
-and it can be loaded from the "Accessories" disc now:</p>
-
-<pre>
+    <pre>
 LD> Load "AMOSPro_Accessories:Sample_Bank_Maker.AMOS"
 </pre>
 </section>
 
 <section id="01-the-sample-bank-maker-screen">
-<h2>The Sample Bank Maker screen</h2>
-<p>
-A typical working screen is shown below, and all of its features can be easily identified in the
-short guided tour that follows.</p>
+    <h2>The Sample Bank Maker screen</h2>
+    <p>
+        A typical working screen is shown below, and all of its features can be easily identified in the
+        short guided tour that follows.</p>
 
-<div align="center">
+    <div align="center">
 
-<img alt="Sample bank Maker Screen"
-     src="images/1343samplebank.jpg" />
-</div>
+        <img alt="Sample bank Maker Screen"
+             src="images/1343samplebank.jpg"/>
+    </div>
 
 </section>
 
 <section id="02-the-current-sample-window">
-<h2>The Current Sample window</h2>
-<p>
-The top of the screen is divided into two areas. The left-hand side holds the window which is
-used to display the current sample being worked on, in the form of a visual "wave pattern". You
-can load an example and view it in a moment. "Silence" is represented as a straight horizontal
-line in the middle of this Current Sample Window. The various frequencies that make up the
-sound of the current sample are displayed as jagged patterns of vertical lines, running left to the
-right, from the beginning to the end of the sample. As the sample is "played", you can see how
-the wave pattern corresponds to what is heard. Above the Current Sample Window is a
-horizontal display panel, which will show the name of the current sample, along with its length,
-in bytes.</p>
+    <h2>The Current Sample window</h2>
+    <p>
+        The top of the screen is divided into two areas. The left-hand side holds the window which is
+        used to display the current sample being worked on, in the form of a visual "wave pattern". You
+        can load an example and view it in a moment. "Silence" is represented as a straight horizontal
+        line in the middle of this Current Sample Window. The various frequencies that make up the
+        sound of the current sample are displayed as jagged patterns of vertical lines, running left to the
+        right, from the beginning to the end of the sample. As the sample is "played", you can see how
+        the wave pattern corresponds to what is heard. Above the Current Sample Window is a
+        horizontal display panel, which will show the name of the current sample, along with its length,
+        in bytes.</p>
 
 </section>
 
 <section id="03-the-sample-bank-window">
-<h2>The Sample Bank Window</h2>
-<p>
-The upper right-hand section of the screen is where the contents of the sample bank is
-displayed. Each sample is listed with its own number, name and length in bytes. As you would
-expect, a vertical slider bar and slider arrows are provided to display any parts of the contents
-list that are too large to fit into the display. The name of the current sample bank is displayed at
-the top of this window.</p>
+    <h2>The Sample Bank Window</h2>
+    <p>
+        The upper right-hand section of the screen is where the contents of the sample bank is
+        displayed. Each sample is listed with its own number, name and length in bytes. As you would
+        expect, a vertical slider bar and slider arrows are provided to display any parts of the contents
+        list that are too large to fit into the display. The name of the current sample bank is displayed at
+        the top of this window.</p>
 </section>
 
 <section id="04-transfer-buttons">
-<h2>Transfer Buttons</h2>
-<p>
-Between the Current Sample Window and the list of samples in the bank are two big buttons,
-marked with a left-arrow and a right-arrow. These are transfer buttons used to move a sample
-between the bank (represented by the top right-hand side of the screen) and the working area
-(represented by the top left-hand side of the screen).</p>
+    <h2>Transfer Buttons</h2>
+    <p>
+        Between the Current Sample Window and the list of samples in the bank are two big buttons,
+        marked with a left-arrow and a right-arrow. These are transfer buttons used to move a sample
+        between the bank (represented by the top right-hand side of the screen) and the working area
+        (represented by the top left-hand side of the screen).</p>
 
-<p>
-This allows you to pull a sample from the bank, test it or work on it while it is in the Current
-Sample Window, and then deposit it back at the selected position in the bank. If a copy of a
-sample that has been worked on is positioned as the <b>last</b> item in the bank, it becomes a <b>new</b>
-sample to be added at the end of the bank.</p>
+    <p>
+        This allows you to pull a sample from the bank, test it or work on it while it is in the Current
+        Sample Window, and then deposit it back at the selected position in the bank. If a copy of a
+        sample that has been worked on is positioned as the <b>last</b> item in the bank, it becomes a <b>new</b>
+        sample to be added at the end of the bank.</p>
 </section>
 
 <section id="05-the-information-line">
-<h2>The Information Line</h2>
-<p>
-A horizontal Information Line runs across the width of the screen, below the Current Sample
-Window and the Sample Bank display. This reports on the current status of memory, and
-provides useful messages.</p>
+    <h2>The Information Line</h2>
+    <p>
+        A horizontal Information Line runs across the width of the screen, below the Current Sample
+        Window and the Sample Bank display. This reports on the current status of memory, and
+        provides useful messages.</p>
 </section>
 
 <section id="06-the-control-panel">
-<h2>The Control Panel</h2>
-<p>
-The lower third of the screen is occupied by all of the control buttons that operate the Sample
-Bank Maker. Please load some samples now, before they can be demonstrated.</p>
+    <h2>The Control Panel</h2>
+    <p>
+        The lower third of the screen is occupied by all of the control buttons that operate the Sample
+        Bank Maker. Please load some samples now, before they can be demonstrated.</p>
 
-<p><b>Load Bank</b><br>
+    <p><b>Load Bank</b><br>
 
-<img alt="Load bank button"
-     src="images/1344loadbank.jpg" align="left" />
+        <img alt="Load bank button"
+             src="images/1344loadbank.jpg" align="left"/>
 
-the control buttons as usual. Have your "AMOSPro_Examples" disc ready in the drive, and
-prepare to edit "Mixture.Abk" after pressing the [Load Bank] button. The numbers, names and
-lengths of all the samples in this bank should now appear in the display window.</p>
+        the control buttons as usual. Have your "AMOSPro_Examples" disc ready in the drive, and
+        prepare to edit "Mixture.Abk" after pressing the [Load Bank] button. The numbers, names and
+        lengths of all the samples in this bank should now appear in the display window.</p>
 
-<p><b>Load current sample from bank</b><br>
+    <p><b>Load current sample from bank</b><br>
 
-<img alt="Load sample button"
-     src="images/1344loadsample.jpg" align="left" />
+        <img alt="Load sample button"
+             src="images/1344loadsample.jpg" align="left"/>
 
-Now load one of the samples into the Current Sample Window, ready for testing.<br>
-For example, select "Bubbler by highlighting its name with a mouse click and pressing the
-[Left arrow] transfer button.
-As soon as a current sample has been transferred, all of the
-other control buttons become active.</p>
+        Now load one of the samples into the Current Sample Window, ready for testing.<br>
+        For example, select "Bubbler by highlighting its name with a mouse click and pressing the
+        [Left arrow] transfer button.
+        As soon as a current sample has been transferred, all of the
+        other control buttons become active.</p>
 
-<p><b>Hear a sample</b><br>
+    <p><b>Hear a sample</b><br>
 
-<img alt="Play sample button"
-     src="images/1344play.jpg" align="left" />
+        <img alt="Play sample button"
+             src="images/1344play.jpg" align="left"/>
 
-If your audio system is ready, [Hear] the current sample now. See how the
-frequency pattern is shown between the start and end borders of the Current
-Sample Window. You are now ready to begin editing the sample.</p>
-
-
-<p><b>Start and end of sample</b><br>
-
-<img alt="Start and end sample button"
-     src="images/1345startsample.jpg" align="left" />
-
-Trigger the small [Start] and [End] arrows to move the settings for the beginning
-and end of the current sample. As soon as these settings are moved from the left
-and right boundaries of the window, vertical lines appear to mark the new start
-and end positions. You can also click directly on the start and end lines in the Current Sample
-Window, and drag them to change their positions.</p>
-
-<p><b>Frequency settings</b><br>
-
-<img alt="Frequency settings"
-     src="images/1345freq.jpg" align="left" />
-
-The frequency at which a sample is played is measured in Hertz, and by changing
-this frequency some wonderful effects can be synthesised.<br>
-This panel contains sets of up and down arrow buttons, with
-
-<img alt="Rapid frequency increase button"
-     src="images/1345high.jpg" />
-
-for the rapid raising of the frequency, the
-
-<img alt="Frequency decrease button"
-     src="images/1345finedown.jpg" />
-
-button for fine-tuning downwards, and so on. Try changing the frequency of the current sample now,
-by decreasing the Hertz setting.
-Settings are normally made using the left mouse button,
-but use of the right mouse button will cause rapid level changes.</p>
-
-<p><b>Re-name sample</b><br>
-
-<img alt="Rename sample button"
-     src="images/1345rename.jpg" align="left" />
-
-Trigger this button if you want to change the name of the edited sample, before storing
-it in the bank. Up to eight characters can be typed in after the prompt, and the new
-name will appear at the top of the screen.</p>
-
-<p><b>Erase current sample</b><br>
-
-<img alt="Erase sample button"
-     src="images/1345erase.jpg" align="left" />
-
-This button is used to erase the currently edited sample.<br>
-It does not effect the original
-version of this sample stored in the sample bank.</p>
-
-<p><b>Save current sample</b><br>
-
-<img alt="Save sample button"
-     src="images/1345save.jpg" align="left" />
-
-When you have finished editing the current sample, you can [Save] everything that is
-held between the start and end lines in the Current Sample Window as an IFF file on the
-current disc.<br>
-This type of file is commonly used to store data that can be read by
-different sampler packages and computers. Any changes that have been made to the sample
-frequency and name will be saved as well as the actual sample data.</p>
-
-<p><b>Load raw sample</b><br>
-
-<img alt="Load raw sample button"
-     src="images/1345loadraw.jpg" align="left" />
-
-When a "raw" sample is loaded, its name is computed from the filename, and its
-frequency is automatically set to 8363 Hertz, which is the Noisetracker default setting. If a
-sample is held in IFF, its own name and frequency are grabbed automatically.</p>
-
-<p><b>Return sample to bank</b><br>
-
-<img alt="Return sample button"
-     src="images/1345return.jpg" align="left" />
-
-If you decide that you want to store any edited changes that have been made to the
-current sample,<br>
-use the large [Right Arrow] button to deposit the sample back in the
-sample bank.<br>
-The remaining buttons listed below are used to affect the sample bank
-itself, as opposed to any current sample.</p>
-
-<p><b>Insert empty sample</b><br>
-
-<img alt="Insert sample button"
-     src="images/1345insert.jpg" align="left" />
-
-This button inserts an "empty" sample at the position which is currently highlighted
-in the bank. This position can be anywhere you wish. It remains empty,
-waiting to be filled by an edited copy of the current sample.</p>
+        If your audio system is ready, [Hear] the current sample now. See how the
+        frequency pattern is shown between the start and end borders of the Current
+        Sample Window. You are now ready to begin editing the sample.</p>
 
 
+    <p><b>Start and end of sample</b><br>
 
-<p><b>Delete a sample</b><br>
+        <img alt="Start and end sample button"
+             src="images/1345startsample.jpg" align="left"/>
 
-<img alt="Delete sample button"
-     src="images/1346delete.jpg" align="left" />
+        Trigger the small [Start] and [End] arrows to move the settings for the beginning
+        and end of the current sample. As soon as these settings are moved from the left
+        and right boundaries of the window, vertical lines appear to mark the new start
+        and end positions. You can also click directly on the start and end lines in the Current Sample
+        Window, and drag them to change their positions.</p>
 
-This is a powerful control button, and care should be taken when using it!<br>
-The highlighted sample is totally erased from the sample bank, and it can not be recovered.</p>
+    <p><b>Frequency settings</b><br>
+
+        <img alt="Frequency settings"
+             src="images/1345freq.jpg" align="left"/>
+
+        The frequency at which a sample is played is measured in Hertz, and by changing
+        this frequency some wonderful effects can be synthesised.<br>
+        This panel contains sets of up and down arrow buttons, with
+
+        <img alt="Rapid frequency increase button"
+             src="images/1345high.jpg"/>
+
+        for the rapid raising of the frequency, the
+
+        <img alt="Frequency decrease button"
+             src="images/1345finedown.jpg"/>
+
+        button for fine-tuning downwards, and so on. Try changing the frequency of the current sample now,
+        by decreasing the Hertz setting.
+        Settings are normally made using the left mouse button,
+        but use of the right mouse button will cause rapid level changes.</p>
+
+    <p><b>Re-name sample</b><br>
+
+        <img alt="Rename sample button"
+             src="images/1345rename.jpg" align="left"/>
+
+        Trigger this button if you want to change the name of the edited sample, before storing
+        it in the bank. Up to eight characters can be typed in after the prompt, and the new
+        name will appear at the top of the screen.</p>
+
+    <p><b>Erase current sample</b><br>
+
+        <img alt="Erase sample button"
+             src="images/1345erase.jpg" align="left"/>
+
+        This button is used to erase the currently edited sample.<br>
+        It does not effect the original
+        version of this sample stored in the sample bank.</p>
+
+    <p><b>Save current sample</b><br>
+
+        <img alt="Save sample button"
+             src="images/1345save.jpg" align="left"/>
+
+        When you have finished editing the current sample, you can [Save] everything that is
+        held between the start and end lines in the Current Sample Window as an IFF file on the
+        current disc.<br>
+        This type of file is commonly used to store data that can be read by
+        different sampler packages and computers. Any changes that have been made to the sample
+        frequency and name will be saved as well as the actual sample data.</p>
+
+    <p><b>Load raw sample</b><br>
+
+        <img alt="Load raw sample button"
+             src="images/1345loadraw.jpg" align="left"/>
+
+        When a "raw" sample is loaded, its name is computed from the filename, and its
+        frequency is automatically set to 8363 Hertz, which is the Noisetracker default setting. If a
+        sample is held in IFF, its own name and frequency are grabbed automatically.</p>
+
+    <p><b>Return sample to bank</b><br>
+
+        <img alt="Return sample button"
+             src="images/1345return.jpg" align="left"/>
+
+        If you decide that you want to store any edited changes that have been made to the
+        current sample,<br>
+        use the large [Right Arrow] button to deposit the sample back in the
+        sample bank.<br>
+        The remaining buttons listed below are used to affect the sample bank
+        itself, as opposed to any current sample.</p>
+
+    <p><b>Insert empty sample</b><br>
+
+        <img alt="Insert sample button"
+             src="images/1345insert.jpg" align="left"/>
+
+        This button inserts an "empty" sample at the position which is currently highlighted
+        in the bank. This position can be anywhere you wish. It remains empty,
+        waiting to be filled by an edited copy of the current sample.</p>
 
 
-<p><b>Clear sample bank</b><br>
+    <p><b>Delete a sample</b><br>
 
-<img alt="Clear sample button"
-     src="images/1346clear.jpg" align="left" />
+        <img alt="Delete sample button"
+             src="images/1346delete.jpg" align="left"/>
 
-To clear the entire sample bank, use this button.<br> Again, it must be emphasised that once
-the samples in the bank have been erased from memory, they cannot be recovered.
-Always keep back-up copies of your samples on another disc.</p>
-
-<p><b>Save As</b><br>
-
-<img alt="SaveAs button"
-     src="images/1346saveas.jpg" align="left" />
-
-To save the edited sample bank with a new identity onto disc, the [Save As] option
-should be used.<br>
-After a prompt, you can type in the new name for the bank, which will
-appear above the sample bank window.</p>
-
-<p><b>Save bank</b><br>
-
-<img alt="Save bank button"
-     src="images/1346savebank.jpg" align="left" />
-
-If you do not need to change the name of the bank, simply trigger the [Save Bank]
-button,<br>
-and it will be saved to the current disc.</p>
+        This is a powerful control button, and care should be taken when using it!<br>
+        The highlighted sample is totally erased from the sample bank, and it can not be recovered.</p>
 
 
-<p><b>Quit</b><br>
+    <p><b>Clear sample bank</b><br>
 
-<img alt="Quit button"
-     src="images/1346quit.jpg" align="left" />
+        <img alt="Clear sample button"
+             src="images/1346clear.jpg" align="left"/>
 
-To leave the Sample Bank Maker, use the [QUIT] button, which is at the top of the
-screen, and you will be returned to the familiar AMOS Professional Edit Screen.</p>
+        To clear the entire sample bank, use this button.<br> Again, it must be emphasised that once
+        the samples in the bank have been erased from memory, they cannot be recovered.
+        Always keep back-up copies of your samples on another disc.</p>
+
+    <p><b>Save As</b><br>
+
+        <img alt="SaveAs button"
+             src="images/1346saveas.jpg" align="left"/>
+
+        To save the edited sample bank with a new identity onto disc, the [Save As] option
+        should be used.<br>
+        After a prompt, you can type in the new name for the bank, which will
+        appear above the sample bank window.</p>
+
+    <p><b>Save bank</b><br>
+
+        <img alt="Save bank button"
+             src="images/1346savebank.jpg" align="left"/>
+
+        If you do not need to change the name of the bank, simply trigger the [Save Bank]
+        button,<br>
+        and it will be saved to the current disc.</p>
+
+
+    <p><b>Quit</b><br>
+
+        <img alt="Quit button"
+             src="images/1346quit.jpg" align="left"/>
+
+        To leave the Sample Bank Maker, use the [QUIT] button, which is at the top of the
+        screen, and you will be returned to the familiar AMOS Professional Edit Screen.</p>
 
 
 </section>

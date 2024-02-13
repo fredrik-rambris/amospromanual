@@ -1,105 +1,104 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - icons and blocks</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - icons and blocks</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Icons and Blocks</h1>
+    <h1>Icons and Blocks</h1>
 
 
-
-<p>This Chapter deals with the practical handling of rectangular units of graphic images.</p>
+    <p>This Chapter deals with the practical handling of rectangular units of graphic images.</p>
 </section>
 
 <section id="01-background-screen-graphics">
-<h2>Background screen graphics</h2>
-<p>
-It is common for modern arcade games to feature hundreds of different background screens,
-over which the animated action takes place. Similarly, practical programs like kitchen-planners
-may need to display scores of varied settings. A fraction of these requirements would normally
-exhaust your Amiga's memory, leaving no room at all for your program!</p>
+    <h2>Background screen graphics</h2>
+    <p>
+        It is common for modern arcade games to feature hundreds of different background screens,
+        over which the animated action takes place. Similarly, practical programs like kitchen-planners
+        may need to display scores of varied settings. A fraction of these requirements would normally
+        exhaust your Amiga's memory, leaving no room at all for your program!</p>
 
-<p>
-To overcome this restriction, backgrounds can be constructed from a set of simple graphic
-blocks, to be arranged and re-arranged as you wish, in varied patterns Each background screen
-can now be stored as a simple list of component blocks. These blocks are sometimes known as
-"tiles", and AMOS Professional provides two sets of alternative tiles: Icons, which are held in
-their own memory bank, and Blocks, which are held as temporary data.</p>
-
-
-An Icon is an individual image, specifically designed to act as a component of a background
-screen picture. All Icons are stored in their own AMOS Professional memory bank, which is
-bank 2, and this Icon Bank will be saved along with your program listing automatically.</p>
-
-<p>Once an Icon is drawn it has a fixed location and cannot be moved to another part of the screen.</p>
-
-<p>
-Icons are displayed using the Amiga's Blitter chip, which is also responsible for the display of
-Robs. However, because Icons are essentially static Objects, they are normally drawn in replace
-mode. This means that any existing graphics at the relevant screen location will be completely
-erased by the Icon.</p>
-
-<p>Here is a complete list of the Icon commands.</p>
-
-<h3 id="i-get-icon">GET ICON</h3>
-<p><i>instruction: create an Icon</i><br>
-<b>Get Icon</b> Icon number,x1,y1 <b>To</b> x2,y2<br>
-<b>Get Icon</b> screen number,lcon number,x1,y1 <b>To</b> x2,y2</p>
-
-<p>
-The GET ICON command grabs an image from the screen and loads it into an Icon. Specify the
-Icon number, and then give the coordinates of the rectangle that is to be grabbed, from the top
-left-hand corner to the bottom right-hand corner. If the Icon whose number you specify does
-not already exist, it will be created in Bank 2. If the memory bank has not been reserved, this will
-also be done automatically.</p>
-
-<p>
-An optional screen number can also be given, immediately after the GET ICON instruction, and
-this will select the screen to be used as the source of the Icon's image. If this screen number is
-omitted, the image is taken from the current screen.</p>
-
-<h3 id="i-get-icon-palette">GET ICON PALETTE</h3>
-<p><i>instruction: load Icon colours into current screen</i><br>
-<b>Get Icon Palette</b></p>
-
-<p>
-This instruction is usually employed to initialise a screen, after Icons have been
-loaded from disc.</p>
+    <p>
+        To overcome this restriction, backgrounds can be constructed from a set of simple graphic
+        blocks, to be arranged and re-arranged as you wish, in varied patterns Each background screen
+        can now be stored as a simple list of component blocks. These blocks are sometimes known as
+        "tiles", and AMOS Professional provides two sets of alternative tiles: Icons, which are held in
+        their own memory bank, and Blocks, which are held as temporary data.</p>
 
 
-<p>
-GET ICON PALETTE grabs the colours of the Icon images stored in Bank 2, and loads them in to
-the current screen.</p>
+    An Icon is an individual image, specifically designed to act as a component of a background
+    screen picture. All Icons are stored in their own AMOS Professional memory bank, which is
+    bank 2, and this Icon Bank will be saved along with your program listing automatically.</p>
 
-<h3 id="i-paste-icon">PASTE ICON</h3>
-<p><i>instruction: draw an Icon</i><br>
-<b>Paste Icon</b> x,y,number</p>
+    <p>Once an Icon is drawn it has a fixed location and cannot be moved to another part of the screen.</p>
 
-<p>
-Use the PASTE ICON command to draw the specified Icon number already stored in Bank 2, on
-screen. The screen position is defined by graphic coordinates, and can be anywhere you like.
-Icon images will be clipped in the normal way, if they exceed the standard limitations. Here is a
-simple example:</p>
+    <p>
+        Icons are displayed using the Amiga's Blitter chip, which is also responsible for the display of
+        Robs. However, because Icons are essentially static Objects, they are normally drawn in replace
+        mode. This means that any existing graphics at the relevant screen location will be completely
+        erased by the Icon.</p>
 
-<pre>
+    <p>Here is a complete list of the Icon commands.</p>
+
+    <h3 id="i-get-icon">GET ICON</h3>
+    <p><i>instruction: create an Icon</i><br>
+        <b>Get Icon</b> Icon number,x1,y1 <b>To</b> x2,y2<br>
+        <b>Get Icon</b> screen number,lcon number,x1,y1 <b>To</b> x2,y2</p>
+
+    <p>
+        The GET ICON command grabs an image from the screen and loads it into an Icon. Specify the
+        Icon number, and then give the coordinates of the rectangle that is to be grabbed, from the top
+        left-hand corner to the bottom right-hand corner. If the Icon whose number you specify does
+        not already exist, it will be created in Bank 2. If the memory bank has not been reserved, this will
+        also be done automatically.</p>
+
+    <p>
+        An optional screen number can also be given, immediately after the GET ICON instruction, and
+        this will select the screen to be used as the source of the Icon's image. If this screen number is
+        omitted, the image is taken from the current screen.</p>
+
+    <h3 id="i-get-icon-palette">GET ICON PALETTE</h3>
+    <p><i>instruction: load Icon colours into current screen</i><br>
+        <b>Get Icon Palette</b></p>
+
+    <p>
+        This instruction is usually employed to initialise a screen, after Icons have been
+        loaded from disc.</p>
+
+
+    <p>
+        GET ICON PALETTE grabs the colours of the Icon images stored in Bank 2, and loads them in to
+        the current screen.</p>
+
+    <h3 id="i-paste-icon">PASTE ICON</h3>
+    <p><i>instruction: draw an Icon</i><br>
+        <b>Paste Icon</b> x,y,number</p>
+
+    <p>
+        Use the PASTE ICON command to draw the specified Icon number already stored in Bank 2, on
+        screen. The screen position is defined by graphic coordinates, and can be anywhere you like.
+        Icon images will be clipped in the normal way, if they exceed the standard limitations. Here is a
+        simple example:</p>
+
+    <pre>
 E> Flash Off : Load Iff "AMOSPro_Examples:Iff/logo.iff"
    Z=0
    For A=0 To 304 Step 16
@@ -114,167 +113,167 @@ E> Flash Off : Load Iff "AMOSPro_Examples:Iff/logo.iff"
    Next A
 </pre>
 
-<p>
-If the DOUBLE BUFFER system in engaged, a copy of the Icon will be drawn into both the
-logical and physical screens, and because this takes a little time, you are advised to add a call to
-AUTOBACK 0 before drawing Icons on screen. This restricts the Icon to the current logical
-screen, and then the entire background may be copied to the physical screen, using SCREEN
-COPY, which is a much faster process.</p>
+    <p>
+        If the DOUBLE BUFFER system in engaged, a copy of the Icon will be drawn into both the
+        logical and physical screens, and because this takes a little time, you are advised to add a call to
+        AUTOBACK 0 before drawing Icons on screen. This restricts the Icon to the current logical
+        screen, and then the entire background may be copied to the physical screen, using SCREEN
+        COPY, which is a much faster process.</p>
 
-<h3 id="i-del-icon">DEL ICON</h3>
-<p><i>instruction: delete Icons</i><br>
-<b>Del Icon</b> number<br>
-<b>Del Icon</b> first number <b>To</b> last number</p>
+    <h3 id="i-del-icon">DEL ICON</h3>
+    <p><i>instruction: delete Icons</i><br>
+        <b>Del Icon</b> number<br>
+        <b>Del Icon</b> first number <b>To</b> last number</p>
 
-<p>
-DEL ICON erases the Icon whose number is specified from Bank 2. A second Icon number may
-also be given, in which case, all Icons from the first number TO the second number will be deleted.
-When the final Icon in the bank has been deleted, the whole bank will be removed from memory.</p>
+    <p>
+        DEL ICON erases the Icon whose number is specified from Bank 2. A second Icon number may
+        also be given, in which case, all Icons from the first number TO the second number will be deleted.
+        When the final Icon in the bank has been deleted, the whole bank will be removed from memory.</p>
 
-<h3 id="i-ins-icon">INS ICON</h3>
-<p><i>instruction: insert a blank Icon image into the Icon bank</i><br>
-<b>Ins Icon</b> number<br>
-<b>Ins Icon</b> first To last</p>
+    <h3 id="i-ins-icon">INS ICON</h3>
+    <p><i>instruction: insert a blank Icon image into the Icon bank</i><br>
+        <b>Ins Icon</b> number<br>
+        <b>Ins Icon</b> first To last</p>
 
-<p>
-The INS ICON instruction operates in exactly the same way as INS BOB, which is explained in
-<a href="07-02-blitter-objects.html">Chapter 7.2</a>.</p>
+    <p>
+        The INS ICON instruction operates in exactly the same way as INS BOB, which is explained in
+        <a href="07-02-blitter-objects.html">Chapter 7.2</a>.</p>
 
 
-<h3 id="i-make-icon-mask">MAKE ICON MASK</h3>
-<p><i>instruction: set colour zero to transparent</i><br>
-<b>Make Icon Mask</b><br>
-<b>Make Icon Mask</b> number</p>
+    <h3 id="i-make-icon-mask">MAKE ICON MASK</h3>
+    <p><i>instruction: set colour zero to transparent</i><br>
+        <b>Make Icon Mask</b><br>
+        <b>Make Icon Mask</b> number</p>
 
-<p>
-Normally, any Icons that are drawn on screen completely replace the existing background
-image, and the Icon appears in a rectangular box filled with colour zero. If you prefer to overlay
-Icons on top of the current graphics, a mask must be created. This is achieved by the MAKE
-ICON MASK command, and sets colour zero to transparent. All Icons in Bank 2 will be affected
-by this instruction, unless an optional Icon number is given, in which case only that Icon will be
-masked.</p>
+    <p>
+        Normally, any Icons that are drawn on screen completely replace the existing background
+        image, and the Icon appears in a rectangular box filled with colour zero. If you prefer to overlay
+        Icons on top of the current graphics, a mask must be created. This is achieved by the MAKE
+        ICON MASK command, and sets colour zero to transparent. All Icons in Bank 2 will be affected
+        by this instruction, unless an optional Icon number is given, in which case only that Icon will be
+        masked.</p>
 
-<h3 id="i-no-icon-mask">NO ICON MASK</h3>
-<p><i>instruction: remove colour zero mask from Icon</i><br>
-<b>No Icon Mask</b> number</p>
+    <h3 id="i-no-icon-mask">NO ICON MASK</h3>
+    <p><i>instruction: remove colour zero mask from Icon</i><br>
+        <b>No Icon Mask</b> number</p>
 
-<p>
-This command performs exactly the same task as the NO MASK instruction, explained in
-<a href="07-02-blitter-objects.html">Chapter 7.2</a>, except that it is used with Icons instead of Bobs.</p>
+    <p>
+        This command performs exactly the same task as the NO MASK instruction, explained in
+        <a href="07-02-blitter-objects.html">Chapter 7.2</a>, except that it is used with Icons instead of Bobs.</p>
 </section>
 
 <section id="02-screen-blocks">
-<h2>Screen blocks</h2>
-<p>
-Unlike Icons, graphic Blocks are not saved along with your programs, and the following BLOCK
-Instructions are used to hold and manipulate temporary graphics data. Blocks are extremely
-useful for setting up items such as dialogue boxes, by saving background pictures before new
-graphics are displayed. They can be used to create "tiles" for all sorts of entertainment programs,
-such as visual puzzles, as well as practical programs like identi-kits and architectural planners.</p>
+    <h2>Screen blocks</h2>
+    <p>
+        Unlike Icons, graphic Blocks are not saved along with your programs, and the following BLOCK
+        Instructions are used to hold and manipulate temporary graphics data. Blocks are extremely
+        useful for setting up items such as dialogue boxes, by saving background pictures before new
+        graphics are displayed. They can be used to create "tiles" for all sorts of entertainment programs,
+        such as visual puzzles, as well as practical programs like identi-kits and architectural planners.</p>
 
-<h3 id="i-get-block">GET BLOCK</h3>
-<p><i>instruction: grab a screen Block into memory</i><br>
-<b>Get Block</b> number,x,y,width,height<br>
-<b>Get Block</b> number,x,y,width,height,mask</p>
+    <h3 id="i-get-block">GET BLOCK</h3>
+    <p><i>instruction: grab a screen Block into memory</i><br>
+        <b>Get Block</b> number,x,y,width,height<br>
+        <b>Get Block</b> number,x,y,width,height,mask</p>
 
-<p>
-The GET BLOCK command is used to grab a rectangular area from the graphics on the current
-screen. First specify a Block number from 1 up to 65535, then set the coordinates of the top left-
-hand corner of the rectangle to be grabbed, followed by the number of pixels making up the
-width and height of the Block.</p>
+    <p>
+        The GET BLOCK command is used to grab a rectangular area from the graphics on the current
+        screen. First specify a Block number from 1 up to 65535, then set the coordinates of the top left-
+        hand corner of the rectangle to be grabbed, followed by the number of pixels making up the
+        width and height of the Block.</p>
 
-<p>
-An optional mask code can be added after these parameters. If this code is set to zero, the Block
-will destroy and replace any graphics that used to occupy its position on screen. If the mask
-code is set to 1, the block is given a background mask, and colour zero becomes transparent.</p>
+    <p>
+        An optional mask code can be added after these parameters. If this code is set to zero, the Block
+        will destroy and replace any graphics that used to occupy its position on screen. If the mask
+        code is set to 1, the block is given a background mask, and colour zero becomes transparent.</p>
 
-<h3 id="i-put-block">PUT BLOCK</h3>
-<p><i>instruction: copy Block onto screen</i><br>
-<b>Put Block</b> number<br>
-<b>Put Block</b> number,x,y<br>
-<b>Put Block</b> number,x,y,bit-planes<br>
-<b>Put Block</b> number,x,y,bit-planes,blitter mode</p>
+    <h3 id="i-put-block">PUT BLOCK</h3>
+    <p><i>instruction: copy Block onto screen</i><br>
+        <b>Put Block</b> number<br>
+        <b>Put Block</b> number,x,y<br>
+        <b>Put Block</b> number,x,y,bit-planes<br>
+        <b>Put Block</b> number,x,y,bit-planes,blitter mode</p>
 
-<p>
-To re-draw a Block at its original coordinates on the current screen, simply add
-the Block's identification number after the PUT BLOCK command.</p>
+    <p>
+        To re-draw a Block at its original coordinates on the current screen, simply add
+        the Block's identification number after the PUT BLOCK command.</p>
 
 
-<p>
-If you want to draw the Block at a new position, then add the new x,y-coordinates for the It
-left-hand corner, after the Block number.</p>
+    <p>
+        If you want to draw the Block at a new position, then add the new x,y-coordinates for the It
+        left-hand corner, after the Block number.</p>
 
-<p>
-The Amiga's screen is divided into segments known as "bit-planes", and Blocks are normally
-displayed using all the available screen bit-planes, which is a bit-pattern of %111111. Re-setting
-these bit-planes can create numerous special effects, and various settings are dealt with at the
-beginning of <a href="06-02-using-screens.html">Chapter 6.2</a>.</p>
+    <p>
+        The Amiga's screen is divided into segments known as "bit-planes", and Blocks are normally
+        displayed using all the available screen bit-planes, which is a bit-pattern of %111111. Re-setting
+        these bit-planes can create numerous special effects, and various settings are dealt with at the
+        beginning of <a href="06-02-using-screens.html">Chapter 6.2</a>.</p>
 
-<h3 id="i-del-block">DEL BLOCK</h3>
-<p><i>instruction: delete a screen Block</i><br>
-<b>Del Block</b><br>
-<b>Del Block</b> number</p>
+    <h3 id="i-del-block">DEL BLOCK</h3>
+    <p><i>instruction: delete a screen Block</i><br>
+        <b>Del Block</b><br>
+        <b>Del Block</b> number</p>
 
-<p>
-To delete all new screen Blocks, the DEL BLOCK command is used. The memory these Blocks
-used is returned to the main program automatically. If you only want to get rid of a single Block,
-follow the command with that Block's identification number.</p>
+    <p>
+        To delete all new screen Blocks, the DEL BLOCK command is used. The memory these Blocks
+        used is returned to the main program automatically. If you only want to get rid of a single Block,
+        follow the command with that Block's identification number.</p>
 
-<h3 id="i-hrev-block">HREV BLOCK</h3>
-<p><i>instruction: flip a Block horizontally</i><br>
-<b>Hrev Block</b> number</p>
+    <h3 id="i-hrev-block">HREV BLOCK</h3>
+    <p><i>instruction: flip a Block horizontally</i><br>
+        <b>Hrev Block</b> number</p>
 
-<p>This command reverses any numbered Block, by flipping it over its own horizontal axis.</p>
+    <p>This command reverses any numbered Block, by flipping it over its own horizontal axis.</p>
 
-<h3 id="i-vrev-block">VREV BLOCK</h3>
-<p><i>instruction: flip a Block vertically</i><br>
-<b>Vrev Block</b> number</p>
+    <h3 id="i-vrev-block">VREV BLOCK</h3>
+    <p><i>instruction: flip a Block vertically</i><br>
+        <b>Vrev Block</b> number</p>
 
-<p>Similarly, VREV BLOCK is used to flip a block over its own vertical axis.</p>
+    <p>Similarly, VREV BLOCK is used to flip a block over its own vertical axis.</p>
 </section>
 
 <section id="03-compacted-blocks">
-<h2>Compacted blocks</h2>
-<p>
-If you need reminding about the screen compaction memory-saving techniques, please refer to
-SPACK and PACK, which are fully explained at the end of <a href="06-02-using-screens.html">Chapter 6.2</a>. The compaction system
-used for the following commands is designed for speed as opposed to efficiency. They save less
-memory than SPACK and PACK, but they are a lot faster!</p>
+    <h2>Compacted blocks</h2>
+    <p>
+        If you need reminding about the screen compaction memory-saving techniques, please refer to
+        SPACK and PACK, which are fully explained at the end of <a href="06-02-using-screens.html">Chapter 6.2</a>. The compaction system
+        used for the following commands is designed for speed as opposed to efficiency. They save less
+        memory than SPACK and PACK, but they are a lot faster!</p>
 
-<h3 id="i-get-cblock">GET CBLOCK</h3>
-<p><i>instruction: save and compact a screen Block</i><br>
-<b>Get Cblock</b> number,x,y,width,height</p>
+    <h3 id="i-get-cblock">GET CBLOCK</h3>
+    <p><i>instruction: save and compact a screen Block</i><br>
+        <b>Get Cblock</b> number,x,y,width,height</p>
 
-<p>
-The GET CBLOCK command is used to save and compact a rectangular area of graphics from
-the screen. These Blocks are often used to grab the area underneath dialogue boxes, so that after
-the dialogue has been completed, the screen can be rapidly restored to its original state.</p>
+    <p>
+        The GET CBLOCK command is used to save and compact a rectangular area of graphics from
+        the screen. These Blocks are often used to grab the area underneath dialogue boxes, so that after
+        the dialogue has been completed, the screen can be rapidly restored to its original state.</p>
 
-<p>
-Specify the Block number from 1 to 65535, followed by the x,y-coordinates of its top left-hand
-corner. Then define the Block by giving its width and height, in pixels. Note that the x-
-coordinate, and the width of the Block will be rounded to the nearest multiple of eight pixels.</p>
+    <p>
+        Specify the Block number from 1 to 65535, followed by the x,y-coordinates of its top left-hand
+        corner. Then define the Block by giving its width and height, in pixels. Note that the x-
+        coordinate, and the width of the Block will be rounded to the nearest multiple of eight pixels.</p>
 
 
-<h3 id="i-put-cblock">PUT CBLOCK</h3>
-<p><i>instruction: display a compacted Block</i><br>
-<b>Put Cblock</b> number<br>
-<b>Put Cblock</b> number,x,y</p>
+    <h3 id="i-put-cblock">PUT CBLOCK</h3>
+    <p><i>instruction: display a compacted Block</i><br>
+        <b>Put Cblock</b> number<br>
+        <b>Put Cblock</b> number,x,y</p>
 
-<p>
-This command places the Block whose number is specified at its original screen coordinates.
-Optional target coordinates can be added, in which case the Block will be unpacked and then
-drawn at the new position. Any new x-coordinate will also be rounded to the nearest 8-pixel
-boundary.</p>
+    <p>
+        This command places the Block whose number is specified at its original screen coordinates.
+        Optional target coordinates can be added, in which case the Block will be unpacked and then
+        drawn at the new position. Any new x-coordinate will also be rounded to the nearest 8-pixel
+        boundary.</p>
 
-<h3 id="i-del-cblock">DEL CBLOCK</h3>
-<p><i>instruction: delete compacted Blocks</i><br>
-<b>Del Cblock</b><br>
-<b>Del Cblock</b> number</p>
+    <h3 id="i-del-cblock">DEL CBLOCK</h3>
+    <p><i>instruction: delete compacted Blocks</i><br>
+        <b>Del Cblock</b><br>
+        <b>Del Cblock</b> number</p>
 
-<p>
-The DEL CBLOCK instruction erases all compacted Blocks from memory, unless an individual
-Block number is specified, in which case only that Block will be erased.</p>
+    <p>
+        The DEL CBLOCK instruction erases all compacted Blocks from memory, unless an individual
+        Block number is specified, in which case only that Block will be erased.</p>
 
 
 </section>

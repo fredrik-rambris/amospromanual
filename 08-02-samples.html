@@ -1,84 +1,83 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - samples</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - samples</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Samples</h1>
+    <h1>Samples</h1>
 
 
+    <p>
+        This Chapter explains how to make use of sampled sound to enhance your programs. For users
+        restricted to the Amiga's internal floppy drive, AMOS Professional allows a range of superb
+        "live" sound effects and musical tones to be called up. If you have access to a hard drive or CD-
+        ROM, the AMOS Professional Double Buffered Sampling system offers full exploitation of
+        sampled sound. There is even a built-in "recording studio" ready to be used, and you can enjoy
+        the facilities of this Sample Bank Maker accessory, which is featured in <a href="13/1342.html">Chapter 13.6</a> of this User
+        Guide.</p>
 
-<p>
-This Chapter explains how to make use of sampled sound to enhance your programs. For users
-restricted to the Amiga's internal floppy drive, AMOS Professional allows a range of superb
-"live" sound effects and musical tones to be called up. If you have access to a hard drive or CD-
-ROM, the AMOS Professional Double Buffered Sampling system offers full exploitation of
-sampled sound. There is even a built-in "recording studio" ready to be used, and you can enjoy
-the facilities of this Sample Bank Maker accessory, which is featured in <a href="13/1342.html">Chapter 13.6</a> of this User
-Guide.</p>
-
-<p>
-Modern computers are able to store sound frequencies in the form of digits. Your Amiga is a
-digital sound synthesizer, and AMOS Professional is ready, willing and able to harness its
-power. There are many digital sound samplers on the market, ready to be plugged into your
-computer for grabbing sound samples off CD, cassette, radio and microphone. Unfortunately
-there are two restrictions in enjoying these sources for digital sound. Firstly, sampler cartridges
-are rather expensive, and secondly, stealing other people's audio creations is illegal! Luckily,
-there are thousands of public domain sound effects and musical instrument samples that AMOS
-Professional can import and transform for your own purposes, perfectly and legally. AMOS
-Professional sound samples are held in their own memory banks, and bank number 5 is usually
-held as the default sample bank.</p>
+    <p>
+        Modern computers are able to store sound frequencies in the form of digits. Your Amiga is a
+        digital sound synthesizer, and AMOS Professional is ready, willing and able to harness its
+        power. There are many digital sound samplers on the market, ready to be plugged into your
+        computer for grabbing sound samples off CD, cassette, radio and microphone. Unfortunately
+        there are two restrictions in enjoying these sources for digital sound. Firstly, sampler cartridges
+        are rather expensive, and secondly, stealing other people's audio creations is illegal! Luckily,
+        there are thousands of public domain sound effects and musical instrument samples that AMOS
+        Professional can import and transform for your own purposes, perfectly and legally. AMOS
+        Professional sound samples are held in their own memory banks, and bank number 5 is usually
+        held as the default sample bank.</p>
 </section>
 
 <section id="01-playing-a-sound-sample">
-<h2>Playing a sound sample</h2>
+    <h2>Playing a sound sample</h2>
 
-<i>instruction: play a sound sample from the sample bank</i><br>
-<b>Sam Play</b> sample number<br>
-<b>Sam Play</b> voice,sample number<br>
-<b>Sam Play</b> voice,sample number, frequency</p>
+    <i>instruction: play a sound sample from the sample bank</i><br>
+    <b>Sam Play</b> sample number<br>
+    <b>Sam Play</b> voice,sample number<br>
+    <b>Sam Play</b> voice,sample number, frequency</p>
 
-<p>
-The SAM PLAY command is used to play a digital sound sample through your audio system.
-Simply define the number of the required sample held in the bank. There is no limit to the
-number of samples that can be stored, other than available memory.</p>
+    <p>
+        The SAM PLAY command is used to play a digital sound sample through your audio system.
+        Simply define the number of the required sample held in the bank. There is no limit to the
+        number of samples that can be stored, other than available memory.</p>
 
-<p>
-There are two optional parameters that can also be given. A voice parameter can be placed
-immediately after the SAM PLAY command, in front of the sample number. This is a bitmap
-containing a list of the voices the sample will use. There is one bit for each of the four available
-voices, and to play a voice the relevant bit should be set to 1, as explained in the last Chapter.
-The other parameter can be given after the sample number, and this governs the frequency of
-the sound. The frequency parameter sets the speed at which the sample will be played back, and
-the setting is given in Hertz. This is a professional standard of measurement, but as a rule of
-thumb, a rate of 4000 is acceptable for simple sound effects, with 10000 for recognisable speech.
-By changing this playback rate, the sample pitch can be adjusted over a very wide range,
-allowing a single sample to generate many different sounds.</p>
+    <p>
+        There are two optional parameters that can also be given. A voice parameter can be placed
+        immediately after the SAM PLAY command, in front of the sample number. This is a bitmap
+        containing a list of the voices the sample will use. There is one bit for each of the four available
+        voices, and to play a voice the relevant bit should be set to 1, as explained in the last Chapter.
+        The other parameter can be given after the sample number, and this governs the frequency of
+        the sound. The frequency parameter sets the speed at which the sample will be played back, and
+        the setting is given in Hertz. This is a professional standard of measurement, but as a rule of
+        thumb, a rate of 4000 is acceptable for simple sound effects, with 10000 for recognisable speech.
+        By changing this playback rate, the sample pitch can be adjusted over a very wide range,
+        allowing a single sample to generate many different sounds.</p>
 
 
-<p>
-The following example loads up a bank of ready-made samples stored on your
-"AMOSPro Examples" disc, and allows you to play them in random order:</p>
+    <p>
+        The following example loads up a bank of ready-made samples stored on your
+        "AMOSPro Examples" disc, and allows you to play them in random order:</p>
 
-<pre>
+    <pre>
 E> Load "AMOSPro_Examples:Samples/Mixture.Abk",5
    Sam Bank 5
    Curs Off : Cls 0: Paper 0
@@ -93,12 +92,12 @@ E> Load "AMOSPro_Examples:Samples/Mixture.Abk",5
    Loop
 </pre>
 
-<p>
-You can try playing the keys rapidly, like a miniature drum kit, as well as holding down the
-keys to get some hammer-drill effects! The next example demonstrates the use of two voices for
-a simple echo effect, and how frequency changes can alter the sample:</p>
+    <p>
+        You can try playing the keys rapidly, like a miniature drum kit, as well as holding down the
+        keys to get some hammer-drill effects! The next example demonstrates the use of two voices for
+        a simple echo effect, and how frequency changes can alter the sample:</p>
 
-<pre>
+    <pre>
 E> Load "AMOSPro_Examples:Samples/Mixture.Abk",10
    Sam Bank 10
    Sam Play 1,12 : Wait 5: Sam Play 2,12: Rem Simple echo effect
@@ -108,48 +107,48 @@ E> Load "AMOSPro_Examples:Samples/Mixture.Abk",10
    Sam Play 1,13,5000: Rem Higher Pitch
 </pre>
 
-<h3 id="i-sam-stop">SAM STOP</h3>
-<p><i>instruction: stop one or more samples playing</i><br>
-<b>Sam Stop</b><br>
-<b>Sam Stop</b> voices</p>
+    <h3 id="i-sam-stop">SAM STOP</h3>
+    <p><i>instruction: stop one or more samples playing</i><br>
+        <b>Sam Stop</b><br>
+        <b>Sam Stop</b> voices</p>
 
-<p>
-This simple command is used to stop all samples playing through your loudspeaker system. If it
-is followed by an optional voice parameter, only the selected voices will be switched off. Voices
-are chosen using a binary bit-map, where any bit that is assigned to 1 will have the associated
-voice terminated. Otherwise it will be ignored. The voices are associated with the following bits:</p>
+    <p>
+        This simple command is used to stop all samples playing through your loudspeaker system. If it
+        is followed by an optional voice parameter, only the selected voices will be switched off. Voices
+        are chosen using a binary bit-map, where any bit that is assigned to 1 will have the associated
+        voice terminated. Otherwise it will be ignored. The voices are associated with the following bits:</p>
 
-<pre>
+    <pre>
 Voice 3210
 Bitmap %1111
 </pre>
 
-<p>For example, the next line would stop samples playing on voices 3 and 1:</p>
+    <p>For example, the next line would stop samples playing on voices 3 and 1:</p>
 
-<pre>
+    <pre>
 X> Sam Stop %1010
 </pre>
 
 </section>
 
 <section id="02-changing-a-sample-bank">
-<h2>Changing a sample bank</h2>
-<p>
-Digital sound samples are normally stored in memory bank 5, but there are no restrictions on
-assigning other banks to hold samples.</p>
+    <h2>Changing a sample bank</h2>
+    <p>
+        Digital sound samples are normally stored in memory bank 5, but there are no restrictions on
+        assigning other banks to hold samples.</p>
 
-<h3 id="i-sam-bank">SAM BANK</h3>
-<p><i>instruction: change the current sample bank</i><br>
-<b>Sam Bank</b> bank number</p>
+    <h3 id="i-sam-bank">SAM BANK</h3>
+    <p><i>instruction: change the current sample bank</i><br>
+        <b>Sam Bank</b> bank number</p>
 
-<p>
-The SAM BANK instruction dictates that all future SAM PLAY commands will take samples
-from the newly specified memory bank. If several parallel banks are set up, AMOS Professional
-can swap between them with a simple call to the SAM BANK command. To hear all of the
-samples used in one of the AMOS Professional example games, load the following file and listen
-to what is stored in the memory bank, using this routine:</p>
+    <p>
+        The SAM BANK instruction dictates that all future SAM PLAY commands will take samples
+        from the newly specified memory bank. If several parallel banks are set up, AMOS Professional
+        can swap between them with a simple call to the SAM BANK command. To hear all of the
+        samples used in one of the AMOS Professional example games, load the following file and listen
+        to what is stored in the memory bank, using this routine:</p>
 
-<pre>
+    <pre>
 E> Load "AMOSPro_Productivity:Wonderland/Wonderland Samples.Abk"
    Sam Bank 6
    For A=1 To 5
@@ -163,29 +162,29 @@ E> Load "AMOSPro_Productivity:Wonderland/Wonderland Samples.Abk"
 </section>
 
 <section id="03-playing-a-sample-from-memory">
-<h2>Playing a sample from memory</h2>
-<p>
-Samples do not have to be held in a special bank. In fact, a "raw" sound sample can be stored
-anywhere in the computer's memory using BLOAD, and then played with the following
-command:</p>
+    <h2>Playing a sample from memory</h2>
+    <p>
+        Samples do not have to be held in a special bank. In fact, a "raw" sound sample can be stored
+        anywhere in the computer's memory using BLOAD, and then played with the following
+        command:</p>
 
-<h3 id="i-sam-raw">SAM RAW</h3>
-<p><i>instruction: play a raw sample from memory</i><br>
-<b>Sam Raw</b> voice,address,length,frequency</p>
+    <h3 id="i-sam-raw">SAM RAW</h3>
+    <p><i>instruction: play a raw sample from memory</i><br>
+        <b>Sam Raw</b> voice,address,length,frequency</p>
 
-<p>
-SAM RAW plays a raw sample, and can be used to scan through any program or sound library
-discs, searching for a sample that matches the given parameters.</p>
+    <p>
+        SAM RAW plays a raw sample, and can be used to scan through any program or sound library
+        discs, searching for a sample that matches the given parameters.</p>
 
-<p>
-The voice parameter has already been explained. Address refers to the location address of the
-sound sample, which is normally inside an AMOS Professional memory bank, but can be
-anywhere. The length parameter confirms the length in bytes of the sample to be played.
-Finally, frequency dictates the playback speed of the original sample, given in Hertz.</p>
+    <p>
+        The voice parameter has already been explained. Address refers to the location address of the
+        sound sample, which is normally inside an AMOS Professional memory bank, but can be
+        anywhere. The length parameter confirms the length in bytes of the sample to be played.
+        Finally, frequency dictates the playback speed of the original sample, given in Hertz.</p>
 
-<p>A typical raw sample command looks like this:</p>
+    <p>A typical raw sample command looks like this:</p>
 
-<pre>
+    <pre>
 E> Reserve as work 10,21480
    R$="AMOSPro_Examples:Samples/Mixture.Abk"
    Bload R$,Start(10)
@@ -193,193 +192,196 @@ E> Reserve as work 10,21480
 </pre>
 
 
-<p><b>SAM LOOP ON</b><br>
-<b>SAM LOOP OFF</b><br>
-<i>instructions: toggle repetition of a sample</i><br>
-<b>Sam Loop On</b><br>
-<b>Sam Loop Off</b></p>
+    <p><b>SAM LOOP ON</b><br>
+        <b>SAM LOOP OFF</b><br>
+        <i>instructions: toggle repetition of a sample</i><br>
+        <b>Sam Loop On</b><br>
+        <b>Sam Loop Off</b></p>
 
-<p>
-There are many instances where a single sample needs to be repeated over and over again. SAM
-LOOP ON ensures that all sound samples which follow this instruction will be looped
-continuously. To turn off the looping facility, simply call the SAM LOOP OFF command. Add a
-SAM LOOP ON instruction to the last example, before the SAM RAW command, and hear the
-result.</p>
+    <p>
+        There are many instances where a single sample needs to be repeated over and over again. SAM
+        LOOP ON ensures that all sound samples which follow this instruction will be looped
+        continuously. To turn off the looping facility, simply call the SAM LOOP OFF command. Add a
+        SAM LOOP ON instruction to the last example, before the SAM RAW command, and hear the
+        result.</p>
 </section>
 
 <section id="04-double-buffered-sampling">
-<h2>Double buffered sampling</h2>
-<p>
-Samples are ideal for generating realistic sound effects directly from AMOS Professional
-programs. However, as the samples get longer, their memory requirements become prohibitive!
-If sound samples are used sparingly, several seconds of perfect audio effects can be conjured up
-by an unexpanded Amiga. Unfortunately, continuous soundtracks would seem like an
-impossibility, with one minute of digital sound consuming almost a megabyte of data!</p>
+    <h2>Double buffered sampling</h2>
+    <p>
+        Samples are ideal for generating realistic sound effects directly from AMOS Professional
+        programs. However, as the samples get longer, their memory requirements become prohibitive!
+        If sound samples are used sparingly, several seconds of perfect audio effects can be conjured up
+        by an unexpanded Amiga. Unfortunately, continuous soundtracks would seem like an
+        impossibility, with one minute of digital sound consuming almost a megabyte of data!</p>
 
-<p>
-Owners of the basic Amiga machine will be forced to use most memory for routines and screens,
-but AMOS Professional can offer hard drive users an alternative sampling technique, allowing
-the entire disc to be treated as "virtual" memory. This means that instead of loading an entire
-sound sample as a single block, it can be played a section at a time directly from disc. The only
-limitation to the size of such samples is the amount of free space in the storage facility.</p>
+    <p>
+        Owners of the basic Amiga machine will be forced to use most memory for routines and screens,
+        but AMOS Professional can offer hard drive users an alternative sampling technique, allowing
+        the entire disc to be treated as "virtual" memory. This means that instead of loading an entire
+        sound sample as a single block, it can be played a section at a time directly from disc. The only
+        limitation to the size of such samples is the amount of free space in the storage facility.</p>
 
-<p>
-The principle of Double Buffered Sampling is very similar to the display system employed by
-the screen Double Buffer. It works by storing two sample banks in memory, the physical and
-the logical sample banks.</p>
+    <p>
+        The principle of Double Buffered Sampling is very similar to the display system employed by
+        the screen Double Buffer. It works by storing two sample banks in memory, the physical and
+        the logical sample banks.</p>
 
-<p>
-The physical bank holds the sample which is currently being played through your loudspeakers,
-and the logical bank contains the sample that is being loaded from disc.</p>
+    <p>
+        The physical bank holds the sample which is currently being played through your loudspeakers,
+        and the logical bank contains the sample that is being loaded from disc.</p>
 
-<p>
-At the beginning of a program, the physical and logical banks are loaded with the first two
-blocks of sample data. The physical sample can then be played with a SAM RAW command, and
-whenever the physical bank runs out of information, the banks are swapped over to create a
-seamless audio signal. The logical bank now becomes the physical bank, and vice versa.</p>
+    <p>
+        At the beginning of a program, the physical and logical banks are loaded with the first two
+        blocks of sample data. The physical sample can then be played with a SAM RAW command, and
+        whenever the physical bank runs out of information, the banks are swapped over to create a
+        seamless audio signal. The logical bank now becomes the physical bank, and vice versa.</p>
 
-<p>
-AMOS Professional provides three powerful commands used to control this process directly.
-SAM SWAP activates double buffered sampling, SLOAD loads a specific section of the sample
-file in memory, and the SAM SWAPPED function checks for the need to load a new block of
-sample data.</p>
+    <p>
+        AMOS Professional provides three powerful commands used to control this process directly.
+        SAM SWAP activates double buffered sampling, SLOAD loads a specific section of the sample
+        file in memory, and the SAM SWAPPED function checks for the need to load a new block of
+        sample data.</p>
 
-<p>Here is the procedure for using double buffered sampling:</p>
+    <p>Here is the procedure for using double buffered sampling:</p>
 
-<ul>
-  <li>Reserve two memory banks in CHIP Ram, to hold the logical and physical samples. The size of
-      these banks will depend on the playback frequency, and the amount of background graphics</li>
-</ul>
-
-
-<ul>
-      It is good practice to start with a small value, such as 8k, and then increase this value until the
-      resulting sound effect is perfect.
-  <li>Load the first two segments of the sample into the logical and physical memory banks, using
-      the SLOAD command.</li>
-  <li>Play the physical sample, using a SAM RAW instruction.</li>
-  <li>Activate the sample swapping process with SAM SWAP.</li>
-  <li>Continue with the main program, and simply test the status of the sample at regular intervals
-      using the SAM SWAPPED function. A value of -1 (True) will indicate the need to load the next
-      segment of sample data with SLOAD.</li>
-  <li>The swapping system is then re-initialised by SAM SWAP, and the process continues.</li>
-</ul>
-
-<h3 id="i-sload">SLOAD</h3>
-<p><i>instruction: load a section of a sample</i><br>
-<b>Sload</b> channel number <b>To</b> address,length</p>
-
-<p>
-The SLOAD instruction is an extended version of the BLOAD command, and it is designed to
-load selected parts of a file into memory, one section at a time.</p>
-
-<p>
-First give the channel number of a sample file stored on disc, which has been previously opened
-with an OPEN IN instruction. This is followed by the destination address of the data in memory.
-This will normally be the start address of an AMOS Professional memory bank. Finally, the
-length of the sample section is given, in the form of the number of bytes to be loaded into
-memory. These bytes will be loaded directly from the current position of the file pointer,
-and this pointer may be moved anywhere in the file, using the POF function. This means that
-you have complete control over the starting point of the loading operation. Obviously, if the
-requested position lies outside of the current file, an error will be reported. If the length is
-larger than the actual file, AMOS Professional will read all of the remaining bytes up to the end
-of the file.</p>
-
-<p>
-After the data has been successfully loaded, the file pointer will be moved to the next byte in the
-sample automatically.</p>
-
-<p>
-It should be apparent that the SLOAD command can be used for applications other than sample
-loading. It will work equally well with any drive, including the internal floppy drive, <b>but only</b> a
-<b>hard</b> disc, Ram-disc or <b>CD ROM</b> will be fast enough to load samples, for use with the SAM
-SWAP command! This is explained below.</p>
-
-<h3 id="i-ssave">SSAVE</h3>
-<p><i>instruction: save a data chunk anywhere into an existing file</i><br>
-<b>Ssave</b> channel number, start <b>To</b> end</p>
-
-<p>This command is the reverse of SLOAD. It allows you to save a chunk of memory data into a file
-opened with OPEN OUT or APPEND. Use the LOF, POF and EOF functions to control where
-you want to position the data within the file.</p>
+    <ul>
+        <li>Reserve two memory banks in CHIP Ram, to hold the logical and physical samples. The size of
+            these banks will depend on the playback frequency, and the amount of background graphics
+        </li>
+    </ul>
 
 
-<h3 id="i-sam-swap">SAM SWAP</h3>
-<p><i>instruction: activate sample-switching</i><br>
-<b>Sam Swap</b> voices <b>To</b> address,length</p>
+    <ul>
+        It is good practice to start with a small value, such as 8k, and then increase this value until the
+        resulting sound effect is perfect.
+        <li>Load the first two segments of the sample into the logical and physical memory banks, using
+            the SLOAD command.
+        </li>
+        <li>Play the physical sample, using a SAM RAW instruction.</li>
+        <li>Activate the sample swapping process with SAM SWAP.</li>
+        <li>Continue with the main program, and simply test the status of the sample at regular intervals
+            using the SAM SWAPPED function. A value of -1 (True) will indicate the need to load the next
+            segment of sample data with SLOAD.
+        </li>
+        <li>The swapping system is then re-initialised by SAM SWAP, and the process continues.</li>
+    </ul>
 
-<p>
-The SAM SWAP command activates the automatic sound-swapping system. It specifies the
-location and size of a <b>logical</b> sample which has been loaded previously with the SLOAD
-instruction. The sample will be played through loudspeakers the instant that the current
-<b>physical</b> sample runs out of data.</p>
+    <h3 id="i-sload">SLOAD</h3>
+    <p><i>instruction: load a section of a sample</i><br>
+        <b>Sload</b> channel number <b>To</b> address,length</p>
 
-<p>
-The voices parameter is a bit-pattern that defines which voices are to be used for playing the
-sample. Each bit in this pattern sets the swapping on a particular voice, according to the
-following format:</p>
+    <p>
+        The SLOAD instruction is an extended version of the BLOAD command, and it is designed to
+        load selected parts of a file into memory, one section at a time.</p>
 
-<pre>
+    <p>
+        First give the channel number of a sample file stored on disc, which has been previously opened
+        with an OPEN IN instruction. This is followed by the destination address of the data in memory.
+        This will normally be the start address of an AMOS Professional memory bank. Finally, the
+        length of the sample section is given, in the form of the number of bytes to be loaded into
+        memory. These bytes will be loaded directly from the current position of the file pointer,
+        and this pointer may be moved anywhere in the file, using the POF function. This means that
+        you have complete control over the starting point of the loading operation. Obviously, if the
+        requested position lies outside of the current file, an error will be reported. If the length is
+        larger than the actual file, AMOS Professional will read all of the remaining bytes up to the end
+        of the file.</p>
+
+    <p>
+        After the data has been successfully loaded, the file pointer will be moved to the next byte in the
+        sample automatically.</p>
+
+    <p>
+        It should be apparent that the SLOAD command can be used for applications other than sample
+        loading. It will work equally well with any drive, including the internal floppy drive, <b>but only</b> a
+        <b>hard</b> disc, Ram-disc or <b>CD ROM</b> will be fast enough to load samples, for use with the SAM
+        SWAP command! This is explained below.</p>
+
+    <h3 id="i-ssave">SSAVE</h3>
+    <p><i>instruction: save a data chunk anywhere into an existing file</i><br>
+        <b>Ssave</b> channel number, start <b>To</b> end</p>
+
+    <p>This command is the reverse of SLOAD. It allows you to save a chunk of memory data into a file
+        opened with OPEN OUT or APPEND. Use the LOF, POF and EOF functions to control where
+        you want to position the data within the file.</p>
+
+
+    <h3 id="i-sam-swap">SAM SWAP</h3>
+    <p><i>instruction: activate sample-switching</i><br>
+        <b>Sam Swap</b> voices <b>To</b> address,length</p>
+
+    <p>
+        The SAM SWAP command activates the automatic sound-swapping system. It specifies the
+        location and size of a <b>logical</b> sample which has been loaded previously with the SLOAD
+        instruction. The sample will be played through loudspeakers the instant that the current
+        <b>physical</b> sample runs out of data.</p>
+
+    <p>
+        The voices parameter is a bit-pattern that defines which voices are to be used for playing the
+        sample. Each bit in this pattern sets the swapping on a particular voice, according to the
+        following format:</p>
+
+    <pre>
 Voice   3210
 Bitmap %1111
 </pre>
 
-<p>
-The address parameter gives the address of the next logical sample in memory. This address
-must be in CHIP Ram. Length is simply the number of bytes to be played of the new section of
-sample.</p>
+    <p>
+        The address parameter gives the address of the next logical sample in memory. This address
+        must be in CHIP Ram. Length is simply the number of bytes to be played of the new section of
+        sample.</p>
 
-<p>
-It is essential to note that SAM SWAP only works with an existing sample. It does not actually
-play a sample through a loudspeaker. Therefore, it has to be initialised by a SAM RAW
-command before it can be used, which will start off the physical sample and set up the playback
-speed for the entire sample of sound. For example:</p>
+    <p>
+        It is essential to note that SAM SWAP only works with an existing sample. It does not actually
+        play a sample through a loudspeaker. Therefore, it has to be initialised by a SAM RAW
+        command before it can be used, which will start off the physical sample and set up the playback
+        speed for the entire sample of sound. For example:</p>
 
-<pre>
+    <pre>
 X> Sam Raw %0011,Start(5),20000,12000 : Rem 12000 is the playback speed
    Rem Swap the samples assigned to voices 0 and 1 using data in bank 6
    Sam Swap %0011,Start(6),20000 : Rem 20000 is the length of logical sample
 </pre>
 
-<h3 id="fn-sam-swapped">SAM SWAPPED</h3>
-<p><i>function: test for successful sample swap</i><br>
-value=<b>Sam Swapped</b>(voice number)</p>
+    <h3 id="fn-sam-swapped">SAM SWAPPED</h3>
+    <p><i>function: test for successful sample swap</i><br>
+        value=<b>Sam Swapped</b>(voice number)</p>
 
-<p>
-Use the SAM SWAPPED function to test the specified voice to see if the logical and physical
-samples have been exchanged by a SAM SWAP command. The voice number is a value from
-zero to 3, and if the sample is being played on a number of voices simultaneously, any of those
-voice numbers can be used.</p>
+    <p>
+        Use the SAM SWAPPED function to test the specified voice to see if the logical and physical
+        samples have been exchanged by a SAM SWAP command. The voice number is a value from
+        zero to 3, and if the sample is being played on a number of voices simultaneously, any of those
+        voice numbers can be used.</p>
 
-<p>SAM SWAPPED will make a report by giving one of the following three values:</p>
+    <p>SAM SWAPPED will make a report by giving one of the following three values:</p>
 
-<p>
-<b>-1</b> means that the previous physical sample has finished playing, and the samples have been
-successfully swapped. It is now time to load a new sample into the logical memory bank, and
-call the SAM SWAP command again. Please note that this value is also returned after a normal
-SAM RAW command has finished playing a sample.</p>
+    <p>
+        <b>-1</b> means that the previous physical sample has finished playing, and the samples have been
+        successfully swapped. It is now time to load a new sample into the logical memory bank, and
+        call the SAM SWAP command again. Please note that this value is also returned after a normal
+        SAM RAW command has finished playing a sample.</p>
 
-<p><b>Zero</b> means that the physical sample is currently being played, and there is a fresh logical</p>
+    <p><b>Zero</b> means that the physical sample is currently being played, and there is a fresh logical</p>
 
 
-<p>
-sample waiting for the automatic switching operation. In this case, there is no need to load any
-further information into memory.</p>
+    <p>
+        sample waiting for the automatic switching operation. In this case, there is no need to load any
+        further information into memory.</p>
 
-<p>
-<b>1</b> means that the sample player has run out of data, and that the sample swapping operation has
-failed. You will now need to re-initialise the sample from the beginning, using a SAM RAW
-command. If this value is repeatedly given, your logical and physical sample banks are probably
-too small. Try increasing their size to the next sensible value.</p>
+    <p>
+        <b>1</b> means that the sample player has run out of data, and that the sample swapping operation has
+        failed. You will now need to re-initialise the sample from the beginning, using a SAM RAW
+        command. If this value is repeatedly given, your logical and physical sample banks are probably
+        too small. Try increasing their size to the next sensible value.</p>
 
-<p>
-The SAM SWAPPED function should be called at regular intervals while the sample is being
-played. It can be used as part of the main program loop, or called automatically after a set
-period, using the EVERY command.</p>
+    <p>
+        The SAM SWAPPED function should be called at regular intervals while the sample is being
+        played. It can be used as part of the main program loop, or called automatically after a set
+        period, using the EVERY command.</p>
 
-<p>Here is a typical listing, that demonstrates how these commands should be used:</p>
+    <p>Here is a typical listing, that demonstrates how these commands should be used:</p>
 
-<pre>
+    <pre>
 X> Reserve As Chip Work 10,10000
    Reserve As Chip Work 11,10000
    Open In 1, "Dh0:Name_of a_big_sample"

@@ -1,54 +1,54 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - control structures</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - control structures</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Control Structures</h1>
+    <h1>Control Structures</h1>
 
-<br>
+    <br>
 
 
-<P>There is a traditional group of instructions that allow computer programs to make
-decisions. They are usually known as control structures. This Chapter explains how AMOS Professional
-takes (lie best of these traditions and uses them to give your Amiga a logical brain.</P>
+    <P>There is a traditional group of instructions that allow computer programs to make
+        decisions. They are usually known as control structures. This Chapter explains how AMOS Professional
+        takes (lie best of these traditions and uses them to give your Amiga a logical brain.</P>
 
-<h3 id="str-goto">GOTO</h3>
-<p><i>structure: jump to a specified place in the program</i><BR>
-<b>Goto</b> label<BR>
-<b>Goto</b> line number<BR>
-<b>Goto</b> expression</P>
+    <h3 id="str-goto">GOTO</h3>
+    <p><i>structure: jump to a specified place in the program</i><BR>
+        <b>Goto</b> label<BR>
+        <b>Goto</b> line number<BR>
+        <b>Goto</b> expression</P>
 
-<P>
-A computer program that can only obey a list of instructions one after the other is a
-very limited computer program indeed. One way of forcing programs to jump to specified locations is to
-use the old fashioned GOTO structure, followed by a target destination. In AMOS Professional,
-these destinations can be a label, a line number or a variable. These are explained in
-<a href="05-01-the-bare-bones.html">Chapter 5.1</a>.</P>
+    <P>
+        A computer program that can only obey a list of instructions one after the other is a
+        very limited computer program indeed. One way of forcing programs to jump to specified locations is to
+        use the old fashioned GOTO structure, followed by a target destination. In AMOS Professional,
+        these destinations can be a label, a line number or a variable. These are explained in
+        <a href="05-01-the-bare-bones.html">Chapter 5.1</a>.</P>
 
-<P>
-<b>label</b> markers can consist of names that use any string of letters or numbers, as -well
-as the underscore character "_", and they must be ended with the colon character ":" as follows:</P>
+    <P>
+        <b>label</b> markers can consist of names that use any string of letters or numbers, as -well
+        as the underscore character "_", and they must be ended with the colon character ":" as follows:</P>
 
-<pre>
+    <pre>
 E&gt; Print "Jump in two seconds" : Wait 100
    Goto LABEL_MARKER
    Wait 180000 : Rem Wait one hour
@@ -56,27 +56,27 @@ E&gt; Print "Jump in two seconds" : Wait 100
    Print "Now is the time to jump!"
 </pre>
 
-<P>
-<b>Numbers</b> may be used to identify specific lines, and the program can be commanded to
-GOTO one of these optional markers, like this:</P>
+    <P>
+        <b>Numbers</b> may be used to identify specific lines, and the program can be commanded to
+        GOTO one of these optional markers, like this:</P>
 
-<pre>
+    <pre>
 E&gt; Goto 5
    Print "I am being ignored"
    5 Print "I am line 5"
 </pre>
 
-<P>
-It should be obvious that these identification numbers have nothing to do with the
-number of lines in a program, but they may still lead to confusion. Labels are much easier to
-remember and to locate.</P>
+    <P>
+        It should be obvious that these identification numbers have nothing to do with the
+        number of lines in a program, but they may still lead to confusion. Labels are much easier to
+        remember and to locate.</P>
 
-<P>
-<b>Expressions</b> can also be used for this purpose, and the expression may be any string or
-integer. Strings hold the name of a label, and integers return a line identification number. Here
-is an example:</P>
+    <P>
+        <b>Expressions</b> can also be used for this purpose, and the expression may be any string or
+        integer. Strings hold the name of a label, and integers return a line identification number. Here
+        is an example:</P>
 
-<pre>
+    <pre>
 E&gt; BEGIN:
    Goto "BED"+"2"
    End
@@ -88,40 +88,40 @@ E&gt; BEGIN:
    Goto BEGIN
 </pre>
 
-<h3 id="str-gosub">GOSUB</h3>
-<p><i>structure: jump to a sub-routine</i><BR>
-<b>Gosub</b> label<BR>
-<b>Gosub</b> number<BR>
-<b>Gosub</b> expression</P>
+    <h3 id="str-gosub">GOSUB</h3>
+    <p><i>structure: jump to a sub-routine</i><BR>
+        <b>Gosub</b> label<BR>
+        <b>Gosub</b> number<BR>
+        <b>Gosub</b> expression</P>
 
-<P>
-Packages of program instructions that perform a specific task can be thought of as
-"routines". When such routines are split into smaller packages of instructions, they can be thought of
-as "sub-routines". GOSUB is another antiquated command, and is used to perform a jump to a
-sub-routine. In fact, GOSUB is made redundant by the AMOS Professional procedure system, but
-it can be useful for STOS users who want to convert programs.</P>
+    <P>
+        Packages of program instructions that perform a specific task can be thought of as
+        "routines". When such routines are split into smaller packages of instructions, they can be thought of
+        as "sub-routines". GOSUB is another antiquated command, and is used to perform a jump to a
+        sub-routine. In fact, GOSUB is made redundant by the AMOS Professional procedure system, but
+        it can be useful for STOS users who want to convert programs.</P>
 
-<P>As with GOTO, there are three alternative targets for a GOSUB instruction: labels, line
-numbers or expressions.</P>
+    <P>As with GOTO, there are three alternative targets for a GOSUB instruction: labels, line
+        numbers or expressions.</P>
 
-<P>
-To make sub-routines easier to spot in your program listings, it is good practice to
-place them at the end of the main program. A statement such as EDIT or DIRECT should also be used to end
-the main program, which prevents AMOS Professional from executing any GOSUBs after the
-main program has finished.</P>
+    <P>
+        To make sub-routines easier to spot in your program listings, it is good practice to
+        place them at the end of the main program. A statement such as EDIT or DIRECT should also be used to end
+        the main program, which prevents AMOS Professional from executing any GOSUBs after the
+        main program has finished.</P>
 
-<h3 id="i-return">RETURN</h3>
-<p><i>instruction: return from a sub-routine called by GOSUB</i><BR>
-<b>Return</b></P>
+    <h3 id="i-return">RETURN</h3>
+    <p><i>instruction: return from a sub-routine called by GOSUB</i><BR>
+        <b>Return</b></P>
 
-<P>
-When a program obeys a GOSUB instruction, it must be instructed to RETURN to the main
-program after the sub-routine has been executed. It should be noted that a single GOSUB
-statement can be linked to several RETURN commands, allowing exits from any number of
-different points in the routine, depending on the circumstances. After the RETURN, a jump
-is made back to the instruction immediately after the original GOSUB. For example:</P>
+    <P>
+        When a program obeys a GOSUB instruction, it must be instructed to RETURN to the main
+        program after the sub-routine has been executed. It should be noted that a single GOSUB
+        statement can be linked to several RETURN commands, allowing exits from any number of
+        different points in the routine, depending on the circumstances. After the RETURN, a jump
+        is made back to the instruction immediately after the original GOSUB. For example:</P>
 
-<pre>
+    <pre>
 E&gt; Print "I am the main program"
    For N=1 To 3
     Gosub TEST
@@ -133,20 +133,20 @@ E&gt; Print "I am the main program"
    Return
 </pre>
 
-<h3 id="i-pop">POP</h3>
-<p><i>instruction: remove RETURN information</i><BR>
-<b>Pop</b></P>
+    <h3 id="i-pop">POP</h3>
+    <p><i>instruction: remove RETURN information</i><BR>
+        <b>Pop</b></P>
 
-<P>Normally you cannot exit from a GOSUB statement using a standard GOTO, and this may be
-inconvenient. For example, there could be an error that makes it unacceptable to return to
-the</P>
+    <P>Normally you cannot exit from a GOSUB statement using a standard GOTO, and this may be
+        inconvenient. For example, there could be an error that makes it unacceptable to return to
+        the</P>
 
-<P>
-program exactly where you left it. In such circumstances, the POP command can be used to
-remove the return address generated by a GOSUB, allowing you to leave the sub-routine
-without the final RETURN statement being executed. For example:</P>
+    <P>
+        program exactly where you left it. In such circumstances, the POP command can be used to
+        remove the return address generated by a GOSUB, allowing you to leave the sub-routine
+        without the final RETURN statement being executed. For example:</P>
 
-<pre>
+    <pre>
 E&gt; Do
     Gosub THERE
    Loop
@@ -161,24 +161,24 @@ E&gt; Do
 </section>
 
 <section id="01-decision-making">
-<h2>Decision making</h2>
+    <h2>Decision making</h2>
 
-<p>The command words used in the decision making process have very similar meanings in
-AMOS Professional as they do in normal English.</P>
+    <p>The command words used in the decision making process have very similar meanings in
+        AMOS Professional as they do in normal English.</P>
 
-<P>
-<b>IF</b><BR>
-<b>THEN</b><BR>
-<i>structure: choose between alternative actions</i><BR>
-<b>If</b> conditions <b>Then</b> statements</P>
+    <P>
+        <b>IF</b><BR>
+        <b>THEN</b><BR>
+        <i>structure: choose between alternative actions</i><BR>
+        <b>If</b> conditions <b>Then</b> statements</P>
 
-<P>
-The IF ... THEN structure allows simple decisions to be made within a program, so IF a condition
-is true THEN the computer decides to take a particular course of action. If the condition
-is not
-true, the machine does something else. For example:</P>
+    <P>
+        The IF ... THEN structure allows simple decisions to be made within a program, so IF a condition
+        is true THEN the computer decides to take a particular course of action. If the condition
+        is not
+        true, the machine does something else. For example:</P>
 
-<pre>
+    <pre>
 E&gt; NIGHT=12
    DAY=12
    Print "What time is it now?" : Wait 150
@@ -190,77 +190,77 @@ E&gt; NIGHT=12
    WATCHMAKER:
 </pre>
 
-<P>
-<b>AND</b><BR>
-<b>OR</b><BR>
-<i>structures: qualify a condition</i><BR>
-<b>If</b> condition <b>And</b> condition <b>Then</b> statement<BR>
-<b>If</b> condition <b>Or</b> condition <b>Then</b> statement</P>
+    <P>
+        <b>AND</b><BR>
+        <b>OR</b><BR>
+        <i>structures: qualify a condition</i><BR>
+        <b>If</b> condition <b>And</b> condition <b>Then</b> statement<BR>
+        <b>If</b> condition <b>Or</b> condition <b>Then</b> statement</P>
 
-<P>
-The list of condition; in an IF ... THEN structure can be any list of tests, including AND
-and OR. Try changing the conditions of the last example with either of the following lines:</P>
+    <P>
+        The list of condition; in an IF ... THEN structure can be any list of tests, including AND
+        and OR. Try changing the conditions of the last example with either of the following lines:</P>
 
-<pre>
+    <pre>
 E&gt; If NIGHT=DAY And NIGHT&lt;&gt;12 Then Goto BED
 E&gt; If NIGHT&lt;DAY Or NIGHT=12 Then Edit
 </pre>
 
-<h3 id="str-else">ELSE</h3>
-<p><i>structure: qualify a condition</i><BR>
-<b>If</b> condition <b>Then</b> statement1 <b>Else</b> statement2</P>
+    <h3 id="str-else">ELSE</h3>
+    <p><i>structure: qualify a condition</i><BR>
+        <b>If</b> condition <b>Then</b> statement1 <b>Else</b> statement2</P>
 
-<P>ELSE is also understood when making decisions, as to what action should be taken,
-depending on conditions. So the last example could be changed to something like this:</P>
+    <P>ELSE is also understood when making decisions, as to what action should be taken,
+        depending on conditions. So the last example could be changed to something like this:</P>
 
-<pre>
+    <pre>
 E&gt; If NIGHT+1=DAY Then Goto BED Else Shoot
 </pre>
 
-<P>
-The alternative choice of statements in this sort of structure must be a list of one or
-more AMOS Professional instructions. Also remember to include a separate GOTO command if you want to
-jump to a label or a numbered line, otherwise the label will be treated as a procedure
-name and it could possibly generate an error. For example:</P>
+    <P>
+        The alternative choice of statements in this sort of structure must be a list of one or
+        more AMOS Professional instructions. Also remember to include a separate GOTO command if you want to
+        jump to a label or a numbered line, otherwise the label will be treated as a procedure
+        name and it could possibly generate an error. For example:</P>
 
-<pre>
+    <pre>
 X&gt; If NIGHT=1 Then Goto BED: Rem This is perfect
 X&gt; If NIGHT=1 Then BED: Rem This looks for a BED procedure
 </pre>
 
-<P>
-An IF ... THEN statement is limited to a single line, of a listing, which is not very
-satisfactory to an AMOS Professional programmer. This technique has been superseded by a "structured test",
-where IF is used to trigger off a whole range of instructions, depending on the outcome of
-a single decision.</P>
+    <P>
+        An IF ... THEN statement is limited to a single line, of a listing, which is not very
+        satisfactory to an AMOS Professional programmer. This technique has been superseded by a "structured test",
+        where IF is used to trigger off a whole range of instructions, depending on the outcome of
+        a single decision.</P>
 </section>
 
 <section id="02-structured-tests">
-<h2>Structured tests</h2>
+    <h2>Structured tests</h2>
 
-<h3 id="str-end-if">END IF</h3>
-<p><i>structure: terminate a structured test</i><BR>
-<b>If</b> structured test <b>End If</b></P>
+    <h3 id="str-end-if">END IF</h3>
+    <p><i>structure: terminate a structured test</i><BR>
+        <b>If</b> structured test <b>End If</b></P>
 
-<P>
-In a structured test, each test is set up with an IF and ended with a matching END IF,
-but under no circumstances can a THEN be used anywhere inside such a test! The statements in a
-structured test are separated by colons on any particular line, as usual, but can extend
-over any number of lines in your listing, as required. Look at this old fashioned schematic line:</P>
+    <P>
+        In a structured test, each test is set up with an IF and ended with a matching END IF,
+        but under no circumstances can a THEN be used anywhere inside such a test! The statements in a
+        structured test are separated by colons on any particular line, as usual, but can extend
+        over any number of lines in your listing, as required. Look at this old fashioned schematic line:</P>
 
-<pre>
+    <pre>
 X&gt; If condition=true Then Goto Label1 Else Label2
 </pre>
 
-<P>This may now be replaced by the alternative structured test format:</P>
+    <P>This may now be replaced by the alternative structured test format:</P>
 
-<pre>
+    <pre>
 X&gt; If condition=true : Goto Label1 : Else Goto Label2 : End If
 </pre>
 
-<P>Here is a working example:</P>
+    <P>Here is a working example:</P>
 
-<pre>
+    <pre>
 E&gt; Input "Type values A,B and C: ";A,B,C
    If A=B
       Print "A equals B";
@@ -272,20 +272,20 @@ E&gt; Input "Type values A,B and C: ";A,B,C
    End If
 </pre>
 
-<P>Note how each IF statement must be paired with a single END IF to inform AMOS
-Professional exactly which group of instructions is to be executed inside the test.</P>
+    <P>Note how each IF statement must be paired with a single END IF to inform AMOS
+        Professional exactly which group of instructions is to be executed inside the test.</P>
 
-<h3 id="str-else-if">ELSE IF</h3>
-<p><i>structure: allow multiple structured tests</i><BR>
-<b>If</b> condition <b>Else If</b> multiple conditions ... <b>Else</b> statement <b>End If</b></P>
+    <h3 id="str-else-if">ELSE IF</h3>
+    <p><i>structure: allow multiple structured tests</i><BR>
+        <b>If</b> condition <b>Else If</b> multiple conditions ... <b>Else</b> statement <b>End If</b></P>
 
-<P>
-This allows multiple tests to be performed. ELSE IF must be used within a normal IF ...
-END IF statement, and the only rule to remember is that there must be one ELSE just before the
-END IF. This sort of test waits for an expression, and if the expression is True, then what comes
-after it is executed. Here is an example:</P>
+    <P>
+        This allows multiple tests to be performed. ELSE IF must be used within a normal IF ...
+        END IF statement, and the only rule to remember is that there must be one ELSE just before the
+        END IF. This sort of test waits for an expression, and if the expression is True, then what comes
+        after it is executed. Here is an example:</P>
 
-<pre>
+    <pre>
 X&gt; If A=1
       Print "A=1"
    Else If A=2
@@ -297,16 +297,16 @@ X&gt; If A=1
    End If
 </pre>
 
-<P>If necessary, an entire test can be placed in a single line, as follows:</P>
-<pre>
+    <P>If necessary, an entire test can be placed in a single line, as follows:</P>
+    <pre>
 X&gt; If A=1 : Print "A=1" : Else If A=2 : Print "A=2" : Else : Print "Something Else" : End If<BR>
 </pre>
 
-<P>
-When taking logical decisions, your Amiga understands the following character symbols, which
-are used as a form of short-hand:</P>
+    <P>
+        When taking logical decisions, your Amiga understands the following character symbols, which
+        are used as a form of short-hand:</P>
 
-<PRE>
+    <PRE>
 <b>Symbol  Meaning</b>
 =       equal to
 &lt;&gt;      not equal to
@@ -316,94 +316,94 @@ are used as a form of short-hand:</P>
 &lt;=      less than or equal to
 </PRE>
 
-<P>There are also three functions that can be called during the decision making process.</P>
+    <P>There are also three functions that can be called during the decision making process.</P>
 
-<P>
-<b>TRUE</b><BR>
-<b>FALSE</b><BR>
-<i>functions: hold value of -1 (True) and zero (False)</i><BR>
-value=<b>True</b><BR>
-value=<b>False</b></P>
+    <P>
+        <b>TRUE</b><BR>
+        <b>FALSE</b><BR>
+        <i>functions: hold value of -1 (True) and zero (False)</i><BR>
+        value=<b>True</b><BR>
+        value=<b>False</b></P>
 
-<P>
-In all the conditional operations such as IF ... THEN and REPEAT ... UNTIL, the value
-of -1 is used to represent TRUE, and the value of 0 is used to represent FALSE. A value of either
--1 (True) or 0 (False) is produced every time a test is made to satisfy a condition.</P>
+    <P>
+        In all the conditional operations such as IF ... THEN and REPEAT ... UNTIL, the value
+        of -1 is used to represent TRUE, and the value of 0 is used to represent FALSE. A value of either
+        -1 (True) or 0 (False) is produced every time a test is made to satisfy a condition.</P>
 
-<h3 id="str-not">NOT</h3>
-<p><i>structure: toggle binary digits</i><BR>
-value=<b>Not</b> digits</P>
+    <h3 id="str-not">NOT</h3>
+    <p><i>structure: toggle binary digits</i><BR>
+        value=<b>Not</b> digits</P>
 
-<P>NOT is used to swap over every digit in a binary number from a 0 to a 1, and vice
-versa. For example:</P>
+    <P>NOT is used to swap over every digit in a binary number from a 0 to a 1, and vice
+        versa. For example:</P>
 
-<pre>
+    <pre>
 E&gt; Print Bin$(Not%11110000,8)
 </pre>
 
-<P>Since -1 (True) can be expressed in binary as %1111111111111111, then NOT TRUE must be
-equal to FALSE, and a logical NOT operation is achieved.</P>
+    <P>Since -1 (True) can be expressed in binary as %1111111111111111, then NOT TRUE must be
+        equal to FALSE, and a logical NOT operation is achieved.</P>
 
-<h3 id="str-swap">SWAP</h3>
-<p><i>structure: swap the contents of two variables</i><BR>
-<b>Swap</b> a,b<BR>
-<b>Swap</b> a#,b#<BR>
-<b>Swap</b> a$,b$</P>
+    <h3 id="str-swap">SWAP</h3>
+    <p><i>structure: swap the contents of two variables</i><BR>
+        <b>Swap</b> a,b<BR>
+        <b>Swap</b> a#,b#<BR>
+        <b>Swap</b> a$,b$</P>
 
-<P>Use the SWAP command to swap over the data between any two variables of the same type.
-For example:</P>
+    <P>Use the SWAP command to swap over the data between any two variables of the same type.
+        For example:</P>
 
-<pre>
+    <pre>
 E&gt; A=10 : B=99: Print A,B
    Swap A,B : Print A,B
 </pre>
 </section>
 
 <section id="03-using-loops">
-<h2>Using loops</h2>
+    <h2>Using loops</h2>
 
-<p>To write a separate routine for dozens of logical choices, and to end up with dozens of
-END IFs is not only messy, but also extremely tedious. AMOS Professional offers all of the
-expected programming short-cuts to allow sections of code to be repeated as often as necessary.
-These repeated parts of programs are known as "loops".</P>
+    <p>To write a separate routine for dozens of logical choices, and to end up with dozens of
+        END IFs is not only messy, but also extremely tedious. AMOS Professional offers all of the
+        expected programming short-cuts to allow sections of code to be repeated as often as necessary.
+        These repeated parts of programs are known as "loops".</P>
 
-<P>
-<b>DO</b><BR>
-<b>LOOP</b><BR>
-<i>structure: keep repeating a list of statements</i><BR>
-<b>Do</b><BR>
-list of statements<BR>
-<b>Loop</b></P>
+    <P>
+        <b>DO</b><BR>
+        <b>LOOP</b><BR>
+        <i>structure: keep repeating a list of statements</i><BR>
+        <b>Do</b><BR>
+        list of statements<BR>
+        <b>Loop</b></P>
 
-<P>
-This pair of commands will loop a list of AMOS Professional statements forever, with DO
-acting as the marker position for the LOOP to return to. Both the DO and LOOP should occupy their
-own lines, as follows:</P>
+    <P>
+        This pair of commands will loop a list of AMOS Professional statements forever, with DO
+        acting as the marker position for the LOOP to return to. Both the DO and LOOP should occupy their
+        own lines, as follows:</P>
 
-<pre>
+    <pre>
 E&gt; Do
     Print "FOREVER AND": Wait 25
    Loop
 </pre>
 
-<P>
-<b>EXIT</b><br>
-<i>structure: break out of a loop</i><br>
-<b>Exit</b><br>
-<b>Exit</b> number</p>
+    <P>
+        <b>EXIT</b><br>
+        <i>structure: break out of a loop</i><br>
+        <b>Exit</b><br>
+        <b>Exit</b> number</p>
 
-<P>
-EXIT forces the program to leave a loop immediately, and it can be used to escape from
-all the types of loop employed in AMOS Professional, such as FOR ... NEXT, REPEAT ... UNTIL,
-WHILE ... WEND and DO ... LOOP. Any number of loops may be nested inside of one another,
-and when used on its own, EXIT will short-circuit the innermost loop only. By including an
-optional number after EXIT, that number of nested loops will be taken into account before
-the EXIT is made, and the program will jump directly to the instruction immediately after the
-relevant loop.</P>
+    <P>
+        EXIT forces the program to leave a loop immediately, and it can be used to escape from
+        all the types of loop employed in AMOS Professional, such as FOR ... NEXT, REPEAT ... UNTIL,
+        WHILE ... WEND and DO ... LOOP. Any number of loops may be nested inside of one another,
+        and when used on its own, EXIT will short-circuit the innermost loop only. By including an
+        optional number after EXIT, that number of nested loops will be taken into account before
+        the EXIT is made, and the program will jump directly to the instruction immediately after the
+        relevant loop.</P>
 
-<P>For example:</P>
+    <P>For example:</P>
 
-<pre>
+    <pre>
 E&gt; Do
     Do
      Input "Type in a number";X
@@ -416,24 +416,24 @@ E&gt; Do
    Print "And I am outside both loops!"
 </pre>
 
-<h3 id="str-exit-if">EXIT IF</h3>
-<p><i>structure: exit from a loop depending on a test</i><BR>
-<b>Exit If</b> expression<BR>
-<b>Exit If</b> expression,number</P>
+    <h3 id="str-exit-if">EXIT IF</h3>
+    <p><i>structure: exit from a loop depending on a test</i><BR>
+        <b>Exit If</b> expression<BR>
+        <b>Exit If</b> expression,number</P>
 
 
-<P>
-It is often necessary to leave a loop as a result of a specific set of conditions, and
-this can be simplified by using the EXIT IF instruction. As explained above, in conditional operations,
- the value -1 represents True, whereas a zero represents False. After using EXIT IF, an
-expression is given which consists of one or more tests in standard AMOS Professional format. The EXIT
-will only be performed IF the result is found to be -1 (True).</P>
+    <P>
+        It is often necessary to leave a loop as a result of a specific set of conditions, and
+        this can be simplified by using the EXIT IF instruction. As explained above, in conditional operations,
+        the value -1 represents True, whereas a zero represents False. After using EXIT IF, an
+        expression is given which consists of one or more tests in standard AMOS Professional format. The EXIT
+        will only be performed IF the result is found to be -1 (True).</P>
 
-<P>
-As before, an optional number can be given to specify the number of loops to be jumped
-from, otherwise only the current loop will be aborted. For example:</P>
+    <P>
+        As before, an optional number can be given to specify the number of loops to be jumped
+        from, otherwise only the current loop will be aborted. For example:</P>
 
-<pre>
+    <pre>
 E&gt; While L=0
     A=0
     Do
@@ -448,24 +448,24 @@ E&gt; While L=0
 </section>
 
 <section id="04-conditional-loops">
-<h2>Conditional loops</h2>
+    <h2>Conditional loops</h2>
 
-<P>
-<b>WHILE</b><BR>
-<b>WEND</b><BR>
-<i>structure: repeat loop while condition is true</i><BR>
-<b>While</b> condition<BR>
-list of statements<BR>
-<b>Wend</b></P>
+    <P>
+        <b>WHILE</b><BR>
+        <b>WEND</b><BR>
+        <i>structure: repeat loop while condition is true</i><BR>
+        <b>While</b> condition<BR>
+        list of statements<BR>
+        <b>Wend</b></P>
 
-<P>
-This pair of commands provides a convenient way of making the program repeat a group of
-instructions all the time a particular condition is true. WHILE marks the start of this
-loop, and the condition is checked for a value of -1 (True) from this starting position through to
-the end position, which is marked by a WEND. The condition is then checked again at every turn of
-the loop, until it is no longer true. For example:</P>
+    <P>
+        This pair of commands provides a convenient way of making the program repeat a group of
+        instructions all the time a particular condition is true. WHILE marks the start of this
+        loop, and the condition is checked for a value of -1 (True) from this starting position through to
+        the end position, which is marked by a WEND. The condition is then checked again at every turn of
+        the loop, until it is no longer true. For example:</P>
 
-<pre>
+    <pre>
 E&gt; BLAZES:
    Print "Please type in the number 9"
    Input X
@@ -475,30 +475,30 @@ E&gt; BLAZES:
    Print "That is not a 9!"
 </pre>
 
-<P>You are free to use AND, OR and NOT to qualify the conditions to be checked.</P>
+    <P>You are free to use AND, OR and NOT to qualify the conditions to be checked.</P>
 
-<P>
-<b>REPEAT</b><BR>
-<b>UNTIL</b><BR>
-<i>structure: repeat loop until a condition is satisfied</i><BR>
-<b>Repeat</b><BR>
-list of statements<BR>
-<b>Until</b> condition</P>
+    <P>
+        <b>REPEAT</b><BR>
+        <b>UNTIL</b><BR>
+        <i>structure: repeat loop until a condition is satisfied</i><BR>
+        <b>Repeat</b><BR>
+        list of statements<BR>
+        <b>Until</b> condition</P>
 
-<!-- section -->
+    <!-- section -->
 
-<P>
-Unlike that last example, instead of checking if a condition is true or false at the start
-of a loop, the pair of commands makes its check at the end of a loop. REPEAT marks the start and
-UNTIL the end of the loop to be checked. This means that if a condition is false at the
-beginning of a</P>
+    <P>
+        Unlike that last example, instead of checking if a condition is true or false at the start
+        of a loop, the pair of commands makes its check at the end of a loop. REPEAT marks the start and
+        UNTIL the end of the loop to be checked. This means that if a condition is false at the
+        beginning of a</P>
 
-<P>
-WHILE ... WEND structure, that loop will never be performed at all, but if it is true
-at the beginning of a REPEAT ... UNTIL structure, the loop will be performed at least once. Here
-is an example that waits for you to press a mouse button:</P>
+    <P>
+        WHILE ... WEND structure, that loop will never be performed at all, but if it is true
+        at the beginning of a REPEAT ... UNTIL structure, the loop will be performed at least once. Here
+        is an example that waits for you to press a mouse button:</P>
 
-<pre>
+    <pre>
 E&gt; Repeat
     Print "I can go on forever" : Wait 25
    Until Mouse Key&lt;&gt;0
@@ -506,50 +506,50 @@ E&gt; Repeat
 </section>
 
 <section id="05-controlled-loops">
-<h2>Controlled loops</h2>
+    <h2>Controlled loops</h2>
 
-<p>When deciding how many times a loop is to be repeated, control can be made much more
-definite than relying on whether conditions are true or false.</P>
+    <p>When deciding how many times a loop is to be repeated, control can be made much more
+        definite than relying on whether conditions are true or false.</P>
 
-<P>
-<b>FOR</b><BR>
-<b>TO</b><BR>
-<b>NEXT</b><BR>
-<i>structure: repeat loop a specific number of times</i><BR>
-<b>For</b> index=first number <b>To</b> last number<BR>
-list of statements<BR>
-<b>Next</b> index</P>
+    <P>
+        <b>FOR</b><BR>
+        <b>TO</b><BR>
+        <b>NEXT</b><BR>
+        <i>structure: repeat loop a specific number of times</i><BR>
+        <b>For</b> index=first number <b>To</b> last number<BR>
+        list of statements<BR>
+        <b>Next</b> index</P>
 
-<P>
-This control structure is one of the programmer's classic devices. Each FOR statement
-must be matched by a single NEXT, and pairs of FOR ... NEXT loops can be nested inside one
-another. Each loop repeats a list of instructions for a specific number of times, governed by an
-index which counts the number of times the loop is repeated. Once inside the loop, this index
-can be read by the program as if it is a normal variable. Here is a simple example:</P>
+    <P>
+        This control structure is one of the programmer's classic devices. Each FOR statement
+        must be matched by a single NEXT, and pairs of FOR ... NEXT loops can be nested inside one
+        another. Each loop repeats a list of instructions for a specific number of times, governed by an
+        index which counts the number of times the loop is repeated. Once inside the loop, this index
+        can be read by the program as if it is a normal variable. Here is a simple example:</P>
 
-<pre>
+    <pre>
 E&gt; For X=1 To 7
     Print "SEVEN DEADLY SINS"
    Next X
 </pre>
 
-<h3 id="str-step">STEP</h3>
-<p><i>structure: control increment of index in a loop</i><BR>
-<b>For</b> index=first number <b>To</b> last number <b>Step</b> size</P>
+    <h3 id="str-step">STEP</h3>
+    <p><i>structure: control increment of index in a loop</i><BR>
+        <b>For</b> index=first number <b>To</b> last number <b>Step</b> size</P>
 
-<P>Normally, the index counter is increased by 1 unit at every turn of a FOR ... NEXT
-loop. When the current value exceeds that of the last number specified, the loop is terminated. For
-example:</P>
+    <P>Normally, the index counter is increased by 1 unit at every turn of a FOR ... NEXT
+        loop. When the current value exceeds that of the last number specified, the loop is terminated. For
+        example:</P>
 
-<pre>
+    <pre>
 E&gt; For DAY=1 To 365
     Print DAY
    Next DAY
 </pre>
 
-<P>STEP is used to change the size of increase in the index value, like this:</P>
+    <P>STEP is used to change the size of increase in the index value, like this:</P>
 
-<pre>
+    <pre>
 E&gt; For DAY=1 To 365 Step 7
     Print DAY
    Next DAY
@@ -558,50 +558,50 @@ E&gt; For DAY=1 To 365 Step 7
 </section>
 
 <section id="06-forced-jumps">
-<h2>Forced jumps</h2>
+    <h2>Forced jumps</h2>
 
-<p>So far, it has been explained how certain jumps are made to another part of a program by logical
-decisions based on whether a situation is true or false. Similar jumps can be made whenever a
-particular variable is recognised, in other words, regardless of any other conditions. GOTO and
-GOSUB are examples of a "forced" jump.</P>
+    <p>So far, it has been explained how certain jumps are made to another part of a program by logical
+        decisions based on whether a situation is true or false. Similar jumps can be made whenever a
+        particular variable is recognised, in other words, regardless of any other conditions. GOTO and
+        GOSUB are examples of a "forced" jump.</P>
 
-<h3 id="str-on">ON</h3>
-<p><i>structure: jump on recognising a variable</i><BR>
-<b>On</b> variable <b>Proc</b> list of procedures<BR>
-<b>On</b> variable <b>Goto</b> list of numbered lines or labels<BR>
-<b>On</b> variable <b>Gosub</b> list of numbered lines or labels</p>
+    <h3 id="str-on">ON</h3>
+    <p><i>structure: jump on recognising a variable</i><BR>
+        <b>On</b> variable <b>Proc</b> list of procedures<BR>
+        <b>On</b> variable <b>Goto</b> list of numbered lines or labels<BR>
+        <b>On</b> variable <b>Gosub</b> list of numbered lines or labels</p>
 
 
-<P>
-ON can be used to force the program to jump to a pre-defined position when it
-recognises a specified variable. Furthermore, jumps can be made to a choice of several positions,
-depending on what value is held by the variable at the time it is spotted. ON can force a jump to
-any of the following structures.</P>
+    <P>
+        ON can be used to force the program to jump to a pre-defined position when it
+        recognises a specified variable. Furthermore, jumps can be made to a choice of several positions,
+        depending on what value is held by the variable at the time it is spotted. ON can force a jump to
+        any of the following structures.</P>
 
-<P><b>Procedures</b>. When using an ON ... PROC structure, one or more named procedures is used
-as the target destination for a jump, depending on the contents currently held by a variable.
-Look at the following line:</P>
+    <P><b>Procedures</b>. When using an ON ... PROC structure, one or more named procedures is used
+        as the target destination for a jump, depending on the contents currently held by a variable.
+        Look at the following line:</P>
 
-<pre>
+    <pre>
 X&gt; On X Proc PROCEDURE1,PROCEDURE2
 </pre>
 
-<P>That is exactly the same as saying:</P>
+    <P>That is exactly the same as saying:</P>
 
-<pre>
+    <pre>
 X&gt; If X=1 Then PROCEDURE1
    If X=2 Then PROCEDURE2
 </pre>
 
-<P>
-It is important to note that procedures used in this way cannot include any parameters.
-If information is to be transferred to the procedure, it should be placed in a <b>global</b>
-variable, as explained in <a href="05-05-procedures.html">Chapter 5.5</a>.</P>
+    <P>
+        It is important to note that procedures used in this way cannot include any parameters.
+        If information is to be transferred to the procedure, it should be placed in a <b>global</b>
+        variable, as explained in <a href="05-05-procedures.html">Chapter 5.5</a>.</P>
 
-<P><b>Goto</b> is used to jump to one of a list of numbered lines, or a label, depending on the
-result of an expression. For example:</P>
+    <P><b>Goto</b> is used to jump to one of a list of numbered lines, or a label, depending on the
+        result of an expression. For example:</P>
 
-<pre>
+    <pre>
 E&gt; Print "Type in a value from 1 to 3"
    Input X
    On X Goto LABEL1,LABEL2,LABEL3
@@ -613,52 +613,52 @@ E&gt; Print "Type in a value from 1 to 3"
    Print "Go!"
 </pre>
 
-<p>
-For that to work properly, X must have a value from 1 up to the number of the highest
-possible destination. Any other values would cause problems. In fact the third line of that example
-is a very economical way of writing the following lines:</P>
+    <p>
+        For that to work properly, X must have a value from 1 up to the number of the highest
+        possible destination. Any other values would cause problems. In fact the third line of that example
+        is a very economical way of writing the following lines:</P>
 
-<pre>
+    <pre>
 X&gt; If X=1 Then Goto LABEL1
    If X=2 Then Goto LABEL2
    If X=3 Then Goto LABEL3
 </pre>
 
-<P>Now change the third line of the last example to this:</p>
+    <P>Now change the third line of the last example to this:</p>
 
-<pre>
+    <pre>
 E&gt; On X Goto LABEL3,LABEL2,LABEL1
 </pre>
 
-<P>
-Gosub. The use of an ON GOSUB structure is identical to ON ... GOTO, except that it
-must employ a RETURN to jump back to the instruction immediately after the ON ... GOSUB
-statement. Destinations may be given as the name of a label, or the identification number
-of a line between 1 and the maximum number of possible destinations.</P>
+    <P>
+        Gosub. The use of an ON GOSUB structure is identical to ON ... GOTO, except that it
+        must employ a RETURN to jump back to the instruction immediately after the ON ... GOSUB
+        statement. Destinations may be given as the name of a label, or the identification number
+        of a line between 1 and the maximum number of possible destinations.</P>
 
-<P>ON is also used with the ON BREAK PROC structure, as well as ON ERROR GOTO, which are
-explained in the relevant sections of the Procedures and Error Handling Chapters of this
-User Guide.</P>
+    <P>ON is also used with the ON BREAK PROC structure, as well as ON ERROR GOTO, which are
+        explained in the relevant sections of the Procedures and Error Handling Chapters of this
+        User Guide.</P>
 
-<h3 id="i-every">EVERY</h3>
-<p><i>instruction: call subroutine or procedure at regular intervals</i><BR>
-<b>Every</b> time <b>Gosub</b> label<BR>
-<b>Every</b> time <b>Proc</b> name</P>
+    <h3 id="i-every">EVERY</h3>
+    <p><i>instruction: call subroutine or procedure at regular intervals</i><BR>
+        <b>Every</b> time <b>Gosub</b> label<BR>
+        <b>Every</b> time <b>Proc</b> name</P>
 
-<P>The EVERY statement is used to call up a sub-routine or a procedure at regular
-intervals,
-without interfering with the main program. Simply specify the length of time between every
-call, measured in 50ths of a second. Obviously the time taken for a sub-routine or a
-procedure to
-be completed must be less than the interval time, or an error will be generated.</P>
+    <P>The EVERY statement is used to call up a sub-routine or a procedure at regular
+        intervals,
+        without interfering with the main program. Simply specify the length of time between every
+        call, measured in 50ths of a second. Obviously the time taken for a sub-routine or a
+        procedure to
+        be completed must be less than the interval time, or an error will be generated.</P>
 
-<P>After a sub-routine has been entered, the EVERY system is automatically disabled. This
-means
-that in order to call this feature continuously, an EVERY ON command must be inserted into
-a sub-routine before the final RETURN statement. Similarly, EVERY ON must be included in a
-procedure before returning to the main program with an END PROC. For example:</P>
+    <P>After a sub-routine has been entered, the EVERY system is automatically disabled. This
+        means
+        that in order to call this feature continuously, an EVERY ON command must be inserted into
+        a sub-routine before the final RETURN statement. Similarly, EVERY ON must be included in a
+        procedure before returning to the main program with an END PROC. For example:</P>
 
-<pre>
+    <pre>
 E&gt; Every 50 Proc TEST
    Do
     Print At(0,0); "Main Loop"
@@ -670,46 +670,46 @@ E&gt; Every 50 Proc TEST
    End Proc
 </pre>
 
-<P>
-<b>EVERY ON</b><BR>
-<b>EVERY OFF</b><BR>
-<i>instruction: toggle regular EVERY calls</i><BR>
-<b>Every On</b><BR>
-<b>Every Off</b></P>
+    <P>
+        <b>EVERY ON</b><BR>
+        <b>EVERY OFF</b><BR>
+        <i>instruction: toggle regular EVERY calls</i><BR>
+        <b>Every On</b><BR>
+        <b>Every Off</b></P>
 
-<P>
-As explained, EVERY ON should be used before the relevant sub-routine or procedure has
-finished executing. EVERY OFF is the default condition, and is used to disable the
-automatic calling process altogether.</P>
+    <P>
+        As explained, EVERY ON should be used before the relevant sub-routine or procedure has
+        finished executing. EVERY OFF is the default condition, and is used to disable the
+        automatic calling process altogether.</P>
 </section>
 
 <section id="07-handling-data">
-<h2>Handling data</h2>
+    <h2>Handling data</h2>
 
-<h3 id="str-data">DATA</h3>
-<p><i>structure: place a list of data items in a program</i><BR>
-<b>Data</b> list</P>
+    <h3 id="str-data">DATA</h3>
+    <p><i>structure: place a list of data items in a program</i><BR>
+        <b>Data</b> list</P>
 
-<P>A DATA statement lets you include whole lists of useful information in your programs.
-Each item in the list must be separated by a comma, like this:</P>
+    <P>A DATA statement lets you include whole lists of useful information in your programs.
+        Each item in the list must be separated by a comma, like this:</P>
 
-<pre>
+    <pre>
 X&gt; Data 1,2,3,4
 </pre>
 
-<P>Also each DATA instruction must be the only statement on the current line, because
-anything that follows it will be ignored! Prove that with the following line:</P>
+    <P>Also each DATA instruction must be the only statement on the current line, because
+        anything that follows it will be ignored! Prove that with the following line:</P>
 
-<pre>
+    <pre>
 E&gt; Read A$: Print A$
    Data "I am legal" : Print "But I am not!"
 </pre>
 
-<P>Data can be "read" into one or more variables, and unlike many Basic languages, AMOS
-Professional allows you to include expressions as part of your data. So the following
-lines of code are all equally acceptable:</P>
+    <P>Data can be "read" into one or more variables, and unlike many Basic languages, AMOS
+        Professional allows you to include expressions as part of your data. So the following
+        lines of code are all equally acceptable:</P>
 
-<pre>
+    <pre>
 X&gt; Data $FF50,$890
    Data %11111111,%110011010110
    Data A
@@ -718,20 +718,20 @@ X&gt; Data $FF50,$890
 
 </pre>
 
-<P>Examine those lines, and note that the A at Label will be input as the contents of
-variable A, and not the character A. The expression will be evaluated using the latest value of A.</P>
+    <P>Examine those lines, and note that the A at Label will be input as the contents of
+        variable A, and not the character A. The expression will be evaluated using the latest value of A.</P>
 
-<P>
-Data statements may be placed at any position in your program, but any data stored
-inside an AMOS Professional procedure will not be accessible from the main program. Each procedure
-can have its own individual set of data statements, which are completely independent from
-the rest of the program.</P>
+    <P>
+        Data statements may be placed at any position in your program, but any data stored
+        inside an AMOS Professional procedure will not be accessible from the main program. Each procedure
+        can have its own individual set of data statements, which are completely independent from
+        the rest of the program.</P>
 
-<!-- section -->
+    <!-- section -->
 
-<P> For example:</P>
+    <P> For example:</P>
 
-<pre>
+    <pre>
 E&gt; EXAMPLE
    Read A$: Print A$
    Data "I am Main Program Data"
@@ -741,43 +741,43 @@ E&gt; EXAMPLE
    End Proc
 </pre>
 
-<h3 id="str-read">READ</h3>
-<p><i>structure: read data into a variable</i><BR>
-<b>Read</b> list</P>
+    <h3 id="str-read">READ</h3>
+    <p><i>structure: read data into a variable</i><BR>
+        <b>Read</b> list</P>
 
-<P>
-When READ loads items of information that have been stored in a DATA statement into a
-list of variables, it uses a special marker to jump to the first item in the first DATA statement
-of your listing. As soon as that item of data has been read, the marker moves on to the next item
-in the list.</P>
+    <P>
+        When READ loads items of information that have been stored in a DATA statement into a
+        list of variables, it uses a special marker to jump to the first item in the first DATA statement
+        of your listing. As soon as that item of data has been read, the marker moves on to the next item
+        in the list.</P>
 
-<P>It must be remembered that the variables to be read must be of exactly the same type as
-the data held at the current position. If you match up one type of stored data with a different
-type of variable after a READ command, the appropriate error message will be given. Here is an
-example of correct matching:</P>
+    <P>It must be remembered that the variables to be read must be of exactly the same type as
+        the data held at the current position. If you match up one type of stored data with a different
+        type of variable after a READ command, the appropriate error message will be given. Here is an
+        example of correct matching:</P>
 
-<pre>
+    <pre>
 E&gt; N=Rnd(100)
    Read A$,B,C,D$
    Print A$,B,C,D$
    Data "Text string",100,N,"AMOS"+"Professional"
 </pre>
 
-<h3 id="str-restore">RESTORE</h3>
-<p><i>structure: set the current READ pointer</i><BR>
-<b>Restore</b> Label<BR>
-<b>Restore</b> LABEL$<BR>
-<b>Restore</b> Line<BR>
-<b>Restore</b> number</P>
+    <h3 id="str-restore">RESTORE</h3>
+    <p><i>structure: set the current READ pointer</i><BR>
+        <b>Restore</b> Label<BR>
+        <b>Restore</b> LABEL$<BR>
+        <b>Restore</b> Line<BR>
+        <b>Restore</b> number</P>
 
-<P>To change the order in which your data is read from the order in which it was
-originally stored, you can alter the point where a READ operation expects to find the next DATA statement.
-The RESTORE command sets the position of this pointer by referring to a particular label or
-line number, and both labels and numbers may be calculated as part of an expression.</P>
+    <P>To change the order in which your data is read from the order in which it was
+        originally stored, you can alter the point where a READ operation expects to find the next DATA statement.
+        The RESTORE command sets the position of this pointer by referring to a particular label or
+        line number, and both labels and numbers may be calculated as part of an expression.</P>
 
-<P>For example:</P>
+    <P>For example:</P>
 
-<pre>
+    <pre>
 E&gt; Restore LAST
    Read A$
    Print A$
@@ -787,14 +787,14 @@ E&gt; Restore LAST
    Data "Last"
 </pre>
 
-<p>
-Each Amos Professional procedure has its own individual data pointer, so any calls to
-the command will apply to the current procedure only.</p>
+    <p>
+        Each Amos Professional procedure has its own individual data pointer, so any calls to
+        the command will apply to the current procedure only.</p>
 
-<p>
-RESTORE is one of the AMOS Professional programmer's most useful devices to force the computer
-to select information, depending on the actions of the user. It can be used for educational and
-business routines as well as adventure and role-playing games.</p>
+    <p>
+        RESTORE is one of the AMOS Professional programmer's most useful devices to force the computer
+        to select information, depending on the actions of the user. It can be used for educational and
+        business routines as well as adventure and role-playing games.</p>
 </section>
 
 

@@ -1,160 +1,159 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - interface resources</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - interface resources</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Interface Resources</h1>
+    <h1>Interface Resources</h1>
 
 
+    <p>
+        Up to now, it has been explained how Interface graphics are generated using built-in Interface
+        commands. It is also possible to create superb effects using pre-defined images stored in
+        memory.</p>
 
-<p>
-Up to now, it has been explained how Interface graphics are generated using built-in Interface
-commands. It is also possible to create superb effects using pre-defined images stored in
-memory.</p>
+    <p>
+        Each Interface program has access to a set of special resources held in an appropriate memory
+        bank. These resources can be created with the Resource Bank Maker, which has <a href="13/1346.html">Chapter 13.7</a>
+        devoted to it. Once defined, resources can be installed for use with the AMOS Professional
+        Interface.</p>
 
-<p>
-Each Interface program has access to a set of special resources held in an appropriate memory
-bank. These resources can be created with the Resource Bank Maker, which has <a href="13/1346.html">Chapter 13.7</a>
-devoted to it. Once defined, resources can be installed for use with the AMOS Professional
-Interface.</p>
+    <p>
+        The Resource Bank is normally allocated to memory bank 16, and the loading of a resources file
+        is explained at the very end of this Chapter.</p>
 
-<p>
-The Resource Bank is normally allocated to memory bank 16, and the loading of a resources file
-is explained at the very end of this Chapter.</p>
+    <p>
+        Alternatively, this process can be avoided if the current Editor settings are used. As a default,
+        AMOS Professional provides instant access to all of the system messages and Editor objects.
+        These provide everything needed to generate a wide variety of attractive dialogue boxes.</p>
 
-<p>
-Alternatively, this process can be avoided if the current Editor settings are used. As a default,
-AMOS Professional provides instant access to all of the system messages and Editor objects.
-These provide everything needed to generate a wide variety of attractive dialogue boxes.</p>
+    <p>
+        There are two types of resources: messages, which hold a series of button definitions and titles,
+        and packed pictures, which can be anything at all.</p>
 
-<p>
-There are two types of resources: messages, which hold a series of button definitions and titles,
-and packed pictures, which can be anything at all.</p>
+    <p>
+        <b>ME</b>ssage
+        message=number <b>ME</b></p>
 
-<p>
-<b>ME</b>ssage
-message=number <b>ME</b></p>
+    <p>
+        The MEssage function takes a number from the stack and returns the appropriate message from
+        the Resource Bank. If the value for the number of the message is out of range, an error will be
+        generated. MEssage can be used in a PRint or PrintOutline command, like this:</p>
 
-<p>
-The MEssage function takes a number from the stack and returns the appropriate message from
-the Resource Bank. If the value for the number of the message is out of range, an error will be
-generated. MEssage can be used in a PRint or PrintOutline command, like this:</p>
-
-<pre>
+    <pre>
 E> A$="PRint 0,0,7,MEssage,5;"
    A$=A$+"EXit;"
    D=Dialog Box(A$)
 </pre>
 
-<p>
-A message can also be displayed directly from the main AMOS Professional program, using the
-RESOURCES function, which is explained later.</p>
+    <p>
+        A message can also be displayed directly from the main AMOS Professional program, using the
+        RESOURCES function, which is explained later.</p>
 
-<p>
-<b>UN</b>pack<br>
-<i>Interface instruction: unpack an image from Resource Bank</i><br>
-<b>UN</b> x,y,image number;</p>
+    <p>
+        <b>UN</b>pack<br>
+        <i>Interface instruction: unpack an image from Resource Bank</i><br>
+        <b>UN</b> x,y,image number;</p>
 
-<p>
-Packed pictures can be taken from the Resource Bank, and unpacked for items such as buttons
-or dialogue boxes. First specify the x,y-coordinates at which the image is to be unpacked. In this
-case, the x-coordinate is rounded to a multiple of eight. Then specify the number of the single
-image to be unpacked.</p>
+    <p>
+        Packed pictures can be taken from the Resource Bank, and unpacked for items such as buttons
+        or dialogue boxes. First specify the x,y-coordinates at which the image is to be unpacked. In this
+        case, the x-coordinate is rounded to a multiple of eight. Then specify the number of the single
+        image to be unpacked.</p>
 
-<pre>
+    <pre>
 E> Resource Screen Open 0,640,200,2
    A$="UNpack 10,10,13; EXit;"
    D=Dialog Box(A$)
 </pre>
 
 
-<p>
-In addition to single images, more complex arrangements can be built up from combining a
-group of individual component images, and the following commands are available to exploit
-this facility.</p>
+    <p>
+        In addition to single images, more complex arrangements can be built up from combining a
+        group of individual component images, and the following commands are available to exploit
+        this facility.</p>
 
-<p>
-<b>LI</b>ne<br>
-<i>Interface instruction: draw a line from Resource Bank image components</i><br>
-<b>LI</b> x,y,first image,width;</p>
+    <p>
+        <b>LI</b>ne<br>
+        <i>Interface instruction: draw a line from Resource Bank image components</i><br>
+        <b>LI</b> x,y,first image,width;</p>
 
-<p>
-The LIne command is used to construct a line from three single images held in the Resource
-Bank. The x,y-coordinates set the position of the top left-hand corner of the line, with the x-
-coordinate rounded to the nearest multiple of eight pixels. Then the number of the first image to
-be used for the line is given. Lastly, the width of the line is set in pixels, and this width should be
-an exact multiple of the image width, otherwise the width of the line will be increased to the
-nearest image boundary.</p>
+    <p>
+        The LIne command is used to construct a line from three single images held in the Resource
+        Bank. The x,y-coordinates set the position of the top left-hand corner of the line, with the x-
+        coordinate rounded to the nearest multiple of eight pixels. Then the number of the first image to
+        be used for the line is given. Lastly, the width of the line is set in pixels, and this width should be
+        an exact multiple of the image width, otherwise the width of the line will be increased to the
+        nearest image boundary.</p>
 
-<p>
-The following diagram illustrates the three component images, defining the start, the middle
-and the end of the line.</p>
+    <p>
+        The following diagram illustrates the three component images, defining the start, the middle
+        and the end of the line.</p>
 
-<pre>
+    <pre>
 [1 2 3]
 </pre>
 
-<p>These components can be rearranged to generate larger lines, as illustrated next:</p>
+    <p>These components can be rearranged to generate larger lines, as illustrated next:</p>
 
-<pre>
+    <pre>
 [1|2|2|2|2|3]
 </pre>
 
 
-<p>
-<b>VL</b>ine<br>
-<i>Interface instruction: draw a vertical line from Resource Bank components</i><br>
-<b>VL</b> x,y,first image,height</p>
+    <p>
+        <b>VL</b>ine<br>
+        <i>Interface instruction: draw a vertical line from Resource Bank components</i><br>
+        <b>VL</b> x,y,first image,height</p>
 
-<p>
-This is very similar to the LIne command, except that it displays a vertical line composed of a
-series of three images held in the Resource Bank. The x,y-coordinates for the top left-hand
-corner of the line are given, followed by the number of the first of the three images to be used in
-the display. Finally, the height of the line is specified, and it will be rounded up to the nearest
-multiple of three automatically.</p>
+    <p>
+        This is very similar to the LIne command, except that it displays a vertical line composed of a
+        series of three images held in the Resource Bank. The x,y-coordinates for the top left-hand
+        corner of the line are given, followed by the number of the first of the three images to be used in
+        the display. Finally, the height of the line is specified, and it will be rounded up to the nearest
+        multiple of three automatically.</p>
 
-<p>
-<b>BO</b>x<br>
-<i>Interface instruction: draw a box from Resource Bank image components</i><br>
-<b>BO</b> x,y,first image,width,height;</p>
+    <p>
+        <b>BO</b>x<br>
+        <i>Interface instruction: draw a box from Resource Bank image components</i><br>
+        <b>BO</b> x,y,first image,width,height;</p>
 
-<p>
-Similarly, the BOx instruction draws a rectangular bar from an assortment of nine packed
-images from the Resource Bank. The parameters are the same as for a LIne command, with the
-additional parameter of the height of the box, which can be anything you wish. The component
-images for the rectangle are in the following format:</p>
+    <p>
+        Similarly, the BOx instruction draws a rectangular bar from an assortment of nine packed
+        images from the Resource Bank. The parameters are the same as for a LIne command, with the
+        additional parameter of the height of the box, which can be anything you wish. The component
+        images for the rectangle are in the following format:</p>
 
-<pre>
+    <pre>
 [1|2|3]
 [4|5|6]
 [7|8|9]
 </pre>
 
 
-<p>
-These components can be re-used to produce a large number of possible displays, such as in the
-next example diagram:</p>
+    <p>
+        These components can be re-used to produce a large number of possible displays, such as in the
+        next example diagram:</p>
 
-<pre>
+    <pre>
 [1|2|2|2|3]
 [4|5|5|5|6]
 [4|5|5|5|6]
@@ -162,72 +161,72 @@ next example diagram:</p>
 </pre>
 
 
-<p>
-<b>PU</b>sh<br>
-<i>Interface instruction: push image to an offset position in the Resource Bank</i><br>
-<b>PU</b> offset;</p>
+    <p>
+        <b>PU</b>sh<br>
+        <i>Interface instruction: push image to an offset position in the Resource Bank</i><br>
+        <b>PU</b> offset;</p>
 
-<p>
-The PUsh command sets an offset value to the first image in the Resource Bank, and this offset
-will be added to all subsequent image numbers. This means that you can make a dialogue box
-totally independent from the images in the Resource Bank. For example, if new images are
-added at the beginning of the bank at any subsequent time, the images used by your existing
-resource commands will be pushed down the required number of places, and they will work
-perfectly without any changes in numbering required. To demonstrate this, the following two
-lines would have exactly the same effect:</p>
+    <p>
+        The PUsh command sets an offset value to the first image in the Resource Bank, and this offset
+        will be added to all subsequent image numbers. This means that you can make a dialogue box
+        totally independent from the images in the Resource Bank. For example, if new images are
+        added at the beginning of the bank at any subsequent time, the images used by your existing
+        resource commands will be pushed down the required number of places, and they will work
+        perfectly without any changes in numbering required. To demonstrate this, the following two
+        lines would have exactly the same effect:</p>
 
-<pre>
+    <pre>
 X> PUsh 0; UNpack 0,0,13;
    PUsh 13; UNpack 0,0,0;
 </pre>
 </section>
 
 <section id="01-the-resource-commands">
-<h2>The Resource commands</h2>
-<p>
-Here is a full explanation of the additional AMOS Professional instructions and functions that
-can be used to exploit the Resource Bank.</p>
+    <h2>The Resource commands</h2>
+    <p>
+        Here is a full explanation of the additional AMOS Professional instructions and functions that
+        can be used to exploit the Resource Bank.</p>
 
-<h3 id="i-resource-bank">RESOURCE BANK</h3>
-<p><i>instruction: select a bank to be used for resources</i><br>
-<b>Resource Bank</b> number</p>
+    <h3 id="i-resource-bank">RESOURCE BANK</h3>
+    <p><i>instruction: select a bank to be used for resources</i><br>
+        <b>Resource Bank</b> number</p>
 
-<p>
-This command is used to tell AMOS Professional in which bank the resources to be used by
-Interface programs are kept. The number parameter holds the number of the memory bank to
-be allocated. If this bank does not exist, the Editor's internal resource bank will be used as a
-default. This means that after this command has been called, you can return to the Editor
-resources by employing a dummy value, such as zero. Here is an example:</p>
+    <p>
+        This command is used to tell AMOS Professional in which bank the resources to be used by
+        Interface programs are kept. The number parameter holds the number of the memory bank to
+        be allocated. If this bank does not exist, the Editor's internal resource bank will be used as a
+        default. This means that after this command has been called, you can return to the Editor
+        resources by employing a dummy value, such as zero. Here is an example:</p>
 
-<pre>
+    <pre>
 X> Load "Resource.Abk",16 : Rem This can be any filename
    Resource Bank 16: Rem Set resources to Bank 16
 </pre>
 
-<h3 id="fn-resource-dollar">RESOURCE$</h3>
-<p><i>function: read a message from the Resource Bank</i><br>
-message=<b>Resource$</b>(message number)</p>
+    <h3 id="fn-resource-dollar">RESOURCE$</h3>
+    <p><i>function: read a message from the Resource Bank</i><br>
+        message=<b>Resource$</b>(message number)</p>
 
-<p>
-The RESOURCE$ function returns one of the messages from the current Resource Bank, to be
-used by an AMOS Professional program. If the bank has not been defined, the standard Editor
-messages will be made available from the Configuration file.</p>
+    <p>
+        The RESOURCE$ function returns one of the messages from the current Resource Bank, to be
+        used by an AMOS Professional program. If the bank has not been defined, the standard Editor
+        messages will be made available from the Configuration file.</p>
 
 
-<p>
-Each national grouping is provided with its own set of messages in the appropriate language,
-and these messages can be used to generate multi-language programs.
-The message number parameter enters the number of the message. Here is an example:</p>
+    <p>
+        Each national grouping is provided with its own set of messages in the appropriate language,
+        and these messages can be used to generate multi-language programs.
+        The message number parameter enters the number of the message. Here is an example:</p>
 
-<pre>
+    <pre>
 D> For A=1 To 7
     Print Resource$(A)
    Next A
 </pre>
 
-<p>The following list shows the strings related to the various numbers:</p>
+    <p>The following list shows the strings related to the various numbers:</p>
 
-<pre>
+    <pre>
 <b>Number           Message</b>
 >0               String from the Resource bank
 0                Full pathname of APSystem folder
@@ -240,49 +239,49 @@ D> For A=1 To 7
 -2045 to -2049   Editor system files
 </pre>
 
-<h3 id="i-resource-screen-open">RESOURCE SCREEN OPEN</h3>
-<p><i>instruction: open a screen using the resource settings</i><br>
-<b>Resource Screen Open</b> number,width,height,flash</p>
+    <h3 id="i-resource-screen-open">RESOURCE SCREEN OPEN</h3>
+    <p><i>instruction: open a screen using the resource settings</i><br>
+        <b>Resource Screen Open</b> number,width,height,flash</p>
 
-<p>
-This instruction opens a screen using the settings that are stored in the Resource Bank. These
-screen settings include the number of colours, the resolution and the entire colour palette.</p>
+    <p>
+        This instruction opens a screen using the settings that are stored in the Resource Bank. These
+        screen settings include the number of colours, the resolution and the entire colour palette.</p>
 
-<p>
-The parameters are given in the following order: the number of the screen to be defined from
-zero to 7, the width of this screen in pixels and the height of the screen in lines. Finally a simple
-flag is set for the flash feature, with a value of zero to turn off the flash, or any other appropriate
-value to assign the flash effect to that colour index number.</p>
+    <p>
+        The parameters are given in the following order: the number of the screen to be defined from
+        zero to 7, the width of this screen in pixels and the height of the screen in lines. Finally a simple
+        flag is set for the flash feature, with a value of zero to turn off the flash, or any other appropriate
+        value to assign the flash effect to that colour index number.</p>
 
-<p>The new screen will be installed with the colour palette held in the Resource Bank.</p>
+    <p>The new screen will be installed with the colour palette held in the Resource Bank.</p>
 
-<p>
-The following example opens a screen using the settings from the internal Resource Bank, just
-like the Editor screen, where the flashing colour is index number 2.</p>
+    <p>
+        The following example opens a screen using the settings from the internal Resource Bank, just
+        like the Editor screen, where the flashing colour is index number 2.</p>
 
-<pre>
+    <pre>
 E> Resource Screen Open 0,640,200,2
 </pre>
 
-<h3 id="i-resource-unpack">RESOURCE UNPACK</h3>
-<p><i>instruction: unpack an image from the Resource Bank</i><br>
-<b>Resource Unpack</b> number,x,y</p>
+    <h3 id="i-resource-unpack">RESOURCE UNPACK</h3>
+    <p><i>instruction: unpack an image from the Resource Bank</i><br>
+        <b>Resource Unpack</b> number,x,y</p>
 
-<p>
-This AMOS Professional command unpacks a single element from the current Resource Bank
-and displays it on the screen.</p>
+    <p>
+        This AMOS Professional command unpacks a single element from the current Resource Bank
+        and displays it on the screen.</p>
 
 
-<p>
-The number parameter refers to the number of the element to be displayed, and the x,y-
-coordinates specify the position of the new image on screen.</p>
+    <p>
+        The number parameter refers to the number of the element to be displayed, and the x,y-
+        coordinates specify the position of the new image on screen.</p>
 
-<p>
-The instruction can be used directly in games programs to hold the various graphics
-components in a very compact format. These images can be saved in the Resource Bank using
-the Resource Bank Maker, and installed into memory along the following lines:</p>
+    <p>
+        The instruction can be used directly in games programs to hold the various graphics
+        components in a very compact format. These images can be saved in the Resource Bank using
+        the Resource Bank Maker, and installed into memory along the following lines:</p>
 
-<pre>
+    <pre>
 X> Load "Resource.Abk",l6 : Rem This can be any filename
    Resource Bank 16 : Rem set the resources to bank 16
 </pre>

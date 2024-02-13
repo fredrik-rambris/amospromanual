@@ -1,112 +1,115 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - app. b: amos professional run time</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - app. b: amos professional run time</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>App. B: AMOS Professional Run Time</h1>
+    <h1>App. B: AMOS Professional Run Time</h1>
 
 
+    <p>
+        AMOS Professional has no need for a different run-only version of the main AMOS Professional
+        system, and this Chapter explains the simplicity of creating run-only discs.</p>
 
-<p>
-AMOS Professional has no need for a different run-only version of the main AMOS Professional
-system, and this Chapter explains the simplicity of creating run-only discs.</p>
+    <p>
+        If you are familiar with the original AMOS system, you may be expecting to find the AMOS
+        Professional equivalent of the separate run-only version of AMOS, called RAMOS. This allows
+        you to run AMOS programs completely independently from the AMOS package, but with
+        AMOS Professional there is no necessity for RAMOS at all!</p>
 
-<p>
-If you are familiar with the original AMOS system, you may be expecting to find the AMOS
-Professional equivalent of the separate run-only version of AMOS, called RAMOS. This allows
-you to run AMOS programs completely independently from the AMOS package, but with
-AMOS Professional there is no necessity for RAMOS at all!</p>
+    <p>
+        AMOS Professional can be regarded as three interlinked programs, namely the Editor, the
+        Monitor and the Interpreter. Obviously, the main element is the Interpreter, "AMOSPro".
+        The Interpreter can be called along with the name of a program, without the Editor or Monitor,
+        like this:</p>
 
-<p>
-AMOS Professional can be regarded as three interlinked programs, namely the Editor, the
-Monitor and the Interpreter. Obviously, the main element is the Interpreter, "AMOSPro".
-The Interpreter can be called along with the name of a program, without the Editor or Monitor,
-like this:</p>
+    <img alt="AmosPro Name.AMOS"
+         src="images/1417amos.jpg"/>
 
-<img alt="AmosPro Name.AMOS"
-     src="images/1417amos.jpg" />
-
-<p>
-The program will be loaded along with the Interpreter, and executed. When the program has
-been run, AMOS Professional will look for the "AMOSPro.Editor" file in the APSystem folder. If
-it is found, the Editor will be loaded into memory. If the file is not found, you will be brought
-back to the Workbench.</p>
+    <p>
+        The program will be loaded along with the Interpreter, and executed. When the program has
+        been run, AMOS Professional will look for the "AMOSPro.Editor" file in the APSystem folder. If
+        it is found, the Editor will be loaded into memory. If the file is not found, you will be brought
+        back to the Workbench.</p>
 </section>
 
 <section id="01-run-only-discs">
-<h2>Run-only discs</h2>
-<p>
-To create a run-only disc, simply copy your AMOSPro System disc, and remove the following
-files from the APSystem folder:</p>
+    <h2>Run-only discs</h2>
+    <p>
+        To create a run-only disc, simply copy your AMOSPro System disc, and remove the following
+        files from the APSystem folder:</p>
 
-<pre>
+    <pre>
 AMOSPro.Editor
 AMOSPro.Editor_Config
 AMOSPro.Monitor
 AMOSPro.Monitor_Resource
 </pre>
 
-<p>
-Please note that when booting, if AMOS Professional finds the "Autoexec.AMOS" file in the
-current directory, this program will be run before the Editor is loaded.</p>
+    <p>
+        Please note that when booting, if AMOS Professional finds the "Autoexec.AMOS" file in the
+        current directory, this program will be run before the Editor is loaded.</p>
 
-<p>
-Because the Editor is a separate program, the Interpreter is not only able to work without it, but
-can also load it when a program is over, if necessary.</p>
+    <p>
+        Because the Editor is a separate program, the Interpreter is not only able to work without it, but
+        can also load it when a program is over, if necessary.</p>
 
-<h3 id="i-kill-editor">KILL EDITOR</h3>
-<p><i>instruction: remove the AMOS Professional Editor from memory</i><br>
-<b>Kill Editor</b></p>
+    <h3 id="i-kill-editor">KILL EDITOR</h3>
+    <p><i>instruction: remove the AMOS Professional Editor from memory</i><br>
+        <b>Kill Editor</b></p>
 
-<p>The KILL EDITOR command unloads the AMOS Professional Editor from memory.</p>
+    <p>The KILL EDITOR command unloads the AMOS Professional Editor from memory.</p>
 
-<p>
-  In order for this command to operate, it must be enabled in the Interpreter configuration file.
-  Also, please note that the current program cannot be an accessory if KILL EDITOR is to work
-  and the program cannot be a program that has been PRUNed by another program. Otherwise,
-  for all other programs, the following operations are performed when KILL EDITOR is called:</p>
+    <p>
+        In order for this command to operate, it must be enabled in the Interpreter configuration file.
+        Also, please note that the current program cannot be an accessory if KILL EDITOR is to work
+        and the program cannot be a program that has been PRUNed by another program. Otherwise,
+        for all other programs, the following operations are performed when KILL EDITOR is called:</p>
 
-<ul>
-  <li>A "warm start" procedure is executed, saving the configuration of all programs currently in
-    memory.</li>
-  <li>This configuration and the current program is left in memory, but all other programs are
-    erased.</li>
-  <li>All Editor buffers and Editor programs are also removed from memory, leaving a run-only
-    memory configuration.</li>
-  <li>When the program is over, AMOS Professional will re-load the Editor with all of the data
-    concerning the last session, which may take a little time, but which will return you to exactly
-    the same status as before KILL EDITOR was called!</li>
-</ul>
+    <ul>
+        <li>A "warm start" procedure is executed, saving the configuration of all programs currently in
+            memory.
+        </li>
+        <li>This configuration and the current program is left in memory, but all other programs are
+            erased.
+        </li>
+        <li>All Editor buffers and Editor programs are also removed from memory, leaving a run-only
+            memory configuration.
+        </li>
+        <li>When the program is over, AMOS Professional will re-load the Editor with all of the data
+            concerning the last session, which may take a little time, but which will return you to exactly
+            the same status as before KILL EDITOR was called!
+        </li>
+    </ul>
 
-<p>
-  Remember that Kill Editor must be enabled from the [Set Editor] option in the [Config] menu for
-  it to work.</p>
+    <p>
+        Remember that Kill Editor must be enabled from the [Set Editor] option in the [Config] menu for
+        it to work.</p>
 
-<p>
-  You are reminded that the PRG STATE function can be used to establish how a particular
-  program was run. PRG STATE returns the current status of a program in the form of one of
-  three possible values.</p>
+    <p>
+        You are reminded that the PRG STATE function can be used to establish how a particular
+        program was run. PRG STATE returns the current status of a program in the form of one of
+        three possible values.</p>
 
-<pre>
+    <pre>
 <b>Value               Meaning</b>
  0                  The program was run under the AMOS Professional Interpreter
  1                  The program was run under a run-time environment

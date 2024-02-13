@@ -1,181 +1,180 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - the resource creator</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - the resource creator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>The Resource Creator</h1>
+    <h1>The Resource Creator</h1>
 
 
+    <p>
+        The AMOS Professional interface provides a vast range of facilities for generating attractive
+        dialogue boxes and selectors on the screen. These items can be created from a set of pre-defined
+        components held in a "resource bank". The Interface normally uses the existing resources
+        assigned to the Editor screen, and all of these graphics and messages can be accessed
+        immediately.</p>
 
-<p>
-The AMOS Professional interface provides a vast range of facilities for generating attractive
-dialogue boxes and selectors on the screen. These items can be created from a set of pre-defined
-components held in a "resource bank". The Interface normally uses the existing resources
-assigned to the Editor screen, and all of these graphics and messages can be accessed
-immediately.</p>
+    <p>
+        In addition to these resources, there is an invaluable Resource Creator available on the
+        Accessories Disc, allowing you to define your own messages and import your own graphics
+        from any IFF picture. It is even possible to replace the Editor screen with your own customised
+        version!</p>
 
-<p>
-In addition to these resources, there is an invaluable Resource Creator available on the
-Accessories Disc, allowing you to define your own messages and import your own graphics
-from any IFF picture. It is even possible to replace the Editor screen with your own customised
-version!</p>
-
-<p>
-The standard resources are held in the "AMOS_System/AMOSPro.Editor_Resource" file, and
-they are loaded automatically when AMOS Professional loads. If this file is replaced by your
-own version, the appearance of the Editor screen will be transformed, but please take care. The
-sizes and positions of all the Editor objects must remain as set, or your personalised Editor will
-not work! Prepare for accidents by keeping a copy of the original resources somewhere safe
-before you make any changes.</p>
+    <p>
+        The standard resources are held in the "AMOS_System/AMOSPro.Editor_Resource" file, and
+        they are loaded automatically when AMOS Professional loads. If this file is replaced by your
+        own version, the appearance of the Editor screen will be transformed, but please take care. The
+        sizes and positions of all the Editor objects must remain as set, or your personalised Editor will
+        not work! Prepare for accidents by keeping a copy of the original resources somewhere safe
+        before you make any changes.</p>
 </section>
 
 <section id="01-the-resource-creator-main-menu">
-<h2>The Resource Creator Main Menu</h2>
-<p>
-On entry to the Resource Creator, a simple Main menu screen is presented, which can be moved
-anywhere over the current display by dragging its title zone with the <b>left</b> mouse button. Here is
-a list of the Main Menu options.</p>
+    <h2>The Resource Creator Main Menu</h2>
+    <p>
+        On entry to the Resource Creator, a simple Main menu screen is presented, which can be moved
+        anywhere over the current display by dragging its title zone with the <b>left</b> mouse button. Here is
+        a list of the Main Menu options.</p>
 
-<p><b>[Create New Bank]</b><br>
-This erases the current resource bank, and removes the source picture from memory.</p>
+    <p><b>[Create New Bank]</b><br>
+        This erases the current resource bank, and removes the source picture from memory.</p>
 
-<p><b>[Load Bank]</b><br>
-When this option is selected, a file selector is opened, and a request is made for a filename. This
-new resource bank can now be loaded into memory. If graphic elements have previously been
-defined in the bank, their original source picture will be loaded automatically. If this file is not
-available from the current disc, you will be asked to insert the appropriate disc. Obviously, it is
-sensible to keep the resource and image files on the same disc, and avoid the tedious process of
-swapping over discs.</p>
+    <p><b>[Load Bank]</b><br>
+        When this option is selected, a file selector is opened, and a request is made for a filename. This
+        new resource bank can now be loaded into memory. If graphic elements have previously been
+        defined in the bank, their original source picture will be loaded automatically. If this file is not
+        available from the current disc, you will be asked to insert the appropriate disc. Obviously, it is
+        sensible to keep the resource and image files on the same disc, and avoid the tedious process of
+        swapping over discs.</p>
 
-<p><b>[Grab Bank]</b><br>
-There is an automatic facility for grabbing a Resource Bank, and this is explained at the end of
-this Chapter.</p>
+    <p><b>[Grab Bank]</b><br>
+        There is an automatic facility for grabbing a Resource Bank, and this is explained at the end of
+        this Chapter.</p>
 
-<p><b>[Save Bank]</b><br>
-This option is used to save a resource bank as an ".Abk" file on the disc. The file can then be
-loaded into the main AMOS Professional program, and allocated to an Interface program with a
-simple call to the RESOURCE BANK command.</p>
+    <p><b>[Save Bank]</b><br>
+        This option is used to save a resource bank as an ".Abk" file on the disc. The file can then be
+        loaded into the main AMOS Professional program, and allocated to an Interface program with a
+        simple call to the RESOURCE BANK command.</p>
 
-<p><b>[Save Bank As]</b><br>
-This saves the existing resource bank under a new name.</p>
+    <p><b>[Save Bank As]</b><br>
+        This saves the existing resource bank under a new name.</p>
 
 
-<p><b>[Edit Graphic Elements]</b><br>
+    <p><b>[Edit Graphic Elements]</b><br>
 
-All the components used to construct the objects on the screen are created here. These objects
-can be displayed subsequently using the LIne, BOx and UNpack commands from an Interface
-program. You may also use the RESOURCE UNPACK instruction from the main AMOS
-Professional program. This option offers a working screen and sub-menu, which is fully
-explained below.</p>
+        All the components used to construct the objects on the screen are created here. These objects
+        can be displayed subsequently using the LIne, BOx and UNpack commands from an Interface
+        program. You may also use the RESOURCE UNPACK instruction from the main AMOS
+        Professional program. This option offers a working screen and sub-menu, which is fully
+        explained below.</p>
 
-<p><b>[Edit Text Strings]</b><br>
+    <p><b>[Edit Text Strings]</b><br>
 
-This is used to enter the list of text strings that are to be used for the various on-screen messages.
-These messages can be accessed using the MEssage function from an Interface program, or the
-AMOS Professional RESOURCE$ option. A full explanation of the text editing options appears
-below.</p>
+        This is used to enter the list of text strings that are to be used for the various on-screen messages.
+        These messages can be accessed using the MEssage function from an Interface program, or the
+        AMOS Professional RESOURCE$ option. A full explanation of the text editing options appears
+        below.</p>
 
-<p><b>[Quit]</b><br>
-This will discard the current resource bank completely, and return to AMOS Professional. If any
-changes have been made, you will be asked to confirm your actions before being allowed to
-quit.</p>
+    <p><b>[Quit]</b><br>
+        This will discard the current resource bank completely, and return to AMOS Professional. If any
+        changes have been made, you will be asked to confirm your actions before being allowed to
+        quit.</p>
 </section>
 
 <section id="02-editing-graphic-elements">
-<h2>Editing Graphic Elements</h2>
-<p>
-Resource elements can be grabbed directly from a normal IFF screen. Any screen can be used for
-this purpose, including Hires and interlace mode screens. When the [Edit Graphic Elements]
-option is chosen, a selection box appears containing all of the current objects displayed on
-screen, with a summary of information about each one. The format of this summary is as
-follows:</p>
+    <h2>Editing Graphic Elements</h2>
+    <p>
+        Resource elements can be grabbed directly from a normal IFF screen. Any screen can be used for
+        this purpose, including Hires and interlace mode screens. When the [Edit Graphic Elements]
+        option is chosen, a selection box appears containing all of the current objects displayed on
+        screen, with a summary of information about each one. The format of this summary is as
+        follows:</p>
 
 
-<pre>
+    <pre>
 Item-no            - Type             : Size
 </pre>
 
-<p>
-The item-no refers to the index number of the object that has been created, the type is one of
-four possible categories of object, described next, and the size of the object is given as
-explained below.</p>
+    <p>
+        The item-no refers to the index number of the object that has been created, the type is one of
+        four possible categories of object, described next, and the size of the object is given as
+        explained below.</p>
 
-<p>
-The four possibilities for the category of object are an element, a horizontal line, a vertical line or
-a box. There follows a brief explanation of each of these types of resource objects.</p>
+    <p>
+        The four possibilities for the category of object are an element, a horizontal line, a vertical line or
+        a box. There follows a brief explanation of each of these types of resource objects.</p>
 
-<p><b>Element</b><br>
+    <p><b>Element</b><br>
 
-This is a simple picture that can be displayed on the screen by using the UNpack command. The
-width of a resource element must be at least eight pixels, and it may be increased by multiples of
-eight only. The height of an element can be as tall as required.</p>
+        This is a simple picture that can be displayed on the screen by using the UNpack command. The
+        width of a resource element must be at least eight pixels, and it may be increased by multiples of
+        eight only. The height of an element can be as tall as required.</p>
 
-<p><b>Horizontal Line</b><br>
+    <p><b>Horizontal Line</b><br>
 
-Resource lines are constructed by arranging a group of <b>three</b> components on screen. One
-component represents the Start of the line, another the Middle and the third is for the End of
-the line. Each element is made up of at least eight pixels, and since there are three different
-components, the Resource Creator will only allow you to grab these lines in steps of 8*3, or 24
-units wide. Obviously, only one each of the Start and End components is possible, and AMOS
-Professional will repeat the Middle section of the line automatically.</p>
+        Resource lines are constructed by arranging a group of <b>three</b> components on screen. One
+        component represents the Start of the line, another the Middle and the third is for the End of
+        the line. Each element is made up of at least eight pixels, and since there are three different
+        components, the Resource Creator will only allow you to grab these lines in steps of 8*3, or 24
+        units wide. Obviously, only one each of the Start and End components is possible, and AMOS
+        Professional will repeat the Middle section of the line automatically.</p>
 
 
-<p>
-So if you think of the Start, Middle and End components as being represented by their initial
-letters, the horizontal line could be displayed in any of the following ways:</p>
+    <p>
+        So if you think of the Start, Middle and End components as being represented by their initial
+        letters, the horizontal line could be displayed in any of the following ways:</p>
 
-<pre>
+    <pre>
 SME
 SMME
 SMMMMMMME
 </pre>
 
-<p><b>Vertical Line</b><br>
-These are similar to their horizontal equivalents, except that vertical lines are displayed from top
-to bottom rather than from left to right. So if the three components are represented as Start,
-Middle and End, they would appear like this:</p>
+    <p><b>Vertical Line</b><br>
+        These are similar to their horizontal equivalents, except that vertical lines are displayed from top
+        to bottom rather than from left to right. So if the three components are represented as Start,
+        Middle and End, they would appear like this:</p>
 
-<pre>
+    <pre>
 S
 M
 E
 </pre>
 
-<p><b>Box</b><br>
-Boxes are simply a rectangular arrangement of the components of lines. Each box is constructed
-from <b>nine</b> separate images that may be used to generate a great variety of different shapes. Look
-at the following schematic diagram:</p>
+    <p><b>Box</b><br>
+        Boxes are simply a rectangular arrangement of the components of lines. Each box is constructed
+        from <b>nine</b> separate images that may be used to generate a great variety of different shapes. Look
+        at the following schematic diagram:</p>
 
-<pre>
+    <pre>
 123 first line of Box
 456 second line of Box
 789 third line of Box
 </pre>
 
-<p>
-If you remember how the Middle component of a line can be repeated, the above components
-could be reconstructed to create a Box like this:</p>
+    <p>
+        If you remember how the Middle component of a line can be repeated, the above components
+        could be reconstructed to create a Box like this:</p>
 
-<pre>
+    <pre>
 1223
 4556
 4556
@@ -185,134 +184,135 @@ could be reconstructed to create a Box like this:</p>
 </section>
 
 <section id="03-creating-an-object">
-<h2>Creating an Object</h2>
-<p>
-When you click on the name of an object in the selection window, it becomes highlighted. A
-flashing panel will now appear over the image of the highlighted object on the screen.</p>
+    <h2>Creating an Object</h2>
+    <p>
+        When you click on the name of an object in the selection window, it becomes highlighted. A
+        flashing panel will now appear over the image of the highlighted object on the screen.</p>
 
-<p>
-When creating an object it is important to note down the various definitions. This written
-reminder will be invaluable when you return to AMOS Professional and try to use the new
-objects in a real Interface program!</p>
+    <p>
+        When creating an object it is important to note down the various definitions. This written
+        reminder will be invaluable when you return to AMOS Professional and try to use the new
+        objects in a real Interface program!</p>
 
-<p>Here are the options for creating an object:</p>
-
-
-<p><b>[Grab One Element]</b><br>
-
-The source picture is brought to the front of the display, and you may now position the pointer
-over any selected part of the picture to create an item by clicking on a corner of the area to be
-grabbed and dragging a box around it, using the <b>left</b> mouse button. When this button is
-released, the box can be positioned directly over the object, using the mouse. Another click on
-the <b>left</b> mouse button grabs it into memory.</p>
-
-<p>
-As you work, an instant read-out of the current settings is given, making it easy to fine-tune
-objects to their optimum size. Mistakes are of no importance, and you may abort the operation
-at any time by pressing the <b>right</b> mouse button. Please note that the colour of the highlighted
-box can be changed by pressing the [Spacebar] key. The colour shift becomes visible when you
-next move the mouse.</p>
-
-<p>
-Once an object has been grabbed in this way, it will be added to the list of elements in the
-selection window. If you click on it, it will be shown on the screen at its current position,
-enclosed by a flashing bar.</p>
-
-<p><b>[Grab Horiz Line]</b><br>
-
-This option is used to grab a group of <b>three</b> elements for the Start, Middle and End components
-of a horizontal line. All that needs to be done is to drag a box around the line, as explained
-above, and the Resource Editor will take care of everything else automatically. The line will be
-divided into the three components and stored in the memory bank accordingly. It can now be
-called directly with a LIne command to generate lines of any length.</p>
-
-<p>
-Since each line is created in the manner that is explained above, the width of the line must be an
-exact multiple of 24. The Resource Editor will take this into account when objects are grabbed,
-but there are no such limitations with regard to the original position of your horizontal lines.
-These can be grabbed from any part of the source picture.</p>
-
-<p><b>[Grab Vert Line]</b><br>
-
-Similarly, this grabs three elements for a vertical line. As with horizontal lines, the entire process
-is automated. Simply position the mouse pointer over the top left-hand corner of the proposed
-line, hold down the left mouse button and drag a box around the required image. When the
-button is released, you may re-position the box as required, and click once again on the left
-mouse button to load it into memory.</p>
-
-<p>
-Note that the width of vertical lines must be a multiple of eight, and that the height must be
-divisible by three. This is managed by the Resource Creator automatically, so there is no danger
-of grabbing a wrongly dimensioned line.</p>
-
-<p><b>[Grab a Box]</b><br>
-
-Similarly, use this option to grab a group of <b>nine</b> component elements to make up a box. The
-box can then be displayed using a BOx command from an Interface program. The width of this
-box may be increased in steps of 24, and the height must be an exact multiple of three.</p>
+    <p>Here are the options for creating an object:</p>
 
 
-<p><b>[Exit]</b><br>
-This returns you to the Main menu.</p>
+    <p><b>[Grab One Element]</b><br>
 
-<p><b>[Del]</b><br>
-Use this option to delete the currently highlighted element, which will be removed from the
-selection window.</p>
+        The source picture is brought to the front of the display, and you may now position the pointer
+        over any selected part of the picture to create an item by clicking on a corner of the area to be
+        grabbed and dragging a box around it, using the <b>left</b> mouse button. When this button is
+        released, the box can be positioned directly over the object, using the mouse. Another click on
+        the <b>left</b> mouse button grabs it into memory.</p>
 
-<p><b>[Clear]</b><br>
-This erases <b>all</b> resource graphics elements from memory, and you will be asked to confirm you
-decision before proceeding.</p>
+    <p>
+        As you work, an instant read-out of the current settings is given, making it easy to fine-tune
+        objects to their optimum size. Mistakes are of no importance, and you may abort the operation
+        at any time by pressing the <b>right</b> mouse button. Please note that the colour of the highlighted
+        box can be changed by pressing the [Spacebar] key. The colour shift becomes visible when you
+        next move the mouse.</p>
 
-<p><b>[Change Picture]</b><br>
+    <p>
+        Once an object has been grabbed in this way, it will be added to the list of elements in the
+        selection window. If you click on it, it will be shown on the screen at its current position,
+        enclosed by a flashing bar.</p>
 
-You are allowed to change the source picture <b>without</b> changing the position of the various
-elements, on condition that the new image must be <b>exactly</b> the same size as the original picture.</p>
+    <p><b>[Grab Horiz Line]</b><br>
+
+        This option is used to grab a group of <b>three</b> elements for the Start, Middle and End components
+        of a horizontal line. All that needs to be done is to drag a box around the line, as explained
+        above, and the Resource Editor will take care of everything else automatically. The line will be
+        divided into the three components and stored in the memory bank accordingly. It can now be
+        called directly with a LIne command to generate lines of any length.</p>
+
+    <p>
+        Since each line is created in the manner that is explained above, the width of the line must be an
+        exact multiple of 24. The Resource Editor will take this into account when objects are grabbed,
+        but there are no such limitations with regard to the original position of your horizontal lines.
+        These can be grabbed from any part of the source picture.</p>
+
+    <p><b>[Grab Vert Line]</b><br>
+
+        Similarly, this grabs three elements for a vertical line. As with horizontal lines, the entire process
+        is automated. Simply position the mouse pointer over the top left-hand corner of the proposed
+        line, hold down the left mouse button and drag a box around the required image. When the
+        button is released, you may re-position the box as required, and click once again on the left
+        mouse button to load it into memory.</p>
+
+    <p>
+        Note that the width of vertical lines must be a multiple of eight, and that the height must be
+        divisible by three. This is managed by the Resource Creator automatically, so there is no danger
+        of grabbing a wrongly dimensioned line.</p>
+
+    <p><b>[Grab a Box]</b><br>
+
+        Similarly, use this option to grab a group of <b>nine</b> component elements to make up a box. The
+        box can then be displayed using a BOx command from an Interface program. The width of this
+        box may be increased in steps of 24, and the height must be an exact multiple of three.</p>
+
+
+    <p><b>[Exit]</b><br>
+        This returns you to the Main menu.</p>
+
+    <p><b>[Del]</b><br>
+        Use this option to delete the currently highlighted element, which will be removed from the
+        selection window.</p>
+
+    <p><b>[Clear]</b><br>
+        This erases <b>all</b> resource graphics elements from memory, and you will be asked to confirm you
+        decision before proceeding.</p>
+
+    <p><b>[Change Picture]</b><br>
+
+        You are allowed to change the source picture <b>without</b> changing the position of the various
+        elements, on condition that the new image must be <b>exactly</b> the same size as the original picture.</p>
 </section>
 
 <section id="04-editing-text-strings">
-<h2>Editing text strings</h2>
-<p>
-To end this guided tour of the Resource Creator facilities, the options provided by [Edit Text
-Strings] are examined.</p>
+    <h2>Editing text strings</h2>
+    <p>
+        To end this guided tour of the Resource Creator facilities, the options provided by [Edit Text
+        Strings] are examined.</p>
 
-<p>
-This sub-menu allows you to enter a list of pre-defined standard messages into the Resource
-Bank. These messages can then be accessed from an Interface program using the MEssage
-command, or from a main AMOS Professional program, with a RESOURCE$ instruction.</p>
+    <p>
+        This sub-menu allows you to enter a list of pre-defined standard messages into the Resource
+        Bank. These messages can then be accessed from an Interface program using the MEssage
+        command, or from a main AMOS Professional program, with a RESOURCE$ instruction.</p>
 
-<p>
-The Text String menu contains a large selection window that can be scrolled vertically, using the
-slider bar on the right-hand side. Each item can be individually selected with the mouse, and
-edited directly on the screen.</p>
+    <p>
+        The Text String menu contains a large selection window that can be scrolled vertically, using the
+        slider bar on the right-hand side. Each item can be individually selected with the mouse, and
+        edited directly on the screen.</p>
 
-<p>
-The [CLEAR] button erases <b>all</b> message strings from memory, whereas [EXIT] will return you to
-the Main menu.</p>
+    <p>
+        The [CLEAR] button erases <b>all</b> message strings from memory, whereas [EXIT] will return you to
+        the Main menu.</p>
 
-<p>Entering a new text string is extremely easy, and the following steps should be taken:</p>
+    <p>Entering a new text string is extremely easy, and the following steps should be taken:</p>
 
-<ul>
-  <li>Choose a string to be edited from the selection window, with a single click on the <b>left</b> mouse
-      button.</li>
-  <li>Enter the new string definitions into memory.</li>
-  <li>Repeat this procedure for all of the strings that you wish to install.</li>
-  <li>Click on the [EXIT] button to return to the Main menu.</li>
-  <li>Save your messages onto disc, using the [Save] or [Save As] options.</li>
-</ul>
+    <ul>
+        <li>Choose a string to be edited from the selection window, with a single click on the <b>left</b> mouse
+            button.
+        </li>
+        <li>Enter the new string definitions into memory.</li>
+        <li>Repeat this procedure for all of the strings that you wish to install.</li>
+        <li>Click on the [EXIT] button to return to the Main menu.</li>
+        <li>Save your messages onto disc, using the [Save] or [Save As] options.</li>
+    </ul>
 
-<p>
-The editing of text strings takes place in an attractive dialogue box, and characters are typed
-using all of the normal editing commands.</p>
+    <p>
+        The editing of text strings takes place in an attractive dialogue box, and characters are typed
+        using all of the normal editing commands.</p>
 
-<p>To save your new text into memory, press the [Return] key <b>twice</b>.</p>
-
-
-<p>
-The following keyboard short-cuts have been assigned to these operations, to make the editing
-of text strings even faster:</p>
+    <p>To save your new text into memory, press the [Return] key <b>twice</b>.</p>
 
 
-<pre>
+    <p>
+        The following keyboard short-cuts have been assigned to these operations, to make the editing
+        of text strings even faster:</p>
+
+
+    <pre>
 <b>key         effect</b>
 [Return]    Replace the existing text string at the current position by new text,
             completely erasing the original entry.
@@ -325,29 +325,33 @@ of text strings even faster:</p>
 </section>
 
 <section id="05-automatic-bank-grabbing">
-<h2>Automatic Bank grabbing</h2>
-<p>
-Similarly to the Sample Bank and Object Bank editors, AMOS Professional provides an
-automatic method of grabbing a bank with the Resource Creator. Supposing you are working on
-a program, and you decide to create a Resource Bank. The following steps should be followed:</p>
+    <h2>Automatic Bank grabbing</h2>
+    <p>
+        Similarly to the Sample Bank and Object Bank editors, AMOS Professional provides an
+        automatic method of grabbing a bank with the Resource Creator. Supposing you are working on
+        a program, and you decide to create a Resource Bank. The following steps should be followed:</p>
 
-<ul>
-  <li>Select the [Resource Ed] option from the user menu. The program will be loaded and sent to
-      the command line "GRAB".</li>
-  <li>The Resource Creator will grab the current program's bank automatically, and you are now
-      free to modify it. If your current program has no available bank, simply create a new one or
-      load a bank that has already been defined. The Resource Creator will display a "GRABBED"
-      message immediately in front of the name of the bank.</li>
-  <li>When you select the [QUIT] option, you will be asked if you want to copy the modified bank
-      back into your edited program.</li>
-  <li>On returning to the main AMOS Professional Edit screen, your modified Resource Bank will
-      be in place.</li>
-</ul>
+    <ul>
+        <li>Select the [Resource Ed] option from the user menu. The program will be loaded and sent to
+            the command line "GRAB".
+        </li>
+        <li>The Resource Creator will grab the current program's bank automatically, and you are now
+            free to modify it. If your current program has no available bank, simply create a new one or
+            load a bank that has already been defined. The Resource Creator will display a "GRABBED"
+            message immediately in front of the name of the bank.
+        </li>
+        <li>When you select the [QUIT] option, you will be asked if you want to copy the modified bank
+            back into your edited program.
+        </li>
+        <li>On returning to the main AMOS Professional Edit screen, your modified Resource Bank will
+            be in place.
+        </li>
+    </ul>
 
-<p>
-The advantage of this automatic system is that it very fast, because it suppresses the saving of a
-bank from the edited program, the need to load and save it from the Editor and then re-load it
-from the edited program.</p>
+    <p>
+        The advantage of this automatic system is that it very fast, because it suppresses the saving of a
+        bank from the edited program, the need to load and save it from the Editor and then re-load it
+        from the edited program.</p>
 
 
 </section>

@@ -1,428 +1,431 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - detecting collisions</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - detecting collisions</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Detecting Collisions</h1>
+    <h1>Detecting Collisions</h1>
 
 
+    <p>
+        In this Chapter, you will learn how to turn moving objects into truly interactive game
+        components, by giving them friendly or hostile personalities. These personalities depend on
+        what happens when two or more objects collide, and all of the classic computer games demand
+        continual monitoring for collision between moving objects. Collision detection must be instant,
+        accurate and totally reliable, otherwise games will lack excitement and playability.</p>
 
-<p>
-In this Chapter, you will learn how to turn moving objects into truly interactive game
-components, by giving them friendly or hostile personalities. These personalities depend on
-what happens when two or more objects collide, and all of the classic computer games demand
-continual monitoring for collision between moving objects. Collision detection must be instant,
-accurate and totally reliable, otherwise games will lack excitement and playability.</p>
-
-<p>
-AMOS Professional provides a comprehensive range of functions that allow perfect monitoring
-for collisions between objects on screen: Bobs, Hardware Sprites, Computed Sprites or any
-combination of these different types. The detection routines are sensitive to the actual shape of
-your objects, so all results are incredibly accurate. There is not a single "classic" computer game
-that you cannot match in terms of speed and sensitivity when it comes to detecting collisions.
-Here is a synopsis of the options available.</p>
-</>
+    <p>
+        AMOS Professional provides a comprehensive range of functions that allow perfect monitoring
+        for collisions between objects on screen: Bobs, Hardware Sprites, Computed Sprites or any
+        combination of these different types. The detection routines are sensitive to the actual shape of
+        your objects, so all results are incredibly accurate. There is not a single "classic" computer game
+        that you cannot match in terms of speed and sensitivity when it comes to detecting collisions.
+        Here is a synopsis of the options available.</p>
+</
+>
 
 <section id="01-collision-detection-options">
-<h2>Collision detection options</h2>
-<p>
-AMOS Professional permits effortless checking for a collision between any group of screen
-objects, by means of four powerful functions. Each function uses the same principle, which takes
-a single source object and then searches for collisions between that object and one or more
-targets. If the test is successful and a collision is detected, a value of -1 is returned, meaning True.
-On the other hand, if there is no collision, a value of 0 is given, meaning False.</p>
+    <h2>Collision detection options</h2>
+    <p>
+        AMOS Professional permits effortless checking for a collision between any group of screen
+        objects, by means of four powerful functions. Each function uses the same principle, which takes
+        a single source object and then searches for collisions between that object and one or more
+        targets. If the test is successful and a collision is detected, a value of -1 is returned, meaning True.
+        On the other hand, if there is no collision, a value of 0 is given, meaning False.</p>
 
-<p>
-As a default, the collision functions will test all relevant active objects for collision with the single
-object that you are interested in, but if you want to restrict your test to a selection of active
-objects, each function can be qualified with an optional setting for the range of targets. This
-range is set by specifying the number of the first object in the range to the number of the last
-target object you are interested in.</p>
+    <p>
+        As a default, the collision functions will test all relevant active objects for collision with the single
+        object that you are interested in, but if you want to restrict your test to a selection of active
+        objects, each function can be qualified with an optional setting for the range of targets. This
+        range is set by specifying the number of the first object in the range to the number of the last
+        target object you are interested in.</p>
 
-<p>
-BOB COL monitors for collisions between Bobs.<br>
-SPRITE COL monitors for collisions between Sprites.<br>
-SPRITEBOB COL checks a single Sprite for collisions with Bobs.<br>
-BOBSPRITE COL tests a single Bob for collisions with Sprites.</p>
+    <p>
+        BOB COL monitors for collisions between Bobs.<br>
+        SPRITE COL monitors for collisions between Sprites.<br>
+        SPRITEBOB COL checks a single Sprite for collisions with Bobs.<br>
+        BOBSPRITE COL tests a single Bob for collisions with Sprites.</p>
 
-<p>
-After a collision has been detected by one of those tests, you can make an immediate check for
-the other objects involved, using a collision function named COL, which is used like this:</p>
+    <p>
+        After a collision has been detected by one of those tests, you can make an immediate check for
+        the other objects involved, using a collision function named COL, which is used like this:</p>
 
-<p>
-collision=Col(number)<br>
-where the number relates to one of the objects being checked.</p>
+    <p>
+        collision=Col(number)<br>
+        where the number relates to one of the objects being checked.</p>
 
-<p>
-Most of these options are also available in the built-in AMAL animation system, to which
-<a href="07-06-amal.html">Chapter 7.6</a> is devoted.</p>
+    <p>
+        Most of these options are also available in the built-in AMAL animation system, to which
+        <a href="07-06-amal.html">Chapter 7.6</a> is devoted.</p>
 </section>
 
 <section id="02-types-of-collisions">
-<h2>Types of collisions</h2>
-<p>
-There are three general categories of collision which can occur in a computer game:</p>
+    <h2>Types of collisions</h2>
+    <p>
+        There are three general categories of collision which can occur in a computer game:</p>
 
-<ul>
-  <li><b>One-to-one.</b> This is the simplest case where there are only two objects on the screen, such as a
-      bat and a ball.</li>
-  <li><b>One-to-many.</b> Normally the player will have control of one object which is suffering the
-      unwanted attentions of a whole host of hostile harassers.</li>
-  <li><b>Many-to-many.</b> In more complex arcade games, each hostile object must be
-      checked for collision with an entire armoury of user-controlled objects.</li>
-</ul>
+    <ul>
+        <li><b>One-to-one.</b> This is the simplest case where there are only two objects on the screen, such as a
+            bat and a ball.
+        </li>
+        <li><b>One-to-many.</b> Normally the player will have control of one object which is suffering the
+            unwanted attentions of a whole host of hostile harassers.
+        </li>
+        <li><b>Many-to-many.</b> In more complex arcade games, each hostile object must be
+            checked for collision with an entire armoury of user-controlled objects.
+        </li>
+    </ul>
 
 
-<p>
-Before a detailed explanation of the collision functions, it is worth examining AMOS
-Professional in action with a ready-made program. This will demonstrate how collisions are
-handled.</p>
+    <p>
+        Before a detailed explanation of the collision functions, it is worth examining AMOS
+        Professional in action with a ready-made program. This will demonstrate how collisions are
+        handled.</p>
 
-<p>Please load the following tutorial:</p>
+    <p>Please load the following tutorial:</p>
 
-<pre>
+    <pre>
 DP> Load "AMOSPro Tutorial:Tutorials/Collision_Detection.AMOS"
 </pre>
 
-<p>
-Now run the program and select Example 1. This shows how a simple bat and ball are made to
-interact, and to simplify things, the bat has been fixed in position! The collision detection in this
-example relies on the following line:</p>
+    <p>
+        Now run the program and select Example 1. This shows how a simple bat and ball are made to
+        interact, and to simplify things, the bat has been fixed in position! The collision detection in this
+        example relies on the following line:</p>
 
-<pre>
+    <pre>
 X> If Bob Col(1) Then Boom
 </pre>
 
-<p>
-Notice how the explosion effect is triggered the instant that the bat overlaps the ball, even by the
-smallest margin. Example 2 really sets the ball rolling!</p>
+    <p>
+        Notice how the explosion effect is triggered the instant that the bat overlaps the ball, even by the
+        smallest margin. Example 2 really sets the ball rolling!</p>
 
-<p>
-The same instruction can also be used to detect collisions between a single source and any
-number of target objects, with the BOB COL function checking all of the Bobs automatically in
-Example 3.</p>
+    <p>
+        The same instruction can also be used to detect collisions between a single source and any
+        number of target objects, with the BOB COL function checking all of the Bobs automatically in
+        Example 3.</p>
 
-<p>
-To refine the system, and check for collisions with a smaller range of objects, simply add the first
-and last numbers of that range to the BOBSPRITE COL command, in the demonstration
-program. For example, changing the relevant line as follows will test for one red and one green
-ball only:</p>
+    <p>
+        To refine the system, and check for collisions with a smaller range of objects, simply add the first
+        and last numbers of that range to the BOBSPRITE COL command, in the demonstration
+        program. For example, changing the relevant line as follows will test for one red and one green
+        ball only:</p>
 
-<pre>
+    <pre>
 E> If Bobsprite 001(1,2 To 4) Then Bell 10
 </pre>
 </section>
 
 <section id="03-masks">
-<h2>Masks</h2>
-<p>Invisible "masks" are created around images for two main reasons. Firstly they ensure that the
-background colour (zero) is transparent, so a masked Bob will merge with the current screen
-display. The second reason for masking an image is to provide AMOS Professional with a
-mechanism for detecting collisions. The collision detection functions will only work if a mask
-has first been created around the required images.</p>
+    <h2>Masks</h2>
+    <p>Invisible "masks" are created around images for two main reasons. Firstly they ensure that the
+        background colour (zero) is transparent, so a masked Bob will merge with the current screen
+        display. The second reason for masking an image is to provide AMOS Professional with a
+        mechanism for detecting collisions. The collision detection functions will only work if a mask
+        has first been created around the required images.</p>
 
-<p>
-Masks are automatically defined around an image when that image is assigned to a Blitter
-Object, in other words, when the BOB command is used. But it is important to remember that
-Sprites have no masks unless you specifically attach them. So if you intend to make use of
-collision detection, it is vital to ensure that all your objects are wearing their masks.</p>
+    <p>
+        Masks are automatically defined around an image when that image is assigned to a Blitter
+        Object, in other words, when the BOB command is used. But it is important to remember that
+        Sprites have no masks unless you specifically attach them. So if you intend to make use of
+        collision detection, it is vital to ensure that all your objects are wearing their masks.</p>
 
-<h3 id="i-make-mask">MAKE MASK</h3>
-<p><i>instruction: mask an image for collision detection</i><br>
-<b>Make Mask</b><br>
-<b>Make Mask</b> number</p>
+    <h3 id="i-make-mask">MAKE MASK</h3>
+    <p><i>instruction: mask an image for collision detection</i><br>
+        <b>Make Mask</b><br>
+        <b>Make Mask</b> number</p>
 
-<p>This command creates a mask around every one of the images in the Object Bank, and may take</p>
+    <p>This command creates a mask around every one of the images in the Object Bank, and may take</p>
 
 
-<p>
-a little time, depending on the number of objects involved. If an optional number is given, then
-a mask is created for that specified image only.</p>
+    <p>
+        a little time, depending on the number of objects involved. If an optional number is given, then
+        a mask is created for that specified image only.</p>
 </section>
 
 <section id="04-the-collision-functions">
-<h2>The collision functions</h2>
-<p>
-<h3 id="fn-bob-col">BOB COL</h3>
-<p><i>function: detect for collision between Blitter Objects</i><br>
-c=<b>Bob Col</b>(number)<br>
-c=<b>Bob Col</b>(number, first <b>To</b> last)</p>
+    <h2>The collision functions</h2>
+    <p>
+    <h3 id="fn-bob-col">BOB COL</h3>
+    <p><i>function: detect for collision between Blitter Objects</i><br>
+        c=<b>Bob Col</b>(number)<br>
+        c=<b>Bob Col</b>(number, first <b>To</b> last)</p>
 
-<p>
-The BOB COL function checks the screen for collisions between Blitter Objects. It is invaluable
-in the type of arcade games that rely on hitting or avoiding moving objects. To test for a collision
-with BOB COL, simply specify the number of the Bob you are interested in (in brackets) and a
-value of -1 (true) will be returned if a collision occurs. Otherwise zero (false) is generated.</p>
+    <p>
+        The BOB COL function checks the screen for collisions between Blitter Objects. It is invaluable
+        in the type of arcade games that rely on hitting or avoiding moving objects. To test for a collision
+        with BOB COL, simply specify the number of the Bob you are interested in (in brackets) and a
+        value of -1 (true) will be returned if a collision occurs. Otherwise zero (false) is generated.</p>
 
-<p>
-Note that the AMOS Professional collision system uses "masks", and so it is sensitive to the
-physical shape of your objects. This means that when different objects have extremely varied
-appearances, the collision will only be detected when the objects happen to overlap on screen.</p>
+    <p>
+        Note that the AMOS Professional collision system uses "masks", and so it is sensitive to the
+        physical shape of your objects. This means that when different objects have extremely varied
+        appearances, the collision will only be detected when the objects happen to overlap on screen.</p>
 
-<p>
-Normally, BOB COL will check for collisions between the specified Bob and any other Blitter
-Object, but you can also monitor the movements of a particular range of Bobs using this
-As optional parameters, after the specified Bob number, you may set the range of
-Bobs to be checked for collision from the first to the last in your Bob list.</p>
+    <p>
+        Normally, BOB COL will check for collisions between the specified Bob and any other Blitter
+        Object, but you can also monitor the movements of a particular range of Bobs using this
+        As optional parameters, after the specified Bob number, you may set the range of
+        Bobs to be checked for collision from the first to the last in your Bob list.</p>
 
-<p>
-BOB COL is very similar to the BC function used by the AMAL animation system. AMAL is
-detailed at the end of this section, in <a href="07-06-amal.html">Chapter 7.6</a>. For a rapid status test of an individual Bob,
-after a collision detection routine, the COL function can be used to determine precisely which
-pair of objects have collided amongst a whole range of similar objects. The COL function is
-explained later.</p>
+    <p>
+        BOB COL is very similar to the BC function used by the AMAL animation system. AMAL is
+        detailed at the end of this section, in <a href="07-06-amal.html">Chapter 7.6</a>. For a rapid status test of an individual Bob,
+        after a collision detection routine, the COL function can be used to determine precisely which
+        pair of objects have collided amongst a whole range of similar objects. The COL function is
+        explained later.</p>
 
-<h3 id="fn-sprite-col">SPRITE COL</h3>
-<p><i>function: test for collision between Sprites</i><br>
-c=<b>Sprite Col</b>(number)<br>
-c=<b>Sprite Col</b>(number,start <b>To</b> finish)</p>
+    <h3 id="fn-sprite-col">SPRITE COL</h3>
+    <p><i>function: test for collision between Sprites</i><br>
+        c=<b>Sprite Col</b>(number)<br>
+        c=<b>Sprite Col</b>(number,start <b>To</b> finish)</p>
 
-<p>
-SPRITE COL provides an easy method of checking to see if two or more Sprites have collided on
-screen. If the test is successful, SPRITE COL returns a value of -1 (true), and if not 0 (false) is
-returned instead. As you would expect, the brackets contain the number of any active Sprite on
-screen. This can be a standard Amiga hardware Sprite, or an AMOS Professional computed
-Sprite, but the image it displays must carry a mask. As a default, masks are created for Bobs only,
-so you must deliberately create a mask for each Sprite image at the start of your program, using
-MAKE MASK.</p>
+    <p>
+        SPRITE COL provides an easy method of checking to see if two or more Sprites have collided on
+        screen. If the test is successful, SPRITE COL returns a value of -1 (true), and if not 0 (false) is
+        returned instead. As you would expect, the brackets contain the number of any active Sprite on
+        screen. This can be a standard Amiga hardware Sprite, or an AMOS Professional computed
+        Sprite, but the image it displays must carry a mask. As a default, masks are created for Bobs only,
+        so you must deliberately create a mask for each Sprite image at the start of your program, using
+        MAKE MASK.</p>
 
-<p>
-If you want to check for a selected group of Sprites, include the optional first to last parameters
-to set the range of the Sprite numbers you are interested in.</p>
+    <p>
+        If you want to check for a selected group of Sprites, include the optional first to last parameters
+        to set the range of the Sprite numbers you are interested in.</p>
 
-<p>
-Note that any mixture of hardware Sprites and computed Sprites can be tested in the same
-SPRITE COL instruction. Also that the equivalent AMAL function is SC.</p>
+    <p>
+        Note that any mixture of hardware Sprites and computed Sprites can be tested in the same
+        SPRITE COL instruction. Also that the equivalent AMAL function is SC.</p>
 
 
-<h3 id="fn-spritebob-col">SPRITEBOB COL</h3>
-<p><i>function: test for collision between one Sprite and range of Bobs</i><br>
-c=<b>Spritebob Col</b>(number)<br>
-c=<b>Spritebob Col</b>(number,start <b>To</b> finish)</p>
+    <h3 id="fn-spritebob-col">SPRITEBOB COL</h3>
+    <p><i>function: test for collision between one Sprite and range of Bobs</i><br>
+        c=<b>Spritebob Col</b>(number)<br>
+        c=<b>Spritebob Col</b>(number,start <b>To</b> finish)</p>
 
-<p>
-As its name suggests, this function checks for a collision between the Sprite whose number you
-specify, and one or more Blitter Objects. If the Sprite collides with a Bob, a value of -1 (true) is
-returned, otherwise 0 (false) is given.</p>
+    <p>
+        As its name suggests, this function checks for a collision between the Sprite whose number you
+        specify, and one or more Blitter Objects. If the Sprite collides with a Bob, a value of -1 (true) is
+        returned, otherwise 0 (false) is given.</p>
 
-<p>
-This function will test for collisions with all Bobs on screen, but the checking process can be
-restricted with the optional setting of the range of Bobs to be monitored, from the first Bob
-number to the last in the range. If you need to test for collisions between several Sprites and
-Bobs, the command should be enclosed in a loop, like this:</p>
+    <p>
+        This function will test for collisions with all Bobs on screen, but the checking process can be
+        restricted with the optional setting of the range of Bobs to be monitored, from the first Bob
+        number to the last in the range. If you need to test for collisions between several Sprites and
+        Bobs, the command should be enclosed in a loop, like this:</p>
 
-<pre>
+    <pre>
 X> For FIRSTSPRITE=1 To LASTSPRITE
     If Spritebob Col(FIRSTSPRITE,FIRSTBOB To LASTBOB) Then Boom
    Next FIRSTSPRITE
 </pre>
 
-<p>
-Remember that all specified Sprites must be assigned to a <b>masked</b> image, before collision
-detection can work. You are also warned that this function will only work with <b>low resolution</b>
-screens, and attempts to use it in high resolution will lead to unpredictable results. This is
-because your Sprites and Bobs are likely to have different sized screen points.</p>
+    <p>
+        Remember that all specified Sprites must be assigned to a <b>masked</b> image, before collision
+        detection can work. You are also warned that this function will only work with <b>low resolution</b>
+        screens, and attempts to use it in high resolution will lead to unpredictable results. This is
+        because your Sprites and Bobs are likely to have different sized screen points.</p>
 
-<h3 id="fn-bobsprite-col">BOBSPRITE COL</h3>
-<p><i>function: test for collision between one Bob and range of Sprites</i><br>
-c=<b>Bobsprite Col</b>(number)<br>
-c=<b>Bobsprite Col</b>(number,first <b>To</b> last)</p>
+    <h3 id="fn-bobsprite-col">BOBSPRITE COL</h3>
+    <p><i>function: test for collision between one Bob and range of Sprites</i><br>
+        c=<b>Bobsprite Col</b>(number)<br>
+        c=<b>Bobsprite Col</b>(number,first <b>To</b> last)</p>
 
-<p>
-This function checks for a collision between the single Bob whose number you specify, and all
-active Sprites on screen. The result will be -1 (true) is a collision is detected, or 0 (false) if the
-object remains untouched. To narrow the range of Sprites to be monitored, simply include the
-first to the last number in that range. As with SPRITEBOB COL, this function should only be
-used in low resolution.</p>
+    <p>
+        This function checks for a collision between the single Bob whose number you specify, and all
+        active Sprites on screen. The result will be -1 (true) is a collision is detected, or 0 (false) if the
+        object remains untouched. To narrow the range of Sprites to be monitored, simply include the
+        first to the last number in that range. As with SPRITEBOB COL, this function should only be
+        used in low resolution.</p>
 
-<h3 id="fn-col">COL</h3>
-<p><i>function: test status of an object after collision detection</i><br>
-status=<b>Col</b>(number)</p>
+    <h3 id="fn-col">COL</h3>
+    <p><i>function: test status of an object after collision detection</i><br>
+        status=<b>Col</b>(number)</p>
 
-<p>
-One obvious problem with all of the previous detection functions is that they only report on
-whether an individual object has been hit. To discover information about any other objects
-involved in a collision, the COL function is used. This means that each object can be tested on its
-own, to see if it has collided with the source object.</p>
+    <p>
+        One obvious problem with all of the previous detection functions is that they only report on
+        whether an individual object has been hit. To discover information about any other objects
+        involved in a collision, the COL function is used. This means that each object can be tested on its
+        own, to see if it has collided with the source object.</p>
 
-<p>
-Give the number of the object you wish to test, either a Bob or a Sprite, depending on the
-circumstances, and its status will be reported with a value of -1 (true)
-if it has collided, or 0 (false) if it remains untouched.</p>
+    <p>
+        Give the number of the object you wish to test, either a Bob or a Sprite, depending on the
+        circumstances, and its status will be reported with a value of -1 (true)
+        if it has collided, or 0 (false) if it remains untouched.</p>
 
 
-<p>
-Supposing you are testing Bob 1 for a collision between Bobs 2,3 and 4. The initial test could look
-like this:</p>
+    <p>
+        Supposing you are testing Bob 1 for a collision between Bobs 2,3 and 4. The initial test could look
+        like this:</p>
 
-<pre>
+    <pre>
 X> C=Bob Col(1,2 To 4)
 </pre>
 
-<p>
-Alter the collision has been detected, you can check on the other objects using the COL
-I unction, as follows:</p>
+    <p>
+        Alter the collision has been detected, you can check on the other objects using the COL
+        I unction, as follows:</p>
 
-<pre>
+    <pre>
 X> For B=2 To 4
     If Col(B) Then Print "You have hit Bob number ";B
    Next B
 </pre>
 
-<p>
-A faster version of this function allows instant monitoring for the second object in the collision,
-like this:</p>
+    <p>
+        A faster version of this function allows instant monitoring for the second object in the collision,
+        like this:</p>
 
-<pre>
+    <pre>
 X> object=Col(-1)
 </pre>
 
-<p>
-This returns the number of the object which has collided with your target, or a zero if no
-collision has happened. So the alternative version to the last example is:</p>
+    <p>
+        This returns the number of the object which has collided with your target, or a zero if no
+        collision has happened. So the alternative version to the last example is:</p>
 
-<pre>
+    <pre>
 X> C=Bob Col(1,2 To 4)
    Print "You have hit Bob number ";Col(-1)
 </pre>
 
-<p>
-The AMAL equivalent of this function is C, and both are perfect for detecting collisions between
-individual "hostiles" and "friendlies". You simply check for a collision between each object with
-a BOB COL or SPRITE COL, then grab the number of the collision object with the COL function.</p>
+    <p>
+        The AMAL equivalent of this function is C, and both are perfect for detecting collisions between
+        individual "hostiles" and "friendlies". You simply check for a collision between each object with
+        a BOB COL or SPRITE COL, then grab the number of the collision object with the COL function.</p>
 
-<h3 id="i-set-hardcol">SET HARDCOL</h3>
-<p><i>instruction: set hardware register for hardware Sprite collision detection</i><br>
-<b>Set Hardcol</b> bitmap1 ,bitmap2</p>
+    <h3 id="i-set-hardcol">SET HARDCOL</h3>
+    <p><i>instruction: set hardware register for hardware Sprite collision detection</i><br>
+        <b>Set Hardcol</b> bitmap1 ,bitmap2</p>
 
-<p>
-This command is available to experienced Amiga programmers, and it permits Sprite collision
-detection using the computer's hardware. SET HARDCOL cannot be used with computed
-Sprites, so only Sprites zero to 7 may be monitored for collision.</p>
+    <p>
+        This command is available to experienced Amiga programmers, and it permits Sprite collision
+        detection using the computer's hardware. SET HARDCOL cannot be used with computed
+        Sprites, so only Sprites zero to 7 may be monitored for collision.</p>
 
-<p>
-The CLXCON register is set for hardware Sprite collision detection using two parameters.
-Bitmap1 is an enabler, that sets bits 12,13,14 and 15 of the CLXON register, and bitmap2
-determines the comparison itself, setting bits zero to 5. Please refer to your hardware manual for
-a technical explanation of this register.</p>
+    <p>
+        The CLXCON register is set for hardware Sprite collision detection using two parameters.
+        Bitmap1 is an enabler, that sets bits 12,13,14 and 15 of the CLXON register, and bitmap2
+        determines the comparison itself, setting bits zero to 5. Please refer to your hardware manual for
+        a technical explanation of this register.</p>
 
-<h3 id="fn-hardcol">HARDCOL</h3>
-<p><i>function: return collision status after a Set Hardcol instruction</i><br>
-c=<b>Hardcol</b></p>
+    <h3 id="fn-hardcol">HARDCOL</h3>
+    <p><i>function: return collision status after a Set Hardcol instruction</i><br>
+        c=<b>Hardcol</b></p>
 
-<p>
-Once the hardware register has been set with a SET HARDCOL command, the HARDCOL
-function can be used to read the system register CLXDAT, returning zero (False) if there is no
-collision, or -1 (True) if a collision is detected. The COL function can then be used to return the
-identification number of the colliding Sprite.</p>
+    <p>
+        Once the hardware register has been set with a SET HARDCOL command, the HARDCOL
+        function can be used to read the system register CLXDAT, returning zero (False) if there is no
+        collision, or -1 (True) if a collision is detected. The COL function can then be used to return the
+        identification number of the colliding Sprite.</p>
 
 </section>
 
 <section id="05-collisions-with-rectangular-blocks">
-<h2>Collisions with rectangular blocks</h2>
-<p>
-The last part of this Chapter explains how rapid checks can be made to see if an Object has
-entered a rectangular area of the screen. These screen "zones" can be used for collision
-detection in computer games, as well as for setting up buttons, control panels and dialogue
-boxes.</p>
+    <h2>Collisions with rectangular blocks</h2>
+    <p>
+        The last part of this Chapter explains how rapid checks can be made to see if an Object has
+        entered a rectangular area of the screen. These screen "zones" can be used for collision
+        detection in computer games, as well as for setting up buttons, control panels and dialogue
+        boxes.</p>
 
-<h3 id="i-reserve-zone">RESERVE ZONE</h3>
-<p><i>instruction: RESERVE memory for a detection zone</i><br>
-<b>Reserve Zone</b><br>
-<b>Reserve Zone</b> number</p>
+    <h3 id="i-reserve-zone">RESERVE ZONE</h3>
+    <p><i>instruction: RESERVE memory for a detection zone</i><br>
+        <b>Reserve Zone</b><br>
+        <b>Reserve Zone</b> number</p>
 
-<p>
-The RESERVE ZONE instruction must be used to allocate enough memory for the exact number
-of zones required, before a SET ZONE command is given. There is no limit to the number that
-can be specified, apart from the amount of available memory.</p>
+    <p>
+        The RESERVE ZONE instruction must be used to allocate enough memory for the exact number
+        of zones required, before a SET ZONE command is given. There is no limit to the number that
+        can be specified, apart from the amount of available memory.</p>
 
-<p>
-To erase all current zone definitions and restore the allocated memory to the main program,
-simply give the RESERVE ZONE command without any number parameter.</p>
+    <p>
+        To erase all current zone definitions and restore the allocated memory to the main program,
+        simply give the RESERVE ZONE command without any number parameter.</p>
 
-<h3 id="i-set-zone">SET ZONE</h3>
-<p><i>instruction: set a screen zone for testing</i><br>
-<b>Set Zone</b> number,x1 ,y1 <b>To</b> x2,y2</p>
+    <h3 id="i-set-zone">SET ZONE</h3>
+    <p><i>instruction: set a screen zone for testing</i><br>
+        <b>Set Zone</b> number,x1 ,y1 <b>To</b> x2,y2</p>
 
-<p>
-After memory has been allocated with the RESERVE ZONE command, SET ZONE is used to
-define a rectangular area of the screen which can be tested by the various ZONE functions. The
-command is followed by the number of the new zone, followed by its coordinates from top left
-to bottom right-hand corner.</p>
+    <p>
+        After memory has been allocated with the RESERVE ZONE command, SET ZONE is used to
+        define a rectangular area of the screen which can be tested by the various ZONE functions. The
+        command is followed by the number of the new zone, followed by its coordinates from top left
+        to bottom right-hand corner.</p>
 
-<h3 id="fn-zone">ZONE</h3>
-<p><i>function: return the zone number under specified screen coordinates</i><br>
-number=<b>Zone</b>(x,y)<br>
-number=<b>Zone</b>(screen number,x,y)</p>
+    <h3 id="fn-zone">ZONE</h3>
+    <p><i>function: return the zone number under specified screen coordinates</i><br>
+        number=<b>Zone</b>(x,y)<br>
+        number=<b>Zone</b>(screen number,x,y)</p>
 
-<p>
-The ZONE function is used to give the number of the screen zone at the specified screen
-coordinates x,y. These coordinates are normally relative to the current screen, but an optional
-screen number can be included before the coordinates.</p>
+    <p>
+        The ZONE function is used to give the number of the screen zone at the specified screen
+        coordinates x,y. These coordinates are normally relative to the current screen, but an optional
+        screen number can be included before the coordinates.</p>
 
-<p>
-After the ZONE function has been called, the number of the <b>first</b> zone at these coordinates will
-be returned, or a value of zero (False) will be given if no zone is detected.</p>
+    <p>
+        After the ZONE function has been called, the number of the <b>first</b> zone at these coordinates will
+        be returned, or a value of zero (False) will be given if no zone is detected.</p>
 
-<p>
-This function can be used with the X BOB and Y BOB functions to detect whether or not a Bob
-has entered a specific screen zone, as follows:</p>
+    <p>
+        This function can be used with the X BOB and Y BOB functions to detect whether or not a Bob
+        has entered a specific screen zone, as follows:</p>
 
-<pre>
+    <pre>
 X> N=Zone(X Bob(n),Y Bob(n))
 </pre>
 
 
-<h3 id="fn-hzone">HZONE</h3>
-<p><i>function: return the zone number under the specified hardware coordinates</i><br>
-number=<b>Hzone</b>(x,y)<br>
-number=<b>Hzone</b>(screen number,x,y)</p>
+    <h3 id="fn-hzone">HZONE</h3>
+    <p><i>function: return the zone number under the specified hardware coordinates</i><br>
+        number=<b>Hzone</b>(x,y)<br>
+        number=<b>Hzone</b>(screen number,x,y)</p>
 
-<p>
-The HZONE function is identical to ZONE, except for the fact that the position on screen is
-measured in hardware coordinates. This means that this function can be used to detect the
-presence of a hardware Sprite in one of the screen zones, in this format:</p>
+    <p>
+        The HZONE function is identical to ZONE, except for the fact that the position on screen is
+        measured in hardware coordinates. This means that this function can be used to detect the
+        presence of a hardware Sprite in one of the screen zones, in this format:</p>
 
-<pre>
+    <pre>
 X> N=Hzone(X Sprite(n),Y Sprite(n))
 </pre>
 
-<h3 id="fn-mouse-zone">MOUSE ZONE</h3>
-<p><i>function: test if mouse pointer has entered a zone</i><br>
-number=<b>Mouse Zone</b></p>
+    <h3 id="fn-mouse-zone">MOUSE ZONE</h3>
+    <p><i>function: test if mouse pointer has entered a zone</i><br>
+        number=<b>Mouse Zone</b></p>
 
-<p>This is a short reminder that the MOUSE ZONE function is used to check whether the mouse
-pointer has entered a zone, as outlined in <a href="05-08-the-joystick-and-mouse.html">Chapter 5.8</a>.</p>
+    <p>This is a short reminder that the MOUSE ZONE function is used to check whether the mouse
+        pointer has entered a zone, as outlined in <a href="05-08-the-joystick-and-mouse.html">Chapter 5.8</a>.</p>
 
-<h3 id="i-reset-zone">RESET ZONE</h3>
-<p><i>instruction: erase screen zone</i><br>
-<b>Reset Zone</b><br>
-<b>Reset Zone</b> number</p>
+    <h3 id="i-reset-zone">RESET ZONE</h3>
+    <p><i>instruction: erase screen zone</i><br>
+        <b>Reset Zone</b><br>
+        <b>Reset Zone</b> number</p>
 
-<p>
-This command is used to nullify a zone created by the SET ZONE instruction. On its own,
-RESET ZONE permanently de-activates all zone settings, but if it is qualified by a zone number,
-only that zone will be erased. The RESET ZONE instruction does not return the memory
-allocated by RESERVE ZONE to the main program.</p>
+    <p>
+        This command is used to nullify a zone created by the SET ZONE instruction. On its own,
+        RESET ZONE permanently de-activates all zone settings, but if it is qualified by a zone number,
+        only that zone will be erased. The RESET ZONE instruction does not return the memory
+        allocated by RESERVE ZONE to the main program.</p>
 
 
 </section>

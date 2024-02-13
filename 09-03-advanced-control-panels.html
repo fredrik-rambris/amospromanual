@@ -1,123 +1,122 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!--
-      This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
-      Created 2008. :)
+    <!--
+       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       Created 2008. :)
 
-      It was created from the original AMOS Professional Manual by Europress Software Ltd.
+       It was created from the original AMOS Professional Manual by Europress Software Ltd.
 
-      It has been updated by Fredrik Rambris.
-  -->
-  <title>AMOS Professional Manual - advanced control panels</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
-  <meta name="author" content="asymetrix,Fredrik Rambris">
-  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+       It has been updated by Fredrik Rambris.
+   -->
+    <title>AMOS Professional Manual - advanced control panels</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 
 <section>
-<h1>Advanced Control Panels</h1>
+    <h1>Advanced Control Panels</h1>
 
 
+    <p>
+        This Chapter reveals the true power of the AMOS Professional Interface, and deals with the
+        creation of advanced control panels, dialogue channels, edit zones and sliders.</p>
 
-<p>
-This Chapter reveals the true power of the AMOS Professional Interface, and deals with the
-creation of advanced control panels, dialogue channels, edit zones and sliders.</p>
+    <p>
+        The last Chapter explained h w simple requesters and dialogue boxes wait for the user to make
+        a selection, and then return straight back to the main AMOS Professional program with the
+        result. But this only uses fraction of the system In actual fact the Interface is capable of running
+        a dialogue box completely in the background, exactly like an AMOS Professional menu.</p>
 
-<p>
-The last Chapter explained h w simple requesters and dialogue boxes wait for the user to make
-a selection, and then return straight back to the main AMOS Professional program with the
-result. But this only uses fraction of the system In actual fact the Interface is capable of running
-a dialogue box completely in the background, exactly like an AMOS Professional menu.</p>
+    <p>
+        A control panel can be displayed on screen permanently, and each button selection can be read
+        as it happens, directly from the main program, without any interruption to that program
+        whatsoever. This means that a computer game can be busy performing its calculations while the
+        user enters new values into a dialogue box.</p>
 
-<p>
-A control panel can be displayed on screen permanently, and each button selection can be read
-as it happens, directly from the main program, without any interruption to that program
-whatsoever. This means that a computer game can be busy performing its calculations while the
-user enters new values into a dialogue box.</p>
-
-<p>
-In order to access these features, a little preparation must be made in advance in order to exploit
-dialogue channels.</p>
+    <p>
+        In order to access these features, a little preparation must be made in advance in order to exploit
+        dialogue channels.</p>
 </section>
 
 <section id="01-dialogue-channels">
-<h2>Dialogue channels</h2>
+    <h2>Dialogue channels</h2>
 
-<p>
-<i>instruction: open a channel to an Interface program</i><br>
-<b>Dialog Open</b> channel number,Interface string<br>
-<b>Dialog Open</b> channel number,Interface string,nvar,buffer</p>
+    <p>
+        <i>instruction: open a channel to an Interface program</i><br>
+        <b>Dialog Open</b> channel number,Interface string<br>
+        <b>Dialog Open</b> channel number,Interface string,nvar,buffer</p>
 
-<p>
-The DIALOG OPEN command opens a "communication channel" to the new program, and
-loads it with a list of Interface commands. If there are any problems, an appropriate error
-message will appear, and mistakes can be located using a simple call to the error function
-EDIALOG, which is explained below.</p>
+    <p>
+        The DIALOG OPEN command opens a "communication channel" to the new program, and
+        loads it with a list of Interface commands. If there are any problems, an appropriate error
+        message will appear, and mistakes can be located using a simple call to the error function
+        EDIALOG, which is explained below.</p>
 
-<p>
-The parameters for a DIALOG OPEN instruction are given as follows:firstly, the number of the
-channel to be opened, starting from 1. Providing that there is enough memory, you may open as
-many channels as you wish. A string should be specified next, containing one or more Interface
-programs to be initialised. If this string contains several programs, each routine should begin
-with a LAbel instruction and end with an EXit command.</p>
+    <p>
+        The parameters for a DIALOG OPEN instruction are given as follows:firstly, the number of the
+        channel to be opened, starting from 1. Providing that there is enough memory, you may open as
+        many channels as you wish. A string should be specified next, containing one or more Interface
+        programs to be initialised. If this string contains several programs, each routine should begin
+        with a LAbel instruction and end with an EXit command.</p>
 
-<p>
-Normally AMOS Professional provides enough space to hold up to 17 different values in every
-Interface channel (0 VA to 16 VA). If more channels are needed, this array can be expanded via
-an optional nvar parameter, and each extra variable will take up four bytes of memory. There is
-a final optional parameter that allocates bytes for an internal memory buffer used by Interface
-programs. This array holds all of the information that is required to display dialogue boxes and
-selectors on screen. As a default, 1k is reserved for each channel that has been defined, but if the
-requirements are very complex, this value may have to increase. An error message will appear
-automatically if the current allocation is too small.</p>
+    <p>
+        Normally AMOS Professional provides enough space to hold up to 17 different values in every
+        Interface channel (0 VA to 16 VA). If more channels are needed, this array can be expanded via
+        an optional nvar parameter, and each extra variable will take up four bytes of memory. There is
+        a final optional parameter that allocates bytes for an internal memory buffer used by Interface
+        programs. This array holds all of the information that is required to display dialogue boxes and
+        selectors on screen. As a default, 1k is reserved for each channel that has been defined, but if the
+        requirements are very complex, this value may have to increase. An error message will appear
+        automatically if the current allocation is too small.</p>
 
-<p>
-Note that the DIALOG OPEN command only initialises the communication <b>channel</b>, and it does
-not start the program running or generate any graphics on the screen. To accomplish this, the
-following function is used.</p>
+    <p>
+        Note that the DIALOG OPEN command only initialises the communication <b>channel</b>, and it does
+        not start the program running or generate any graphics on the screen. To accomplish this, the
+        following function is used.</p>
 
 
-<h3 id="fn-dialog-run">DIALOG RUN</h3>
-<p><i>function: run a dialogue box from an open channel</i><br>
-button=<b>DIALOG RUN</b>(channel number)<br>
-button=<b>DIALOG RUN</b>(channel number,label,x,y)</p>
+    <h3 id="fn-dialog-run">DIALOG RUN</h3>
+    <p><i>function: run a dialogue box from an open channel</i><br>
+        button=<b>DIALOG RUN</b>(channel number)<br>
+        button=<b>DIALOG RUN</b>(channel number,label,x,y)</p>
 
-<p>
-As its name suggests, DIALOG RUN executes an Interface dialogue program from a specified
-channel, previously opened by a call to DIALOG OPEN. This Interface program will now run in
-the background, leaving the main AMOS Professional program to continue from its next
-instruction, providing that the Interface program does not contain a RunUntil instruction.</p>
+    <p>
+        As its name suggests, DIALOG RUN executes an Interface dialogue program from a specified
+        channel, previously opened by a call to DIALOG OPEN. This Interface program will now run in
+        the background, leaving the main AMOS Professional program to continue from its next
+        instruction, providing that the Interface program does not contain a RunUntil instruction.</p>
 
-<p>
-The use of an Interface RunUntil command will force the Interface program to behave exactly
-like the original DIALOG BOX routine, so it will take complete control of the system and only
-return when the user clicks on an exit button, or aborts by pressing [Ctrl]+[C]. In this case, the
-value held by "button" will contain the number of the last button pressed by the user.</p>
+    <p>
+        The use of an Interface RunUntil command will force the Interface program to behave exactly
+        like the original DIALOG BOX routine, so it will take complete control of the system and only
+        return when the user clicks on an exit button, or aborts by pressing [Ctrl]+[C]. In this case, the
+        value held by "button" will contain the number of the last button pressed by the user.</p>
 
-<p>
-The parameters for a DIALOG RUN function are very simple. First give the number of a channel
-that is currently open, then define the label in an Interface command string from which the
-program is to start. If a label is not specified, the Interface program will commence from the first
-routine in the list. Optional x,y coordinates can also be set to position the control panel on
-screen, and all graphics coordinates will now be measured from this location. It is important to
-note that if a BAse command is included in the program, these new x,y coordinates will be
-completely ignored! Also note that optional coordinates can be given without specifying the
-label parameter, as long as the appropriate commas are included. For example:</p>
+    <p>
+        The parameters for a DIALOG RUN function are very simple. First give the number of a channel
+        that is currently open, then define the label in an Interface command string from which the
+        program is to start. If a label is not specified, the Interface program will commence from the first
+        routine in the list. Optional x,y coordinates can also be set to position the control panel on
+        screen, and all graphics coordinates will now be measured from this location. It is important to
+        note that if a BAse command is included in the program, these new x,y coordinates will be
+        completely ignored! Also note that optional coordinates can be given without specifying the
+        label parameter, as long as the appropriate commas are included. For example:</p>
 
-<pre>
+    <pre>
 X> Dialog Run(1,,x,y)
 </pre>
 
-<p>Here is a simple working example:</p>
+    <p>Here is a simple working example:</p>
 
-<pre>
+    <pre>
 E> A$=A$+"BA 50,50;SI 180,60;SA 1 ;IN 5,0,0;GB 0,0,170,50;"
    A$=A$+"PO 10,10,'Simple Keyboard',2,4;"
    Rem Define two quick return buttons
@@ -134,38 +133,38 @@ E> A$=A$+"BA 50,50;SI 180,60;SA 1 ;IN 5,0,0;GB 0,0,170,50;"
    Dialog Close
 </pre>
 
-<h3 id="i-dialog-close">DIALOG CLOSE</h3>
-<p><i>instruction: close one or more dialogue channels</i><br>
-<b>Dialog Close</b><br>
-<b>Dialog Close</b> channel number</p>
+    <h3 id="i-dialog-close">DIALOG CLOSE</h3>
+    <p><i>instruction: close one or more dialogue channels</i><br>
+        <b>Dialog Close</b><br>
+        <b>Dialog Close</b> channel number</p>
 
-<p>This command closes one or more dialogue channels on the screen.</p>
+    <p>This command closes one or more dialogue channels on the screen.</p>
 
 
-<p>
-Interface programs are terminated and removed from memory immediately. If the Interface
-programs contain an SA command, the original background areas will be neatly pasted back
-onto the display.</p>
+    <p>
+        Interface programs are terminated and removed from memory immediately. If the Interface
+        programs contain an SA command, the original background areas will be neatly pasted back
+        onto the display.</p>
 
-<p>
-Any active channel can be shut down with this command, by specifying a channel number. If
-the channel number is omitted, <b>all</b> of the current Interface channels will be de-activated. Please
-see the DIALOG FREEZE Command below, for something a little less drastic!</p>
+    <p>
+        Any active channel can be shut down with this command, by specifying a channel number. If
+        the channel number is omitted, <b>all</b> of the current Interface channels will be de-activated. Please
+        see the DIALOG FREEZE Command below, for something a little less drastic!</p>
 
-<p>
-<b>EDIALOG</b><br>
-<i>function: find an error in an Interface program</i><br>
-position=<b>Edialog</b></p>
+    <p>
+        <b>EDIALOG</b><br>
+        <i>function: find an error in an Interface program</i><br>
+        position=<b>Edialog</b></p>
 
-<p>
-Whenever an error occurs in an Interface program, its position can be found with a quick call to
-the EDIALOG function. The relevant section of the Interface string will be displayed on screen,
-enabling you to discover what has gone wrong. In practice, the most common mistakes are
-caused by missing or wrongly-used semi-colon characters!</p>
+    <p>
+        Whenever an error occurs in an Interface program, its position can be found with a quick call to
+        the EDIALOG function. The relevant section of the Interface string will be displayed on screen,
+        enabling you to discover what has gone wrong. In practice, the most common mistakes are
+        caused by missing or wrongly-used semi-colon characters!</p>
 
-<p>Here is a small error handler that may be useful if included in your own programs:</p>
+    <p>Here is a small error handler that may be useful if included in your own programs:</p>
 
-<pre>
+    <pre>
 X> On ErrOr Goto TRAP: Rem Add this line before a DIALOG OPEN command
    ...: Rem The rest of your program goes here
    TRAP: Print Mid$(DB$,Edialog,80) : Wait Key : End : Rem Error handler
@@ -173,22 +172,22 @@ X> On ErrOr Goto TRAP: Rem Add this line before a DIALOG OPEN command
 </section>
 
 <section id="02-testing-an-active-zone">
-<h2>Testing an active zone</h2>
+    <h2>Testing an active zone</h2>
 
-<p>
-DIALOG
-<i>function: return status of an open dialogue box</i><br>
-button=<b>Dialog</b>(channel number)</p>
+    <p>
+        DIALOG
+        <i>function: return status of an open dialogue box</i><br>
+        button=<b>Dialog</b>(channel number)</p>
 
-<p>
-This function provides a simple method of testing whether or not an option from a control panel
-has been selected. Simply specify the number of the open channel that is to be tested.</p>
+    <p>
+        This function provides a simple method of testing whether or not an option from a control panel
+        has been selected. Simply specify the number of the open channel that is to be tested.</p>
 
-<p>
-After this function has been performed, one of the following values for the tested button will be
-returned:</p>
+    <p>
+        After this function has been performed, one of the following values for the tested button will be
+        returned:</p>
 
-<pre>
+    <pre>
 <0 A negative value means that the current channel is inactive, either because it has not been
    assigned to a dialogue box, or because the user has left the box via an exit button.
 =0 A value of zero indicates that there has been no user-input since the previous test.
@@ -197,14 +196,14 @@ returned:</p>
    pressed.
 </pre>
 
-<p>
-Once the value of the contents held by the DIALOG function has been checked, it will be re-set
-to zero.</p>
+    <p>
+        Once the value of the contents held by the DIALOG function has been checked, it will be re-set
+        to zero.</p>
 
 
-<p>Here is an example of a simple check:</p>
+    <p>Here is an example of a simple check:</p>
 
-<pre>
+    <pre>
 X> Do
     D=Dialog(1)
     Exit If D<0
@@ -215,142 +214,142 @@ X> Do
    Loop
 </pre>
 
-<h3 id="fn-rdialog">RDIALOG</h3>
-<p><i>function: read the status of a zone or button</i><br>
-button=<b>RDIALOG</b>(channel number,button number)<br>
-button=<b>RDIALOG</b>(channel number,button number, object number)</p>
+    <h3 id="fn-rdialog">RDIALOG</h3>
+    <p><i>function: read the status of a zone or button</i><br>
+        button=<b>RDIALOG</b>(channel number,button number)<br>
+        button=<b>RDIALOG</b>(channel number,button number, object number)</p>
 
-<p>
-This function is used to read the position of a particular button or selector. Specify the number
-of an open Interface channel, and then give the number of the button or zone to be tested. There
-is also an optional parameter which can be specified to check one of several objects that have
-been assigned to a current zone number. If this object number is omitted, then the status of the
-<b>first</b> object defined in the current zone number will be returned. Object numbers are arranged
-according to the order in which they have been defined in the Interface program, so the first
-button has an object number of zero, the second will be read as 1, and so on.</p>
+    <p>
+        This function is used to read the position of a particular button or selector. Specify the number
+        of an open Interface channel, and then give the number of the button or zone to be tested. There
+        is also an optional parameter which can be specified to check one of several objects that have
+        been assigned to a current zone number. If this object number is omitted, then the status of the
+        <b>first</b> object defined in the current zone number will be returned. Object numbers are arranged
+        according to the order in which they have been defined in the Interface program, so the first
+        button has an object number of zero, the second will be read as 1, and so on.</p>
 
-<p>
-The result returned by the RDIALOG function depends on the type of zone being scrutinised. In
-the case of a simple button, its current value will be given, but there are special numerical edit
-zones (explained later) which will return a new value entered by the user. If a text zone is
-checked in this way, a result of zero will given, and the RDIALOG$ function should be used
-instead. This is explained next.</p>
+    <p>
+        The result returned by the RDIALOG function depends on the type of zone being scrutinised. In
+        the case of a simple button, its current value will be given, but there are special numerical edit
+        zones (explained later) which will return a new value entered by the user. If a text zone is
+        checked in this way, a result of zero will given, and the RDIALOG$ function should be used
+        instead. This is explained next.</p>
 
-<h3 id="fn-rdialog-dollar">RDIALOG$</h3>
-<p><i>function: return text string entered into an edit zone</i><br>
-text string=<b>RDIALOG$</b>(channel number,zone number)<br>
-text string=<b>RDIALOG$</b>(channel number,zone number,object number)</p>
+    <h3 id="fn-rdialog-dollar">RDIALOG$</h3>
+    <p><i>function: return text string entered into an edit zone</i><br>
+        text string=<b>RDIALOG$</b>(channel number,zone number)<br>
+        text string=<b>RDIALOG$</b>(channel number,zone number,object number)</p>
 
-<p>
-Use this function to return a string of text Assigned to a zone. If the selected zone does not
-contain any text, an empty string will be presented. Please see the Interface EDit command for
-more details.</p>
+    <p>
+        Use this function to return a string of text Assigned to a zone. If the selected zone does not
+        contain any text, an empty string will be presented. Please see the Interface EDit command for
+        more details.</p>
 </section>
 
 <section id="03-accessing-a-variable-array">
-<h2>Accessing a variable array</h2>
+    <h2>Accessing a variable array</h2>
 
-<p>
-Variables that have been assigned to an active Interface channel can be read and modified
-directly from the main AMOS Professional program.</p>
+    <p>
+        Variables that have been assigned to an active Interface channel can be read and modified
+        directly from the main AMOS Professional program.</p>
 
 
-<h3 id="fn-vdialog">VDIALOG</h3>
-<p><i>function: assign or read an Interface string</i><br>
-<b>Vdialog</b>(channel number,variable number)=value<br>
-value=<b>Vdialog</b>(channel number,variable number)</p>
+    <h3 id="fn-vdialog">VDIALOG</h3>
+    <p><i>function: assign or read an Interface string</i><br>
+        <b>Vdialog</b>(channel number,variable number)=value<br>
+        value=<b>Vdialog</b>(channel number,variable number)</p>
 
-<p>
-This function can be used to either read or change the variables in any active Interface program.
-The active channel number is selected, followed by the number of the variable you are
-interested in. The value refers to the new integer value that has been selected for this variable.</p>
+    <p>
+        This function can be used to either read or change the variables in any active Interface program.
+        The active channel number is selected, followed by the number of the variable you are
+        interested in. The value refers to the new integer value that has been selected for this variable.</p>
 
-<h3 id="fn-vdialog-dollar">VDIALOG$</h3>
-<p><i>function: assign or read an Interface value</i><br>
-<b>Vdialog$</b>(channel number,variable number)=string$<br>
-string$=<b>Vdialog$</b>(channel number,variable number)</p>
+    <h3 id="fn-vdialog-dollar">VDIALOG$</h3>
+    <p><i>function: assign or read an Interface value</i><br>
+        <b>Vdialog$</b>(channel number,variable number)=string$<br>
+        string$=<b>Vdialog$</b>(channel number,variable number)</p>
 
-<p>
-The VDIALOG$ function is exactly the same as the previous function, except that it works with
-strings rather than numbers.</p>
+    <p>
+        The VDIALOG$ function is exactly the same as the previous function, except that it works with
+        strings rather than numbers.</p>
 
-<p>
-Specify the channel number and the variable number, and then string$ holds a new AMOS
-Professional string to be stored in the Interface variable array.</p>
+    <p>
+        Specify the channel number and the variable number, and then string$ holds a new AMOS
+        Professional string to be stored in the Interface variable array.</p>
 </section>
 
 <section id="04-advanced-control-panels">
-<h2>Advanced Control Panels</h2>
-<p>
-There now follows a detailed examination of some of the additional zone commands which
-make the AMOS Professional Interface so special!</p>
+    <h2>Advanced Control Panels</h2>
+    <p>
+        There now follows a detailed examination of some of the additional zone commands which
+        make the AMOS Professional Interface so special!</p>
 </section>
 
 <section id="05-editing-zones">
-<h2>Editing zones</h2>
-<p>
-The AMOS Professional Interface allows for both text and numbers to be input into screen zones.</p>
+    <h2>Editing zones</h2>
+    <p>
+        The AMOS Professional Interface allows for both text and numbers to be input into screen zones.</p>
 
-<p>
-<b>ED</b>it<br>
-<i>Interface instruction: create a text edit zone</i><br>
-<b>ED</b> zone number,x,y,width,max,'string',paper,pen;</p>
+    <p>
+        <b>ED</b>it<br>
+        <i>Interface instruction: create a text edit zone</i><br>
+        <b>ED</b> zone number,x,y,width,max,'string',paper,pen;</p>
 
-<p>
-The EDit instruction opens a zone for text input on the screen. This zone can be selected with
-the mouse, and then a string of characters may be typed in using all the normal line-editing
-functions. The text cursor may also be positioned directly, by clicking the mouse pointer on the
-required new position.</p>
+    <p>
+        The EDit instruction opens a zone for text input on the screen. This zone can be selected with
+        the mouse, and then a string of characters may be typed in using all the normal line-editing
+        functions. The text cursor may also be positioned directly, by clicking the mouse pointer on the
+        required new position.</p>
 
-<p>
-The EDit parameters begin with the zone number, from 1 upwards. The x,y coordinates set the
-position of the text input line relative to the coordinate base, and will be added to the BAse
-setting to give the actual position of the line. If the resulting x-coordinate is not an exact multiple
-of 16, it will be rounded <b>down</b> to the nearest 16 pixels.</p>
+    <p>
+        The EDit parameters begin with the zone number, from 1 upwards. The x,y coordinates set the
+        position of the text input line relative to the coordinate base, and will be added to the BAse
+        setting to give the actual position of the line. If the resulting x-coordinate is not an exact multiple
+        of 16, it will be rounded <b>down</b> to the nearest 16 pixels.</p>
 
-<p>
-The width parameter sets the width of the text edit window, and is specified in the number of
-characters to be accommodated, rounded <b>up</b> to the nearest even number. Next, the maximum
-length of the text string must be given in characters, and an area of this size will be reserved in
-the channel buffer.</p>
+    <p>
+        The width parameter sets the width of the text edit window, and is specified in the number of
+        characters to be accommodated, rounded <b>up</b> to the nearest even number. Next, the maximum
+        length of the text string must be given in characters, and an area of this size will be reserved in
+        the channel buffer.</p>
 
 
-<p>
-The 'string' parameter enters a string of characters that will be initially loaded into the text edit
-zone. If a default string is not required, simply use a pair of single quotation marks with nothing
-in them, or use a zero. Finally, set the colour index numbers for the paper and pen to be used for
-the characters on screen.</p>
+    <p>
+        The 'string' parameter enters a string of characters that will be initially loaded into the text edit
+        zone. If a default string is not required, simply use a pair of single quotation marks with nothing
+        in them, or use a zero. Finally, set the colour index numbers for the paper and pen to be used for
+        the characters on screen.</p>
 
-<p>
-If the size of the string is larger that the physical size of the zone, the string will scroll
-automatically as more characters are typed in. If the [Return] or [Tab] key is pressed within the
-edit line, the Interface will jump to the next EDit zone, if it has been defined. When the final
-zone is reached, all keyboard input will be directed to the dialogue buttons, and the next [Tab]
-press will return you back to the original editing zone.</p>
+    <p>
+        If the size of the string is larger that the physical size of the zone, the string will scroll
+        automatically as more characters are typed in. If the [Return] or [Tab] key is pressed within the
+        edit line, the Interface will jump to the next EDit zone, if it has been defined. When the final
+        zone is reached, all keyboard input will be directed to the dialogue buttons, and the next [Tab]
+        press will return you back to the original editing zone.</p>
 
-<p>
-When the dialogue box is drawn, the first edit zone of the Interface program will be activated
-automatically. Please note that order of activity follows the order in which the edit zones were
-declared in the Interface program, and not the number of the zones.</p>
+    <p>
+        When the dialogue box is drawn, the first edit zone of the Interface program will be activated
+        automatically. Please note that order of activity follows the order in which the edit zones were
+        declared in the Interface program, and not the number of the zones.</p>
 
-<p>
-The contents of an edit zone can be read directly from the main AMOS Professional program,
-using a simple call to a RDIALOG$ function. Also, if the [Return] key has been pressed, the
-number of the selected EDit zone will also be available from the DIALOG function.</p>
+    <p>
+        The contents of an edit zone can be read directly from the main AMOS Professional program,
+        using a simple call to a RDIALOG$ function. Also, if the [Return] key has been pressed, the
+        number of the selected EDit zone will also be available from the DIALOG function.</p>
 
-<p>
-Characters are entered in a new text zone window with the number z+1000. If the program is to
-display some text while the zone is in use, the default screen window should be re-activated
-with a WINDOW 0 instruction. After the text has been displayed, the edit window can be
-handled by a line like this:</p>
+    <p>
+        Characters are entered in a new text zone window with the number z+1000. If the program is to
+        display some text while the zone is in use, the default screen window should be re-activated
+        with a WINDOW 0 instruction. After the text has been displayed, the edit window can be
+        handled by a line like this:</p>
 
-<pre>
+    <pre>
 X> Window Z+1000: Rem Z is the number of the EDit zone
 </pre>
 
-Here is a working example of a text input zone:
+    Here is a working example of a text input zone:
 
-<pre>
+    <pre>
 E> A$=A$+"BA 50,50;SI 200,60; SA 1; set things up"
    A$=A$+"IN 5,0,0; GB 0,0,200,50; PR 16,10,'Enter your name human!',2;"
    A$=A$+"BU 1,150,40,50,10,0,0,16;"
@@ -366,39 +365,39 @@ E> A$=A$+"BA 50,50;SI 200,60; SA 1; set things up"
    Dialog Close
 </pre>
 
-<p>The numerical equivalent of a text zone is examined next.</p>
+    <p>The numerical equivalent of a text zone is examined next.</p>
 
 
-<p>
-<b>DIgit</b><br>
-<i>Interface instruction: create a numeric editing zone</i><br>
-<b>DI</b> zone number,x,y,width,value,flag,paper,pen;</p>
+    <p>
+        <b>DIgit</b><br>
+        <i>Interface instruction: create a numeric editing zone</i><br>
+        <b>DI</b> zone number,x,y,width,value,flag,paper,pen;</p>
 
-<p>
-The DIgit instruction creates a special edit window for entering numbers. It is very similar to the
-previous EDit command, except for the fact that only the digits from zero to 9 may be entered,
-and anything else will be completely ignored by the Interface system.</p>
+    <p>
+        The DIgit instruction creates a special edit window for entering numbers. It is very similar to the
+        previous EDit command, except for the fact that only the digits from zero to 9 may be entered,
+        and anything else will be completely ignored by the Interface system.</p>
 
-<p>
-Please refer to the EDit command to see how the zone number is specified first, followed by the
-x,y-coordinates that set the position of the zone on screen. The width of the window is then set,
-and it is rounded up to the next even number, in exactly the same way as with an EDit
-instruction.</p>
+    <p>
+        Please refer to the EDit command to see how the zone number is specified first, followed by the
+        x,y-coordinates that set the position of the zone on screen. The width of the window is then set,
+        and it is rounded up to the next even number, in exactly the same way as with an EDit
+        instruction.</p>
 
-<p>
-The value parameter defines what the initial default value displayed in the edit window is to be.
-The flag parameter indicates whether the default is to be shown in the window, with a zero
-setting to make the default value invisible, and any other setting meaning that it will be
-displayed as normal. Finally, the paper and pen parameters are set by the colour index numbers
-to use for the input numeric characters.</p>
+    <p>
+        The value parameter defines what the initial default value displayed in the edit window is to be.
+        The flag parameter indicates whether the default is to be shown in the window, with a zero
+        setting to make the default value invisible, and any other setting meaning that it will be
+        displayed as normal. Finally, the paper and pen parameters are set by the colour index numbers
+        to use for the input numeric characters.</p>
 
-<p>
-The DIgit value can be read from the main AMOS Professional program with the RDIALOG
-function.</p>
+    <p>
+        The DIgit value can be read from the main AMOS Professional program with the RDIALOG
+        function.</p>
 
-<p>Here is a simple working example:</p>
+    <p>Here is a simple working example:</p>
 
-<pre>
+    <pre>
 E> A$=A$+"BA 50,50; SI 200,90; SA 1;"
    A$=A$+"IN 5,0,0; GB 0,0,200,80;PR 16,10,'Enter your name human!',2;"
    A$=A$+"BU 1;150,70,40,10,0,0,16;"
@@ -417,64 +416,63 @@ E> A$=A$+"BA 50,50; SI 200,90; SA 1;"
 </section>
 
 <section id="06-sliders-and-selectors">
-<h2>Sliders and Selectors</h2>
-<p>
-One of the most powerful features of the Interface system is the facility to create a wide variety
-of sliders and selection boxes in AMOS Professional programs. The next part of this Chapter
-provides a detailed examination of the commands that make this possible.</p>
+    <h2>Sliders and Selectors</h2>
+    <p>
+        One of the most powerful features of the Interface system is the facility to create a wide variety
+        of sliders and selection boxes in AMOS Professional programs. The next part of this Chapter
+        provides a detailed examination of the commands that make this possible.</p>
 
-<p>
-<b>H</b>orizontal<b>S</b>lider<br>
-<i>Interface instruction: create an animated horizontal slider bar</i><br>
-<b>HS</b> zone number,x,y,width,height,position,trigger,total,step;[changes]</p>
+    <p>
+        <b>H</b>orizontal<b>S</b>lider<br>
+        <i>Interface instruction: create an animated horizontal slider bar</i><br>
+        <b>HS</b> zone number,x,y,width,height,position,trigger,total,step;[changes]</p>
 
-<p>The HS command draws an animated horizontal slider bar on the screen.</p>
+    <p>The HS command draws an animated horizontal slider bar on the screen.</p>
 
 
+    <p>
+        It is similar to the AMOS Professional HSLIDER command, with the additional facility of
+        allowing the slider's position to be determined directly using the mouse. All of the animation is
+        handled by the Interface automatically.</p>
 
-<p>
-It is similar to the AMOS Professional HSLIDER command, with the additional facility of
-allowing the slider's position to be determined directly using the mouse. All of the animation is
-handled by the Interface automatically.</p>
+    <p>Here is an explanation of the HS parameters, in the order that they are set.</p>
 
-<p>Here is an explanation of the HS parameters, in the order that they are set.</p>
+    <p>
+        The zone number is simply the number of the new zone that is to be defined. Next the width
+        and the height of the slider is set, and since this is a horizontal bar being created, it is sensible for
+        the width to be greater than the height!</p>
 
-<p>
-The zone number is simply the number of the new zone that is to be defined. Next the width
-and the height of the slider is set, and since this is a horizontal bar being created, it is sensible for
-the width to be greater than the height!</p>
+    <p>
+        The position parameter is a simple number, ranging from zero to "total", and it determines the
+        default position of the slider's trigger, which is the active part of the horizontal bar, somewhere
+        in the middle, that is dragged to the left or right by the mouse.</p>
 
-<p>
-The position parameter is a simple number, ranging from zero to "total", and it determines the
-default position of the slider's trigger, which is the active part of the horizontal bar, somewhere
-in the middle, that is dragged to the left or right by the mouse.</p>
+    <p>
+        Total is the parameter which defines the maximum value that will be returned by the slider.
+        Allowable positions range from 1 to "total", with each step representing a movement of the
+        trigger, in pixels.</p>
 
-<p>
-Total is the parameter which defines the maximum value that will be returned by the slider.
-Allowable positions range from 1 to "total", with each step representing a movement of the
-trigger, in pixels.</p>
+    <p>
+        The step parameter controls the distance that is to be moved whenever the user clicks on the
+        background area of the slider. The bar will scroll slowly towards the current mouse position in
+        units specified by the number of pixels given in the "total" parameter above. Once the actual
+        pointer has been reached, it will cycle back and forth by a single step.</p>
 
-<p>
-The step parameter controls the distance that is to be moved whenever the user clicks on the
-background area of the slider. The bar will scroll slowly towards the current mouse position in
-units specified by the number of pixels given in the "total" parameter above. Once the actual
-pointer has been reached, it will cycle back and forth by a single step.</p>
+    <p>
+        Finally, a list of Interface commands is given within a set of square of brackets. This [changes]
+        parameter will be called up whenever the slider is moved on the screen.</p>
 
-<p>
-Finally, a list of Interface commands is given within a set of square of brackets. This [changes]
-parameter will be called up whenever the slider is moved on the screen.</p>
+    <p>
+        After a selector has been activated, its position can be read from the main AMOS Professional
+        program using the RDIALOG function, as explained earlier in this Chapter. The new position
+        will only be reported to the main program <b>after</b> the user releases the left mouse button.</p>
 
-<p>
-After a selector has been activated, its position can be read from the main AMOS Professional
-program using the RDIALOG function, as explained earlier in this Chapter. The new position
-will only be reported to the main program <b>after</b> the user releases the left mouse button.</p>
+    <p>
+        The colours used by the slider bar are zero for the background area, 4 for the unselected bar and
+        3 for the selected bar, which is normally flashing. Here is a working example of a horizontal
+        slider in action:</p>
 
-<p>
-The colours used by the slider bar are zero for the background area, 4 for the unselected bar and
-3 for the selected bar, which is normally flashing. Here is a working example of a horizontal
-slider in action:</p>
-
-<pre>
+    <pre>
 E> B$=B$+"BA 112,50; set base coordinates to the screen centre"
    B$=B$+"HSlide 1,0,0,100,16,0,1,100,1;[] define a one hundred position slider"
    B$=B$+"EXit;"
@@ -490,128 +488,128 @@ E> B$=B$+"BA 112,50; set base coordinates to the screen centre"
 </pre>
 
 
-<p>
-<b>V</b>ertical<b>S</b>lider<br>
-<i>Interface instruction: create an animated vertical slider bar</i><br>
-<b>VS</b> zone number,x,y,width,height,position,trigger,total,step;[changes]</p>
+    <p>
+        <b>V</b>ertical<b>S</b>lider<br>
+        <i>Interface instruction: create an animated vertical slider bar</i><br>
+        <b>VS</b> zone number,x,y,width,height,position,trigger,total,step;[changes]</p>
 
-<p>
-The VerticalSlider command generates a working vertical slider, as demonstrated by the
-standard AMOS Professional file selector. The parameters are exactly the same as for the HSlider
-command, and the position of the slider can be read by a call to the RDIALOG function, like
-this:</p>
+    <p>
+        The VerticalSlider command generates a working vertical slider, as demonstrated by the
+        standard AMOS Professional file selector. The parameters are exactly the same as for the HSlider
+        command, and the position of the slider can be read by a call to the RDIALOG function, like
+        this:</p>
 
-<pre>
+    <pre>
 X> position=RDIALOG(channel number,zone number)
 </pre>
 
-<p>
-Once slider bars have been created, they can be used to produce attractive selector boxes. These
-allow you to scroll through a list of items directly on the screen, and select them individually
-using the mouse, again, as demonstrated by the AMOS Professional file selector.</p>
+    <p>
+        Once slider bars have been created, they can be used to produce attractive selector boxes. These
+        allow you to scroll through a list of items directly on the screen, and select them individually
+        using the mouse, again, as demonstrated by the AMOS Professional file selector.</p>
 </section>
 
 <section id="07-reading-arrays">
-<h2>Reading arrays</h2>
-<p>
-In order to generate an Interface selector, a method is needed of grabbing an entire list of items
-from the AMOS Professional main program. A simple function is provided for transferring
-complete arrays into an Interface routine.</p>
+    <h2>Reading arrays</h2>
+    <p>
+        In order to generate an Interface selector, a method is needed of grabbing an entire list of items
+        from the AMOS Professional main program. A simple function is provided for transferring
+        complete arrays into an Interface routine.</p>
 
-<h3 id="fn-array">ARRAY</h3>
-<p><i>function: load the address of an array into a program</i><br>
-address=<b>ARRAY</b>(list$(0))</p>
+    <h3 id="fn-array">ARRAY</h3>
+    <p><i>function: load the address of an array into a program</i><br>
+        address=<b>ARRAY</b>(list$(0))</p>
 
-<p>
-The ARRAY function returns the address in memory of the first item in the specified list$ array.
-This string can contain any data at all, but if the array is to be accessed from an Interface
-program, each element in the array must be of <b>exactly</b> the same length.</p>
+    <p>
+        The ARRAY function returns the address in memory of the first item in the specified list$ array.
+        This string can contain any data at all, but if the array is to be accessed from an Interface
+        program, each element in the array must be of <b>exactly</b> the same length.</p>
 
-<p>
-After it has been returned, the address may now be installed into an Interface program using the
-VDIALOG function, as follows:</p>
+    <p>
+        After it has been returned, the address may now be installed into an Interface program using the
+        VDIALOG function, as follows:</p>
 
-<pre>
+    <pre>
 X> Vdialog(1,0)=Array(V$(0)) : Rem Loads 0 VA (channel 1) with the address of V$(0)
 </pre>
 
-<p>
-Once installed like that, the address can be accessed from an Interface program using the
-ArrayRead function.</p>
+    <p>
+        Once installed like that, the address can be accessed from an Interface program using the
+        ArrayRead function.</p>
 
-<p>
-<b>A</b>rray<b>R</b>ead<br>
-<i>Interface function: read an element from an AMOS Professional array</i><br>
-item=address,element number <b>AR</b></p>
+    <p>
+        <b>A</b>rray<b>R</b>ead<br>
+        <i>Interface function: read an element from an AMOS Professional array</i><br>
+        item=address,element number <b>AR</b></p>
 
-<p>
-This function returns the specified item from a normal AMOS Professional array. The element to
-be returned must have been previously loaded into an Interface variable from the main
-program. The two parameters that must be specified are the address which holds the location of
-the first item in the array, followed by the number of the item in that array which is to be
-returned. Obviously, if the number of the specified element is higher than the dimension of the
-array, an error will be generated.</p>
+    <p>
+        This function returns the specified item from a normal AMOS Professional array. The element to
+        be returned must have been previously loaded into an Interface variable from the main
+        program. The two parameters that must be specified are the address which holds the location of
+        the first item in the array, followed by the number of the item in that array which is to be
+        returned. Obviously, if the number of the specified element is higher than the dimension of the
+        array, an error will be generated.</p>
 
 
-<p>
-<b>A</b>rray<b>S</b>ize<br>
-<i>Interface function: return the size of an array</i><br>
-size=address <b>AS</b></p>
+    <p>
+        <b>A</b>rray<b>S</b>ize<br>
+        <i>Interface function: return the size of an array</i><br>
+        size=address <b>AS</b></p>
 
-<p>
-The ArraySize function is used to return the number of elements in an AMOS Professional array,
-stored at the specified address. The address is the location of the array in memory which has
-been loaded from the ARRAY function.</p>
+    <p>
+        The ArraySize function is used to return the number of elements in an AMOS Professional array,
+        stored at the specified address. The address is the location of the array in memory which has
+        been loaded from the ARRAY function.</p>
 </section>
 
 <section id="08-displaying-items-on-the-screen">
-<h2>Displaying items on the screen</h2>
-<p>
-After an item array has been entered into the Interface, it can be displayed on the screen using
-the powerful ActiveList command.</p>
+    <h2>Displaying items on the screen</h2>
+    <p>
+        After an item array has been entered into the Interface, it can be displayed on the screen using
+        the powerful ActiveList command.</p>
 
-<p>
-<b>A</b>ctive<b>L</b>ist<br>
-<i>Interface instruction: display an active list window</i><br>
-<b>AL</b> zone number,x,y,width,height,address,index,flag,paper,pen;[changes]</p>
+    <p>
+        <b>A</b>ctive<b>L</b>ist<br>
+        <i>Interface instruction: display an active list window</i><br>
+        <b>AL</b> zone number,x,y,width,height,address,index,flag,paper,pen;[changes]</p>
 
-<p>
-This command displays an active window for an AMOS Professional string array. Each string
-can be individually selected with the mouse, and returned to the main program by the
-RDIALOG$ function. An ActiveList command can be linked to a set of slider bars or an edit
-zone, so that the bars move the list up and down through the array, and the edit zone changes
-the value that has been selected on screen.</p>
+    <p>
+        This command displays an active window for an AMOS Professional string array. Each string
+        can be individually selected with the mouse, and returned to the main program by the
+        RDIALOG$ function. An ActiveList command can be linked to a set of slider bars or an edit
+        zone, so that the bars move the list up and down through the array, and the edit zone changes
+        the value that has been selected on screen.</p>
 
-<p>The parameters for this instruction must be given in the following order:</p>
+    <p>The parameters for this instruction must be given in the following order:</p>
 
-<p>
-The zone number to be allocated to the selector, followed by the x,y-coordinates to set the
-position of the selection box on screen. Because a normal window is used for this display, the
-location of the x-coordinate will be rounded down to the nearest multiple of 16. If the coordinate
-base has been set to a new value with a BAse instruction, this will be added to the x-coordinate
-before it is rounded down, so the final screen coordinate will always be an exact multiple of 16.</p>
+    <p>
+        The zone number to be allocated to the selector, followed by the x,y-coordinates to set the
+        position of the selection box on screen. Because a normal window is used for this display, the
+        location of the x-coordinate will be rounded down to the nearest multiple of 16. If the coordinate
+        base has been set to a new value with a BAse instruction, this will be added to the x-coordinate
+        before it is rounded down, so the final screen coordinate will always be an exact multiple of 16.</p>
 
-<p>The width and height of the window are specified next, in the number of characters required.</p>
+    <p>The width and height of the window are specified next, in the number of characters required.</p>
 
-<p>
-These parameters are followed by the address of the string array to be displayed in the selector
-box, and this array must have been previously defined in the program. The address of the array
-can now be grabbed with the ARRAY function from the AMOS Professional main program, and
-loaded into an appropriate Interface variable with VDIALOG. It can then be entered directly
-into the AList command. This system is explained in detail below.</p>
+    <p>
+        These parameters are followed by the address of the string array to be displayed in the selector
+        box, and this array must have been previously defined in the program. The address of the array
+        can now be grabbed with the ARRAY function from the AMOS Professional main program, and
+        loaded into an appropriate Interface variable with VDIALOG. It can then be entered directly
+        into the AList command. This system is explained in detail below.</p>
 
-<p>
-The next parameter is the index number of the first item to be displayed in the selector box. If
-this number goes past the end of the array, the selector will be filled with blank lines.</p>
+    <p>
+        The next parameter is the index number of the first item to be displayed in the selector box. If
+        this number goes past the end of the array, the selector will be filled with blank lines.</p>
 
-<p>The flag parameter is a bit-map that is used to trigger a range of useful features, as follows:</p>
+    <p>The flag parameter is a bit-map that is used to trigger a range of useful features, as follows:</p>
 
-<p>
-Bit 0 If this is set to one, each string will be preceded by a number representing its position in the
-array. The count normally starts from zero, but this can be changed as explained next.</p>
+    <p>
+        Bit 0 If this is set to one, each string will be preceded by a number representing its position in the
+        array. The count normally starts from zero, but this can be changed as explained next.</p>
 
 
-<pre>
+    <pre>
 Bit 1 is only active if the automatic numbering system has been turned on by setting Bit 0 to one.
       If this is the case, then the number count will start from one rather than zero, if Bit 1 is set
       to one.
@@ -621,232 +619,232 @@ Bit 2 changes the way the selector reacts to the mouse pointer. If it is set to 
       to one, then items must be selected explicitly with the left mouse button.
 </pre>
 
-<p>The paper and pen parameters are the colour index numbers for the text in the item.</p>
+    <p>The paper and pen parameters are the colour index numbers for the text in the item.</p>
 
-<p>
-Finally, the square brackets hold an Interface routine that determines any changes to be
-executed every time one of the items is selected.</p>
+    <p>
+        Finally, the square brackets hold an Interface routine that determines any changes to be
+        executed every time one of the items is selected.</p>
 
-<p>
-Note that the text is displayed using a normal AMOS Professional window defined by the
-number z+2000. Particular care should be taken if you are writing to the screen while reading a
-selector. Return to the normal screen before printing, with a WINDOW 0 command, then use a
-line like WINDOW Z+2000 to move the cursor back to the active window. If this is not done,
-text will be printed inside the selection area!</p>
+    <p>
+        Note that the text is displayed using a normal AMOS Professional window defined by the
+        number z+2000. Particular care should be taken if you are writing to the screen while reading a
+        selector. Return to the normal screen before printing, with a WINDOW 0 command, then use a
+        line like WINDOW Z+2000 to move the cursor back to the active window. If this is not done,
+        text will be printed inside the selection area!</p>
 
-<p>
-As with all of these techniques, there is a ready-made working example of an active window,
-available for examination:</p>
+    <p>
+        As with all of these techniques, there is a ready-made working example of an active window,
+        available for examination:</p>
 
-<pre>
+    <pre>
 LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Sliders.AMOS"
 </pre>
 
-<p>
-<b>I</b>nactive<b>L</b>ist<br>
-<i>Interface instruction: display an inactive list window</i><br>
-<b>IL</b> zone number,x,y,width,height,address,index,flag,paper,pen;</p>
+    <p>
+        <b>I</b>nactive<b>L</b>ist<br>
+        <i>Interface instruction: display an inactive list window</i><br>
+        <b>IL</b> zone number,x,y,width,height,address,index,flag,paper,pen;</p>
 
-<p>
-To display a window containing items in an array that are <b>not</b> for selection by the mouse, the
-InactiveList command is used in much the same way as an ActiveList instruction except that
-there is no [changes] parameter. Inactive windows are useful for generating simple lists on the
-screen.</p>
+    <p>
+        To display a window containing items in an array that are <b>not</b> for selection by the mouse, the
+        InactiveList command is used in much the same way as an ActiveList instruction except that
+        there is no [changes] parameter. Inactive windows are useful for generating simple lists on the
+        screen.</p>
 
-<p>
-Before using the AList or IList commands, some advance preparation should be carried out,
-using the following steps:</p>
+    <p>
+        Before using the AList or IList commands, some advance preparation should be carried out,
+        using the following steps:</p>
 
-<p>First of all, define a string array to hold the items in memory, using a line like this:</p>
+    <p>First of all, define a string array to hold the items in memory, using a line like this:</p>
 
-<pre>
+    <pre>
 X> Dim ITEM$(100)
 </pre>
 
-<p>
-Next, load the items into the array. These items may be anything you wish, such as the
-commands for an adventure game, or a set of filenames on a disc. The one factor that must be
-ensured is that each item must have exactly the <b>same</b> number of characters. Use spaces to pad
-items as necessary.</p>
+    <p>
+        Next, load the items into the array. These items may be anything you wish, such as the
+        commands for an adventure game, or a set of filenames on a disc. The one factor that must be
+        ensured is that each item must have exactly the <b>same</b> number of characters. Use spaces to pad
+        items as necessary.</p>
 
-<p>
-The third step is to enter the Interface program into a string, and include an ActiveList
-command. The following example line would create zone 1 at coordinates 10,10, with 15 lines of
-30 characters each, taking the address of the item array from 0 VA.</p>
+    <p>
+        The third step is to enter the Interface program into a string, and include an ActiveList
+        command. The following example line would create zone 1 at coordinates 10,10, with 15 lines of
+        30 characters each, taking the address of the item array from 0 VA.</p>
 
-<pre>
+    <pre>
 X> AL 1,10,10,30,15,0 VA,0,0,0,1;[]
 </pre>
 
 
-<p>
-Now open an Interface communication channel with a DIALOG OPEN command, and grab the
-address of the first character in the item array to be loaded into an Interface variable.</p>
+    <p>
+        Now open an Interface communication channel with a DIALOG OPEN command, and grab the
+        address of the first character in the item array to be loaded into an Interface variable.</p>
 
-<pre>
+    <pre>
 X> Dialog Open A$,1
    AD=Array(ITEM(0)) : Vdialog(1,0)=AD
 </pre>
 
-<p>Finally, call the Interface program with DIALOG RUN, like this:</p>
+    <p>Finally, call the Interface program with DIALOG RUN, like this:</p>
 
-<pre>
+    <pre>
 X> R=Dialog Run(1)
 </pre>
 </section>
 
 <section id="09-creating-a-selector">
-<h2>Creating a selector</h2>
-<p>
-The ActiveList command is very useful, but it is not intended to operate in isolation. To create a
-working selection box, an appropriate set of sliders, buttons and edit zones need to be linked up,
-as explained in the next part of this Chapter.</p>
+    <h2>Creating a selector</h2>
+    <p>
+        The ActiveList command is very useful, but it is not intended to operate in isolation. To create a
+        working selection box, an appropriate set of sliders, buttons and edit zones need to be linked up,
+        as explained in the next part of this Chapter.</p>
 
-<p>
-<b>Z</b>one<b>P</b>osition<br>
-<i>Interface function: return the status of a zone</i><br>
-value=<b>ZP</b></p>
+    <p>
+        <b>Z</b>one<b>P</b>osition<br>
+        <i>Interface function: return the status of a zone</i><br>
+        value=<b>ZP</b></p>
 
-<p>
-ZonePosition returns the value of the current zone's status. In fact it is simply an expanded
-version of the BP function, with the difference being that it can be used in any active zone,
-including buttons.</p>
+    <p>
+        ZonePosition returns the value of the current zone's status. In fact it is simply an expanded
+        version of the BP function, with the difference being that it can be used in any active zone,
+        including buttons.</p>
 
-<p>
-<b>Z</b>one<b>C</b>hange<br>
-<i>Interface instruction: change the status of a zone</i><br>
-<b>ZC</b> zone number,new data;</p>
+    <p>
+        <b>Z</b>one<b>C</b>hange<br>
+        <i>Interface instruction: change the status of a zone</i><br>
+        <b>ZC</b> zone number,new data;</p>
 
-<p>
-ZoneChange is a simple expansion of the BC instruction. It is used within the "changes" square
-brackets to link a number of zones together into one compound object. After the ZC command,
-specify the number of the zone to be affected, followed by some new data that is to be fed into
-the zone.</p>
+    <p>
+        ZoneChange is a simple expansion of the BC instruction. It is used within the "changes" square
+        brackets to link a number of zones together into one compound object. After the ZC command,
+        specify the number of the zone to be affected, followed by some new data that is to be fed into
+        the zone.</p>
 
-<p>The new data depends on the type of zone that is to be affected, and there are four possibilities:</p>
+    <p>The new data depends on the type of zone that is to be affected, and there are four possibilities:</p>
 
-<p>
-<b>Buttons</b>. The data holds a new value for the status of the button position. If this is different from
-the current position, the button will be re-drawn immediately.</p>
+    <p>
+        <b>Buttons</b>. The data holds a new value for the status of the button position. If this is different from
+        the current position, the button will be re-drawn immediately.</p>
 
-<p>
-<b>Edit zones</b>. If a text zone has been created with EDit, the new data should contain a new string
-of characters that is to be displayed in the box. Similarly, if the zone was defined using Digit, the
-existing number will be replaced by a newly specified value.</p>
+    <p>
+        <b>Edit zones</b>. If a text zone has been created with EDit, the new data should contain a new string
+        of characters that is to be displayed in the box. Similarly, if the zone was defined using Digit, the
+        existing number will be replaced by a newly specified value.</p>
 
-<p>
-<b>Sliders</b>. The data is used to move the slider bar on the screen, exactly as if it had been selected
-by the user.</p>
+    <p>
+        <b>Sliders</b>. The data is used to move the slider bar on the screen, exactly as if it had been selected
+        by the user.</p>
 
-<p><b>Active lists</b>. In this case, the selection window is scrolled up or down the string array.</p>
+    <p><b>Active lists</b>. In this case, the selection window is scrolled up or down the string array.</p>
 
 
-<p>
-The ZoneChange command can be used to great effect with the ZonePosition function, to link
-the positions of various items in the dialogue box. For example, if a slider bar has been assigned
-to zone 1, and an active list to zone 2, you would be able to scroll through the list with the slider
-using a line like this:</p>
+    <p>
+        The ZoneChange command can be used to great effect with the ZonePosition function, to link
+        the positions of various items in the dialogue box. For example, if a slider bar has been assigned
+        to zone 1, and an active list to zone 2, you would be able to scroll through the list with the slider
+        using a line like this:</p>
 
-<pre>
+    <pre>
 X> VSlide 1,16,16,8,64,0,1,12,1; create a twelve position slider
    [ZChange 2,ZPosition;] set zone two to position of changed slider
 </pre>
 
-<p>
-The commands inside the square brackets are executed automatically whenever the slider is
-moved on the screen, and they copy the new slider position straight into the active list
-command and move the list through the selector window.</p>
+    <p>
+        The commands inside the square brackets are executed automatically whenever the slider is
+        moved on the screen, and they copy the new slider position straight into the active list
+        command and move the list through the selector window.</p>
 
-<pre>Here is a step by step procedure for generating a selection box on screen:</pre>
+    <pre>Here is a step by step procedure for generating a selection box on screen:</pre>
 
-<p>
-Firstly, create a list of components needed for the selector. This could begin with a vertical scroll
-bar, where 0 VA holds the address of the item array already set up in the main program, and AS
-returning the number of items:</p>
+    <p>
+        Firstly, create a list of components needed for the selector. This could begin with a vertical scroll
+        bar, where 0 VA holds the address of the item array already set up in the main program, and AS
+        returning the number of items:</p>
 
-<pre>
+    <pre>
 X> VSlider 1,x,y,width,height,0,8,0 VA AS,1;[]
 </pre>
 
-<p>Next an ActiveList is defined for the selection window, using a line like this:</p>
+    <p>Next an ActiveList is defined for the selection window, using a line like this:</p>
 
-<pre>
+    <pre>
 X> AList 2,x+width,y,20,8,0 VA,0,0,0,4; set up the item list
 </pre>
 
-<p>Finally, a text edit zone is created to hold the current item on screen, like this;</p>
+    <p>Finally, a text edit zone is created to hold the current item on screen, like this;</p>
 
-<pre>
+    <pre>
 X> EDit 3,x,y+height,width/8,width/8,0,0,2;
 </pre>
 
-<p>
-Now the scroll bar can be linked to the item display in the ActiveList window, as already
-explained.</p>
+    <p>
+        Now the scroll bar can be linked to the item display in the ActiveList window, as already
+        explained.</p>
 
-<pre>
+    <pre>
 X> VSlider 1,x,y,width,height,0,1,0 VA AS,1; create a twelve position slider
    [ZChange 2,ZPosition;] set zone two to slider position
 </pre>
 
-<p>Lastly, the ActiveList is linked with the EDit command, so that it loads the selected item into the
-editing zone, as follows:</p>
+    <p>Lastly, the ActiveList is linked with the EDit command, so that it loads the selected item into the
+        editing zone, as follows:</p>
 
-<pre>
+    <pre>
 X> AList 2,x+width,y,20,8,0 VA,0,0,0,4; set up the item list
    [ZChange 3,0 VA ZPosition ARray;] load the edit zone with selected item
 </pre>
 
-<p>
-Remember that 0 VA stores the address of the array, ZPosition holds the item number and
-ARray is used to get the item. This will return the value of the selected item straight to the EDit
-zone. If you need to transfer the edited version back to the selector, the appropriate array item
-needs to be loaded directly from the main AMOS Professional program. Please see the DIALOG
-UPDATE command for a detailed explanation.</p>
+    <p>
+        Remember that 0 VA stores the address of the array, ZPosition holds the item number and
+        ARray is used to get the item. This will return the value of the selected item straight to the EDit
+        zone. If you need to transfer the edited version back to the selector, the appropriate array item
+        needs to be loaded directly from the main AMOS Professional program. Please see the DIALOG
+        UPDATE command for a detailed explanation.</p>
 
-<p>
-It is sometimes necessary to link up a number of zones in sequence, and relative
-values instead of absolute zone numbers can be used for this purpose.</p>
+    <p>
+        It is sometimes necessary to link up a number of zones in sequence, and relative
+        values instead of absolute zone numbers can be used for this purpose.</p>
 
 
-<p>
-<b>Z</b>one<b>N</b>umber<br>
-<i>Interface function: return the number of a zone</i><br>
-number=<b>ZN</b></p>
+    <p>
+        <b>Z</b>one<b>N</b>umber<br>
+        <i>Interface function: return the number of a zone</i><br>
+        number=<b>ZN</b></p>
 
-<p>
-The ZoneNumber function is used to return the number of the current zone. It is intended to be
-used in conjunction with the ZoneChange command, like this:</p>
+    <p>
+        The ZoneNumber function is used to return the number of the current zone. It is intended to be
+        used in conjunction with the ZoneChange command, like this:</p>
 
-<pre>
+    <pre>
 X> [ZChange ZNumber 1+ZPosition] loads the next zone with existing position value.
 </pre>
 </section>
 
 <section id="10-controlling-a-selector-from-the-main-program">
-<h2>Controlling a selector from the main program</h2>
+    <h2>Controlling a selector from the main program</h2>
 
-<p>
-<p><b>DIALOG UPDATE</b><br>
-instruction: update a zone<br>
-<b>Dialog Update</b> channel number,zone number[,param1][,param2][,param3]</p>
+    <p>
+    <p><b>DIALOG UPDATE</b><br>
+        instruction: update a zone<br>
+        <b>Dialog Update</b> channel number,zone number[,param1][,param2][,param3]</p>
 
-<p>
-This instruction enables AMOS Professional programs to force the Interface to re-draw a zone
-on the screen. It is especially useful for selectors, which often need to interact directly with the
-main program. These can include file selectors that need to read a new search path and update
-the file list, as well as EDit routines that must load a selection window with a new value entered
-by the user.</p>
+    <p>
+        This instruction enables AMOS Professional programs to force the Interface to re-draw a zone
+        on the screen. It is especially useful for selectors, which often need to interact directly with the
+        main program. These can include file selectors that need to read a new search path and update
+        the file list, as well as EDit routines that must load a selection window with a new value entered
+        by the user.</p>
 
-<p>
-The DIALOG UPDATE parameters are given in the following order: first the channel number of
-an active dialogue channel to be updated. This is followed by the number of the zone to be
-affected. There are also three parameters held inside their own set of square brackets, and the
-effect of these parameters varies, depending on the type of the zone. Parameter I affects any of
-the different zone types, whereas Parameters 2 and 3 affect active lists and sliders only. Here is a
-table of the possibilities:</p>
+    <p>
+        The DIALOG UPDATE parameters are given in the following order: first the channel number of
+        an active dialogue channel to be updated. This is followed by the number of the zone to be
+        affected. There are also three parameters held inside their own set of square brackets, and the
+        effect of these parameters varies, depending on the type of the zone. Parameter I affects any of
+        the different zone types, whereas Parameters 2 and 3 affect active lists and sliders only. Here is a
+        table of the possibilities:</p>
 
-<pre>
+    <pre>
 <b>Parameter 1</b>
 Button         Enters a new status position
 Active List    Sets the number of the first string displayed
@@ -866,165 +864,165 @@ Slider      Changes the "total" parameter
 </pre>
 
 
-<h3 id="i-dialog-freeze">DIALOG FREEZE</h3>
-<p><i>instruction: stop dialogue channel input</i><br>
-<b>Dialog Freeze</b> [channel number]</p>
+    <h3 id="i-dialog-freeze">DIALOG FREEZE</h3>
+    <p><i>instruction: stop dialogue channel input</i><br>
+        <b>Dialog Freeze</b> [channel number]</p>
 
-<p>
-This command is used to freeze all input from one or more active dialogue channels. The
-number of a single dialogue routine that is to be suspended is specified in square brackets. If this
-number is omitted all current channels will be frozen.</p>
+    <p>
+        This command is used to freeze all input from one or more active dialogue channels. The
+        number of a single dialogue routine that is to be suspended is specified in square brackets. If this
+        number is omitted all current channels will be frozen.</p>
 
-<h3 id="i-dialog-unfreeze">DIALOG UNFREEZE</h3>
-<p><i>instruction: re-activate a frozen dialogue channel</i><br>
-<b>Dialog Unfreeze</b> [channel number]</p>
+    <h3 id="i-dialog-unfreeze">DIALOG UNFREEZE</h3>
+    <p><i>instruction: re-activate a frozen dialogue channel</i><br>
+        <b>Dialog Unfreeze</b> [channel number]</p>
 
-<p>
-Use this instruction to re-activate one or more dialogue channels from the point at which they
-were frozen.</p>
+    <p>
+        Use this instruction to re-activate one or more dialogue channels from the point at which they
+        were frozen.</p>
 
-<h3 id="i-dialog-clr">DIALOG CLR</h3>
-<p><i>instruction: clear a dialogue box</i><br>
-<b>Dialog Clr</b> channel number</p>
+    <h3 id="i-dialog-clr">DIALOG CLR</h3>
+    <p><i>instruction: clear a dialogue box</i><br>
+        <b>Dialog Clr</b> channel number</p>
 
-<p>
-The DIALOG CLR instruction erases all zones and shuts down the dialogue box completely,
-leaving the specified channel open. The Interface program can now be re-run from the
-beginning, using a further call to the DIALOG RUN command.
-As always, if the background area has been saved using the SA option, it will be restored to its
-original position.</p>
+    <p>
+        The DIALOG CLR instruction erases all zones and shuts down the dialogue box completely,
+        leaving the specified channel open. The Interface program can now be re-run from the
+        beginning, using a further call to the DIALOG RUN command.
+        As always, if the background area has been saved using the SA option, it will be restored to its
+        original position.</p>
 </section>
 
 <section id="11-hypertext">
-<h2>HyperText</h2>
-<p>
-The impressive interactive Help system is one of the most user-friendly aspects of the AMOS
-Professional system, allowing detailed information to be called up using single mouse key-
-presses from the Editor. More impressive than this is the fact that the Help system was entirely
-written in AMOS Professional, and it is a typical example of the Interface in action!</p>
+    <h2>HyperText</h2>
+    <p>
+        The impressive interactive Help system is one of the most user-friendly aspects of the AMOS
+        Professional system, allowing detailed information to be called up using single mouse key-
+        presses from the Editor. More impressive than this is the fact that the Help system was entirely
+        written in AMOS Professional, and it is a typical example of the Interface in action!</p>
 
-<p>
-The final part of this Chapter explains how similar systems can be created using the HyperText
-feature.</p>
+    <p>
+        The final part of this Chapter explains how similar systems can be created using the HyperText
+        feature.</p>
 
-<p>
-<b>H</b>yper<b>T</b>ext<br>
-<i>Interface instruction: open an interactive text window</i><br>
-<b>HT</b> zone number,x,y,width,height,address,line number,buffer,paper,pen;[changes]</p>
+    <p>
+        <b>H</b>yper<b>T</b>ext<br>
+        <i>Interface instruction: open an interactive text window</i><br>
+        <b>HT</b> zone number,x,y,width,height,address,line number,buffer,paper,pen;[changes]</p>
 
-<p>
-The HyperText command opens a simple window on a piece of text held in memory. This text
-can include optional words or phrases that may be selected directly by the user. Each option
-returns a specific value to the main program, which can then be used to jump to some
-additional text, or call up an appropriate routine from the main program.</p>
+    <p>
+        The HyperText command opens a simple window on a piece of text held in memory. This text
+        can include optional words or phrases that may be selected directly by the user. Each option
+        returns a specific value to the main program, which can then be used to jump to some
+        additional text, or call up an appropriate routine from the main program.</p>
 
-<p>
-The zone number is given as usual, followed by x,y-coordinates. The x-coordinate will be
-rounded down to the nearest multiple of 16.</p>
+    <p>
+        The zone number is given as usual, followed by x,y-coordinates. The x-coordinate will be
+        rounded down to the nearest multiple of 16.</p>
 
 
-<p>
-Next the width and height parameters are specified to define the size of the text window that
-will hold the required characters. This.window is very similar to a window produced by AList,
-and is relatively crude compared to the fancy Help screen display. However, when border
-images and sliders are added, things begin to take on a true AMOS Professional appearance.</p>
+    <p>
+        Next the width and height parameters are specified to define the size of the text window that
+        will hold the required characters. This.window is very similar to a window produced by AList,
+        and is relatively crude compared to the fancy Help screen display. However, when border
+        images and sliders are added, things begin to take on a true AMOS Professional appearance.</p>
 
-<p>
-Text is listed in windows numbered 3000+z, and you can write to these windows from the main
-program if necessary, using a WINDOW command like this:</p>
+    <p>
+        Text is listed in windows numbered 3000+z, and you can write to these windows from the main
+        program if necessary, using a WINDOW command like this:</p>
 
-<pre>
+    <pre>
 X> Window 3001 : Rem Print to text window assigned to zone 1
 </pre>
 
-<p>
-The next parameter to be given is the address of the text in memory. Unlike the AList command,
-HyperText expects an address of a <b>Memory Bank</b> rather than an array. This bank should already
-be loaded with some text in standard Ascii format, and each line should be separated by either a
-chr$(13) for Amiga format, or by chr$(13)+ chr$(10) for PC format. Text must be terminated with
-a single chr$(0) character.</p>
+    <p>
+        The next parameter to be given is the address of the text in memory. Unlike the AList command,
+        HyperText expects an address of a <b>Memory Bank</b> rather than an array. This bank should already
+        be loaded with some text in standard Ascii format, and each line should be separated by either a
+        chr$(13) for Amiga format, or by chr$(13)+ chr$(10) for PC format. Text must be terminated with
+        a single chr$(0) character.</p>
 
-<p>
-The line number parameter holds the number of the first line in the text to be displayed in the
-window.</p>
+    <p>
+        The line number parameter holds the number of the first line in the text to be displayed in the
+        window.</p>
 
-<p>
-The buffer parameter sets the maximum number of buttons on any one screen line. The
-Interface requires 8 bytes for each zone, so if the window is 25 lines high, and ten button's are
-required on every line, you will need 25*10*8 or 2000 bytes for the buffer area. If you simply
-want to display some normal text, use a value of zero for the buffer parameter instead.</p>
+    <p>
+        The buffer parameter sets the maximum number of buttons on any one screen line. The
+        Interface requires 8 bytes for each zone, so if the window is 25 lines high, and ten button's are
+        required on every line, you will need 25*10*8 or 2000 bytes for the buffer area. If you simply
+        want to display some normal text, use a value of zero for the buffer parameter instead.</p>
 
-<p>
-The paper and pen parameters are set as usual, to determine the colour of the text on screen,
-and the background window will be filled with the paper colour when it is initially drawn.</p>
+    <p>
+        The paper and pen parameters are set as usual, to determine the colour of the text on screen,
+        and the background window will be filled with the paper colour when it is initially drawn.</p>
 
-<p>
-The square brackets hold an Interface function that will be called up whenever the mouse is
-clicked on the HyperText zone. If the zone returns a number, it will now be available directly
-from the ZPosition function.</p>
+    <p>
+        The square brackets hold an Interface function that will be called up whenever the mouse is
+        clicked on the HyperText zone. If the zone returns a number, it will now be available directly
+        from the ZPosition function.</p>
 </section>
 
 <section id="12-creating-some-hypertext">
-<h2>Creating some HyperText</h2>
-<p>
-The text can include a number of active zones if required. These are defined using curled
-brackets, and their are two alternative formats, as follows:</p>
+    <h2>Creating some HyperText</h2>
+    <p>
+        The text can include a number of active zones if required. These are defined using curled
+        brackets, and their are two alternative formats, as follows:</p>
 
-<pre>
+    <pre>
 X> {[value]highlighted text}
 or
 X> {[value,paper,pen]highlighted text}
 </pre>
 
-<p>
-The square brackets contain a value which will be transferred to the program when the item is
-selected. This can be either a number or a part of the text, up to 64 characters long. If the value is
-a number, such as {[1000]...}, the main program will load it into an RDIALOG function, and it
-can now be read directly from a [changes] routine using the ZPosition function. If a string is
-entered, such as {[Hello everybody]...}, the main program will grab it with RDIALOG$ instead,
-and the ZPosition function will return a value of zero.</p>
+    <p>
+        The square brackets contain a value which will be transferred to the program when the item is
+        selected. This can be either a number or a part of the text, up to 64 characters long. If the value is
+        a number, such as {[1000]...}, the main program will load it into an RDIALOG function, and it
+        can now be read directly from a [changes] routine using the ZPosition function. If a string is
+        entered, such as {[Hello everybody]...}, the main program will grab it with RDIALOG$ instead,
+        and the ZPosition function will return a value of zero.</p>
 
 
-<p>
-Supposing an automatic jump to a specific page of text is required. The HyperText command
-would look like this:</p>
+    <p>
+        Supposing an automatic jump to a specific page of text is required. The HyperText command
+        would look like this:</p>
 
-<pre>
+    <pre>
 X> HText 1,0,0,40,20,text_address,0,4,0,3;
    [ZChange 1,ZPosition]
 </pre>
 
-<p>The entry in the text would -he defined along the following lines:</p>
+    <p>The entry in the text would -he defined along the following lines:</p>
 
-<pre>
+    <pre>
 X> {[10] Goto line 10}
    {[100] Goto line 100}
 </pre>
 
-<p>
-After the return value has been set up, the paper and pen colours of the button can also be
-included. If these are not defined, the ink and paper colours will be swapped over when the
-active highlighted word is displayed on screen.
-Finally, the word or sentence to be highlighted is given. This can be anything from a single
-character up to an entire line of text, and it will be displayed at the current cursor position
-automatically.</p>
+    <p>
+        After the return value has been set up, the paper and pen colours of the button can also be
+        included. If these are not defined, the ink and paper colours will be swapped over when the
+        active highlighted word is displayed on screen.
+        Finally, the word or sentence to be highlighted is given. This can be anything from a single
+        character up to an entire line of text, and it will be displayed at the current cursor position
+        automatically.</p>
 
-<p>The zone definition is now closed with a closing curled bracket.</p>
+    <p>The zone definition is now closed with a closing curled bracket.</p>
 
-<p>
-If an error should occur, or if there are too many button zones on the same line, the zone will be
-printed in simple Ascii, and the [1 characters will be visible on the screen.</p>
+    <p>
+        If an error should occur, or if there are too many button zones on the same line, the zone will be
+        printed in simple Ascii, and the [1 characters will be visible on the screen.</p>
 
-<p>
-To scroll the window with a slider bar, the number of lines in the current piece of text need to be
-known. This allows you to set the "total" value to the actual size of the text, and then scroll the
-text by a single line.</p>
+    <p>
+        To scroll the window with a slider bar, the number of lines in the current piece of text need to be
+        known. This allows you to set the "total" value to the actual size of the text, and then scroll the
+        text by a single line.</p>
 
-<p>
-The HyperText instruction places this size in the internal ZoneVariable, so all that needs to be
-done is define the slider after the text window is opened. For example:</p>
+    <p>
+        The HyperText instruction places this size in the internal ZoneVariable, so all that needs to be
+        done is define the slider after the text window is opened. For example:</p>
 
-<pre>
+    <pre>
 X> SetVar 1,0; variable number one holds the position in the text
    HText 1,0,0,38,20,0 VA,1 VA,10,0,1;[]
    SetVar 2,ZVar; load the number of lines into variable number two
@@ -1032,21 +1030,21 @@ X> SetVar 1,0; variable number one holds the position in the text
    [SetVar 1,ZPos; ZChange 1,1VA:] move hypertext window to new position
 </pre>
 
-<p>
-If a HyperText window has been defined as a separate screen, it can be physically manipulated
-using a ScreenMove command.</p>
+    <p>
+        If a HyperText window has been defined as a separate screen, it can be physically manipulated
+        using a ScreenMove command.</p>
 
-<p><b>ScreenMove</b><br>
-<i>Interface instruction: move a screen linked to mouse pointer</i><br>
-<b>SM</b>;</p>
+    <p><b>ScreenMove</b><br>
+        <i>Interface instruction: move a screen linked to mouse pointer</i><br>
+        <b>SM</b>;</p>
 
-<p>
-This simple instruction is used to automatically drag the screen when the mouse pointer is
-moved, and it should be called as part of a [changes] routine to position the screen whenever a
-particular item is selected. In this final example, a button is set up that generates
-the scroll bar used by the Help window.</p>
+    <p>
+        This simple instruction is used to automatically drag the screen when the mouse pointer is
+        moved, and it should be called as part of a [changes] routine to position the screen whenever a
+        particular item is selected. In this final example, a button is set up that generates
+        the scroll bar used by the Help window.</p>
 
-<pre>
+    <pre>
 X> BUtton 6,24,0,SX,10,0,0,0;[][ScreenMove;]
 </pre>
 
