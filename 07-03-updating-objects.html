@@ -246,7 +246,7 @@ E> Double Buffer
         You are recommended to add a WAIT VBL instruction after each SPRITE UPDATE, to make sure
         that Sprite movements are perfectly synchronised with the existing screen display.</p>
 
-    <h3 id="i-update">UPDATE</h3>
+    <h3 class="command" id="i-update">UPDATE</h3>
     <p><i>instruction: move all objects at once</i><br>
         <b>Update</b><br>
         <b>Update</b> Off<br>
@@ -266,11 +266,11 @@ E> Double Buffer
     <p>UPDATE ON returns the updating system back to the original automatic setting.</p>
 
 
-    <h3 id="i-bob-clear">BOB CLEAR</h3>
+    <h3 class="command" id="i-bob-clear">BOB CLEAR</h3>
     <p><i>instruction: clear all Bobs from the screen</i><br>
         <b>Bob Clear</b></p>
 
-    <h3 id="i-bob-draw">BOB DRAW</h3>
+    <h3 class="command" id="i-bob-draw">BOB DRAW</h3>
     <p><i>instruction: re-draw all Bobs on screen</i><br>
         <b>Bob Draw</b></p>
 
@@ -351,7 +351,7 @@ X> Screen Swap : Wait Vbl
         graphics operations with all Bob updates. This means that once DOUBLE BUFFER is activated,
         graphics and text can be displayed as normal. This is the principle of the AUTOBACK system.</p>
 
-    <h3 id="i-autoback">AUTOBACK</h3>
+    <h3 class="command" id="i-autoback">AUTOBACK</h3>
     <p><i>instruction: set mode for graphics operations on double buffered screen</i><br>
         <b>Autoback</b> mode</p>
 
@@ -400,7 +400,7 @@ X> Autoback 2
     <p>Once Bobs have been set up, you are allowed to change the way that they react with other
         screen graphics.</p>
 
-    <h3 id="i-set-bob">SET BOB</h3>
+    <h3 class="command" id="i-set-bob">SET BOB</h3>
     <p><i>instruction: set drawing mode for Bobs</i><br>
         <b>Set Bob</b> number,background,planes,mask</p>
 

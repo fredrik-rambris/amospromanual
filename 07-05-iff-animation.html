@@ -163,7 +163,7 @@ X> Save Iff "My Programs:Iff/Picture_Name.Iff" : Rem Compressed
 <section id="04-playing-an-iff-animation">
     <h2>Playing an IFF animation</h2>
 
-    <h3 id="i-iff-anim">IFF ANIM</h3>
+    <h3 class="command" id="i-iff-anim">IFF ANIM</h3>
     <p><i>instruction: play an animation file</i><br>
         <b>Iff Anim</b> "filename" <b>To</b> screen number<br>
         <b>Iff Anim</b> "filename" <b>To</b> screen number, times</p>
@@ -204,7 +204,7 @@ D> Iff Anim Fsel$("**") To 0,10
         directly in your programs.</p>
 
 
-    <h3 id="fn-frame-load">FRAME LOAD</h3>
+    <h3 class="command" id="fn-frame-load">FRAME LOAD</h3>
     <p><i>function: load frames into memory</i><br>
         frames=<b>Frame Load</b>(channel <b>To</b> bank/address)<br>
         frames=<b>Frame Load</b>(channel <b>To</b> bank/address,number of frames)</p>
@@ -250,7 +250,7 @@ E> Rem Open animation file for reading
    Print "Number of frames in this file is ";N
 </pre>
 
-    <h3 id="fn-frame-length">FRAME LENGTH</h3>
+    <h3 class="command" id="fn-frame-length">FRAME LENGTH</h3>
     <p><i>function: return the length of frames in bytes</i><br>
         size=<b>Frame Length</b>(channel)<br>
         size=<b>Frame Length</b>(channel,number of frames)</p>
@@ -286,7 +286,7 @@ E> Open In 1 ,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
    Print "Required memory for frame 1=";L
 </pre>
 
-    <h3 id="fn-frame-play">FRAME PLAY</h3>
+    <h3 class="command" id="fn-frame-play">FRAME PLAY</h3>
     <p><i>function: play frames on screen</i><br>
         frame=<b>Frame Play</b>(bank/address,number)<br>
         frame=<b>Frame Play</b>(bank/address,number,screen)</p>
@@ -347,7 +347,7 @@ E> Open In 1,"AMOSPro_Tutorialiff_Anim/AMOS.Anim"
    Loop
 </pre>
 
-    <h3 id="fn-frame-skip">FRAME SKIP</h3>
+    <h3 class="command" id="fn-frame-skip">FRAME SKIP</h3>
     <p><i>function: skip past an animation frame</i><br>
         s=<b>Frame Skip</b>(bank/address)<br>
         s=<b>Frame Skip</b>(bank/address,number)</p>
@@ -363,7 +363,7 @@ E> Open In 1,"AMOSPro_Tutorialiff_Anim/AMOS.Anim"
         This means that the animation will only re-commence when an identical frame is reached to the
         one currently being displayed.</p>
 
-    <h3 id="fn-frame-param">FRAME PARAM</h3>
+    <h3 class="command" id="fn-frame-param">FRAME PARAM</h3>
     <p><i>function: return a parameter after playing a frame</i><br>
         p=<b>Frame Param</b></p>
 
@@ -394,11 +394,11 @@ X> Wait Form Param+1
         specific parts of the file that hold such items as the palette and the bit-maps only. The PICTURE
         function is used in conjunction with the MASK IFF function to achieve this.</p>
 
-    <h3 id="fn-picture">PICTURE</h3>
+    <h3 class="command" id="fn-picture">PICTURE</h3>
     <p><i>function: return mask details of an IFF image</i><br>
         mask=<b>Picture</b></p>
 
-    <h3 id="i-mask-iff">MASK IFF</h3>
+    <h3 class="command" id="i-mask-iff">MASK IFF</h3>
     <p><i>instruction: mask IFF picture data</i><br>
         <b>Mask Iff</b> bit-map</p>
 
@@ -427,11 +427,11 @@ X> Mask Iff %100 : Rem Load palette of picture only
         The following commands are equivalents to these two instructions, and also offer STOS
         compatibility.</p>
 
-    <h3 id="i-freeze">FREEZE</h3>
+    <h3 class="command" id="i-freeze">FREEZE</h3>
     <p><i>instruction: freeze the display</i><br>
         <b>Freeze</b></p>
 
-    <h3 id="i-unfreeze">UNFREEZE</h3>
+    <h3 class="command" id="i-unfreeze">UNFREEZE</h3>
     <p><i>instruction: unfreeze the display</i><br>
         <b>Unfreeze</b></p>
 

@@ -38,11 +38,11 @@
 <section id="01-creating-a-procedure">
     <h2>Creating a procedure</h2>
 
-    <h3 id="str-procedure">PROCEDURE</h3>
+    <h3 class="command" id="str-procedure">PROCEDURE</h3>
     <p><i>structure: create a procedure</i><BR>
         <b>Procedure</b> NAME [list of optional parameters]</P>
 
-    <h3 id="str-end-proc">END PROC</h3>
+    <h3 class="command" id="str-end-proc">END PROC</h3>
     <p><i>structure: end a procedure</i><BR>
         <b>End Proc</b></p>
 
@@ -74,7 +74,7 @@ E&gt; HELLO
         using the SET BUFFER command. Programs can also be held up if there is no more stack space
         available, and this problem is cured by the following command.</P>
 
-    <h3 id="i-set-stack">SET STACK</h3>
+    <h3 class="command" id="i-set-stack">SET STACK</h3>
     <p><i>instruction: set stack space</i><BR>
         <b>Set Stack</b> number</P>
 
@@ -104,7 +104,7 @@ X&gt; HEY: HEY: HEY: Rem Perform HEY procedure three times
    HEY: HEY: HEY: Rem Define label HEY and perform HEY procedure twice
 </pre>
 
-    <h3 id="str-proc">PROC</h3>
+    <h3 class="command" id="str-proc">PROC</h3>
     <p><i>structure: flag a procedure</i><BR>
         <b>Proc</b> NAME</P>
 
@@ -208,7 +208,7 @@ X&gt; If X=2 Then PROCEDURE2
     <P>Normally, procedures will only return to the main program when the END PROC instruction
         is reached. But supposing you need to jump out of a procedure instantly.</P>
 
-    <h3 id="str-pop-proc">POP PROC</h3>
+    <h3 class="command" id="str-pop-proc">POP PROC</h3>
     <p><i>structure: leave a procedure immediately</i><BR>
         <b>Pop Proc</b></P>
 
@@ -227,7 +227,7 @@ E&gt; ESCAPE
    Print "I'm free!"
 </pre>
 
-    <h3 id="str-on-break-proc">ON BREAK PROC</h3>
+    <h3 class="command" id="str-on-break-proc">ON BREAK PROC</h3>
     <p><i>structure: jump to a procedure when break in program</i><BR>
         <b>On Break Proc</b> NAME</P>
 
@@ -320,7 +320,7 @@ X> TWINS[6,9]
    TRIPLETS["Xenon","Yak","Zygote"]
 </pre>
 
-    <h3 id="str-shared">SHARED</h3>
+    <h3 class="command" id="str-shared">SHARED</h3>
     <p><i>structure: define a list of global variables</i><br>
         <b>Shared</b> list of variables</p>
 
@@ -351,7 +351,7 @@ X> Shared A(),B#(),C$()
         global variables. This offers an easy way of transferring large amounts of information between
         your procedures.</p>
 
-    <h3 id="str-global">GLOBAL</h3>
+    <h3 class="command" id="str-global">GLOBAL</h3>
     <p><i>structure: declare a list of global variables for procedures</i><br>
         <b>Global</b> list of variables</p>
 
@@ -450,7 +450,7 @@ X> Procedure VARIABLES
         find this local variable.</P>
 
 
-    <h3 id="fn-param">PARAM</h3>
+    <h3 class="command" id="fn-param">PARAM</h3>
     <p><i>function: return a parameter from a procedure</i><BR>
         <b>Param</b><BR>
         <b>Param#</b><BR>

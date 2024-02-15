@@ -46,7 +46,7 @@
         There are few disadvantages, although control over sequence conversion is not possible, and
         screen dumps cannot be made via the Parallel Port.</p>
 
-    <h3 id="i-parallel-open">PARALLEL OPEN</h3>
+    <h3 class="command" id="i-parallel-open">PARALLEL OPEN</h3>
     <p><i>instruction: open the Parallel Port for reading or writing</i><br>
         <b>Parallel Open</b></p>
 
@@ -56,13 +56,13 @@
         loaded into memory. If it is not available, you will be prompted to insert the relevant disc
         automatically.</p>
 
-    <h3 id="i-parallel-close">PARALLEL CLOSE</h3>
+    <h3 class="command" id="i-parallel-close">PARALLEL CLOSE</h3>
     <p><i>instruction: close the parallel port</i><br>
         <b>Parallel Close</b></p>
 
     <p>This command simply closes the Parallel port.</p>
 
-    <h3 id="i-parallel-send">PARALLEL SEND</h3>
+    <h3 class="command" id="i-parallel-send">PARALLEL SEND</h3>
     <p><i>instruction: send a string of characters to the Parallel Port</i><br>
         <b>Parallel Send</b> text$</p>
 
@@ -81,7 +81,7 @@
 
     <!-- section -->
 
-    <h3 id="i-parallel-out">PARALLEL OUT</h3>
+    <h3 class="command" id="i-parallel-out">PARALLEL OUT</h3>
     <p><i>instruction: send data from memory to the Parallel Port</i><br>
         <b>Parallel Out</b> address,length</p>
 
@@ -89,7 +89,7 @@
         This instruction is similar to the PRINTER OUT command, and transmits the specified number
         of characters defined by the length parameter, starting from a given address.</p>
 
-    <h3 id="fn-parallel-input-dollar">PARALLEL INPUT$</h3>
+    <h3 class="command" id="fn-parallel-input-dollar">PARALLEL INPUT$</h3>
     <p><i>function: read a string from the Parallel Port</i><br>
         text$=<b>Parallel Input$</b>(length[,stop])</p>
 
@@ -109,7 +109,7 @@
         If you intend to devise a communications protocol using the Parallel Port, then the first item to
         send should be the total number of bytes to be transmitted!</p>
 
-    <h3 id="i-parallel-abort">PARALLEL ABORT</h3>
+    <h3 class="command" id="i-parallel-abort">PARALLEL ABORT</h3>
     <p><i>instruction: stop a parallel operation</i><br>
         <b>Parallel Abort</b></p>
 
@@ -118,7 +118,7 @@
         transmitting any additional information via the Parallel Port. Any characters that are currently in
         transit will be completely lost.</p>
 
-    <h3 id="fn-parallel-check">PARALLEL CHECK</h3>
+    <h3 class="command" id="fn-parallel-check">PARALLEL CHECK</h3>
     <p><i>function: report the availability of the Parallel Port</i><br>
         value=<b>Parallel Check</b></p>
 
@@ -127,7 +127,7 @@
         is returned by either a value of zero (False) if it is not available, or -1 (True) if the port is ready for
         use.</p>
 
-    <h3 id="fn-parallel-error">PARALLEL ERROR</h3>
+    <h3 class="command" id="fn-parallel-error">PARALLEL ERROR</h3>
     <p><i>function: check for an error in transmission via the Parallel Port</i><br>
         value=<b>Parallel Error</b></p>
 
@@ -139,7 +139,7 @@
         A value of zero is returned all the time that everything is proceeding normally, but any other
         value indicates a problem in the current transmission operation.</p>
 
-    <h3 id="fn-parallel-status">PARALLEL STATUS</h3>
+    <h3 class="command" id="fn-parallel-status">PARALLEL STATUS</h3>
     <p><i>function: return the current status of the Parallel Port</i><br>
         status=<b>Parallel Status</b></p>
 
@@ -155,7 +155,7 @@
 3      Direction of transmission (0=read, 1=write)
 </pre>
 
-    <h3 id="fn-parallel-base">PARALLEL BASE</h3>
+    <h3 class="command" id="fn-parallel-base">PARALLEL BASE</h3>
     <p><i>function: get the base address of the Parallel Port</i><br>
         address=<b>Parallel Base</b></p>
 

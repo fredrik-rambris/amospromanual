@@ -123,7 +123,7 @@ D> Dir
         listing, you may be presented with a system requester. The simple solution is to re-insert the
         requested disc and try again.</p>
 
-    <h3 id="i-dir-w">DIR/W</h3>
+    <h3 class="command" id="i-dir-w">DIR/W</h3>
     <p><i>instruction: print out directory in two columns</i><br>
         <b>Dir/W</b><br>
         <b>Dir</b> paths$<b> /W</b></p>
@@ -242,7 +242,7 @@ EURIPIDES
         These two commands are used in exactly the same way as DIR and DIR/W, as explained above,
         and they list the directory of the current disc to a printer.</p>
 
-    <h3 id="i-set-dir">SET DIR</h3>
+    <h3 class="command" id="i-set-dir">SET DIR</h3>
     <p><i>instruction: set directory style</i><br>
         <b>Set Dir</b> number<br>
         <b>Set Dir</b> number,filter$</p>
@@ -302,7 +302,7 @@ AMU
 D> Set Dir 8,"*.AMOS/*.IFF/*.Abk"
 </pre>
 
-    <h3 id="resv-dir-dollar">DIR$</h3>
+    <h3 class="command" id="resv-dir-dollar">DIR$</h3>
     <p><i>function: change the current directory</i><br>
         s$=<b>Dir$</b><br>
         <b>Dir$</b>=s$</p>
@@ -328,7 +328,7 @@ E> Print Dir$ : Rem Print out current directory
 D> Dir$="Df0:IFF/"
 </pre>
 
-    <h3 id="i-parent">PARENT</h3>
+    <h3 class="command" id="i-parent">PARENT</h3>
     <p><i>instruction: negotiate a path through current directory</i><br>
         <b>Parent</b></p>
 
@@ -359,7 +359,7 @@ X> Dir$="AMOSPro_Examples:Objects/"
    Dir
 </pre>
 
-    <h3 id="i-assign">ASSIGN</h3>
+    <h3 class="command" id="i-assign">ASSIGN</h3>
     <p><i>instruction: assign a name to a file or device</i><br>
         <b>Assign</b> "Name:" To "New_Pathname"<br>
         <b>Assign</b> "Name:" To "Device"</p>
@@ -378,7 +378,7 @@ X> Dir$="AMOSPro_Examples:Objects/"
         the other hand, you may be normal. AMOS Professional provides three, ways to check for
         elusive files.</p>
 
-    <h3 id="fn-exist">EXIST</h3>
+    <h3 class="command" id="fn-exist">EXIST</h3>
     <p><i>function: check if specified file exists</i><br>
         value=<b>Exist</b>("filename")</p>
 
@@ -406,7 +406,7 @@ E> F$=Fsel$("*.IFF"," ","Load an IFF file")
 </pre>
 
 
-    <h3 id="fn-dir-first-dollar">DIR FIRST$</h3>
+    <h3 class="command" id="fn-dir-first-dollar">DIR FIRST$</h3>
     <p><i>function: get first file that satisfies current path name</i><br>
         file$=<b>Dir First$</b>(path$)</p>
 
@@ -426,7 +426,7 @@ E> Print Dir First$("*.*")
         continue to discover the name of the next file in the current directory with the following
         function.</p>
 
-    <h3 id="fn-dir-next-dollar">DIR NEXT$</h3>
+    <h3 class="command" id="fn-dir-next-dollar">DIR NEXT$</h3>
     <p><i>function: get next file that satisfies current path</i><br>
         file$=<b>Dir Next$</b></p>
 
@@ -449,7 +449,7 @@ E> F$=Dir First$("*.*")
 <section id="05-selecting-a-file">
     <h2>Selecting a file</h2>
 
-    <h3 id="fn-fsel-dollar">FSEL$</h3>
+    <h3 class="command" id="fn-fsel-dollar">FSEL$</h3>
     <p><i>function: select a file</i><br>
         f$=<b>Fsel$</b>(path$)<br>
         f$=<b>Fsel$</b>(path$,default$,title1$,title2$)</p>
@@ -489,7 +489,7 @@ E> F$=Fsel$("AMOSPro_Examples:Objects/*.Abk")
         To create a new folder that can be used to hold files of data, a suitable disc should be ready in
         the appropriate drive.</p>
 
-    <h3 id="i-mkdir">MKDIR</h3>
+    <h3 class="command" id="i-mkdir">MKDIR</h3>
     <p><i>instruction: create a folder</i><br>
         <b>Mkdir</b> filename$</p>
 
@@ -502,7 +502,7 @@ X> Mkdir "Df0:MARATHONMAN"
    Dir
 </pre>
 
-    <h3 id="i-rename">RENAME</h3>
+    <h3 class="command" id="i-rename">RENAME</h3>
     <p><i>instruction: rename a file</i><br>
         <b>Rename</b> oldname$ To newname$</p>
 
@@ -518,7 +518,7 @@ X> Rename "Ancient" To "Modern"
 <section id="07-running-programs-from-a-disc">
     <h2>Running programs from a disc</h2>
 
-    <h3 id="i-run">RUN</h3>
+    <h3 class="command" id="i-run">RUN</h3>
     <p><i>instruction: execute an AMOS Professional program</i><br>
         <b>Run</b><br>
         <b>Run</b> file$</p>
@@ -551,7 +551,7 @@ X> Run "Next level.AMOS"
         In fact, AMOS Professional does allow you to pass variable data from one program to another,
         by making use of "Command Lines".</p>
 
-    <h3 id="resv-command-line-dollar">COMMAND LINE$</h3>
+    <h3 class="command" id="resv-command-line-dollar">COMMAND LINE$</h3>
     <p><i>reserved variable: transfer parameters between programs</i><br>
         c$=<b>Command Lines$</b></p>
 
@@ -600,7 +600,7 @@ E> Rem Program 2
 <section id="08-disc-space">
     <h2>Disc space</h2>
 
-    <h3 id="fn-dfree">DFREE</h3>
+    <h3 class="command" id="fn-dfree">DFREE</h3>
     <p><i>function: report free space on disc</i><br>
         f=<b>Dfree</b></p>
 
@@ -608,7 +608,7 @@ E> Rem Program 2
         This simple function returns the amount of free space remaining on the current disc, measured
         in bytes.</p>
 
-    <h3 id="fn-disc-info-dollar">DISC INFO$</h3>
+    <h3 class="command" id="fn-disc-info-dollar">DISC INFO$</h3>
     <p><i>function: report free space of a named device</i><br>
         information$=<b>Disc Info$</b>("Name")</p>
 
@@ -627,7 +627,7 @@ E> A$=Disc Info$("Df0:")
    Print "Free space=";D
 </pre>
 
-    <h3 id="i-kill">KILL</h3>
+    <h3 class="command" id="i-kill">KILL</h3>
     <p><i>instruction: erase a file from current disc</i><br>
         <b>Kill</b> filename$</p>
 
@@ -691,7 +691,7 @@ E> Open In 1 ,"sequential.one"
         accessed, then the file must be closed. Those three steps must be done in exactly that order. Here
         is the list of commands you can use for handling sequential files.</p>
 
-    <h3 id="i-open-out">OPEN OUT</h3>
+    <h3 class="command" id="i-open-out">OPEN OUT</h3>
     <p><i>instruction: open a file for output</i><br>
         <b>Open Out</b> channel,filename$</p>
 
@@ -699,7 +699,7 @@ E> Open In 1 ,"sequential.one"
         Use this command to open a sequential file, ready for data to be added to its end. Give the
         channel number and filename, as explained above. If the file already exists, it will be erased.</p>
 
-    <h3 id="i-append">APPEND</h3>
+    <h3 class="command" id="i-append">APPEND</h3>
     <p><i>instruction: add data to an existing file</i><br>
         <b>Append</b> channel,filename$</p>
 
@@ -708,7 +708,7 @@ E> Open In 1 ,"sequential.one"
         been defined. If the filename already exists, your new data will be appended to it, in other
         words it will be added to the end of that file.</p>
 
-    <h3 id="i-open-in">OPEN IN</h3>
+    <h3 class="command" id="i-open-in">OPEN IN</h3>
     <p><i>instruction: open a file for input</i><br>
         <b>Open In</b> channel,filename$</p>
 
@@ -717,7 +717,7 @@ E> Open In 1 ,"sequential.one"
         does not already exist, AMOS Professional will report a "File not found" error.</p>
 
 
-    <h3 id="i-close">CLOSE</h3>
+    <h3 class="command" id="i-close">CLOSE</h3>
     <p><i>instruction: close a file</i><br>
         <b>Close</b> file number</p>
 
@@ -777,7 +777,7 @@ E> Open In 2,"sequential.two" : Rem Open file created by previous example
         used in normal written English will be treated as separators by the INPUT # structure.</p>
 
 
-    <h3 id="i-set-input">SET INPUT</h3>
+    <h3 class="command" id="i-set-input">SET INPUT</h3>
     <p><i>instruction: set end-of-line characters</i><br>
         <b>Set Input</b> code1,code2</p>
 
@@ -806,7 +806,7 @@ X> Set Input 10,-1 : Rem Standard Amiga format
         Use this function to input a set number of characters from a device or file. The parameters in
         brackets refer to the filename or device, followed by the count of characters to be input.</p>
 
-    <h3 id="fn-eof">EOF</h3>
+    <h3 class="command" id="fn-eof">EOF</h3>
     <p><i>function: test for end of file</i><br>
         flag=<b>Eof</b>(channel)</p>
 
@@ -814,7 +814,7 @@ X> Set Input 10,-1 : Rem Standard Amiga format
         This tests to see if the end of a file has been reached at the current reading position, returning -1
         for yes and 0 if this has not happened.</p>
 
-    <h3 id="fn-lof">LOF</h3>
+    <h3 class="command" id="fn-lof">LOF</h3>
     <p><i>function: give length of an open file</i><br>
         length=<b>Lof</b>(channel)</p>
 
@@ -822,7 +822,7 @@ X> Set Input 10,-1 : Rem Standard Amiga format
         LOF returns the length of an open file, and it would be pointless to use this function with
         devices other than the current disc.</p>
 
-    <h3 id="resv-pof">POF</h3>
+    <h3 class="command" id="resv-pof">POF</h3>
     <p><i>reserved variable: hold current position of file pointer</i><br>
         position=<b>Pof</b>(channel)</p>
 
@@ -871,7 +871,7 @@ TEL$                10
         using the following commands.</p>
 
     <p>
-    <h3 id="i-open-random">OPEN RANDOM</h3>
+    <h3 class="command" id="i-open-random">OPEN RANDOM</h3>
     <p><i>instruction: open a channel to a random access file</i><br>
         <b>Open Random</b> channel,filename$</p>
 
@@ -906,7 +906,7 @@ X> SURNAME$="Professional"
    TEL$="0625859333"
 </pre>
 
-    <h3 id="i-put">PUT</h3>
+    <h3 class="command" id="i-put">PUT</h3>
     <p><i>instruction: output a record to a random access file</i><br>
         <b>Put</b> channel,record number</p>
 
@@ -940,7 +940,7 @@ E> Open Random 1,"ADDRESS"
 
     <p>Having created your phone book, you will want to use it.</p>
 
-    <h3 id="i-get">GET</h3>
+    <h3 class="command" id="i-get">GET</h3>
     <p><i>instruction: read a record from a random access file</i><br>
         <b>Get</b> channel,record number</p>
 
@@ -984,7 +984,7 @@ E> Open Random 1,"ADDRESS"
         To assist the editing of lengthy programs in assembly language or C, an Include facility is
         provided. AMOS Professional programmers can enjoy exactly the same benefit!</p>
 
-    <h3 id="i-include">INCLUDE</h3>
+    <h3 class="command" id="i-include">INCLUDE</h3>
     <p><i>instruction: specify a file for inclusion when testing a program</i><br>
         <b>Include</b> "File_To_Include.AMOS"</p>
 

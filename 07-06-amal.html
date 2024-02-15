@@ -170,7 +170,7 @@ E> Load "AMOSPro_Tutorial:Objects/Sprites.abk" : Get Sprite Palette
 <section id="05-animating-an-object">
     <h2>Animating an Object</h2>
 
-    <h3 id="amali-anim">Anim</h3>
+    <h3 class="command" id="amali-anim">Anim</h3>
     <p><i>AMAL instruction: animate an Object</i><br>
         <b>A</b>nim number,(image,delay)(image,delay) ..</p>
 
@@ -205,7 +205,7 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_1.AMOS"
 <section id="06-moving-within-amal-programs">
     <h2>Moving within AMAL programs</h2>
 
-    <h3 id="amali-jump">Jump</h3>
+    <h3 class="command" id="amali-jump">Jump</h3>
     <p><i>AMAL instruction: move to a label in AMAL program</i><br>
         <b>J</b>ump label</p>
 
@@ -239,7 +239,7 @@ Zippadeedoodah:
 <section id="07-amal-registers">
     <h2>AMAL registers</h2>
 
-    <h3 id="amali-let">Let</h3>
+    <h3 class="command" id="amali-let">Let</h3>
     <p><i>AMAL instruction: assign a value to a register</i><br>
         <b>L</b>et register=expression</p>
 
@@ -291,7 +291,7 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_2.AMOS"
     <p>
         You can trigger a Jump to a label as the result of a simple test performed in an AMAL program.</p>
 
-    <h3 id="amals-if">If</h3>
+    <h3 class="command" id="amals-if">If</h3>
     <p><i>AMAL structure: perform a test</i><br>
         <b>I</b>f test <b>J</b>ump label</p>
 
@@ -439,7 +439,7 @@ E> Load "AMOSPro Tutorial:Objects/Sprites.abk" : Get Sprite Palette
         featured in the latest video arcade game, your envy is at an end. AMAL allows you complete
         freedom to animate Objects through any sequence of movements imaginable.</p>
 
-    <h3 id="amali-play">PLay</h3>
+    <h3 class="command" id="amali-play">PLay</h3>
     <p><i>AMAL instruction: create a movement path</i><br>
     <p>PL</p>ay path</p>
 
@@ -644,7 +644,7 @@ LD> Load "AMOSPro Tutorial:Tutorials/AMAL/AMAL_3.AMOS"
 <section id="12-calling-an-amal-program-from-amos-professional">
     <h2>Calling an AMAL program from AMOS Professional</h2>
 
-    <h3 id="i-amal">AMAL</h3>
+    <h3 class="command" id="i-amal">AMAL</h3>
     <p><i>instruction: call an AMAL program</i><br>
         <b>Amal</b> channel number,"instruction string"<br>
         <b>Amal</b> channel number,program number<br>
@@ -705,7 +705,7 @@ Address+6  Stores the value of A
         and so it is unpredictable. This can generate jerky movement patterns for certain Objects.
         Fortunately, This problem can be solved very easily.</p>
 
-    <h3 id="i-update-every">UPDATE EVERY</h3>
+    <h3 class="command" id="i-update-every">UPDATE EVERY</h3>
     <p><i>instruction: control update intervals</i><br>
         <b>Update Every</b> number</p>
 
@@ -732,7 +732,7 @@ Address+6  Stores the value of A
         SYNCHRO OFF command, which is explained below. As a default, the 16 interrupt channels are
         assigned to the relevant Sprite numbers.</p>
 
-    <h3 id="i-channel">CHANNEL</h3>
+    <h3 class="command" id="i-channel">CHANNEL</h3>
     <p><i>instruction: assign an Object to an AMAL channel</i><br>
         <b>Channel</b> number <b>To Sprite</b> number<br>
         <b>Channel</b> number <b>To Bob</b> number</p>
@@ -814,7 +814,7 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_6.AMOS"
         size and generating rainbow effects.</p>
 
 
-    <h3 id="i-channel">CHANNEL</h3>
+    <h3 class="command" id="i-channel">CHANNEL</h3>
     <p><i>instruction: manipulate a screen</i><br>
         <b>Channel</b> channel number <b>To Screen Display</b> screen number<br>
         <b>Channel</b> channel number <b>To Screen Offset</b> screen number<br>
@@ -1057,7 +1057,7 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_7.AMOS"
         re-activated by using the AMAL command again. By specifying an individual AMAL program
         number, only that program is stopped.</p>
 
-    <h3 id="i-amal-freeze">AMAL FREEZE</h3>
+    <h3 class="command" id="i-amal-freeze">AMAL FREEZE</h3>
     <p><i>instruction: suspend AMAL programs</i><br>
         <b>Amal Freeze</b><br>
         <b>Amal Freeze</b> number</p>
@@ -1068,7 +1068,7 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_7.AMOS"
         AMAL FREEZE should be used to suspend AMAL before a command such as DIR is executed,
         otherwise timing problems may happen.</p>
 
-    <h3 id="resv-am-reg">AMREG</h3>
+    <h3 class="command" id="resv-am-reg">AMREG</h3>
     <p><i>reserved variable: give value of AMAL register</i><br>
         register=<b>Amreg</b>(number)<br>
         register=<b>Amreg</b>(channel,number)<br>
@@ -1096,7 +1096,7 @@ E> Load "AMOSPro_Tutorial:Objects/Sprites.abk" : Get Sprite Palette
    Loop
 </pre>
 
-    <h3 id="i-amplay">AMPLAY</h3>
+    <h3 class="command" id="i-amplay">AMPLAY</h3>
     <p><i>instruction: control animation produced by PLay</i><br>
         <b>Amplay</b> speed, direction<br>
         <b>Amplay</b> speed,direction start <b>To</b> end</p>
@@ -1138,7 +1138,7 @@ X> Amplay ,0: Rem Reverse objects
    Amplay ,-1 3 To 6: Rem Stop movement on channels 3,4,5 and 6
 </pre>
 
-    <h3 id="fn-chanan">CHANAN</h3>
+    <h3 class="command" id="fn-chanan">CHANAN</h3>
     <p><i>function: test a channel for an active animation</i><br>
         value=<b>Chanan</b>(channel number)
 
@@ -1157,7 +1157,7 @@ E> Load "AMOSPro Tutorial:Objects/Sprites.abk" : Get Sprite Palette
    Print "Animation complete!"
 </pre>
 
-    <h3 id="fn-chanmv">CHANMV</h3>
+    <h3 class="command" id="fn-chanmv">CHANMV</h3>
     <p><i>function: test channel for an active Object</i><br>
         value=<b>Chanmv</b>(channel number)</p>
 
@@ -1186,7 +1186,7 @@ E> Load "AMOSPro Tutorial:Objects/Sprites.abk" : Get Sprite Palette
 <section id="19-amal-errors">
     <h2>AMAL errors</h2>
 
-    <h3 id="fn-amalerr">AMALERR</h3>
+    <h3 class="command" id="fn-amalerr">AMALERR</h3>
     <p><i>function: give position of an AMAL error</i><br>
         position=<b>Amalerr</b></p>
 
@@ -1301,7 +1301,7 @@ LD> Load "AMOSPro Tutorial:Tutorials/AMAL/AMAL_5.AMOS"
 
     <p>Here is the entire STOS-compatible range of commands.</p>
 
-    <h3 id="i-move-x">MOVE X</h3>
+    <h3 class="command" id="i-move-x">MOVE X</h3>
     <p><i>instruction: move a Sprite horizontally</i><br>
         <b>Move X</b> number,"(speed,step,count)... (speed,step,count)L"<br>
         <b>Move X</b> number,"(speed,step,count)Enumber"</p>
@@ -1352,7 +1352,7 @@ E> Load "AMOSPro_Tutorial:Objects/Sprites.Abk" :Get Sprite Palette
 E> Move X 1,"(1,-5,30)E100"
 </pre>
 
-    <h3 id="i-move-y">MOVE Y</h3>
+    <h3 class="command" id="i-move-y">MOVE Y</h3>
     <p><i>instruction: move Object vertically</i><br>
         <b>Move Y</b> number,"(speed,step,count) ...(speed,step,count)"<br>
         <b>Move Y</b> number,"(speed,step,count) ...(speed,step,count)L"</p>
@@ -1387,7 +1387,7 @@ E> Load "AMOSPro_Tutorial:Objects/Sprites.abk" : Get Sprite Palette
         only that particular animation sequence will be activated. MOVE OFF has the opposite effect,
         halting all animations, or a single sequence specified by its number.</p>
 
-    <h3 id="fn-movon">MOVON</h3>
+    <h3 class="command" id="fn-movon">MOVON</h3>
     <p><i>function: report movement status</i><br>
         value=<b>Move On</b>(Object number)</p>
 
@@ -1398,7 +1398,7 @@ E> Load "AMOSPro_Tutorial:Objects/Sprites.abk" : Get Sprite Palette
         generated by AMAL.</p>
 
 
-    <h3 id="i-move-freeze">MOVE FREEZE</h3>
+    <h3 class="command" id="i-move-freeze">MOVE FREEZE</h3>
     <p><i>instruction: suspend Object movement</i><br>
         <b>Move Freeze</b><br>
         <b>Move Freeze</b> number</p>
@@ -1408,7 +1408,7 @@ E> Load "AMOSPro_Tutorial:Objects/Sprites.abk" : Get Sprite Palette
         animated using the MOVE ON command. If an optional Object number is given after MOVE
         FREEZE, then only that Object will be frozen.</p>
 
-    <h3 id="i-anim">ANIM</h3>
+    <h3 class="command" id="i-anim">ANIM</h3>
     <p><i>instruction: animate an Object</i><br>
         <b>Anim</b> number"(image,delay) (image,delay)"<br>
         <b>Anim</b> number"(image,delay) (image,delay)L"</p>
@@ -1451,7 +1451,7 @@ E> Anim 1,"(1,10)(2,10)(3,10)(4,10)L"
         sequences started by ANIM ON may be turned off by the ANIM OFF command.</p>
 
 
-    <h3 id="i-anim-freeze">ANIM FREEZE</h3>
+    <h3 class="command" id="i-anim-freeze">ANIM FREEZE</h3>
     <p><i>instruction: freeze an animation</i><br>
         <b>Anim Freeze</b><br>
         <b>Anim Freeze</b> number</p>

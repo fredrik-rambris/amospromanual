@@ -133,7 +133,7 @@ D&gt; Print (10+2)*(5-8/4+5)^2
 
     <p>There are three instructions that can be used to speedflip the process of simple calculations.</P>
 
-    <h3 id="i-inc">INC</h3>
+    <h3 class="command" id="i-inc">INC</h3>
     <p><i>instruction: increment an integer variable by 1</i><BR>
         <b>Inc</b> variable</P>
 
@@ -144,7 +144,7 @@ D&gt; Print (10+2)*(5-8/4+5)^2
 D&gt; V=10 : Inc V : Print V
 </pre>
 
-    <h3 id="i-dec">DEC</h3>
+    <h3 class="command" id="i-dec">DEC</h3>
     <p><i>instruction: decrement an integer variable by 1</i><BR>
         <b>Dec</b> variable</P>
 
@@ -155,7 +155,7 @@ D&gt; V=10 : Inc V : Print V
 D&gt; V=10 : Dec V : Print V
 </pre>
 
-    <h3 id="i-add">ADD</h3>
+    <h3 class="command" id="i-add">ADD</h3>
     <p><i>instruction: perform fast integer addition</i><BR>
         <b>Add</b> variable,expression<BR>
         <b>Add</b> variable,expression,base <b>To</b> top</P>
@@ -197,7 +197,7 @@ E&gt; Dim A(10)
         or strings of characters. If you need to compare two expressions, the following functions are
         provided to examine them and establish their relative values.</P>
 
-    <h3 id="fn-max">MAX</h3>
+    <h3 class="command" id="fn-max">MAX</h3>
     <p><i>function: return the maximum of two values</i><BR>
         value=<b>Max</b>(a,b)<BR>
         value#=<b>Max</b>(a#,b#)<BR>
@@ -215,7 +215,7 @@ D&gt; Print Max(99,1)
 
 </pre>
 
-    <h3 id="fn-min">MIN</h3>
+    <h3 class="command" id="fn-min">MIN</h3>
     <p><i>function: return the minimum of two values</i><BR>
         value=<b>Min</b>(a,b)<BR>
         value#=<b>Min</b>(a#,b#)<BR>
@@ -237,7 +237,7 @@ D&gt; A=Min(99,1) : Print A
     <p>Any number can have one of three values: negative, positive or zero, and these are represented
         by the "sign" of a number.</P>
 
-    <h3 id="fn-sgn">SGN</h3>
+    <h3 class="command" id="fn-sgn">SGN</h3>
     <p><i>function: return the sign of a number</i><BR>
         sign=<b>Sgn</b>(value)<BR>
         sign=<b>Sgn</b>(value#)</P>
@@ -252,7 +252,7 @@ D&gt; A=Min(99,1) : Print A
  0 if the value is zero
 </pre>
 
-    <h3 id="fn-abs">ABS</h3>
+    <h3 class="command" id="fn-abs">ABS</h3>
     <p><i>function: return an absolute value</i><BR>
         a=<b>Abs</b>(value)<BR>
         a=<b>Abs</b>(value#)</P>
@@ -276,7 +276,7 @@ D&gt; Print Abs(-1),Abs(1)
         messy results in Basic programming. The movement of the decimal point slows down the processing,
         and levels of accuracy may be too great for your needs.</P>
 
-    <h3 id="fn-int">INT</h3>
+    <h3 class="command" id="fn-int">INT</h3>
     <p><i>function: convert floating point number into an integer</i><BR>
         integer=<b>Int</b>(number#)</P>
 
@@ -289,7 +289,7 @@ D&gt; Print Int(3.9999)
    Print Int(-1.1)
 </pre>
 
-    <h3 id="i-fix">FIX</h3>
+    <h3 class="command" id="i-fix">FIX</h3>
     <p><i>instruction: fix precision of floating point</i><BR>
         <b>Fix</b>(number)</P>
 
@@ -346,7 +346,7 @@ E&gt; Fix (2) : Print Pi# : Rem Two digits after decimal point
         it will also cause a great slowing down of calculations. It should only be used when extra
         accuracy is absolutely vital.</P>
 
-    <h3 id="i-set-double-precision">SET DOUBLE PRECISION</h3>
+    <h3 class="command" id="i-set-double-precision">SET DOUBLE PRECISION</h3>
     <p><i>instruction: engage double precision accuracy</i><BR>
         <b>Set Double Precision</b></P>
 
@@ -360,7 +360,7 @@ E&gt; Fix (2) : Print Pi# : Rem Two digits after decimal point
 <section id="08-standard-mathematical-functions">
     <h2>Standard mathematical functions</h2>
 
-    <h3 id="fn-sqr">SQR</h3>
+    <h3 class="command" id="fn-sqr">SQR</h3>
     <p><i>function: calculate square root</i><BR>
         square=<b>Sqr</b>(number)<BR>
         square#=<b>Sqr</b>(number#)</P>
@@ -374,7 +374,7 @@ D&gt; Print Sqr(25)
    Print Sqr(11.1111)
 </pre>
 
-    <h3 id="fn-exp">EXP</h3>
+    <h3 class="command" id="fn-exp">EXP</h3>
     <p><i>function: calculate exponential</i><BR>
         exponential#=<b>Exp</b>(value#)</P>
 
@@ -384,7 +384,7 @@ D&gt; Print Sqr(25)
 D&gt; Print Exp(1)
 </pre>
 
-    <h3 id="fn-log">LOG</h3>
+    <h3 class="command" id="fn-log">LOG</h3>
     <p><i>function: return logarithm</i><BR>
         a=<b>Log</b>(value)<BR>
         a#=<b>Log</b>(value#)</P>
@@ -396,7 +396,7 @@ E&gt; Print Log(10)
    A#=Log(100)
 </pre>
 
-    <h3 id="fn-ln">LN</h3>
+    <h3 class="command" id="fn-ln">LN</h3>
     <p><i>function: return natural logarithm</i><BR>
         a#=<b>Ln</b>(value#)</P>
 
@@ -417,7 +417,7 @@ E&gt; Print Ln(10)
         creating graphic design effects, calculating trajectories in gameplay, as well as making intricate
         musical wave forms.</P>
 
-    <h3 id="fn-pi-pound">PI#</h3>
+    <h3 class="command" id="fn-pi-pound">PI#</h3>
     <p><i>function: return a constant &pi</i><br>
         p#=<b>Pi#</b></P>
 
@@ -441,7 +441,7 @@ E&gt; Print Ln(10)
         point <b>b</b>. However, your Amiga uses a default by which it expects all angles to be given in "radians"
         and not degrees.
 
-    <h3 id="i-degree">DEGREE</h3>
+    <h3 class="command" id="i-degree">DEGREE</h3>
     <p><i>instruction: use degrees</i><BR>
         <b>Degree</b></P>
 
@@ -456,14 +456,14 @@ E&gt; Degree
    Print Sin(45)
 </pre>
 
-    <h3 id="i-radian">RADIAN</h3>
+    <h3 class="command" id="i-radian">RADIAN</h3>
     <p><i>instruction: use radians</i><BR>
         <b>Radian</b></P>
 
     <P>If DEGREE has already been called, the RADIAN function returns to the default status,
         where all future angles are expected to be entered in radians.</P>
 
-    <h3 id="fn-sin">SIN</h3>
+    <h3 class="command" id="fn-sin">SIN</h3>
     <p><i>function: calculate sine of an angle</i><BR>
         s#=<b>Sin</b>(angle)<BR>
         s#=<b>Sin</b>(angle#)</P>
@@ -480,7 +480,7 @@ E&gt; Degree
    Next X
 </pre>
 
-    <h3 id="fn-cos">COS</h3>
+    <h3 class="command" id="fn-cos">COS</h3>
     <p><i>function: calculate cosine of an angle</i><BR>
         c#=<b>Cos</b>(angle)<BR>
         c#=<b>Cos</b>(angle#)</P>
@@ -497,7 +497,7 @@ E&gt; Y#=Cos(X)
    Plot X,Y#*50+100
 </pre>
 
-    <h3 id="fn-tan">TAN</h3>
+    <h3 class="command" id="fn-tan">TAN</h3>
     <p><i>function: calculate tangent of an angle</i><BR>
         t#=<b>Tan</b>(angle)<BR>
         t#=<b>Tan</b>(angle#)</P>
@@ -510,7 +510,7 @@ E&gt; Degree : Print Tan(45)
    Radian : Print Tan(Pi#/8)
 </pre>
 
-    <h3 id="fn-acos">ACOS</h3>
+    <h3 class="command" id="fn-acos">ACOS</h3>
     <p><i>function: calculate arc cosine</i><BR>
         a#=<b>Acos</b>(number#)</P>
 
@@ -522,14 +522,14 @@ E&gt; A#=Cos(45)
    Print Acos(A#)
 </pre>
 
-    <h3 id="fn-asin">ASIN</h3>
+    <h3 class="command" id="fn-asin">ASIN</h3>
     <p><i>function: calculate arc sine</i><BR>
         a#=<b>Asin</b>(number#)</P>
 
     <P>Similarly to ACOS, the ASIN function calculates the angle needed to generate a value
         with SIN.
 
-    <h3 id="fn-atan">ATAN</h3>
+    <h3 class="command" id="fn-atan">ATAN</h3>
     <p><i>function: calculate arc tangent</i><BR>
         a#=<b>Atan</b>(number#)</P>
 
@@ -547,7 +547,7 @@ E&gt; Degree : Print Tan(2)
         express the relationship between various distances of a point on the hyperbolic curve and the
         coordinate axes.</P>
 
-    <h3 id="fn-hsin">HSIN</h3>
+    <h3 class="command" id="fn-hsin">HSIN</h3>
     <p><i>function: calculate hyperbolic sine</i><BR>
         h#=<b>Hsin</b>(angle)<BR>
         h#=<b>Hsin</b>(angle#)</P>
@@ -555,14 +555,14 @@ E&gt; Degree : Print Tan(2)
     <P>
         The HSIN function calculates the hyperbolic sine of a given angle.</P>
 
-    <h3 id="fn-hcos">HCOS</h3>
+    <h3 class="command" id="fn-hcos">HCOS</h3>
     <p><i>function: calculate hyperbolic cosine</i><BR>
         h#=<b>Hcos</b>(angle)<BR>
         h#=<b>Hcos</b>(angle#)</P>
 
     <P>Use this function to find the hyperbolic cosine of an angle.</P>
 
-    <h3 id="fn-htan">HTAN</h3>
+    <h3 class="command" id="fn-htan">HTAN</h3>
     <p><i>function: calculate hyperbolic tangent</i><BR>
         h#=<b>Htan</b>(angle)<BR>
         h#=<b>Htan</b>(angle#)</P>
@@ -579,7 +579,7 @@ E&gt; Degree : Print Tan(2)
         again. It then has the same chance as any other number offered for selection, when the next random
         choice is made.</P>
 
-    <h3 id="fn-rnd">RND</h3>
+    <h3 class="command" id="fn-rnd">RND</h3>
     <p><i>function: generate a random number</i><BR>
         value=<b>Rnd</b>(number)</P>
 
@@ -596,7 +596,7 @@ E&gt; Do
    Loop
 </pre>
 
-    <h3 id="i-randomize">RANDOMIZE</h3>
+    <h3 class="command" id="i-randomize">RANDOMIZE</h3>
     <p><i>instruction: set the seed for a random number</i><BR>
         <b>Randomize</b> seed</P>
 
@@ -620,7 +620,7 @@ E&gt; Do
         numbers. RANDOMIZE can also be used in conjunction with the TIMER variable, to generate
         genuine random numbers.</P>
 
-    <h3 id="resv-timer">TIMER</h3>
+    <h3 class="command" id="resv-timer">TIMER</h3>
     <p><i>reserved variable: count in 50ths of a second</i><BR>
         v=<b>Timer</b><BR>
         <b>Timer</b>=v</P>

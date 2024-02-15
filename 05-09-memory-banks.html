@@ -118,7 +118,7 @@ Fast Data         constant fast data              Permanent         Fast        
         you will have noted the increase in the range of available bank numbers from the original 15.
         There are four alternative types of bank that can be reserved, and these will now be explained.</p>
 
-    <h3 id="i-reserve-as-data">RESERVE AS DATA</h3>
+    <h3 class="command" id="i-reserve-as-data">RESERVE AS DATA</h3>
     <p><i>instruction: reserve a new data bank</i><br>
         <b>Reserve As Data</b> bank number,length</p>
 
@@ -128,7 +128,7 @@ Fast Data         constant fast data              Permanent         Fast        
         so this type of bank should <b>not</b> be used for information such as Objects and samples which need
         to be accessed directly by the Amiga's hardware chips.</p>
 
-    <h3 id="i-reserve-as-work">RESERVE AS WORK</h3>
+    <h3 class="command" id="i-reserve-as-work">RESERVE AS WORK</h3>
     <p><i>instruction: reserve a new work bank</i><br>
         <b>Reserve as Work</b> bank number,length</p>
 
@@ -148,7 +148,7 @@ E> M=Fast Free : Rem Give the amount of available FAST memory
    End If
 </pre>
 
-    <h3 id="i-reserve-as-chip-data">RESERVE AS CHIP DATA</h3>
+    <h3 class="command" id="i-reserve-as-chip-data">RESERVE AS CHIP DATA</h3>
     <p><i>instruction: reserve a new chip data bank</i><br>
         <b>Reserve As Chip Data</b> bank number,length</p>
 
@@ -166,7 +166,7 @@ E> CF=Chip Free
     <p>Once a bank has been defined by this command, it will be saved automatically, along with your
         AMOS Professional Basic program.</p>
 
-    <h3 id="i-reserve-as-chip-work">RESERVE AS CHIP WORK</h3>
+    <h3 class="command" id="i-reserve-as-chip-work">RESERVE AS CHIP WORK</h3>
     <p><i>instruction: reserve a new chip work bank</i><br>
         <b>Reserve As Chip Work</b> bank number,length</p>
 
@@ -188,7 +188,7 @@ X> Reserve As Chip Work 10,10000: Rem 10000 bytes of chip workspace to bank 10
 
     <p>AMOS Professional provides the simplest of instructions for saving memory banks.</p>
 
-    <h3 id="i-save">SAVE</h3>
+    <h3 class="command" id="i-save">SAVE</h3>
     <p><i>instruction: save one or more memory banks onto disc</i><br>
         <b>Save</b> "filename.abk"<br>
         <b>Save</b> "filename.abk",bank number</p>
@@ -239,7 +239,7 @@ E> N=1 : Rem Set number of first new image to create
     <p>Once saved, memory banks need to be retrieved and loaded, ready for use. AMOS Professional
         makes this process very easy too.</p>
 
-    <h3 id="i-load">LOAD</h3>
+    <h3 class="command" id="i-load">LOAD</h3>
     <p><i>instruction: load one or more banks into memory</i><br>
         <b>Load</b> "filename"<br>
         <b>Load</b> "filename",bank number</p>
@@ -274,7 +274,7 @@ E> Rem Load an Object bank from current disc
 <section id="05-saving-and-loading-memory-blocks">
     <h2>Saving and loading memory blocks</h2>
 
-    <h3 id="i-bsave">BSAVE</h3>
+    <h3 class="command" id="i-bsave">BSAVE</h3>
     <p><i>instruction: save an unformatted memory block</i><br>
         <b>Bsave</b> file$,start <b>To</b> end</p>
 
@@ -293,7 +293,7 @@ Bsave "Test",Start(5) To Start(5)+Length(5) : Rem Save memory bank 5
         written for a file when BSAVE is used. This means that LOAD cannot be used for this type of
         file. It is also not suitable for Object banks.</p>
 
-    <h3 id="i-bload">BLOAD</h3>
+    <h3 class="command" id="i-bload">BLOAD</h3>
     <p><i>instruction: load block of binary data into bank or address</i><br>
         <b>Bload</b> file$,bank number<br>
         <b>Bload</b> file$, address</p>
@@ -324,7 +324,7 @@ Bsave "Test",Start(5) To Start(5)+Length(5) : Rem Save memory bank 5
         quit the program and re-start the Amiga, but providing you are aware of the potential problem
         and provided that memory banks are kept as small as is practical, all should be well.</p>
 
-    <h3 id="i-erase">ERASE</h3>
+    <h3 class="command" id="i-erase">ERASE</h3>
     <p><i>instruction: clear a single memory bank</i><br>
         <b>Erase</b> bank number</p>
 
@@ -340,7 +340,7 @@ E> Reserve as Chip Work 5,1000: Rem Reserve temporary work bank 5
    Print "There is now ";Chip Free; "available bytes."
 </pre>
 
-    <h3 id="i-erase-all">ERASE ALL</h3>
+    <h3 class="command" id="i-erase-all">ERASE ALL</h3>
     <p><i>instruction: clear all current memory banks</i><br>
         <b>Erase All</b></p>
 
@@ -362,7 +362,7 @@ E> Reserve as Chip Work 5,1000: Rem Reserve temporary work bank 5
         part of the program listing. Use the ERASE ALL command carefully to save large amounts of
         valuable disc space.</p>
 
-    <h3 id="i-erase-temp">ERASE TEMP</h3>
+    <h3 class="command" id="i-erase-temp">ERASE TEMP</h3>
     <p><i>instruction: clear temporary memory banks</i><br>
         <b>Erase Temp</b></p>
 
@@ -378,7 +378,7 @@ E> Reserve As Data 5,1000: Rem Reserve 1000 bytes of permanent data
    List Bank
 </pre>
 
-    <h3 id="i-bank-shrink">BANK SHRINK</h3>
+    <h3 class="command" id="i-bank-shrink">BANK SHRINK</h3>
     <p><i>instruction: reduce the size of a bank to new length</i><br>
         <b>Bank Shrink</b> bank number <b>To</b> length</p>
 
@@ -403,7 +403,7 @@ E> Reserve As Data 10,1000000: Rem Very large bank
 <section id="07-swapping-banks">
     <h2>Swapping banks</h2>
 
-    <h3 id="i-bank-swap">BANK SWAP</h3>
+    <h3 class="command" id="i-bank-swap">BANK SWAP</h3>
     <p><i>instruction: swap over two memory banks</i><br>
         <b>Bank Swap</b> first bank number, second bank number</p>
 
@@ -434,7 +434,7 @@ X> Load "Objects.Abk" : Rem Please use your own filename
 <section id="08-listing-banks-on-the-screen">
     <h2>Listing banks on the screen</h2>
 
-    <h3 id="i-list-bank">LIST BANK</h3>
+    <h3 class="command" id="i-list-bank">LIST BANK</h3>
     <p><i>instruction: list all current banks in memory</i><br>
         <b>List Bank</b></p>
 
@@ -470,7 +470,7 @@ X> Load "Objects.Abk" : Rem Please use your own filename
     <p>AMOS Professional provides a full range of memory bank functions, which are used to provide
         information about the status of available banks.</p>
 
-    <h3 id="fn-length">LENGTH</h3>
+    <h3 class="command" id="fn-length">LENGTH</h3>
     <p><i>function: return the length of a memory bank</i><br>
         length=<b>Length</b>(bank number)</p>
 
@@ -486,7 +486,7 @@ E> Load Fsel$("*.Abk"," ","Load an Object bank") : Rem Bank 1
    Print "There are ";Length(1);" images available."
 </pre>
 
-    <h3 id="fn-start">START</h3>
+    <h3 class="command" id="fn-start">START</h3>
     <p><i>function: return the address of a memory bank</i><br>
         address=<b>Start</b>(bank number)</p>
 
@@ -528,7 +528,7 @@ E> If Length(N)>0: Rem give N a suitable bank number
         details of these commands as well as communication between programs is explained in <a href="11-04-multi-tasking.html">Chapter
         11.4</a>. Here are the available bank-grabbing instructions and functions:</p>
 
-    <h3 id="fn-blength">BLENGTH</h3>
+    <h3 class="command" id="fn-blength">BLENGTH</h3>
     <p><i>function: return the length of a memory bank from a previous program</i><br>
         length=<b>Blength</b>(bank number)</p>
 
@@ -538,14 +538,14 @@ E> If Length(N)>0: Rem give N a suitable bank number
         not been defined in the previous program, or if there is no previous program accessible at all
         (PRG UNDER= 0).</p>
 
-    <h3 id="fn-bstart">BSTART</h3>
+    <h3 class="command" id="fn-bstart">BSTART</h3>
     <p><i>function: return the address of a memory bank from a previous program</i><br>
         address=<b>BSTART</b>(bank number)</p>
 
     <p>Similarly, the BSTART function will give the address of the specified memory bank from a
         previous program, if possible. An error will be returned if no such bank has been reserved.</p>
 
-    <h3 id="i-bgrab">BGRAB</h3>
+    <h3 class="command" id="i-bgrab">BGRAB</h3>
     <p><i>instruction: grab a memory bank used by the previous program</i><br>
         <b>Bgrab</b> bank number</p>
 
@@ -561,7 +561,7 @@ E> If Length(N)>0: Rem give N a suitable bank number
         If the bank which is specified to be grabbed does not exist a "Bank not reserved" message will be
         generated.</p>
 
-    <h3 id="i-bsend">BSEND</h3>
+    <h3 class="command" id="i-bsend">BSEND</h3>
     <p><i>instruction: transfer a memory bank from the current program to the previous program</i><br>
         <b>Bsend</b> bank number</p>
 
@@ -611,21 +611,21 @@ X> If Prg Under : Rem Check availability of a previous program
         programmer, but they do allow advanced users to create customised AMOS Professional
         utilities.</p>
 
-    <h3 id="fn-screen-base">SCREEN BASE</h3>
+    <h3 class="command" id="fn-screen-base">SCREEN BASE</h3>
     <p><i>function: get screen table</i><br>
         address=<b>Screen Base</b></p>
 
     <p>This function returns the base address of the internal table that is used to hold the number and
         position of AMOS Professional screens.</p>
 
-    <h3 id="fn-icon-base">ICON BASE</h3>
+    <h3 class="command" id="fn-icon-base">ICON BASE</h3>
     <p><i>function: get Icon base</i><br>
         address=<b>Icon Base</b>(number)
 
     <p>ICON BASE returns the address of the Icon whose number is specified in brackets. The format
         of this information is exactly the same as for the SPRITE BASE function, explained below.</p>
 
-    <h3 id="fn-sprite-base">SPRITE BASE</h3>
+    <h3 class="command" id="fn-sprite-base">SPRITE BASE</h3>
     <p><i>function: get Sprite table</i><br>
         n=<b>Sprite Base</b>(number)</p>
 

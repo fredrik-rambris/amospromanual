@@ -67,7 +67,7 @@ X> Trap Printer Open
 
     <p>This command opens the printer device using your current preferences.</p>
 
-    <h3 id="i-printer-close">PRINTER CLOSE</h3>
+    <h3 class="command" id="i-printer-close">PRINTER CLOSE</h3>
     <p><i>instruction: close printer port</i><br>
         <b>Printer Close</b></p>
 
@@ -78,7 +78,7 @@ X> Trap Printer Open
         program has requested the printer device during multi-tasking, as explained above. Secondly, if
         the system becomes short of memory and requires more.</p>
 
-    <h3 id="i-printer-send">PRINTER SEND</h3>
+    <h3 class="command" id="i-printer-send">PRINTER SEND</h3>
     <p><i>instruction: send a string to the printer</i><br>
         <b>Printer Send</b> text$</p>
 
@@ -199,7 +199,7 @@ X> ESC$=Chr$(27)
         There are three alternative ways of using the PRINTER DUMP command to perform a screen
         dump.</p>
 
-    <h3 id="i-printer-dump">PRINTER DUMP</h3>
+    <h3 class="command" id="i-printer-dump">PRINTER DUMP</h3>
     <p><i>instruction: print the contents of an AMOS Professional screen</i><br>
         <b>Printer Dump</b><br>
         <b>Printer Dump</b> x1 ,y1 <b>To</b> x2,y2<br>
@@ -307,7 +307,7 @@ X> Printer Dump 0,0 To 200,200,$5555,0,$8 Or $10
 <section id="04-other-printer-commands">
     <h2>Other printer commands</h2>
 
-    <h3 id="i-printer-out">PRINTER OUT</h3>
+    <h3 class="command" id="i-printer-out">PRINTER OUT</h3>
     <p><i>instruction: print data from an address</i><br>
         <b>Printer Out</b> address,length</p>
 
@@ -329,7 +329,7 @@ Printer Out Varptr(A$),Len(A$)
         Similarly to PRINTER SEND, it must be ensured that data remains unchanged during the
         printing process, otherwise the resultant print-out will become corrupted.</p>
 
-    <h3 id="i-printer-abort">PRINTER ABORT</h3>
+    <h3 class="command" id="i-printer-abort">PRINTER ABORT</h3>
     <p><i>instruction: stop a printer operation</i><br>
         <b>Printer Abort</b></p>
 
@@ -337,7 +337,7 @@ Printer Out Varptr(A$),Len(A$)
         This command halts the current printing operation. If your printer device has a large memory
         buffer, there may be a delay before the printing ceases.</p>
 
-    <h3 id="fn-printer-check">PRINTER CHECK</h3>
+    <h3 class="command" id="fn-printer-check">PRINTER CHECK</h3>
     <p><i>function: return the status of the printer</i><br>
         status=<b>Printer Check</b></p>
 
@@ -346,7 +346,7 @@ Printer Out Varptr(A$),Len(A$)
         is available for use, or zero (False) if it is in active mid-operation.</p>
 
 
-    <h3 id="fn-printer-online">PRINTER ONLINE</h3>
+    <h3 class="command" id="fn-printer-online">PRINTER ONLINE</h3>
     <p><i>function: report if printer is on-line</i><br>
         status=<b>Printer Online</b></p>
 
@@ -355,7 +355,7 @@ Printer Out Varptr(A$),Len(A$)
         for use. It returns a value of -1 (True) if the printer is on-line, otherwise zero (False) will be given.
         This function only works with <b>parallel</b> printer devices.</p>
 
-    <h3 id="fn-printer-error">PRINTER ERROR</h3>
+    <h3 class="command" id="fn-printer-error">PRINTER ERROR</h3>
     <p><i>function: check for an error in printing operation</i><br>
         status=<b>Printer Error</b></p>
 
@@ -363,7 +363,7 @@ Printer Out Varptr(A$),Len(A$)
         Use this function to check if the current printing operation is proceeding normally. A value of
         zero suggests that all is well, but any other value indicates an error.</p>
 
-    <h3 id="fn-printer-base">PRINTER BASE</h3>
+    <h3 class="command" id="fn-printer-base">PRINTER BASE</h3>
     <p><i>function: get the address of printer base</i><br>
         address=<b>Printer Base</b></p>
 
@@ -385,7 +385,7 @@ Printer Out Varptr(A$),Len(A$)
         features of the Amiga is dealt with in <a href="11-05-libraries-and-devices.html">Chapter 11.5</a>. This Chapter ends with a general instruction
         and function for dealing with ports.</p>
 
-    <h3 id="i-open-port">OPEN PORT</h3>
+    <h3 class="command" id="i-open-port">OPEN PORT</h3>
     <p><i>instruction: open a channel to an 10 port</i><br>
         <b>Open Port</b> channel number,"PAR:"<br>
         <b>Open Port</b> channel number,"SER:"<br>
@@ -408,7 +408,7 @@ X> Open Port 1,"SER:"
    Close 1
 </pre>
 
-    <h3 id="fn-port">PORT</h3>
+    <h3 class="command" id="fn-port">PORT</h3>
     <p><i>function: test readiness of device</i><br>
         value=<b>Port</b>(channel number)</p>
 

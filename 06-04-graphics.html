@@ -39,7 +39,7 @@
 <section id="01-graphic-coordinates">
     <h2>Graphic coordinates</h2>
 
-    <h3 id="i-plot">PLOT</h3>
+    <h3 class="command" id="i-plot">PLOT</h3>
     <p><i>instruction: plot a single point</i><br>
         <b>Plot</b> x,y<br>
         <b>Plot</b> x,y,colour</p>
@@ -59,7 +59,7 @@ E> Cls: Curs Off
    Loop
 </pre>
 
-    <h3 id="fn-point">POINT</h3>
+    <h3 class="command" id="fn-point">POINT</h3>
     <p><i>function: return the colour of a point</i><br>
         c=<b>Point</b>(x,y)</p>
 
@@ -76,7 +76,7 @@ Print "The colour is ";Point(160,100)
 <section id="02-setting-the-graphics-cursor">
     <h2>Setting the graphics cursor</h2>
 
-    <h3 id="i-gr-locate">GR LOCATE</h3>
+    <h3 class="command" id="i-gr-locate">GR LOCATE</h3>
     <p><i>instruction: position the graphics cursor</i><br>
         <b>Gr Locate</b> x,y</>
 
@@ -114,7 +114,7 @@ E> Cls : Circle 100,100,50
 <section id="03-drawing-lines">
     <h2>Drawing lines</h2>
 
-    <h3 id="i-draw">DRAW</h3>
+    <h3 class="command" id="i-draw">DRAW</h3>
     <p><i>instruction: draw a line</i><br>
         <b>Draw</b> x1 ,y1 <b>To</b> x2,y2<br>
         <b>Draw</b> <b>To</b> x,y</p>
@@ -140,7 +140,7 @@ E> Cls: Ink 2
     <pre>%01111111111111111</pre>
 
 
-    <h3 id="i-set-line">SET LINE</h3>
+    <h3 class="command" id="i-set-line">SET LINE</h3>
     <p><i>instruction: set a line style</i><br>
         <b>Set Line</b> binary mask</p>
 
@@ -163,7 +163,7 @@ E> Cls : Ink 2
     <p>
         Here is a range of AMOS Professional short-cuts for drawing outline shapes on the screen.</p>
 
-    <h3 id="i-polyline">POLYLINE</h3>
+    <h3 class="command" id="i-polyline">POLYLINE</h3>
     <p><i>instruction: draw multiple line</i><br>
         <b>Polyline</b> x1 ,y1 <b>To</b> x2,y2 <b>To</b> x3,y3<br>
         <b>Polyline</b> To x1 ,y1 <b>To</b> x2,y2</p>
@@ -178,7 +178,7 @@ E> Circle 160,100,95
    Polyline 160,6 To 100,173 To 250,69 To 71,69 To 222,173 To 160,6
 </pre>
 
-    <h3 id="i-box">BOX</h3>
+    <h3 class="command" id="i-box">BOX</h3>
     <p><i>instruction: draw a rectangular outline</i><br>
         <b>Box</b> x1 ,y1 <b>To</b> x2,y2</p>
 
@@ -186,7 +186,7 @@ E> Circle 160,100,95
         Boxed outlines are drawn at settings determined by the top left-hand and bottom right-hand
         coordinates, as in the last example.</p>
 
-    <h3 id="i-circle">CIRCLE</h3>
+    <h3 class="command" id="i-circle">CIRCLE</h3>
     <p><i>instruction: draw a circular outline</i><br>
         <b>Circle</b> x,y,radius</p>
 
@@ -210,7 +210,7 @@ E> Cls : Curs Off : Ink 3
    Loop
 </pre>
 
-    <h3 id="i-ellipse">ELLIPSE</h3>
+    <h3 class="command" id="i-ellipse">ELLIPSE</h3>
     <p><i>instruction: draw an elliptical outline</i><br>
         <b>Ellipse</b> x,y,radius1,radius2</p>
 
@@ -225,7 +225,7 @@ E> Ellipse 100,100,50,20
    Ellipse ,,20,50
 </pre>
 
-    <h3 id="i-clip">CLIP</h3>
+    <h3 class="command" id="i-clip">CLIP</h3>
     <p><i>instruction: restrict drawing to a limited screen area</i><br>
         <b>Clip</b>
         <b>Clip</b> x1 ,y1 <b>To</b> x2,y2</p>
@@ -257,7 +257,7 @@ E> Clip 150,5 To 280,199
         explained in <a href="06-01-setting-up-screens.html">Chapter 6.1</a>.</p>
 
 
-    <h3 id="i-ink">INK</h3>
+    <h3 class="command" id="i-ink">INK</h3>
     <p><i>instruction: set drawing colour</i><br>
         <b>Ink</b> number<br>
         <b>Ink</b> number,pattern,border</p>
@@ -298,7 +298,7 @@ Decimal   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
 </pre>
 
 
-    <h3 id="fn-colour">COLOUR</h3>
+    <h3 class="command" id="fn-colour">COLOUR</h3>
     <p><i>function: read the colour assignment</i><br>
         c=<b>Colour</b>(index)</p>
 
@@ -337,7 +337,7 @@ Pig foot  $A74         R=A G=7 B=4
 </pre>
 
 
-    <h3 id="fn-colour">COLOUR</h3>
+    <h3 class="command" id="fn-colour">COLOUR</h3>
     <p><i>instruction: assign a colour to an index</i><br>
         <b>Colour</b> number,$RGB</p>
 
@@ -368,7 +368,7 @@ E> Cls : Colour 1,$A74
         colours to every colour index would be a tedious business. AMOS Professional handles all the
         donkey work as usual.</p>
 
-    <h3 id="i-palette">PALETTE</h3>
+    <h3 class="command" id="i-palette">PALETTE</h3>
     <p><i>instruction: set the current screen colours</i><br>
         <b>Palette</b> colour list</p
 
@@ -409,7 +409,7 @@ E> Palette $BAD,$0DD,$B0D,$FAB,$F1B
         stage explains how to combine these skills. Re-set your colours now, by getting rid of any
         customised PALETTE commands, before continuing.</p>
 
-    <h3 id="i-paint">PAINT</h3>
+    <h3 class="command" id="i-paint">PAINT</h3>
     <p><i>instruction: fill a screen area with colour</i><br>
         <b>Paint</b> x,y<br>
         <b>Paint</b> x,y,mode</p>
@@ -436,7 +436,7 @@ E> Palette 0,$F00
         adjoining area.</p>
 
 
-    <h3 id="i-bar">BAR</h3>
+    <h3 class="command" id="i-bar">BAR</h3>
     <p><i>instruction: draw a filled rectangle</i><br>
         <b>Bar</b> x1,y1 <b>To</b> x2,y2</p>
 
@@ -444,7 +444,7 @@ E> Palette 0,$F00
         This is used to draw solid bars of colour by the familiar method of setting the top left-hand and
         bottom right-hand graphic coordinates.</p>
 
-    <h3 id="i-polygon">POLYGON</h3>
+    <h3 class="command" id="i-polygon">POLYGON</h3>
     <p><i>instruction: draw a filled polygon</i><br>
         <b>Polygon</b> x1,y1 <b>To</b> x2,y2 <b>To</b> x3,y3<br>
         <b>Polygon</b> <b>To</b> x1,y1, <b>To</b> x2,y2</p>
@@ -471,7 +471,7 @@ E> Do
         Filling shapes with plain colours is a useful technique, but the AMOS Professional programmer
         has a much wider choice of fill effects.</p>
 
-    <h3 id="i-set-pattern">SET PATTERN</h3>
+    <h3 class="command" id="i-set-pattern">SET PATTERN</h3>
     <p><i>instruction: select a fill pattern</i><br>
         <b>Set Pattern</b> number</p>
 
@@ -551,7 +551,7 @@ E> Flash Off : Cls 0
 </pre>
 
 
-    <h3 id="i-set-paint">SET PAINT</h3>
+    <h3 class="command" id="i-set-paint">SET PAINT</h3>
     <p><i>instruction: toggle outline mode</i><br>
         <b>Set Paint</b> mode</p>
 
@@ -588,7 +588,7 @@ X> Ink 3: Rem Set ink colour
         screen. There are four alternative drawing modes that change the way your graphics appear,
         and they may be used individually or combined to generate a whole range of effects.</p>
 
-    <h3 id="i-gr-writing">GR WRITING</h3>
+    <h3 class="command" id="i-gr-writing">GR WRITING</h3>
     <p><i>instruction: change graphic writing mode</i><br>
         <b>Gr Writing</b> bitpattern</p>
 
@@ -633,7 +633,7 @@ E> Ink 2,5 : Text 100,80,"NORMAL TEXT"
         instruction has been performed. The size of the memory buffer is equivalent to a single bit plane
         in the current screen mode, so the default screen takes up a total of 8k.</p>
 
-    <h3 id="i-set-tempras">SET TEMPRAS</h3>
+    <h3 class="command" id="i-set-tempras">SET TEMPRAS</h3>
     <p><i>instruction: set Temporary Raster</i><br>
         <b>Set Tempras</b><br>
         <b>Set Tempras</b> buffer address,buffer size</p>

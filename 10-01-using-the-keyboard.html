@@ -73,7 +73,7 @@ E> Print "Use your cursor keys"
         character with a value of zero will be returned. When this happens, the internal "scan codes" of
         these keys can be found.</p>
 
-    <h3 id="fn-scancode">SCANCODE</h3>
+    <h3 class="command" id="fn-scancode">SCANCODE</h3>
     <p><i>function: return the scancode of a key entered with INKEY$</i><br>
         s=<b>Scancode</b></p>
 
@@ -93,7 +93,7 @@ E> Do
    Loop
 </pre>
 
-    <h3 id="fn-scanshift">SCANSHIFT</h3>
+    <h3 class="command" id="fn-scanshift">SCANSHIFT</h3>
     <p><i>function: return shift status of key entered with INKEY$</i><br>
         s=<b>Scanshift</b></p>
 
@@ -121,7 +121,7 @@ E> Do
    Loop
 </pre>
 
-    <h3 id="fn-key-state">KEY STATE</h3>
+    <h3 class="command" id="fn-key-state">KEY STATE</h3>
     <p><i>function: test for a specific key press</i><br>
         k=<b>Key State</b>(scan code)</p>
 
@@ -138,7 +138,7 @@ E> Do
 </pre>
 
 
-    <h3 id="fn-key-shift">KEY SHIFT</h3>
+    <h3 class="command" id="fn-key-shift">KEY SHIFT</h3>
     <p><i>function: test the status of control keys</i><br>
         bitmap=<b>Key Shift</b></p>
 
@@ -177,7 +177,7 @@ E> Centre "Please press some Control keys"
         These keys can also be used when setting up macro definitions, using the SCAN$ and KEY$
         functions, and this is explained below.</p>
 
-    <h3 id="i-clear-key">CLEAR KEY</h3>
+    <h3 class="command" id="i-clear-key">CLEAR KEY</h3>
     <p><i>instruction: re-set the keyboard buffer</i><br>
         <b>Clear Key</b></p>
 
@@ -195,7 +195,7 @@ E> Centre "Please press some Control keys"
 <section id="02-keyboard-inputs">
     <h2>Keyboard inputs</h2>
 
-    <h3 id="i-wait-key">WAIT KEY</h3>
+    <h3 class="command" id="i-wait-key">WAIT KEY</h3>
     <p><i>instruction: wait for a key-press</i><br>
         <b>Wait Key</b></p>
 
@@ -205,7 +205,7 @@ E> Centre "Please press some Control keys"
 
     <p>E> Print "Please press a key" : Wait key : Print "Thank you!"</p>
 
-    <h3 id="fn-input-dollar">INPUT$</h3>
+    <h3 class="command" id="fn-input-dollar">INPUT$</h3>
     <p><i>function: anticipate a number of characters to input into a string</i><br>
         v$=<b>Input$</b>(number)</p>
 
@@ -223,7 +223,7 @@ E> Clear Key : Print "Please type in ten characters"
         There is another version of INPUT$ which operates with a number of characters from a disc.
         Please see <a href="10-02-disc-access.html">Chapter 10.2</a> for details.</p>
 
-    <h3 id="i-input">INPUT</h3>
+    <h3 class="command" id="i-input">INPUT</h3>
     <p><i>instruction: load a value into a variable</i><br>
         <b>Input</b> variables;<br>
         <b>Input</b> "Prompt string";variables;</p>
@@ -262,7 +262,7 @@ E> Print "Type in a number"
    Locate 23, : Print "Hello ";Name$
 </pre>
 
-    <h3 id="i-line-input">LINE INPUT</h3>
+    <h3 class="command" id="i-line-input">LINE INPUT</h3>
     <p><i>instruction: input a list of variables separated by [Return]</i><br>
         <b>Line Input</b> variables;<br>
         <b>Line Input</b> "Prompt string";variables;</p>
@@ -276,7 +276,7 @@ E> Line Input "Type in three numbers";A,B,C
    Print A,B,C
 </pre>
 
-    <h3 id="i-put-key">PUT KEY</h3>
+    <h3 class="command" id="i-put-key">PUT KEY</h3>
     <p><i>instruction:load a string into the keyboard buffer</i><br>
         <b>Put Key</b> a$</p>
 
@@ -313,7 +313,7 @@ E> Do
         the powerful KEY$ reserved variable.</p>
 
 
-    <h3 id="resv-key-dollar">KEY$</h3>
+    <h3 class="command" id="resv-key-dollar">KEY$</h3>
     <p><i>reserved variable: define a keyboard macro</i><br>
         <b>Key$</b>(number)=command$<br>
         command$=<b>Key$</b>(number)</p>
@@ -340,7 +340,7 @@ X> Key$(3)="'Comment' Print"
         appropriate scan-code can be included in a macro definition. This is achieved by using the
         SCAN$ function, explained next.</p>
 
-    <h3 id="fn-scan-dollar">SCAN$</h3>
+    <h3 class="command" id="fn-scan-dollar">SCAN$</h3>
     <p><i>function: return a scan-code for use with Key$</i><br>
         x$=<b>Scan$</b>(scan-code)<br>
         x$=<b>Scan$</b>(scan-code,mask)</p>
@@ -359,7 +359,7 @@ X> Key$(3)="'Comment' Print"
         formatted, even if upper and lower case is sometimes confused and spacings are not quite
         perfect. But even the most experienced programmer can be fumble-fingered at times.</p>
 
-    <h3 id="i-key-speed">KEY SPEED</h3>
+    <h3 class="command" id="i-key-speed">KEY SPEED</h3>
     <p><i>instruction: change key repeat speed.</i><br>
         <b>Key Speed</b> time-lag,delay-speed</p>
 

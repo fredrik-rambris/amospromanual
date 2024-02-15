@@ -38,7 +38,7 @@
         screen, time and time again, at great speed. Copying between the "physical" and "logical"
         screens is fully discussed in <a href="07-02-blitter-objects.html">Chapter 7.2</a>, along with detailed explanations of double buffering.</p>
 
-    <h3 id="i-screen-copy">SCREEN COPY</h3>
+    <h3 class="command" id="i-screen-copy">SCREEN COPY</h3>
     <p><i>instruction: copy an area of a screen</i><br>
         <b>Screen Copy</b> source number <b>To</b> destination number<br>
         <b>Screen Copy</b> source number,x1,y1,x2,y2 <b>To</b> destination number,x3,y3<br>
@@ -118,7 +118,7 @@ XOR     %011000000     Combine together an inverse source image and
 <section id="02-scrolling-the-screen">
     <h2>Scrolling the screen</h2>
 
-    <h3 id="i-def-scroll">DEF SCROLL</h3>
+    <h3 class="command" id="i-def-scroll">DEF SCROLL</h3>
     <p><i>instruction: define a scrolling screen zone</i><br>
         <b>Def Scroll</b> number,x1,y1 <b>To</b> x2,y2,horizontal value, vertical value</p>
 
@@ -133,7 +133,7 @@ XOR     %011000000     Combine together an inverse source image and
         negative values will shift the zone towards the left of the screen. Similarly, positive vertical
         values will scroll downwards and negative values cause an upward scroll.</p>
 
-    <h3 id="i-scroll">SCROLL</h3>
+    <h3 class="command" id="i-scroll">SCROLL</h3>
     <p><i>instruction: scroll a screen zone</i><br>
         <b>Scroll</b> zone number</p>
 
@@ -145,7 +145,7 @@ XOR     %011000000     Combine together an inverse source image and
 <section id="03-enlarging-and-reducing-the-screen">
     <h2>Enlarging and reducing the screen</h2>
 
-    <h3 id="i-zoom">ZOOM</h3>
+    <h3 class="command" id="i-zoom">ZOOM</h3>
     <p><i>instruction: change size of part of screen</i><br>
         <b>Zoom</b> source number, x1 ,y1 ,x2,y2 <b>To</b> destination number,x3,y3,x4,y4</p>
 
@@ -193,7 +193,7 @@ XOR     %011000000     Combine together an inverse source image and
         process is completely automatic when using the DOUBLE BUFFER command, which is fully
         explained in <a href="07-02-blitter-objects.html">Chapter 7.2</a>.</p>
 
-    <h3 id="i-screen-swap">SCREEN SWAP</h3>
+    <h3 class="command" id="i-screen-swap">SCREEN SWAP</h3>
     <p><i>instruction: swap over logical and, physical screens</i><br>
         <b>Screen Swap</b><br>
         <b>Screen Swap</b> number</p>
@@ -203,7 +203,7 @@ XOR     %011000000     Combine together an inverse source image and
         instantly switched between the two of. them. If the DOUBLE BUFFER command has been
         engaged, this process is automatic.</p>
 
-    <h3 id="fn-logbase">LOGBASE</h3>
+    <h3 class="command" id="fn-logbase">LOGBASE</h3>
     <p><i>function: return the address of logical screen bit-plane</i><br>
         address=<b>Logbase</b>(plane)</p>
 
@@ -212,7 +212,7 @@ XOR     %011000000     Combine together an inverse source image and
         directly. The current screen is made up of six possible bit-planes, and after LOGBASE has been
         called, the address of the required plane is returned, or zero is given if it does not exist.</p>
 
-    <h3 id="fn-phybase">PHYBASE</h3>
+    <h3 class="command" id="fn-phybase">PHYBASE</h3>
     <p><i>function: return the address of the current screen</i><br>
         address=<b>Phybase</b>(plane)</p>
 
@@ -224,7 +224,7 @@ XOR     %011000000     Combine together an inverse source image and
 X> Loke Phybase(0),0 : Rem Poke a thin line directly onto screen
 </pre>
 
-    <h3 id="fn-physic">PHYSIC</h3>
+    <h3 class="command" id="fn-physic">PHYSIC</h3>
     <p><i>function: return identification number for physical screen</i><br>
         number=<b>Physic</b><br>
         number=<b>Physic</b>(screen number)<br>
@@ -236,7 +236,7 @@ X> Loke Phybase(0),0 : Rem Poke a thin line directly onto screen
         ZOOM, APPEAR and SCREEN COPY commands. The PHYSIC identification number of the
         current screen will be returned, unless an optional screen number is specified.</p>
 
-    <h3 id="fn-logic">LOGIC</h3>
+    <h3 class="command" id="fn-logic">LOGIC</h3>
     <p><i>function: return identification number for logical screen</i><br>
         number=<b>Logic</b><br>
         number=<b>Logic</b>(screen number)</p>
@@ -269,7 +269,7 @@ X> Loke Phybase(0),0 : Rem Poke a thin line directly onto screen
         when AMOS Professional must be instructed to wait for the next vertical blank period, in order
         keep in step.</p>
 
-    <h3 id="i-wait-vbl">WAIT VBL</h3>
+    <h3 class="command" id="i-wait-vbl">WAIT VBL</h3>
     <p><i>instruction: wait for next vertical blank period</i><br>
         <b>Wait Vbl</b><br>
 
@@ -287,7 +287,7 @@ X> Loke Phybase(0),0 : Rem Poke a thin line directly onto screen
         AMOS Professional programmer needs to crunch the data that makes up screen graphics, pack
         it into an acceptable amount of memory and then unpack it when necessary.</p>
 
-    <h3 id="picoext-spack">SPACK</h3>
+    <h3 class="command" id="picoext-spack">SPACK</h3>
     <p><i>picture compactor extension: pack a screen</i><br>
         <b>Spack</b> screen number <b>To</b> bank number<br>
         <b>Spack</b> screen number <b>To</b> bank number xl,y1,x2,y2</p>
@@ -325,7 +325,7 @@ X> Spack 7 To 20
         will run smoothly. If a one second delay is not acceptable to you, please see the alternative
         system that uses GET CBLOCK and PUT CBLOCK in <a href="07-07-icons-and-blocks.html">Chapter 7.7</a>.</p>
 
-    <h3 id="picoext-pack">PACK</h3>
+    <h3 class="command" id="picoext-pack">PACK</h3>
     <p><i>picture compactor extension: pack screen data</i><br>
         <b>Pack</b> screen number <b>To</b> bank number<br>
         <b>Pack</b> screen number <b>To</b> bank number xl,y1,x2,y2</p>
@@ -345,7 +345,7 @@ X> Spack 7 To 20
         behind existing Bobs, so it is possible to exploit this command together with SCREEN OFFSET to
         create superb scrolling backgrounds.</p>
 
-    <h3 id="picoext-unpack">UNPACK</h3>
+    <h3 class="command" id="picoext-unpack">UNPACK</h3>
     <p><i>picture compactor extension: unpack a compacted screen</i><br>
         <b>Unpack</b> bank number<br>
         <b>Unpack</b> bank number,x,y<br>

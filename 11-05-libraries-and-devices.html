@@ -68,7 +68,7 @@
         format. Lastly, the minimum version number of the library that is to be installed in memory
         should be specified. If you are unsure of this parameter, use a value of zero.</p>
 
-    <h3 id="sysf-lib-close">LIB CLOSE</h3>
+    <h3 class="command" id="sysf-lib-close">LIB CLOSE</h3>
     <p><i>instruction: close one or all currently open libraries</i><br>
         <b>Lib Close</b><br>
         <b>Lib Close</b> channel number</p>
@@ -78,7 +78,7 @@
         optional Channel number is included, an individual library may be closed. Please note that if a
         selected library does not exist, no error will be reported!</p>
 
-    <h3 id="sysf-lib-call">LIB CALL</h3>
+    <h3 class="command" id="sysf-lib-call">LIB CALL</h3>
     <p><i>function: call a function from a library</i><br>
         result=<b>Lib Call</b>(channel number,function offset)</p>
 
@@ -105,7 +105,7 @@
         immediate use from the AREG and DREG variables. Note that AREG only allows the registers
         from A0 to A3 to be accessed. (Registers A4, A5 and A6 are not used by the libraries at all.)</p>
 
-    <h3 id="sysf-lib-base">LIB BASE</h3>
+    <h3 class="command" id="sysf-lib-base">LIB BASE</h3>
     <p><i>function: get the base address of the library</i><br>
         address=<b>Lib Base</b>(channel number)</p>
 
@@ -114,7 +114,7 @@
         conjunction with the STRUC function to manipulate the internal data structures directly.
         Obviously, the normal PEEK and POKE functions can be used for this purpose as well.</p>
 
-    <h3 id="fn-doscall">DOSCALL</h3>
+    <h3 class="command" id="fn-doscall">DOSCALL</h3>
     <p><i>function: execute function from DOS library</i><br>
         result=<b>Doscall</b>(function offset)</p>
 
@@ -131,7 +131,7 @@
         command has been executed, the result will be given as the return value in D0. Please note that
         the contents of the other registers will <b>not</b> be loaded back into AREG and DREG.</p>
 
-    <h3 id="fn-execall">EXECALL</h3>
+    <h3 class="command" id="fn-execall">EXECALL</h3>
     <p><i>function: call EXEC library</i><br>
         result=<b>Execall</b>(function offset)</p>
 
@@ -141,7 +141,7 @@
         function. A value is returned holding the contents of D0.</p>
 
 
-    <h3 id="fn-gfxcall">GFXCALL</h3>
+    <h3 class="command" id="fn-gfxcall">GFXCALL</h3>
     <p><i>function: call Graphics library</i><br>
         result=<b>Gfxcall</b>(function offset)</p>
 
@@ -150,7 +150,7 @@
         DREG and AREG arrays. The function offset parameter enters the offset to the function you
         wish to call, and can also be set using the LVO function, if required.</p>
 
-    <h3 id="fn-intcall">INTCALL</h3>
+    <h3 class="command" id="fn-intcall">INTCALL</h3>
     <p><i>function: call Intuition library</i><br>
         result=<b>Intcall</b>(function offset)</p>
 
@@ -185,7 +185,7 @@
         (explained below) to return the relevant offset values. Everything else is handled by AMOS
         Professional.</p>
 
-    <h3 id="i-set-equate-bank">SET EQUATE BANK</h3>
+    <h3 class="command" id="i-set-equate-bank">SET EQUATE BANK</h3>
     <p><i>instruction: set up the automatic equate system</i><br>
         <b>Set Equate Bank</b> bank number</p>
 
@@ -197,7 +197,7 @@
         take care!</p>
 
 
-    <h3 id="fn-lvo">LVO</h3>
+    <h3 class="command" id="fn-lvo">LVO</h3>
     <p><i>function: get the Library Vector Offset</i><br>
         offset=<b>Lvo</b>("Name_of_the_function")</p>
 
@@ -224,7 +224,7 @@
 X> TASK=Execall(Lvo("FindTask"))
 </pre>
 
-    <h3 id="fn-equ">EQU</h3>
+    <h3 class="command" id="fn-equ">EQU</h3>
     <p><i>function: get an equate</i><br>
         value=<b>Equ</b>("Name_of_the_equate")</p>
 
@@ -246,7 +246,7 @@ X> TASK=Execall(Lvo("FindTask"))
 X> DEV D0(channel,EQU("CMD_WRITE"))
 </pre>
 
-    <h3 id="resv-struc">STRUC</h3>
+    <h3 class="command" id="resv-struc">STRUC</h3>
     <p><i>reserved variable: access an internal data structure</i><br>
         value=<b>Struc</b>(address,"Offset Name")<br>
         <b>Struc</b>(address,"Offset_Name")=value</p>
@@ -286,7 +286,7 @@ X> Struc(Dev Base(1),"I0_LENGTH")=TRACK_SIZE
 X> Print Struc(Dev Base(1),"I0_LENGTH")
 </pre>
 
-    <h3 id="fn-struc-dollar">STRUC$</h3>
+    <h3 class="command" id="fn-struc-dollar">STRUC$</h3>
     <p><i>function: read or write a string pointer to a structure</i><br>
         value$=<b>Struc$</b>(address,"Offset_Name")<br>
         <b>Struc$</b>(address,"Offset Name")="value"</p>
@@ -322,7 +322,7 @@ X> Print Struc(Dev Base(1),"I0_LENGTH")
         As a default, the AMOS Professional requester routine will be used in preference to hit'
         Workbench system requester.</p>
 
-    <h3 id="i-request-wb">REQUEST WB</h3>
+    <h3 class="command" id="i-request-wb">REQUEST WB</h3>
     <p><i>instruction: use the Workbench system requester</i><br>
         <b>Request Wb</b></p>
 
@@ -336,7 +336,7 @@ X> Print Struc(Dev Base(1),"I0_LENGTH")
         [Amiga]+[A] again to return to AMOS Professional. There should be no need to delete the
         Requester extension unless memory is very low.</p>
 
-    <h3 id="i-request-on">REQUEST ON</h3>
+    <h3 class="command" id="i-request-on">REQUEST ON</h3>
     <p><i>instruction: use the AMOS Professional requester routine</i><br>
         <b>Request On</b></p>
 
@@ -344,7 +344,7 @@ X> Print Struc(Dev Base(1),"I0_LENGTH")
         This is the default setting, and is used to make AMOS Professional employ its own requester
         routine.</p>
 
-    <h3 id="i-request-off">REQUEST OFF</h3>
+    <h3 class="command" id="i-request-off">REQUEST OFF</h3>
     <p><i>instruction: cancel the requester</i><br>
         <b>Request Off</b></p>
 
@@ -362,7 +362,7 @@ X> Print Struc(Dev Base(1),"I0_LENGTH")
         facilities like the synthetic speech handler. The following two functions need no expert
         knowledge to use!</p>
 
-    <h3 id="fn-dev-first-dollar">DEV FIRST$</h3>
+    <h3 class="command" id="fn-dev-first-dollar">DEV FIRST$</h3>
     <p><i>function: get the first device from the current device list</i><br>
         device$=<b>Dev First</b>(path$)</p>
 
@@ -375,7 +375,7 @@ X> Print Struc(Dev Base(1),"I0_LENGTH")
         FIRST$(A/**") is used if you only want to list assigns.</p>
 
 
-    <h3 id="fn-dev-next-dollar">DEV NEXT$</h3>
+    <h3 class="command" id="fn-dev-next-dollar">DEV NEXT$</h3>
     <p><i>function: get the next device that satisfies the current search path</i><br>
         device$=<b>Dev Next$</b></p>
 
@@ -398,7 +398,7 @@ E> Print Dev First$("**")
         from your programs, but they should only be used by experienced programmers, armed with
         the relevant ROM Kernel manual. You have been warned!</p>
 
-    <h3 id="i-dev-open">DEV OPEN</h3>
+    <h3 class="command" id="i-dev-open">DEV OPEN</h3>
     <p><i>instruction: open a device</i><br>
         <b>Dev Open</b>(channel number,"name.device",IOlength,UnitNumber,Flags)</p>
 
@@ -428,7 +428,7 @@ E> Print Dev First$("**")
         <li>Lastly, the OPEN DEVICE function is executed with the new structure.</li>
     </ul>
 
-    <h3 id="i-dev-close">DEV CLOSE</h3>
+    <h3 class="command" id="i-dev-close">DEV CLOSE</h3>
     <p><i>instruction: close one or more devices</i><br>
         <b>Dev Close</b><br>
         <b>Dev Close</b> channel</p>
@@ -442,7 +442,7 @@ E> Print Dev First$("**")
         closed simultaneously, otherwise the single specified device is closed down. Note that if a
         specified channel is not already open, no error will be reported.</p>
 
-    <h3 id="i-dev-do">DEV DO</h3>
+    <h3 class="command" id="i-dev-do">DEV DO</h3>
     <p><i>instruction: call a command using DoI0</i><br>
         <b>Dev Do</b> channel number,command number</p>
 
@@ -454,7 +454,7 @@ E> Print Dev First$("**")
         may be entered directly by name, using the EQU function explained earlier. You are warned to
         take great care when using this instruction!</p>
 
-    <h3 id="i-dev-send">DEV SEND</h3>
+    <h3 class="command" id="i-dev-send">DEV SEND</h3>
     <p><i>instruction: call a command using SendIO</i><br>
         <b>Dev Send</b> channel number,command</p>
 
@@ -463,7 +463,7 @@ E> Print Dev First$("**")
         tasking system. The new process will run invisibly in the background, and your AMOS
         Professional program will continue from the next instruction immediately.</p>
 
-    <h3 id="fn-dev-check">DEV CHECK</h3>
+    <h3 class="command" id="fn-dev-check">DEV CHECK</h3>
     <p><i>function: check status of a device with a CheckIO</i><br>
         value=<b>Dev Check</b>(channel number)</p>
 
@@ -471,7 +471,7 @@ E> Print Dev First$("**")
         Use this function to perform a CheckIO on the specified channel. The resulting value is passed
         back to AMOS Professional.</p>
 
-    <h3 id="i-dev-abort">DEV ABORT</h3>
+    <h3 class="command" id="i-dev-abort">DEV ABORT</h3>
     <p><i>instruction: abort an IO operation</i><br>
         <b>Dev Abort</b> channel number</p>
 
@@ -480,7 +480,7 @@ E> Print Dev First$("**")
         the specified device channel. It can be used to exit directly from a multi-tasking operation,
         without waiting for it to complete.</p>
 
-    <h3 id="fn-dev-base">DEV BASE</h3>
+    <h3 class="command" id="fn-dev-base">DEV BASE</h3>
     <p><i>function: get base address of an IO structure</i><br>
         address=<b>Dev Base</b>(channel number)</p>
 

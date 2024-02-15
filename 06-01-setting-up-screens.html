@@ -70,7 +70,7 @@
 <section id="02-defining-a-screen">
     <h2>Defining a screen</h2>
 
-    <h3 id="i-screen-open">SCREEN OPEN</h3>
+    <h3 class="command" id="i-screen-open">SCREEN OPEN</h3>
     <p><i>instruction: open a new screen</i><br>
         <b>Screen Open</b> number,width,height,colours,pixel mode</p>
 
@@ -103,11 +103,11 @@
         allowing 320 pixels to be displayed across the screen, at any one time. Hires halves the width of
         each pixel, and so allows 640 to be displayed.</p>
 
-    <h3 id="fn-lowres">LOWRES</h3>
+    <h3 class="command" id="fn-lowres">LOWRES</h3>
     <p><i>function: set screen mode to 320 pixels wide</i><br>
         <b>Screen Open</b> number,width,height,colours,<b>Lowres</b></p>
 
-    <h3 id="fn-hires">HIRES</h3>
+    <h3 class="command" id="fn-hires">HIRES</h3>
     <p><i>function: set screen mode to 640 pixels wide</i><br>
         <b>Screen Open</b> number,width,height,colours,<b>Hires</b></p>
 
@@ -163,7 +163,7 @@ D> Curs Off : Cls 13: Paper 13
 <section id="03-controlling-screens">
     <h2>Controlling screens</h2>
 
-    <h3 id="i-screen-close">SCREEN CLOSE</h3>
+    <h3 class="command" id="i-screen-close">SCREEN CLOSE</h3>
     <p><i>instruction: erase a screen</i><br>
         <b>Screen Close</b> number</p>
 
@@ -171,7 +171,7 @@ D> Curs Off : Cls 13: Paper 13
         Use the SCREEN CLOSE command to erase a screen and free the memory it was using for other
         programming needs. Simply specify the screen number to be deleted.</p>
 
-    <h3 id="i-default">DEFAULT</h3>
+    <h3 class="command" id="i-default">DEFAULT</h3>
     <p><i>instruction: re-set to the default screen</i><br>
         <b>Default</b></p>
 
@@ -193,7 +193,7 @@ D> Curs Off : Cls 13: Paper 13
         updated at a convenient point, using the VIEW instruction. To re-activate the automatic screen
         updating system, use the AUTO VIEW ON command.</p>
 
-    <h3 id="i-view">VIEW</h3>
+    <h3 class="command" id="i-view">VIEW</h3>
     <p><i>instruction: display current screen setting</i><br>
         <b>View</b></p>
 
@@ -212,7 +212,7 @@ D> Curs Off : Cls 13: Paper 13
         above one another, and so several different screen modes can be shown at once in separate areas
         of the display.</p>
 
-    <h3 id="i-screen-display">SCREEN DISPLAY</h3>
+    <h3 class="command" id="i-screen-display">SCREEN DISPLAY</h3>
     <p><i>instruction: position a screen</i><br>
         <b>Screen Display</b> number<br>
         <b>Screen Display</b> number,x,y, width,height</p>
@@ -267,7 +267,7 @@ X> Screen Display 0,112,40,,
         TV display, and then move the visible area around inside its boundaries. When using extra-large
         screens, the area to be viewed is set with the SCREEN OFFSET command.</p>
 
-    <h3 id="i-screen-offset">SCREEN OFFSET</h3>
+    <h3 class="command" id="i-screen-offset">SCREEN OFFSET</h3>
     <p><i>instruction: offset screen at hardware coordinates</i><br>
         <b>Screen Offset</b> number,x,y</p>
 
@@ -293,7 +293,7 @@ X> Screen Display 0,112,40,,
 <section id="05-manipulating-screens">
     <h2>Manipulating screens</h2>
 
-    <h3 id="i-screen-clone">SCREEN CLONE</h3>
+    <h3 class="command" id="i-screen-clone">SCREEN CLONE</h3>
     <p><i>instruction: clone a screen</i><br>
         <b>Screen Clone</b> number</p>
 
@@ -328,7 +328,7 @@ E> Screen Open 0,320,20,4,Lowres
         original screen data in memory, it is impossible to use the SCREEN command with the cloned
         copy.</p>
 
-    <h3 id="i-dual-playfield">DUAL PLAYFIELD</h3>
+    <h3 class="command" id="i-dual-playfield">DUAL PLAYFIELD</h3>
     <p><i>instruction: combine two screens</i><br>
         <b>Dual Playfield</b> first screen,second screen</p>
 
@@ -376,7 +376,7 @@ E> Screen Open 0,320,20,4,Lowres
     <p>When using SCREEN OFFSET to position a dual playfield screen, always specify the first screen,
         and never set screen offsets for both dual playfield screens to zero.</p>
 
-    <h3 id="i-dual-priority">DUAL PRIORITY</h3>
+    <h3 class="command" id="i-dual-priority">DUAL PRIORITY</h3>
     <p><i>instruction: reverse order of dual playfield screens</i><br>
         <b>Dual Priority</b> first screen, second screen</p>
 
@@ -394,7 +394,7 @@ E> Screen Open 0,320,20,4,Lowres
     Screens can be removed from view by permanently erasing them, or by hiding them away for
     later display.</p>
 
-    <h3 id="i-cls">CLS</h3>
+    <h3 class="command" id="i-cls">CLS</h3>
     <p><i>instruction: clear current screen</i><br>
         <b>Cls</b><br>
         <b>Cls</b> colour number<br>
@@ -418,12 +418,12 @@ E> Screen Open 0,320,20,4,Lowres
 E> Cls: Circle 100,98,98: Cls 0,50,50 To 150,150
 </pre>
 
-    <h3 id="i-screen-hide">SCREEN HIDE</h3>
+    <h3 class="command" id="i-screen-hide">SCREEN HIDE</h3>
     <p><i>instruction: hide a screen</i><br>
         <b>Screen Hide</b><br>
         <b>Screen Hide</b> number</p>
 
-    <h3 id="i-screen-show">SCREEN SHOW</h3>
+    <h3 class="command" id="i-screen-show">SCREEN SHOW</h3>
     <p><i>instruction: show a screen</i><br>
         <b>Screen Show</b><br>
         <b>Screen Show</b> number</p>
@@ -452,7 +452,7 @@ E> Cls : Print "I am the Current Screen" : Wait 100
         screens queuing up one behind the other, a method is needed to bring any one of these screens
         to the front of the display.</p>
 
-    <h3 id="i-screen-to-front">SCREEN TO FRONT</h3>
+    <h3 class="command" id="i-screen-to-front">SCREEN TO FRONT</h3>
     <p><i>instruction: move screen to front of display</i><br>
         <b>Screen To Front</b><br>
         <b>Screen To Front</b> number</p>
@@ -462,7 +462,7 @@ E> Cls : Print "I am the Current Screen" : Wait 100
         screen number is omitted after the command, then the current screen will be brought to the
         front.</p>
 
-    <h3 id="i-screen-to-back">SCREEN TO BACK</h3>
+    <h3 class="command" id="i-screen-to-back">SCREEN TO BACK</h3>
     <p><i>instruction: move screen to back of display</i><br>
         <b>Screen To Back</b><br>
         <b>Screen To Back</b> number</p>
@@ -483,7 +483,7 @@ E> Centre "Hello again, Screen 0 here"
    Wait 100 : Screen To Back
 </pre>
 
-    <h3 id="i-screen">SCREEN</h3>
+    <h3 class="command" id="i-screen">SCREEN</h3>
     <p><i>instruction: set current screen</i><br>
         <b>Screen</b> number</p>
 
@@ -507,7 +507,7 @@ E> Screen Open 2,320,32,16,Lowres
 <section id="08-defining-screen-colours">
     <h2>Defining screen colours</h2>
 
-    <h3 id="i-default-palette">DEFAULT PALETTE</h3>
+    <h3 class="command" id="i-default-palette">DEFAULT PALETTE</h3>
     <p><i>instruction: define standard palette</i><br>
         <b>Default Palette</b> $1,$2,$3 ... $32</p>
 
@@ -523,7 +523,7 @@ E> Screen Open 2,320,32,16,Lowres
 D> Default Palette $000,$111,$A69,,,,,$FFF
 </pre>
 
-    <h3 id="i-get-palette">GET PALETTE</h3>
+    <h3 class="command" id="i-get-palette">GET PALETTE</h3>
     <p><i>instruction: copy palette from a screen</i><br>
         <b>Get Palette</b> number<br>
         <b>Get Palette</b> number,mask</p>
@@ -542,7 +542,7 @@ D> Default Palette $000,$111,$A69,,,,,$FFF
     <p>AMOS Professional provides a full range of screen functions, to monitor and exploit the current
         status of your screens.</p>
 
-    <h3 id="fn-screen">SCREEN</h3>
+    <h3 class="command" id="fn-screen">SCREEN</h3>
     <p><i>function: give current screen number</i><br>
         screen number=<b>Screen</b></p>
 
@@ -550,12 +550,12 @@ D> Default Palette $000,$111,$A69,,,,,$FFF
         SCREEN can be used as a function to return the number of the screen which is currently active.
         This screen is used for all drawing operations, but it is <b>not</b> necessarily visible.</p>
 
-    <h3 id="fn-screen-height">SCREEN HEIGHT</h3>
+    <h3 class="command" id="fn-screen-height">SCREEN HEIGHT</h3>
     <p><i>function: give current screen height</i><br>
         height=<b>Screen Height</b><br>
         height=<b>Screen Height</b> number</p>
 
-    <h3 id="fn-screen-width">SCREEN WIDTH</h3>
+    <h3 class="command" id="fn-screen-width">SCREEN WIDTH</h3>
     <p><i>function: give current screen width</i><br>
         height=<b>Screen Width</b><br>
         height=<b>Screen Width</b> (number)</p>
@@ -570,7 +570,7 @@ E> Print Screen Height
    Print Screen Width
 </pre>
 
-    <h3 id="fn-screen-colour">SCREEN COLOUR</h3>
+    <h3 class="command" id="fn-screen-colour">SCREEN COLOUR</h3>
     <p><i>function: give maximum number of colours</i><br>
         number=<b>Screen Colour</b></p>
 
@@ -581,7 +581,7 @@ E> Print Screen Height
 D> Print Screen Colour
 </pre>
 
-    <h3 id="fn-scin">SCIN</h3>
+    <h3 class="command" id="fn-scin">SCIN</h3>
     <p><i>function: give screen number at hardware coordinates</i><br>
         number=<b>SCIN</b>(x,y)</p>
 
@@ -599,7 +599,7 @@ D> Print Screen Colour
         AMOS Professional allows you to make use of legally available, ready-made pictures in the
         public domain, for your own programs.</p>
 
-    <h3 id="i-load-iff">LOAD IFF</h3>
+    <h3 class="command" id="i-load-iff">LOAD IFF</h3>
     <p><i>instruction: load an IFF screen from disc</i><br>
         <b>Load Iff</b> "filename"<br>
         <b>Load Iff</b> "filename",screen number</p>
@@ -610,7 +610,7 @@ D> Print Screen Colour
         which will open that screen for the picture. If this numbered screen already exists, its contents
         will be erased and replaced by the IFF data.</p>
 
-    <h3 id="i-save-iff">SAVE IFF</h3>
+    <h3 class="command" id="i-save-iff">SAVE IFF</h3>
     <p><i>instruction: save an IFF screen to disc</i><br>
         <b>Save Iff</b> "filename"<br>
         <b>Save Iff</b> "filename"<br>
@@ -719,7 +719,7 @@ E> Screen Open 0,320,256,4096,Lowres
 
     <p>Interlaced mode is perfect for displaying pictures, but is not recommended for much else.</p>
 
-    <h3 id="fn-laced">LACED</h3>
+    <h3 class="command" id="fn-laced">LACED</h3>
     <p><i>reserved variable: return a value in conjunction with screen resolution</i><br>
         <b>Screen Open</b> number,width,height,colours,<b>Laced</b>+resolution</p>
 
@@ -743,7 +743,7 @@ E> Screen Open 0,320,200,16,Laced+Lowres
         list calculations. As soon as the last interlaced screen has been closed, the entire display returns
         to normal mode.</p>
 
-    <h3 id="fn-screen-mode">SCREEN MODE</h3>
+    <h3 class="command" id="fn-screen-mode">SCREEN MODE</h3>
     <p><i>function: return screen mode</i><br>
         value=<b>Screen Mode</b></p>
 

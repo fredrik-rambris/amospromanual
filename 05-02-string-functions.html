@@ -36,7 +36,7 @@
 <section id="01-reading-characters-in-a-string">
     <h2>Reading characters in a string</h2>
 
-    <h3 id="fn-left-dollar">LEFT$</h3>
+    <h3 class="command" id="fn-left-dollar">LEFT$</h3>
     <p><i>function: return the leftmost characters of a string</i><BR>
         destination$=<b>Left$</b>(source$,number)<BR>
         <b>Left$</b>(destination$,number)=source$</P>
@@ -67,7 +67,7 @@ E&gt; A$="**** Basic"
     <P>Exactly the same processes can be performed with characters from the right-hand side of
         a string, by using the equivalent RIGHT$ function.</P>
 
-    <h3 id="fn-right-dollar">RIGHT$</h3>
+    <h3 class="command" id="fn-right-dollar">RIGHT$</h3>
     <p><i>function: return the rightmost characters of a string</i><BR>
         destination$=<b>Right$</b>(source$,number)<BR>
         <b>Right$</b>(destination$,number)=source$</P>
@@ -87,7 +87,7 @@ E&gt; B$="AMOS ************"
 </PRE>
 
     <!-- section -->
-    <h3 id="fn-mid-dollar">MID$</h3>
+    <h3 class="command" id="fn-mid-dollar">MID$</h3>
     <p><i>function: return a number of characters from the middle of a string</i><br>
         destination$=<b>Mid$</b>(source$,offset,number)<BR>
         <b>Mid$</b>(destination$,offset,number)=source$</P>
@@ -117,7 +117,7 @@ E&gt; A$="AMOS Professional ***"
         other words, to search through strings for individual characters or sub-strings. Similarly, you may
         wish to write an adventure game where lines of text must be broken down into individual commands.</p>
 
-    <h3 id="fn-instr">INSTR</h3>
+    <h3 class="command" id="fn-instr">INSTR</h3>
     <p><i>function: search for occurrences of one string within another string</i><br>
         x=<b>Instr</b>(host$,guest$)<BR>
         x=<b>Instr</b>(host$,guest$,start of search position)</P>
@@ -163,7 +163,7 @@ E&gt; Print Instr("AMOS PROFESSIONAL","O",0)
 <section id="03-converting-strings">
     <h2>Converting strings</h2>
 
-    <h3 id="fn-upper-dollar">UPPER$</h3>
+    <h3 class="command" id="fn-upper-dollar">UPPER$</h3>
     <p><i>function: convert a string of text to upper case</i><BR>
         new$=<b>Upper$</b>(old$)</P>
 
@@ -174,7 +174,7 @@ E&gt; Print Instr("AMOS PROFESSIONAL","O",0)
 D&gt; Print Upper$("aMoS pRoFeSsIoNaL")
 </pre>
 
-    <h3 id="fn-lower-dollar">LOWER$</h3>
+    <h3 class="command" id="fn-lower-dollar">LOWER$</h3>
     <p><i>function: convert a string of text to lower case</i><BR>
         new$=<b>Lower$</b>(old$)</P>
 
@@ -190,7 +190,7 @@ E&gt; Input "Do you want to continue? (Yes or No)";ANSWER$
    Print "OK. Continuing with your program"
 </pre>
 
-    <h3 id="fn-str-dollar">STR$</h3>
+    <h3 class="command" id="fn-str-dollar">STR$</h3>
     <p><i>function: convert a number into a string</i><BR>
         s$=<b>Str$</b>(number)</P>
 
@@ -203,7 +203,7 @@ E&gt; Input "Do you want to continue? (Yes or No)";ANSWER$
 E&gt; Centre "Remaining memory is"+Str$(Chip Free)+" Bytes"
 </pre>
 
-    <h3 id="fn-val">VAL</h3>
+    <h3 class="command" id="fn-val">VAL</h3>
     <p><i>function: convert a string of digits into a number</i><BR>
         v=<b>Val</b>(x$)<BR>
         v#=<b>Val</b>(x$)</P>
@@ -217,7 +217,7 @@ E&gt; Centre "Remaining memory is"+Str$(Chip Free)+" Bytes"
 D&gt; X=Val("1234") : Print X
 </pre>
 
-    <h3 id="fn-string-dollar">STRING$</h3>
+    <h3 class="command" id="fn-string-dollar">STRING$</h3>
     <p><i>function: create a new string from an existing string</i><BR>
         new$=<b>String$</b>(existing$, number)</P>
 
@@ -240,7 +240,7 @@ E&gt; Print String$("AMOS Professional is a joy forever",10)
         wish to pad out a piece of text before it gets printed onto the screen, you will need an
         accurate method of creating spaces in the string.</p>
 
-    <h3 id="fn-space-dollar">SPACE$</h3>
+    <h3 class="command" id="fn-space-dollar">SPACE$</h3>
     <p><i>function: space out a string</i><BR>
         s$=<b>Space$</b>(number of spaces)</P>
 
@@ -250,7 +250,7 @@ E&gt; Print String$("AMOS Professional is a joy forever",10)
 E&gt; Print "Ten";Space$(10);"spaces"
 </pre>
 
-    <h3 id="fn-flip-dollar">FLIP$</h3>
+    <h3 class="command" id="fn-flip-dollar">FLIP$</h3>
     <p><i>function: invert a string</i><BR>
         inverted$=<b>Flip$</b>(original$)</P>
 
@@ -261,7 +261,7 @@ E&gt; Print "Ten";Space$(10);"spaces"
 D&gt; Print Flip$("SOMA gnippilf")
 </pre>
 
-    <h3 id="fn-repeat-dollar">REPEAT$</h3>
+    <h3 class="command" id="fn-repeat-dollar">REPEAT$</h3>
     <p><i>function: repeat a string</i><BR>
         r$=<b>Repeat$</b>(text$,number)</P>
 
@@ -280,7 +280,7 @@ Chr$(27)+"RO"+A$+Chr$(27)+"R"+Chr$(48+n)
     <h2>Getting information about strings</h2>
     The next three functions are provided to discover particular properties of strings.</P>
 
-    <h3 id="fn-chr-dollar">CHR$</h3>
+    <h3 class="command" id="fn-chr-dollar">CHR$</h3>
     <p><i>function: return the character with a given ASCII code</i><BR>
         s$=<b>Chr$</b>(code number)</P>
 
@@ -294,7 +294,7 @@ Chr$(27)+"RO"+A$+Chr$(27)+"R"+Chr$(48+n)
 E&gt; For S=32 To 255: Print Chr$(S); : Next S
 </pre>
 
-    <h3 id="fn-asc">ASC</h3>
+    <h3 class="command" id="fn-asc">ASC</h3>
     <p><i>function: Give the ASCII code of a character</i><BR>
         code=<b>Asc</b>(a$)</P>
 
@@ -306,7 +306,7 @@ E&gt; Print Asc("B")
    Print Asc("AMOS Professional")
 </pre>
 
-    <h3 id="fn-len">LEN</h3>
+    <h3 class="command" id="fn-len">LEN</h3>
     <p><i>function: give the length of a string</i><BR>
         length=<b>Len</b>(a$)</P>
 
@@ -323,7 +323,7 @@ D&gt; Print Len("0123456789")
 
     <P>To end this Chapter, here are a pair of useful instructions for manipulating arrays.</P>
 
-    <h3 id="i-sort">SORT</h3>
+    <h3 class="command" id="i-sort">SORT</h3>
     <p><i>instruction: sort all elements in an array</i><BR>
         <b>Sort</b> a(0)<BR>
         <b>Sort</b> a#(0)<BR>
@@ -356,7 +356,7 @@ E&gt; N=5 : P=0
   Next X
 </pre>
 
-    <h3 id="fn-match">MATCH</h3>
+    <h3 class="command" id="fn-match">MATCH</h3>
     <p><i>function: search an array for a value</i><BR>
         x=<b>Match</b>(array(0),value)<br>
         x=<b>Match</b>(array#(0),value#)<br>

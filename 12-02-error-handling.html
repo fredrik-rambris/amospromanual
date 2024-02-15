@@ -40,7 +40,7 @@
         that when a mistake is spotted, error trapping swings into action. This process is triggered by the
         following command:</p>
 
-    <h3 id="str-on-error">ON ERROR</h3>
+    <h3 class="command" id="str-on-error">ON ERROR</h3>
     <p><i>structure: trap an error within a Basic program</i><br>
         <b>On Error</b> Goto label</p>
 
@@ -96,7 +96,7 @@ X> On Error Goto 0
         To get back to your program after ON ERROR has been called, you must use RESUME. Never
         use GOTO for this purpose.</p>
 
-    <h3 id="str-resume">RESUME</h3>
+    <h3 class="command" id="str-resume">RESUME</h3>
     <p><i>structure: resume the execution of current program after an error trapping routine</i><br>
         <b>Resume</b><br>
         <b>Resume Next</b><br>
@@ -109,7 +109,7 @@ X> On Error Goto 0
         NEXT. Alternatively, to jump to a specific point in your main program, simply follow RESUME
         with a reference to a chosen label or a normal line number.</p>
 
-    <h3 id="str-on-error-proc">ON ERROR PROC</h3>
+    <h3 class="command" id="str-on-error-proc">ON ERROR PROC</h3>
     <p><i>structure: trap an error using a procedure</i><br>
         <b>On Error Proc</b> name</p>
 
@@ -141,7 +141,7 @@ E> On Error Proc HELP
         structure.</p>
 
 
-    <h3 id="str-resume-label">RESUME LABEL</h3>
+    <h3 class="command" id="str-resume-label">RESUME LABEL</h3>
     <p><i>structure: jump to a label after an error has been isolated using a procedure</i><br>
         <b>Resume Label</b> label</p>
 
@@ -150,7 +150,7 @@ E> On Error Proc HELP
         error handler, immediately after the original ON ERROR PROC or ON ERROR GOTO
         statement. For an example of RESUME LABEL, please see the last routine in this Chapter.</p>
 
-    <h3 id="fn-errn">ERRN</h3>
+    <h3 class="command" id="fn-errn">ERRN</h3>
     <p><i>function: return the error code number of the last error</i><br>
         number=<b>Errn</b><br>
         Print <b>Errn</b></p>
@@ -161,7 +161,7 @@ E> On Error Proc HELP
         running each have a specific error code number, and the number of the last error to be isolated
         can be returned by using the ERRN function.</p>
 
-    <h3 id="i-error">ERROR</h3>
+    <h3 class="command" id="i-error">ERROR</h3>
     <p><i>instruction: deliberately generate an error and return to Editor</i><br>
         <b>Error</b> number</p>
 
@@ -202,7 +202,7 @@ E> On Error Proc HELP
 </pre>
 
 
-    <h3 id="i-trap">TRAP</h3>
+    <h3 class="command" id="i-trap">TRAP</h3>
     <p><i>instruction: trap an error</i><br>
         <b>Trap</b> instruction</p>
 
@@ -228,7 +228,7 @@ E> Trap Load "File.Abk",10
 E> Trap Locate -1,-1 : Locate -1,-1
 </pre>
 
-    <h3 id="fn-errtrap">ERRTRAP</h3>
+    <h3 class="command" id="fn-errtrap">ERRTRAP</h3>
     <p><i>function: return an error code number after a TRAP</i><br>
         number=<b>Errtrap</b></p>
 
@@ -237,7 +237,7 @@ E> Trap Locate -1,-1 : Locate -1,-1
         been detected, a zero is returned, otherwise the appropriate error number is given. The related
         error message can then be returned using the ERR$ function, explained next.</p>
 
-    <h3 id="fn-err-dollar">ERR$</h3>
+    <h3 class="command" id="fn-err-dollar">ERR$</h3>
     <p><i>function: return an error message string</i><br>
         text$=<b>Err$</b>(error number)</p>
 

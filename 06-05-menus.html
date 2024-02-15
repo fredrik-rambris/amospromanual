@@ -102,7 +102,7 @@ E> Rem Action menu has one option
         That specifies your list of alternatives for the "Action" and "Mouse" menus. Before this program
         can be run, it must first be activated.</p>
 
-    <h3 id="i-menu-on">MENU ON</h3>
+    <h3 class="command" id="i-menu-on">MENU ON</h3>
     <p><i>instruction: activate a menu</i><br>
         <b>Menu On</b></p>
 
@@ -125,7 +125,7 @@ E> Menu On
 <section id="02-reading-a-simple-menu">
     <h2>Reading a simple menu</h2>
 
-    <h3 id="fn-choice">CHOICE</h3>
+    <h3 class="command" id="fn-choice">CHOICE</h3>
     <p><i>function: read a menu</i><br>
         selection=<b>Choice</b><br>
         title number=<b>Choice</b>(1)<br>
@@ -178,7 +178,7 @@ X> Menu$(1)="Title1"
 
     <p>Now look at these uses of MENU$, which are used to give a single item its own characteristics:</p>
 
-    <h3 id="resv-menu-dollar">MENU$</h3>
+    <h3 class="command" id="resv-menu-dollar">MENU$</h3>
     <p><i>instruction: define appearance of a single item in a menu</i><br>
         <b>Menu$</b>(single item parameters)=normal$<br>
         <b>Menu$</b>(single item parameters)=normal$,selected$,inactive$,background$</p>
@@ -221,7 +221,7 @@ E> Menu$(1)="Title"
         cause delays while the menus were being read. AMOS Professional provides a method for
         handling the largest of menus.</p>
 
-    <h3 id="i-on-menu-proc">ON MENU PROC</h3>
+    <h3 class="command" id="i-on-menu-proc">ON MENU PROC</h3>
     <p><i>instruction: automatic menu selection</i><br>
         <b>On Menu Proc</b> procedure1<br>
         <b>On Menu Proc</b> procedure1,procedure2</p>
@@ -239,7 +239,7 @@ E> Menu$(1)="Title"
         call. Procedures can make use of the CHOICE function to monitor which option has been
         triggered, and to perform the appropriate action.</p>
 
-    <h3 id="i-on-menu-gosub">ON MENU GOSUB</h3>
+    <h3 class="command" id="i-on-menu-gosub">ON MENU GOSUB</h3>
     <p><i>instruction: automatic menu selection</i><br>
         <b>On Menu Gosub</b> label1<br>
         <b>On Menu Gosub</b> label1,label2</p>
@@ -253,7 +253,7 @@ E> Menu$(1)="Title"
         evaluated once only when the program is run.</p>
 
 
-    <h3 id="i-on-menu-goto">ON MENU GOTO</h3>
+    <h3 class="command" id="i-on-menu-goto">ON MENU GOTO</h3>
     <p><i>instruction: automatic menu selection</i><br>
         <b>On Menu Goto</b> label1<br>
         <b>On Menu Goto</b> label1, labe12...</p>
@@ -279,7 +279,7 @@ E> Menu$(1)="Title"
         program is executing a procedure which must be performed without interruptions, such as
         loading and saving information to disc. Menus are reactivated using ON MENU ON.</p>
 
-    <h3 id="i-on-menu-del">ON MENU DEL</h3>
+    <h3 class="command" id="i-on-menu-del">ON MENU DEL</h3>
     <p><i>instruction: delete labels and procedures used by ON MENU</i><br>
         <b>On Menu Del</b></p>
 
@@ -292,7 +292,7 @@ E> Menu$(1)="Title"
 <section id="04-the-menu-control-commands">
     <h2>The Menu control commands</h2>
 
-    <h3 id="i-menu-on">MENU ON</h3>
+    <h3 class="command" id="i-menu-on">MENU ON</h3>
     <p><i>instruction: activate a menu</i><br>
         <b>Menu On</b><br>
         <b>Menu On</b> bank number</p>
@@ -303,7 +303,7 @@ E> Menu$(1)="Title"
         optional bank number is included after the command, the appropriate menu will be taken from
         the numbered memory bank. Please see MAKE MENU BANK, below.</p>
 
-    <h3 id="i-menu-off">MENU OFF</h3>
+    <h3 class="command" id="i-menu-off">MENU OFF</h3>
     <p><i>instruction: deactivate a menu</i><br>
         <b>Menu Off</b></p>
 
@@ -312,7 +312,7 @@ E> Menu$(1)="Title"
         This command temporarily turns a menu off, making it inactive. The menu can be reactivated at
         any time with the MENU ON command.</p>
 
-    <h3 id="i-menu-del">MENU DEL</h3>
+    <h3 class="command" id="i-menu-del">MENU DEL</h3>
     <p><i>instruction: delete one or more menu items</i><br>
         <b>Menu Del</b><br>
         <b>Menu Del</b>(single item parameters)</p>
@@ -331,7 +331,7 @@ X> Menu Del(1) : Rem Delete title number 1
    Menu Del(2,3,4) : Rem Delete sub-option 4 of option 3 of title 2
 </pre>
 
-    <h3 id="i-menu-to-bank">MENU TO BANK</h3>
+    <h3 class="command" id="i-menu-to-bank">MENU TO BANK</h3>
     <p><i>instruction: save menu definitions into a memory bank</i><br>
         <b>Menu To Bank</b> number</p>
 
@@ -343,7 +343,7 @@ X> Menu Del(1) : Rem Delete title number 1
         in the editor memory. If the bank number you select already exists, the appropriate error
         message will be given.</p>
 
-    <h3 id="i-bank-to-menu">BANK TO MENU</h3>
+    <h3 class="command" id="i-bank-to-menu">BANK TO MENU</h3>
     <p><i>instruction: restore a menu definition saved in a menu bank</i><br>
         <b>Bank To Menu</b> number</p>
 
@@ -352,7 +352,7 @@ X> Menu Del(1) : Rem Delete title number 1
         stored. The menu will be restored to its exact state when originally saved, so the restoration
         process may take a few seconds. To activate the restored menu, call MENU ON.</p>
 
-    <h3 id="i-menu-calc">MENU CALC</h3>
+    <h3 class="command" id="i-menu-calc">MENU CALC</h3>
     <p><i>instruction: recalculate a menu</i><br>
         <b>Menu Calc</b></p>
 
@@ -382,7 +382,7 @@ X> Menu Del(1) : Rem Delete title number 1
         menu, and design a customised layout. As a default, all titles are displayed in a horizontal bar
         with their related options arranged below in a vertical block. Here are the alternatives:</p>
 
-    <h3 id="i-menu-line">MENU LINE</h3>
+    <h3 class="command" id="i-menu-line">MENU LINE</h3>
     <p><i>instruction: display menu options as a horizontal line</i><br>
         <b>Menu Line</b> level number<br>
         <b>Menu Line</b> (single item parameters)</p>
@@ -403,7 +403,7 @@ X> Menu Del(1) : Rem Delete title number 1
 X> Menu Line(1,1,1) : Rem Display sub-option 1,1,1 as a line
 </pre>
 
-    <h3 id="i-menu-tline">MENU TLINE</h3>
+    <h3 class="command" id="i-menu-tline">MENU TLINE</h3>
     <p><i>instruction: display a menu as a total line</i><br>
         <b>Menu Tline</b> level number<br>
         <b>Menu Tline</b>(single item parameters)</p>
@@ -414,7 +414,7 @@ X> Menu Line(1,1,1) : Rem Display sub-option 1,1,1 as a line
         item is centre screen. Use this instruction in the same way as MENU LINE during your menu
         definitions.</p>
 
-    <h3 id="i-menu-bar">MENU BAR</h3>
+    <h3 class="command" id="i-menu-bar">MENU BAR</h3>
     <p><i>instruction: display menu items as a vertical bar</i><br>
         <b>Menu Bar</b> level number<br>
         <b>Menu Bar</b>(single item parameters)</p>
@@ -451,7 +451,7 @@ E> FLAG=0
    End Proc
 </pre>
 
-    <h3 id="i-menu-inactive">MENU INACTIVE</h3>
+    <h3 class="command" id="i-menu-inactive">MENU INACTIVE</h3>
     <p><i>instruction: turn off a menu item</i><br>
         <b>Menu Inactive</b> level number<br>
         <b>Menu Inactive</b>(single item parameters)</p>
@@ -466,7 +466,7 @@ E> FLAG=0
         menu options that have been made inactive will be shown in italics. Otherwise the special
         inactive string will appear.</p>
 
-    <h3 id="i-menu-active">MENU ACTIVE</h3>
+    <h3 class="command" id="i-menu-active">MENU ACTIVE</h3>
     <p><i>instruction: activate a menu item</i><br>
         <b>Menu Active</b> level number<br>
         <b>Menu Active</b>(single item parameters)</p>
@@ -484,7 +484,7 @@ E> FLAG=0
         As has been explained, AMOS Professional menus can be displayed anywhere on your screen.
         he display positions can be moved either by the user or by your program.</p>
 
-    <h3 id="i-menu-movable">MENU MOVABLE</h3>
+    <h3 class="command" id="i-menu-movable">MENU MOVABLE</h3>
     <p><i>instruction: activate automatic menu movement</i><br>
         <b>Menu Movable</b> level number<br>
         <b>Menu Movable</b>(single item parameters)</p>
@@ -501,7 +501,7 @@ E> FLAG=0
         hierarchy, but please note that this command does not allow you to change the status of any
         items below the selected level.</p>
 
-    <h3 id="i-menu-static">MENU STATIC</h3>
+    <h3 class="command" id="i-menu-static">MENU STATIC</h3>
     <p><i>instruction: fix a menu in static position</i><br>
         <b>Menu Static</b> level number<br>
         <b>Menu Static</b>(single item parameters)</p>
@@ -512,14 +512,14 @@ E> FLAG=0
         memory this can cause real problems. MENU STATIC can be used to avoid these difficulties by
         setting the level or item at which the entire menu becomes immovable by the user.</p>
 
-    <h3 id="i-menu-item-static">MENU ITEM STATIC</h3>
+    <h3 class="command" id="i-menu-item-static">MENU ITEM STATIC</h3>
     <p><i>instruction: fix items in static positions</i><br>
         <b>Menu Item Static</b> level number<br>
         <b>Menu Item Static</b>(single item parameters)</p>
 
     <p>This command locks one or more menu items into place, and is the default setting.</p>
 
-    <h3 id="i-menu-item-movable">MENU ITEM MOVABLE</h3>
+    <h3 class="command" id="i-menu-item-movable">MENU ITEM MOVABLE</h3>
     <p><i>instruction: move individual menu options</i><br>
         <b>Menu Item Movable</b> level number<br>
         <b>Menu Item Movable</b>(single item parameters)</p>
@@ -545,7 +545,7 @@ E> FLAG=0
 X> Menu$(1 ,1)=,,,,"(Bar40,100)(Loc0,0)"
 </pre>
 
-    <h3 id="i-menu-separate">MENU SEPARATE</h3>
+    <h3 class="command" id="i-menu-separate">MENU SEPARATE</h3>
     <p><i>instruction: separate a list of menu items</i><br>
         <b>Menu Separate</b> level number<br>
         <b>Menu Separate</b>(single item parameters)</p>
@@ -561,14 +561,14 @@ X> Menu$(1 ,1)=,,,,"(Bar40,100)(Loc0,0)"
         can be split at any chosen point. Once an item has been separated it can be affected by the
         MENU MOVABLE command instead of the ITEM instructions.</p>
 
-    <h3 id="i-menu-link">MENU LINK</h3>
+    <h3 class="command" id="i-menu-link">MENU LINK</h3>
     <p><i>instruction: link a list of menu items</i><br>
         <b>Menu Link</b> level number<br>
         <b>Menu Link</b>(single item parameters)</p>
 
     <p>This is the exact opposite of MENU SEPARATE, and is used to link one or more items together.</p>
 
-    <h3 id="fn-x-menu">X MENU</h3>
+    <h3 class="command" id="fn-x-menu">X MENU</h3>
     <p><i>function: return the graphical x-coordinate of a menu item</i><br>
         x=<b>X Menu</b>(single item parameters)</p>
 
@@ -576,7 +576,7 @@ X> Menu$(1 ,1)=,,,,"(Bar40,100)(Loc0,0)"
         The X MENU function allows you to get the position of a menu item, relative to the previous
         option on screen. This information can be used to set up very powerful menus.</p>
 
-    <h3 id="fn-y-menu">Y MENU</h3>
+    <h3 class="command" id="fn-y-menu">Y MENU</h3>
     <p><i>function: return the graphical y-coordinate of a menu item</i><br>
         y=<b>Y Menu</b>(single item parameters)</p>
 
@@ -589,7 +589,7 @@ X> Menu$(1 ,1)=,,,,"(Bar40,100)(Loc0,0)"
 <section id="07-moving-a-menu-within-a-program">
     <h2>Moving a menu within a program</h2>
 
-    <h3 id="i-menu-base">MENU BASE</h3>
+    <h3 class="command" id="i-menu-base">MENU BASE</h3>
     <p><i>instruction: move the starting position of a menu</i><br>
         <b>Menu Base</b> x,y</p>
 
@@ -598,7 +598,7 @@ X> Menu$(1 ,1)=,,,,"(Bar40,100)(Loc0,0)"
         absolute screen coordinates at x,y. All subordinate menu items will now be displayed relative to
         this starting point.</p>
 
-    <h3 id="i-set-menu">SET MENU</h3>
+    <h3 class="command" id="i-set-menu">SET MENU</h3>
     <p><i>instruction: move a menu item</i><br>
         <b>Set Menu</b>(single item parameters) <b>To</b> x,y</p>
 
@@ -638,7 +638,7 @@ X> Menu$(1 ,1)=,,,,"(Bar40,100)(Loc0,0)"
         command, including the ON MENU range.</p>
 
 
-    <h3 id="i-menu-key">MENU KEY</h3>
+    <h3 class="command" id="i-menu-key">MENU KEY</h3>
     <p><i>instruction: assign a key to a menu item</i><br>
         <b>Menu Key</b>(single item parameters) <b>To</b> c$<br>
         <b>Menu Key</b>(single item parameter) <b>To</b> scancode, bitmap</p>
@@ -756,7 +756,7 @@ X> LO
         In the listings for all of the following embedded commands, the two important characters that
         make up the command are in upper case bold type.</p>
 
-    <h3 id="emcmd-locate">LOcate</h3>
+    <h3 class="command" id="emcmd-locate">LOcate</h3>
     <p><i>embedded command: move the graphics cursor</i><br>
         <b>LO</b>cate x,y</p>
 
@@ -774,7 +774,7 @@ E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
    Menu On : Wait Key
 </pre>
 
-    <h3 id="emcmd-bob">BOb</h3>
+    <h3 class="command" id="emcmd-bob">BOb</h3>
     <p><i>embedded command: draw a bob</i><br>
         <b>BO</b>b number</p>
 
@@ -784,7 +784,7 @@ E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
         transparent, but this can be changed with NO MASK. All coordinates will be measured relative
         to the top left-hand corner.</p>
 
-    <h3 id="emcmd-icon">ICon</h3>
+    <h3 class="command" id="emcmd-icon">ICon</h3>
     <p><i>embedded command: draw an icon</i><br>
         <b>IC</b>on number</p>
 
@@ -792,7 +792,7 @@ E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
     transparent in this case, but transparency can be achieved with MAKE ICON MASK, as detailed
     in Chapter 7.7.
 
-    <h3 id="emcmd-ink">Ink</h3>
+    <h3 class="command" id="emcmd-ink">Ink</h3>
     <p><i>embedded command: set pen, paper or outline colour</i><br>
         <b>IN</b>k mode,value</p>
 
@@ -807,7 +807,7 @@ E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
 3         Set OUTLINE colour
 </pre>
 
-    <h3 id="emcmd-sfont">SFont</h3>
+    <h3 class="command" id="emcmd-sfont">SFont</h3>
     <p><i>embedded command: set font</i><br>
         <b>SF</b>ont number</p>
 
@@ -817,7 +817,7 @@ E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
         executed.</p>
 
 
-    <h3 id="emcmd-sstyle">SStyle</h3>
+    <h3 class="command" id="emcmd-sstyle">SStyle</h3>
     <p><i>embedded command: set font style</i><br>
         <b>SS</b>tyle bit-pattern</p>
 
@@ -832,13 +832,13 @@ E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
 2      italic
 </pre>
 
-    <h3 id="emcmd-line">LIne</h3>
+    <h3 class="command" id="emcmd-line">LIne</h3>
     <p><i>embedded command: draw a line</i><br>
         <b>LI</b>ne x,y</p>
 
     <p>LIne draws a line from the current cursor position to the graphics coordinates x,y.</p>
 
-    <h3 id="emcmd-sline">SLine</h3>
+    <h3 class="command" id="emcmd-sline">SLine</h3>
     <p><i>embedded command: set line pattern</i><br>
         <b>SL</b>ine pattern</p>
 
@@ -847,19 +847,19 @@ E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
         Because there is no evaluation of expressions, the bit-pattern must be converted into decimal
         notation before use.</p>
 
-    <h3 id="emcmd-bar">BAr</h3>
+    <h3 class="command" id="emcmd-bar">BAr</h3>
     <p><i>embedded command: draw a bar</i><br>
         <b>BA</b>r x,y</p>
 
     <p>BAr draws a rectangular bar from the current cursor coordinates to x,y.</p>
 
-    <h3 id="emcmd-pattern">PAttern</h3>
+    <h3 class="command" id="emcmd-pattern">PAttern</h3>
     <p><i>embedded command: draw a pattern</i><br>
         <b>PA</b>ttern number</p>
 
     PAttern changes the fill pattern used by the BAr command to the numbered style.
 
-    <h3 id="emcmd-outline">OUtline</h3>
+    <h3 class="command" id="emcmd-outline">OUtline</h3>
     <p><i>embedded command: enclose a bar with an outline</i><br>
         <b>OU</b>tline value</p>
 
@@ -876,7 +876,7 @@ E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
         ELlipse draws an ellipse centred on the current coordinates, with the chosen radii. To draw a
         circle centred at the current coordinates, simply make radius1 equal to radius2.</p>
 
-    <h3 id="emcmd-proc">PRoc</h3>
+    <h3 class="command" id="emcmd-proc">PRoc</h3>
     <p><i>embedded command: call a procedure</i><br>
         <b>PR</b>oc NAME</p>
 
@@ -952,7 +952,7 @@ X> Procedure ITEM
         </li>
     </ul>
 
-    <h3 id="emcmd-reserve">REserve</h3>
+    <h3 class="command" id="emcmd-reserve">REserve</h3>
     <p><i>embedded command: reserve a local data area for a procedure</i><br>
         <b>RE</b>serve number of bytes</p>
 
@@ -969,7 +969,7 @@ X> Procedure ITEM
         The last two commands in this Chapter affect the automatic process which re-draws the selected
         menu 50 times every second.</p>
 
-    <h3 id="i-menu-called">MENU CALLED</h3>
+    <h3 class="command" id="i-menu-called">MENU CALLED</h3>
     <p><i>instruction: re-draw a menu item continually</i><br>
         <b>Menu Called</b>(single item parameters)</p>
 
@@ -989,7 +989,7 @@ X> Procedure ITEM
         Because menu items are not double buffered, bobs may flicker a little, but the use of computed
         sprites will present no such problems.</p>
 
-    <h3 id="i-menu-once">MENU ONCE</h3>
+    <h3 class="command" id="i-menu-once">MENU ONCE</h3>
     <p><i>instruction: turn off automatic re-drawing</i><br>
         <b>Menu Once</b>(single item parameters)</p>
 

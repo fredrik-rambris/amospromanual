@@ -147,7 +147,7 @@ E> If Bobsprite 001(1,2 To 4) Then Bell 10
         Sprites have no masks unless you specifically attach them. So if you intend to make use of
         collision detection, it is vital to ensure that all your objects are wearing their masks.</p>
 
-    <h3 id="i-make-mask">MAKE MASK</h3>
+    <h3 class="command" id="i-make-mask">MAKE MASK</h3>
     <p><i>instruction: mask an image for collision detection</i><br>
         <b>Make Mask</b><br>
         <b>Make Mask</b> number</p>
@@ -163,7 +163,7 @@ E> If Bobsprite 001(1,2 To 4) Then Bell 10
 <section id="04-the-collision-functions">
     <h2>The collision functions</h2>
     <p>
-    <h3 id="fn-bob-col">BOB COL</h3>
+    <h3 class="command" id="fn-bob-col">BOB COL</h3>
     <p><i>function: detect for collision between Blitter Objects</i><br>
         c=<b>Bob Col</b>(number)<br>
         c=<b>Bob Col</b>(number, first <b>To</b> last)</p>
@@ -192,7 +192,7 @@ E> If Bobsprite 001(1,2 To 4) Then Bell 10
         pair of objects have collided amongst a whole range of similar objects. The COL function is
         explained later.</p>
 
-    <h3 id="fn-sprite-col">SPRITE COL</h3>
+    <h3 class="command" id="fn-sprite-col">SPRITE COL</h3>
     <p><i>function: test for collision between Sprites</i><br>
         c=<b>Sprite Col</b>(number)<br>
         c=<b>Sprite Col</b>(number,start <b>To</b> finish)</p>
@@ -215,7 +215,7 @@ E> If Bobsprite 001(1,2 To 4) Then Bell 10
         SPRITE COL instruction. Also that the equivalent AMAL function is SC.</p>
 
 
-    <h3 id="fn-spritebob-col">SPRITEBOB COL</h3>
+    <h3 class="command" id="fn-spritebob-col">SPRITEBOB COL</h3>
     <p><i>function: test for collision between one Sprite and range of Bobs</i><br>
         c=<b>Spritebob Col</b>(number)<br>
         c=<b>Spritebob Col</b>(number,start <b>To</b> finish)</p>
@@ -243,7 +243,7 @@ X> For FIRSTSPRITE=1 To LASTSPRITE
         screens, and attempts to use it in high resolution will lead to unpredictable results. This is
         because your Sprites and Bobs are likely to have different sized screen points.</p>
 
-    <h3 id="fn-bobsprite-col">BOBSPRITE COL</h3>
+    <h3 class="command" id="fn-bobsprite-col">BOBSPRITE COL</h3>
     <p><i>function: test for collision between one Bob and range of Sprites</i><br>
         c=<b>Bobsprite Col</b>(number)<br>
         c=<b>Bobsprite Col</b>(number,first <b>To</b> last)</p>
@@ -255,7 +255,7 @@ X> For FIRSTSPRITE=1 To LASTSPRITE
         first to the last number in that range. As with SPRITEBOB COL, this function should only be
         used in low resolution.</p>
 
-    <h3 id="fn-col">COL</h3>
+    <h3 class="command" id="fn-col">COL</h3>
     <p><i>function: test status of an object after collision detection</i><br>
         status=<b>Col</b>(number)</p>
 
@@ -311,7 +311,7 @@ X> C=Bob Col(1,2 To 4)
         individual "hostiles" and "friendlies". You simply check for a collision between each object with
         a BOB COL or SPRITE COL, then grab the number of the collision object with the COL function.</p>
 
-    <h3 id="i-set-hardcol">SET HARDCOL</h3>
+    <h3 class="command" id="i-set-hardcol">SET HARDCOL</h3>
     <p><i>instruction: set hardware register for hardware Sprite collision detection</i><br>
         <b>Set Hardcol</b> bitmap1 ,bitmap2</p>
 
@@ -326,7 +326,7 @@ X> C=Bob Col(1,2 To 4)
         determines the comparison itself, setting bits zero to 5. Please refer to your hardware manual for
         a technical explanation of this register.</p>
 
-    <h3 id="fn-hardcol">HARDCOL</h3>
+    <h3 class="command" id="fn-hardcol">HARDCOL</h3>
     <p><i>function: return collision status after a Set Hardcol instruction</i><br>
         c=<b>Hardcol</b></p>
 
@@ -346,7 +346,7 @@ X> C=Bob Col(1,2 To 4)
         detection in computer games, as well as for setting up buttons, control panels and dialogue
         boxes.</p>
 
-    <h3 id="i-reserve-zone">RESERVE ZONE</h3>
+    <h3 class="command" id="i-reserve-zone">RESERVE ZONE</h3>
     <p><i>instruction: RESERVE memory for a detection zone</i><br>
         <b>Reserve Zone</b><br>
         <b>Reserve Zone</b> number</p>
@@ -360,7 +360,7 @@ X> C=Bob Col(1,2 To 4)
         To erase all current zone definitions and restore the allocated memory to the main program,
         simply give the RESERVE ZONE command without any number parameter.</p>
 
-    <h3 id="i-set-zone">SET ZONE</h3>
+    <h3 class="command" id="i-set-zone">SET ZONE</h3>
     <p><i>instruction: set a screen zone for testing</i><br>
         <b>Set Zone</b> number,x1 ,y1 <b>To</b> x2,y2</p>
 
@@ -370,7 +370,7 @@ X> C=Bob Col(1,2 To 4)
         command is followed by the number of the new zone, followed by its coordinates from top left
         to bottom right-hand corner.</p>
 
-    <h3 id="fn-zone">ZONE</h3>
+    <h3 class="command" id="fn-zone">ZONE</h3>
     <p><i>function: return the zone number under specified screen coordinates</i><br>
         number=<b>Zone</b>(x,y)<br>
         number=<b>Zone</b>(screen number,x,y)</p>
@@ -393,7 +393,7 @@ X> N=Zone(X Bob(n),Y Bob(n))
 </pre>
 
 
-    <h3 id="fn-hzone">HZONE</h3>
+    <h3 class="command" id="fn-hzone">HZONE</h3>
     <p><i>function: return the zone number under the specified hardware coordinates</i><br>
         number=<b>Hzone</b>(x,y)<br>
         number=<b>Hzone</b>(screen number,x,y)</p>
@@ -407,14 +407,14 @@ X> N=Zone(X Bob(n),Y Bob(n))
 X> N=Hzone(X Sprite(n),Y Sprite(n))
 </pre>
 
-    <h3 id="fn-mouse-zone">MOUSE ZONE</h3>
+    <h3 class="command" id="fn-mouse-zone">MOUSE ZONE</h3>
     <p><i>function: test if mouse pointer has entered a zone</i><br>
         number=<b>Mouse Zone</b></p>
 
     <p>This is a short reminder that the MOUSE ZONE function is used to check whether the mouse
         pointer has entered a zone, as outlined in <a href="05-08-the-joystick-and-mouse.html">Chapter 5.8</a>.</p>
 
-    <h3 id="i-reset-zone">RESET ZONE</h3>
+    <h3 class="command" id="i-reset-zone">RESET ZONE</h3>
     <p><i>instruction: erase screen zone</i><br>
         <b>Reset Zone</b><br>
         <b>Reset Zone</b> number</p>

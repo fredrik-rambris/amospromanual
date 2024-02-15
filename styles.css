@@ -8,7 +8,11 @@ html {
 body {
     background-color: white;
     color: black;
-    margin: 1rem;
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: min(60rem,90%);
+    border-left: #f0f0f0 1px solid;
+    border-right: #f0f0f0 1px solid;
 }
 
 ul {
@@ -28,4 +32,34 @@ h2.menu-line {
 
 table#command-index th {
     text-align: left;
+}
+
+h3.command {
+    margin-bottom: 0;
+    background-color: #f8f8f8;
+    padding: .3rem .2rem;
+    margin-left: -.2rem;
+    font-size: inherit;
+}
+
+h3.command +p {
+    margin-top: .2rem;
+}
+
+a > h3 {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+ul.section h2 {
+    margin-bottom: 0;
+}
+
+div#cover {
+    text-align: center;
+}
+#cover img {
+    width: 90%;
+    height: auto;
+    border: none;
 }

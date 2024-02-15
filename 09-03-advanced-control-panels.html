@@ -83,7 +83,7 @@
         following function is used.</p>
 
 
-    <h3 id="fn-dialog-run">DIALOG RUN</h3>
+    <h3 class="command" id="fn-dialog-run">DIALOG RUN</h3>
     <p><i>function: run a dialogue box from an open channel</i><br>
         button=<b>DIALOG RUN</b>(channel number)<br>
         button=<b>DIALOG RUN</b>(channel number,label,x,y)</p>
@@ -133,7 +133,7 @@ E> A$=A$+"BA 50,50;SI 180,60;SA 1 ;IN 5,0,0;GB 0,0,170,50;"
    Dialog Close
 </pre>
 
-    <h3 id="i-dialog-close">DIALOG CLOSE</h3>
+    <h3 class="command" id="i-dialog-close">DIALOG CLOSE</h3>
     <p><i>instruction: close one or more dialogue channels</i><br>
         <b>Dialog Close</b><br>
         <b>Dialog Close</b> channel number</p>
@@ -214,7 +214,7 @@ X> Do
    Loop
 </pre>
 
-    <h3 id="fn-rdialog">RDIALOG</h3>
+    <h3 class="command" id="fn-rdialog">RDIALOG</h3>
     <p><i>function: read the status of a zone or button</i><br>
         button=<b>RDIALOG</b>(channel number,button number)<br>
         button=<b>RDIALOG</b>(channel number,button number, object number)</p>
@@ -235,7 +235,7 @@ X> Do
         checked in this way, a result of zero will given, and the RDIALOG$ function should be used
         instead. This is explained next.</p>
 
-    <h3 id="fn-rdialog-dollar">RDIALOG$</h3>
+    <h3 class="command" id="fn-rdialog-dollar">RDIALOG$</h3>
     <p><i>function: return text string entered into an edit zone</i><br>
         text string=<b>RDIALOG$</b>(channel number,zone number)<br>
         text string=<b>RDIALOG$</b>(channel number,zone number,object number)</p>
@@ -254,7 +254,7 @@ X> Do
         directly from the main AMOS Professional program.</p>
 
 
-    <h3 id="fn-vdialog">VDIALOG</h3>
+    <h3 class="command" id="fn-vdialog">VDIALOG</h3>
     <p><i>function: assign or read an Interface string</i><br>
         <b>Vdialog</b>(channel number,variable number)=value<br>
         value=<b>Vdialog</b>(channel number,variable number)</p>
@@ -264,7 +264,7 @@ X> Do
         The active channel number is selected, followed by the number of the variable you are
         interested in. The value refers to the new integer value that has been selected for this variable.</p>
 
-    <h3 id="fn-vdialog-dollar">VDIALOG$</h3>
+    <h3 class="command" id="fn-vdialog-dollar">VDIALOG$</h3>
     <p><i>function: assign or read an Interface value</i><br>
         <b>Vdialog$</b>(channel number,variable number)=string$<br>
         string$=<b>Vdialog$</b>(channel number,variable number)</p>
@@ -516,7 +516,7 @@ X> position=RDIALOG(channel number,zone number)
         from the AMOS Professional main program. A simple function is provided for transferring
         complete arrays into an Interface routine.</p>
 
-    <h3 id="fn-array">ARRAY</h3>
+    <h3 class="command" id="fn-array">ARRAY</h3>
     <p><i>function: load the address of an array into a program</i><br>
         address=<b>ARRAY</b>(list$(0))</p>
 
@@ -864,7 +864,7 @@ Slider      Changes the "total" parameter
 </pre>
 
 
-    <h3 id="i-dialog-freeze">DIALOG FREEZE</h3>
+    <h3 class="command" id="i-dialog-freeze">DIALOG FREEZE</h3>
     <p><i>instruction: stop dialogue channel input</i><br>
         <b>Dialog Freeze</b> [channel number]</p>
 
@@ -873,7 +873,7 @@ Slider      Changes the "total" parameter
         number of a single dialogue routine that is to be suspended is specified in square brackets. If this
         number is omitted all current channels will be frozen.</p>
 
-    <h3 id="i-dialog-unfreeze">DIALOG UNFREEZE</h3>
+    <h3 class="command" id="i-dialog-unfreeze">DIALOG UNFREEZE</h3>
     <p><i>instruction: re-activate a frozen dialogue channel</i><br>
         <b>Dialog Unfreeze</b> [channel number]</p>
 
@@ -881,7 +881,7 @@ Slider      Changes the "total" parameter
         Use this instruction to re-activate one or more dialogue channels from the point at which they
         were frozen.</p>
 
-    <h3 id="i-dialog-clr">DIALOG CLR</h3>
+    <h3 class="command" id="i-dialog-clr">DIALOG CLR</h3>
     <p><i>instruction: clear a dialogue box</i><br>
         <b>Dialog Clr</b> channel number</p>
 

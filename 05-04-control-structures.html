@@ -31,7 +31,7 @@
         decisions. They are usually known as control structures. This Chapter explains how AMOS Professional
         takes (lie best of these traditions and uses them to give your Amiga a logical brain.</P>
 
-    <h3 id="str-goto">GOTO</h3>
+    <h3 class="command" id="str-goto">GOTO</h3>
     <p><i>structure: jump to a specified place in the program</i><BR>
         <b>Goto</b> label<BR>
         <b>Goto</b> line number<BR>
@@ -88,7 +88,7 @@ E&gt; BEGIN:
    Goto BEGIN
 </pre>
 
-    <h3 id="str-gosub">GOSUB</h3>
+    <h3 class="command" id="str-gosub">GOSUB</h3>
     <p><i>structure: jump to a sub-routine</i><BR>
         <b>Gosub</b> label<BR>
         <b>Gosub</b> number<BR>
@@ -110,7 +110,7 @@ E&gt; BEGIN:
         the main program, which prevents AMOS Professional from executing any GOSUBs after the
         main program has finished.</P>
 
-    <h3 id="i-return">RETURN</h3>
+    <h3 class="command" id="i-return">RETURN</h3>
     <p><i>instruction: return from a sub-routine called by GOSUB</i><BR>
         <b>Return</b></P>
 
@@ -133,7 +133,7 @@ E&gt; Print "I am the main program"
    Return
 </pre>
 
-    <h3 id="i-pop">POP</h3>
+    <h3 class="command" id="i-pop">POP</h3>
     <p><i>instruction: remove RETURN information</i><BR>
         <b>Pop</b></P>
 
@@ -206,7 +206,7 @@ E&gt; If NIGHT=DAY And NIGHT&lt;&gt;12 Then Goto BED
 E&gt; If NIGHT&lt;DAY Or NIGHT=12 Then Edit
 </pre>
 
-    <h3 id="str-else">ELSE</h3>
+    <h3 class="command" id="str-else">ELSE</h3>
     <p><i>structure: qualify a condition</i><BR>
         <b>If</b> condition <b>Then</b> statement1 <b>Else</b> statement2</P>
 
@@ -238,7 +238,7 @@ X&gt; If NIGHT=1 Then BED: Rem This looks for a BED procedure
 <section id="02-structured-tests">
     <h2>Structured tests</h2>
 
-    <h3 id="str-end-if">END IF</h3>
+    <h3 class="command" id="str-end-if">END IF</h3>
     <p><i>structure: terminate a structured test</i><BR>
         <b>If</b> structured test <b>End If</b></P>
 
@@ -275,7 +275,7 @@ E&gt; Input "Type values A,B and C: ";A,B,C
     <P>Note how each IF statement must be paired with a single END IF to inform AMOS
         Professional exactly which group of instructions is to be executed inside the test.</P>
 
-    <h3 id="str-else-if">ELSE IF</h3>
+    <h3 class="command" id="str-else-if">ELSE IF</h3>
     <p><i>structure: allow multiple structured tests</i><BR>
         <b>If</b> condition <b>Else If</b> multiple conditions ... <b>Else</b> statement <b>End If</b></P>
 
@@ -330,7 +330,7 @@ X&gt; If A=1 : Print "A=1" : Else If A=2 : Print "A=2" : Else : Print "Something
         of -1 is used to represent TRUE, and the value of 0 is used to represent FALSE. A value of either
         -1 (True) or 0 (False) is produced every time a test is made to satisfy a condition.</P>
 
-    <h3 id="str-not">NOT</h3>
+    <h3 class="command" id="str-not">NOT</h3>
     <p><i>structure: toggle binary digits</i><BR>
         value=<b>Not</b> digits</P>
 
@@ -344,7 +344,7 @@ E&gt; Print Bin$(Not%11110000,8)
     <P>Since -1 (True) can be expressed in binary as %1111111111111111, then NOT TRUE must be
         equal to FALSE, and a logical NOT operation is achieved.</P>
 
-    <h3 id="str-swap">SWAP</h3>
+    <h3 class="command" id="str-swap">SWAP</h3>
     <p><i>structure: swap the contents of two variables</i><BR>
         <b>Swap</b> a,b<BR>
         <b>Swap</b> a#,b#<BR>
@@ -416,7 +416,7 @@ E&gt; Do
    Print "And I am outside both loops!"
 </pre>
 
-    <h3 id="str-exit-if">EXIT IF</h3>
+    <h3 class="command" id="str-exit-if">EXIT IF</h3>
     <p><i>structure: exit from a loop depending on a test</i><BR>
         <b>Exit If</b> expression<BR>
         <b>Exit If</b> expression,number</P>
@@ -533,7 +533,7 @@ E&gt; For X=1 To 7
    Next X
 </pre>
 
-    <h3 id="str-step">STEP</h3>
+    <h3 class="command" id="str-step">STEP</h3>
     <p><i>structure: control increment of index in a loop</i><BR>
         <b>For</b> index=first number <b>To</b> last number <b>Step</b> size</P>
 
@@ -565,7 +565,7 @@ E&gt; For DAY=1 To 365 Step 7
         particular variable is recognised, in other words, regardless of any other conditions. GOTO and
         GOSUB are examples of a "forced" jump.</P>
 
-    <h3 id="str-on">ON</h3>
+    <h3 class="command" id="str-on">ON</h3>
     <p><i>structure: jump on recognising a variable</i><BR>
         <b>On</b> variable <b>Proc</b> list of procedures<BR>
         <b>On</b> variable <b>Goto</b> list of numbered lines or labels<BR>
@@ -640,7 +640,7 @@ E&gt; On X Goto LABEL3,LABEL2,LABEL1
         explained in the relevant sections of the Procedures and Error Handling Chapters of this
         User Guide.</P>
 
-    <h3 id="i-every">EVERY</h3>
+    <h3 class="command" id="i-every">EVERY</h3>
     <p><i>instruction: call subroutine or procedure at regular intervals</i><BR>
         <b>Every</b> time <b>Gosub</b> label<BR>
         <b>Every</b> time <b>Proc</b> name</P>
@@ -686,7 +686,7 @@ E&gt; Every 50 Proc TEST
 <section id="07-handling-data">
     <h2>Handling data</h2>
 
-    <h3 id="str-data">DATA</h3>
+    <h3 class="command" id="str-data">DATA</h3>
     <p><i>structure: place a list of data items in a program</i><BR>
         <b>Data</b> list</P>
 
@@ -741,7 +741,7 @@ E&gt; EXAMPLE
    End Proc
 </pre>
 
-    <h3 id="str-read">READ</h3>
+    <h3 class="command" id="str-read">READ</h3>
     <p><i>structure: read data into a variable</i><BR>
         <b>Read</b> list</P>
 
@@ -763,7 +763,7 @@ E&gt; N=Rnd(100)
    Data "Text string",100,N,"AMOS"+"Professional"
 </pre>
 
-    <h3 id="str-restore">RESTORE</h3>
+    <h3 class="command" id="str-restore">RESTORE</h3>
     <p><i>structure: set the current READ pointer</i><BR>
         <b>Restore</b> Label<BR>
         <b>Restore</b> LABEL$<BR>

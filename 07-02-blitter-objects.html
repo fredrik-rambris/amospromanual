@@ -166,7 +166,7 @@ X> Curs Off: Flash Off : Cls 0
 <section id="02-general-bob-commands">
     <h2>General Bob Commands</h2>
 
-    <h3 id="i-bob-off">BOB OFF</h3>
+    <h3 class="command" id="i-bob-off">BOB OFF</h3>
     <p><i>instruction: remove a Bob from display</i><br>
         <b>Bob Off</b><br>
         <b>Bob Off</b> number</p>
@@ -184,11 +184,11 @@ X> Bob Off 1: Rem Remove Bob1 only
         The BOB OFF instruction also turns off any animation or collision routines associated with these
         Bobs.</p>
 
-    <h3 id="fn-x-bob">X BOB</h3>
+    <h3 class="command" id="fn-x-bob">X BOB</h3>
     <p><i>function: get x-coordinate of a Bob</i><br>
         x-coordinate=<b>X Bob</b>(number)</p>
 
-    <h3 id="fn-y-bob">Y BOB</h3>
+    <h3 class="command" id="fn-y-bob">Y BOB</h3>
     <p><i>function: get y-coordinate of a Bob</i><br>
         y-coordinate=<b>Y Bob</b>(number)</p>
 
@@ -222,7 +222,7 @@ E> Load "AMOSPro_Tutorial:Objects/Bobs.abk"
         is possible to loose track of the precise image currently displayed, so the next function has been
         supplied to rectify this.</p>
 
-    <h3 id="fn-i-bob">I BOB</h3>
+    <h3 class="command" id="fn-i-bob">I BOB</h3>
     <p><i>function: get image number used by a Bob</i><br>
         image=<b>IBob</b>(number)</p>
 
@@ -246,7 +246,7 @@ E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
    Loop
 </pre>
 
-    <h3 id="i-get-bob-palette">GET BOB PALETTE</h3>
+    <h3 class="command" id="i-get-bob-palette">GET BOB PALETTE</h3>
     <p><i>instruction: load image colours into current screen</i><br>
         <b>Get Bob Palette</b><br>
         <b>Get Bob Palette</b> mask</p>
@@ -267,7 +267,7 @@ X> Get Bob Palette %0000000000001111
 <section id="03-unmasking-bobs">
     <h2>Unmasking Bobs</h2>
 
-    <h3 id="i-no-mask">NO MASK</h3>
+    <h3 class="command" id="i-no-mask">NO MASK</h3>
     <p><i>instruction: remove colour zero mask from Bob</i><br>
         <b>No Mask</b> number</p>
     <b>No Mask</b> number</p>
@@ -304,11 +304,11 @@ X> Get Bob Palette %0000000000001111
         AMOS Professional allows changes in the priority system to suit your needs, this first system
         offers an alternative based not on Bob numbers, but on the position of Bobs on the screen.</p>
 
-    <h3 id="i-priority-on">PRIORITY ON</h3>
+    <h3 class="command" id="i-priority-on">PRIORITY ON</h3>
     <p><i>instruction: set Bob priority to highest y-coordinate</i><br>
         <b>Priority On</b></p>
 
-    <h3 id="i-priority-off">PRIORITY OFF</h3>
+    <h3 class="command" id="i-priority-off">PRIORITY OFF</h3>
     <p><i>instruction: set Bob priority to default status</i><br>
         <b>Priority Off</b></p>
 
@@ -318,11 +318,11 @@ X> Get Bob Palette %0000000000001111
         perspective effects can be created. All that is needed to re-set the original Bob number priorities
         is to use the PRIORITY OFF command.</p>
 
-    <h3 id="i-priority-reverse-on">PRIORITY REVERSE ON</h3>
+    <h3 class="command" id="i-priority-reverse-on">PRIORITY REVERSE ON</h3>
     <p><i>instruction: toggle on Reverse Priority of Bobs</i><br>
         <b>Priority Reverse On</b></p>
 
-    <h3 id="i-priority-reverse-off">PRIORITY REVERSE OFF</h3>
+    <h3 class="command" id="i-priority-reverse-off">PRIORITY REVERSE OFF</h3>
     <p><i>instruction: toggle off Reverse Priority of Bobs</i><br>
         <b>Priority Reverse Off</b></p>
 
@@ -338,7 +338,7 @@ X> Get Bob Palette %0000000000001111
     <h2>Bobs and screens</h2>
     <p>AMOS Professional offers a full range of commands to allow Bobs and screens to interact.</p>
 
-    <h3 id="i-limit-bob">LIMIT BOB</h3>
+    <h3 class="command" id="i-limit-bob">LIMIT BOB</h3>
     <p><i>instruction: limit Bob to part of screen</i><br>
         <b>Limit Bob</b> x1 ,y1 <b>To</b> x2,y2<br>
         <b>Limit Bob</b> number,x1,y1 <b>To</b> x2,y2<br>
@@ -368,7 +368,7 @@ X> Limit Bob 1,10,0 To 320,100
 X> Limit Bob
 </pre>
 
-    <h3 id="i-double-buffer">DOUBLE BUFFER</h3>
+    <h3 class="command" id="i-double-buffer">DOUBLE BUFFER</h3>
     <p><i>instruction: activate Double Buffering system</i><br>
         <b>Double Buffer</b></p>
 
@@ -422,7 +422,7 @@ X> Limit Bob
         including a DOUBLE BUFFER command, screens are switched <b>after</b> the drawing process is
         complete, and as explained above, the process is completely automatic.</p>
 
-    <h3 id="i-get-bob">GET BOB</h3>
+    <h3 class="command" id="i-get-bob">GET BOB</h3>
     <p><i>instruction: grab an image from part of screen</i><br>
         <b>Get Bob</b> image,x1,x2 <b>To</b> x2,y2<br>
         <b>Get Bob</b> screen number,image,x1,y1 <b>To</b> x2,y2</p>
@@ -474,7 +474,7 @@ E> Double Buffer : Flash Off : Curs Off
    Loop
 </pre>
 
-    <h3 id="i-put-bob">PUT BOB</h3>
+    <h3 class="command" id="i-put-bob">PUT BOB</h3>
     <p><i>instruction: put a fixed copy of a Bob on screen</i><br>
         <b>Put Bob</b> number</p>
 
@@ -490,7 +490,7 @@ E> Double Buffer : Flash Off : Curs Off
         buffered screens, it is not particularly useful, and PASTE BOB is recommended as the preferred
         command. Please see below.</p>
 
-    <h3 id="i-paste-bob">PASTE BOB</h3>
+    <h3 class="command" id="i-paste-bob">PASTE BOB</h3>
     <p><i>instruction: draw an image from Object Bank</i><br>
         <b>Paste Bob</b> x,y,image</p>
 
@@ -531,7 +531,7 @@ E> Flash Off : Curs Off : Cis 0
 <section id="06-bob-bank-commands">
     <h2>Bob Bank Commands</h2>
 
-    <h3 id="i-del-bob">DEL BOB</h3>
+    <h3 class="command" id="i-del-bob">DEL BOB</h3>
     <p><i>instruction: delete an image from the Object Bank</i><br>
         <b>Del Bob</b> number<br>
         <b>Del Bob</b> first <b>To</b> last</p>
@@ -564,7 +564,7 @@ X> Del Bob 4 To 7
         After the last image has been deleted from the Object Bank, the entire Bank is erased automatically.</p>
 
 
-    <h3 id="i-ins-bob">INS BOB</h3>
+    <h3 class="command" id="i-ins-bob">INS BOB</h3>
     <p><i>instruction: insert a blank Bob image into the Object bank</i><br>
         <b>Ins Bob</b> number<br>
         <b>Ins Bob</b> first <b>To</b> last</p>
@@ -607,7 +607,7 @@ X> Del Bob 4 To 7
         to display the same image in different orientations, so that a character can be mirrored and
         turned upside down, simply by flipping its image.</p>
 
-    <h3 id="fn-hrev">HREV</h3>
+    <h3 class="command" id="fn-hrev">HREV</h3>
     <p><i>function: flip an image horizontally</i><br>
         new number=<b>Hrev</b>(image number)</p>
 
@@ -667,7 +667,7 @@ X> "Anim 0,($8001,2)($8002,2)($8003,2)($8004,2)"
         the way your image is displayed on screen. Be careful to position your hot spots sensibly, or
         avoid any risks by setting them centrally, using the appropriate HOT SPOT command.</p>
 
-    <h3 id="fn-vrev">VREV</h3>
+    <h3 class="command" id="fn-vrev">VREV</h3>
     <p><i>function: flip an image vertically</i><br>
         new number=<b>Vrev</b>(image number)</p>
 
@@ -693,7 +693,7 @@ X> "Anim 0,($4000+1,2)($4000+2,2)($4000+3,2)($4000+4,2)"
 X> "Anim 0,($4001,2)($4002,2)($4003,2)($4004,2)"
 </pre>
 
-    <h3 id="fn-rev">REV</h3>
+    <h3 class="command" id="fn-rev">REV</h3>
     <p><i>function: double-flip an image vertically and horizontally</i><br>
         new number=<b>Rev</b>(image number)</p>
 
