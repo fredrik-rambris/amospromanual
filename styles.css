@@ -63,3 +63,41 @@ div#cover {
     height: auto;
     border: none;
 }
+
+code {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+}
+
+code.prefix {
+    margin-left: 2rem;
+    margin-top: -1rem;
+}
+
+code.prefix::before {
+    display: inline;
+    font-family: monospace;
+    font-weight: normal;
+    position: relative;
+    left: -2rem;
+    top: 1.4rem;
+}
+
+code.edit::before {
+    content: "E>";
+}
+
+code.disc::before {
+    content: "DP>";
+}
+
+
+code.direct::before {
+    content: "D>";
+}
+
+code.ex::before {
+    content: "X>";
+}
+

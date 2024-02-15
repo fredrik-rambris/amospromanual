@@ -112,6 +112,7 @@ X> Exec "RexxMast"
 <section id="02-arexx-compatible-instructions">
     <h2>AREXX-Compatible Instructions</h2>
 
+    <h3 class="command" id="i-arexx-open">AREXX OPEN</h3>
     <p>
         <i>instruction: open an AREXX communication port</i><br>
         <b>Arexx</b> Open "PORT_NAME"</p>
@@ -160,14 +161,14 @@ X> Exec "RexxMast"
         AREXX is activated, it opens up two communications ports "AREXX" and "REXX", so the
         following example can be used for a test:</p>
 
-    <pre>
-E> If Arexx Exist("REXX")=0
-    Trap Exec "RexxMast" : Rem Load AREXX and trap an error
-    If Arexx Exist ("REXX")=0
-     Print "Sorry, AREXX cannot be opened!"
-    Endif
-   Endif
-</pre>
+<code class="prefix edit">
+If Arexx Exist("REXX")=0
+ Trap Exec "RexxMast" : Rem Load AREXX and trap an error
+ If Arexx Exist ("REXX")=0
+  Print "Sorry, AREXX cannot be opened!"
+ Endif
+Endif
+</code>
 
     <h3 class="command" id="i-arexx-wait">AREXX WAIT</h3>
     <p><i>instruction: wait for a message from an AREXX program</i><br>
@@ -195,14 +196,14 @@ E> If Arexx Exist("REXX")=0
         must be answered immediately with an appropriate return string. This function can be used in a
         loop, as an alternative to the AREXX WAIT command. For example:</p>
 
-    <pre>
-X> Do
-    If Arexx
-     Print "A message is waiting!"
-    Endif
-    Multi Wait
-   Loop
-</pre>
+<code class="prefix ex">
+Do
+  If Arexx
+   Print "A message is waiting!"
+  Endif
+  Multi Wait
+Loop
+</code>
 
     <h3 class="command" id="fn-arexx-dollar">AREXX$</h3>
     <p><i>function: get a message from an AREXX program</i><br>
