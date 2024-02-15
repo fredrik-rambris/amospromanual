@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!--
-       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       This AMOS Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
        Created 2008. :)
 
        It was created from the original AMOS Professional Manual by Europress Software Ltd.
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="keywords" content="AMOS Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
     <meta name="author" content="asymetrix,Fredrik Rambris">
     <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -138,7 +138,7 @@ Fast Data         constant fast data              Permanent         Fast        
         discarded when the listing is saved onto disc. A quick check can be made to see if the data area
         has been successfully assigned to fast memory, using the FAST FREE function, like this:</p>
 
-<code class="prefix edit">M=Fast Free : Rem Give the amount of available FAST memory
+<code class="prefix edit">M=Fast Free : <comment>Rem Give the amount of available FAST memory</comment>
 Reserve As Work 10,1000
 If M<>Fast Free
   Print "The Data has been stored in FAST Ram"
@@ -173,9 +173,9 @@ Print "Remaining Chip memory = ";CF;" bytes."
         used with the DOUBLE BUFFERED sampling system, to play samples directly from hard disc.
         Here are some typical examples of the different RESERVE AS commands:</p>
 
-<code class="prefix ex">Reserve As Chip Work 10,10000: Rem 10000 bytes of chip workspace to bank 10
-Reserve As Work 11,5000: Rem 5000 bytes of fast workspace to bank 11
-Reserve As Chip Data 12,2000 : Rem 2000 bytes of permanent chip data to bank 12
+<code class="prefix ex">Reserve As Chip Work 10,10000: <comment>Rem 10000 bytes of chip workspace to bank 10</comment>
+Reserve As Work 11,5000: <comment>Rem 5000 bytes of fast workspace to bank 11</comment>
+Reserve As Chip Data 12,2000 : <comment>Rem 2000 bytes of permanent chip data to bank 12</comment>
 Reserve as Data 13,1000 : <comment>Rem 1000 bytes of fast data to bank 13</comment>
 </code>
 </section>
@@ -207,23 +207,23 @@ Reserve as Data 13,1000 : <comment>Rem 1000 bytes of fast data to bank 13</comme
     <p>Here is an example of an instant image-bank generator:</p>
 
     <pre>
-E> N=1 : Rem Set number of first new image to create
-   S=1 : Rem Set size of image*16
-   Rem Create images in bank one
+E> N=1 : <comment>Rem Set number of first new image to create</comment>
+   S=1 : <comment>Rem Set size of image*16</comment>
+   <comment>Rem Create images in bank one</comment>
    For G=0 To 4
-    Rem Draw the images
+    <comment>Rem Draw the images</comment>
     Ink G+1 : Circle S*7,S*7,S*7 : Paint S*8,S*8
     Ink 0: Ellipse S*4,S*5,S*1,5*2 : Paint S*4,S*5
     Ellipse S*1 0,S*5,S,S*2 : Paint S*10,S*5
     Ellipse S*7,S*10,S*5,S*3 : Ellipse S*7,S*9,S*4,S : Paint S*1 1,S*1
     Ink G+1 : Bar S*3,S*7 To S*13,S*9
-    Rem Now grab them as Objects
+    <comment>Rem Now grab them as Objects</comment>
     Get Bob G+N,0,0 To S*16-1 ,S*16-1
-    Rem Clear them from the screen
+    <comment>Rem Clear them from the screen</comment>
     Cls 0,0,0 To S*16,S*16
   Next G
   F$=Fsel$("*.Abk"," ","Save your images")
-  Rem Save Objects in bank 1
+  <comment>Rem Save Objects in bank 1</comment>
   If F$<>0
    Save F$,1
   End If
@@ -250,7 +250,7 @@ E> N=1 : Rem Set number of first new image to create
 
     <p>These identifiers can be very useful when employed with certain instructions, as follows:</p>
 
-<code class="prefix edit">Rem Load an Object bank from current disc
+<code class="prefix edit"><comment>Rem Load an Object bank from current disc</comment>
 Load Fsel$("*.Abk"," ","Load an Object bank")
 List Bank : <comment>Rem List bank details on screen</comment>
 </code>
@@ -279,7 +279,7 @@ List Bank : <comment>Rem List bank details on screen</comment>
         on disc. For example:</p>
 
     <pre>
-Bsave "Test",Start(5) To Start(5)+Length(5) : Rem Save memory bank 5
+Bsave "Test",Start(5) To Start(5)+Length(5) : <comment>Rem Save memory bank 5</comment>
 </pre>
 
     <p>
@@ -328,7 +328,7 @@ Bsave "Test",Start(5) To Start(5)+Length(5) : Rem Save memory bank 5
         The ERASE command clears the memory space used by the specified bank number, and returns
         this memory to the main program, for future use. For example:</p>
 
-<code class="prefix edit">Reserve as Chip Work 5,1000: Rem Reserve temporary work bank 5
+<code class="prefix edit">Reserve as Chip Work 5,1000: <comment>Rem Reserve temporary work bank 5</comment>
 Print "Free Chip Memory = ";Chip Free
 Wait Key
 Erase 5
@@ -365,9 +365,9 @@ Print "There is now ";Chip Free; "available bytes."
         permanent data banks used for holding Sprites, music or samples will be completely unaffected.
         For example:</p>
 
-<code class="prefix edit">Reserve As Data 5,1000: Rem Reserve 1000 bytes of permanent data
-Reserve As Work 6,1000: Rem Reserve 1000 bytes of temporary workspace
-Reserve As Chip Work 7,2000: Rem Reserve 2000 bytes of chip memory
+<code class="prefix edit">Reserve As Data 5,1000: <comment>Rem Reserve 1000 bytes of permanent data</comment>
+Reserve As Work 6,1000: <comment>Rem Reserve 1000 bytes of temporary workspace</comment>
+Reserve As Chip Work 7,2000: <comment>Rem Reserve 2000 bytes of chip memory</comment>
 Erase Temp
 List Bank
 </code>
@@ -385,10 +385,10 @@ List Bank
         This feature is very useful if you create a bank by poking it into memory, and wish to save it
         with a more suitable size. For example:</p>
 
-<code class="prefix edit">Reserve As Data 10,1000000: Rem Very large bank
-Poke$ Start(10)-8,"My Bank" : Rem Rename bank 8 bytes
-Poke$ Start(10),"This is a small bank!" : Rem Poke some data
-Bank Shrink 10 To 100: Rem Shrink bank to 100 bytes
+<code class="prefix edit">Reserve As Data 10,1000000: <comment>Rem Very large bank</comment>
+Poke$ Start(10)-8,"My Bank" : <comment>Rem Rename bank 8 bytes</comment>
+Poke$ Start(10),"This is a small bank!" : <comment>Rem Poke some data</comment>
+Bank Shrink 10 To 100: <comment>Rem Shrink bank to 100 bytes</comment>
 Save "My_Bank.Abk",10
 </code>
 </section>
@@ -414,8 +414,8 @@ Save "My_Bank.Abk",10
         example, it can be used to instantly flick between the images in an Icon bank and an Object
         bank, like this:</p>
 
-<code class="prefix ex">Load "Objects.Abk" : Rem Please use your own filename
-Load "Icons.Abk" : Rem Select appropriate filename
+<code class="prefix ex">Load "Objects.Abk" : <comment>Rem Please use your own filename</comment>
+Load "Icons.Abk" : <comment>Rem Select appropriate filename</comment>
 Bank Swap 1,2 : <comment>Rem Banks 1 and 2 normally used for Sprites and Icons</comment>
 </code>
 
@@ -473,7 +473,7 @@ Bank Swap 1,2 : <comment>Rem Banks 1 and 2 normally used for Sprites and Icons</
 
     <p>A value of zero is returned for any bank that has not been defined. For example:</p>
 
-<code class="prefix edit">Load Fsel$("*.Abk"," ","Load an Object bank") : Rem Bank 1
+<code class="prefix edit">Load Fsel$("*.Abk"," ","Load an Object bank") : <comment>Rem Bank 1</comment>
 Print "There are ";Length(1);" images available."
 </code>
 
@@ -491,7 +491,7 @@ Print "There are ";Length(1);" images available."
         error report. This can be avoided by checking the status of a bank with the LENGTH function,
         like this:</p>
 
-<code class="prefix edit">If Length(N)>0: Rem give N a suitable bank number
+<code class="prefix edit">If Length(N)>0: <comment>Rem give N a suitable bank number</comment>
  Print "Address of the bank is ";Start(N)
 Else
  Print "This bank does not exist!"
@@ -566,8 +566,8 @@ End If
         previous program before they are grabbed, and it should be noted that the name of the bank is
         located eight bytes before the BSTART address:</p>
 
-<code class="prefix ex">If Prg Under : Rem Check availability of a previous program
- For B=1 To 1000: Rem Check the first 1000 banks!
+<code class="prefix ex">If Prg Under : <comment>Rem Check availability of a previous program</comment>
+ For B=1 To 1000: <comment>Rem Check the first 1000 banks!</comment>
   If Blength(B)
    Print "Bank number:";B;" found. Name: ";Peek$(Bstart(B)-8,8)
    Bgrab B: Rem Grab the bank

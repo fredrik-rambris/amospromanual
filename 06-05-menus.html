@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!--
-       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       This AMOS Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
        Created 2008. :)
 
        It was created from the original AMOS Professional Manual by Europress Software Ltd.
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="keywords" content="AMOS Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
     <meta name="author" content="asymetrix,Fredrik Rambris">
     <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -88,10 +88,10 @@ Menu$(2)," Mouse"
         the menu, starting from 1. The option string holds the name of your new option, and can consist
         of any text you choose. The following lines could be added to the last example above:</p>
 
-<code class="prefix edit">Rem Action menu has one option
-Menu$(1,1)=" Quit " : Rem Ensure three spaces after Quit
-Rem Mouse menu has three options
-Menu$(2,1)="Arrow " : Rem Ensure five spaces after Arrow
+<code class="prefix edit"><comment>Rem Action menu has one option</comment>
+Menu$(1,1)=" Quit " : <comment>Rem Ensure three spaces after Quit</comment>
+<comment>Rem Mouse menu has three options</comment>
+Menu$(2,1)="Arrow " : <comment>Rem Ensure five spaces after Arrow</comment>
 Menu$(2,2)="Cross-hair"
 Menu$(2,3)="Clock " : <comment>Rem Ensure five spaces after Clock</comment>
 </code>
@@ -319,7 +319,7 @@ Loop
         single pair of brackets. These values represent the precise position of the item in the menu
         hierarchy to be deleted. For example:</p>
 
-<code class="prefix ex">Menu Del(1) : Rem Delete title number 1
+<code class="prefix ex">Menu Del(1) : <comment>Rem Delete title number 1</comment>
 Menu Del(1,2) : Rem Delete option 2 of title 1
 Menu Del(2,3,4) : <comment>Rem Delete sub-option 4 of option 3 of title 2</comment>
 </code>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!--
-       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       This AMOS Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
        Created 2008. :)
 
        It was created from the original AMOS Professional Manual by Europress Software Ltd.
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="keywords" content="AMOS Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
     <meta name="author" content="asymetrix,Fredrik Rambris">
     <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -102,9 +102,9 @@
         sequences. It is vital to include all commas in their normal positions if coordinate values are
         omitted, or a syntax error will be reported. For example:</p>
 
-<code class="prefix direct">Bob 1,160,100,1 : Rem Position Bob 1 at 160,100 using image1
-Bob 1,,150,1 : Rem Move Bob 1 down 50 pixels
-Bob 1,110,,1 : Rem Move Bob 1 50 pixels left
+<code class="prefix direct">Bob 1,160,100,1 : <comment>Rem Position Bob 1 at 160,100 using image1</comment>
+Bob 1,,150,1 : <comment>Rem Move Bob 1 down 50 pixels</comment>
+Bob 1,110,,1 : <comment>Rem Move Bob 1 50 pixels left</comment>
 Bob 1,,,2 : <comment>Rem Display new image 2 at Bob 1 current position</comment>
 </code>
 
@@ -166,7 +166,7 @@ Bob 1,,,2 : <comment>Rem Display new image 2 at Bob 1 current position</comment>
         Use this command to remove all Bobs from the screen simultaneously. If a Bob number is
         specified, only that Bob will be extinguished. For example:</p>
 
-<code class="prefix ex">Bob Off 1: Rem Remove Bob1 only
+<code class="prefix ex">Bob Off 1: <comment>Rem Remove Bob1 only</comment>
 Bob Off : <comment>Rem Remove all Bobs from screen</comment>
 </code>
 
@@ -191,15 +191,15 @@ Bob Off : <comment>Rem Remove all Bobs from screen</comment>
         spot of the current image. For example:</p>
 
 <code class="prefix edit">Load "AMOSPro_Tutorial:Objects/Bobs.abk"
-Curs Off : Cls 0: Rem Set up screen
-Flash Off : Get Bob Palette : Rem Grab Bob colours from image bank
-Double Buffer : Rem Engage double buffering
-Autoback 1: Rem Engage fast drawing mode
+Curs Off : Cls 0: <comment>Rem Set up screen</comment>
+Flash Off : Get Bob Palette : <comment>Rem Grab Bob colours from image bank</comment>
+Double Buffer : <comment>Rem Engage double buffering</comment>
+Autoback 1: <comment>Rem Engage fast drawing mode</comment>
 Do
- Rem Move Bob1 with mouse
- Rem Convert hardware coords to screen coords
+ <comment>Rem Move Bob1 with mouse</comment>
+ <comment>Rem Convert hardware coords to screen coords</comment>
  Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),1
- Rem Print new location on screen
+ <comment>Rem Print new location on screen</comment>
  Locate 0,0 : Print X Bob(1);" ";Y Bob(1);" ";
 Loop
 </code>
@@ -222,7 +222,7 @@ Loop
 
 <code class="prefix edit">Load "AMOSPro Tutorial:Objects/Bobs.abk"
 Flash Off : Get Bob Palette : Double Buffer : Autoback 0
-Bob 1,160,100,1: Rem Display Bob 1 at centre of screen
+Bob 1,160,100,1: <comment>Rem Display Bob 1 at centre of screen</comment>
 Do
  For IMAGE=1 To Length(1) : Rem Create simple animation
   Rem Move Bob 1 with the mouse

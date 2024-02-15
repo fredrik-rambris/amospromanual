@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!--
-       This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+       This AMOS Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
        Created 2008. :)
 
        It was created from the original AMOS Professional Manual by Europress Software Ltd.
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="keywords" content="AMOS Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
     <meta name="author" content="asymetrix,Fredrik Rambris">
     <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -50,7 +50,7 @@
 
 <code class="prefix edit">Print "Jump in two seconds" : Wait 100
 Goto LABEL_MARKER
-Wait 180000 : Rem Wait one hour
+Wait 180000 : <comment>Rem Wait one hour</comment>
 LABEL_MARKER:
 Print "Now is the time to jump!"
 </code>
@@ -147,7 +147,7 @@ Return
 Loop
 HERE:
 Print "I've just popped out!"
-Direct : Rem No risk of accidental subroutine
+Direct : <comment>Rem No risk of accidental subroutine</comment>
 THERE:
 Print "Hello There!"
 If Mouse Key Then Pop : Goto HERE
@@ -213,7 +213,7 @@ WATCHMAKER:
         jump to a label or a numbered line, otherwise the label will be treated as a procedure
         name and it could possibly generate an error. For example:</P>
 
-<code class="prefix ex">If NIGHT=1 Then Goto BED: Rem This is perfect</code>
+<code class="prefix ex">If NIGHT=1 Then Goto BED: <comment>Rem This is perfect</comment></code>
 <br>
 <code class="prefix ex">If NIGHT=1 Then BED: <comment>Rem This looks for a BED procedure</comment></code>
 
@@ -742,7 +742,7 @@ Data "Last"
 </code>
 
     <p>
-        Each Amos Professional procedure has its own individual data pointer, so any calls to
+        Each AMOS Professional procedure has its own individual data pointer, so any calls to
         the command will apply to the current procedure only.</p>
 
     <p>

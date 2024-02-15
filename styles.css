@@ -119,3 +119,12 @@ code.ex::before {
 section h2 {
     margin-top: 4rem;
 }
+
+blockquote {
+    margin-bottom: 3rem;
+}
+
+blockquote cite {
+    text-align: right;
+    display: block;
+}
