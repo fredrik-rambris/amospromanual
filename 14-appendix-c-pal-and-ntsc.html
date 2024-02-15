@@ -91,10 +91,9 @@
         television or monitor. To be safe, 56 lines should be subtracted, giving the actual working screen
         height. For example:</p>
 
-    <pre>
-E> Screen Open 0,320,Display Height-56,16,Lowres
-   Print Display Height
-</pre>
+<code class="prefix edit">Screen Open 0,320,Display Height-56,16,Lowres
+Print Display Height
+</code>
 </section>
 
 <section id="04-screen-updating-and-running-speeds">
@@ -104,11 +103,10 @@ E> Screen Open 0,320,Display Height-56,16,Lowres
         Professional! If you want your programs to work at the same speed in either mode, special
         action has to be taken. Look at this routine:</p>
 
-    <pre>
-E> For T=0 To 60*50
-    Wait Vbl
-   Next T
-</pre>
+<code class="prefix edit">For T=0 To 60*50
+ Wait Vbl
+Next T
+</code>
 
     <p>
         Accounting for the difference in updating speeds, that last example delays a program for exactly
@@ -174,13 +172,12 @@ E> For T=0 To 60*50
         machine is identified. The following example gives an idea of its use, and similar routines are
         essential for professional releases aimed at an international audience:</p>
 
-    <pre>
-E> If Ntsc=0
-    Print "Sorry, PAL version only!"
-    Print "NTSC version coming soon!"
-    End
-   End If
-</pre>
+<code class="prefix edit">If Ntsc=0
+ Print "Sorry, PAL version only!"
+ Print "NTSC version coming soon!"
+ End
+End If
+</code>
 </section>
 
 <section id="06-dual-mode-programs">
@@ -192,15 +189,14 @@ E> If Ntsc=0
         mode, you are recommended to save the screen height and position as global variables, which
         may be set at the start of a program, as follows:</p>
 
-    <pre>
-E> Global YSIZE,YPOSITION
-   YSIZE=256 : YPOSITION=49
-   If Ntsc
-    YSIZE=200 : YPOSITION=55
-   End If
-   Screen Open 0,320,YSIZE,16,Lowres
-   Screen Display 0,,YPOSITION,,
-</pre>
+<code class="prefix edit">Global YSIZE,YPOSITION
+YSIZE=256 : YPOSITION=49
+If Ntsc
+ YSIZE=200 : YPOSITION=55
+End If
+Screen Open 0,320,YSIZE,16,Lowres
+Screen Display 0,,YPOSITION,,
+</code>
 
     <p>
         NTSC users can easily provide their PAL cousins with a dormant screen area at the bottom of

@@ -77,35 +77,33 @@
         The following example loads up a bank of ready-made samples stored on your
         "AMOSPro Examples" disc, and allows you to play them in random order:</p>
 
-    <pre>
-E> Load "AMOSPro_Examples:Samples/Mixture.Abk",5
-   Sam Bank 5
-   Curs Off : Cls 0: Paper 0
-   Locate 0,10
-   Centre "Press a key from A to J"
-   Do
-    A$=Inkey$
-    A=Asc(A$)
-    If A>96 And A<107
-     Sam Play A-96
-    End If
-   Loop
-</pre>
+<code class="prefix edit">Load "AMOSPro_Examples:Samples/Mixture.Abk",5
+Sam Bank 5
+Curs Off : Cls 0: Paper 0
+Locate 0,10
+Centre "Press a key from A to J"
+Do
+ A$=Inkey$
+ A=Asc(A$)
+ If A>96 And A<107
+  Sam Play A-96
+ End If
+Loop
+</code>
 
     <p>
         You can try playing the keys rapidly, like a miniature drum kit, as well as holding down the
         keys to get some hammer-drill effects! The next example demonstrates the use of two voices for
         a simple echo effect, and how frequency changes can alter the sample:</p>
 
-    <pre>
-E> Load "AMOSPro_Examples:Samples/Mixture.Abk",10
-   Sam Bank 10
-   Sam Play 1,12 : Wait 5: Sam Play 2,12: Rem Simple echo effect
-   Wait Key
-   Sam Play 1,13,2000: Rem Lower Pitch
-   Wait Key
-   Sam Play 1,13,5000: Rem Higher Pitch
-</pre>
+<code class="prefix edit">Load "AMOSPro_Examples:Samples/Mixture.Abk",10
+Sam Bank 10
+Sam Play 1,12 : Wait 5: Sam Play 2,12: <comment>Rem Simple echo effect</comment>
+Wait Key
+Sam Play 1,13,2000: Rem Lower Pitch
+Wait Key
+Sam Play 1,13,5000: <comment>Rem Higher Pitch</comment>
+</code>
 
     <h3 class="command" id="i-sam-stop">SAM STOP</h3>
     <p><i>instruction: stop one or more samples playing</i><br>
@@ -118,16 +116,7 @@ E> Load "AMOSPro_Examples:Samples/Mixture.Abk",10
         are chosen using a binary bit-map, where any bit that is assigned to 1 will have the associated
         voice terminated. Otherwise it will be ignored. The voices are associated with the following bits:</p>
 
-    <pre>
-Voice 3210
-Bitmap %1111
-</pre>
-
-    <p>For example, the next line would stop samples playing on voices 3 and 1:</p>
-
-    <pre>
-X> Sam Stop %1010
-</pre>
+<code class="prefix ex">Sam Stop %1010</code>
 
 </section>
 
@@ -148,17 +137,16 @@ X> Sam Stop %1010
         samples used in one of the AMOS Professional example games, load the following file and listen
         to what is stored in the memory bank, using this routine:</p>
 
-    <pre>
-E> Load "AMOSPro_Productivity:Wonderland/Wonderland Samples.Abk"
-   Sam Bank 6
-   For A=1 To 5
-    Print "Sample number ";A
-    For B=1 To 3
-     Sam Play A
-     Wait 20
-    Next B
-   Next A
-</pre>
+<code class="prefix edit">Load "AMOSPro_Productivity:Wonderland/Wonderland Samples.Abk"
+Sam Bank 6
+For A=1 To 5
+ Print "Sample number ";A
+ For B=1 To 3
+  Sam Play A
+  Wait 20
+ Next B
+Next A
+</code>
 </section>
 
 <section id="03-playing-a-sample-from-memory">
@@ -184,12 +172,11 @@ E> Load "AMOSPro_Productivity:Wonderland/Wonderland Samples.Abk"
 
     <p>A typical raw sample command looks like this:</p>
 
-    <pre>
-E> Reserve as work 10,21480
-   R$="AMOSPro_Examples:Samples/Mixture.Abk"
-   Bload R$,Start(10)
-   Sam Raw 15,Start(10),length(10),3000
-</pre>
+<code class="prefix edit">Reserve as work 10,21480
+R$="AMOSPro_Examples:Samples/Mixture.Abk"
+Bload R$,Start(10)
+Sam Raw 15,Start(10),length(10),3000
+</code>
 
 
     <p><b>SAM LOOP ON</b><br>
@@ -337,11 +324,10 @@ Bitmap %1111
         command before it can be used, which will start off the physical sample and set up the playback
         speed for the entire sample of sound. For example:</p>
 
-    <pre>
-X> Sam Raw %0011,Start(5),20000,12000 : Rem 12000 is the playback speed
-   Rem Swap the samples assigned to voices 0 and 1 using data in bank 6
-   Sam Swap %0011,Start(6),20000 : Rem 20000 is the length of logical sample
-</pre>
+<code class="prefix ex">Sam Raw %0011,Start(5),20000,12000 : <comment>Rem 12000 is the playback speed</comment>
+<comment>Rem Swap the samples assigned to voices 0 and 1 using data in bank 6</comment>
+Sam Swap %0011,Start(6),20000 : <comment>Rem 20000 is the length of logical sample</comment>
+</code>
 
     <h3 class="command" id="fn-sam-swapped">SAM SWAPPED</h3>
     <p><i>function: test for successful sample swap</i><br>

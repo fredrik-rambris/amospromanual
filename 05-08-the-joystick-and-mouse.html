@@ -47,12 +47,11 @@
         interested in is plugged into the joystick port, the computer must be told to look at port number
         (1). If you are using the mouse port call that port number (0). For example:</p>
 
-    <pre>
-E> Do
-    J=Joy(1)
-    Print Bin$(J,5),J
+<code class="prefix edit">Do
+ J=Joy(1)
+ Print Bin$(J,5),J
 Loop
-</pre>
+</code>
 
     <p>When you run that routine, reports are given about the movements of the joystick and the
         status of the fire-button in the form of binary numbers. The pattern of ones and zeros in the
@@ -98,14 +97,13 @@ Loop
 
     <p>These functions can be demonstrated by the following example:</p>
 
-    <pre>
-E> Do
-    If Jleft(1) Then Print "WEST"
-    If Jright(1) Then Print "EAST"
-    If Jup(1) Then Print "NORTH"
-    If Jdown(1) Then Print "SOUTH"
-   Loop
-</pre>
+<code class="prefix edit">Do
+ If Jleft(1) Then Print "WEST"
+ If Jright(1) Then Print "EAST"
+ If Jup(1) Then Print "NORTH"
+ If Jdown(1) Then Print "SOUTH"
+Loop
+</code>
 
     <h3 class="command" id="fn-fire">FIRE</h3>
     <p><i>function: test status of fire-button</i><br>
@@ -115,13 +113,12 @@ E> Do
         followed by the joystick port number. A value of -1 will be given only if the fire-button on the
         relevant joystick has been pressed.</p>
 
-    <pre>
-E> Do
-    F=Fire(1)
-    If F=-1 Then Centre "BANG!": Shoot
-    Print
-   Loop
-</pre>
+<code class="prefix edit">Do
+ F=Fire(1)
+ If F=-1 Then Centre "BANG!": Shoot
+ Print
+Loop
+</code>
 </section>
 
 <section id="02-the-mouse-pointer">
@@ -151,14 +148,13 @@ E> Do
         To change the shape of the pointer arrow, use this command followed by the number of the
         required shape listed above. For example:</p>
 
-    <pre>
-E> Do
-    For N=1 To 3
-     Change Mouse N
-     Wait 25
-   Next N
+<code class="prefix edit">Do
+ For N=1 To 3
+  Change Mouse N
+  Wait 25
+Next N
   Loop
-</pre>
+</code>
 
     <p>There is no need to restrict your choice to these three shapes. If you select an image number
         greater than three, AMOS Professional will look at an image stored in the sprite bank, and install
@@ -180,9 +176,7 @@ E> Do
         command. If you prefer to keep the mouse pointer invisible all the time and ignore the counting
         system, use the special ON version of the instruction, like this:</p>
 
-    <pre>
-X> Hide On
-</pre>
+<code class="prefix ex">Hide On</code>
 
     <h3 class="command" id="i-show">SHOW</h3>
     <p><i>instruction: reveal the mouse pointer back on screen</i><br>
@@ -196,13 +190,12 @@ X> Hide On
         then reveals the pointer on screen when the number of SHOWs equals the number of HIDEs. To
         bypass this counting system and reveal the mouse pointer immediately, use SHOW ON.</p>
 
-    <pre>
-E> Do
-    For N=1 To 10
-     Hide : Wait N : Show
-    Next N
-   Loop
-</pre>
+<code class="prefix edit">Do
+ For N=1 To 10
+  Hide : Wait N : Show
+ Next N
+Loop
+</code>
 </section>
 
 <section id="03-reading-the-status-of-the-mouse">
@@ -221,23 +214,21 @@ E> Do
         movement is controlled by the mouse rather than by software, coordinates are given in
         hardware notation, which is demonstrated by the following example:</p>
 
-    <pre>
-E> Do
-    Print X Mouse
-   Loop
-</pre>
+<code class="prefix edit">Do
+ Print X Mouse
+Loop
+</code>
 
     <p>
         This can also be used to set a new coordinate position for the mouse pointer and move it to a
         specific position on the screen. This is done by assigning a value to X MOUSE as if it was a Basic
         variable. For example:</p>
 
-    <pre>
-E> For N=200 To 350
-    X Mouse=N
-    Print X Mouse
-   Next N
-</pre>
+<code class="prefix edit">For N=200 To 350
+ X Mouse=N
+ Print X Mouse
+Next N
+</code>
 
     <h3 class="command" id="resv-y-mouse">Y MOUSE</h3>
     <p><i>reserved variable: report or set the y-coordinate of the mouse pointer</i><br>
@@ -249,12 +240,11 @@ E> For N=200 To 350
         reposition the mouse pointer on screen, and it is employed in exactly the same way as X
         MOUSE.</p>
 
-    <pre>
-E> For N=150 To 300
-    X Mouse=N : Y Mouse=N/2
-    Print X Mouse : Print Y Mouse
-   Next N
-</pre>
+<code class="prefix edit">For N=150 To 300
+ X Mouse=N : Y Mouse=N/2
+ Print X Mouse : Print Y Mouse
+Next N
+</code>
 
     <h3 class="command" id="fn-mouse-key">MOUSE KEY</h3>
     <p><i>function: read status of mouse buttons</i><br>
@@ -275,13 +265,12 @@ Bit 2        Third mouse button if it exists
         As usual, the numbers zero and one make up the report, with a one displayed when the
         relevant button is held down, otherwise a zero is shown. Try this routine:</p>
 
-    <pre>
-E> Curs Off
-   Do
-    Locate 0,0
-    M= Mouse Key : Print "Bit Pattern ";Bin$(M,8);" Number ";M
-   Loop
-</pre>
+<code class="prefix edit">Curs Off
+Do
+ Locate 0,0
+ M= Mouse Key : Print "Bit Pattern ";Bin$(M,8);" Number ";M
+Loop
+</code>
 
     <h3 class="command" id="fn-mouse-click">MOUSE CLICK</h3>
     <p><i>function: check for click of mouse button</i><br>
@@ -304,13 +293,12 @@ Bit 3      Single test for third mouse button, if available
         These bits are automatically re-set to zero after one test has been made, so they will only check
         for a single key press at a time. Here is an example:</p>
 
-    <pre>
-E> Curs Off
-   Do
-    M=Mouse Click
-    If M<>0 Then Print "Bit Pattern ";Bin$(M,8);" Number";M
-   Loop
-</pre>
+<code class="prefix edit">Curs Off
+Do
+ M=Mouse Click
+ If M<>0 Then Print "Bit Pattern ";Bin$(M,8);" Number";M
+Loop
+</code>
 
 </section>
 
@@ -332,9 +320,7 @@ E> Curs Off
         inside the boundaries ,set by hardware coordinates, from the rectangle's top-left TO bottom
         right-hand corner. For example:</p>
 
-    <pre>
-E> Limit Mouse 300,100 To 350,150
-</pre>
+<code class="prefix edit">Limit Mouse 300,100 To 350,150</code>
 
     <p>
         If you need to restore freedom to the mouse pointer and allow it to move around the entire
@@ -365,9 +351,7 @@ E> Limit Mouse 300,100 To 350,150
         it has entered a screen zone, the number of that zone is returned. It is equivalent to the
         following line:</p>
 
-    <pre>
-X> X=Hzone(X Mouse,Y Mouse)
-</pre>
+<code class="prefix ex">X=Hzone(X Mouse,Y Mouse)</code>
 
     <h3 class="command" id="fn-mouse-screen">MOUSE SCREEN</h3>
     <p><i>function: check which screen the mouse pointer is occupying</i><br>
@@ -377,10 +361,9 @@ X> X=Hzone(X Mouse,Y Mouse)
         Use MOUSE SCREEN to return the number of the screen where the mouse pointer is currently
         located, like this:</p>
 
-    <pre>
-E> X=Mouse Screen
-   Print X
-</pre>
+<code class="prefix edit">X=Mouse Screen
+Print X
+</code>
 </section>
 
 <section id="06-displaying-menus-with-the-mouse-pointer">

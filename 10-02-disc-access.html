@@ -71,9 +71,7 @@ AMOS_PROFESSIONAL:
         same volume name for any reason, you will have to refer to the appropriate drive name to tell
         AMOS Professional precisely which of these discs you are interested in. For example:</p>
 
-    <pre>
-X> Dir "Df0:"
-</pre>
+<code class="prefix ex">Dir "Df0:"</code>
 
     <p>The DIR command is used to print out a directory index of a disc, and is explained below.</p>
 </section>
@@ -99,9 +97,7 @@ X> Dir "Df0:"
         FONTS: whereas the SAY command uses a library file that can be examined by typing the
         following line from Direct Mode:</p>
 
-    <pre>
-D> Dir "Libs:"
-</pre>
+<code class="prefix direct">Dir "Libs:"</code>
 
     <p>
         <i>instruction: print directory of the current disc</i><br>
@@ -112,9 +108,7 @@ D> Dir "Libs:"
         The DIR command is used to examine the directory of the current disc and list all of its files on
         screen, like this:</p>
 
-    <pre>
-D> Dir
-</pre>
+<code class="prefix direct">Dir</code>
 
     <p>
         Any folders in the listing will be distinguished by a leading asterisk character *. The listing can
@@ -142,19 +136,17 @@ D> Dir
         The broadest of these paths gives the name of the disc or the drive to be examined. A colon must
         be added to the disc name, like this:</p>
 
-    <pre>
-E> Dir "FONTS:"
-   Dir "Dh0:"
-</pre>
+<code class="prefix edit">Dir "FONTS:"
+Dir "Dh0:"
+</code>
 
     <p>
         The next selective category that can be defined is a single folder of filenames to be listed. For
         example:</p>
 
-    <pre>
-X> Dir "Objects/"
-   Dir "AMOSPro_Examples:Objects/"
-</pre>
+<code class="prefix ex">Dir "Objects/"
+Dir "AMOSPro_Examples:Objects/"
+</code>
 
 
     <p>
@@ -165,16 +157,11 @@ X> Dir "Objects/"
         the next control character. For example, a file named "Music" will be searched for if you
         command this:</p>
 
-    <pre>
-X> Dir "Music"
-</pre>
+<code class="prefix ex">Dir "Music"</code>
 
     <p>But the use of an asterisk would broaden the search:</p>
 
-    <pre>
-X> Rem List all files starting with M
-   Dir "M*"
-</pre>
+<code class="prefix ex">Dir "Music"</code>
 
     <p>That could give the following directory listing:</p>
 
@@ -192,19 +179,16 @@ Milk
         The full stop character "." is used to match a filename extension, and is often used with the
         asterisk character to list all the files in a directory with a particular extension, like this:</p>
 
-    <pre>
-X> Dir "Music.*"
-   Dir "*.Megalomania"
-   Dir "*.*"
-</pre>
+<code class="prefix ex">Dir "Music.*"
+Dir "*.Megalomania"
+Dir "*.*"
+</code>
 
     <p>
         The final narrowing of a search path is to use the question-mark character "?" to match up with
         any single character in a filename. For example:</p>
 
-    <pre>
-X> Dir "EUROP????"
-</pre>
+<code class="prefix ex">Dir "EUROP????"</code>
 
     <p>That would list the following filenames, if they were in the current directory:</p>
 
@@ -252,10 +236,9 @@ EURIPIDES
         characters to be displayed from each filename. There is no effect on the names themselves, only
         on the way they are displayed. For example:</p>
 
-    <pre>
-E> Set Dir 6
-   Dir
-</pre>
+<code class="prefix edit">Set Dir 6
+Dir
+</code>
 
     <p>
         An optional string may be added to a SET DIR command, which has the effect of filtering out
@@ -276,9 +259,7 @@ AMULET
         SET DIR may now be used to restrict the display to three characters, as well as filtering out any
         IFF files, as follows:</p>
 
-    <pre>
-D> Set Dir 5,".IFF"
-</pre>
+<code class="prefix direct">Set Dir 5,".IFF"</code>
 
     <p>
         The first two characters displayed are folder markers, this is why the value five is used instead of
@@ -287,20 +268,7 @@ D> Set Dir 5,".IFF"
 
     <p>That line would result in this amended display:</p>
 
-    <pre>
-AMA
-AMI
-AMI
-AMU
-</pre>
-
-    <p>
-        It is possible to ignore several file-paths at once, as long as each name is terminated with a single
-        oblique character "/". For example:</p>
-
-    <pre>
-D> Set Dir 8,"*.AMOS/*.IFF/*.Abk"
-</pre>
+<code class="prefix direct">Set Dir 8,"*.AMOS/*.IFF/*.Abk"</code>
 
     <h3 class="command" id="resv-dir-dollar">DIR$</h3>
     <p><i>function: change the current directory</i><br>
@@ -311,11 +279,10 @@ D> Set Dir 8,"*.AMOS/*.IFF/*.Abk"
         The DIR$ function is used to contain the directory that will be used as the starting point for all
         future disc operations, such as loading and saving.</p>
 
-    <pre>
-E> Print Dir$ : Rem Print out current directory
-   Rem Set directory to folder
-   Dir$="AMOSPro_Examples:IFF/"
-</pre>
+<code class="prefix edit">Print Dir$ : Rem Print out current directory
+Rem Set directory to folder
+Dir$="AMOSPro_Examples:IFF/"
+</code>
 
     <p>
         DIR$ is similar to the CD command from the CLI, with the advantage of allowing you to read
@@ -324,9 +291,7 @@ E> Print Dir$ : Rem Print out current directory
         this problem, include the name of your disc as in the above example, or use the drive name as
         follows:</p>
 
-    <pre>
-D> Dir$="Df0:IFF/"
-</pre>
+<code class="prefix direct">Dir$="Df0:IFF/"</code>
 
     <h3 class="command" id="i-parent">PARENT</h3>
     <p><i>instruction: negotiate a path through current directory</i><br>
@@ -352,12 +317,11 @@ FOLDERA/
         present folder you are using. By using this command repeatedly, you are able to get back to the
         original root directory simply and quickly. For example:</p>
 
-    <pre>
-X> Dir$="AMOSPro_Examples:Objects/"
-   Dir
-   Parent
-   Dir
-</pre>
+<code class="prefix ex">Dir$="AMOSPro_Examples:Objects/"
+Dir
+Parent
+Dir
+</code>
 
     <h3 class="command" id="i-assign">ASSIGN</h3>
     <p><i>instruction: assign a name to a file or device</i><br>
@@ -391,19 +355,17 @@ X> Dir$="AMOSPro_Examples:Objects/"
         As well as checking for individual filenames, even if an idiotic name is given, EXIST will search
         for discs and devices as well. For example:</p>
 
-    <pre>
-E> Print Exist("An idiotic name")
-   Print Exist("DEMO:") : Rem Is a disc named DEMO available
-   Print Exist("Df1:") : Rem Is the second floppy drive connected
-</pre>
+<code class="prefix edit">Print Exist("An idiotic name")
+Print Exist("DEMO:") : Rem Is a disc named DEMO available
+Print Exist("Df1:") : <comment>Rem Is the second floppy drive connected</comment>
+</code>
 
     <p>It is advisable to test for empty strings ("") separately, like this:</p>
 
-    <pre>
-E> F$=Fsel$("*.IFF"," ","Load an IFF file")
-   If F$="" Then Edit : Rem return to editor if no file chosen
-   If Exist(F$) Then Load Iff F$,0
-</pre>
+<code class="prefix edit">F$=Fsel$("*.IFF"," ","Load an IFF file")
+If F$="" Then Edit : Rem return to editor if no file chosen
+If Exist(F$) Then Load Iff F$,0
+</code>
 
 
     <h3 class="command" id="fn-dir-first-dollar">DIR FIRST$</h3>
@@ -416,10 +378,9 @@ E> F$=Fsel$("*.IFF"," ","Load an IFF file")
         first file or folder in the current directory, followed by the first IFF file in the directory.
         Obviously, this could be the same file.</p>
 
-    <pre>
-E> Print Dir First$("*.*")
-   Print Dir First$("*.IFF")
-</pre>
+<code class="prefix edit">Print Dir First$("*.*")
+Print Dir First$("*.IFF")
+</code>
 
     <p>
         When DIR FIRST$ is used, the whole directory listing is loaded into memory, so you can
@@ -437,13 +398,12 @@ E> Print Dir First$("*.*")
         by the directory array, and release it for the rest of your program to use. The next example prints
         every file in the current directory.</p>
 
-    <pre>
-E> F$=Dir First$("*.*")
-   While F$<>""
-    Print F$ : Wait 50
-    F$=Dir Next$
-   Wend
-</pre>
+<code class="prefix edit">F$=Dir First$("*.*")
+While F$<>""
+ Print F$ : Wait 50
+ F$=Dir Next$
+Wend
+</code>
 </section>
 
 <section id="05-selecting-a-file">
@@ -458,9 +418,7 @@ E> F$=Dir First$("*.*")
         This file selection function allows you to choose the files you need directly from a disc, using the
         standard AMOS Professional file selector. In its simplest form, it operates like this:</p>
 
-    <pre>
-D> Print Fsel$("*.IFF")
-</pre>
+<code class="prefix direct">Print Fsel$("*.IFF")</code>
 
     <p>
         The string held within the brackets is a path that sets the searching pattern, in that case an IFF
@@ -475,12 +433,11 @@ D> Print Fsel$("*.IFF")
         Title$ and title2$ are optional text strings that set up a title to be displayed at the top of your file
         selector. For example:</p>
 
-    <pre>
-E> F$=Fsel$("AMOSPro_Examples:Objects/*.Abk")
-   If F$="" Then Edit : Rem Return to editor if no file selected
-   Load F$: Rem Load file and display first Bob
-   Flash Off : Bob 1,100,100,1 : Get Bob Palette : Wait Vbl
-</pre>
+<code class="prefix edit">F$=Fsel$("AMOSPro_Examples:Objects/*.Abk")
+If F$="" Then Edit : Rem Return to editor if no file selected
+Load F$: Rem Load file and display first Bob
+Flash Off : Bob 1,100,100,1 : Get Bob Palette : Wait Vbl
+</code>
 </section>
 
 <section id="06-naming-files">
@@ -497,10 +454,9 @@ E> F$=Fsel$("AMOSPro_Examples:Objects/*.Abk")
         This makes a new folder on the current disc, and gives it the filename of your choice. For
         example:</p>
 
-    <pre>
-X> Mkdir "Df0:MARATHONMAN"
-   Dir
-</pre>
+<code class="prefix ex">Mkdir "Df0:MARATHONMAN"
+Dir
+</code>
 
     <h3 class="command" id="i-rename">RENAME</h3>
     <p><i>instruction: rename a file</i><br>
@@ -510,9 +466,7 @@ X> Mkdir "Df0:MARATHONMAN"
         This command is used to change the name of an existing file. If your choice of new filename is
         already in use by another file, the appropriate error message will be given.</p>
 
-    <pre>
-X> Rename "Ancient" To "Modern"
-</pre>
+<code class="prefix ex">Rename "Ancient" To "Modern"</code>
 </section>
 
 <section id="07-running-programs-from-a-disc">
@@ -537,9 +491,7 @@ X> Rename "Ancient" To "Modern"
 
     <p>For example:</p>
 
-    <pre>
-X> Run "Next level.AMOS"
-</pre>
+<code class="prefix ex">Run "Next level.AMOS"</code>
 
     <p>
         This method is known as "chaining" programs together. When programs run like this, data
@@ -561,32 +513,30 @@ X> Run "Next level.AMOS"
 
     <p>Type in the next example program:</p>
 
-    <pre>
-E> Rem Program 1
-   Screen Open 0,640,200,4.Hires
-   Rem greetings sent by previous program
-   Print "Greetings from Program 2:";Command Line$
-   Input "Please type in a greeting!";A$
-   Command Line$=A$
-   Print "Running Program 2!" : Wait 100
-   Run "Program2.AMOS"
-</pre>
+<code class="prefix edit">Rem Program 1
+Screen Open 0,640,200,4.Hires
+Rem greetings sent by previous program
+Print "Greetings from Program 2:";Command Line$
+Input "Please type in a greeting!";A$
+Command Line$=A$
+Print "Running Program 2!" : Wait 100
+Run "Program2.AMOS"
+</code>
 
     <p>
         Now save that example on a suitable disc, and name it "Program1.AMOS". Next, change that
         example program as follows:</p>
 
-    <pre>
-E> Rem Program 2
-   Screen Open 0.320,200,4,Lowres
-   Rem Greetings sent by previous program
-   Print "Greetings from Program 1:";Command Line$
-   Input "Please type in a greeting!";A$
-   Command Line$=A$
-   Print "Running Program 1!"
-   Wait 100
-   Run "Program1.AMOS"
-</pre>
+<code class="prefix edit">Rem Program 2
+Screen Open 0.320,200,4,Lowres
+Rem Greetings sent by previous program
+Print "Greetings from Program 1:";Command Line$
+Input "Please type in a greeting!";A$
+Command Line$=A$
+Print "Running Program 1!"
+Wait 100
+Run "Program1.AMOS"
+</code>
 
     <p>
         Save Program 2, and call it "Program2.AMOS". Now run Program 2, which should still be in
@@ -617,15 +567,14 @@ E> Rem Program 2
         returned contains the name of the disc, followed by the amount of free space. Here is an
         example which splits the string:</p>
 
-    <pre>
-E> A$=Disc Info$("Df0:")
-   C=Instr(A$,":")
-   N$=Left$(A$,C)
-   A$=A$-N$
-   D=Val(A$)
-   Print "Name of the disc=";N$
-   Print "Free space=";D
-</pre>
+<code class="prefix edit">A$=Disc Info$("Df0:")
+C=Instr(A$,":")
+N$=Left$(A$,C)
+A$=A$-N$
+D=Val(A$)
+Print "Name of the disc=";N$
+Print "Free space=";D
+</code>
 
     <h3 class="command" id="i-kill">KILL</h3>
     <p><i>instruction: erase a file from current disc</i><br>
@@ -670,21 +619,19 @@ E> A$=Disc Info$("Df0:")
         Type in this example, which opens a file called "sequential.one", allows you to input some data,
         then closes the file:</p>
 
-    <pre>
-E> Open Out 1 ,"sequential.one"
-   Input "Please tell me your name ";N$
-   Print #1,N$
-   Close 1
-</pre>
+<code class="prefix edit">Open Out 1 ,"sequential.one"
+Input "Please tell me your name ";N$
+Print #1,N$
+Close 1
+</code>
 
     <p>Now the information stored in that file can be read back, as follows:</p>
 
-    <pre>
-E> Open In 1 ,"sequential.one"
-   Input #1,N$
-   Print "I remember you! Hello ";N$
-   Close 1
-</pre>
+<code class="prefix edit">Open In 1 ,"sequential.one"
+Input #1,N$
+Print "I remember you! Hello ";N$
+Close 1
+</code>
 
     <p>
         Every time you want to access a sequential file, it must be opened, then the information can be
@@ -736,11 +683,10 @@ E> Open In 1 ,"sequential.one"
         number to be used, then the variables you want to print out to the file. Remember to close the
         file's channel number afterwards, like this:</p>
 
-    <pre>
-E> Open Out 2,"sequential.two"
-   Print #2,"Just testing"
-   Close 2
-</pre>
+<code class="prefix edit">Open Out 2,"sequential.two"
+Print #2,"Just testing"
+Close 2
+</code>
 
     <p>As with PRINT, the PRINT # command can be abbreviated to ? #.</p>
 
@@ -756,12 +702,11 @@ E> Open Out 2,"sequential.two"
         of data needs to be ended by its own line feed character, which is the equivalent of the [Return]
         pressed when a line is entered from the keyboard. For example:</p>
 
-    <pre>
-E> Open In 2,"sequential.two" : Rem Open file created by previous example
-   Input #2,A$
-   Print A$
-   Close 2
-</pre>
+<code class="prefix edit">Open In 2,"sequential.two" : Rem Open file created by previous example
+Input #2,A$
+Print A$
+Close 2
+</code>
 
     <p>
         <b>LINE INPUT #</b><br>
@@ -792,10 +737,9 @@ E> Open In 2,"sequential.two" : Rem Open file created by previous example
         characters. If you prefer to use a single character only, make the second value a negative
         number. For example:</p>
 
-    <pre>
-X> Set Input 10,-1 : Rem Standard Amiga format
-   Set Input 13,10: Rem ST compatible format
-</pre>
+<code class="prefix ex">Set Input 10,-1 : Rem Standard Amiga format
+Set Input 13,10: <comment>Rem ST compatible format</comment>
+</code>
 
     <p>
         <b>INPUT$</b><br>
@@ -830,9 +774,7 @@ X> Set Input 10,-1 : Rem Standard Amiga format
         This changes the current reading or writing position of an open file. For example, the following
         line sets the read/write position to 1,000 characters past the start of the file:</p>
 
-    <pre>
-X> Pof(1)=1000
-</pre>
+<code class="prefix ex">Pof(1)=1000</code>
 
     <p>
         Because disc drives are inherently random, this may be used to provide
@@ -877,9 +819,7 @@ TEL$                10
 
     <p>This command is used to open a channel to a random access file, like this:</p>
 
-    <pre>
-X> Open Random 1,"ADDRESS"
-</pre>
+<code class="prefix ex">Open Random 1,"ADDRESS"</code>
 
     <p>
         FIELD
@@ -891,20 +831,17 @@ X> Open Random 1,"ADDRESS"
     number, give the maximum number of characters you will cater for in a field, followed by its
     name, then repeat the process as necessary. For example:
 
-    <pre>
-X> Field 1,20 As SURNAME$,15 As F1RSTNAME$,10 As TEL$
-</pre>
+<code class="prefix ex">Field 1,20 As SURNAME$,15 As F1RSTNAME$,10 As TEL$</code>
 
 
     <p>
         You can now place some records in the strings that have been set up by the FIELD command,
         like this:</p>
 
-    <pre>
-X> SURNAME$="Professional"
-   FIRSTNAME$="AMOS"
-   TEL$="0625859333"
-</pre>
+<code class="prefix ex">SURNAME$="Professional"
+FIRSTNAME$="AMOS"
+TEL$="0625859333"
+</code>
 
     <h3 class="command" id="i-put">PUT</h3>
     <p><i>instruction: output a record to a random access file</i><br>
@@ -915,28 +852,25 @@ X> SURNAME$="Professional"
         record number of your random access file. If you were still using channel 1, your first record
         would be put into the random access file like this:</p>
 
-    <pre>
-X> Put 1,1
-</pre>
+<code class="prefix ex">Put 1,1</code>
 
     <p>
         The next record will become number 2, and so on until you fill up your telephone book. Here is
         a simple working example. When you have created enough records, type in "exit" when
         prompted to enter another name.</p>
 
-    <pre>
-E> Open Random 1,"ADDRESS"
-   Field 1,25 As NAME$,12 As TEL$
-   INDEX=1
-   Do
-    Input "Enter a name:";NAME$
-    If NAME$="exit" Then Exit
-    Input "Enter the phone number:";TEL$
-    Put 1,INDEX
-    Inc INDEX
-   Loop
-   Close 1
-</pre>
+<code class="prefix edit">Open Random 1,"ADDRESS"
+Field 1,25 As NAME$,12 As TEL$
+INDEX=1
+Do
+ Input "Enter a name:";NAME$
+ If NAME$="exit" Then Exit
+ Input "Enter the phone number:";TEL$
+ Put 1,INDEX
+ Inc INDEX
+Loop
+Close 1
+</code>
 
     <p>Having created your phone book, you will want to use it.</p>
 
@@ -948,9 +882,7 @@ E> Open Random 1,"ADDRESS"
         This instruction reads a record stored in a random access file, after being told which channel to
         use and the number of the record to read. To read the first record you would use this:</p>
 
-    <pre>
-X> Get 1,1
-</pre>
+<code class="prefix ex">Get 1,1</code>
 
     <p>
         GET then loads this record into your field strings, and these strings may be manipulated as you
@@ -959,17 +891,16 @@ X> Get 1,1
 
     <p>Now try this example:</p>
 
-    <pre>
-E> Open Random 1,"ADDRESS"
-   Field 1,25 As NAME$,12 As TEL$
-   Do
-    Input "Enter Record Number: ";INDEX
-    If INDEX=0 Then Exit
-    Get 1,INDEX
-    Print NAME$ : Print TEL$
-   Loop
-   Close 1
-</pre>
+<code class="prefix edit">Open Random 1,"ADDRESS"
+Field 1,25 As NAME$,12 As TEL$
+Do
+ Input "Enter Record Number: ";INDEX
+ If INDEX=0 Then Exit
+ Get 1,INDEX
+ Print NAME$ : Print TEL$
+Loop
+Close 1
+</code>
 </section>
 
 <section id="12-included-files">
@@ -1030,9 +961,7 @@ E> Open Random 1,"ADDRESS"
         character code of the two letters "Di" followed by the number of your drive. So an ST format
         disc in the Amiga's internal drive would be named as follows:</p>
 
-    <pre>
-X> Di0:
-</pre>
+<code class="prefix ex">Di0:</code>
 
     <p>
         Because AMOS Basic evolved from STOS (Atari) Basic, every effort has been made to help STOS

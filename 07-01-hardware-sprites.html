@@ -143,9 +143,7 @@
         such Sprites directly by using an identification number between 0 and 7. For Example, the next
         line allocates hardware Sprite 2 to image number 1, and positions it at coordinates 200,100:</p>
 
-    <pre>
-X> Sprite 2,200,100,1
-</pre>
+<code class="prefix ex">Sprite 2,200,100,1</code>
 
     <p>
         After a Sprite has been grabbed in this way, it will be completely removed from the computed
@@ -181,9 +179,7 @@ X> Sprite 2,200,100,1
         common problems experienced with Sprites. Meanwhile, please load this ready-made program,
         which demonstrates the advantages of using computed Sprites over Bobs:</p>
 
-    <pre>
-D> Load "AMOSPro Tutorials:Tutorials/Sprites_v_Bobs.AMOS"
-</pre>
+<code class="prefix direct">Load "AMOSPro Tutorials:Tutorials/Sprites_v_Bobs.AMOS"</code>
 
 </section>
 
@@ -228,9 +224,7 @@ D> Load "AMOSPro Tutorials:Tutorials/Sprites_v_Bobs.AMOS"
         one. To select an image for a Sprite to display, simply give the appropriate image number. Sprite
         images may be installed into your programs using the LOAD command, like this:</p>
 
-    <pre>
-X> Load "Sprites.Abk"
-</pre>
+<code class="prefix ex">Load "Sprites.Abk"</code>
 
     <p>
         Once images have been installed in this way they will be saved along with your AMOS
@@ -243,18 +237,17 @@ X> Load "Sprites.Abk"
 
     <p>For example:</p>
 
-    <pre>
-E> Load "AMOSPro Tutorial:Objects/Sprites.Abk"
-   Flash Off : Get Sprite Palette
-   Curs Off : Cls 0
-   Sprite 8,200,100,1
-   Wait Key
-   Sprite 8,,150,1
-   Wait Key
-   Sprite 8,250,,1
-   Wait Key
-   Sprite 8,,,2
-</pre>
+<code class="prefix edit">Load "AMOSPro Tutorial:Objects/Sprites.Abk"
+Flash Off : Get Sprite Palette
+Curs Off : Cls 0
+Sprite 8,200,100,1
+Wait Key
+Sprite 8,,150,1
+Wait Key
+Sprite 8,250,,1
+Wait Key
+Sprite 8,,,2
+</code>
 
     <h3 class="command" id="i-del-sprite">DEL SPRITE</h3>
     <p><i>instruction: delete an image from the Object Bank</i><br>
@@ -265,9 +258,7 @@ E> Load "AMOSPro Tutorial:Objects/Sprites.Abk"
         The DEL SPRITE command permanently deletes one or more Sprite images from the Object
         Bank. To erase a single image, simply give the image number to be deleted, like this:</p>
 
-    <pre>
-X> Del Sprite 2
-</pre>
+<code class="prefix ex">Del Sprite 2</code>
 
     <p>
         Whenever an image is deleted, all the subsequent images in the Bank are moved up one place in
@@ -281,9 +272,7 @@ X> Del Sprite 2
         image to the last after a DEL SPRITE command. The following example would delete Sprite
         images 4,5,6 and 7:</p>
 
-    <pre>
-X> Del Sprite 4 To 7
-</pre>
+<code class="prefix ex">Del Sprite 4 To 7</code>
 
     <p>
         After the last image has been deleted from the Object Bank, the entire Bank is erased
@@ -376,14 +365,13 @@ X> Del Sprite 4 To 7
         automatically copied into colour registers 16 to 31. This means that you can use the same images
         for either Bobs or Sprites with no risk of colour clashes! Here is an example:</p>
 
-    <pre>
-E> Load "AMOSPro Tutorial:Objects/Sprites.Abk"
-   Curs Off : Flash Off : Cls 0
-   Get Sprite Palette
-   Rem Set computed Sprite at hardware coords 128,50 using image 1
-   Sprite 8,128,50,1
-   Wait Key
-</pre>
+<code class="prefix edit">Load "AMOSPro Tutorial:Objects/Sprites.Abk"
+Curs Off : Flash Off : Cls 0
+Get Sprite Palette
+Rem Set computed Sprite at hardware coords 128,50 using image 1
+Sprite 8,128,50,1
+Wait Key
+</code>
 
     <p>
         The optional mask parameter allows the colour selection to be limited. Each colour is
@@ -391,17 +379,13 @@ E> Load "AMOSPro Tutorial:Objects/Sprites.Abk"
         is copied from the Object Bank. Any colours to be omitted (masked) should have their digit set
         to 0. The following example copies colours 0 to 3 from the Object Bank into the screen:</p>
 
-    <pre>
-X> Get Sprite Palette %0000000000001111
-</pre>
+<code class="prefix ex">Get Sprite Palette %0000000000001111</code>
 
     <p>
         Because the mask is entered as a normal number, either hexadecimal or decimal modes can also
         be used:</p>
 
-    <pre>
-X> Get Sprite Palette $FFFF0000
-</pre>
+<code class="prefix ex">Get Sprite Palette $FFFF0000</code>
 
     <p>
         Please note that the GET BOB PALETTE and GET OBJECT PALETTE instructions perform an
@@ -450,9 +434,7 @@ X> Get Sprite Palette $FFFF0000
         mouse pointer, so it must be used at the beginning of your programs! For example, the
         following line would be placed at the start of your listing:</p>
 
-    <pre>
-X> Set Sprite Buffer 256
-</pre>
+<code class="prefix ex">Set Sprite Buffer 256</code>
 </section>
 
 <section id="06-sprite-commands">
@@ -559,18 +541,16 @@ X> Set Sprite Buffer 256
         only come into effect from the next vertical blank, and the following examples demonstrate that
         the correct coordinate values (in this case 128,50) are only returned after a WAIT VBL command.</p>
 
-    <pre>
-E> Screen Open 0,320,255,16,Lowres
-   Print X Hard(0,0); Y Hard(0,0)
-</pre>
+<code class="prefix edit">Screen Open 0,320,255,16,Lowres
+Print X Hard(0,0); Y Hard(0,0)
+</code>
 
     <p>Now try the correct version:</p>
 
-    <pre>
-E> Screen Open 0,320,255,16,Lowres
-   Wait Vbl
-   Print X Hard(0,0); Y Hard(0,0)
-</pre>
+<code class="prefix edit">Screen Open 0,320,255,16,Lowres
+Wait Vbl
+Print X Hard(0,0); Y Hard(0,0)
+</code>
 
     <p>
         The default screen is initially located at hardware coordinates (128,50), and if you find the whole
@@ -583,10 +563,9 @@ E> Screen Open 0,320,255,16,Lowres
         way, it can be assigned to a Sprite and moved around using normal screen coordinates. For
         example:</p>
 
-    <pre>
-X> Hot Spot 1,-128,-50: Rem Set up hot spot
-   Sprite 8,160,100,1 : Rem Sprite 8 to screen coords 160,100
-</pre>
+<code class="prefix ex">Hot Spot 1,-128,-50: Rem Set up hot spot
+Sprite 8,160,100,1 : <comment>Rem Sprite 8 to screen coords 160,100</comment>
+</code>
 </section>
 
 <section id="08-the-hot-spot">

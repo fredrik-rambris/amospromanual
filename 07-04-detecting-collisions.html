@@ -100,18 +100,14 @@
 
     <p>Please load the following tutorial:</p>
 
-    <pre>
-DP> Load "AMOSPro Tutorial:Tutorials/Collision_Detection.AMOS"
-</pre>
+<code class="prefix disc">Load "AMOSPro Tutorial:Tutorials/Collision_Detection.AMOS"</code>
 
     <p>
         Now run the program and select Example 1. This shows how a simple bat and ball are made to
         interact, and to simplify things, the bat has been fixed in position! The collision detection in this
         example relies on the following line:</p>
 
-    <pre>
-X> If Bob Col(1) Then Boom
-</pre>
+<code class="prefix ex">If Bob Col(1) Then Boom</code>
 
     <p>
         Notice how the explosion effect is triggered the instant that the bat overlaps the ball, even by the
@@ -128,9 +124,7 @@ X> If Bob Col(1) Then Boom
         program. For example, changing the relevant line as follows will test for one red and one green
         ball only:</p>
 
-    <pre>
-E> If Bobsprite 001(1,2 To 4) Then Bell 10
-</pre>
+<code class="prefix edit">If Bobsprite 001(1,2 To 4) Then Bell 10</code>
 </section>
 
 <section id="03-masks">
@@ -231,11 +225,10 @@ E> If Bobsprite 001(1,2 To 4) Then Bell 10
         number to the last in the range. If you need to test for collisions between several Sprites and
         Bobs, the command should be enclosed in a loop, like this:</p>
 
-    <pre>
-X> For FIRSTSPRITE=1 To LASTSPRITE
-    If Spritebob Col(FIRSTSPRITE,FIRSTBOB To LASTBOB) Then Boom
-   Next FIRSTSPRITE
-</pre>
+<code class="prefix ex">For FIRSTSPRITE=1 To LASTSPRITE
+ If Spritebob Col(FIRSTSPRITE,FIRSTBOB To LASTBOB) Then Boom
+Next FIRSTSPRITE
+</code>
 
     <p>
         Remember that all specified Sprites must be assigned to a <b>masked</b> image, before collision
@@ -275,36 +268,28 @@ X> For FIRSTSPRITE=1 To LASTSPRITE
         Supposing you are testing Bob 1 for a collision between Bobs 2,3 and 4. The initial test could look
         like this:</p>
 
-    <pre>
-X> C=Bob Col(1,2 To 4)
-</pre>
+<code class="prefix ex">C=Bob Col(1,2 To 4)</code>
 
     <p>
         Alter the collision has been detected, you can check on the other objects using the COL
         I unction, as follows:</p>
 
-    <pre>
-X> For B=2 To 4
-    If Col(B) Then Print "You have hit Bob number ";B
-   Next B
-</pre>
+<code class="prefix ex">For B=2 To 4
+ If Col(B) Then Print "You have hit Bob number ";B
+Next B
+</code>
 
     <p>
         A faster version of this function allows instant monitoring for the second object in the collision,
         like this:</p>
 
-    <pre>
-X> object=Col(-1)
-</pre>
+<code class="prefix ex">object=Col(-1)</code>
 
     <p>
         This returns the number of the object which has collided with your target, or a zero if no
         collision has happened. So the alternative version to the last example is:</p>
 
-    <pre>
-X> C=Bob Col(1,2 To 4)
-   Print "You have hit Bob number ";Col(-1)
-</pre>
+<code class="prefix ex">object=Col(-1)</code>
 
     <p>
         The AMAL equivalent of this function is C, and both are perfect for detecting collisions between
@@ -388,9 +373,7 @@ X> C=Bob Col(1,2 To 4)
         This function can be used with the X BOB and Y BOB functions to detect whether or not a Bob
         has entered a specific screen zone, as follows:</p>
 
-    <pre>
-X> N=Zone(X Bob(n),Y Bob(n))
-</pre>
+<code class="prefix ex">N=Zone(X Bob(n),Y Bob(n))</code>
 
 
     <h3 class="command" id="fn-hzone">HZONE</h3>
@@ -403,9 +386,7 @@ X> N=Zone(X Bob(n),Y Bob(n))
         measured in hardware coordinates. This means that this function can be used to detect the
         presence of a hardware Sprite in one of the screen zones, in this format:</p>
 
-    <pre>
-X> N=Hzone(X Sprite(n),Y Sprite(n))
-</pre>
+<code class="prefix ex">N=Hzone(X Sprite(n),Y Sprite(n))</code>
 
     <h3 class="command" id="fn-mouse-zone">MOUSE ZONE</h3>
     <p><i>function: test if mouse pointer has entered a zone</i><br>

@@ -28,12 +28,11 @@
         text. You may want to remind yourself of the visible character set by running this simple
         routine:</p>
 
-    <pre>
-E> For 0=32 To 255
-    Print Chr$(C);" =Ascii Code";
-    Print Asc(Chr$(C)) : Wait 10
-   Next C
-</pre>
+<code class="prefix edit">For 0=32 To 255
+ Print Chr$(C);" =Ascii Code";
+ Print Asc(Chr$(C)) : Wait 10
+Next C
+</code>
 </section>
 
 <section id="01-printing-on-the-screen">
@@ -57,15 +56,11 @@ E> For 0=32 To 255
 
     <p>A semi-colon is used to print elements immediately after one another, like this:</p>
 
-    <pre>
-E> Print "Follow";"on"
-</pre>
+<code class="prefix edit">Print "Follow";"on"</code>
 
     <p>A comma moves the cursor to the next "Tab" position on the screen, as follows:</p>
 
-    <pre>
-E> Print "Next","Tab"
-</pre>
+<code class="prefix edit">Print "Next","Tab"</code>
 
     <p>A Tab is an automatic marker that sets up a location for printing, and is often used to lay out
         columns of figures, or to make indentations in text, and setting Tab positions is explained later.</p>
@@ -73,13 +68,12 @@ E> Print "Next","Tab"
     <p>Normally, the cursor is advanced downwards by one line after every PRINT command, but by
         using the semi-colon or comma, the rule can be changed. Here is an example:</p>
 
-    <pre>
-E> Print "AMOS"
-   Print "Professional"
-   Print "AM";
-   Print "OS",
-   Print "Professional"
-</pre>
+<code class="prefix edit">Print "AMOS"
+Print "Professional"
+Print "AM";
+Print "OS",
+Print "Professional"
+</code>
 </section>
 
 <section id="02-setting-text-options">
@@ -94,12 +88,11 @@ E> Print "AMOS"
         which is white, and alternative colours may be selected from one of up to 64 choices, depending
         on the current graphics mode. For example:</p>
 
-    <pre>
-E> For INDEX=0 To 15
-    Pen INDEX
-    Print "Pen number ";INDEX
-   Next INDEX
-</pre>
+<code class="prefix edit">For INDEX=0 To 15
+ Pen INDEX
+ Print "Pen number ";INDEX
+Next INDEX
+</code>
 
     <h3 class="command" id="fn-pen-dollar">PEN$</h3>
     <p><i>function: return a control index number to set the pen colour</i><br>
@@ -110,12 +103,11 @@ E> For INDEX=0 To 15
         automatically assigned to it. The format of the string returned by PEN$ is:
         Chr$(27)+"Pen"+Chr$(48+number). Here is an example:</p>
 
-    <pre>
-E> P$=Pen$(2)+"Well all WHITE, "+Pen$(6)+" I still got the BLUES"
-   Print P$
-   Pen 4
-   Print "In the RED"
-</pre>
+<code class="prefix edit">P$=Pen$(2)+"Well all WHITE, "+Pen$(6)+" I still got the BLUES"
+Print P$
+Pen 4
+Print "In the RED"
+</code>
 
     <h3 class="command" id="i-paper">PAPER</h3>
     <p><i>instruction: set colour of text background</i><br>
@@ -127,11 +119,10 @@ E> P$=Pen$(2)+"Well all WHITE, "+Pen$(6)+" I still got the BLUES"
         background colour, with other possibilities listed under the SCREEN OPEN command in this
         User Guide. Run the following simple example:</p>
 
-    <pre>
-E> Pen 2: For INDEX=0 To 15
-   Paper INDEX: Print "Paper number ";INDEX;Space$(23)
-   Next INDEX
-</pre>
+<code class="prefix edit">Pen 2: For INDEX=0 To 15
+Paper INDEX: Print "Paper number ";INDEX;Space$(23)
+Next INDEX
+</code>
 
     <h3 class="command" id="fn-paper-dollar">PAPER$</h3>
     <p><i>function: return a control index number to set background colour</i><br>
@@ -140,11 +131,10 @@ E> Pen 2: For INDEX=0 To 15
     <p>Similarly to the PEN$ function, PAPER$ returns a character string that automatically sets the
         background colour when the string is printed on the screen. For example:</p>
 
-    <pre>
-E> Pen 1
-   B$=Paper$(3)+"Flash Harry"+Paper$(1)+"The Invisible Man"
-   Print B$
-</pre>
+<code class="prefix edit">Pen 1
+B$=Paper$(3)+"Flash Harry"+Paper$(1)+"The Invisible Man"
+Print B$
+</code>
 </section>
 
 <section id="03-changing-text-options">
@@ -159,11 +149,10 @@ E> Pen 1
     <p>The INVERSE instruction swaps over the text and background colours already selected by the
         PEN and PAPER commands, and so sets up an inverse mode for printing. For example:</p>
 
-    <pre>
-E> Pen 2 : Paper 4: Print "I appear normal"
-   Inverse On : Print "Poetry inverse"
-   Inverse Off : Print "Don't be so negative"
-</pre>
+<code class="prefix edit">Pen 2 : Paper 4: Print "I appear normal"
+Inverse On : Print "Poetry inverse"
+Inverse Off : Print "Don't be so negative"
+</code>
 
     <p>
         <b>SHADE ON/OFF</b><br>
@@ -175,10 +164,9 @@ E> Pen 2 : Paper 4: Print "I appear normal"
         reduces the brightness of the characters when printed. To make use of this shading facility,
         simply turn it on and off like this:</p>
 
-    <pre>
-E> Shade On :Print "Shady Lady"
-   Shade Off:Print "Norman Normal"
-</pre>
+<code class="prefix edit">Shade On :Print "Shady Lady"
+Shade Off:Print "Norman Normal"
+</code>
 </section>
 
 <section id="04-setting-text-styles">
@@ -196,19 +184,17 @@ E> Shade On :Print "Shady Lady"
 
     <p>To underline text when printed on screen like this, use the UNDER instructions, as follows:</p>
 
-    <pre>
-E> Under On : Print "This is where we draw the line"
-   Under Off: "That is groundless"
-</pre>
+<code class="prefix edit">Under On : Print "This is where we draw the line"
+Under Off: "That is groundless"
+</code>
 
     <p>In <a href="11-01-fonts.html">Section 11.1</a> there is a full explanation of how to take advantage of any number of different
         type faces or fonts, by making use of what is known as "graphic text". For the time being, try the
         next example:</p>
 
-    <pre>
-E> Cls: For S=0 To 7: Set Text S
-   Text 100,S*20+20,AMOS Professional" : Next S
-</pre>
+<code class="prefix edit">Cls: For S=0 To 7: Set Text S
+Text 100,S*20+20,AMOS Professional" : Next S
+</code>
 
     <h3 class="command" id="i-set-text">SET TEXT</h3>
     <p><i>instruction: set the style of a text font</i><br>
@@ -307,11 +293,10 @@ Print Text Styles
         current screen is automatically treated as a window, so there is no need to "open" one to test the
         following examples:</p>
 
-    <pre>
-E> Print "0,0": Locate 10, : Print "Stay on current line"
-   Locate ,5 : Print "Six from the top."
-   Locate 10,10 : Print "Ten down and ten across"
-</pre>
+<code class="prefix edit">Print "0,0": Locate 10, : Print "Stay on current line"
+Locate ,5 : Print "Six from the top."
+Locate 10,10 : Print "Ten down and ten across"
+</code>
 
     <h3 class="command" id="i-home">HOME</h3>
     <p><i>instruction: force text cursor home</i><br>
@@ -322,10 +307,9 @@ E> Print "0,0": Locate 10, : Print "Stay on current line"
         hurry, simply tell it to go HOME and it will automatically be relocated to coordinates 0,0 like
         this:</p>
 
-    <pre>
-E> Cls: Locate 10,10: Print "I am going"
-   Wait 100: Home : Print "Home!"
-</pre>
+<code class="prefix edit">Cls: Locate 10,10: Print "I am going"
+Wait 100: Home : Print "Home!"
+</code>
 
     <h3 class="command" id="i-cmove">CMOVE</h3>
     <p><i>instruction: move text cursor</i><br>
@@ -341,12 +325,11 @@ E> Cls: Locate 10,10: Print "I am going"
         correctly. An additional technique is to use negative values as well as positive offsets. For
         example:</p>
 
-    <pre>
-E> Cls : Print "Iceland"
-   Cmove 5,5: Print "Scotland";
-   Cmove ,-3 : Print "Norway"
-   Cmove 10,14: Print "France"
-</pre>
+<code class="prefix edit">Cls : Print "Iceland"
+Cmove 5,5: Print "Scotland";
+Cmove ,-3 : Print "Norway"
+Cmove 10,14: Print "France"
+</code>
 
     <h3 class="command" id="fn-cmove-dollar">CMOVE$</h3>
     <p><i>function: return control string to move text cursor</i><br>
@@ -356,11 +339,10 @@ E> Cls : Print "Iceland"
         CMOVE$ function. The following example prints a string at coordinates 10,10 from the current
         text cursor:</p>
 
-    <pre>
-E> A$=Cmove$(10,10)
-   A$=A$+"AMOS Professional"
-   Print A$
-</pre>
+<code class="prefix edit">A$=Cmove$(10,10)
+A$=A$+"AMOS Professional"
+Print A$
+</code>
 
     <h3 class="command" id="fn-at">AT</h3>
     <p><i>function: return a string to position the text cursor</i><br>
@@ -371,33 +353,22 @@ E> A$=Cmove$(10,10)
         because the text cursor can be set during the program's initialisation phase. The string that is
         returned takes the following format:</p>
 
-    <pre>
-Chr$(27)+"X"+Chr$(48+X)+Chr$(27)+"Y"+Chr$(48+Y)
-</pre>
-
-    <p>So whenever this string is printed, the text cursor will be moved to the text coordinates held by
-        X and Y. For example:</p>
-
-    <pre>
-E> A$="A"+At(10,10)+"Of"+At(2,4)+"String"+At(20,20)+"Pearls"
-   Print A$
-</pre>
+<code class="prefix edit">A$="A"+At(10,10)+"Of"+At(2,4)+"String"+At(20,20)+"Pearls"
+Print A$
+</code>
 
     <p>Imagine a Hi-Score table positioned like this:</p>
 
-    <pre>
-E> SCORE=999
-   Locate 12,10: Print "Hi Score ";SCORE
-</pre>
+<code class="prefix edit">SCORE=999
+Locate 12,10: Print "Hi Score ";SCORE
+</code>
 
     <p>By using the AT function, the same table can be moved by editing a single string, no matter how
         many times it is used in the program, like this:</p>
 
-    <pre>
-E> HI_SCORES=At(12,10)+"Hi Score"
-   SCORE=999
-   Print HI_SCORE$;SCORE
-</pre>
+<code class="prefix edit">SCORE=999
+Locate 12,10: Print "Hi Score ";SCORE
+</code>
 
     <h3 class="command" id="i-centre">CENTRE</h3>
     <p><i>instruction: print text centrally on current line</i><br>
@@ -408,12 +379,11 @@ E> HI_SCORES=At(12,10)+"Hi Score"
         characters and prints it in the middle of the line currently occupied by the cursor.
         For example:</p>
 
-    <pre>
-E> Locate 0,1
-   Centre "ABOVE"
-   Cmove ,3
-   Centre "suspicion"
-</pre>
+<code class="prefix edit">Locate 0,1
+Centre "ABOVE"
+Cmove ,3
+Centre "suspicion"
+</code>
 
     <h3 class="command" id="fn-tab-dollar">TAB$</h3>
     <p><i>function: move text cursor to next Tab</i><br>
@@ -432,11 +402,10 @@ E> Locate 0,1
     <p>This simple command specifies the number of characters that the text cursor will move to the
         right when the next TAB$ is printed. For example:</p>
 
-    <pre>
-E> Cls : Print "Home"
-   Print Tab$;"And"
-   Set Tab 10 : Print Tab$;"Away"
-</pre>
+<code class="prefix edit">Cls : Print "Home"
+Print Tab$;"And"
+Set Tab 10 : Print Tab$;"Away"
+</code>
 
     <h3 class="command" id="i-cdown">CDOWN</h3>
     <p><i>instruction: move text cursor down</i><br>
@@ -444,9 +413,7 @@ E> Cls : Print "Home"
 
     <p>Use this command to force the text cursor down a single line, like this:</p>
 
-    <pre>
-E> Cls: Print "Over" : Cdown : Print "the Moon"
-</pre>
+<code class="prefix edit">Cls: Print "Over" : Cdown : Print "the Moon"</code>
 
     <h3 class="command" id="fn-cdown-dollar">CDOWN$</h3>
     <p><i>function: return control character to move text cursor down</i><br>
@@ -457,12 +424,11 @@ E> Cls: Print "Over" : Cdown : Print "the Moon"
         movements can be combined in a single string, using CDOWN$.
         For example:</p>
 
-    <pre>
-E> C$="Going Down"+Cdown$
-   For A=0 To 20
-    Print C$
-   Next A
-</pre>
+<code class="prefix edit">C$="Going Down"+Cdown$
+For A=0 To 20
+ Print C$
+Next A
+</code>
 
     <h3 class="command" id="i-cup">CUP</h3>
     <p><i>instruction: move text cursor one line up</i><br>
@@ -500,13 +466,12 @@ E> C$="Going Down"+Cdown$
         qualified by a number, then that number of characters get cleared, starting from the current
         cursor position and leaving the cursor exactly where it is. For example:</p>
 
-    <pre>
-E> Print "Testing Testing Testing";
-   Cmove -7,
-   Cline 7
-   Wait Key
-   Cline
-</pre>
+<code class="prefix edit">Print "Testing Testing Testing";
+Cmove -7,
+Cline 7
+Wait Key
+Cline
+</code>
 </section>
 
 <section id="07-tracking-the-text-cursor">
@@ -527,9 +492,7 @@ E> Print "Testing Testing Testing";
     <p>In this way, a variable is created that holds the relevant coordinate of the cursor, in text format,
         and these two functions may be used independently or together. For example:</p>
 
-    <pre>
-E> Locate 5,10: Print Xcurs; : Print Ycurs
-</pre>
+<code class="prefix edit">Locate 5,10: Print Xcurs; : Print Ycurs</code>
 
     <p>
         <b>MEMORIZE X/Y</b><br>
@@ -566,17 +529,13 @@ E> Locate 5,10: Print Xcurs; : Print Ycurs
         another colour for your text cursor, the automatic flash will not apply. To change colours, use
         the CURS PEN command, followed by the index number of your choice. For example:</p>
 
-    <pre>
-X> Curs Pen 2
-</pre>
+<code class="prefix ex">Curs Pen 2</code>
 
     <p>Note that the new colour only effects the text cursor in the current open window, and has no
         influence over other cursors used by any other windows. If you want to introduce a flash to that
         last example, you could add this line before the CURS PEN command:</p>
 
-    <pre>
-X> Flash 2,"(FFF,15)(000,15)"
-</pre>
+<code class="prefix ex">Flash 2,"(FFF,15)(000,15)"</code>
 
     <h3 class="command" id="i-set-curs">SET CURS</h3>
     <p><i>instruction: set the shape of the text cursor</i><br>
@@ -589,17 +548,16 @@ X> Flash 2,"(FFF,15)(000,15)"
         paper colour. To familiarise yourself with the technique, try the next example, which changes
         the text cursor into a Halloween mask:</p>
 
-    <pre>
-E> L1=%00111100
-   L2=%01111110
-   L3=%01011010
-   L4=%11100111
-   L5=%10111101
-   L6=%01011010
-   L7=%00100100
-   L8=%00011000
-   Set Curs L1 L2 , L3 L4 L5, L6 , L7, L8
-</pre>
+<code class="prefix edit">L1=%00111100
+L2=%01111110
+L3=%01011010
+L4=%11100111
+L5=%10111101
+L6=%01011010
+L7=%00100100
+L8=%00011000
+Set Curs L1 L2 , L3 L4 L5, L6 , L7, L8
+</code>
 
     <p>Your routine will appear slightly different from that, because the system automatically strips
         away any leading zeros in binary listings.</p>
@@ -647,9 +605,7 @@ Chr$(27)+"ZO"+A$+Chr$(27)+"R"+Chr$(48+n)
     <p>In this case, the text held in the string will start at the current text cursor position. Border
         numbers can range from 1 to 16, for example:</p>
 
-    <pre>
-E> Locate 1,1: Print Border$("AMOS Professional",2)
-</pre>
+<code class="prefix edit">Locate 1,1: Print Border$("AMOS Professional",2)</code>
 
     <p>The control sequence returned by BORDER has the following format:</p>
 
@@ -709,9 +665,7 @@ Chr$(27)+"E0"+A$+Chr$(27)+"R"+Chr$(48+n)
     <p>When used in this way, it is automatically displayed as PRINT as soon as the line has been
         entered into your listing.</p>
 
-    <pre>
-E> ? "AMOS Professional"
-</pre>
+<code class="prefix edit">? "AMOS Professional"</code>
 
     <h3 class="command" id="i-using">USING</h3>
     <p><i>instruction: format printed output</i><br>
@@ -728,9 +682,7 @@ E> ? "AMOS Professional"
     <p>Every ~ in the string variable is replaced by a single character from left to right, taken from an
         output string. For example:</p>
 
-    <pre>
-E> Print Using "This is a ~~~~~~ example";"simple"
-</pre>
+<code class="prefix edit">Print Using "This is a ~~~~~~ example";"simple"</code>
 
     <p>
         <b>#</b><br>
@@ -739,9 +691,7 @@ E> Print Using "This is a ~~~~~~ example";"simple"
     <p>Each # specifies one digit at a time, to be printed out from a given variable, with any unused
         digits being replaced by spaces. For example:</p>
 
-    <pre>
-E> Print Using "###";123456
-</pre>
+<code class="prefix edit">Print Using "###";123456</code>
 
     <p>
         <b>+</b><br>
@@ -750,9 +700,7 @@ E> Print Using "###";123456
     <p>This adds a plus sign to a positive number or a minus sign if the number is negative. For
         example:</p>
 
-    <pre>
-E> Print Using "+##";10 : Print Using "+##";-10
-</pre>
+<code class="prefix edit">Print Using "+##";10 : Print Using "+##";-10</code>
 
     <p>
         <b>-</b><br>
@@ -761,9 +709,7 @@ E> Print Using "+##";10 : Print Using "+##";-10
     <p>This gives a minus sign to negative numbers only. Positive numbers will be preceded by a space.
         For example:</p>
 
-    <pre>
-E> Print Using "-##";10:Print Using "-##";-10
-</pre>
+<code class="prefix edit">Print Using "-##";10:Print Using "-##";-10</code>
 
     <p>
         <b>.</b><br>
@@ -772,9 +718,7 @@ E> Print Using "-##";10:Print Using "-##";-10
     <p>When used with PRINT USING, the full stop (period) character places a decimal point in a
         number, and automatically centres it on screen. For example:</p>
 
-    <pre>
-E> Print Using ".###";Pi#
-</pre>
+<code class="prefix edit">Print Using ".###";Pi#</code>
 
     <p>
         <b>;</b><br>
@@ -782,9 +726,7 @@ E> Print Using ".###";Pi#
 
     <p>This centres a number, but will not output a decimal point. For example:</p>
 
-    <pre>
-E> Print Using "Pl is #;###";Pi#
-</pre>
+<code class="prefix edit">Print Using "Pl is #;###";Pi#</code>
 
     <p>
         <b>^</b><br>
@@ -792,9 +734,7 @@ E> Print Using "Pl is #;###";Pi#
 
     <p>This causes a number to be printed out in exponential format. For example:</p>
 
-    <pre>
-E> Print Using "This is an exponential number^";10000*10000.5
-</pre>
+<code class="prefix edit">Print Using "This is an exponential number^";10000*10000.5</code>
 </section>
 
 <section id="11-sending-text-to-a-printer">
@@ -811,9 +751,7 @@ E> Print Using "This is an exponential number^";10000*10000.5
     <p>The LPRINT command is exactly the same as a PRINT command, but it sends data to a printer
         instead of the screen, like this:</p>
 
-    <pre>
-X> Lprint "Greetings from AMOS Professional!"
-</pre>
+<code class="prefix ex">Lprint "Greetings from AMOS Professional!"</code>
 </section>
 
 

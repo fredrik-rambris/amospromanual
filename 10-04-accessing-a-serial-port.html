@@ -164,11 +164,10 @@ Even parity.
 
     <p>This Parity bit may be set using the BSET or BCLR instructions, as follows:</p>
 
-    <pre>
-X> P=0 : Bset 0,P: Rem Odd parity
-   Bclr 1,P : Rem Normal parity
-   Serial Parity 1,P : Rem Set parity using the value in P
-</pre>
+<code class="prefix ex">P=0 : Bset 0,P: Rem Odd parity
+Bclr 1,P : Rem Normal parity
+Serial Parity 1,P : <comment>Rem Set parity using the value in P</comment>
+</code>
 
     <h3 class="command" id="i-serial-x">SERIAL X</h3>
     <p><i>instruction: set handshaking system of serial channel</i><br>
@@ -180,9 +179,7 @@ X> P=0 : Bset 0,P: Rem Odd parity
         it on. The Xmode parameter should be loaded with the correct control characters, which must be
         specified in the following format:</p>
 
-    <pre>
-X> Xmode=XON110000000+XOFF*$1000
-</pre>
+<code class="prefix ex">Xmode=XON110000000+XOFF*$1000</code>
 </section>
 
 <section id="03-sending-and-receiving-serial-information">

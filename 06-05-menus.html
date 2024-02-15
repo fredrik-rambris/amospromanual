@@ -75,10 +75,9 @@
         titles, and you should note the use of the spaces to separate titles when they appear in the
         title line:</p>
 
-    <pre>
-E> Menu$(1)," Action"
-   Menu$(2)," Mouse"
-</pre>
+<code class="prefix edit">Menu$(1)," Action"
+Menu$(2)," Mouse"
+</code>
 
 
     <p>
@@ -89,14 +88,13 @@ E> Menu$(1)," Action"
         the menu, starting from 1. The option string holds the name of your new option, and can consist
         of any text you choose. The following lines could be added to the last example above:</p>
 
-    <pre>
-E> Rem Action menu has one option
-   Menu$(1,1)=" Quit " : Rem Ensure three spaces after Quit
-   Rem Mouse menu has three options
-   Menu$(2,1)="Arrow " : Rem Ensure five spaces after Arrow
-   Menu$(2,2)="Cross-hair"
-   Menu$(2,3)="Clock " : Rem Ensure five spaces after Clock
-</pre>
+<code class="prefix edit">Rem Action menu has one option
+Menu$(1,1)=" Quit " : Rem Ensure three spaces after Quit
+Rem Mouse menu has three options
+Menu$(2,1)="Arrow " : Rem Ensure five spaces after Arrow
+Menu$(2,2)="Cross-hair"
+Menu$(2,3)="Clock " : <comment>Rem Ensure five spaces after Clock</comment>
+</code>
 
     <p>
         That specifies your list of alternatives for the "Action" and "Mouse" menus. Before this program
@@ -111,10 +109,9 @@ E> Rem Action menu has one option
         will appear when the right mouse button is pressed. To activate the previous example, add the
         following lines:</p>
 
-    <pre>
-E> Menu On
-   Wait Key
-</pre>
+<code class="prefix edit">Menu On
+Wait Key
+</code>
 
     <p>
         Trigger the menu and its options now, and use the left mouse button to re-locate the title bar.
@@ -146,12 +143,11 @@ E> Menu On
         should change the shape of the mouse cursor, depending on the option selected from your
         menu. Note that Choice=-1 can be simplified to Choice.</p>
 
-    <pre>
-E> Do
-    If Choice and Choice(1)=1 Then Exit
-    If Choice(1)=2 and Choice(2)<>0 Then Change Mouse Choice(2)
-   Loop
-</pre>
+<code class="prefix edit">Do
+ If Choice and Choice(1)=1 Then Exit
+ If Choice(1)=2 and Choice(2)<>0 Then Change Mouse Choice(2)
+Loop
+</code>
 </section>
 
 <section id="03-creating-advanced-menus">
@@ -169,12 +165,11 @@ E> Do
         commas. To make sure that is clear, here are some examples of parameters defining the position
         of a single item in the menu hierarchy:</p>
 
-    <pre>
-X> Menu$(1)="Title1"
-   Menu$(1 ,1)="Title1 Option1"
-   Menu$(2,3)="Title2, Option2"
-   Menu$(1,1,1,1)="Title1, Option1, Sub-option1, Sub-sub-option1"
-</pre>
+<code class="prefix ex">Menu$(1)="Title1"
+Menu$(1 ,1)="Title1 Option1"
+Menu$(2,3)="Title2, Option2"
+Menu$(1,1,1,1)="Title1, Option1, Sub-option1, Sub-sub-option1"
+</code>
 
     <p>Now look at these uses of MENU$, which are used to give a single item its own characteristics:</p>
 
@@ -205,16 +200,15 @@ X> Menu$(1)="Title1"
         Similarly, the CHOICE function can return the option selected at a required level in the menu
         hierarchy. For example:</p>
 
-    <pre>
-E> Menu$(1)="Title"
-   Menu$(1,1)="Option 1"
-   Menu$(1,2)="Option 2"
-   Menu$(1,2,1)="Option 2.1"
-   Menu On
-   Do
-    If Choice Then Print Choice(1),Choice(2),Choice(3)
-   Loop
-</pre>
+<code class="prefix edit">Menu$(1)="Title"
+Menu$(1,1)="Option 1"
+Menu$(1,2)="Option 2"
+Menu$(1,2,1)="Option 2.1"
+Menu On
+Do
+ If Choice Then Print Choice(1),Choice(2),Choice(3)
+Loop
+</code>
 
     <p>
         For very large menus, the IF structure as used in the last example would become unwieldy, and
@@ -325,11 +319,10 @@ E> Menu$(1)="Title"
         single pair of brackets. These values represent the precise position of the item in the menu
         hierarchy to be deleted. For example:</p>
 
-    <pre>
-X> Menu Del(1) : Rem Delete title number 1
-   Menu Del(1,2) : Rem Delete option 2 of title 1
-   Menu Del(2,3,4) : Rem Delete sub-option 4 of option 3 of title 2
-</pre>
+<code class="prefix ex">Menu Del(1) : Rem Delete title number 1
+Menu Del(1,2) : Rem Delete option 2 of title 1
+Menu Del(2,3,4) : <comment>Rem Delete sub-option 4 of option 3 of title 2</comment>
+</code>
 
     <h3 class="command" id="i-menu-to-bank">MENU TO BANK</h3>
     <p><i>instruction: save menu definitions into a memory bank</i><br>
@@ -399,9 +392,7 @@ X> Menu Del(1) : Rem Delete title number 1
         It is perfectly legal to set individual items by this method, and with the following MENU TLINE
         and MENU BAR commands. This can result in some highly eccentric displays.</p>
 
-    <pre>
-X> Menu Line(1,1,1) : Rem Display sub-option 1,1,1 as a line
-</pre>
+<code class="prefix ex">Menu Line(1,1,1) : <comment>Rem Display sub-option 1,1,1 as a line</comment></code>
 
     <h3 class="command" id="i-menu-tline">MENU TLINE</h3>
     <p><i>instruction: display a menu as a total line</i><br>
@@ -541,9 +532,7 @@ E> FLAG=0
         This problem can be overcome either by setting the last item into place with a MENU ITEM
         STATIC command, or by enclosing the whole menu bar with a rectangular box, like this:</p>
 
-    <pre>
-X> Menu$(1 ,1)=,,,,"(Bar40,100)(Loc0,0)"
-</pre>
+<code class="prefix ex">Menu$(1 ,1)=,,,,"(Bar40,100)(Loc0,0)"</code>
 
     <h3 class="command" id="i-menu-separate">MENU SEPARATE</h3>
     <p><i>instruction: separate a list of menu items</i><br>
@@ -658,15 +647,14 @@ X> Menu$(1 ,1)=,,,,"(Bar40,100)(Loc0,0)"
         use of for those keys that have no Ascii equivalents, the so-called control keys. Here is a simple
         routine to print out scancodes:</p>
 
-    <pre>
-E> Do
-    Repeat
-     A$=inkey$
-    Until A$<>""
-    Z=Scancode
-    Print Z
-   Loop
-</pre>
+<code class="prefix edit">Do
+ Repeat
+  A$=inkey$
+ Until A$<>""
+ Z=Scancode
+ Print Z
+Loop
+</code>
 
     <p>
         The following scancodes can also be used with the MENU KEY command, instead of a character
@@ -701,24 +689,21 @@ E> Do
         order to call up the associated menu item. Any of these keyboard shortcuts can be erased by
         using MENU KEY with no parameters. For example:</p>
 
-    <pre>
-X> Menu Key(1,10) : Rem Erase shortcut assigned to item (1,10)
-</pre>
+<code class="prefix ex">Menu Key(1,10) : <comment>Rem Erase shortcut assigned to item (1,10)</comment></code>
 
     <p>Here is an example that checks for key presses of the Amiga's ten function keys:</p>
 
-    <pre>
-E> Menu$(1)="Function Keys"
-   For A=1 To 10
-    OPT$="F"+Str$(A)+" "
-    Menu$(1,A)=OPT$
-    Menu Key(1,A) To 79+A
-   Next A
-   Menu On
-   Do
-    If Choice Then Print "You have pressed Function Key ";Choice(2)
-   Loop
-</pre>
+<code class="prefix edit">Menu$(1)="Function Keys"
+For A=1 To 10
+ OPT$="F"+Str$(A)+" "
+ Menu$(1,A)=OPT$
+ Menu Key(1,A) To 79+A
+Next A
+Menu On
+Do
+ If Choice Then Print "You have pressed Function Key ";Choice(2)
+Loop
+</code>
 </section>
 
 <section id="09-embedded-menu-commands">
@@ -732,21 +717,18 @@ E> Menu$(1)="Function Keys"
         customise the appearance of your menus. These embedded commands must be enclosed
         between sets of brackets, and individual commands must be separated by colons, like this:</p>
 
-    <pre>
-X> Menu$(1)"(LOcate 10,10: Ink 1,1)I am embedded"
-</pre>
+<code class="prefix ex">Menu$(1)"(LOcate 10,10: Ink 1,1)I am embedded"</code>
 
     <p>
         Each embedded command consists of only two characters, which can be in either upper or
         lower case. Any other characters will be ignored. So the following characters will be treated as
         "LO" when entered as an embedded command:</p>
 
-    <pre>
-X> LO
-   lo
-   locate
-   Lonniedonegan
-</pre>
+<code class="prefix ex">LO
+lo
+locate
+Lonniedonegan
+</code>
 
     <p>
         Most embedded commands also require you to input one or more numbers. These numbers
@@ -768,11 +750,10 @@ X> LO
         drawn. These coordinates will also be used to determine the location of any further items in
         your menu. For example:</p>
 
-    <pre>
-E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
-   Menu$(1,2)="Please guess my coords"
-   Menu On : Wait Key
-</pre>
+<code class="prefix edit">Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
+Menu$(1,2)="Please guess my coords"
+Menu On : Wait Key
+</code>
 
     <h3 class="command" id="emcmd-bob">BOb</h3>
     <p><i>embedded command: draw a bob</i><br>
@@ -922,16 +903,15 @@ E> Menu$(1)="Example " : Menu$(1,1)="Locate (LO 50,50) in action"
 
     <p>Here is the general structure of a menu procedure:</p>
 
-    <pre>
-X> Procedure ITEM
-    If DREG(2)
-       X=DREG(0) : Y=DREG(1)
-       drawing instructions go here
-    Endif
-    DREG(0)=BX : Rem x coord of bottom right corner of menu item
-    DREG(1)=BY : Rem y coord of bottom right corner of menu item
-   Endproc
-</pre>
+<code class="prefix ex">Procedure ITEM
+ If DREG(2)
+    X=DREG(0) : Y=DREG(1)
+    drawing instructions go here
+ Endif
+ DREG(0)=BX : Rem x coord of bottom right corner of menu item
+ DREG(1)=BY : Rem y coord of bottom right corner of menu item
+Endproc
+</code>
 
     <p>
         The dimensions of the menu item as it is displayed on screen are set using the coordinates BX
@@ -998,9 +978,7 @@ X> Procedure ITEM
         command is given, each menu item will only be re-drawn once when the menu is called on the
         screen. It is used like this:</p>
 
-    <pre>
-X> Menu Once(1,1)
-</pre>
+<code class="prefix ex">Menu Once(1,1)</code>
 
 
 </section>

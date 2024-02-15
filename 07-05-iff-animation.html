@@ -40,20 +40,18 @@
     <b>Load IFF</b> "filename"<br>
     <b>Load IFF</b> "filename",any screen number</p>
 
-    <pre>
-E> Flash Off
-   Load Iff"AMOSPro Examples:Logo.Iff"
-</pre>
+<code class="prefix edit">Flash Off
+Load Iff"AMOSPro Examples:Logo.Iff"
+</code>
 
     <p><b>SAVE IFF</b><br>
         <i>instruction: save an IFF screen</i><br>
         <b>Save Iff</b> "filename"<br>
         <b>Save Iff</b> "filename", compression flag</p>
 
-    <pre>
-X> Save Iff "My Programs:Iff/Picture_Name.Iff" : Rem Compressed
-   Save Iff "My_Programs:Iff/Picture_Name.Iff",0 : Rem Uncompressed
-</pre>
+<code class="prefix ex">Save Iff "My Programs:Iff/Picture_Name.Iff" : Rem Compressed
+Save Iff "My_Programs:Iff/Picture_Name.Iff",0 : <comment>Rem Uncompressed</comment>
+</code>
 
     <p>
         Remember that the saved IFF data includes any pre-sets such as SCREEN DISPLAY, SCREEN
@@ -188,9 +186,7 @@ X> Save Iff "My Programs:Iff/Picture_Name.Iff" : Rem Compressed
         If you have a disc containing an IFF animation file, place it into any drive and call up the
         standard file selector, like this:</p>
 
-    <pre>
-D> Iff Anim Fsel$("**") To 0,10
-</pre>
+<code class="prefix direct">Iff Anim Fsel$("**") To 0,10</code>
 
     <p>
         When the file is requested, your animation sequence will be loaded into screen 0 and cycled
@@ -239,16 +235,15 @@ D> Iff Anim Fsel$("**") To 0,10
         This value may be saved into a variable once the animation has been loaded, and made use of
         when the sequence is to be played. For example:</p>
 
-    <pre>
-E> Rem Open animation file for reading
-   Open In 1,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
-   Rem Load all frames in current file
-   Rem use overlarge value of 1000 to grab all available images to bank 10
-   N=Frame Load (1 To 10,1000)
-   Close
-   Rem N now holds the number of actual frames
-   Print "Number of frames in this file is ";N
-</pre>
+<code class="prefix edit">Rem Open animation file for reading
+Open In 1,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
+Rem Load all frames in current file
+Rem use overlarge value of 1000 to grab all available images to bank 10
+N=Frame Load (1 To 10,1000)
+Close
+Rem N now holds the number of actual frames
+Print "Number of frames in this file is ";N
+</code>
 
     <h3 class="command" id="fn-frame-length">FRAME LENGTH</h3>
     <p><i>function: return the length of frames in bytes</i><br>
@@ -275,16 +270,15 @@ E> Rem Open animation file for reading
         next animation frame to be loaded. So it can be used immediately before a FRAME LOAD
         command to check the memory requirement of your new animation. For example:</p>
 
-    <pre>
-E> Open In 1 ,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
-   Rem Load first frame only into memory
-   L=Frame Length(1)
-   Rem Reserve space for the frame in Bank 10
-   Reserve As Work 10,L
-   N=Frame Load(1 To 10)
-   Close
-   Print "Required memory for frame 1=";L
-</pre>
+<code class="prefix edit">Open In 1 ,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
+Rem Load first frame only into memory
+L=Frame Length(1)
+Rem Reserve space for the frame in Bank 10
+Reserve As Work 10,L
+N=Frame Load(1 To 10)
+Close
+Print "Required memory for frame 1=";L
+</code>
 
     <h3 class="command" id="fn-frame-play">FRAME PLAY</h3>
     <p><i>function: play frames on screen</i><br>
@@ -318,34 +312,32 @@ E> Open In 1 ,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
 
     <p>For example:</p>
 
-    <pre>
-E> Rem Play the first frame in Bank 10 using screen 0
-   F=Frame Play(10,1,0)
-   Double Buffer : Rem activate non automatic double buffer
-   Rem Display next frame
-   F=Frame Play(F,1)
-</pre>
+<code class="prefix edit">Rem Play the first frame in Bank 10 using screen 0
+F=Frame Play(10,1,0)
+Double Buffer : Rem activate non automatic double buffer
+Rem Display next frame
+F=Frame Play(F,1)
+</code>
 
     <p>
         When the end of the animation sequence has been reached, your F variable points to the last
         frame of the animation. Because the exact number of frames is returned to the FRAME LOAD
         function, FRAME PLAY can be enclosed in a loop for simplicity, like this:</p>
 
-    <pre>
-E> Open In 1,"AMOSPro_Tutorialiff_Anim/AMOS.Anim"
-   L=Frame Load(1 To 10,1000)
-   Close
-   Rem Play first frame from Bank 0 and define new screen 0
-   Do
-    P=Frame Play(10,1,0)
-    Double Buffer
-    For X=2 To L-1 : Rem Play sequence to the end
-     P=Frame Play(P,1) : Rem Play next frame
-     Screen Swap : Rem Make animation visible
-     Wait Vbl : Wait Vbl : Wait Vbl
-    Next X
-   Loop
-</pre>
+<code class="prefix edit">Open In 1,"AMOSPro_Tutorialiff_Anim/AMOS.Anim"
+L=Frame Load(1 To 10,1000)
+Close
+Rem Play first frame from Bank 0 and define new screen 0
+Do
+ P=Frame Play(10,1,0)
+ Double Buffer
+ For X=2 To L-1 : Rem Play sequence to the end
+  P=Frame Play(P,1) : Rem Play next frame
+  Screen Swap : Rem Make animation visible
+  Wait Vbl : Wait Vbl : Wait Vbl
+ Next X
+Loop
+</code>
 
     <h3 class="command" id="fn-frame-skip">FRAME SKIP</h3>
     <p><i>function: skip past an animation frame</i><br>
@@ -377,9 +369,7 @@ E> Open In 1,"AMOSPro_Tutorialiff_Anim/AMOS.Anim"
         Deluxe Paint users may need to slow down the speed of AMOS Professional animations by one
         fiftieth of a second, in order to harmonise the display, like this:</p>
 
-    <pre>
-X> Wait Form Param+1
-</pre>
+<code class="prefix ex">Wait Form Param+1</code>
 
     <p>
         This has nothing to do with the Deluxe Paint package, but takes into account the extra efficiency
@@ -406,17 +396,15 @@ X> Wait Form Param+1
         The PICTURE function returns the precise format of the mask used by a picture, and it is used
         like this:</p>
 
-    <pre>
-X> Mask Iff Picture
-   Load Iff "Picture_Name"
-</pre>
+<code class="prefix ex">Mask Iff Picture
+Load Iff "Picture_Name"
+</code>
 
     <p>Here are some typical settings that can be used to load masked data from an IFF file:</p>
 
-    <pre>
-X> Mask Iff %100 : Rem Load palette of picture only
-   Mask Iff %10000 : Rem Load bitmaps only
-</pre>
+<code class="prefix ex">Mask Iff %100 : Rem Load palette of picture only
+Mask Iff %10000 : <comment>Rem Load bitmaps only</comment>
+</code>
 </section>
 
 <section id="07-freezing-the-display">

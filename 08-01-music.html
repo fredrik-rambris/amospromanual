@@ -58,13 +58,12 @@
         explosive sound effect. This does not delay the program at all, so it may be necessary to use
         WAIT between successive explosions, or to create ricochet and echo effects For example:</p>
 
-    <pre>
-E> Curs Off : Centre "Thunderbolt and Lightning"
-   Flash 1, "(FFF,1)(000,147)(A5F,2)
-   Boom : Wait 150: Boom : Cls
-   Centre "Very Very Frightening"
-   Wait 50 : Boom
-</pre>
+<code class="prefix edit">Curs Off : Centre "Thunderbolt and Lightning"
+Flash 1, "(FFF,1)(000,147)(A5F,2)
+Boom : Wait 150: Boom : Cls
+Centre "Very Very Frightening"
+Wait 50 : Boom
+</code>
 
     <h3 class="command" id="i-shoot">SHOOT</h3>
     <p><i>instruction: generate percussive sound effect</i><br>
@@ -74,9 +73,7 @@ E> Curs Off : Centre "Thunderbolt and Lightning"
         The SHOOT command generates a simple sound effect in exactly the same way as BOOM. For
         example:</p>
 
-    <pre>
-E> Shoot : Wait 25: Shoot : Print "Ouch!"
-</pre>
+<code class="prefix edit">Shoot : Wait 25: Shoot : Print "Ouch!"</code>
 
     <h3 class="command" id="i-bell">BELL</h3>
     <p><i>instruction: generate pure tone</i><br>
@@ -91,11 +88,10 @@ E> Shoot : Wait 25: Shoot : Print "Ouch!"
         command, ranging from 1 for a very deep ring, up to 96 for an ultra high pitched sound. You
         can hear the range of frequencies with this example:</p>
 
-    <pre>
-E> For F=1 To 96
-    Bell F : Wait F/10+1 : Rem Vary delay
-   Next F
-</pre>
+<code class="prefix edit">For F=1 To 96
+ Bell F : Wait F/10+1 : Rem Vary delay
+Next F
+</code>
 </section>
 
 <section id="02-musical-pitch">
@@ -156,11 +152,10 @@ B    12  24  36  48  60  72  84  96
         The VOLUME command controls the level of sound flowing through one or more channels,
         ranging from zero (complete silence) up to 63 (ear-splitting), like this:</p>
 
-    <pre>
-E> For L=0 To 63
-    Volume L: Bell 80 : Wait 5
-   Next L
-</pre>
+<code class="prefix edit">For L=0 To 63
+ Volume L: Bell 80 : Wait 5
+Next L
+</code>
 
     <p>
         Once the VOLUME level has been set, all future sound effects and music will be delivered at
@@ -178,21 +173,19 @@ E> For L=0 To 63
         (from 0 to 3) simply set the relevant bit to 1, otherwise a value of zero will keep the voice silent.
         Here are some example settings:</p>
 
-    <pre>
-X> Voice %1111 : Rem Activate all voices
-   Voice %0001 : Rem Activate voice 0 only
-   Voice %1001 : Rem Activate voices 3 and 0
-</pre>
+<code class="prefix ex">Voice %1111 : Rem Activate all voices
+Voice %0001 : Rem Activate voice 0 only
+Voice %1001 : <comment>Rem Activate voices 3 and 0</comment>
+</code>
 
     <p>The volume of each voice can now be controlled by specifying voices and volumes, like this:</p>
 
-    <pre>
-E> Volume %0001,63
-   Boom : Wait 100: Rem Channel 1 loud
-   Volume %1110,5
-   Boom : Wait 50: Rem Channels 2,3,4 soft
-   Bell 40 : Wait 50 : Volume 60: Bell 40
-</pre>
+<code class="prefix edit">Volume %0001,63
+Boom : Wait 100: Rem Channel 1 loud
+Volume %1110,5
+Boom : Wait 50: Rem Channels 2,3,4 soft
+Bell 40 : Wait 50 : Volume 60: Bell 40
+</code>
 
     <p>
         Here are some common values for voice settings, that can be used to make programming a little
@@ -239,24 +232,21 @@ E> Volume %0001,63
 
     <p>The next example demonstrates this technique, including stereo harmonies:</p>
 
-    <pre>
-E> Play 1,40,0: Play 2,50,0: Rem No delay
-   Wait Key
-   Play 1,40,15: Play 2,50,15: Rem Delay
-   Rem Play a random sequence of notes
-   Do
-    V=Rnd(1 5): P=Rnd(96): Play V,P,3
-   Loop
-</pre>
+<code class="prefix edit">Play 1,40,0: Play 2,50,0: Rem No delay
+Wait Key
+Play 1,40,15: Play 2,50,15: Rem Delay
+Rem Play a random sequence of notes
+Do
+ V=Rnd(1 5): P=Rnd(96): Play V,P,3
+Loop
+</code>
 
     <p>
         PLAY is not restricted to pure notes. It is possible to assign complex wave forms to voices, using
         the WAVE and NOISE commands, which are explained next. To stop the playing process,
         simply turn it off like this:</p>
 
-    <pre>
-D> Play Off
-</pre>
+<code class="prefix direct">Play Off</code>
 </section>
 
 <section id="05-making-waves">
@@ -312,24 +302,21 @@ D> Play Off
         achieved by adding 256 to the negative numbers in the list! In other words, a value of -50 would
         be entered as 206, like this:</p>
 
-    <pre>
-X> -50+256=206
-</pre>
+<code class="prefix ex">-50+256=206</code>
 
 
     <p>
         The following program shows how the sort of wave form in the above diagram could be created
         The wave form is then assigned to a wave and played, which is explained a little later.</p>
 
-    <pre>
-E> S$=" " : Rem Clear wave form string
-   For W=-128 To 127
-    X=W : If X<0 Then Add X,256
-    S$=S$+Chr$(X)
-   Next W
-   Set Wave 2,S$
-   Wave 2 To 15: For S=10 to 60: Play S,10: Next S
-</pre>
+<code class="prefix edit">S$=" " : Rem Clear wave form string
+For W=-128 To 127
+ X=W : If X<0 Then Add X,256
+ S$=S$+Chr$(X)
+Next W
+Set Wave 2,S$
+Wave 2 To 15: For S=10 to 60: Play S,10: Next S
+</code>
 
     <p>
         The wave forms of musical instruments are much more complicated than the last example, but
@@ -345,15 +332,14 @@ E> S$=" " : Rem Clear wave form string
         This sort of wave form generates smooth harmonics, which can then be used as the "templates"
         for musical notes, and the sort of routine in the next example can produce typical sine waves:</p>
 
-    <pre>
-E> SHAPE$=" " : Degree
-   For S=0 To 255
-    V=Int((Sin(S)/2+Sin(S*2+45)/4)*128)+127
-    SHAPE$=SHAPE$+Chr$(V)
-   Next S
-   Set Wave 2,SHAPE$ : Wave 2 To 15
-   For N=10 To 60: Play N,10 : Next N
-</pre>
+<code class="prefix edit">SHAPE$=" " : Degree
+For S=0 To 255
+ V=Int((Sin(S)/2+Sin(S*2+45)/4)*128)+127
+ SHAPE$=SHAPE$+Chr$(V)
+Next S
+Set Wave 2,SHAPE$ : Wave 2 To 15
+For N=10 To 60: Play N,10 : Next N
+</code>
 
     <h3 class="command" id="i-wave">WAVE</h3>
     <p><i>instruction: assign a wave to sound channel</i><br>
@@ -370,12 +356,11 @@ E> SHAPE$=" " : Degree
         already reserved for the NOISE channel, and wave number 1 contains a smooth sine wave for
         pure tone. Here are some examples:</p>
 
-    <pre>
-E> Wave 1 To %1111 : Rem Play pure tone through all voices
-   Play 60,0
-   Wave 0 To %0001 : Rem Use voice 0 for noise
-   Play 20,10
-</pre>
+<code class="prefix edit">Wave 1 To %1111 : Rem Play pure tone through all voices
+Play 60,0
+Wave 0 To %0001 : Rem Use voice 0 for noise
+Play 20,10
+</code>
 
     <h3 class="command" id="i-noise-to">NOISE TO</h3>
     <p><i>instruction: assign noise wave to sound channel</i><br>
@@ -387,11 +372,10 @@ E> Wave 1 To %1111 : Rem Play pure tone through all voices
         as explosions and percussion drumming. The bit-pattern used to set one or more voices has
         already been explained above. Here is an example:</p>
 
-    <pre>
-E> Noise To 15 Rem All four voices
-   Play 60,50
-   Play 30,0
-</pre>
+<code class="prefix edit">Noise To 15 Rem All four voices
+Play 60,50
+Play 30,0
+</code>
 
     <h3 class="command" id="i-sample">SAMPLE</h3>
     <p><i>instruction: assign a sample to the current wave</i><br>
@@ -403,14 +387,13 @@ E> Noise To 15 Rem All four voices
         The voices to be used are set in the usual way. When PLAY is used, this sample will be taken
         from the Sample Bank and used as the "musical instrument" to be played. Try this example:</p>
 
-    <pre>
-E> Load "AMOSPro_Examples:Samples/Mixture.Abk",6
-   Sam Bank 6
-   Sample 5 To 15
-   For S=20 To 50
-    Play S,50
-   Next S
-</pre>
+<code class="prefix edit">Load "AMOSPro_Examples:Samples/Mixture.Abk",6
+Sam Bank 6
+Sample 5 To 15
+For S=20 To 50
+ Play S,50
+Next S
+</code>
 
     <p>
         The pitch values that can be applied to any particular sample will vary, but normally anything
@@ -469,9 +452,7 @@ E> Load "AMOSPro_Examples:Samples/Mixture.Abk",6
         phase) lasts for four seconds, ramping up to full volume by its end, no matter what the original
         volume was at the start of this phase.</p>
 
-    <pre>
-X> Set Envel 1,0 To 200,63
-</pre>
+<code class="prefix ex">Set Envel 1,0 To 200,63</code>
 
     <p>
         <b>LED ON</b><br>
@@ -494,14 +475,13 @@ X> Set Envel 1,0 To 200,63
 
     <p>The difference made by the LED filter can be clearly heard in the following example:</p>
 
-    <pre>
-E> Load "AMOSPro_Examples:Music/Music.Abk"
-   Music 1
-   Do
-    If Mouse Key=1 Then Led On: Print "LED ON!"
-    If Mouse Key=2 The Led Off : Print "LED OFF"
-   Loop
-</pre>
+<code class="prefix edit">Load "AMOSPro_Examples:Music/Music.Abk"
+Music 1
+Do
+ If Mouse Key=1 Then Led On: Print "LED ON!"
+ If Mouse Key=2 The Led Off : Print "LED OFF"
+Loop
+</code>
 
     <p>
         Audio quality is very much an individual choice, and the LED filter will sound more pleasing
@@ -549,10 +529,9 @@ E> Load "AMOSPro_Examples:Music/Music.Abk"
 
     <p>For a taster of these techniques in action, load this ready-made example:</p>
 
-    <pre>
-D> Load "AMOSPro_Examples:Music/Music.Abk"
-   Music 1: Mvolume 63 : Tempo 35
-</pre>
+<code class="prefix direct">Load "AMOSPro_Examples:Music/Music.Abk"
+Music 1: Mvolume 63 : Tempo 35
+</code>
 
 
 </section>

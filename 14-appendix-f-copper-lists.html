@@ -196,10 +196,9 @@
         screen area below this line. Rainbows are an excellent example of this technique, with each line
         of the rainbow generated with a pair of commands like this:</p>
 
-    <pre>
-X> Cop Wait 0,Y : Rem Y is starting coordinate of next colour shift
-   Cop Move $180,$777 : Rem $180 is address of colour 0 and $777 is new colour
-</pre>
+<code class="prefix ex">Cop Wait 0,Y : Rem Y is starting coordinate of next colour shift
+Cop Move $180,$777 : <comment>Rem $180 is address of colour 0 and $777 is new colour</comment>
+</code>
 
 
     <p>
@@ -212,19 +211,16 @@ X> Cop Wait 0,Y : Rem Y is starting coordinate of next colour shift
         special programming, but AMOS Professional generates the correct instructions automatically,
         so there is no need for concern! Here are some examples:</p>
 
-    <pre>
-X> Cop Wait 0,130: Rem Wait for screen to reach hardware coords 0,100
-   Cop Wait 0,300: Rem Wait for line 300
-   Cop Wait 12,10: Rem Wait for coordinates 12,10 to arrive
-</pre>
+<code class="prefix ex">Cop Wait 0,130: Rem Wait for screen to reach hardware coords 0,100
+Cop Wait 0,300: Rem Wait for line 300
+Cop Wait 12,10: <comment>Rem Wait for coordinates 12,10 to arrive</comment>
+</code>
 
     <p>
         The optional xmask and ymask parameters are bit-mask values which allow for a pause until the
         screen coordinates satisfy a specific combination of bits. The default value is $1FF. For example:</p>
 
-    <pre>
-X> Cop Wait 0,2,$1FF,%11 : Rem Await next EVEN scan line
-</pre>
+<code class="prefix ex">Cop Wait 0,2,$1FF,%11 : <comment>Rem Await next EVEN scan line</comment></code>
 
     <p><b>COP RESET</b><br>
         <i>instruction: re-set copper list pointer</i><br>
@@ -243,9 +239,7 @@ X> Cop Wait 0,2,$1FF,%11 : Rem Await next EVEN scan line
         list will now be flicked into place, and the results will be shown after the next vertical blank
         period. For example:</p>
 
-    <pre>
-X> Cop Swap : Wait Vbl
-</pre>
+<code class="prefix ex">Cop Swap : Wait Vbl</code>
 
     <p><b>COP LOGIC</b><br>
         <i>instruction: give address of logical copper list</i><br>

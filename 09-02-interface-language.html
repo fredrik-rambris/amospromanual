@@ -79,10 +79,9 @@
         They can be used in conjunction with the SX and SY functions to position a dialogue box neatly
         in the centre of the display. For example:</p>
 
-    <pre>
-X> Size 240.100;
-   BAse SW SX 2/-,SH SY 2/-;
-</pre>
+<code class="prefix ex">Size 240.100;
+BAse SW SX 2/-,SH SY 2/-;
+</code>
 
 
     <p>
@@ -102,10 +101,9 @@ X> Size 240.100;
         be defined relative to one another, as you will only have to set the coordinates of the first object,
         and all of the others will be relative to it. For example:</p>
 
-    <pre>
-X> GraphicSquare 10,10,30,30; draw a box at 10,10
-   GraphicSquare XA,40,XA 20+,30; draw a box immediately below at 10,40
-</pre>
+<code class="prefix ex">GraphicSquare 10,10,30,30; draw a box at 10,10
+GraphicSquare XA,40,XA 20+,30; draw a box immediately below at 10,40
+</code>
 
     <p>
         <b>XB</b><br>
@@ -118,13 +116,12 @@ X> GraphicSquare 10,10,30,30; draw a box at 10,10
         These two functions complement the previous pair, and they return the position of the graphics
         cursor after the execution of the most recent instruction. Here are some schematic examples:</p>
 
-    <pre>
-X> BUtton 1,160,100,...;[][]
-   BUtton 2,XB,YA,...;[][]
+<code class="prefix ex">BUtton 1,160,100,...;[][]
+BUtton 2,XB,YA,...;[][]
 
 X> PRint 0,8,"Hello, first line",2;
-   PRint XA,YB,"This line will be directly under!",2;
-</pre>
+PRint XA,YB,"This line will be directly under!",2;
+</code>
 </section>
 
 <section id="02-the-graphics-commands">
@@ -219,9 +216,7 @@ X> PRint 0,8,"Hello, first line",2;
         drawing. The pattern for the line style is set by the combination of "dots and dashes" in binary
         format. For example, this example would set a line style of equal solid and blank components:</p>
 
-    <pre>
-X> SLine %1111000011110000;
-</pre>
+<code class="prefix ex">SLine %1111000011110000;</code>
 
     <p>
         <b>G</b>raphic<b>L</b>ine<br>
@@ -233,9 +228,7 @@ X> SLine %1111000011110000;
         command. As usual with Interface commands, the starting coordinates are measured from the
         BAse position. For example:</p>
 
-    <pre>
-X> GLine 0,0,100,100
-</pre>
+<code class="prefix ex">GLine 0,0,100,100</code>
 
     <p>
         <b>G</b>raphic<b>E</b>llipse<br>
@@ -371,9 +364,7 @@ PRint 0VA CentreX,0,0 VA,2;
         defined label already exists, an error message will be generated. Interface labels are defined in
         the following manner:</p>
 
-    <pre>
-X> LA 10; set up label number 10
-</pre>
+<code class="prefix ex">LA 10; set up label number 10</code>
 
     <p>
         <b>J</b>m<b>P</b><br>
@@ -386,9 +377,7 @@ X> LA 10; set up label number 10
         instruction <b>cannot</b> be used inside any of the routines held in square brackets of a BUtton
         command. It is used with the single parameter of the target label, like this:</p>
 
-    <pre>
-X> JumP 10;
-</pre>
+<code class="prefix ex">JumP 10;</code>
 
     <p>
         Interface labels are also used to mark the start of various subroutines, which are entered and left
@@ -442,10 +431,9 @@ X> JumP 10;
         providing the number of opening brackets equals the number of closing brackets, all should be
         well. Here is a very simple example of a conditional test:</p>
 
-    <pre>
-X> IF 0VA 1=; if the contents of variable zero is equal to one
-   [PRint 0,0,'Variable 0 equals 1',5; then print a message]
-</pre>
+<code class="prefix ex">IF 0VA 1=; if the contents of variable zero is equal to one
+[PRint 0,0,'Variable 0 equals 1',5; then print a message]
+</code>
 
     <p>Here is a table of the available testing operators that can be used for Interface conditional tests:</p>
 
@@ -493,19 +481,18 @@ X> IF 0VA 1=; if the contents of variable zero is equal to one
         Here is a complete working example of a user-defined instruction that draws a shadowed
         dialogue box:</p>
 
-    <pre>
-E> A$=A$+"BA 50,50;"
-   A$=A$+"SI 160,60; SA 1;"
-   A$=A$+"SB 0,0,150,50,5,0,5;"
-   AS=A$+"PO 10,10,'AMOS Professional',2,4; PR 48,20,'Basic',4;"
-   A$=A$+"BU 1,90,38,50,10,0,0,6;"
-   A$=A$+"[ShadowBox 0,0,50,10,1,0,4 BPos+; PR 1,2,'Button',6;][]"
-   A$=A$+"RU 0,7;EXit;"
-   A$=A$+"UserInstruction ShadowBox,7; create shadowed box with seven parameters"
-   A$=A$+"[IN P6,0,0; GB P1 P5+,P2 P5+,P3 P5+,P4 P5+; draw the shadow effect"
-   A$=A$+"1N P7,0,0; GB P1,P2,P3,P4, draw the box at the top]"
-   D=Dialog Box(A$)
-</pre>
+<code class="prefix edit">A$=A$+"BA 50,50;"
+A$=A$+"SI 160,60; SA 1;"
+A$=A$+"SB 0,0,150,50,5,0,5;"
+AS=A$+"PO 10,10,'AMOS Professional',2,4; PR 48,20,'Basic',4;"
+A$=A$+"BU 1,90,38,50,10,0,0,6;"
+A$=A$+"[ShadowBox 0,0,50,10,1,0,4 BPos+; PR 1,2,'Button',6;][]"
+A$=A$+"RU 0,7;EXit;"
+A$=A$+"UserInstruction ShadowBox,7; create shadowed box with seven parameters"
+A$=A$+"[IN P6,0,0; GB P1 P5+,P2 P5+,P3 P5+,P4 P5+; draw the shadow effect"
+A$=A$+"1N P7,0,0; GB P1,P2,P3,P4, draw the box at the top]"
+D=Dialog Box(A$)
+</code>
 
     <p>
         The Interface provides a method of arranging your user-defined instructions so that they
@@ -527,13 +514,12 @@ E> A$=A$+"BA 50,50;"
         cursor after the new instruction as been executed. So after the new command has done its
         work, the internal variables can b set up accordingly. For example:</p>
 
-    <pre>
-X> 'An instruction that draws a box and then prints some text in it.
-   'XB YB will be at the end of the box, and not at the printed text!
-   'The syntax for this is TextBox x1 ,y1,x2,y2,text
-   Userinstruction TextBox,5;
-   [BOx P1,P2,1,P3,P4; PRint P1 ,P2,P5,1; XY P1 ,P2,P3,P4;]
-</pre>
+<code class="prefix ex">'An instruction that draws a box and then prints some text in it.
+'XB YB will be at the end of the box, and not at the printed text!
+'The syntax for this is TextBox x1 ,y1,x2,y2,text
+Userinstruction TextBox,5;
+[BOx P1,P2,1,P3,P4; PRint P1 ,P2,P5,1; XY P1 ,P2,P3,P4;]
+</code>
 
     <p>
         User instructions have a few limitations, which should be remembered. Each command is
@@ -570,14 +556,13 @@ X> 'An instruction that draws a box and then prints some text in it.
         returns the contents of the internal zone variable, and pokes it into your definition for safe-
         keeping. For example:</p>
 
-    <pre>
-X> 'This user instruction defines a button made of text only
-   'MyButton zone,x,y,text
-   Userinstruction MyButton,4;
-   [SetZone P4; save parameter four in the internal buffer zone
-   BUtton P1,P2,P3,P4 TextWidth 16+,TextHeight 4+,0,0,1;
-   [PRint 0,0,ZoneVariable,1][] zvar permanently installs text into the new button
-</pre>
+<code class="prefix ex">'This user instruction defines a button made of text only
+'MyButton zone,x,y,text
+Userinstruction MyButton,4;
+[SetZone P4; save parameter four in the internal buffer zone
+BUtton P1,P2,P3,P4 TextWidth 16+,TextHeight 4+,0,0,1;
+[PRint 0,0,ZoneVariable,1][] zvar permanently installs text into the new button
+</code>
 
 </section>
 
@@ -597,15 +582,11 @@ X> 'This user instruction defines a button made of text only
         easiest way to load it is to place it into an Interface variable from the main program. For
         example:</p>
 
-    <pre>
-X> Vdialog(1,0)=Start(6) : Rem Load 0VA of channel 1 with the address of bank 6.
-</pre>
+<code class="prefix ex">Vdialog(1,0)=Start(6) : <comment>Rem Load 0VA of channel 1 with the address of bank 6.</comment></code>
 
     <p>You can now run your CAll routine using a line like this:</p>
 
-    <pre>
-X> Call 0VA;
-</pre>
+<code class="prefix ex">Vdialog(1,0)=Start(6) : <comment>Rem Load 0VA of channel 1 with the address of bank 6.</comment></code>
 
     <p>
         Machine code can be used to modify all registers, and should return with an RTS. All aspects of

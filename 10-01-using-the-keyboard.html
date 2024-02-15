@@ -42,23 +42,21 @@
         This function checks to see if a key has been pressed, and reports back its value in a string. For
         example:</p>
 
-    <pre>
-E> Do
-    K$=Inkey$
-    If K$<>""Then Print "You pressed a key!"
-   Loop
-</pre>
+<code class="prefix edit">Do
+ K$=Inkey$
+ If K$<>""Then Print "You pressed a key!"
+Loop
+</code>
 
     <p>Now use the INKEY$ function to move your cursor around the screen, like this:</p>
 
 
-    <pre>
-E> Print "Use your cursor keys"
-   Do
-    K$=Inkey$
-    If K$<>""Then Print K$;
-   Loop
-</pre>
+<code class="prefix edit">Print "Use your cursor keys"
+Do
+ K$=Inkey$
+ If K$<>""Then Print K$;
+Loop
+</code>
 
     <p>
         The INKEY$ function does not wait for you to input anything from the keyboard, so if a
@@ -82,16 +80,15 @@ E> Print "Use your cursor keys"
     [Help]. To interrupt the example, press [Ctrl]+[C].
 
 
-    <pre>
-E> Do
-    While K$=""
-     K$=Inkey$
-    Wend
-    If Asc(K$)=0 Then Print "No Ascii Code"
-    Print "The Scan Code is ";Scancode
-    K$=""
-   Loop
-</pre>
+<code class="prefix edit">Do
+ While K$=""
+  K$=Inkey$
+ Wend
+ If Asc(K$)=0 Then Print "No Ascii Code"
+ Print "The Scan Code is ";Scancode
+ K$=""
+Loop
+</code>
 
     <h3 class="command" id="fn-scanshift">SCANSHIFT</h3>
     <p><i>function: return shift status of key entered with INKEY$</i><br>
@@ -111,15 +108,14 @@ E> Do
 
     <p>Try out the following example by pressing various keys, in combination with the [Shift] keys:</p>
 
-    <pre>
-E> Do
-    A$=Inkey$
-    S=Scanshift
-    If S<>0
-     Print S
-    End If
-   Loop
-</pre>
+<code class="prefix edit">Do
+ A$=Inkey$
+ S=Scanshift
+ If S<>0
+  Print S
+ End If
+Loop
+</code>
 
     <h3 class="command" id="fn-key-state">KEY STATE</h3>
     <p><i>function: test for a specific key press</i><br>
@@ -130,12 +126,11 @@ E> Do
         code should be enclosed in brackets, and when the associated key is being pressed KEY STATE
         will return a value of TRUE (-1), otherwise the result will be given as FALSE (0). For example:</p>
 
-    <pre>
-E> Do
-    If Key State(69)=True Then Print "ESCAPE!" : Rem Esc key pressed
-    If Key State(95)=True Then Print "HELP!": Rem Help key pressed
-   Loop
-</pre>
+<code class="prefix edit">Do
+ If Key State(69)=True Then Print "ESCAPE!" : Rem Esc key pressed
+ If Key State(95)=True Then Print "HELP!": Rem Help key pressed
+Loop
+</code>
 
 
     <h3 class="command" id="fn-key-shift">KEY SHIFT</h3>
@@ -165,13 +160,12 @@ E> Do
         If the report reveals that a bit is set to 1, then the associated key has been held down by the user,
         otherwise a 0 is given. Here is a practical example:</p>
 
-    <pre>
-E> Centre "Please press some Control keys"
-   Curs Off
-   Do
-    Locate 14,4: Print Bin$(Key Shift,8)
-   Loop
-</pre>
+<code class="prefix edit">Centre "Please press some Control keys"
+Curs Off
+Do
+ Locate 14,4: Print Bin$(Key Shift,8)
+Loop
+</code>
 
     <p>
         These keys can also be used when setting up macro definitions, using the SCAN$ and KEY$
@@ -214,10 +208,9 @@ E> Centre "Please press some Control keys"
         enter each character in turn. Although characters will not appear on the screen, similar to
         INKEY$, the two instructions are totally different. Here is an example:</p>
 
-    <pre>
-E> Clear Key : Print "Please type in ten characters"
-   V$=Input$(10) : Print "You typed: ";V$
-</pre>
+<code class="prefix edit">Clear Key : Print "Please type in ten characters"
+V$=Input$(10) : Print "You typed: ";V$
+</code>
 
     <p>
         There is another version of INPUT$ which operates with a number of characters from a disc.
@@ -252,15 +245,14 @@ E> Clear Key : Print "Please type in ten characters"
 
     <p>For example:</p>
 
-    <pre>
-E> Print "Type in a number"
-   Input A
-   Print "Your number was ";A
-   Input "Type in a floating point number";N#
-   Print "Your number was ";N#
-   Input "What's your name?";Name$
-   Locate 23, : Print "Hello ";Name$
-</pre>
+<code class="prefix edit">Print "Type in a number"
+Input A
+Print "Your number was ";A
+Input "Type in a floating point number";N#
+Print "Your number was ";N#
+Input "What's your name?";Name$
+Locate 23, : Print "Hello ";Name$
+</code>
 
     <h3 class="command" id="i-line-input">LINE INPUT</h3>
     <p><i>instruction: input a list of variables separated by [Return]</i><br>
@@ -271,10 +263,9 @@ E> Print "Type in a number"
         LINE INPUT is identical in usage to INPUT, except that is uses a press of the [Return] key to
         separate each value you enter via the keyboard instead of a comma. Try this:</p>
 
-    <pre>
-E> Line Input "Type in three numbers";A,B,C
-   Print A,B,C
-</pre>
+<code class="prefix edit">Line Input "Type in three numbers";A,B,C
+Print A,B,C
+</code>
 
     <h3 class="command" id="i-put-key">PUT KEY</h3>
     <p><i>instruction:load a string into the keyboard buffer</i><br>
@@ -286,14 +277,13 @@ E> Line Input "Type in three numbers";A,B,C
         included using a CHR$(13) character. In the next example, "NO" is assigned to the default
         INPUT string.</p>
 
-    <pre>
-E> Do
-    Put Key "NO"
-    Input "Do you love me, Yes or No: ";A$
-    B$=Upper$(A$)
-    If B$="NO" Then Boom : Wait 50: Exit
-   Loop
-</pre>
+<code class="prefix edit">Do
+ Put Key "NO"
+ Input "Do you love me, Yes or No: ";A$
+ B$=Upper$(A$)
+ If B$="NO" Then Boom : Wait 50: Exit
+Loop
+</code>
 </section>
 
 <section id="03-keyboard-macros">
@@ -329,9 +319,7 @@ E> Do
         Single quotes can be used to enclose a comment, which will only be displayed in your key
         definition list and will be completely ignored by the macro routine. For example:</p>
 
-    <pre>
-X> Key$(3)="'Comment' Print"
-</pre>
+<code class="prefix ex">Key$(3)="'Comment<comment>' Print"</comment></code>
 
     <p>Also note that by pressing [Alt]+[Quote] together, a special return code is generated.</p>
 
@@ -375,15 +363,11 @@ X> Key$(3)="'Comment' Print"
         Follow this by the delay-speed between each character you type, also in 50ths of a second. This
         line will slow everything down:</p>
 
-    <pre>
-D> Key Speed 50,50: Rem One second delay
-</pre>
+<code class="prefix direct">Key Speed 50,50: <comment>Rem One second delay</comment></code>
 
     <p>The following setting may well prevent you from editing at all!</p>
 
-    <pre>
-D> Key Speed 1,1: Rem Ridiculously fast
-</pre>
+<code class="prefix direct">Key Speed 1,1: <comment>Rem Ridiculously fast</comment></code>
 
 
 </section>

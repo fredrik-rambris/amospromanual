@@ -150,18 +150,17 @@
 
     <p>Here is an example of a boot menu, demonstrating a very simple version of this technique:</p>
 
-    <pre>
-E> Do
-    Screen Open 0,640,200,4,Hires
-    Repeat
-    Input "Please enter a program name to run: ";P$
-    Exit If P$="",2
-    Trap Prun P$
-    If Errtrap : Print "Program not found!" : End If
-   Until Errtrap=0
-   Wait 50
+<code class="prefix edit">Do
+ Screen Open 0,640,200,4,Hires
+ Repeat
+ Input "Please enter a program name to run: ";P$
+ Exit If P$="",2
+ Trap Prun P$
+ If Errtrap : Print "Program not found!" : End If
+Until Errtrap=0
+Wait 50
   Loop
-</pre>
+</code>
 
     <ul>
         <li>You may use PRUN to call and run as many programs as memory allows.</li>
@@ -231,12 +230,11 @@ E> Do
         For example, to execute an external program copied into the C: directory of AMOS Professional,
         and wait for its completion, this could be used:</p>
 
-    <pre>
-X> Amos To Back : Rem Reveal the Workbench
-   Rem Now launch the program in a small CLI window
-   Exec "Program Name","CON:0/0/160/48/Program Name"
-   Amos To Front : Rem Return to AMOS Pro after the program
-</pre>
+<code class="prefix ex">Amos To Back : Rem Reveal the Workbench
+Rem Now launch the program in a small CLI window
+Exec "Program Name","CON:0/0/160/48/Program Name"
+Amos To Front : <comment>Rem Return to AMOS Pro after the program</comment>
+</code>
 
     <h3 class="command" id="fn-prg-state">PRG STATE</h3>
     <p><i>function: return the status of how the current program was originally run</i><br>

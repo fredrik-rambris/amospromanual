@@ -52,12 +52,11 @@
         number is added the new colour will be used for this and all subsequent drawing operations.
         For example:</p>
 
-    <pre>
-E> Cls: Curs Off
-   Do
-    Plot Rnd(319),Rnd(199),Rnd(15)
-   Loop
-</pre>
+<code class="prefix edit">Cls: Curs Off
+Do
+ Plot Rnd(319),Rnd(199),Rnd(15)
+Loop
+</code>
 
     <h3 class="command" id="fn-point">POINT</h3>
     <p><i>function: return the colour of a point</i><br>
@@ -87,13 +86,12 @@ Print "The colour is ";Point(160,100)
 
     <p>For example:</p>
 
-    <pre>
-E> X=150 : Y=10
-   For R=3 To 87 Step 3
-    Gr Locate X,Y+R
-    Circle ,,R
-   Next R
-</pre>
+<code class="prefix edit">X=150 : Y=10
+For R=3 To 87 Step 3
+ Gr Locate X,Y+R
+ Circle ,,R
+Next R
+</code>
 
     <p><b>XGR</b><br>
         <b>YGR</b><br>
@@ -105,10 +103,9 @@ E> X=150 : Y=10
         Use these functions to find the current coordinates of the graphics cursor, which is the default
         location for future drawing operations. For example:</p>
 
-    <pre>
-E> Cls : Circle 100,100,50
-   Print Xgr,Ygr
-</pre>
+<code class="prefix edit">Cls : Circle 100,100,50
+Print Xgr,Ygr
+</code>
 </section>
 
 <section id="03-drawing-lines">
@@ -124,11 +121,10 @@ E> Cls : Circle 100,100,50
         one to the other. To draw a line from the current position of the graphics cursor, use DRAW TO
         followed by a single set of coordinates. For example:</p>
 
-    <pre>
-E> Cls: Ink 2
-   Draw 50,50 To 250,150
-   Draw To 275,175
-</pre>
+<code class="prefix edit">Cls: Ink 2
+Draw 50,50 To 250,150
+Draw To 275,175
+</code>
 
     <p><b>Line styles</b><br>
 
@@ -149,13 +145,12 @@ E> Cls: Ink 2
         16-bit mask can generate values for different patterns between 0 and 65535, but here is a more
         practical example:</p>
 
-    <pre>
-E> Cls : Ink 2
-   Set Line $F0F0
-   Box 50,100 To 150,140
-   Set Line %1100110011001100
-   Box 60,110 To 160,160
-</pre>
+<code class="prefix edit">Cls : Ink 2
+Set Line $F0F0
+Box 50,100 To 150,140
+Set Line %1100110011001100
+Box 60,110 To 160,160
+</code>
 </section>
 
 <section id="04-drawing-outline-shapes">
@@ -173,10 +168,9 @@ E> Cls : Ink 2
         same time. In this way, complex many-sided outlines can be drawn with a single statement. In
         its POLYLINE TO form, drawing begins at the current graphic cursor position. For example:</p>
 
-    <pre>
-E> Circle 160,100,95
-   Polyline 160,6 To 100,173 To 250,69 To 71,69 To 222,173 To 160,6
-</pre>
+<code class="prefix edit">Circle 160,100,95
+Polyline 160,6 To 100,173 To 250,69 To 71,69 To 222,173 To 160,6
+</code>
 
     <h3 class="command" id="i-box">BOX</h3>
     <p><i>instruction: draw a rectangular outline</i><br>
@@ -200,15 +194,14 @@ E> Circle 160,100,95
 
     <p>For example:</p>
 
-    <pre>
-E> Cls : Curs Off : Ink 3
-   Gr Locate 160,100
-   Circle ,,45 : Wait 100: Flash Off
-   Do
-    Ink Rnd(15) : X=Rnd(250) : Y=Rnd(150) : R=Rnd(90)+1
-    Circle X,Y,R
-   Loop
-</pre>
+<code class="prefix edit">Cls : Curs Off : Ink 3
+Gr Locate 160,100
+Circle ,,45 : Wait 100: Flash Off
+Do
+ Ink Rnd(15) : X=Rnd(250) : Y=Rnd(150) : R=Rnd(90)+1
+ Circle X,Y,R
+Loop
+</code>
 
     <h3 class="command" id="i-ellipse">ELLIPSE</h3>
     <p><i>instruction: draw an elliptical outline</i><br>
@@ -220,10 +213,9 @@ E> Cls : Curs Off : Ink 3
         ellipse. Coordinates may be omitted as usual, providing the commas remain in place. For
         example:</p>
 
-    <pre>
-E> Ellipse 100,100,50,20
-   Ellipse ,,20,50
-</pre>
+<code class="prefix edit">Ellipse 100,100,50,20
+Ellipse ,,20,50
+</code>
 
     <h3 class="command" id="i-clip">CLIP</h3>
     <p><i>instruction: restrict drawing to a limited screen area</i><br>
@@ -238,13 +230,12 @@ E> Ellipse 100,100,50,20
         preserved outside of the clipped zone can be used for items such as borders and control panels.
         For example:</p>
 
-    <pre>
-E> Clip 150,5 To 280,199
-   For R=4 To 96 Step 4
-    Gr Locate 150,R+5
-    Ellipse ,,R+9,R
-   Next R
-</pre>
+<code class="prefix edit">Clip 150,5 To 280,199
+For R=4 To 96 Step 4
+ Gr Locate 150,R+5
+ Ellipse ,,R+9,R
+Next R
+</code>
 </section>
 
 <section id="05-selecting-colours">
@@ -267,10 +258,9 @@ E> Clip 150,5 To 280,199
         The INK command is used to specify which colour is to be used for subsequent drawing, and
         the number of the colour register is set like this:</p>
 
-    <pre>
-E> Cls: Ink 5
-   Draw To 319,199
-</pre>
+<code class="prefix edit">Cls: Ink 5
+Draw To 319,199
+</code>
 
     <p>
         The INK instruction can also be used to set patterns for filling shapes, as well as colours for
@@ -308,13 +298,12 @@ Decimal   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
         number from 0 to 31, and returns the colour value assigned to that number. Hex$ is used for this
         purpose, as follows:</p>
 
-    <pre>
-E> Curs Off : Flash Off
-   For C=0 To 15: Ink C
-    Print Hex$(Colour(C),3)
-    Circle 160,75,(C+1)*4
-   Next C
-</pre>
+<code class="prefix edit">Curs Off : Flash Off
+For C=0 To 15: Ink C
+ Print Hex$(Colour(C),3)
+ Circle 160,75,(C+1)*4
+Next C
+</code>
 
 
     <p>
@@ -346,9 +335,7 @@ Pig foot  $A74         R=A G=7 B=4
         of the Amiga's 32 colour registers. For example, if you wanted to load colour number 1 with a
         subtle shade of pig's feet, you would use this:</p>
 
-    <pre>
-E> Cls : Colour 1,$A74
-</pre>
+<code class="prefix edit">Cls : Colour 1,$A74</code>
 
     <i>COLOUR BACK</i><br>
     <i>instruction: assign a colour to the screen background</i><br>
@@ -381,11 +368,10 @@ E> Cls : Colour 1,$A74
     <p>Remember that only the colours specifically set with this command will be affected, and any
         others will retain their original values.</p>
 
-    <pre>
-E> Palette $FFF : Rem set colour 0 to white
-   Palette ,,,,$F00,$D00,$A00,$700,$400 : Rem colours 4 to 8 graded reds
-   Palette $000,,$000: Rem colours 0 and 2 both black
-</pre>
+<code class="prefix edit">Palette $FFF : Rem set colour 0 to white
+Palette ,,,,$F00,$D00,$A00,$700,$400 : Rem colours 4 to 8 graded reds
+Palette $000,,$000: <comment>Rem colours 0 and 2 both black</comment>
+</code>
 
     <p>
         PALETTE can also be used to set the colours used by the Half-Bright and HAM modes, and
@@ -393,14 +379,13 @@ E> Palette $FFF : Rem set colour 0 to white
         his routine, which changes the first five colours in the palette with a hexadecimal poem, and
         displays the result on screen. Feel free to change the values or the poetry.</p>
 
-    <pre>
-E> Palette $BAD,$0DD,$B0D,$FAB,$F1B
-   Curs Off : Flash Off
-   For C=0 To 4: Ink C
-    Print Hex$(Colour(C,3)
-    Bar 50,8*C To 150,8*C+8
-   Next C
-</pre>
+<code class="prefix edit">Palette $BAD,$0DD,$B0D,$FAB,$F1B
+Curs Off : Flash Off
+For C=0 To 4: Ink C
+ Print Hex$(Colour(C,3)
+ Bar 50,8*C To 150,8*C+8
+Next C
+</code>
 </section>
 
 <section id="07-filled-shapes">
@@ -422,11 +407,10 @@ E> Palette $BAD,$0DD,$B0D,$FAB,$F1B
         paint with the current ink colour. Try this, which if all goes well should result in the Japanese
         national flag:</p>
 
-    <pre>
-E> Palette 0,$F00
-   Circle 160,100,50
-   Paint 50,50
-</pre>
+<code class="prefix edit">Palette 0,$F00
+Circle 160,100,50
+Paint 50,50
+</code>
 
     <p>
         The optional mode setting can be set to either zero or one. A value of 0 ends your PAINT
@@ -456,13 +440,12 @@ E> Palette 0,$F00
         length of 255 characters, there is no limit to the number of pairs of coordinates you can use. Try
         this example:</p>
 
-    <pre>
-E> Do
-    Ink Rnd(15)
-    X1=Rnd(250) : Y1=Rnd(150) : H=Rnd(200) : W=Rnd(150)
-    Polygon X1,Y1 To X1+W,Y1 To X1+W/2,Y1+H To X1,Y1
-   Loop
-</pre>
+<code class="prefix edit">Do
+ Ink Rnd(15)
+ X1=Rnd(250) : Y1=Rnd(150) : H=Rnd(200) : W=Rnd(150)
+ Polygon X1,Y1 To X1+W,Y1 To X1+W/2,Y1+H To X1,Y1
+Loop
+</code>
 </section>
 
 <section id="08-alternative-fill-style">
@@ -479,9 +462,7 @@ E> Do
         Use this command to select from a range of pattern styles. The default status fills shapes with
         the current ink colour, and is set with a zero, like this:</p>
 
-    <pre>
-X> Set Pattern 0
-</pre>
+<code class="prefix ex">Set Pattern 0</code>
 
     <p>
         If SET PATTERN is followed by a positive number from 1 to 34, shapes are filled from a ready-
@@ -490,17 +471,16 @@ X> Set Pattern 0
 
     <p>View them now, by running this routine:</p>
 
-    <pre>
-D> Do
-    For N=0 To 34
-     Set Pattern N
-     Ink 0,1,2: Set Paint 1
-     Bar 50,50 To 150,150
-     Locate 0,0: Print N ;" "
-     Wait 50
-    Next N
-   Loop
-</pre>
+<code class="prefix direct">Do
+ For N=0 To 34
+  Set Pattern N
+  Ink 0,1,2: Set Paint 1
+  Bar 50,50 To 150,150
+  Locate 0,0: Print N ;" "
+  Wait 50
+ Next N
+Loop
+</code>
 
     <p>
         If SET PATTERN is followed by a negative number, shapes will be filled with a pattern grabbed
@@ -519,11 +499,10 @@ D> Do
         If multi-coloured images are required using the original Object colours, the INK must first be set
         up, as follows:</p>
 
-    <pre>
-X> Ink 15,0
-   Set Pattern -1
-   Paint 100,100
-</pre>
+<code class="prefix ex">Ink 15,0
+Set Pattern -1
+Paint 100,100
+</code>
 
     <p>
         That example fills the screen area around the given coordinates with any of the Object colours,
@@ -532,23 +511,20 @@ X> Ink 15,0
         following line, the Object will be drawn with the normally transparent colour filled by colour 1:
     </p>
 
-    <pre>
-X> Ink 15,1
-</pre>
+<code class="prefix ex">Ink 15,1</code>
 
     <p>
         Before making use of sprite images as fill patterns, remember to use GET SPRITE PALETTE to
         avoid messy displays. Here is an example:</p>
 
-    <pre>
-E> Flash Off : Cls 0
-   Load "AMOSPro_Tutorial:Objects/Pattern.Abk"
-   Get Sprite Palette
-   Box 1,1 To 319,199
-   Ink 15,0
-   Set Pattern -1
-   Paint 102,102
-</pre>
+<code class="prefix edit">Flash Off : Cls 0
+Load "AMOSPro_Tutorial:Objects/Pattern.Abk"
+Get Sprite Palette
+Box 1,1 To 319,199
+Ink 15,0
+Set Pattern -1
+Paint 102,102
+</code>
 
 
     <h3 class="command" id="i-set-paint">SET PAINT</h3>
@@ -561,11 +537,10 @@ E> Flash Off : Cls 0
         appear in the previous ink colour. If the mode is set by a zero, the default setting applies, with
         no borders shown. For example:</p>
 
-    <pre>
-E> Ink 0,1,2 : Set Paint 1
-   Bar 5,5 To 200,100
-   Set paint 0: Bar 210,75 To 310,190
-</pre>
+<code class="prefix edit">Ink 0,1,2 : Set Paint 1
+Bar 5,5 To 200,100
+Set paint 0: Bar 210,75 To 310,190
+</code>
 
     <p>
         In the last example, the INK command carried additional parameters. These optional settings
@@ -573,12 +548,11 @@ E> Ink 0,1,2 : Set Paint 1
         words, they can set the colours to be used for fill patterns and outlines of bars and polygons.
         Remember to include any commas for unused options, as follows:</p>
 
-    <pre>
-X> Ink 3: Rem Set ink colour
-   ink ,,5: Rem Set border outline only
-   Ink 0,8,2: Rem Set ink, fill colour and border
-   Ink 6,13: Rem Set ink and background fill colour
-</pre>
+<code class="prefix ex">Ink 3: Rem Set ink colour
+ink ,,5: Rem Set border outline only
+Ink 0,8,2: Rem Set ink, fill colour and border
+Ink 6,13: <comment>Rem Set ink and background fill colour</comment>
+</code>
 </section>
 
 <section id="09-overwriting-styles">
@@ -596,33 +570,22 @@ X> Ink 3: Rem Set ink colour
         This command is used to set the various modes used for drawing lines, shapes, filled shapes and
         graphical text. Settings are made using a bit pattern, whose values give the following results:</p>
 
-    <pre>
-Bit 0 = 0 only draw graphics using the current ink colour.
-Bit 0 = 1 replace any existing graphics with new graphics (default condition).
-Bit 1 = 1 change old graphics that overlap with new graphics, using XOR.
-Bit 2 = 1 reverse ink and paper colours, creating inverse video effect.
-</pre>
-
-    <p>The normal drawing state is where new graphics overwrite old graphics, like this:</p>
-
-    <pre>
-E> Ink 2,5 : Text 100,80, "NORMAL TEXT"
-   Wait 100 : Gr Writing 1
-   Text 10 ,80, "REPLACE"
-</pre>
+<code class="prefix edit">Ink 2,5 : Text 100,80, "NORMAL TEXT"
+Wait 100 : Gr Writing 1
+Text 10 ,80, "REPLACE"
+</code>
 
 
     <p>Try the next example for some simple demonstrations of alternative settings:</p>
 
-    <pre>
-E> Ink 2,5 : Text 100,80,"NORMAL TEXT"
-   Wait 100 : Gr Writing 0
-   Text 100,80, "MERGED"
-   Wait 100 : Gr Writing 4
-   Text 100,90, "STENCIL"
-   Wait 100 : Gr Writing 5
-   Text 100,100, "REVERSE"
-</pre>
+<code class="prefix edit">Ink 2,5 : Text 100,80,"NORMAL TEXT"
+Wait 100 : Gr Writing 0
+Text 100,80, "MERGED"
+Wait 100 : Gr Writing 4
+Text 100,90, "STENCIL"
+Wait 100 : Gr Writing 5
+Text 100,100, "REVERSE"
+</code>
 </section>
 
 <section id="10-advanced-techniques">

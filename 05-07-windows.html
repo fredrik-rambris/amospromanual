@@ -62,13 +62,12 @@
         coordinates. Titles can also be included in window borders, which will be dealt with a little later.
         Try this example:</p>
 
-    <pre>
-E> For W=1 To 3
-    Wind Open W,(W-1)*96,50,10,15,W
-    Paper W+3 : Pen W+6 : Clw
-    Print "Window";W
-   Next W
-</pre>
+<code class="prefix edit">For W=1 To 3
+ Wind Open W,(W-1)*96,50,10,15,W
+ Paper W+3 : Pen W+6 : Clw
+ Print "Window";W
+Next W
+</code>
 
     <h3 class="command" id="i-window">WINDOW</h3>
     <p><i>instruction: change the current window</i><br>
@@ -80,11 +79,10 @@ E> For W=1 To 3
 
     For now, run the last example from Direct mode and enter the following statements:
 
-    <pre>
-D> Window 1: Print "AMOS"
+<code class="prefix direct">Window 1: Print "AMOS"
 D> Window 3: Print "open windows on the world"
 D> Window 2: "lets me"
-</pre>
+</code>
 
     <p>The active window is host to the flashing text cursor, unless it has been made invisible with a
         CURS OFF command.</p>
@@ -99,10 +97,9 @@ D> Window 2: "lets me"
         instruction as long as the commas are included for any missing values: If the last example is still
         on screen, enter these lines from direct mode:</p>
 
-    <pre>
-D> Border 3,2,3
+<code class="prefix direct">Border 3,2,3
 D> Border 2,,
-</pre>
+</code>
 
     <h3 class="command" id="i-title-top">TITLE TOP</h3>
     <p><i>instruction: set title at top of current window</i><br>
@@ -111,10 +108,9 @@ D> Border 2,,
     <p>Use this command to set a border title at the top of the current window to your chosen title
         string. This facility will only operate with bordered windows, as follows:</p>
 
-    <pre>
-E> Cls: Wind Open 4,1,1,20,10,1
-   Title Top "Top of the morning"
-</pre>
+<code class="prefix edit">Cls: Wind Open 4,1,1,20,10,1
+Title Top "Top of the morning"
+</code>
 
     <h3 class="command" id="i-title-bottom">TITLE BOTTOM</h3>
     <p><i>instruction: set title at bottom of current window</i><br>
@@ -122,11 +118,10 @@ E> Cls: Wind Open 4,1,1,20,10,1
 
     <p>Similarly, this instruction assigns a string to the bottom title of the current window, like this:</p>
 
-    <pre>
-E> Cls : Wind Open 5,75,50,24,15
-   Border 5,6,
-   Title Bottom "Bottom of the barrel"
-</pre>
+<code class="prefix edit">Cls : Wind Open 5,75,50,24,15
+Border 5,6,
+Title Bottom "Bottom of the barrel"
+</code>
 </section>
 
 <section id="02-manipulating-windows">
@@ -139,12 +134,11 @@ E> Cls : Wind Open 5,75,50,24,15
     <p>Before using windows in your programs, you will need to refer to their identification numbers.
         This function returns the value of the current window. For example:</p>
 
-    <pre>
-E> Do
-    Cls : Wind Open Rnd(99)+1,1,1,25,5,1
-    Print "Window number ";Windon : Wait Key
-   Loop
-</pre>
+<code class="prefix edit">Do
+ Cls : Wind Open Rnd(99)+1,1,1,25,5,1
+ Print "Window number ";Windon : Wait Key
+Loop
+</code>
 
     <h3 class="command" id="i-wind-save">WIND SAVE</h3>
     <p><i>instruction: save the contents of the current window</i><br>
@@ -175,11 +169,10 @@ E> Do
         been activated, the deleted window will be replaced by the saved graphics, otherwise the area
         will be totally erased from the screen. Here is an example:</p>
 
-    <pre>
-E> Wind Open 1,1,8,35,18,1 : Print "Press a key to close this window"
-   Wait Key
-   Wind Close
-</pre>
+<code class="prefix edit">Wind Open 1,1,8,35,18,1 : Print "Press a key to close this window"
+Wait Key
+Wind Close
+</code>
 
     <h3 class="command" id="i-wind-move">WIND MOVE</h3>
     <p><i>instruction: move the current window</i><br>
@@ -190,14 +183,13 @@ E> Wind Open 1,1,8,35,18,1 : Print "Press a key to close this window"
         coordinates after the WIND MOVE command, and the x-coordinate will be rounded to the
         nearest 16-pixel boundary automatically. Here is an example:</p>
 
-    <pre>
-E> Wind Save : Wind Open 1,0,2,30,10,1 : Wind Save
-   For M=1 To 100
-    Pen Rnd(15) : Paper Rnd(15) : Print : Centre "Making Movies"
-     Wind Move Rnd(30)+1,Rnd(100)+1
-     Wait VbI
-   Next M
-</pre>
+<code class="prefix edit">Wind Save : Wind Open 1,0,2,30,10,1 : Wind Save
+For M=1 To 100
+ Pen Rnd(15) : Paper Rnd(15) : Print : Centre "Making Movies"
+  Wind Move Rnd(30)+1,Rnd(100)+1
+  Wait VbI
+Next M
+</code>
 
     <p>
         <b>SCROLL ON/OFF</b><br>
@@ -224,13 +216,12 @@ E> Wind Save : Wind Open 1,0,2,30,10,1 : Wind Save
         the current paper colour. Please note that the text cursor is always re-set to coordinates 0,0.
         For example:</p>
 
-    <pre>
-E> Wind Open 1,16,16,22,10,2
-   Print "I want to be wider!"
-   Wind Save
-   Wait 50
-   Wind Size 30,10
-</pre>
+<code class="prefix edit">Wind Open 1,16,16,22,10,2
+Print "I want to be wider!"
+Wind Save
+Wait 50
+Wind Size 30,10
+</code>
 
     <h3 class="command" id="i-clw">CLW</h3>
     <p><i>instruction: clear the current window</i><br>
@@ -241,11 +232,10 @@ E> Wind Open 1,16,16,22,10,2
 
     <p>Like this:</p>
 
-    <pre>
-E> Cls: Paper 4 : Wind Open 1,1,1,12,5,1
-   Window 1: Print "Clear Off" : Wait 75
-   Paper 9 : Clw
-</pre>
+<code class="prefix edit">Cls: Paper 4 : Wind Open 1,1,1,12,5,1
+Window 1: Print "Clear Off" : Wait 75
+Paper 9 : Clw
+</code>
 </section>
 
 <section id="03-creating-slider-bars">
@@ -267,16 +257,9 @@ E> Cls: Paper 4 : Wind Open 1,1,1,12,5,1
         divisions. Finally, give the length of the slider control box in these units. The size of each unit is
         calculated with this formula:</p>
 
-    <pre>
-(x2-x1)/number of units
-</pre>
-
-    <p>Here is an example:</p>
-
-    <pre>
-E> Hslider 10,10 To 100,20,100,20,5
-   Hslider 10,50 To 150,100,25,10,10
-</pre>
+<code class="prefix edit">Hslider 10,10 To 100,20,100,20,5
+Hslider 10,50 To 150,100,25,10,10
+</code>
 
     <h3 class="command" id="i-vslider">VSLIDER</h3>
     <p><i>instruction: draw a vertical slider</i><br>
@@ -288,10 +271,9 @@ E> Hslider 10,10 To 100,20,100,20,5
 
     <p>Here is a simpler example:</p>
 
-    <pre>
-E> Vslider 10,10 To 20,100,100,20,5
-   Vslider 250,0 To 319,199,10,2,6
-</pre>
+<code class="prefix edit">Vslider 10,10 To 20,100,100,20,5
+Vslider 250,0 To 319,199,10,2,6
+</code>
 
     <h3 class="command" id="i-set-slider">SET SLIDER</h3>
     <p><i>instruction: set fill pattern for slider bar</i><br>
@@ -305,17 +287,16 @@ E> Vslider 10,10 To 20,100,100,20,5
         negative values are used for either pattern, a sprite image will be commandeered from the sprite
         bank, allowing even more spectacular effects. Try this example:</p>
 
-    <pre>
-E> Centre "&lt;Press a key&gt;" : Curs Off
-    Do
-     A1=Rnd(15) : B1=Rnd(15) : C1=Rnd(15) : D1=Rnd(24)
-     A2=Rnd(15) : B2=Rnd(15) : C2=Rnd(15) : D2=Rnd(24)
-     Set Slider Al ,B1,C1,D1,A2,B2,C2,D2
-     Hslider 10,10 To 300,60,100,20,25
-     Vslider 10,60 To 20,190,100,20,25
-     Wait Key
-    Loop
-</pre>
+<code class="prefix edit">Centre "&lt;Press a key&gt;" : Curs Off
+ Do
+  A1=Rnd(15) : B1=Rnd(15) : C1=Rnd(15) : D1=Rnd(24)
+  A2=Rnd(15) : B2=Rnd(15) : C2=Rnd(15) : D2=Rnd(24)
+  Set Slider Al ,B1,C1,D1,A2,B2,C2,D2
+  Hslider 10,10 To 300,60,100,20,25
+  Vslider 10,60 To 20,190,100,20,25
+  Wait Key
+ Loop
+</code>
 
     <p>Having set up your slider bars, you will want to activate them using the mouse. A simple routine
         to create working slider bars needs to be included in your main program. As always, remember
@@ -339,9 +320,7 @@ E> Centre "&lt;Press a key&gt;" : Curs Off
         In its simplest form, the READ TEXT$ command reads the text held in a specified filename on
         disc, for example:</p>
 
-    <pre>
-X> Read Text$ Fsel$("**")
-</pre>
+<code class="prefix ex">Read Text$ Fsel$("**")</code>
 
     <p>
         You can move through the displayed text using scroll bars, the arrow icons or via the following

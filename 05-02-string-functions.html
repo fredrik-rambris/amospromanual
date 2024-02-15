@@ -24,9 +24,6 @@
 <section>
     <h1>String Functions</h1>
 
-    <br>
-
-
     <P>
         In this Chapter, you will learn how to handle strings. AMOS Professional Basic has a
         full range of string manipulation instructions, and experienced Basic programmers should already be
@@ -46,23 +43,21 @@
         left-hand side, and copies them into a destination string. The first type of usage of this function
         creates a new destination string from the chosen number of characters of the source string. For example:</P>
 
-    <pre>
-E&gt; Do
-    Input "Type in a string:";S$
-    Print "Display how many characters from"
-    Input "the left?";N
-    Print Left$(S$,N)
-   Loop
-</pre>
+<code class="prefix edit">Do
+ Input "Type in a string:";S$
+ Print "Display how many characters from"
+ Input "the left?";N
+ Print Left$(S$,N)
+Loop
+</code>
 
     <P>The second type of usage replaces the leftmost number of characters in the destination
         string with the equivalent number of characters from the source string. For example:</P>
 
-    <pre>
-E&gt; A$="**** Basic"
-   Left$(A$,4)="AMOS"
-   Print A$
-</pre>
+<code class="prefix edit">A$="**** Basic"
+Left$(A$,4)="AMOS"
+Print A$
+</code>
 
     <P>Exactly the same processes can be performed with characters from the right-hand side of
         a string, by using the equivalent RIGHT$ function.</P>
@@ -74,17 +69,15 @@ E&gt; A$="**** Basic"
 
     <P>Here are two examples demonstrating each version of usage:</P>
 
-    <pre>
-E&gt; Print Right$("IGNORED54321",5)
-   A$=Right$("REJECTED0123456789",10)
-   Print A$
-  </pre>
+<code class="prefix edit">Print Right$("IGNORED54321",5)
+A$=Right$("REJECTED0123456789",10)
+Print A$
+</code>
 
-    <PRE>
-E&gt; B$="AMOS ************"
-   Right$(B$,12)="Professsional"
-   Print B$
-</PRE>
+<code class="prefix edit">B$="AMOS ************"
+Right$(B$,12)="Professsional"
+Print B$
+</code>
 
     <!-- section -->
     <h3 class="command" id="fn-mid-dollar">MID$</h3>
@@ -98,16 +91,16 @@ E&gt; B$="AMOS ************"
         fetched is omitted from your instruction, then the characters will be read right up to the end of
         the string being examined. Here are some examples:</P>
 
-    <pre>
-E&gt; Print Mid$("AMOS Professional",6)
-   Print Mid$("AMOS Professional",6,4)
-
-E&gt; A$="AMOS Professional ***"
-   Mid$(A$,19)="Basic"
-   Print A$
-   Mid$(A$,19,3)="Mag"
-   Print A$
-</pre>
+<code class="prefix edit">Print Mid$("AMOS Professional",6)
+Print Mid$("AMOS Professional",6,4)
+</code>
+<br>
+<code class="prefix edit">A$="AMOS Professional ***"
+Mid$(A$,19)="Basic"
+Print A$
+Mid$(A$,19,3)="Mag"
+Print A$
+</code>
 </section>
 
 <section id="02-finding-characters-in-a-string">
@@ -129,23 +122,21 @@ E&gt; A$="AMOS Professional ***"
         number of characters from the left-hand side of the host string. If the search is unsuccessful, a
         result of zero will be given.</P>
 
-    <pre>
-E&gt; Print Instr("AMOS Professional","AMOS")
-   Print Instr("AMOS Professional","O")
-   Print Instr("AMOS Professional","o")
-   Print Instr("AMOS Professional","Provisional")
 
-E&gt; Do
-    Input "Type in a host string:";H$
-    Input "Type in a guest string to be found:";G$
-    X=Instr(H$,G$)
-    If X=0 Then Print G$;" Not found"
-</pre>
-
-    <pre>
-    If X&lt;&gt;0 Then Print G$;" Found at position ";X
-   Loop
-</pre>
+<code class="prefix edit">Print Instr("AMOS Professional","AMOS")
+Print Instr("AMOS Professional","O")
+Print Instr("AMOS Professional","o")
+Print Instr("AMOS Professional","Provisional")
+</code>
+<br>
+<code class="prefix edit">Do
+ Input "Type in a host string:";H$
+ Input "Type in a guest string to be found:";G$
+ X=Instr(H$,G$)
+ If X=0 Then Print G$;" Not found"
+ If X&lt;&gt;0 Then Print G$;" Found at position ";X
+Loop
+</code>
 
     <P>
         Normally, the search will begin from the first character at the extreme left-hand side
@@ -154,10 +145,9 @@ E&gt; Do
         can range from zero to the maximum number of characters in the host string to be searched. For
         example:</P>
 
-    <pre>
-E&gt; Print Instr("AMOS PROFESSIONAL","O",0)
-   Print Instr("AMOS PROFESSIONAL","O",4)
-</pre>
+<code class="prefix edit">Print Instr("AMOS PROFESSIONAL","O",0)
+Print Instr("AMOS PROFESSIONAL","O",4)
+</code>
 </section>
 
 <section id="03-converting-strings">
@@ -170,9 +160,7 @@ E&gt; Print Instr("AMOS PROFESSIONAL","O",0)
     <P>This function converts the characters in a string into upper case (capital) letters,
         and places the result into a new string. For example:</P>
 
-    <pre>
-D&gt; Print Upper$("aMoS pRoFeSsIoNaL")
-</pre>
+<code class="prefix direct">Print Upper$("aMoS pRoFeSsIoNaL")</code>
 
     <h3 class="command" id="fn-lower-dollar">LOWER$</h3>
     <p><i>function: convert a string of text to lower case</i><BR>
@@ -184,11 +172,10 @@ D&gt; Print Upper$("aMoS pRoFeSsIoNaL")
         for interpreting user-input in interactive data programs and adventure games, because input
         can be converted into a standard format which is understood by your programs. For example:</P>
 
-    <pre>
-E&gt; Input "Do you want to continue? (Yes or No)";ANSWER$
-   ANSWER$=Lower$(ANSWER$) : If ANSWER$="no" Then Edit
-   Print "OK. Continuing with your program"
-</pre>
+<code class="prefix edit">Input "Do you want to continue? (Yes or No)";ANSWER$
+ANSWER$=Lower$(ANSWER$) : If ANSWER$="no" Then Edit
+Print "OK. Continuing with your program"
+</code>
 
     <h3 class="command" id="fn-str-dollar">STR$</h3>
     <p><i>function: convert a number into a string</i><BR>
@@ -199,9 +186,7 @@ E&gt; Input "Do you want to continue? (Yes or No)";ANSWER$
         limitations posed by functions like CENTRE, which does not accept numbers as parameters, but will work
         happily with parameters in the form of strings. Here is an example:</P>
 
-    <pre>
-E&gt; Centre "Remaining memory is"+Str$(Chip Free)+" Bytes"
-</pre>
+<code class="prefix edit">Centre "Remaining memory is"+Str$(Chip Free)+" Bytes"</code>
 
     <h3 class="command" id="fn-val">VAL</h3>
     <p><i>function: convert a string of digits into a number</i><BR>
@@ -213,9 +198,7 @@ E&gt; Centre "Remaining memory is"+Str$(Chip Free)+" Bytes"
         stored in a string, changing them into a number. If this process fails for any reason, a value of
         zero will be returned. For example:</P>
 
-    <pre>
-D&gt; X=Val("1234") : Print X
-</pre>
+<code class="prefix direct">X=Val("1234") : Print X</code>
 
     <h3 class="command" id="fn-string-dollar">STRING$</h3>
     <p><i>function: create a new string from an existing string</i><BR>
@@ -227,9 +210,7 @@ D&gt; X=Val("1234") : Print X
         an existing string. For instance, the following example produces a new string containing ten
         copies of the character "A".</P>
 
-    <pre>
-E&gt; Print String$("AMOS Professional is a joy forever",10)
-</pre>
+<code class="prefix edit">Print String$("AMOS Professional is a joy forever",10)</code>
 
 </section>
 
@@ -246,9 +227,7 @@ E&gt; Print String$("AMOS Professional is a joy forever",10)
 
     <P>Try the following example:</p>
 
-    <pre>
-E&gt; Print "Ten";Space$(10);"spaces"
-</pre>
+<code class="prefix edit">Print "Ten";Space$(10);"spaces"</code>
 
     <h3 class="command" id="fn-flip-dollar">FLIP$</h3>
     <p><i>function: invert a string</i><BR>
@@ -257,9 +236,7 @@ E&gt; Print "Ten";Space$(10);"spaces"
     <P>This function simply reverses the order of the characters held in an existing string.
         For example:</P>
 
-    <pre>
-D&gt; Print Flip$("SOMA gnippilf")
-</pre>
+<code class="prefix direct">Print Flip$("SOMA gnippilf")</code>
 
     <h3 class="command" id="fn-repeat-dollar">REPEAT$</h3>
     <p><i>function: repeat a string</i><BR>
@@ -290,9 +267,7 @@ Chr$(27)+"RO"+A$+Chr$(27)+"R"+Chr$(48+n)
         on the screen. Others are used internally as control codes. Match characters with their codes
         using this routine:</P>
 
-    <pre>
-E&gt; For S=32 To 255: Print Chr$(S); : Next S
-</pre>
+<code class="prefix edit">For S=32 To 255: Print Chr$(S); : Next S</code>
 
     <h3 class="command" id="fn-asc">ASC</h3>
     <p><i>function: Give the ASCII code of a character</i><BR>
@@ -301,10 +276,9 @@ E&gt; For S=32 To 255: Print Chr$(S); : Next S
     <P>To get the internal ASCII code of the first character in a string, use the ASC function
         like this:</P>
 
-    <pre>
-E&gt; Print Asc("B")
-   Print Asc("AMOS Professional")
-</pre>
+<code class="prefix edit">Print Asc("B")
+Print Asc("AMOS Professional")
+</code>
 
     <h3 class="command" id="fn-len">LEN</h3>
     <p><i>function: give the length of a string</i><BR>
@@ -312,9 +286,7 @@ E&gt; Print Asc("B")
 
     <P>The LEN function returns the number of characters stored in a string. For example:</P>
 
-    <pre>
-D&gt; Print Len("0123456789")
-</pre>
+<code class="prefix direct">Print Len("0123456789")</code>
 
 </section>
 
@@ -336,25 +308,24 @@ D&gt; Print Len("0123456789")
         The starting point of your table is specified by the a$(0) parameter, and it must always be set to
         the first item in the array, which is item number zero. For example:</P>
 
-    <pre>
-E&gt; N=5 : P=0
-   Dim A(N)
-   Print "Type in ";N," numbers, or enter 0"
-   Print "to stop entry and begin sort"
-   Repeat
-    Input A(P)
-    If A(P)=0
-       Dec P
-       Exit
-    End If
-    If P=N-1 Then Exit
-    Inc P
-   Until False
-   Sort A(0)
-   For X=N-P To N
-    Print A(X)
-  Next X
-</pre>
+<code class="prefix edit">N=5 : P=0
+Dim A(N)
+Print "Type in ";N," numbers, or enter 0"
+Print "to stop entry and begin sort"
+Repeat
+  Input A(P)
+  If A(P)=0
+     Dec P
+     Exit
+  End If
+  If P=N-1 Then Exit
+  Inc P
+Until False
+Sort A(0)
+For X=N-P To N
+  Print A(X)
+Next X
+</code>
 
     <h3 class="command" id="fn-match">MATCH</h3>
     <p><i>function: search an array for a value</i><BR>
@@ -372,32 +343,31 @@ E&gt; N=5 : P=0
 
     <P>For example:</P>
 
-    <pre>
-E&gt; Read N : Dim D$(N)
-   For X=0 To N-1 : Read D$(X) : Next X
-    Sort D$(0)
-    Do
-     REINPUT:
-     Input A$
-     If A$=" "Then End
-     If A$="print all data"
-        For X=1 To N: Print D$(X) : Next X: Goto REINPUT
-     End If
+<code class="prefix edit">Read N : Dim D$(N)
+For X=0 To N-1 : Read D$(X) : Next X
+Sort D$(0)
+Do
+  REINPUT:
+  Input A$
+  If A$=" "Then End
+  If A$="print all data"
+    For X=1 To N: Print D$(X) : Next X: Goto REINPUT
+  End If
 
-     POS=Match(D$(0),A$)
-     If POS&lt;-N-1
-        If POS&gt;-10
-           Print "Not found. Nearest to ";D$(1) : Goto JMP
-        Else
-           Print "Not found. Nearest to ";D$(N) : Goto JMP
-        End if
-     End If
-     If POS&gt;0 Then Print "Found ",DS(POS);" in record ";POS
-     If POS&lt;0 Then Inc POS : Print "Not found. Nearest to ":DS(Abs(POS))
-     JMP:
-    Loop
-    Data 8,"Mercury","Venus","Earth","Mars","Saturn","Jupiter","Neptune","Tharg"
-</pre>
+  POS=Match(D$(0),A$)
+  If POS&lt;-N-1
+    If POS&gt;-10
+      Print "Not found. Nearest to ";D$(1) : Goto JMP
+    Else
+      Print "Not found. Nearest to ";D$(N) : Goto JMP
+    End if
+  End If
+  If POS&gt;0 Then Print "Found ",DS(POS);" in record ";POS
+  If POS&lt;0 Then Inc POS : Print "Not found. Nearest to ":DS(Abs(POS))
+  JMP:
+Loop
+Data 8,"Mercury","Venus","Earth","Mars","Saturn","Jupiter","Neptune","Tharg"
+</code>
 
     <P>
         Test that example out by entering various inputs, including the names of planets,

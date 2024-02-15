@@ -58,11 +58,10 @@
         the Resource Bank. If the value for the number of the message is out of range, an error will be
         generated. MEssage can be used in a PRint or PrintOutline command, like this:</p>
 
-    <pre>
-E> A$="PRint 0,0,7,MEssage,5;"
-   A$=A$+"EXit;"
-   D=Dialog Box(A$)
-</pre>
+<code class="prefix edit">A$="PRint 0,0,7,MEssage,5;"
+A$=A$+"EXit;"
+D=Dialog Box(A$)
+</code>
 
     <p>
         A message can also be displayed directly from the main AMOS Professional program, using the
@@ -79,11 +78,10 @@ E> A$="PRint 0,0,7,MEssage,5;"
         case, the x-coordinate is rounded to a multiple of eight. Then specify the number of the single
         image to be unpacked.</p>
 
-    <pre>
-E> Resource Screen Open 0,640,200,2
-   A$="UNpack 10,10,13; EXit;"
-   D=Dialog Box(A$)
-</pre>
+<code class="prefix edit">Resource Screen Open 0,640,200,2
+A$="UNpack 10,10,13; EXit;"
+D=Dialog Box(A$)
+</code>
 
 
     <p>
@@ -175,10 +173,9 @@ E> Resource Screen Open 0,640,200,2
         perfectly without any changes in numbering required. To demonstrate this, the following two
         lines would have exactly the same effect:</p>
 
-    <pre>
-X> PUsh 0; UNpack 0,0,13;
-   PUsh 13; UNpack 0,0,0;
-</pre>
+<code class="prefix ex">PUsh 0; UNpack 0,0,13;
+PUsh 13; UNpack 0,0,0;
+</code>
 </section>
 
 <section id="01-the-resource-commands">
@@ -198,10 +195,9 @@ X> PUsh 0; UNpack 0,0,13;
         default. This means that after this command has been called, you can return to the Editor
         resources by employing a dummy value, such as zero. Here is an example:</p>
 
-    <pre>
-X> Load "Resource.Abk",16 : Rem This can be any filename
-   Resource Bank 16: Rem Set resources to Bank 16
-</pre>
+<code class="prefix ex">Load "Resource.Abk",16 : Rem This can be any filename
+Resource Bank 16: <comment>Rem Set resources to Bank 16</comment>
+</code>
 
     <h3 class="command" id="fn-resource-dollar">RESOURCE$</h3>
     <p><i>function: read a message from the Resource Bank</i><br>
@@ -218,11 +214,10 @@ X> Load "Resource.Abk",16 : Rem This can be any filename
         and these messages can be used to generate multi-language programs.
         The message number parameter enters the number of the message. Here is an example:</p>
 
-    <pre>
-D> For A=1 To 7
-    Print Resource$(A)
-   Next A
-</pre>
+<code class="prefix direct">For A=1 To 7
+ Print Resource$(A)
+Next A
+</code>
 
     <p>The following list shows the strings related to the various numbers:</p>
 
@@ -259,9 +254,7 @@ D> For A=1 To 7
         The following example opens a screen using the settings from the internal Resource Bank, just
         like the Editor screen, where the flashing colour is index number 2.</p>
 
-    <pre>
-E> Resource Screen Open 0,640,200,2
-</pre>
+<code class="prefix edit">Resource Screen Open 0,640,200,2</code>
 
     <h3 class="command" id="i-resource-unpack">RESOURCE UNPACK</h3>
     <p><i>instruction: unpack an image from the Resource Bank</i><br>
@@ -281,10 +274,9 @@ E> Resource Screen Open 0,640,200,2
         components in a very compact format. These images can be saved in the Resource Bank using
         the Resource Bank Maker, and installed into memory along the following lines:</p>
 
-    <pre>
-X> Load "Resource.Abk",l6 : Rem This can be any filename
-   Resource Bank 16 : Rem set the resources to bank 16
-</pre>
+<code class="prefix ex">Load "Resource.Abk",l6 : Rem This can be any filename
+Resource Bank 16 : <comment>Rem set the resources to bank 16</comment>
+</code>
 
 
 </section>

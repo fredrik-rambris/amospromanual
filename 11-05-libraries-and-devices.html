@@ -220,9 +220,7 @@
         string rather than an expression. For example, if you need to call the FindTask option from Exec,
         you would use a line like this:</p>
 
-    <pre>
-X> TASK=Execall(Lvo("FindTask"))
-</pre>
+<code class="prefix ex">TASK=Execall(Lvo("FindTask"))</code>
 
     <h3 class="command" id="fn-equ">EQU</h3>
     <p><i>function: get an equate</i><br>
@@ -242,9 +240,7 @@ X> TASK=Execall(Lvo("FindTask"))
         not allowed! In fact, the technique is extremely simple. This example would send a WRITE
         command to a device:</p>
 
-    <pre>
-X> DEV D0(channel,EQU("CMD_WRITE"))
-</pre>
+<code class="prefix ex">DEV D0(channel,EQU("CMD_WRITE"))</code>
 
     <h3 class="command" id="resv-struc">STRUC</h3>
     <p><i>reserved variable: access an internal data structure</i><br>
@@ -276,15 +272,11 @@ X> DEV D0(channel,EQU("CMD_WRITE"))
         EQUATE BANK command needs to be included near the beginning of your program, to
         initialise this feature. For example:</p>
 
-    <pre>
-X> Struc(Dev Base(1),"I0_LENGTH")=TRACK_SIZE
-</pre>
+<code class="prefix ex">Struc(Dev Base(1),"I0_LENGTH")=TRACK_SIZE</code>
 
     <p>The same process can be used to read a value from a structure:</p>
 
-    <pre>
-X> Print Struc(Dev Base(1),"I0_LENGTH")
-</pre>
+<code class="prefix ex">Print Struc(Dev Base(1),"I0_LENGTH")</code>
 
     <h3 class="command" id="fn-struc-dollar">STRUC$</h3>
     <p><i>function: read or write a string pointer to a structure</i><br>
@@ -384,14 +376,13 @@ X> Print Struc(Dev Base(1),"I0_LENGTH")
         device list that satisfies the specified search path. Once the last device has been found, an empty
         string will be returned.</p>
 
-    <pre>
-E> Print Dev First$("**")
-   Do
-    A$=Dev Next$
-    If A$="" Then End
-    Print A$
-   Loop
-</pre>
+<code class="prefix edit">Print Dev First$("**")
+Do
+ A$=Dev Next$
+ If A$="" Then End
+ Print A$
+Loop
+</code>
 
     <p>
         AMOS Professional includes a powerful series of commands to exploit these devices directly

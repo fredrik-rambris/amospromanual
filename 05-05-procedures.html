@@ -24,9 +24,6 @@
 <section>
     <h1>Procedures</h1>
 
-    <br>
-
-
     <P>
         A procedure is a component of a computer program that allows the AMOS Professional
         programmer to tackle one aspect of the program at a time, without becoming distracted or
@@ -52,20 +49,17 @@
         PROC command. PROCEDURE and END PROC commands must be placed on their own
         individual lines. For example:</P>
 
-    <pre>
-E&gt; Procedure HELLO
-   Print "Hello, I am a procedure!"
-   End Proc
-</pre>
+<code class="prefix edit">Procedure HELLO
+Print "Hello, I am a procedure!"
+End Proc
+</code>
 
     <P>
         If you try and run that program, nothing will happen. This is because a procedure must
         be called up by name from inside your program before it can do anything. Now add the
         following line at the start of that last example, and then [Run] it.</P>
 
-    <pre>
-E&gt; HELLO
-</pre>
+<code class="prefix edit">HELLO</code>
 
     <P>There is nothing preventing a procedure from calling itself, but this recursion is
         limited by the
@@ -99,10 +93,9 @@ E&gt; HELLO
         confused with a label by adding an extra space at the end of each statement. For
         example:</P>
 
-    <pre>
-X&gt; HEY: HEY: HEY: Rem Perform HEY procedure three times
-   HEY: HEY: HEY: Rem Define label HEY and perform HEY procedure twice
-</pre>
+<code class="prefix ex">HEY: HEY: HEY: <comment>Rem Perform HEY procedure three times</comment>
+HEY: HEY: HEY: <comment>Rem Define label HEY and perform HEY procedure twice</comment>
+</code>
 
     <h3 class="command" id="str-proc">PROC</h3>
     <p><i>structure: flag a procedure</i><BR>
@@ -111,15 +104,14 @@ X&gt; HEY: HEY: HEY: Rem Perform HEY procedure three times
     <P>Another way to identify a procedure is to precede it with a PROC statement. Run the
         following example:</P>
 
-    <pre>
-E&gt; Rem Demonstrate that a procedure is being called not simply a command
-   Proc HELLO
-   Rem The same can be achieved without the Proc
-   HELLO
-   Procedure HELLO
-    Print "Hey!"
-   End Proc
-</pre>
+<code class="prefix edit"><comment>Rem Demonstrate that a procedure is being called not simply a command</comment>
+Proc HELLO
+<comment>Rem The same can be achieved without the Proc</comment>
+HELLO
+Procedure HELLO
+ Print "Hey!"
+End Proc
+</code>
 
     <P>It is possible to place the procedure definition anywhere in your program. When AMOS
         Professional encounters a procedure statement, the procedure is recognised and a jump is
@@ -138,15 +130,14 @@ E&gt; Rem Demonstrate that a procedure is being called not simply a command
 
     <P>Type in the following procedure on your editing screen:</P>
 
-    <pre>
-E&gt; MAIN_TITLE
-   Procedure MAIN TITLE
-    Curs Off
-    Centre "Main Title"
-    Say "Amos Professional presents."
-    Fade 5
-   End Proc
-</pre>
+<code class="prefix edit">MAIN_TITLE
+Procedure MAIN TITLE
+ Curs Off
+ Centre "Main Title"
+ Say "Amos Professional presents."
+ Fade 5
+End Proc
+</code>
 
     <P>Run that if you like, and then return to the Edit screen.</P>
 
@@ -158,10 +149,9 @@ E&gt; MAIN_TITLE
         procedures getting in the way. In other words, you can achieve greater programming clarity in your
         listings by closing procedures from view. The last example should now look like this:</P>
 
-    <pre>
-X&gt; MAIN TITLE
-   Procedure MAIN_TITLE
-</pre>
+<code class="prefix ex">MAIN TITLE
+Procedure MAIN_TITLE
+</code>
 
     <P>To reveal the procedure at any time, simply move the cursor back to the procedure line
         and reveal its definitions with [F9] or [Open/Close].</P>
@@ -184,9 +174,9 @@ X&gt; MAIN TITLE
     <p>You should be familiar with the use of ON for jumping to a GOSUB routine. It is just as
         simple to use this structure with procedures.<BR>
 
-    <p>
-        <b>ON ... PROC</b><BR>
-        <i>structure: trigger a jump to a procedure</i><BR>
+
+        <h3 class="command" id="str-on-proc">ON ... PROC</h3>
+        <p><i>structure: trigger a jump to a procedure</i><BR>
         <b>On</b> variable value <b>Proc</b> NAME</P>
 
     <P>In this case, if a variable holds a particular value, a system is automatically
@@ -194,16 +184,13 @@ X&gt; MAIN TITLE
         jump to a named procedure. Of course you can have as many values triggering off as many
         jumps to different procedures as you want. For example:</P>
 
-    <pre>
-X&gt; On X Proc PROCEDURE1,PROCEDURE2
-</pre>
+<code class="prefix ex">On X Proc PROCEDURE1,PROCEDURE2</code>
 
     <P>Which is exactly the same as saying:</P>
 
-    <pre>
-X&gt; If X=1 Then PROCEDURE1
-X&gt; If X=2 Then PROCEDURE2
-</pre>
+<code class="prefix ex">If X=1 Then PROCEDURE1</code>
+<br>
+<code class="prefix ex">If X=2 Then PROCEDURE2</code>
 
     <P>Normally, procedures will only return to the main program when the END PROC instruction
         is reached. But supposing you need to jump out of a procedure instantly.</P>
@@ -216,16 +203,15 @@ X&gt; If X=2 Then PROCEDURE2
         The POP PROC instruction provides you with a fast getaway, if you ever find yourself in
         need of escape. Try this:</P>
 
-    <pre>
-E&gt; ESCAPE
-   Procedure ESCAPE
-    For PRISON=1 To 1000000000
-     If PRISON=10 Then Pop Proc
-     Print "I am abandoned."
-    Next PRISON
-   End Proc
-   Print "I'm free!"
-</pre>
+<code class="prefix edit">ESCAPE
+Procedure ESCAPE
+ For PRISON=1 To 1000000000
+  If PRISON=10 Then Pop Proc
+  Print "I am abandoned."
+ Next PRISON
+End Proc
+Print "I'm free!"
+</code>
 
     <h3 class="command" id="str-on-break-proc">ON BREAK PROC</h3>
     <p><i>structure: jump to a procedure when break in program</i><BR>
@@ -234,15 +220,14 @@ E&gt; ESCAPE
     <P>A jump can also be made to a specified procedure when the program is interrupted. For
         example:</P>
 
-    <pre>
-E&gt; On Break Proc BROKEN
-   Do
-    Print "Unbroken" : Wait 50
-   Loop
-   Procedure BROKEN
-    Print "I am the procedure"
-   End Proc
-</pre>
+<code class="prefix edit">On Break Proc BROKEN
+Do
+ Print "Unbroken" : Wait 50
+Loop
+Procedure BROKEN
+ Print "I am the procedure"
+End Proc
+</code>
 </section>
 
 <section id="05-local-and-global-variables">
@@ -254,12 +239,10 @@ E&gt; On Break Proc BROKEN
         in the following example the same value of 1 will always be printed, no matter how many times it
         is called:</P>
 
-    <pre>
-X&gt; Procedure PLUS
-    A=A+1 : Print A
-   End Proc
-
-</pre>
+<code class="prefix ex">Procedure PLUS
+ A=A+1 : Print A
+End Proc
+</code>
 
     <P>
         All the variables OUTSIDE of procedures are known as "global" variables, and they are
@@ -273,14 +256,13 @@ X&gt; Procedure PLUS
     <p>Because the global variables cannot be accessed from inside the procedure, the procedure
         assigns a value of zero to them no mater what value they are given globally.</p>
 
-    <pre>
-E> A=666 : B=999
-   EXAMPLE
-   Print A,B
-   Procedure EXAMPLE
-    Print A,B
-   End Proc
-</pre>
+<code class="prefix edit">A=666 : B=999
+EXAMPLE
+Print A,B
+Procedure EXAMPLE
+ Print A,B
+End Proc
+</code>
 
     <p>To avoid errors, you must treat procedures as separate programs with their own sets of variables
         and instructions. So it is very bad practice for the AMOS Professional programmer to use the
@@ -291,16 +273,15 @@ E> A=666 : B=999
     <p>One method is to define a list of parameters in a procedure. This creates a group of local
         variables that can be loaded directly from the main program. For example:</p>
 
-    <pre>
-E> Procedure HELLO[NAME$]
-    Print "Hello ";NAME$
-   End Proc
-   Rem Load N$ into NAME$ and enter procedure
-   Input "What is your name?",N$
-   HELLO[N$]
-   Rem Load string into NAME$ and call HELLO
-   HELLO["nice to meet you!]
-</pre>
+<code class="prefix edit">Procedure HELLO[NAME$]
+ Print "Hello ";NAME$
+End Proc
+Rem Load N$ into NAME$ and enter procedure
+Input "What is your name?",N$
+HELLO[N$]
+Rem Load string into NAME$ and call HELLO
+HELLO["nice to meet you!]
+</code>
 
     <p>Note that the values to be loaded into NAME$ are entered between square brackets as part of
         the procedure call. This system works equally well with constants as well as variables, but
@@ -308,17 +289,15 @@ E> Procedure HELLO[NAME$]
         by this method. If you need to enter more than one parameter, the variables must be separated
         by commas, like this:</p>
 
-    <pre>
-X> Procedure TWINS[A,B]
-   Procedure TRIPLETS[X$,Y$,Z$]
-</pre>
+<code class="prefix ex">Procedure TWINS[A,B]
+Procedure TRIPLETS[X$,Y$,Z$]
+</code>
 
     <p>Those procedures could be called like this:</p>
 
-    <pre>
-X> TWINS[6,9]
-   TRIPLETS["Xenon","Yak","Zygote"]
-</pre>
+<code class="prefix ex">TWINS[6,9]
+TRIPLETS["Xenon","Yak","Zygote"]
+</code>
 
     <h3 class="command" id="str-shared">SHARED</h3>
     <p><i>structure: define a list of global variables</i><br>
@@ -330,22 +309,19 @@ X> TWINS[6,9]
         main program. Of course, if you declare any arrays as global using this technique, they must
         already have been dimensioned in the main program. Here is an example:</p>
 
-    <pre>
-E> A=666: B=999
-   EXAMPLE
-   Print A,B
-   Procedure EXAMPLE
-    Shared A,B
-    A=B-A: B=B+1
-   End Proc
-</pre>
+<code class="prefix edit">A=666: B=999
+EXAMPLE
+Print A,B
+Procedure EXAMPLE
+ Shared A,B
+ A=B-A: B=B+1
+End Proc
+</code>
 
     <p>EXAMPLE can now read and write information to the global variables A and B. If you need to
         share an array, it should be defined as follows:</p>
 
-    <pre>
-X> Shared A(),B#(),C$()
-</pre>
+<code class="prefix ex">Shared A(),B#(),C$()</code>
 
     <p>In a very large program, it is often convenient for different procedures to share the same set of
         global variables. This offers an easy way of transferring large amounts of information between
@@ -359,19 +335,18 @@ X> Shared A(),B#(),C$()
         program. This is a simplified single command, designed to be used without the need for an
         explicit SHARED statement in your procedure definitions. Here is an example:</p>
 
-    <pre>
-E> A=6 : B=9
-   Global A,B
-   TEST1
-   TEST2
-   Print A,B
-   Procedure TESTI
-    A=A+1 : B=B+1
-   End Proc
-   Procedure TEST2
-    A=A+B : B=B+A
-   End Proc
-</pre>
+<code class="prefix edit">A=6 : B=9
+Global A,B
+TEST1
+TEST2
+Print A,B
+Procedure TESTI
+ A=A+1 : B=B+1
+End Proc
+Procedure TEST2
+ A=A+B : B=B+A
+End Proc
+</code>
 
     <p>AMOS Professional programmers who are familiar with earlier versions of the AMOS system are
         now able to employ the new facility of using strings in procedure definitions. As with disc
@@ -382,15 +357,11 @@ E> A=6 : B=9
         control character is reached", and the ? character means "match this with any single character in
         the variable name". So the next line would define every variable as global:</P>
 
-    <pre>
-X> Global "*"
-</pre>
+<code class="prefix ex">Global "*"</code>
 
     <P>Now look at the following example:</P>
 
-    <pre>
-X> Shared A,"V*","VAR*END","A?0S*"
-</pre>
+<code class="prefix ex">Shared A,"V*","VAR*END","A?0S*"</code>
 
     <P>That line would declare the following variables as shared:</P>
 
@@ -421,10 +392,9 @@ X> Shared A,"V*","VAR*END","A?0S*"
         expression in this way, an error will be generated.<BR>
         For example:</P>
 
-    <pre>
-X> A$="AM*"
-   Global A$
-</pre>
+<code class="prefix ex">A$="AM*"
+Global A$
+</code>
 
     <P>
         In that case, the A$ variable would be regarded as global, and it would not be taken as
@@ -434,12 +404,11 @@ X> A$="AM*"
         the array
         is not created at root level, as follows:</P>
 
-    <pre>
-X> Procedure VARIABLES
-   Dim ARRAY(100,100)
-   Global ARRAY()
-   End Proc
-</pre>
+<code class="prefix ex">Procedure VARIABLES
+Dim ARRAY(100,100)
+Global ARRAY()
+End Proc
+</code>
 </section>
 
 <section id="06-returning-values-from-a-procedure">
@@ -461,23 +430,21 @@ X> Procedure VARIABLES
         returns it to the PARAM variable. If the variable you are interested in is a string variable, the
         $ character is used. Also note how the pairs of square brackets are used in the next two examples:</P>
 
-    <pre>
-E> JOIN_STRINGS["one","two","three"]
-   Print Param$
-   Procedure JOIN_STRINGS[A$,B$,C$]
-    Print A$,B$,C$
-   End Proc[A$+B$+C$]
-</pre>
+<code class="prefix edit">JOIN_STRINGS["one","two","three"]
+Print Param$
+Procedure JOIN_STRINGS[A$,B$,C$]
+ Print A$,B$,C$
+End Proc[A$+B$+C$]
+</code>
 
     <P>For real number variables, the # character must be used as in the following example:</P>
 
-    <pre>
-E> JOIN_NUMBERS[1.5,2.25]
-   Print Param#
-   Procedure JOIN_NUMBERS[A#,B#]
-    Print A#,B#
-   End Proc[A#+B#]
-</pre>
+<code class="prefix edit">JOIN_NUMBERS[1.5,2.25]
+Print Param#
+Procedure JOIN_NUMBERS[A#,B#]
+ Print A#,B#
+End Proc[A#+B#]
+</code>
 </section>
 
 <section id="07-local-data-statements">
@@ -488,23 +455,22 @@ E> JOIN_NUMBERS[1.5,2.25]
         Let us end this Chapter with a modest example that calls the same procedure using different
         parameters, and then sets up additional data in variables.</P>
 
-    <pre>
-E> Curs Off : Paper 0
-   RECORD["Francois","Lionet",29,"Genius"]
-   RECORD["Mel","Croucher",44,"Unemployed"]
-   A$="Richard" : B$="Vanner" : AGE=25 : OCC$="Slave Driver"
-   RECORD[A$,B$,AGE,OCC$]
-   Procedure RECORD[NAME$,SURNAME$,AGE,OCC$]
-    Cls 0: Locate 0,3
-    A$=NAME$+" "+SURNAME$
-    Centre A$: Locate 0,6
-    A$="Age: "+Str$(AGE)
-    Centre A$: Locate 0,9
-    A$="Occupation: "+OCC$
-    Centre A$: Locate 0,16
-    Centre "Press a key" : Wait Key
-   End Proc
-</pre>
+<code class="prefix edit>">Curs Off : Paper 0
+RECORD["Francois","Lionet",29,"Genius"]
+RECORD["Mel","Croucher",44,"Unemployed"]
+A$="Richard" : B$="Vanner" : AGE=25 : OCC$="Slave Driver"
+RECORD[A$,B$,AGE,OCC$]
+Procedure RECORD[NAME$,SURNAME$,AGE,OCC$]
+ Cls 0: Locate 0,3
+ A$=NAME$+" "+SURNAME$
+ Centre A$: Locate 0,6
+ A$="Age: "+Str$(AGE)
+ Centre A$: Locate 0,9
+ A$="Occupation: "+OCC$
+ Centre A$: Locate 0,16
+ Centre "Press a key" : Wait Key
+End Proc
+</code>
 </section>
 
 

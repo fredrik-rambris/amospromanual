@@ -56,10 +56,9 @@
 
     <p>Such errors can be trapped using a command like this:</p>
 
-    <pre>
-X> Trap Printer Open
-   If ERRTRAP : Print "Cannot open Printer Device!" : Endif
-</pre>
+<code class="prefix ex">Trap Printer Open
+If ERRTRAP : Print "Cannot open Printer Device!" : Endif
+</code>
 
     <p>
         <i>instruction: open the standard printer device for use</i><br>
@@ -112,10 +111,9 @@ X> Trap Printer Open
         </li>
     </ul>
 
-    <pre>
-X> LF$=Chr$(27)+"E"
-   Printer Send "Greetings" +LF$
-</pre>
+<code class="prefix ex">LF$=Chr$(27)+"E"
+Printer Send "Greetings" +LF$
+</code>
 
     <ul>
         <li>The LF +CR settings found in the AMOS_Interpreter configuration menus are ignored!</li>
@@ -179,13 +177,12 @@ aSUS3      ESC3v     subscript off
         In order to print a text string in Italics and underlined, for example, the following routine could
         be used:</p>
 
-    <pre>
-X> ESC$=Chr$(27)
-   LF$=ESC$+"E"
-   Printer Open
-   Printer Send ESC$+"[3m"+ESC$+[4m"+"Greetings!"+LF$
-   Printer Close
-</pre>
+<code class="prefix ex">ESC$=Chr$(27)
+LF$=ESC$+"E"
+Printer Open
+Printer Send ESC$+"[3m"+ESC$+[4m"+"Greetings!"+LF$
+Printer Close
+</code>
 
     <p>
         The state of printer output can be monitored by the PRINTER CHECK and PRINTER ERROR
@@ -281,23 +278,17 @@ $2000    NOPRINT       do not print
         For example, to dump a 100x100 section of the current screen onto a full page, retaining the
         correct aspect ratio, the following line would be used:</p>
 
-    <pre>
-X> Printer Dump 0,0 To 100,100,0,0,$80 Or $8 Or $4
-</pre>
+<code class="prefix ex">Printer Dump 0,0 To 100,100,0,0,$80 Or $8 Or $4</code>
 
     <p>The next example could be used for printing a low resolution screen to an eight by six inch area:</p>
 
-    <pre>
-X> Printer Dump 0,0 To 320,200,8000,6000,$1 Or $2
-</pre>
+<code class="prefix ex">Printer Dump 0,0 To 320,200,8000,6000,$1 Or $2</code>
 
     <p>
         Alternatively, part of the current screen could be dumped utilising the maximum available
         height, but with the width reduced by one third, as follows:</p>
 
-    <pre>
-X> Printer Dump 0,0 To 200,200,$5555,0,$8 Or $10
-</pre>
+<code class="prefix ex">Printer Dump 0,0 To 200,200,$5555,0,$8 Or $10</code>
 
     <p>
         You are warned not to attempt to change the current screen during a screen dump operation,
@@ -400,13 +391,12 @@ Printer Out Varptr(A$),Len(A$)
 
     This example would print out ten lines via the device connected to the Amiga's RS232 port:
 
-    <pre>
-X> Open Port 1,"SER:"
-   For X=0 To 10
-    Print #1 ,"Greetings from AMOS Professional!"
-   Next X
-   Close 1
-</pre>
+<code class="prefix ex">Open Port 1,"SER:"
+For X=0 To 10
+ Print #1 ,"Greetings from AMOS Professional!"
+Next X
+Close 1
+</code>
 
     <h3 class="command" id="fn-port">PORT</h3>
     <p><i>function: test readiness of device</i><br>

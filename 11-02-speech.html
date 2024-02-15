@@ -48,9 +48,7 @@
         satisfying results. Use the SAY instruction with a string of text, containing all the words and
         punctuation you want AMOS Professional to speak, like this:</p>
 
-    <pre>
-E> Say "Welcome, everybody!"
-</pre>
+<code class="prefix edit">Say "Welcome, everybody!"</code>
 
     <p>
         Normally, all other instructions, music or sound effects will wait until AMOS Professional has
@@ -59,21 +57,18 @@ E> Say "Welcome, everybody!"
         program is being executed. This will necessarily slow down the relevant routines. To return to
         the default mode, use a line like this:</p>
 
-    <pre>
-E> Say "Default mode.",0
-</pre>
+<code class="prefix edit">Say "Default mode.",0</code>
 
     <p>
         Now get AMOS Professional to say anything you like, using the next simple routine, but please
         mind your language! Try experimenting with numbers and symbol characters too.</p>
 
-    <pre>
-E> Do
-    Input "Please tell me what to say:";S$
-    S$=S$+"."
-    Say S$
-   Loop
-</pre>
+<code class="prefix edit">Do
+ Input "Please tell me what to say:";S$
+ S$=S$+"."
+ Say S$
+Loop
+</code>
 
     <p>
         If the Narrator system appears to fumble over a particular phrase, you are free to clarify things
@@ -109,12 +104,11 @@ E> Do
 
     <p>Here are some examples:</p>
 
-    <pre>
-E> Set Talk 1,1,, : Say "A rhythmic lady."
-   Set Talk 0,0,320,350 : Say "Bubbling fish face."
-   Set Talk ,,65,40 : Say "I'm a very lazy bullfrog."
-   Set Talk 0,,155,70 : Say "Hello, John Major speaking"
-</pre>
+<code class="prefix edit">Set Talk 1,1,, : Say "A rhythmic lady."
+Set Talk 0,0,320,350 : Say "Bubbling fish face."
+Set Talk ,,65,40 : Say "I'm a very lazy bullfrog."
+Set Talk 0,,155,70 : Say "Hello, John Major speaking"
+</code>
 
     <h3 class="command" id="i-talk-misc">TALK MISC</h3>
     <p><i>instruction: set volume and frequency for speech</i><br>
@@ -132,14 +126,13 @@ E> Set Talk 1,1,, : Say "A rhythmic lady."
 
     <p>Try this example:</p>
 
-    <pre>
-E> For V=16 To 64 Step 8
-    For F=5000 To 25000 Step 5000
-     Talk Misc V,F
-     SAY "I think therefore I AMOS!"
-    Next F
-   Next V
-</pre>
+<code class="prefix edit">For V=16 To 64 Step 8
+ For F=5000 To 25000 Step 5000
+  Talk Misc V,F
+  SAY "I think therefore I AMOS!"
+ Next F
+Next V
+</code>
 
     <h3 class="command" id="i-talk-stop">TALK STOP</h3>
     <p><i>instruction: stop speech in multitask mode</i><br>

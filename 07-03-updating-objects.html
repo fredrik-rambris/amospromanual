@@ -173,16 +173,15 @@ E> Load "AMOSPro Tutorial:Objects/Bobs.Abk"
         This routine demonstrates the danger of flicking between these screens when different items are
         held in the two components of double buffering:</p>
 
-    <pre>
-E> Double Buffer
-   Autoback 0
-   Do
-    Paper 4 : Print "Hello from the first screen"
-    Screen Swap : Wait Vbl
-    Paper 6 : Print "Greetings from screen two"
-    Screen Swap : Wait Vbl
-   Loop
-</pre>
+<code class="prefix edit">Double Buffer
+Autoback 0
+Do
+ Paper 4 : Print "Hello from the first screen"
+ Screen Swap : Wait Vbl
+ Paper 6 : Print "Greetings from screen two"
+ Screen Swap : Wait Vbl
+Loop
+</code>
 </section>
 
 <section id="04-the-updating-commands">
@@ -298,9 +297,7 @@ E> Double Buffer
         DOUBLE BUFFER has been activated, a SCREEN SWAP command will be needed to call the
         relevant display, as follows:</p>
 
-    <pre>
-X> Screen Swap : Wait Vbl
-</pre>
+<code class="prefix ex">Screen Swap : Wait Vbl</code>
 
     <p>
         Also remember to turn off the automatic updating system completely before use. Here is the
@@ -359,9 +356,7 @@ X> Screen Swap : Wait Vbl
         There are three AUTOBACK modes, and you can toggle between them by setting the mode
         values as follows:</p>
 
-    <pre>
-X> Autoback 0
-</pre>
+<code class="prefix ex">Autoback 0</code>
 
     <p>
         Manual mode. This mode deactivates the AUTOBACK system completely, so that graphics are
@@ -374,9 +369,7 @@ X> Autoback 0
         remember that you must take responsibility for synchronising between the logical and physical
         screens.</p>
 
-    <pre>
-X> Autoback 1
-</pre>
+<code class="prefix ex">Autoback 1</code>
 
     <p>
         Semi-automatic. In mode 1, AUTOBACK performs all graphical operations on both the logical
@@ -384,9 +377,7 @@ X> Autoback 1
         displaying hi-score tables and control panels. So as long as your Bobs are kept clear of any new
         graphics, this mode is perfect.</p>
 
-    <pre>
-X> Autoback 2
-</pre>
+<code class="prefix ex">Autoback 2</code>
 
 
     <p>
@@ -427,9 +418,7 @@ X> Autoback 2
     (calculated as 10-1) whenever the Bob is moved. Notice how commas must be included if other
     parameter values are omitted.
 
-    <pre>
-X> Set Bob 1,10,,
-</pre>
+<code class="prefix ex">Set Bob 1,10,,</code>
 
     <p>
         Since this operation is much faster than the standard system, it is recommended for bursts of
@@ -476,9 +465,7 @@ X Set Bob 1,0,$000111 : Rem Display bits drawn in colours 0 to 7
 
     <p>So the following line would set Bob 1 moving across the original screen colours, with a mask set:</p>
 
-    <pre>
-E> Set Bob 1,0,%111111, %11001010
-</pre>
+<code class="prefix edit">Set Bob 1,0,%111111, %11001010</code>
 
     <p>Advanced users may find the following information useful:</p>
 

@@ -100,15 +100,14 @@ DL> Load "AMOSPro_Examples:Music/Music.Abk"
         be followed by a number ranging from 1 for as slow as possible, up to 100 for incredibly fast.
         Here is an example of music mood changing:</p>
 
-    <pre>
-E> Load "AMOSPro_Examples:Music/Music.Abk"
-   Music 1
-   Do
-    For X=0 To 63
-     Tempo X: Mvolume X
-    Wait 10: Next X
-   Loop
-</pre>
+<code class="prefix edit">Load "AMOSPro_Examples:Music/Music.Abk"
+Music 1
+Do
+ For X=0 To 63
+  Tempo X: Mvolume X
+ Wait 10: Next X
+Loop
+</code>
 
     <p>
         Please note that music created using the Tracker and MED systems may include their own
@@ -155,11 +154,10 @@ E> Load "AMOSPro_Examples:Music/Music.Abk"
         optional pattern number can be added after the bank number parameter. Here are some
         example settings:</p>
 
-    <pre>
-X> Track Play : Rem Use default Tracker bank
-   Track Play ,5 : Rem Play pattern 5 from default Tracker bank
-   Track Play 9,5: Rem Play pattern 5 from bank 9
-</pre>
+<code class="prefix ex">Track Play : Rem Use default Tracker bank
+Track Play ,5 : Rem Play pattern 5 from default Tracker bank
+Track Play 9,5: <comment>Rem Play pattern 5 from bank 9</comment>
+</code>
 
     <p><b>TRACK LOOP ON</b><br>
         <b>TRACK LOOP OFF</b><br>
@@ -171,11 +169,10 @@ X> Track Play : Rem Use default Tracker bank
         Use these commands to make Tracker modules loop over and over again, or to stop a particular
         loop after it has commenced. Try this example:</p>
 
-    <pre>
-E> Track Load "AMOSPro_Examples:Music/Mod.Tracker"
-   Track Play
-   Track Loop On
-</pre>
+<code class="prefix edit">Track Load "AMOSPro_Examples:Music/Mod.Tracker"
+Track Play
+Track Loop On
+</code>
 
     <h3 class="command" id="i-track-stop">TRACK STOP</h3>
     <p><i>instruction: stop all Tracker music</i><br>
@@ -222,11 +219,10 @@ E> Track Load "AMOSPro_Examples:Music/Mod.Tracker"
         include more than one song, and an individual melody can be specified by including the song
         number to be played, as follows:</p>
 
-    <pre>
-X> Med Play 2
-   Med Play ,2
-   Med Play 2,2
-</pre>
+<code class="prefix ex">Med Play 2
+Med Play ,2
+Med Play 2,2
+</code>
 
     <h3 class="command" id="i-med-stop">MED STOP</h3>
     <p><i>instruction: stop the current Med module</i><br>

@@ -52,9 +52,7 @@
         copied, which can be a logical or physical screen. Then determine the number of the destination
         screen, which is where you want the image copied to. For example:</p>
 
-    <pre>
-X> Screen Copy 1 To 2
-</pre>
+<code class="prefix ex">Screen Copy 1 To 2</code>
 
     <p>
         Exact sections of screens can be copied by giving the coordinates of the top left-hand and
@@ -63,10 +61,9 @@ X> Screen Copy 1 To 2
         destination screen number is omitted, the copied image will appear at the new coordinates on
         the current screen. For example:</p>
 
-    <pre>
-X> Circle 50,50,10 : Wait 50
-   Screen Copy 0,20,20,70,70 To 0,100,100
-</pre>
+<code class="prefix ex">Circle 50,50,10 : Wait 50
+Screen Copy 0,20,20,70,70 To 0,100,100
+</code>
 
     <p>
         Note that there are no limits to these coordinates, and any parts of the image that fall outside of
@@ -220,9 +217,7 @@ XOR     %011000000     Combine together an inverse source image and
         PHYBASE returns the address in memory of the specified bit-plane number for the current
         screen. If this plane does not exist, a value of zero is given. For example:</p>
 
-    <pre>
-X> Loke Phybase(0),0 : Rem Poke a thin line directly onto screen
-</pre>
+<code class="prefix ex">Loke Phybase(0),0 : <comment>Rem Poke a thin line directly onto screen</comment></code>
 
     <h3 class="command" id="fn-physic">PHYSIC</h3>
     <p><i>function: return identification number for physical screen</i><br>
@@ -299,9 +294,7 @@ X> Loke Phybase(0),0 : Rem Poke a thin line directly onto screen
         number of the memory bank where you want the packed image deposited (from 1 upwards), for
         example:</p>
 
-    <pre>
-X> Spack 7 To 20
-</pre>
+<code class="prefix ex">Spack 7 To 20</code>
 
     <p>
         If the selected memory bank does not already exist, AMOS Professional will reserve it
@@ -361,9 +354,7 @@ X> Spack 7 To 20
         To unpack screen data at its original position, state which memory bank is to be unpacked,
         like this:</p>
 
-    <pre>
-X> Unpack 15
-</pre>
+<code class="prefix ex">Unpack 15</code>
 
     <p>To re-draw the packed image starting from new top left-hand corner coordinates, include them</p>
 
@@ -375,9 +366,7 @@ X> Unpack 15
         The other form of the UNPACK command is open a screen and unpack the data held in the
         selected bank to that screen. For example:</p>
 
-    <pre>
-X> Unpack 15 To 1
-</pre>
+<code class="prefix ex">Unpack 15 To 1</code>
 
     <p>
         If the screen you select already exists, its image will be replaced by the newly unpacked picture

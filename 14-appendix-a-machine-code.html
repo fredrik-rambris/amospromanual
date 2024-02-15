@@ -102,24 +102,22 @@
         omitted, AMOS Professional will express the value in the fewest possible digits, with no leading
         zeros. Here are a few examples:</p>
 
-    <pre>
-E> Print Bin$(5)
-   Print Bin$(10)
-   Print Bin$(255)
-   X$=Bin$(100) : Print X$
-</pre>
+<code class="prefix edit">Print Bin$(5)
+Print Bin$(10)
+Print Bin$(255)
+X$=Bin$(100) : Print X$
+</code>
 
     <p>
         You may enter binary numbers directly, as part of an expression, providing that the % (per cent)
         character is placed in front of your binary value. Such numbers will be converted into standard
         decimal notation automatically. For example:</p>
 
-    <pre>
-E> Print %101
-   Print %1010
-   Print %11111111
-   X$=Bin$(100) : Print Val(X$)
-</pre>
+<code class="prefix edit">Print %101
+Print %1010
+Print %11111111
+X$=Bin$(100) : Print Val(X$)
+</code>
 
     <p>
         Certain functions make use of yet another system of counting. The Hexadecimal system counts
@@ -154,18 +152,15 @@ E> Print %101
         Professional will return the value in the fewest possible digits needed to express the hex
         number. For example:</p>
 
-    <pre>
-E> Print Hex$(100)
-   Print Hex$(100,3)
-</pre>
+<code class="prefix edit">Print Hex$(100)
+Print Hex$(100,3)
+</code>
 
     <p>
         HEX$ is often used with the COLOUR function to display the precise mixture of Red, Green and
         Blue components in a particular colour, as follows:</p>
 
-    <pre>
-D> Print Hex$(Colour(2))
-</pre>
+<code class="prefix direct">Print Hex$(Colour(2))</code>
 
     <p>
         Hexadecimal notation is ideal for handling large numbers such as addresses, and it may be
@@ -173,10 +168,9 @@ D> Print Hex$(Colour(2))
         placed in front of hex numbers, and they will be converted into standard decimal notation
         automatically. For example:</p>
 
-    <pre>
-E> Print $64
-   Print $A
-</pre>
+<code class="prefix edit">Print $64
+Print $A
+</code>
 
     <p>
         Do not confuse the use of the <b>leading</b> $ character for a hex number with the use of a <b>trailing</b> $
@@ -236,12 +230,11 @@ E> Print $64
         number is set to 1. The correct value can be calculated by making use of DEEK, then loading the
         result into a floating point number, like this:</p>
 
-    <pre>
-E> A=$FFFFFFFE
-   Print Leek(Varptr(A))
-   A#=Deek(Varptr(A))*65535.0+Deek(Varptr(A)+2)
-   Print A#
-</pre>
+<code class="prefix edit">A=$FFFFFFFE
+Print Leek(Varptr(A))
+A#=Deek(Varptr(A))*65535.0+Deek(Varptr(A)+2)
+Print A#
+</code>
 
     <p><b>LOKE</b><br>
         <i>instruction: change a four-byte word at an even address</i><br>
@@ -266,21 +259,11 @@ E> A=$FFFFFFFE
         The copying operation will continue until the last character of the source string is reached, and
         the end address will be as follows:</p>
 
-    <pre>
-address+Len(string$)-1
-</pre>
-
-    <p>
-        The address may be odd or even, and can be anywhere in the Amiga's memory space. As
-        always, mistakes with the address can crash your computer! Here is an example of the correct
-        technique:</p>
-
-    <pre>
-X> Reserve As Data 10,1000: Rem Reserve a memory bank
-   NAME=Start(10)-8 : Rem Get the address of the name
-   T$="Testbank" : Rem Choose a new name of up to 8 characters
-   Poke$ NAME,Left$(T$,8) : Rem Poke the first 8 characters into the name
-</pre>
+<code class="prefix ex">Reserve As Data 10,1000: Rem Reserve a memory bank
+NAME=Start(10)-8 : Rem Get the address of the name
+T$="Testbank" : Rem Choose a new name of up to 8 characters
+Poke$ NAME,Left$(T$,8) : <comment>Rem Poke the first 8 characters into the name</comment>
+</code>
 
     <p><b>PEEK$</b><br>
         <i>function: read a string of characters from memory</i><br>
@@ -297,11 +280,10 @@ X> Reserve As Data 10,1000: Rem Reserve a memory bank
         tracks the moment a specified stop$ character is encountered in the memory area. You will then
         be left with a string of characters up to the final stop$. Here is an example using PEEKS:</p>
 
-    <pre>
-X> Reserve As Data 10,1000 : Rem Reserve a memory bank
-   NAME=Start(10)-8 : Rem Get the address of the name
-   Print Peek$(NAME,8)
-</pre>
+<code class="prefix ex">Reserve As Data 10,1000 : Rem Reserve a memory bank
+NAME=Start(10)-8 : Rem Get the address of the name
+Print Peek$(NAME,8)
+</code>
 
     <p><b>COPY</b><br>
         <i>instruction: copy a memory block</i><br>
@@ -329,13 +311,12 @@ X> Reserve As Data 10,1000 : Rem Reserve a memory bank
         copies of a single byte, this value can be calculated as follows, where V will contain the required
         value of your fill command:</p>
 
-    <pre>
-E> BYTE=255 : Rem This can be any number from 0 to 255
-   V=0
-   Poke Varptr(V),BYTE : Poke Varptr(V)+1,BYTE
-   Poke Varptr(V)+2,BYTE : Poke Varptr(V)+3,BYTE
-   Print V
-</pre>
+<code class="prefix edit">BYTE=255 : Rem This can be any number from 0 to 255
+V=0
+Poke Varptr(V),BYTE : Poke Varptr(V)+1,BYTE
+Poke Varptr(V)+2,BYTE : Poke Varptr(V)+3,BYTE
+Print V
+</code>
 
     <b>HUNT</b><br>
     <i>function: find a string of characters in memory</i><br>
@@ -370,15 +351,14 @@ E> BYTE=255 : Rem This can be any number from 0 to 255
         procedures, because if procedures are loaded with the <b>address</b> of a variable instead of its actual
         value, that variable can be changed from <b>inside</b> the procedure. For example:</p>
 
-    <pre>
-E> TEST=0
-   Rem Correct use of square brackets
-   ANSWER[Varptr(Test)] : Rem Load ADDRESS of variable into AD parameter
-   Print TEST
-   Procedure ANSWER[AD]
-    Loke AD,42 : Rem Copy new value into variable, by back door!
-   End Proc
-</pre>
+<code class="prefix edit">TEST=0
+Rem Correct use of square brackets
+ANSWER[Varptr(Test)] : Rem Load ADDRESS of variable into AD parameter
+Print TEST
+Procedure ANSWER[AD]
+ Loke AD,42 : Rem Copy new value into variable, by back door!
+End Proc
+</code>
 
     <p>
         There should be few problems encountered when reading the variables, but changing them is a
@@ -397,12 +377,11 @@ E> TEST=0
         <b>Integers</b> are held as a simple group of four bytes. They can be read from your Basic program
         using LEEK, and altered by LOKE. Here is an example of this (dangerous) method:</p>
 
-    <pre>
-E> ANSWER=43 : Rem Load a variable
-   AN=Varptr(ANSWER) : Rem Find address of variable
-   Loke AN,LEEK(AN)-1 : Rem Equivalent to ANSWER=ANSWER-1
-   Print ANSWER
-</pre>
+<code class="prefix edit">ANSWER=43 : Rem Load a variable
+AN=Varptr(ANSWER) : Rem Find address of variable
+Loke AN,LEEK(AN)-1 : Rem Equivalent to ANSWER=ANSWER-1
+Print ANSWER
+</code>
 
     <p>
         <b>Floating point numbers</b> are stored as four bytes, using the special Fast-Floating point format.
@@ -415,24 +394,18 @@ E> ANSWER=43 : Rem Load a variable
         replaced using POKE. Note that the length of the string is contained in two bytes immediately
         before the string. This means that it can be loaded into Basic using a line like this:</p>
 
-    <pre>
-X> Print Deek(Varptr(A$)-2) : Rem Equivalent to Print Len(A$)
-</pre>
+<code class="prefix ex">Print Deek(Varptr(A$)-2) : <comment>Rem Equivalent to Print Len(A$)</comment></code>
 
     <p>
         One application of this function is to return the Ascii value of a single character in an
         AMOS Professional string. The standard method is to make use of the ASC and M1D$ functions,
         like this:</p>
 
-    <pre>
-X> A=Asc(Mid$(A$),C,1) : Rem Return Ascii code of character C in A$
-</pre>
+<code class="prefix ex">A=Asc(Mid$(A$),C,1) : <comment>Rem Return Ascii code of character C in A$</comment></code>
 
     <p>Using VARPTR, that could be replaced by the following line:</p>
 
-    <pre>
-X> A=Peek(Varptr(A$)+C)
-</pre>
+<code class="prefix ex">A=Asc(Mid$(A$),C,1) : <comment>Rem Return Ascii code of character C in A$</comment></code>
 
     <p>
         To avoid danger, special precautions must be taken before new values are poked into a string.
@@ -446,9 +419,7 @@ X> A=Peek(Varptr(A$)+C)
         can play havoc. The obvious solution is to collect the garbage <b>before</b> the address is calculated,
         using a simple line like this:</p>
 
-    <pre>
-X> X=Free
-</pre>
+<code class="prefix ex">X=Free</code>
 
 
     <p>
@@ -458,15 +429,14 @@ X> X=Free
     <p>Another hazard can be encountered if you try to POKE values straight into a string.<br>
         Try</p>
 
-    <pre>
-E> A$="123456789": Rem Define a string of characters
-   For C=0 To Len(A$)-1
-    AD=Varptr(A$) : Rem Get the address
-    V=Peek(AD+C) : Rem Get Ascii value of current element
-    Poke AD+C,V+1 : Rem Add 1 to it
-   Next C
-   Print A$
-</pre>
+<code class="prefix edit">A$="123456789": Rem Define a string of characters
+For C=0 To Len(A$)-1
+ AD=Varptr(A$) : Rem Get the address
+ V=Peek(AD+C) : Rem Get Ascii value of current element
+ Poke AD+C,V+1 : Rem Add 1 to it
+Next C
+Print A$
+</code>
 
     <p>
         When you return to the Editor, you will discover that your listing has been changed!- AMOS
@@ -474,10 +444,9 @@ E> A$="123456789": Rem Define a string of characters
         standard variable "buffer". This problem can be solved by loading the first character into the
         start of the string, then adding the remaining characters later. Here is how:</p>
 
-    <pre>
-E> A$="1" : Rem Set up the first character
-   A$=A$+"23456789" : Rem Now add remaining characters
-</pre>
+<code class="prefix edit">A$="1" : Rem Set up the first character
+A$=A$+"23456789" : <comment>Rem Now add remaining characters</comment>
+</code>
 
     <p>This fools AMOS Professional into creating a separate copy of the string in the variable buffer.</p>
 
@@ -485,9 +454,7 @@ E> A$="1" : Rem Set up the first character
         <b>Numerical arrays</b> are stored as a simple list of values, with each dimension stored in turn. Look
         at the following array:</p>
 
-    <pre>
-X> Dim TEST(3,3)
-</pre>
+<code class="prefix ex">Dim TEST(3,3)</code>
 
     <p>That array is held in the following order:</p>
 
@@ -500,9 +467,7 @@ X> Dim TEST(3,3)
 
     <p>So to return the address of the first value of the array, you would use this:</p>
 
-    <pre>
-X> Varptr TEST(0,0)
-</pre>
+<code class="prefix ex">Varptr TEST(0,0)</code>
 
     <p>
         <b>String arrays</b> are more complex, because their length needs to change whenever one of their
@@ -532,11 +497,10 @@ X> Varptr TEST(0,0)
         with extreme caution! If variables are confused with bit numbers, your machine will crash. Take
         heed of the next lines:</p>
 
-    <pre>
-X> A=1
-   Rol.l 1,A : Rem This is fine
-   Rol.l A,1 : Rem This is lethal. DO NOT DO IT!
-</pre>
+<code class="prefix ex">A=1
+Rol.l 1,A : Rem This is fine
+Rol.l A,1 : <comment>Rem This is lethal. DO NOT DO IT!</comment>
+</code>
 
     <p>There are three forms of the ROL instruction:</p>
 
@@ -548,26 +512,24 @@ X> A=1
         The ROL command is invaluable as a rapid method of multiplying and positive number by a
         power of two, like this:</p>
 
-    <pre>
-E> B=1
-   Rol.l 2,B
-   Print B
-</pre>
+<code class="prefix edit">B=1
+Rol.l 2,B
+Print B
+</code>
 
     <p>Here is an example routine:</p>
 
-    <pre>
-E> Curs Off : Locate 0,20 : Centre "Press a key to ROL the number"
-   Locate 0,0 : Print "Binary version"
-   Locate 0,4 : Print "Decimal version"
-   B=1 : Rem Set initial value
-   Do
-    Locate 0,2: Print Bin$(B,32) : Rem Display number in binary
-    Locate 0,6: Print B;"         "; : Rem Nine spaces
-    Wait Key
-    Rol.l 1,B : Rem Try ROL.W and ROL.B too
-   Loop
-</pre>
+<code class="prefix edit">Curs Off : Locate 0,20 : Centre "Press a key to ROL the number"
+Locate 0,0 : Print "Binary version"
+Locate 0,4 : Print "Decimal version"
+B=1 : Rem Set initial value
+Do
+ Locate 0,2: Print Bin$(B,32) : Rem Display number in binary
+ Locate 0,6: Print B;"         "; : Rem Nine spaces
+ Wait Key
+ Rol.l 1,B : Rem Try ROL.W and ROL.B too
+Loop
+</code>
 
 
     <p><b>ROR</b><br>
@@ -582,11 +544,10 @@ E> Curs Off : Locate 0,20 : Centre "Press a key to ROL the number"
         expression is used, it will be treated as the address of your value. ROR can be used as a fast way
         of dividing any positive number by a power of two, like this:</p>
 
-    <pre>
-E> A=8
-   Ror.l 1,A
-   Print A
-</pre>
+<code class="prefix edit">A=8
+Ror.l 1,A
+Print A
+</code>
 
     <p><b>BTST</b><br>
         <i>function: test a bit</i><br>
@@ -604,11 +565,10 @@ E> A=8
         If the test is successful, a value of -1 (True) is returned, otherwise a zero (False) is given.
         For example:</p>
 
-    <pre>
-E> B=%1010
-   Print Btst(3,B)
-   Print Btst(2,B)
-</pre>
+<code class="prefix edit">B=%1010
+Print Btst(3,B)
+Print Btst(2,B)
+</code>
 
     <p><b>BSET</b><br>
         <i>instruction: set a bit to 1</i><br>
@@ -714,10 +674,9 @@ E> B=%1010
         <li>Create a dummy procedure from the AMOS Professional Editor, like this:</li>
     </ul>
 
-    <pre>
-X> Procedure _MACHINE[A,A$]
-   End Proc
-</pre>
+<code class="prefix ex">Procedure _MACHINE[A,A$]
+End Proc
+</code>
 
     <p>
         Existing closed procedures may also be used for this purpose, and it is perfectly legal to update a
@@ -762,10 +721,9 @@ X> Procedure _MACHINE[A,A$]
         With the first method, values are loaded into the appropriate Address and Data registers, before
         the procedure is called using the AREG and DREG functions. For example:</p>
 
-    <pre>
-X> Dreg(0)=1 : Dreg(1)=Varptr(A$) : _MACHINE
-   Procedure _MACHINE
-</pre>
+<code class="prefix ex">Dreg(0)=1 : Dreg(1)=Varptr(A$) : _MACHINE
+Procedure _MACHINE
+</code>
 
 
     <p>
@@ -778,12 +736,11 @@ X> Dreg(0)=1 : Dreg(1)=Varptr(A$) : _MACHINE
         The second alternative method is much neater. Values are entered using normal parameters. As
         usual, a list of parameters is specified as part of the procedure definition, like this:</p>
 
-    <pre>
-X> Rem Use no parameters but take info directly from AREG and DREG values
-   Procedure _MACHINEÂ°
-   Procedure _MACHINE1[A] : Rem Enter one integer into procedure
-   Procedure _MACH1NE2[A,B,C$] : Rem Get two integers and one string
-</pre>
+<code class="prefix ex">Rem Use no parameters but take info directly from AREG and DREG values
+Procedure _MACHINEÂ°
+Procedure _MACHINE1[A] : Rem Enter one integer into procedure
+Procedure _MACH1NE2[A,B,C$] : <comment>Rem Get two integers and one string</comment>
+</code>
 
     <p>
         The values of the parameters are pushed onto the Parameter stack, pointed to by A3. These
@@ -936,10 +893,9 @@ Move.w (a2)+,d2    * Length of the string
         Whenever a machine code program is run, any new values will be transferred straight into the
         relevant address register. For example:</p>
 
-    <pre>
-X> Areg(0)=Varptr(A$) : Rem Load the address of A$ into A0
-   Areg(1)=Varptr(B(0,0)) : Rem Load the address of B(0,0) into Al
-</pre>
+<code class="prefix ex">Areg(0)=Varptr(A$) : Rem Load the address of A$ into A0
+Areg(1)=Varptr(B(0,0)) : <comment>Rem Load the address of B(0,0) into Al</comment>
+</code>
 
     <p>
         <b>A3, A4, A5, A6</b>. These are read-only registers. Any attempt to change their current contents will
@@ -963,10 +919,9 @@ X> Areg(0)=Varptr(A$) : Rem Load the address of A$ into A0
         copied directly into the array, so that the results may be read directly from AMOS Professional
         programs. For example:</p>
 
-    <pre>
-E> Dreg(0)=10 : Rem Save 10 into DO
-   Print Dreg(0) : Rem Print the contents of DO
-</pre>
+<code class="prefix edit">Dreg(0)=10 : Rem Save 10 into DO
+Print Dreg(0) : <comment>Rem Print the contents of DO</comment>
+</code>
 
 </section>
 

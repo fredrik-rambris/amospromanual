@@ -50,47 +50,41 @@
         after the mistake has been corrected you can return to your main program without the need to
         go via the editor window. Try this simple routine:</p>
 
-    <pre>
-E> Do
-    Input "Type in two numbers";A,B
-    Print A;" divided by ";B;" is ";A/B
-   Loop
-</pre>
+<code class="prefix edit">Do
+ Input "Type in two numbers";A,B
+ Print A;" divided by ";B;" is ";A/B
+Loop
+</code>
 
     <p>
         This will work perfectly until you try to enter a value of zero for B and it is discovered that
         division by zero is impossible. Such unforeseen problems can be catered for by setting an error
         trap like this:</p>
 
-    <pre>
-E> On Error Goto HELP
-   AGAIN:
-    Do
-     Input "Type in two numbers";A,B
-     Print A;" divided by ";B;" is ";A/B
-    Loop
-    Rem Error Handler
-    HELP:
-    Print
-    Print "Sorry, you have tried to divide"
-    Print "your number by zero."
-    Resume AGAIN : Rem Go back to input
-</pre>
+<code class="prefix edit">On Error Goto HELP
+AGAIN:
+ Do
+  Input "Type in two numbers";A,B
+  Print A;" divided by ";B;" is ";A/B
+ Loop
+ Rem Error Handler
+ HELP:
+ Print
+ Print "Sorry, you have tried to divide"
+ Print "your number by zero."
+ Resume AGAIN : <comment>Rem Go back to input</comment>
+</code>
 
     <p>
         If you are unfortunate enough to write an error inside your own error trapping routine, AMOS
         Professional will grind to a halt! There are two ways to deliberately disable ON ERROR GOTO.</p>
 
-    <pre>
-X> On Error : Rem disable error trap
-</pre>
+<code class="prefix ex">On Error : <comment>Rem disable error trap</comment></code>
 
 
     <p>Call ON ERROR without any parameters like that, or force it to go to zero, like this:</p>
 
-    <pre>
-X> On Error Goto 0
-</pre>
+<code class="prefix ex">On Error Goto 0</code>
 
     <p>
         To get back to your program after ON ERROR has been called, you must use RESUME. Never
@@ -120,20 +114,19 @@ X> On Error Goto 0
         an END PROC in the usual way, then return to the main program with an additional call to
         RESUME, which can be placed just before the final END PROC statement. Here is an example:</p>
 
-    <pre>
-E> On Error Proc HELP
-    Do
-     Input "Type in two numbers";A,B
-     Print A;" divided by ";B;" is ";A/B
-    Loop
-    Rem Error Handler
-    Procedure HELP
-     Print
-     Print "Sorry, you have tried to divide"
-     Print "your number by zero."
-    Resume Next: Rem Go back to input
-   End Proc
-</pre>
+<code class="prefix edit">On Error Proc HELP
+ Do
+  Input "Type in two numbers";A,B
+  Print A;" divided by ";B;" is ";A/B
+ Loop
+ Rem Error Handler
+ Procedure HELP
+  Print
+  Print "Sorry, you have tried to divide"
+  Print "your number by zero."
+ Resume Next: Rem Go back to input
+End Proc
+</code>
 
     <p>
         When using a procedure to deal with errors, and you want to jump to a particular label, a special
@@ -171,35 +164,30 @@ E> On Error Proc HELP
         the inconvenience of waiting for them to happen. To test this system, select the error of your
         choice using the error code numbers listed in the next Chapter. For example:</p>
 
-    <pre>
-X> Error 88
-</pre>
+<code class="prefix ex">Error 88</code>
 
     <p>
         That will quit your program and display a Disc full error message, simulating what would
         happen when your current disc gets filled with data. You may also combine ERROR with the
         ERRN function, to print out the current error condition, after a problem in your program:</p>
 
-    <pre>
-X> Error Errn
-</pre>
+<code class="prefix ex">Error Errn</code>
 
     <p>
         Finally, ERROR can be used with RESUME LABEL inside an error handling routine, to jump
         straight back to a label set up with the previous command. For example:</p>
 
-    <pre>
-E> On Error Proc HELP
-   Resume Label WELCOME
-   Error 88
-   Print "This line is never printed"
-   WELCOME : Print "Hello! Hello! I'm back again!"
-   End
-   Procedure HELP
-    Print "There seems to be an error!"
-    Resume Label
-   Endproc
-</pre>
+<code class="prefix edit">On Error Proc HELP
+Resume Label WELCOME
+Error 88
+Print "This line is never printed"
+WELCOME : Print "Hello! Hello! I'm back again!"
+End
+Procedure HELP
+ Print "There seems to be an error!"
+ Resume Label
+Endproc
+</code>
 
 
     <h3 class="command" id="i-trap">TRAP</h3>
@@ -215,18 +203,15 @@ E> On Error Proc HELP
         returned by the ERRTRAP function, explained below. Here is an example of trapping a disc
         access error:</p>
 
-    <pre>
-E> Trap Load "File.Abk",10
-   If Errtrap : Print "Disc Error!" : End If
-</pre>
+<code class="prefix edit">Trap Load "File.Abk",10
+If Errtrap : Print "Disc Error!" : End If
+</code>
 
     <p>
         TRAP will only detect an error for the instruction that immediately follows, so in the next
         example the second usage of the LOCATE instruction <b>will</b> cause an error!</p>
 
-    <pre>
-E> Trap Locate -1,-1 : Locate -1,-1
-</pre>
+<code class="prefix edit">Trap Locate -1,-1 : Locate -1,-1</code>
 
     <h3 class="command" id="fn-errtrap">ERRTRAP</h3>
     <p><i>function: return an error code number after a TRAP</i><br>

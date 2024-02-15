@@ -62,17 +62,13 @@
         number, which ranges from 1 up to the maximum number of objects in the bank. Load up some
         images now, like this:</p>
 
-    <pre>
-E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
-</pre>
+<code class="prefix edit">Load "AMOSPro Tutorial:Objects/Bobs.abk"</code>
 
     <p>
         To find how many objects are in memory bank 1, use the LENGTH function for an instant read-
         out. Type this next line from Direct Mode:</p>
 
-    <pre>
-D> Print Length(1)
-</pre>
+<code class="prefix direct">Print Length(1)</code>
 
     <p>
         This Object Bank is also used for any Sprite images, so the same objects can be displayed as Bobs
@@ -106,12 +102,11 @@ D> Print Length(1)
         sequences. It is vital to include all commas in their normal positions if coordinate values are
         omitted, or a syntax error will be reported. For example:</p>
 
-    <pre>
-D> Bob 1,160,100,1 : Rem Position Bob 1 at 160,100 using image1
-   Bob 1,,150,1 : Rem Move Bob 1 down 50 pixels
-   Bob 1,110,,1 : Rem Move Bob 1 50 pixels left
-   Bob 1,,,2 : Rem Display new image 2 at Bob 1 current position
-</pre>
+<code class="prefix direct">Bob 1,160,100,1 : Rem Position Bob 1 at 160,100 using image1
+Bob 1,,150,1 : Rem Move Bob 1 down 50 pixels
+Bob 1,110,,1 : Rem Move Bob 1 50 pixels left
+Bob 1,,,2 : <comment>Rem Display new image 2 at Bob 1 current position</comment>
+</code>
 
     <p>
         Before examining the next instant demonstration program, here is a step-by-step technique for
@@ -128,17 +123,13 @@ D> Bob 1,160,100,1 : Rem Position Bob 1 at 160,100 using image1
         </li>
     </ul>
 
-    <pre>
-X> Load Iff "Picture.IFF"
-</pre>
+<code class="prefix ex">Load Iff "Picture.IFF"</code>
 
     <p>
         Alternatively, the default screen can be prepared by removing the flashing cursor from the
         display and filling the display with a large block of colour, usually black. For example:</p>
 
-    <pre>
-X> Curs Off: Flash Off : Cls 0
-</pre>
+<code class="prefix ex">Load Iff "Picture.IFF"</code>
 
     <ul>
         <li>Now the correct image colours should be grabbed from the Object Bank. Note that if Bobs are
@@ -175,10 +166,9 @@ X> Curs Off: Flash Off : Cls 0
         Use this command to remove all Bobs from the screen simultaneously. If a Bob number is
         specified, only that Bob will be extinguished. For example:</p>
 
-    <pre>
-X> Bob Off 1: Rem Remove Bob1 only
-   Bob Off : Rem Remove all Bobs from screen
-</pre>
+<code class="prefix ex">Bob Off 1: Rem Remove Bob1 only
+Bob Off : <comment>Rem Remove all Bobs from screen</comment>
+</code>
 
     <p>
         The BOB OFF instruction also turns off any animation or collision routines associated with these
@@ -200,20 +190,19 @@ X> Bob Off 1: Rem Remove Bob1 only
         coordinate will be returned, as measured from the top left-hand corner of the screen to the hot
         spot of the current image. For example:</p>
 
-    <pre>
-E> Load "AMOSPro_Tutorial:Objects/Bobs.abk"
-   Curs Off : Cls 0: Rem Set up screen
-   Flash Off : Get Bob Palette : Rem Grab Bob colours from image bank
-   Double Buffer : Rem Engage double buffering
-   Autoback 1: Rem Engage fast drawing mode
-   Do
-    Rem Move Bob1 with mouse
-    Rem Convert hardware coords to screen coords
-    Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),1
-    Rem Print new location on screen
-    Locate 0,0 : Print X Bob(1);" ";Y Bob(1);" ";
-   Loop
-</pre>
+<code class="prefix edit">Load "AMOSPro_Tutorial:Objects/Bobs.abk"
+Curs Off : Cls 0: Rem Set up screen
+Flash Off : Get Bob Palette : Rem Grab Bob colours from image bank
+Double Buffer : Rem Engage double buffering
+Autoback 1: Rem Engage fast drawing mode
+Do
+ Rem Move Bob1 with mouse
+ Rem Convert hardware coords to screen coords
+ Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),1
+ Rem Print new location on screen
+ Locate 0,0 : Print X Bob(1);" ";Y Bob(1);" ";
+Loop
+</code>
 
 
     <p>
@@ -231,20 +220,19 @@ E> Load "AMOSPro_Tutorial:Objects/Bobs.abk"
         Bob number you want to examine does not exist, an illegal function error will be given, so it is
         vital to define the Bob correctly before calling I BOB. Here is an example:</p>
 
-    <pre>
-E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
-   Flash Off : Get Bob Palette : Double Buffer : Autoback 0
-   Bob 1,160,100,1: Rem Display Bob 1 at centre of screen
-   Do
-    For IMAGE=1 To Length(1) : Rem Create simple animation
-     Rem Move Bob 1 with the mouse
-     Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
-     For W=0 To 3 : Wait Vbl : Next W
-     Rem Display image number on screen
-     Locate 0,0 : Print "Image ";I Bob(1);" ";
-    Next IMAGE
-   Loop
-</pre>
+<code class="prefix edit">Load "AMOSPro Tutorial:Objects/Bobs.abk"
+Flash Off : Get Bob Palette : Double Buffer : Autoback 0
+Bob 1,160,100,1: Rem Display Bob 1 at centre of screen
+Do
+ For IMAGE=1 To Length(1) : Rem Create simple animation
+  Rem Move Bob 1 with the mouse
+  Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
+  For W=0 To 3 : Wait Vbl : Next W
+  Rem Display image number on screen
+  Locate 0,0 : Print "Image ";I Bob(1);" ";
+ Next IMAGE
+Loop
+</code>
 
     <h3 class="command" id="i-get-bob-palette">GET BOB PALETTE</h3>
     <p><i>instruction: load image colours into current screen</i><br>
@@ -259,9 +247,7 @@ E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
         colour 1 is second from the right, and so on. Supposing there are 16 colours in your Bob palette,
         you would copy the first four colours like this:</p>
 
-    <pre>
-X> Get Bob Palette %0000000000001111
-</pre>
+<code class="prefix ex">Get Bob Palette %0000000000001111</code>
 </section>
 
 <section id="03-unmasking-bobs">
@@ -355,18 +341,14 @@ X> Get Bob Palette %0000000000001111
         the x -coordinates are always rounded up to the nearest 16-pixel boundary. To keep Bob number
         1 trapped inside an area, you would use something like this:</p>
 
-    <pre>
-X> Limit Bob 1,10,0 To 320,100
-</pre>
+<code class="prefix ex">Limit Bob 1,10,0 To 320,100</code>
 
     <p>
         Remember that a Bob must be called up with the BOB command before LIMIT BOB is used,
         otherwise the limitation will have no effect. To restore a Bob's freedom to move around the
         whole screen, use the command without any coordinates, like this:</p>
 
-    <pre>
-X> Limit Bob
-</pre>
+<code class="prefix ex">Limit Bob</code>
 
     <h3 class="command" id="i-double-buffer">DOUBLE BUFFER</h3>
     <p><i>instruction: activate Double Buffering system</i><br>
@@ -438,15 +420,14 @@ X> Limit Bob
         An optional screen number may be given immediately after the GET BOB command, allowing
         an image to be grabbed from a specific screen. Here is an example:</p>
 
-    <pre>
-E> Curs Off : Cls 0 : Double Buffer : Flash Off
-   Text 50,10, "AMOS Professional Basic!"
-   Get Bob 1,50,0 To 250,20
-   For B=0 To 180
-    Bob 1,50,B,1
-    Wait Vbl
-   Next B
-</pre>
+<code class="prefix edit">Curs Off : Cls 0 : Double Buffer : Flash Off
+Text 50,10, "AMOS Professional Basic!"
+Get Bob 1,50,0 To 250,20
+For B=0 To 180
+ Bob 1,50,B,1
+ Wait Vbl
+Next B
+</code>
 
 
     <p>
@@ -540,9 +521,7 @@ E> Flash Off : Curs Off : Cis 0
         The DEL BOB command permanently deletes one or more Bob images from the Object Bank. To
         erase a single image, simply give the image number to be deleted, like this:</p>
 
-    <pre>
-X> Del Bob 2
-</pre>
+<code class="prefix ex">Del Bob 2</code>
 
     <p>
         Whenever an image is deleted, all the subsequent images in the Bank are moved up one place in
@@ -556,9 +535,7 @@ X> Del Bob 2
         image to the last after a DEL BOB command. The following example would delete Bob images
         4,5,6 and 7:</p>
 
-    <pre>
-X> Del Bob 4 To 7
-</pre>
+<code class="prefix ex">Del Bob 4 To 7</code>
 
     <p>
         After the last image has been deleted from the Object Bank, the entire Bank is erased automatically.</p>
@@ -620,20 +597,19 @@ X> Del Bob 4 To 7
 
     <p>Here is an example:</p>
 
-    <pre>
-E> Load "AMOSPro_Tutorial:Objects/Bobs.abk" : Rem Load Bob images from disc
-   Curs Off.: Cls 0 : Rem Set up screen
-   Flash Off : Get Bob Palette : Rem Grab Bob colours from image bank
-   Double Buffer : Rem Engage Double Buffering
-   For X=360 To -60 Step -4: Rem Move Bob across screen
-    Bob 1,X,100,2 : Rem Display Bob at a new position
-    Wait Vbl : Rem Wait for next vertical blank period
-   Next X
-   For X=-60 To 400 Step 4: Rem Flip image and move from left to right
-    Bob 1,X,100,Hrev(2) : Rem Display Bob at new position
-    Wait Vbl : Rem Wait 50th of second for Vbl
-   Next X
-</pre>
+<code class="prefix edit">Load "AMOSPro_Tutorial:Objects/Bobs.abk" : Rem Load Bob images from disc
+Curs Off.: Cls 0 : Rem Set up screen
+Flash Off : Get Bob Palette : Rem Grab Bob colours from image bank
+Double Buffer : Rem Engage Double Buffering
+For X=360 To -60 Step -4: Rem Move Bob across screen
+ Bob 1,X,100,2 : Rem Display Bob at a new position
+ Wait Vbl : Rem Wait for next vertical blank period
+Next X
+For X=-60 To 400 Step 4: Rem Flip image and move from left to right
+ Bob 1,X,100,Hrev(2) : Rem Display Bob at new position
+ Wait Vbl : Rem Wait 50th of second for Vbl
+Next X
+</code>
 
     <p>
         There is a hexadecimal version of this function, and the value returned by the HREV function is
@@ -648,17 +624,11 @@ E> Load "AMOSPro_Tutorial:Objects/Bobs.abk" : Rem Load Bob images from disc
 
     <p>Supposing your original sequence was created with this:</p>
 
-    <pre>
-X> "Anim 0,(1,2)(2,2)(3,2)(4,2)"
-</pre>
+<code class="prefix ex">"Anim 0,(1,2)(2,2)(3,2)(4,2)"</code>
 
     <p>To reverse these images, either of the following two lines could be used:</p>
 
-    <pre>
-X> "Anim 0,($8000+1,2)($8000+2,2)($8000+3,2)($8000+4,2)"
-
-X> "Anim 0,($8001,2)($8002,2)($8003,2)($8004,2)"
-</pre>
+<code class="prefix ex">"Anim 0,(1,2)(2,2)(3,2)(4,2)"</code>
 
     <p>
         When an image is reversed like this, the location of the hot spot is reversed horizontally too. So
@@ -687,11 +657,10 @@ X> "Anim 0,($8001,2)($8002,2)($8003,2)($8004,2)"
         Where $4000 acts as the reversal flag, and n is the image number. Here are two typical AMAL
         string of reversed animation:</p>
 
-    <pre>
-X> "Anim 0,($4000+1,2)($4000+2,2)($4000+3,2)($4000+4,2)"
+<code class="prefix ex">"Anim 0,($4000+1,2)($4000+2,2)($4000+3,2)($4000+4,2)"
 
 X> "Anim 0,($4001,2)($4002,2)($4003,2)($4004,2)"
-</pre>
+</code>
 
     <h3 class="command" id="fn-rev">REV</h3>
     <p><i>function: double-flip an image vertically and horizontally</i><br>
@@ -702,20 +671,19 @@ X> "Anim 0,($4001,2)($4002,2)($4003,2)($4004,2)"
         in brackets, reverses it from left to right and then performs another reversal from top to bottom.
         For example:</p>
 
-    <pre>
-E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
-   Curs Off : Cls 0
-   Flash Off : Get Bob Palette
-   Double Buffer
-   For Y=200 To -40 Step -1
-    Bob 1,Y*2,Y,1
-    Wait Vbl
-   Next Y
+<code class="prefix edit">Load "AMOSPro Tutorial:Objects/Bobs.abk"
+Curs Off : Cls 0
+Flash Off : Get Bob Palette
+Double Buffer
+For Y=200 To -40 Step -1
+ Bob 1,Y*2,Y,1
+ Wait Vbl
+Next Y
   For Y=-40 To 200
-   Bob 1,Y*2,Y,Rev(1)
-   Wait Vbl
+Bob 1,Y*2,Y,Rev(1)
+Wait Vbl
   Next Y
-</pre>
+</code>
 
     <p>
         Don't forget to try the HELP programs for a demonstration. If your own attempts at flipping
@@ -744,9 +712,7 @@ E> Load "AMOSPro Tutorial:Objects/Bobs.abk"
         HREV, VREV and REV. If you want to reverse an image quickly, without displaying a Bob, try
         something like this:</p>
 
-    <pre>
-X> Paste Bob 500,500,Vrev(1)
-</pre>
+<code class="prefix ex">Paste Bob 500,500,Vrev(1)</code>
 
     <p>
         Since the coordinates lie outside of the current screen area, the image is not displayed, but it is
@@ -757,19 +723,16 @@ X> Paste Bob 500,500,Vrev(1)
         <b>Remedy:</b> The flip functions do not work with Sprites directly, but there is no problem in
         displaying a flipped Bob image as a Sprite. This line would be completely ignored:</p>
 
-    <pre>
-X> Sprite 8,300,100,Hrev(5)
-</pre>
+<code class="prefix ex">Sprite 8,300,100,Hrev(5)</code>
 
     <p>But the following routine will solve your problem:</p>
 
-    <pre>
-E> Load "AMOSPro_Tutorial:Objects/Sprites.abk"
-   Curs Off : Cls 0 : Flash Off : Get Sprite Palette
-   Paste Bob 50,50,Vrev(5)
-   Sprite 8,300,100,5
-   Wait Vbl
-</pre>
+<code class="prefix edit">Load "AMOSPro_Tutorial:Objects/Sprites.abk"
+Curs Off : Cls 0 : Flash Off : Get Sprite Palette
+Paste Bob 50,50,Vrev(5)
+Sprite 8,300,100,5
+Wait Vbl
+</code>
 
     <p>
         <b>Problem:</b> Can I check for a collision between two copies of the same image, for example,

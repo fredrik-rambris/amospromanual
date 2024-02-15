@@ -35,9 +35,7 @@
 
     <p>Nothing could be simpler than asking AMOS Professional to run this sum:</P>
 
-    <pre>
-D&gt; Print 2+2
-</pre>
+<code class="prefix direct">Print 2+2</code>
 
     <P>Arithmetical operations are straightforward, provided the correct symbols are used, as follows:</P>
 
@@ -54,10 +52,9 @@ D&gt; Print 2+2
 
     <P>So the following two lines are interchangable:</P>
 
-    <pre>
-D&gt; Print 3^5
-   Print 3*3*3*3*3
-</pre>
+<code class="prefix direct">Print 3^5
+Print 3*3*3*3*3
+</code>
 
     <P>The following logical operations can also be used in calculations:</P>
 
@@ -72,10 +69,9 @@ D&gt; Print 3^5
     <p>Arithmetical instructions are taken literally, using a set of built-in priorities. So the
         following lines give the results 6 and 8 respectively:</P>
 
-    <pre>
-D&gt; Print 2+2*2
-   Print (2+2)*2
-</pre>
+<code class="prefix direct">Print 2+2*2
+Print (2+2)*2
+</code>
 
     <P>AMOS Professional handles a combination of calculations that make up an "expression" in
         the following strict order of priority:</P>
@@ -103,29 +99,27 @@ D&gt; Print 2+2*2
     <p>
         The next calculation gives a result of 43, because it evaluated in the following order:</P>
 
-    <pre>
-D&gt; Print 10+2*5-8/4+5^2
+<code class="prefix direct">Print 10+2*5-8/4+5^2
 
-    5^2 = 25
-    2*5 = 10
-    8/4 = 2
+ 5^2 = 25
+ 2*5 = 10
+ 8/4 = 2
   10+10 = 20
-   20-2 = 18
+20-2 = 18
   18+25 = 43
-</pre>
+</code>
 
     <P>By adding two strategic pairs of brackets to the same calculation, the logical
         interpretation is transformed, resulting in an answer of 768, like this:</P>
 
-    <pre>
-D&gt; Print (10+2)*(5-8/4+5)^2
+<code class="prefix direct">Print (10+2)*(5-8/4+5)^2
 
-     10+2 = 12
+  10+2 = 12
   5-8/4+5 = 5-2+5
-    5-2+5 = 8
-      8^2 = 64
-    12*64 = 768
-</pre>
+ 5-2+5 = 8
+   8^2 = 64
+ 12*64 = 768
+</code>
 </section>
 
 <section id="03-fast-calculations">
@@ -140,9 +134,7 @@ D&gt; Print (10+2)*(5-8/4+5)^2
     <P>This command adds 1 to an integer (whole number) variable, using a single instruction to
         perform the expression variable=variable+1 very quickly. For example:</P>
 
-    <pre>
-D&gt; V=10 : Inc V : Print V
-</pre>
+<code class="prefix direct">V=10 : Inc V : Print V</code>
 
     <h3 class="command" id="i-dec">DEC</h3>
     <p><i>instruction: decrement an integer variable by 1</i><BR>
@@ -151,9 +143,7 @@ D&gt; V=10 : Inc V : Print V
     <P>Similarly to INC, the DEC command performs a rapid subtraction of 1 from an integer
         variable. For example:</P>
 
-    <pre>
-D&gt; V=10 : Dec V : Print V
-</pre>
+<code class="prefix direct">V=10 : Dec V : Print V</code>
 
     <h3 class="command" id="i-add">ADD</h3>
     <p><i>instruction: perform fast integer addition</i><BR>
@@ -170,23 +160,21 @@ D&gt; V=10 : Dec V : Print V
         more quickly than the equivalent separate instructions. When Base number and Top number
         parameters are included, ADD is the equivalent to the following lines:</P>
 
-    <pre>
-X&gt; V=V+A
-   If V&lt;BASE Then V=TOP
-   If V&gt;TOP Then V=BASE
-</pre>
+<code class="prefix ex">V=V+A
+If V&lt;BASE Then V=TOP
+If V&gt;TOP Then V=BASE
+</code>
 
     <P>Here is an example:</P>
 
-    <pre>
-E&gt; Dim A(10)
-   For X=0 To 10:A(X)=X:Next X
-   V=0
-   Repeat
-    Add V,1,1 To 10
-    Print A(V)
-   Until V=11 : Rem This loop is infinite as V is always &lt;11
-</pre>
+<code class="prefix edit">Dim A(10)
+For X=0 To 10:A(X)=X:Next X
+V=0
+Repeat
+ Add V,1,1 To 10
+ Print A(V)
+Until V=11 : <comment>Rem This loop is infinite as V is always &lt;11</comment>
+</code>
 </section>
 
 <section id="04-relative-values">
@@ -209,11 +197,9 @@ E&gt; Dim A(10)
 
     <P>Here are some examples:</P>
 
-    <pre>
-D&gt; Print Max(99,1)
-   Print Max("AMOS Professional","AMOS")</P>
-
-</pre>
+<code class="prefix direct">Print Max(99,1)
+Print Max("AMOS Professional","AMOS")</P>
+</code>
 
     <h3 class="command" id="fn-min">MIN</h3>
     <p><i>function: return the minimum of two values</i><BR>
@@ -225,10 +211,9 @@ D&gt; Print Max(99,1)
         Similarly, the MIN function returns the smaller value of two expressions. Expressions can consist
         of strings, integers or real numbers, but only compare like with like, as follows:</P>
 
-    <pre>
-D&gt; A=Min(99,1) : Print A
-   Print Min("AMOS Professional","AMOS")
-</pre>
+<code class="prefix direct">A=Min(99,1) : Print A
+Print Min("AMOS Professional","AMOS")
+</code>
 </section>
 
 <section id="05-values-and-signs">
@@ -264,9 +249,7 @@ D&gt; A=Min(99,1) : Print A
 
     <P>For example:</P>
 
-    <pre>
-D&gt; Print Abs(-1),Abs(1)
-</pre>
+<code class="prefix direct">Print Abs(-1),Abs(1)</code>
 </section>
 
 <section id="06-floating-point-numbers">
@@ -284,10 +267,9 @@ D&gt; Print Abs(-1),Abs(1)
         The INT function rounds <b>down</b> a floating point number to the nearest whole number (integer),
         so that the result of the following two example lines is 3 and -2, respectively:</P>
 
-    <pre>
-D&gt; Print Int(3.9999)
-   Print Int(-1.1)
-</pre>
+<code class="prefix direct">Print Int(3.9999)
+Print Int(-1.1)
+</code>
 
     <h3 class="command" id="i-fix">FIX</h3>
     <p><i>instruction: fix precision of floating point</i><BR>
@@ -316,11 +298,10 @@ D&gt; Print Int(3.9999)
 
     <P>Here are some examples:</P>
 
-    <pre>
-E&gt; Fix (2) : Print Pi# : Rem Two digits after decimal point
-   Fix(-4) : Print Pi# : Rem Exponential with four digits after decimal point
-   Fix(16) : Print Pi# : Rem Revert to normal mode
-</pre>
+<code class="prefix edit">Fix (2) : Print Pi# : Rem Two digits after decimal point
+Fix(-4) : Print Pi# : Rem Exponential with four digits after decimal point
+Fix(16) : Print Pi# : <comment>Rem Revert to normal mode</comment>
+</code>
 </section>
 
 <section id="07-single-and-double-precision">
@@ -369,10 +350,9 @@ E&gt; Fix (2) : Print Pi# : Rem Two digits after decimal point
         This function calculates the square root of a positive number, that is to say, it
         returns a number that must be multiplied by itself to give the specified value. For example:</P>
 
-    <pre>
-D&gt; Print Sqr(25)
-   Print Sqr(11.1111)
-</pre>
+<code class="prefix direct">Print Sqr(25)
+Print Sqr(11.1111)
+</code>
 
     <h3 class="command" id="fn-exp">EXP</h3>
     <p><i>function: calculate exponential</i><BR>
@@ -380,9 +360,7 @@ D&gt; Print Sqr(25)
 
     <P>Use the EXP function to return the exponential of a specified value. For example:</P>
 
-    <pre>
-D&gt; Print Exp(1)
-</pre>
+<code class="prefix direct">Print Exp(1)</code>
 
     <h3 class="command" id="fn-log">LOG</h3>
     <p><i>function: return logarithm</i><BR>
@@ -391,10 +369,9 @@ D&gt; Print Exp(1)
 
     <P>LOG returns the logarithm in base 10 (log 10) of the given value. For example:</P>
 
-    <pre>
-E&gt; Print Log(10)
-   A#=Log(100)
-</pre>
+<code class="prefix edit">Print Log(10)
+A#=Log(100)
+</code>
 
     <h3 class="command" id="fn-ln">LN</h3>
     <p><i>function: return natural logarithm</i><BR>
@@ -404,10 +381,9 @@ E&gt; Print Log(10)
         The LN Function calculates the natural logarithm (Naperian logarithm) of the given value.
         For example:</P>
 
-    <pre>
-E&gt; Print Ln(10)
-   A#=Ln(100) : Print A#
-</pre>
+<code class="prefix edit">Print Ln(10)
+A#=Ln(100) : Print A#
+</code>
 </section>
 
 <section id="09-trigonometry">
@@ -451,10 +427,9 @@ E&gt; Print Ln(10)
         been activated, all subsequent calls to the trigonometric functions will expect degrees to
         be used.</P>
 
-    <pre>
-E&gt; Degree
-   Print Sin(45)
-</pre>
+<code class="prefix edit">Degree
+Print Sin(45)
+</code>
 
     <h3 class="command" id="i-radian">RADIAN</h3>
     <p><i>instruction: use radians</i><BR>
@@ -472,13 +447,12 @@ E&gt; Degree
         the angle <b>a</b>.<br>
         Note that SIN always returns a floating point number. For example:</P>
 
-    <pre>
-E&gt; Degree
-   For X=0 To 319
-    Y#=Sin(X)
-    Plot X,Y#*50+100
-   Next X
-</pre>
+<code class="prefix edit">Degree
+For X=0 To 319
+ Y#=Sin(X)
+ Plot X,Y#*50+100
+Next X
+</code>
 
     <h3 class="command" id="fn-cos">COS</h3>
     <p><i>function: calculate cosine of an angle</i><BR>
@@ -492,10 +466,9 @@ E&gt; Degree
         To demonstrate this, add the following two lines to your last example between the PLOT and
         NEXT instructions:</P>
 
-    <pre>
-E&gt; Y#=Cos(X)
-   Plot X,Y#*50+100
-</pre>
+<code class="prefix edit">Y#=Cos(X)
+Plot X,Y#*50+100
+</code>
 
     <h3 class="command" id="fn-tan">TAN</h3>
     <p><i>function: calculate tangent of an angle</i><BR>
@@ -505,10 +478,9 @@ E&gt; Y#=Cos(X)
     <P>For any angle, the tangent is the result of when its sine is divided by its cosine. The
         TAN function generates the tangent of a given angle. For example:</P>
 
-    <pre>
-E&gt; Degree : Print Tan(45)
-   Radian : Print Tan(Pi#/8)
-</pre>
+<code class="prefix edit">Degree : Print Tan(45)
+Radian : Print Tan(Pi#/8)
+</code>
 
     <h3 class="command" id="fn-acos">ACOS</h3>
     <p><i>function: calculate arc cosine</i><BR>
@@ -517,10 +489,9 @@ E&gt; Degree : Print Tan(45)
     <P>The ACOS function takes a number between -1 and +1, and calculates the angle which
         would be needed to generate this value with COS. For example:</P>
 
-    <pre>
-E&gt; A#=Cos(45)
-   Print Acos(A#)
-</pre>
+<code class="prefix edit">A#=Cos(45)
+Print Acos(A#)
+</code>
 
     <h3 class="command" id="fn-asin">ASIN</h3>
     <p><i>function: calculate arc sine</i><BR>
@@ -535,10 +506,9 @@ E&gt; A#=Cos(45)
 
     <P>ATAN returns the arctan of a given number, like this:</P>
 
-    <pre>
-E&gt; Degree : Print Tan(2)
-   Degree : Print Atan(0.03492082)
-</pre>
+<code class="prefix edit">Degree : Print Tan(2)
+Degree : Print Atan(0.03492082)
+</code>
 
     <P>
         A hyperbola is a conical section, formed by a plane that cuts both bases of a cone. In
@@ -589,12 +559,11 @@ E&gt; Degree : Print Tan(2)
         up to that maximum number. However, if you specify 0, then RND will return the last random value
         it generated. This is useful for debugging programs. Here is an example:</P>
 
-    <pre>
-E&gt; Do
-    C=Rnd(15) : X=Rnd(320) : Y=Rnd(200)
-    Ink C : Text X,Y,"AMOS Professional at RANDOM"
-   Loop
-</pre>
+<code class="prefix edit">Do
+ C=Rnd(15) : X=Rnd(320) : Y=Rnd(200)
+ Ink C : Text X,Y,"AMOS Professional at RANDOM"
+Loop
+</code>
 
     <h3 class="command" id="i-randomize">RANDOMIZE</h3>
     <p><i>instruction: set the seed for a random number</i><BR>
@@ -631,9 +600,7 @@ E&gt; Do
         explained above, this makes it a perfect "seed" to be used with the RANDOMIZE function, as
         follows:</P>
 
-    <pre>
-X&gt; Randomize Timer
-</pre>
+<code class="prefix ex">Randomize Timer</code>
 
     <P>
         The best place to use this technique is immediately after the user has entered some

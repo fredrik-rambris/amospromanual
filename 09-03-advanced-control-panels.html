@@ -110,9 +110,7 @@
         completely ignored! Also note that optional coordinates can be given without specifying the
         label parameter, as long as the appropriate commas are included. For example:</p>
 
-    <pre>
-X> Dialog Run(1,,x,y)
-</pre>
+<code class="prefix ex">Dialog Run(1,,x,y)</code>
 
     <p>Here is a simple working example:</p>
 
@@ -164,11 +162,10 @@ E> A$=A$+"BA 50,50;SI 180,60;SA 1 ;IN 5,0,0;GB 0,0,170,50;"
 
     <p>Here is a small error handler that may be useful if included in your own programs:</p>
 
-    <pre>
-X> On ErrOr Goto TRAP: Rem Add this line before a DIALOG OPEN command
-   ...: Rem The rest of your program goes here
-   TRAP: Print Mid$(DB$,Edialog,80) : Wait Key : End : Rem Error handler
-</pre>
+<code class="prefix ex">On ErrOr Goto TRAP: Rem Add this line before a DIALOG OPEN command
+...: Rem The rest of your program goes here
+TRAP: Print Mid$(DB$,Edialog,80) : Wait Key : End : <comment>Rem Error handler</comment>
+</code>
 </section>
 
 <section id="02-testing-an-active-zone">
@@ -203,16 +200,15 @@ X> On ErrOr Goto TRAP: Rem Add this line before a DIALOG OPEN command
 
     <p>Here is an example of a simple check:</p>
 
-    <pre>
-X> Do
-    D=Dialog(1)
-    Exit If D<0
-    If D>0
-     On D Gosub BUTTON1,BUTTON2
-     Wait Vbl
-    Endif
-   Loop
-</pre>
+<code class="prefix ex">Do
+ D=Dialog(1)
+ Exit If D<0
+ If D>0
+  On D Gosub BUTTON1,BUTTON2
+  Wait Vbl
+ Endif
+Loop
+</code>
 
     <h3 class="command" id="fn-rdialog">RDIALOG</h3>
     <p><i>function: read the status of a zone or button</i><br>
@@ -343,27 +339,24 @@ X> Do
         with a WINDOW 0 instruction. After the text has been displayed, the edit window can be
         handled by a line like this:</p>
 
-    <pre>
-X> Window Z+1000: Rem Z is the number of the EDit zone
-</pre>
+<code class="prefix ex">Window Z+1000: <comment>Rem Z is the number of the EDit zone</comment></code>
 
     Here is a working example of a text input zone:
 
-    <pre>
-E> A$=A$+"BA 50,50;SI 200,60; SA 1; set things up"
-   A$=A$+"IN 5,0,0; GB 0,0,200,50; PR 16,10,'Enter your name human!',2;"
-   A$=A$+"BU 1,150,40,50,10,0,0,16;"
-   A$=A$+"[1N BPos 4+,0,0; GB 0,0,50,10; PR 2,0,' Quit',2;][BQ]"
-   A$=A$+"ED 2,16,25,14,14,",0,2; define an edit zone"
-   A$=A$+"EXit,"
-   Dialog Open 1,A$ : Rem Open a channel
-   R=Dialog Run(1) : Rem the Interface program
-   Repeat
-    D=Dialog(1) : Rem Wait until Return Key is pressed
-   Until D<0
-   Print "Hello ";Rdialog$(1,2)
-   Dialog Close
-</pre>
+<code class="prefix edit">A$=A$+"BA 50,50;SI 200,60; SA 1; set things up"
+A$=A$+"IN 5,0,0; GB 0,0,200,50; PR 16,10,'Enter your name human!',2;"
+A$=A$+"BU 1,150,40,50,10,0,0,16;"
+A$=A$+"[1N BPos 4+,0,0; GB 0,0,50,10; PR 2,0,' Quit',2;][BQ]"
+A$=A$+"ED 2,16,25,14,14,",0,2; define an edit zone"
+A$=A$+"EXit,"
+Dialog Open 1,A$ : Rem Open a channel
+R=Dialog Run(1) : Rem the Interface program
+Repeat
+ D=Dialog(1) : Rem Wait until Return Key is pressed
+Until D<0
+Print "Hello ";Rdialog$(1,2)
+Dialog Close
+</code>
 
     <p>The numerical equivalent of a text zone is examined next.</p>
 
@@ -472,20 +465,19 @@ E> A$=A$+"BA 50,50; SI 200,90; SA 1;"
         3 for the selected bar, which is normally flashing. Here is a working example of a horizontal
         slider in action:</p>
 
-    <pre>
-E> B$=B$+"BA 112,50; set base coordinates to the screen centre"
-   B$=B$+"HSlide 1,0,0,100,16,0,1,100,1;[] define a one hundred position slider"
-   B$=B$+"EXit;"
-   Dialog Open 1,B$ : Rem Open a dialogue channel to the slider
-   D=Dialog Run(1) : Rem Run the program held in B$
-   Curs Off : Centre "<Horizontal Slider>"
-   Rem Read the slider
-   Repeat
-    D=Dialog(1) : Rem See if slider has been selected
-    If D<>0 Then Locate 14,20 : Print "Position ";Rdialog(1,1);" ";
-   Until Inkey$<>""
-   Dialog Close
-</pre>
+<code class="prefix edit">B$=B$+"BA 112,50; set base coordinates to the screen centre"
+B$=B$+"HSlide 1,0,0,100,16,0,1,100,1;[] define a one hundred position slider"
+B$=B$+"EXit;"
+Dialog Open 1,B$ : Rem Open a dialogue channel to the slider
+D=Dialog Run(1) : Rem Run the program held in B$
+Curs Off : Centre "<Horizontal Slider>"
+Rem Read the slider
+Repeat
+ D=Dialog(1) : Rem See if slider has been selected
+ If D<>0 Then Locate 14,20 : Print "Position ";Rdialog(1,1);" ";
+Until Inkey$<>""
+Dialog Close
+</code>
 
 
     <p>
@@ -499,9 +491,7 @@ E> B$=B$+"BA 112,50; set base coordinates to the screen centre"
         command, and the position of the slider can be read by a call to the RDIALOG function, like
         this:</p>
 
-    <pre>
-X> position=RDIALOG(channel number,zone number)
-</pre>
+<code class="prefix ex">position=RDIALOG(channel number,zone number)</code>
 
     <p>
         Once slider bars have been created, they can be used to produce attractive selector boxes. These
@@ -529,9 +519,7 @@ X> position=RDIALOG(channel number,zone number)
         After it has been returned, the address may now be installed into an Interface program using the
         VDIALOG function, as follows:</p>
 
-    <pre>
-X> Vdialog(1,0)=Array(V$(0)) : Rem Loads 0 VA (channel 1) with the address of V$(0)
-</pre>
+<code class="prefix ex">Vdialog(1,0)=Array(V$(0)) : <comment>Rem Loads 0 VA (channel 1) with the address of V$(0)</comment></code>
 
     <p>
         Once installed like that, the address can be accessed from an Interface program using the
@@ -657,9 +645,7 @@ LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Sliders.AMOS"
 
     <p>First of all, define a string array to hold the items in memory, using a line like this:</p>
 
-    <pre>
-X> Dim ITEM$(100)
-</pre>
+<code class="prefix ex">Dim ITEM$(100)</code>
 
     <p>
         Next, load the items into the array. These items may be anything you wish, such as the
@@ -672,25 +658,20 @@ X> Dim ITEM$(100)
         command. The following example line would create zone 1 at coordinates 10,10, with 15 lines of
         30 characters each, taking the address of the item array from 0 VA.</p>
 
-    <pre>
-X> AL 1,10,10,30,15,0 VA,0,0,0,1;[]
-</pre>
+<code class="prefix ex">AL 1,10,10,30,15,0 VA,0,0,0,1;[]</code>
 
 
     <p>
         Now open an Interface communication channel with a DIALOG OPEN command, and grab the
         address of the first character in the item array to be loaded into an Interface variable.</p>
 
-    <pre>
-X> Dialog Open A$,1
-   AD=Array(ITEM(0)) : Vdialog(1,0)=AD
-</pre>
+<code class="prefix ex">Dialog Open A$,1
+AD=Array(ITEM(0)) : Vdialog(1,0)=AD
+</code>
 
     <p>Finally, call the Interface program with DIALOG RUN, like this:</p>
 
-    <pre>
-X> R=Dialog Run(1)
-</pre>
+<code class="prefix ex">R=Dialog Run(1)</code>
 </section>
 
 <section id="09-creating-a-selector">
@@ -745,55 +726,39 @@ X> R=Dialog Run(1)
         to zone 1, and an active list to zone 2, you would be able to scroll through the list with the slider
         using a line like this:</p>
 
-    <pre>
-X> VSlide 1,16,16,8,64,0,1,12,1; create a twelve position slider
-   [ZChange 2,ZPosition;] set zone two to position of changed slider
-</pre>
+<code class="prefix ex">VSlide 1,16,16,8,64,0,1,12,1; create a twelve position slider
+[ZChange 2,ZPosition;] set zone two to position of changed slider
+</code>
 
     <p>
         The commands inside the square brackets are executed automatically whenever the slider is
         moved on the screen, and they copy the new slider position straight into the active list
         command and move the list through the selector window.</p>
 
-    <pre>Here is a step by step procedure for generating a selection box on screen:</pre>
-
-    <p>
-        Firstly, create a list of components needed for the selector. This could begin with a vertical scroll
-        bar, where 0 VA holds the address of the item array already set up in the main program, and AS
-        returning the number of items:</p>
-
-    <pre>
-X> VSlider 1,x,y,width,height,0,8,0 VA AS,1;[]
-</pre>
+<code class="prefix ex">VSlider 1,x,y,width,height,0,8,0 VA AS,1;[]</code>
 
     <p>Next an ActiveList is defined for the selection window, using a line like this:</p>
 
-    <pre>
-X> AList 2,x+width,y,20,8,0 VA,0,0,0,4; set up the item list
-</pre>
+<code class="prefix ex">AList 2,x+width,y,20,8,0 VA,0,0,0,4; set up the item list</code>
 
     <p>Finally, a text edit zone is created to hold the current item on screen, like this;</p>
 
-    <pre>
-X> EDit 3,x,y+height,width/8,width/8,0,0,2;
-</pre>
+<code class="prefix ex">AList 2,x+width,y,20,8,0 VA,0,0,0,4; set up the item list</code>
 
     <p>
         Now the scroll bar can be linked to the item display in the ActiveList window, as already
         explained.</p>
 
-    <pre>
-X> VSlider 1,x,y,width,height,0,1,0 VA AS,1; create a twelve position slider
-   [ZChange 2,ZPosition;] set zone two to slider position
-</pre>
+<code class="prefix ex">VSlider 1,x,y,width,height,0,1,0 VA AS,1; create a twelve position slider
+[ZChange 2,ZPosition;] set zone two to slider position
+</code>
 
     <p>Lastly, the ActiveList is linked with the EDit command, so that it loads the selected item into the
         editing zone, as follows:</p>
 
-    <pre>
-X> AList 2,x+width,y,20,8,0 VA,0,0,0,4; set up the item list
-   [ZChange 3,0 VA ZPosition ARray;] load the edit zone with selected item
-</pre>
+<code class="prefix ex">AList 2,x+width,y,20,8,0 VA,0,0,0,4; set up the item list
+[ZChange 3,0 VA ZPosition ARray;] load the edit zone with selected item
+</code>
 
     <p>
         Remember that 0 VA stores the address of the array, ZPosition holds the item number and
@@ -816,9 +781,7 @@ X> AList 2,x+width,y,20,8,0 VA,0,0,0,4; set up the item list
         The ZoneNumber function is used to return the number of the current zone. It is intended to be
         used in conjunction with the ZoneChange command, like this:</p>
 
-    <pre>
-X> [ZChange ZNumber 1+ZPosition] loads the next zone with existing position value.
-</pre>
+<code class="prefix ex">[ZChange ZNumber 1+ZPosition] loads the next zone with existing position value.</code>
 </section>
 
 <section id="10-controlling-a-selector-from-the-main-program">
@@ -931,9 +894,7 @@ Slider      Changes the "total" parameter
         Text is listed in windows numbered 3000+z, and you can write to these windows from the main
         program if necessary, using a WINDOW command like this:</p>
 
-    <pre>
-X> Window 3001 : Rem Print to text window assigned to zone 1
-</pre>
+<code class="prefix ex">Window 3001 : <comment>Rem Print to text window assigned to zone 1</comment></code>
 
     <p>
         The next parameter to be given is the address of the text in memory. Unlike the AList command,
@@ -968,11 +929,10 @@ X> Window 3001 : Rem Print to text window assigned to zone 1
         The text can include a number of active zones if required. These are defined using curled
         brackets, and their are two alternative formats, as follows:</p>
 
-    <pre>
-X> {[value]highlighted text}
+<code class="prefix ex">{[value]highlighted text}
 or
 X> {[value,paper,pen]highlighted text}
-</pre>
+</code>
 
     <p>
         The square brackets contain a value which will be transferred to the program when the item is
@@ -987,17 +947,15 @@ X> {[value,paper,pen]highlighted text}
         Supposing an automatic jump to a specific page of text is required. The HyperText command
         would look like this:</p>
 
-    <pre>
-X> HText 1,0,0,40,20,text_address,0,4,0,3;
-   [ZChange 1,ZPosition]
-</pre>
+<code class="prefix ex">HText 1,0,0,40,20,text_address,0,4,0,3;
+[ZChange 1,ZPosition]
+</code>
 
     <p>The entry in the text would -he defined along the following lines:</p>
 
-    <pre>
-X> {[10] Goto line 10}
-   {[100] Goto line 100}
-</pre>
+<code class="prefix ex">HText 1,0,0,40,20,text_address,0,4,0,3;
+[ZChange 1,ZPosition]
+</code>
 
     <p>
         After the return value has been set up, the paper and pen colours of the button can also be
@@ -1022,13 +980,12 @@ X> {[10] Goto line 10}
         The HyperText instruction places this size in the internal ZoneVariable, so all that needs to be
         done is define the slider after the text window is opened. For example:</p>
 
-    <pre>
-X> SetVar 1,0; variable number one holds the position in the text
-   HText 1,0,0,38,20,0 VA,1 VA,10,0,1;[]
-   SetVar 2,ZVar; load the number of lines into variable number two
-   VSlider 2,38 8*,0,8,20 8*,1 VA,40,2 VA,1; use this to set the total value
-   [SetVar 1,ZPos; ZChange 1,1VA:] move hypertext window to new position
-</pre>
+<code class="prefix ex">SetVar 1,0; variable number one holds the position in the text
+HText 1,0,0,38,20,0 VA,1 VA,10,0,1;[]
+SetVar 2,ZVar; load the number of lines into variable number two
+VSlider 2,38 8*,0,8,20 8*,1 VA,40,2 VA,1; use this to set the total value
+[SetVar 1,ZPos; ZChange 1,1VA:] move hypertext window to new position
+</code>
 
     <p>
         If a HyperText window has been defined as a separate screen, it can be physically manipulated
@@ -1044,9 +1001,7 @@ X> SetVar 1,0; variable number one holds the position in the text
         particular item is selected. In this final example, a button is set up that generates
         the scroll bar used by the Help window.</p>
 
-    <pre>
-X> BUtton 6,24,0,SX,10,0,0,0;[][ScreenMove;]
-</pre>
+<code class="prefix ex">BUtton 6,24,0,SX,10,0,0,0;[][ScreenMove;]</code>
 
 
 </section>

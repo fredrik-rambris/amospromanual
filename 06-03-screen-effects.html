@@ -51,15 +51,14 @@
         area to be faded by adding the range of the number of pixels from the top of the screen.
         For example:</p>
 
-    <pre>
-E> Load "AMOSPro_Tutorial:Objects/Bobs.Abk"
-   Flash Off : Get Bob Palette
-   Paste Bob 100,0,1
-   Wait 100
-   Screen Open 1,320,90,16,Lowres
-   Flash Off : Get Bob Palette
-   Appear 0 To 1,1,28800
-</pre>
+<code class="prefix edit">Load "AMOSPro_Tutorial:Objects/Bobs.Abk"
+Flash Off : Get Bob Palette
+Paste Bob 100,0,1
+Wait 100
+Screen Open 1,320,90,16,Lowres
+Flash Off : Get Bob Palette
+Appear 0 To 1,1,28800
+</code>
 
     <p>
         That example fades the top part of your default screen into the newly opened Screen 1.
@@ -77,39 +76,27 @@ E> Load "AMOSPro_Tutorial:Objects/Bobs.Abk"
         zero. Set the speed of the fade by choosing the number of vertical blank periods between each
         colour change. Try this:</p>
 
-    <pre>
-E> Flash Off : Curs Off
-   Centre "GOOD NIGHT"
-   Fade 5
-</pre>
+<code class="prefix edit">Flash Off : Curs Off
+Centre "GOOD NIGHT"
+Fade 5
+</code>
 
     <p>
         Fade effects are executed using interrupts, so it is sensible to wait until the fade has ended
         before going on to the next program instruction. The length of wait required can be calculated
         with this formula:</p>
 
-    <pre>
-wait = fade speed * 15
-</pre>
-
-    <p>
-        So that last example is sure to work with the rest of your program if the third line is changed to
-        this:</p>
-
-    <pre>
-E> Fade 5 : Wait 75
-</pre>
+<code class="prefix edit">Fade 5 : Wait 75</code>
 
     <p>
         By adding a list of colour values, the fade effect will generate a new palette directly from your
         list, and it is used like this:</p>
 
-    <pre>
-E> Flash Off : Curs Off
-   Centre "RED SKY AT NIGHT"
-   Fade 10,$100,$F00,$300
-   Wait 150
-</pre>
+<code class="prefix edit">Flash Off : Curs Off
+Centre "RED SKY AT NIGHT"
+Fade 10,$100,$F00,$300
+Wait 150
+</code>
 
     <p>
         Any number of new colours can be set up like this, depending on the maximum number
@@ -117,9 +104,7 @@ E> Flash Off : Curs Off
         completely unaffected by the fade, as long as you include the right number of commas.
         For example:</p>
 
-    <pre>
-E> Fade 5,,$100,,,$200,$300
-</pre>
+<code class="prefix edit">Fade 5,,$100,,,$200,$300</code>
 
     <p>
         There is an even more powerful use of the FADE command, which takes the palette from
@@ -133,15 +118,14 @@ E> Fade 5,,$100,,,$200,$300
         numbered from 0 to 15, and any bit that is set to 1 will be affected by a colour change.
         For example:</p>
 
-    <pre>
-E> Load "AMOSPro_Tutorial:Objects/Bobs.Abk"
-   Screen Open 1,320,90,16,Lowres
-   Flash Off : Get Object Palette
-   Paste Bob 100,0,1
-   Wait 100
-   Fade 1 To 0,%01111000011001010
-   Wait 15
-</pre>
+<code class="prefix edit">Load "AMOSPro_Tutorial:Objects/Bobs.Abk"
+Screen Open 1,320,90,16,Lowres
+Flash Off : Get Object Palette
+Paste Bob 100,0,1
+Wait 100
+Fade 1 To 0,%01111000011001010
+Wait 15
+</code>
 </section>
 
 <section id="01-flashing-colours">
@@ -164,9 +148,7 @@ E> Load "AMOSPro_Tutorial:Objects/Bobs.Abk"
         customise your flashing effects, and the rate of delay from one colour change to the next can be
         individually set. Try this:</p>
 
-    <pre>
-E> Flash 1 ,"(0A0,10)(F0F,40)"
-</pre>
+<code class="prefix edit">Flash 1 ,"(0A0,10)(F0F,40)"</code>
 
     <p>
         In that example, the colour to be affected is set to index number 1. After the comma, the set of
@@ -176,11 +158,10 @@ E> Flash 1 ,"(0A0,10)(F0F,40)"
         50th of a second. So the last example has the effect of flashing colour number 1 between a green
         value and a violet value once every second. The next example is more subtle:</p>
 
-    <pre>
-E> Cls : Centre "SILENT MOVIES"
-   Flash 1,"(111,4)(333,4)(555,4)(777,4)(555,7)(333,7)
-   Curs Off : Wait 250 : Flash Off
-</pre>
+<code class="prefix edit">Cls : Centre "SILENT MOVIES"
+Flash 1,"(111,4)(333,4)(555,4)(777,4)(555,7)(333,7)
+Curs Off : Wait 250 : Flash Off
+</code>
 
     <h3 class="command" id="i-shift-up">SHIFT UP</h3>
     <p><i>instruction: rotate colour values upwards</i><br>
@@ -239,12 +220,11 @@ E> Cls : Centre "SILENT MOVIES"
 
     <p>Try the next example before analysing how it works:</p>
 
-    <pre>
-E> Set Rainbow 0,1,16,"(1,1,15)","",""
-   Rainbow 0,56,1,255
-   Curs Off : Flash Off
-   Locate ,12 : Centre "RED STRIPE"
-</pre>
+<code class="prefix edit">Set Rainbow 0,1,16,"(1,1,15)","",""
+Rainbow 0,56,1,255
+Curs Off : Flash Off
+Locate ,12 : Centre "RED STRIPE"
+</code>
 
     <p>
         Up to four different rainbows may be set up for later use, and SET RAINBOW is followed by an
@@ -330,19 +310,18 @@ E> Set Rainbow 0,1,16,"(1,1,15)","",""
         display a pattern 255 lines long, starting at scan line 40. The DO ... LOOP structure is used to
         repeat the process.</p>
 
-    <pre>
-E> Curs Off : Centre "OVER THE RAINBOW"
-   Set Rainbow 1,1,4097,"","",""
-   For L=0 To 4095
-    Rain(1,L)=L
-   Next L
-   Do
-    For 0=0 To 4095-255 Step 4
-     Rainbow 1,C,40,255
-     Wait Vbl
-    Next C
-   Loop
-</pre>
+<code class="prefix edit">Curs Off : Centre "OVER THE RAINBOW"
+Set Rainbow 1,1,4097,"","",""
+For L=0 To 4095
+ Rain(1,L)=L
+Next L
+Do
+ For 0=0 To 4095-255 Step 4
+  Rainbow 1,C,40,255
+  Wait Vbl
+ Next C
+Loop
+</code>
 </section>
 
 <section id="03-the-copper-list">

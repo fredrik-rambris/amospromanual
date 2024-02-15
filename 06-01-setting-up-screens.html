@@ -115,30 +115,25 @@
         When the default screen is automatically opened, screen 0 is the equivalent to the following
         setting:</p>
 
-    <pre>
-X> Screen Open 0,320,200,16,Lowres
-</pre>
+<code class="prefix ex">Screen Open 0,320,200,16,Lowres</code>
 
     <p>
         To open screen number 1 as an oversize high-resolution screen with eight colours, you would
         use something like this:</p>
 
-    <pre>
-D> Screen Open 1,600,400,8,Hires
-</pre>
+<code class="prefix direct">Screen Open 1,600,400,8,Hires</code>
 
     <p>This routine opens all eight available screens and brings them into view:</p>
 
-    <pre>
-D> Curs Off : Cls 13: Paper 13
-   Print : Centre "Hello, I'm SCREEN 0"
-   For S=1 To 7
-    Screen Open S,320,20,16,Lowres
-    Curs Off : Cls S+2 : Paper S+2
-    Centre "And I am SCREEN"+Str$(S)
-    Screen Display S,,50+S*25,,8
-   Next S
-</pre>
+<code class="prefix direct">Curs Off : Cls 13: Paper 13
+Print : Centre "Hello, I'm SCREEN 0"
+For S=1 To 7
+ Screen Open S,320,20,16,Lowres
+ Curs Off : Cls S+2 : Paper S+2
+ Centre "And I am SCREEN"+Str$(S)
+ Screen Display S,,50+S*25,,8
+Next S
+</code>
 
     <p>
         Here is a table which lists the different screen options, along with an indication of the amount of
@@ -251,9 +246,7 @@ D> Curs Off : Cls 13: Paper 13
         For example, to display screen zero, keeping its original width and height, this line could be
         used:</p>
 
-    <pre>
-X> Screen Display 0,112,40,,
-</pre>
+<code class="prefix ex">Screen Display 0,112,40,,</code>
 
     <p>
         Only one screen at a time can be shown on each horizontal line of the display, but several
@@ -302,20 +295,19 @@ X> Screen Display 0,112,40,,
         number, use the SCREEN CLONE command followed by the destination screen number. Here
         is an example of a multi-cloned screen:</p>
 
-    <pre>
-E> Screen Open 0,320,20,4,Lowres
-   Flash Off
-   Screen Display 0,,70,,
-   For S=1 To 7
-    Screen Clone S
-    Screen Display S,,S*20+70,,
-   Next S
-   Print "Start typing";
-   Do
-    AS=Inkey$
-    If A$<>"" Then Print A$;
-   Loop
-</pre>
+<code class="prefix edit">Screen Open 0,320,20,4,Lowres
+Flash Off
+Screen Display 0,,70,,
+For S=1 To 7
+ Screen Clone S
+ Screen Display S,,S*20+70,,
+Next S
+Print "Start typing";
+Do
+ AS=Inkey$
+ If A$<>"" Then Print A$;
+Loop
+</code>
 
     <p>
         Screen cloning is an ideal technique for two-player computer games, with each player
@@ -414,9 +406,7 @@ E> Screen Open 0,320,20,4,Lowres
         This is achieved by adding the coordinates of the block to be filed with the specified colour, from
         the top left-hand corner, to the bottom right. For example:</p>
 
-    <pre>
-E> Cls: Circle 100,98,98: Cls 0,50,50 To 150,150
-</pre>
+<code class="prefix edit">Cls: Circle 100,98,98: Cls 0,50,50 To 150,150</code>
 
     <h3 class="command" id="i-screen-hide">SCREEN HIDE</h3>
     <p><i>instruction: hide a screen</i><br>
@@ -432,11 +422,10 @@ E> Cls: Circle 100,98,98: Cls 0,50,50 To 150,150
         Use the SCREEN HIDE command to remove the current screen from view. It can then be
         restored using a SCREEN SHOW instruction, like this:</p>
 
-    <pre>
-E> Cls : Print "I am the Current Screen" : Wait 100
-   Screen Hide : Wait Key
-   Screen Show
-</pre>
+<code class="prefix edit">Cls : Print "I am the Current Screen" : Wait 100
+Screen Hide : Wait Key
+Screen Show
+</code>
 
     <p>
         Any screen can be temporarily hidden, by including its index number after the SCREEN HIDE
@@ -473,15 +462,14 @@ E> Cls : Print "I am the Current Screen" : Wait 100
         omitted after a SCREEN TO BACK command, the current screen will be relegated to the back of
         the display queue. Try this example:</p>
 
-    <pre>
-E> Centre "Hello again, Screen 0 here"
-   Wait 100
-   Screen Open 1,320,200,2,Lowres
-   Centre "Excuse me, make way for Screen 1"
-   Wait 100 : Screen To Front 0
-   Screen 0
-   Wait 100 : Screen To Back
-</pre>
+<code class="prefix edit">Centre "Hello again, Screen 0 here"
+Wait 100
+Screen Open 1,320,200,2,Lowres
+Centre "Excuse me, make way for Screen 1"
+Wait 100 : Screen To Front 0
+Screen 0
+Wait 100 : Screen To Back
+</code>
 
     <h3 class="command" id="i-screen">SCREEN</h3>
     <p><i>instruction: set current screen</i><br>
@@ -491,12 +479,11 @@ E> Centre "Hello again, Screen 0 here"
         This command allows <b>all</b> graphical and text operations to be directed to the selected screen
         number, like this:</p>
 
-    <pre>
-E> Screen Open 2,320,32,16,Lowres
-   Screen Display 2,,130,,
-   Screen 0
-   Plot 0,0: Draw To 320,200
-</pre>
+<code class="prefix edit">Screen Open 2,320,32,16,Lowres
+Screen Display 2,,130,,
+Screen 0
+Plot 0,0: Draw To 320,200
+</code>
 
     <p>
         If the chosen screen is outside of the current display area or is hidden, there will be no visible
@@ -519,9 +506,7 @@ E> Screen Open 2,320,32,16,Lowres
         defined, depending on the screen mode, and any colours that are not re-set must have their
         appropriate commas in place. Here is an example line for eight colour screens:</p>
 
-    <pre>
-D> Default Palette $000,$111,$A69,,,,,$FFF
-</pre>
+<code class="prefix direct">Default Palette $000,$111,$A69,,,,,$FFF</code>
 
     <h3 class="command" id="i-get-palette">GET PALETTE</h3>
     <p><i>instruction: copy palette from a screen</i><br>
@@ -565,10 +550,9 @@ D> Default Palette $000,$111,$A69,,,,,$FFF
         particular screen, if that screen number is specified. The dimensions of the current screen can be
         found like this:</p>
 
-    <pre>
-E> Print Screen Height
-   Print Screen Width
-</pre>
+<code class="prefix edit">Print Screen Height
+Print Screen Width
+</code>
 
     <h3 class="command" id="fn-screen-colour">SCREEN COLOUR</h3>
     <p><i>function: give maximum number of colours</i><br>
@@ -577,9 +561,7 @@ E> Print Screen Height
     <p>To find the maximum number of colours in the screen that is currently active, test the SCREEN
         COLOUR function now:</p>
 
-    <pre>
-D> Print Screen Colour
-</pre>
+<code class="prefix direct">Print Screen Colour</code>
 
     <h3 class="command" id="fn-scin">SCIN</h3>
     <p><i>function: give screen number at hardware coordinates</i><br>
@@ -664,16 +646,15 @@ D> Print Screen Colour
         screens are treated in exactly the same way as the default screen. It is also possible to create Bobs
         in this mode. Here is a simple example of EHB colours.</p>
 
-    <pre>
-E> Screen Close 0
-   Screen Open 2,320,167,64,Lowres : Flash Off
-   For C=1 To 32
-    Ink C
-    Bar 0,(C-1)*5 To 160,(2+C-1)*5
-    Ink C+32
-    Bar 160,(C-1)*5 To 319,(2+C-1)*5
-   Next C
-</pre>
+<code class="prefix edit">Screen Close 0
+Screen Open 2,320,167,64,Lowres : Flash Off
+For C=1 To 32
+ Ink C
+ Bar 0,(C-1)*5 To 160,(2+C-1)*5
+ Ink C+32
+ Bar 160,(C-1)*5 To 319,(2+C-1)*5
+Next C
+</code>
 </section>
 
 <section id="12-hold-and-modify-mode">
@@ -695,9 +676,7 @@ E> Screen Close 0
         images or created using special packages such as Dpaint 4. To open a HAM screen ready to
         display all 4096 available colours, the following line could be used:</p>
 
-    <pre>
-E> Screen Open 0,320,256,4096,Lowres
-</pre>
+<code class="prefix edit">Screen Open 0,320,256,4096,Lowres</code>
 
     <p>
         All text and graphics operations may be used directly with a HAM screen, and it can be
@@ -726,9 +705,7 @@ E> Screen Open 0,320,256,4096,Lowres
     LACED is a reserved variable which holds the value of 4. It is used in addition to either the Hires
     or Lowres parameters when opening a screen, like this:
 
-    <pre>
-E> Screen Open 0,320,200,16,Laced+Lowres
-</pre>
+<code class="prefix edit">Screen Open 0,320,200,16,Laced+Lowres</code>
 
     <p>
         Interlaced screens have <b>double</b> the number of vertical lines, which is excellent for graphic
