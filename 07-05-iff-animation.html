@@ -231,7 +231,7 @@ Save Iff "My_Programs:Iff/Picture_Name.Iff",0 : <comment>Rem Uncompressed</comme
         This value may be saved into a variable once the animation has been loaded, and made use of
         when the sequence is to be played. For example:</p>
 
-<code class="prefix edit">Rem Open animation file for reading
+<code class="prefix edit"><comment>Rem Open animation file for reading</comment>
 Open In 1,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
 <comment>Rem Load all frames in current file</comment>
 <comment>Rem use overlarge value of 1000 to grab all available images to bank 10</comment>
@@ -308,7 +308,7 @@ Print "Required memory for frame 1=";L
 
     <p>For example:</p>
 
-<code class="prefix edit">Rem Play the first frame in Bank 10 using screen 0
+<code class="prefix edit"><comment>Rem Play the first frame in Bank 10 using screen 0</comment>
 F=Frame Play(10,1,0)
 Double Buffer : <comment>Rem activate non automatic double buffer</comment>
 <comment>Rem Display next frame</comment>
