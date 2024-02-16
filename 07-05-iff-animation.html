@@ -49,7 +49,7 @@ Load Iff"AMOSPro Examples:Logo.Iff"
         <b>Save Iff</b> "filename"<br>
         <b>Save Iff</b> "filename", compression flag</p>
 
-<code class="prefix ex">Save Iff "My Programs:Iff/Picture_Name.Iff" : Rem Compressed
+<code class="prefix ex">Save Iff "My Programs:Iff/Picture_Name.Iff" : <comment>Rem Compressed</comment>
 Save Iff "My_Programs:Iff/Picture_Name.Iff",0 : <comment>Rem Uncompressed</comment>
 </code>
 
@@ -136,11 +136,7 @@ Save Iff "My_Programs:Iff/Picture_Name.Iff",0 : <comment>Rem Uncompressed</comme
         </li>
         <li>Select [Add Frame] from the [Frames] option on the main [Anim] menu. A new frame will be
             created, containing an exact copy of your background picture. There will now be two numbers
-        </li>
-    </ul>
 
-
-    <ul>
         on screen indicating the number of the frame being currently edited, and the total number of
         frames in your animation sequence. Because the background picture for your animations is
         two led as frame number one, the editing process will start with frame number two.
@@ -237,11 +233,11 @@ Save Iff "My_Programs:Iff/Picture_Name.Iff",0 : <comment>Rem Uncompressed</comme
 
 <code class="prefix edit">Rem Open animation file for reading
 Open In 1,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
-Rem Load all frames in current file
-Rem use overlarge value of 1000 to grab all available images to bank 10
+<comment>Rem Load all frames in current file</comment>
+<comment>Rem use overlarge value of 1000 to grab all available images to bank 10</comment>
 N=Frame Load (1 To 10,1000)
 Close
-Rem N now holds the number of actual frames
+<comment>Rem N now holds the number of actual frames</comment>
 Print "Number of frames in this file is ";N
 </code>
 
@@ -271,9 +267,9 @@ Print "Number of frames in this file is ";N
         command to check the memory requirement of your new animation. For example:</p>
 
 <code class="prefix edit">Open In 1 ,"AMOSPro_Tutorial:Iff_Anim/AMOS.Anim"
-Rem Load first frame only into memory
+<comment>Rem Load first frame only into memory</comment>
 L=Frame Length(1)
-Rem Reserve space for the frame in Bank 10
+<comment>Rem Reserve space for the frame in Bank 10</comment>
 Reserve As Work 10,L
 N=Frame Load(1 To 10)
 Close
@@ -314,8 +310,8 @@ Print "Required memory for frame 1=";L
 
 <code class="prefix edit">Rem Play the first frame in Bank 10 using screen 0
 F=Frame Play(10,1,0)
-Double Buffer : Rem activate non automatic double buffer
-Rem Display next frame
+Double Buffer : <comment>Rem activate non automatic double buffer</comment>
+<comment>Rem Display next frame</comment>
 F=Frame Play(F,1)
 </code>
 
@@ -327,13 +323,13 @@ F=Frame Play(F,1)
 <code class="prefix edit">Open In 1,"AMOSPro_Tutorialiff_Anim/AMOS.Anim"
 L=Frame Load(1 To 10,1000)
 Close
-Rem Play first frame from Bank 0 and define new screen 0
+<comment>Rem Play first frame from Bank 0 and define new screen 0</comment>
 Do
  P=Frame Play(10,1,0)
  Double Buffer
- For X=2 To L-1 : Rem Play sequence to the end
-  P=Frame Play(P,1) : Rem Play next frame
-  Screen Swap : Rem Make animation visible
+ For X=2 To L-1 : <comment>Rem Play sequence to the end</comment>
+  P=Frame Play(P,1) : <comment>Rem Play next frame</comment>
+  Screen Swap : <comment>Rem Make animation visible</comment>
   Wait Vbl : Wait Vbl : Wait Vbl
  Next X
 Loop
@@ -402,7 +398,7 @@ Load Iff "Picture_Name"
 
     <p>Here are some typical settings that can be used to load masked data from an IFF file:</p>
 
-<code class="prefix ex">Mask Iff %100 : Rem Load palette of picture only
+<code class="prefix ex">Mask Iff %100 : <comment>Rem Load palette of picture only</comment>
 Mask Iff %10000 : <comment>Rem Load bitmaps only</comment>
 </code>
 </section>
@@ -433,7 +429,7 @@ Mask Iff %10000 : <comment>Rem Load bitmaps only</comment>
 
 <footer>
 <a href="07-04-detecting-collisions.html" rel="prev">Detecting Collisions</a>
-<a href="contents.html">Contents</a>
+<a href="index.html">Contents</a>
 <a href="14-appendix-g-command-index.html">Index</a>
 <a href="07-06-amal.html" rel="next">AMAL</a>
 </footer>

@@ -320,7 +320,7 @@ Loop
         hierarchy to be deleted. For example:</p>
 
 <code class="prefix ex">Menu Del(1) : <comment>Rem Delete title number 1</comment>
-Menu Del(1,2) : Rem Delete option 2 of title 1
+Menu Del(1,2) : <comment>Rem Delete option 2 of title 1</comment>
 Menu Del(2,3,4) : <comment>Rem Delete sub-option 4 of option 3 of title 2</comment>
 </code>
 
@@ -429,8 +429,8 @@ E> FLAG=0
     If Choice and Choice(1)=2 and Choice(2)=1 Then CHANGE
    Loop
    Procedure SET_MEN
-    Menu$(1)="Try me first " : Menu$(2)="Select me " : Rem Four spaces
-    Menu$(1,1)="1 am useless " : Rem Five spaces
+    Menu$(1)="Try me first " : Menu$(2)="Select me " : <comment>Rem Four spaces</comment>
+    Menu$(1,1)="1 am useless " : <comment>Rem Five spaces</comment>
     Menu$(2,1)="Please select me!"
     Menu On
    End Proc
@@ -908,8 +908,8 @@ Menu On : Wait Key
     X=DREG(0) : Y=DREG(1)
     drawing instructions go here
  Endif
- DREG(0)=BX : Rem x coord of bottom right corner of menu item
- DREG(1)=BY : Rem y coord of bottom right corner of menu item
+ DREG(0)=BX : <comment>Rem x coord of bottom right corner of menu item</comment>
+ DREG(1)=BY : <comment>Rem y coord of bottom right corner of menu item</comment>
 Endproc
 </code>
 
@@ -986,7 +986,7 @@ Endproc
 
 <footer>
 <a href="06-04-graphics.html" rel="prev">Graphics</a>
-<a href="contents.html">Contents</a>
+<a href="index.html">Contents</a>
 <a href="14-appendix-g-command-index.html">Index</a>
 <a href="07-01-hardware-sprites.html" rel="next">Hardware Sprites</a>
 </footer>

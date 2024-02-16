@@ -410,10 +410,10 @@ Direct
 <code class="prefix edit">Load "AMOSPro Tutorial:Objects/Sprites.abk" : Get Sprite Palette
 SP=6 : Sprite SP,128,60,7
 C$="For R1=0 To 10 ;"
-C$=C$+"For R0=1 To 40; Let X=X+8 ; Next R0 ;" : Rem Move right
-C$=C$+"Let Y=Y+8 ;" : Rem Move down
-C$=C$+"For R0=1 To 40 ; Let X=X-8 ; Next R0 ;" : Rem Move left
-C$=C$+"Let Y=Y+8 ; Next R1": Rem Move down
+C$=C$+"For R0=1 To 40; Let X=X+8 ; Next R0 ;" : <comment>Rem Move right</comment>
+C$=C$+"Let Y=Y+8 ;" : <comment>Rem Move down</comment>
+C$=C$+"For R0=1 To 40 ; Let X=X-8 ; Next R0 ;" : <comment>Rem Move left</comment>
+C$=C$+"Let Y=Y+8 ; Next R1": <comment>Rem Move down</comment>
 Amal SP,C$ : Amal On SP
 Direct
 </code>
@@ -836,7 +836,7 @@ Amal On: Direct
         changing these registers, the visible screen area can be scrolled around the display. Try moving
         the mouse in Direct Mode, to affect this example:</p>
 
-<code class="prefix edit">Screen Open 0,320,500,32,Lowres : Rem Open tall screen
+<code class="prefix edit">Screen Open 0,320,500,32,Lowres : <comment>Rem Open tall screen</comment>
 Screen Display 045,320,250
 Flash Off : Cls 0
 Load Iff "AMOSPro_Examples:Iff/Logo.Iff"
@@ -859,7 +859,7 @@ Amal On : Wait Key
 
 <code class="prefix edit">Load Iff "AMOSPro Examples:Iff/Logo.Iff",0
 Channel 0 To Screen Size 0
-Screen Display 0,320,1 : Rem Set screen size to 1
+Screen Display 0,320,1 : <comment>Rem Set screen size to 1</comment>
 A$="Loop: For R0=0 To 255; Let Y=R0; Next R0;"
 A$=A$+"For R0=0 To 254; Let Y=255-R0; Next R0 ; J Loop"
 Amal 0,A$ : Amal On: Direct
@@ -986,8 +986,8 @@ Amal On: Direct
 Sprite 8,130,50,1
 A$="AUtotest (If R1<>XM Jump Update"
 A$=A$+"If R1<>YM Jump Update else eXit"
-A$=A$+"Update: Let R0=XM; Let R1=YM; Direct M)" : Rem End of Autotest
-A$=A$+"M: Move R0-X,R1-Y,20; Wait;" : Rem Try Changing 20 to other values
+A$=A$+"Update: Let R0=XM; Let R1=YM; Direct M)" : <comment>Rem End of Autotest</comment>
+A$=A$+"M: Move R0-X,R1-Y,20; Wait;" : <comment>Rem Try Changing 20 to other values</comment>
 Amal 8,A$ : Amal On : Direct
 </code>
 
@@ -1065,7 +1065,7 @@ Amal 1,A$ : Amal On : Curs Off
 Do
  Locate 0,0
  Z=Asc("X")-65
- Print Amreg(Asc("X")-65) : Rem Use Asc to get register number
+ Print Amreg(Asc("X")-65) : <comment>Rem Use Asc to get register number</comment>
 Loop
 </code>
 
@@ -1104,9 +1104,9 @@ Loop
         end points may also be given to set the channel numbers of the first and last Objects to be
         affected. Here are some examples:</p>
 
-<code class="prefix ex">Amplay ,0: Rem Reverse objects
-Amplay 2, : Rem Slow down movement pattern
-Amplay 3,1 : Rem Set speed to 3 and direction to 1
+<code class="prefix ex">Amplay ,0: <comment>Rem Reverse objects</comment>
+Amplay 2, : <comment>Rem Slow down movement pattern</comment>
+Amplay 3,1 : <comment>Rem Set speed to 3 and direction to 1</comment>
 Amplay ,-1 3 To 6: <comment>Rem Stop movement on channels 3,4,5 and 6</comment>
 </code>
 
@@ -1333,9 +1333,9 @@ Direct
 
 <code class="prefix edit">Load "AMOSPro_Tutorial:Objects/Sprites.abk" : Get Sprite Palette
 Channel 1 To Sprite 1: Sprite 1,228,50,1: Wait Vbl
-Move Y 1,"(1,1,180)(1,-1,180)L" : Rem Loop Sprite
-Channel 2 To Screen Display 0: Rem Assign screen position
-Move Y 2,"(1,4,25)(1,-4,25)" : Rem Bounce screen up and down
+Move Y 1,"(1,1,180)(1,-1,180)L" : <comment>Rem Loop Sprite</comment>
+Channel 2 To Screen Display 0: <comment>Rem Assign screen position</comment>
+Move Y 2,"(1,4,25)(1,-4,25)" : <comment>Rem Bounce screen up and down</comment>
 Move On : Wait Key
 </code>
 
@@ -1438,7 +1438,7 @@ Anim On : Wait Key
 
 <footer>
 <a href="07-05-iff-animation.html" rel="prev">IFF Animation</a>
-<a href="contents.html">Contents</a>
+<a href="index.html">Contents</a>
 <a href="14-appendix-g-command-index.html">Index</a>
 <a href="07-07-icons-and-blocks.html" rel="next">Icons and Blocks</a>
 </footer>

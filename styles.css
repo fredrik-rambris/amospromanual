@@ -3,16 +3,31 @@ html {
     font-size: 16px;
     margin: 0;
     padding: 0;
+    background-color: white;
 }
 
 body {
-    background-color: white;
+    background-image: url("images/bg.png");
+    background-size: 10rem 10rem;
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: 80%;
     color: black;
     margin: 0 auto;
     padding: 1rem;
     max-width: min(60rem,90%);
     border-left: #f0f0f0 1px solid;
     border-right: #f0f0f0 1px solid;
+    line-height: 1.25;
+}
+
+body#index {
+    background-image: none;
+    background-color: white;
+}
+
+header {
+    text-align: center;
 }
 
 .contents ul {
@@ -26,7 +41,7 @@ body {
 }
 
 .chapter li {
-    margin-top: .2rem;
+    margin-top: .1rem;
 }
 
 h2.menu-line {
@@ -140,7 +155,7 @@ a:link {
 }
 
 a:visited {
-    color: #330088;
+    color: #0000bb;
 }
 
 a:hover {

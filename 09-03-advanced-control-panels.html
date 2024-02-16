@@ -121,11 +121,11 @@ E> A$=A$+"BA 50,50;SI 180,60;SA 1 ;IN 5,0,0;GB 0,0,170,50;"
    A$=A$+"BU 1,10,28,24,10,0,0,1;[IN 0,BP 2*,0;SW 1;PR 4,2,' 1 ',4;][BR 0;NW;]"
    A$=A$+"BU 2,70,28,24,10,0,0,1;[IN 0,BP 2*,0;SW 1;PR 4,2,' 2 ',4;][BR 0;NW;]"
    A$=A$+"EXit;"
-   Dialog Open 1,A$ : Rem Open a channel to the Interface program in A$
-   R=Dialog Run(1) : Rem Run the program
+   Dialog Open 1,A$ : <comment>Rem Open a channel to the Interface program in A$</comment>
+   R=Dialog Run(1) : <comment>Rem Run the program</comment>
    Rem Read each keypress as it is made
    Repeat
-    P=Dialog(1) : Rem Check for button selection explained later
+    P=Dialog(1) : <comment>Rem Check for button selection explained later</comment>
     If P<>0 Then Play P*10,10
    Until Inkey$<>""
    Dialog Close
@@ -162,8 +162,8 @@ E> A$=A$+"BA 50,50;SI 180,60;SA 1 ;IN 5,0,0;GB 0,0,170,50;"
 
     <p>Here is a small error handler that may be useful if included in your own programs:</p>
 
-<code class="prefix ex">On ErrOr Goto TRAP: Rem Add this line before a DIALOG OPEN command
-...: Rem The rest of your program goes here
+<code class="prefix ex">On ErrOr Goto TRAP: <comment>Rem Add this line before a DIALOG OPEN command</comment>
+...: <comment>Rem The rest of your program goes here</comment>
 TRAP: Print Mid$(DB$,Edialog,80) : Wait Key : End : <comment>Rem Error handler</comment>
 </code>
 </section>
@@ -349,10 +349,10 @@ A$=A$+"BU 1,150,40,50,10,0,0,16;"
 A$=A$+"[1N BPos 4+,0,0; GB 0,0,50,10; PR 2,0,' Quit',2;][BQ]"
 A$=A$+"ED 2,16,25,14,14,",0,2; define an edit zone"
 A$=A$+"EXit,"
-Dialog Open 1,A$ : Rem Open a channel
-R=Dialog Run(1) : Rem the Interface program
+Dialog Open 1,A$ : <comment>Rem Open a channel</comment>
+R=Dialog Run(1) : <comment>Rem the Interface program</comment>
 Repeat
- D=Dialog(1) : Rem Wait until Return Key is pressed
+ D=Dialog(1) : <comment>Rem Wait until Return Key is pressed</comment>
 Until D<0
 Print "Hello ";Rdialog$(1,2)
 Dialog Close
@@ -401,7 +401,7 @@ E> A$=A$+"BA 50,50; SI 200,90; SA 1;"
    A$=A$+"EXit;"
    Dialog Open 1,A$ : R=Dialog Run(1)
    Repeat
-    D=Dialog(1) : Rem Wait for the user to enter the last item
+    D=Dialog(1) : <comment>Rem Wait for the user to enter the last item</comment>
    Until D<0
    Print "Hello ";Rdialog$(1,2) : Print "You are ";Rdialog(1,3); "years old"
    Dialog Close
@@ -468,12 +468,12 @@ E> A$=A$+"BA 50,50; SI 200,90; SA 1;"
 <code class="prefix edit">B$=B$+"BA 112,50; set base coordinates to the screen centre"
 B$=B$+"HSlide 1,0,0,100,16,0,1,100,1;[] define a one hundred position slider"
 B$=B$+"EXit;"
-Dialog Open 1,B$ : Rem Open a dialogue channel to the slider
-D=Dialog Run(1) : Rem Run the program held in B$
+Dialog Open 1,B$ : <comment>Rem Open a dialogue channel to the slider</comment>
+D=Dialog Run(1) : <comment>Rem Run the program held in B$</comment>
 Curs Off : Centre "<Horizontal Slider>"
-Rem Read the slider
+<comment>Rem Read the slider</comment>
 Repeat
- D=Dialog(1) : Rem See if slider has been selected
+ D=Dialog(1) : <comment>Rem See if slider has been selected</comment>
  If D<>0 Then Locate 14,20 : Print "Position ";Rdialog(1,1);" ";
 Until Inkey$<>""
 Dialog Close
@@ -1009,7 +1009,7 @@ VSlider 2,38 8*,0,8,20 8*,1 VA,40,2 VA,1; use this to set the total value
 
 <footer>
 <a href="09-02-interface-language.html" rel="prev">Interface Language</a>
-<a href="contents.html">Contents</a>
+<a href="index.html">Contents</a>
 <a href="14-appendix-g-command-index.html">Index</a>
 <a href="09-04-interface-resources.html" rel="next">Interface Resources</a>
 </footer>

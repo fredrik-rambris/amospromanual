@@ -259,9 +259,9 @@ Print A#
         The copying operation will continue until the last character of the source string is reached, and
         the end address will be as follows:</p>
 
-<code class="prefix ex">Reserve As Data 10,1000: Rem Reserve a memory bank
-NAME=Start(10)-8 : Rem Get the address of the name
-T$="Testbank" : Rem Choose a new name of up to 8 characters
+<code class="prefix ex">Reserve As Data 10,1000: <comment>Rem Reserve a memory bank</comment>
+NAME=Start(10)-8 : <comment>Rem Get the address of the name</comment>
+T$="Testbank" : <comment>Rem Choose a new name of up to 8 characters</comment>
 Poke$ NAME,Left$(T$,8) : <comment>Rem Poke the first 8 characters into the name</comment>
 </code>
 
@@ -280,8 +280,8 @@ Poke$ NAME,Left$(T$,8) : <comment>Rem Poke the first 8 characters into the name<
         tracks the moment a specified stop$ character is encountered in the memory area. You will then
         be left with a string of characters up to the final stop$. Here is an example using PEEKS:</p>
 
-<code class="prefix ex">Reserve As Data 10,1000 : Rem Reserve a memory bank
-NAME=Start(10)-8 : Rem Get the address of the name
+<code class="prefix ex">Reserve As Data 10,1000 : <comment>Rem Reserve a memory bank</comment>
+NAME=Start(10)-8 : <comment>Rem Get the address of the name</comment>
 Print Peek$(NAME,8)
 </code>
 
@@ -311,7 +311,7 @@ Print Peek$(NAME,8)
         copies of a single byte, this value can be calculated as follows, where V will contain the required
         value of your fill command:</p>
 
-<code class="prefix edit">BYTE=255 : Rem This can be any number from 0 to 255
+<code class="prefix edit">BYTE=255 : <comment>Rem This can be any number from 0 to 255</comment>
 V=0
 Poke Varptr(V),BYTE : Poke Varptr(V)+1,BYTE
 Poke Varptr(V)+2,BYTE : Poke Varptr(V)+3,BYTE
@@ -352,11 +352,11 @@ Print V
         value, that variable can be changed from <b>inside</b> the procedure. For example:</p>
 
 <code class="prefix edit">TEST=0
-Rem Correct use of square brackets
-ANSWER[Varptr(Test)] : Rem Load ADDRESS of variable into AD parameter
+<comment>Rem Correct use of square brackets</comment>
+ANSWER[Varptr(Test)] : <comment>Rem Load ADDRESS of variable into AD parameter</comment>
 Print TEST
 Procedure ANSWER[AD]
- Loke AD,42 : Rem Copy new value into variable, by back door!
+ Loke AD,42 : <comment>Rem Copy new value into variable, by back door!</comment>
 End Proc
 </code>
 
@@ -377,9 +377,9 @@ End Proc
         <b>Integers</b> are held as a simple group of four bytes. They can be read from your Basic program
         using LEEK, and altered by LOKE. Here is an example of this (dangerous) method:</p>
 
-<code class="prefix edit">ANSWER=43 : Rem Load a variable
-AN=Varptr(ANSWER) : Rem Find address of variable
-Loke AN,LEEK(AN)-1 : Rem Equivalent to ANSWER=ANSWER-1
+<code class="prefix edit">ANSWER=43 : <comment>Rem Load a variable</comment>
+AN=Varptr(ANSWER) : <comment>Rem Find address of variable</comment>
+Loke AN,LEEK(AN)-1 : <comment>Rem Equivalent to ANSWER=ANSWER-1</comment>
 Print ANSWER
 </code>
 
@@ -429,11 +429,11 @@ Print ANSWER
     <p>Another hazard can be encountered if you try to POKE values straight into a string.<br>
         Try</p>
 
-<code class="prefix edit">A$="123456789": Rem Define a string of characters
+<code class="prefix edit">A$="123456789": <comment>Rem Define a string of characters</comment>
 For C=0 To Len(A$)-1
- AD=Varptr(A$) : Rem Get the address
- V=Peek(AD+C) : Rem Get Ascii value of current element
- Poke AD+C,V+1 : Rem Add 1 to it
+ AD=Varptr(A$) : <comment>Rem Get the address</comment>
+ V=Peek(AD+C) : <comment>Rem Get Ascii value of current element</comment>
+ Poke AD+C,V+1 : <comment>Rem Add 1 to it</comment>
 Next C
 Print A$
 </code>
@@ -444,7 +444,7 @@ Print A$
         standard variable "buffer". This problem can be solved by loading the first character into the
         start of the string, then adding the remaining characters later. Here is how:</p>
 
-<code class="prefix edit">A$="1" : Rem Set up the first character
+<code class="prefix edit">A$="1" : <comment>Rem Set up the first character</comment>
 A$=A$+"23456789" : <comment>Rem Now add remaining characters</comment>
 </code>
 
@@ -498,7 +498,7 @@ A$=A$+"23456789" : <comment>Rem Now add remaining characters</comment>
         heed of the next lines:</p>
 
 <code class="prefix ex">A=1
-Rol.l 1,A : Rem This is fine
+Rol.l 1,A : <comment>Rem This is fine</comment>
 Rol.l A,1 : <comment>Rem This is lethal. DO NOT DO IT!</comment>
 </code>
 
@@ -522,12 +522,12 @@ Print B
 <code class="prefix edit">Curs Off : Locate 0,20 : Centre "Press a key to ROL the number"
 Locate 0,0 : Print "Binary version"
 Locate 0,4 : Print "Decimal version"
-B=1 : Rem Set initial value
+B=1 : <comment>Rem Set initial value</comment>
 Do
- Locate 0,2: Print Bin$(B,32) : Rem Display number in binary
- Locate 0,6: Print B;"         "; : Rem Nine spaces
+ Locate 0,2: Print Bin$(B,32) : <comment>Rem Display number in binary</comment>
+ Locate 0,6: Print B;"         "; : <comment>Rem Nine spaces</comment>
  Wait Key
- Rol.l 1,B : Rem Try ROL.W and ROL.B too
+ Rol.l 1,B : <comment>Rem Try ROL.W and ROL.B too</comment>
 Loop
 </code>
 
@@ -738,7 +738,7 @@ Procedure _MACHINE
 
 <code class="prefix ex">Rem Use no parameters but take info directly from AREG and DREG values
 Procedure _MACHINEÂ°
-Procedure _MACHINE1[A] : Rem Enter one integer into procedure
+Procedure _MACHINE1[A] : <comment>Rem Enter one integer into procedure</comment>
 Procedure _MACH1NE2[A,B,C$] : <comment>Rem Get two integers and one string</comment>
 </code>
 
@@ -893,7 +893,7 @@ Move.w (a2)+,d2    * Length of the string
         Whenever a machine code program is run, any new values will be transferred straight into the
         relevant address register. For example:</p>
 
-<code class="prefix ex">Areg(0)=Varptr(A$) : Rem Load the address of A$ into A0
+<code class="prefix ex">Areg(0)=Varptr(A$) : <comment>Rem Load the address of A$ into A0</comment>
 Areg(1)=Varptr(B(0,0)) : <comment>Rem Load the address of B(0,0) into Al</comment>
 </code>
 
@@ -919,7 +919,7 @@ Areg(1)=Varptr(B(0,0)) : <comment>Rem Load the address of B(0,0) into Al</commen
         copied directly into the array, so that the results may be read directly from AMOS Professional
         programs. For example:</p>
 
-<code class="prefix edit">Dreg(0)=10 : Rem Save 10 into DO
+<code class="prefix edit">Dreg(0)=10 : <comment>Rem Save 10 into DO</comment>
 Print Dreg(0) : <comment>Rem Print the contents of DO</comment>
 </code>
 
@@ -928,7 +928,7 @@ Print Dreg(0) : <comment>Rem Print the contents of DO</comment>
 
 <footer>
 <a href="13-07-resource-creator.html" rel="prev">The Resource Creator</a>
-<a href="contents.html">Contents</a>
+<a href="index.html">Contents</a>
 <a href="14-appendix-g-command-index.html">Index</a>
 <a href="14-appendix-b-amos-professional-run-time.html" rel="next">App. B: AMOS Professional Run Time</a>
 </footer>

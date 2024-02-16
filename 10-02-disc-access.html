@@ -363,7 +363,7 @@ Print Exist("Df1:") : <comment>Rem Is the second floppy drive connected</comment
     <p>It is advisable to test for empty strings ("") separately, like this:</p>
 
 <code class="prefix edit">F$=Fsel$("*.IFF"," ","Load an IFF file")
-If F$="" Then Edit : Rem return to editor if no file chosen
+If F$="" Then Edit : <comment>Rem return to editor if no file chosen</comment>
 If Exist(F$) Then Load Iff F$,0
 </code>
 
@@ -434,8 +434,8 @@ Wend
         selector. For example:</p>
 
 <code class="prefix edit">F$=Fsel$("AMOSPro_Examples:Objects/*.Abk")
-If F$="" Then Edit : Rem Return to editor if no file selected
-Load F$: Rem Load file and display first Bob
+If F$="" Then Edit : <comment>Rem Return to editor if no file selected</comment>
+Load F$: <comment>Rem Load file and display first Bob</comment>
 Flash Off : Bob 1,100,100,1 : Get Bob Palette : Wait Vbl
 </code>
 </section>
@@ -515,7 +515,7 @@ Dir
 
 <code class="prefix edit">Rem Program 1
 Screen Open 0,640,200,4.Hires
-Rem greetings sent by previous program
+<comment>Rem greetings sent by previous program</comment>
 Print "Greetings from Program 2:";Command Line$
 Input "Please type in a greeting!";A$
 Command Line$=A$
@@ -529,7 +529,7 @@ Run "Program2.AMOS"
 
 <code class="prefix edit">Rem Program 2
 Screen Open 0.320,200,4,Lowres
-Rem Greetings sent by previous program
+<comment>Rem Greetings sent by previous program</comment>
 Print "Greetings from Program 1:";Command Line$
 Input "Please type in a greeting!";A$
 Command Line$=A$
@@ -702,7 +702,7 @@ Close 2
         of data needs to be ended by its own line feed character, which is the equivalent of the [Return]
         pressed when a line is entered from the keyboard. For example:</p>
 
-<code class="prefix edit">Open In 2,"sequential.two" : Rem Open file created by previous example
+<code class="prefix edit">Open In 2,"sequential.two" : <comment>Rem Open file created by previous example</comment>
 Input #2,A$
 Print A$
 Close 2
@@ -737,7 +737,7 @@ Close 2
         characters. If you prefer to use a single character only, make the second value a negative
         number. For example:</p>
 
-<code class="prefix ex">Set Input 10,-1 : Rem Standard Amiga format
+<code class="prefix ex">Set Input 10,-1 : <comment>Rem Standard Amiga format</comment>
 Set Input 13,10: <comment>Rem ST compatible format</comment>
 </code>
 
@@ -980,7 +980,7 @@ Close 1
 
 <footer>
 <a href="10-01-using-the-keyboard.html" rel="prev">Using the Keyboard</a>
-<a href="contents.html">Contents</a>
+<a href="index.html">Contents</a>
 <a href="14-appendix-g-command-index.html">Index</a>
 <a href="10-03-accessing-a-printer.html" rel="next">Accessing a Printer</a>
 </footer>

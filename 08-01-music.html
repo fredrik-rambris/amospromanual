@@ -89,7 +89,7 @@ Wait 50 : Boom
         can hear the range of frequencies with this example:</p>
 
 <code class="prefix edit">For F=1 To 96
- Bell F : Wait F/10+1 : Rem Vary delay
+ Bell F : Wait F/10+1 : <comment>Rem Vary delay</comment>
 Next F
 </code>
 </section>
@@ -173,17 +173,17 @@ Next L
         (from 0 to 3) simply set the relevant bit to 1, otherwise a value of zero will keep the voice silent.
         Here are some example settings:</p>
 
-<code class="prefix ex">Voice %1111 : Rem Activate all voices
-Voice %0001 : Rem Activate voice 0 only
+<code class="prefix ex">Voice %1111 : <comment>Rem Activate all voices</comment>
+Voice %0001 : <comment>Rem Activate voice 0 only</comment>
 Voice %1001 : <comment>Rem Activate voices 3 and 0</comment>
 </code>
 
     <p>The volume of each voice can now be controlled by specifying voices and volumes, like this:</p>
 
 <code class="prefix edit">Volume %0001,63
-Boom : Wait 100: Rem Channel 1 loud
+Boom : Wait 100: <comment>Rem Channel 1 loud</comment>
 Volume %1110,5
-Boom : Wait 50: Rem Channels 2,3,4 soft
+Boom : Wait 50: <comment>Rem Channels 2,3,4 soft</comment>
 Bell 40 : Wait 50 : Volume 60: Bell 40
 </code>
 
@@ -232,10 +232,10 @@ Bell 40 : Wait 50 : Volume 60: Bell 40
 
     <p>The next example demonstrates this technique, including stereo harmonies:</p>
 
-<code class="prefix edit">Play 1,40,0: Play 2,50,0: Rem No delay
+<code class="prefix edit">Play 1,40,0: Play 2,50,0: <comment>Rem No delay</comment>
 Wait Key
-Play 1,40,15: Play 2,50,15: Rem Delay
-Rem Play a random sequence of notes
+Play 1,40,15: Play 2,50,15: <comment>Rem Delay</comment>
+<comment>Rem Play a random sequence of notes</comment>
 Do
  V=Rnd(1 5): P=Rnd(96): Play V,P,3
 Loop
@@ -309,7 +309,7 @@ Loop
         The following program shows how the sort of wave form in the above diagram could be created
         The wave form is then assigned to a wave and played, which is explained a little later.</p>
 
-<code class="prefix edit">S$=" " : Rem Clear wave form string
+<code class="prefix edit">S$=" " : <comment>Rem Clear wave form string</comment>
 For W=-128 To 127
  X=W : If X<0 Then Add X,256
  S$=S$+Chr$(X)
@@ -356,9 +356,9 @@ For N=10 To 60: Play N,10 : Next N
         already reserved for the NOISE channel, and wave number 1 contains a smooth sine wave for
         pure tone. Here are some examples:</p>
 
-<code class="prefix edit">Wave 1 To %1111 : Rem Play pure tone through all voices
+<code class="prefix edit">Wave 1 To %1111 : <comment>Rem Play pure tone through all voices</comment>
 Play 60,0
-Wave 0 To %0001 : Rem Use voice 0 for noise
+Wave 0 To %0001 : <comment>Rem Use voice 0 for noise</comment>
 Play 20,10
 </code>
 
@@ -539,7 +539,7 @@ Music 1: Mvolume 63 : Tempo 35
 
 <footer>
 <a href="07-07-icons-and-blocks.html" rel="prev">Icons and Blocks</a>
-<a href="contents.html">Contents</a>
+<a href="index.html">Contents</a>
 <a href="14-appendix-g-command-index.html">Index</a>
 <a href="08-02-samples.html" rel="next">Samples</a>
 </footer>

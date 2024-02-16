@@ -224,7 +224,7 @@ Loop
 Flash Off : Get Bob Palette : Double Buffer : Autoback 0
 Bob 1,160,100,1: <comment>Rem Display Bob 1 at centre of screen</comment>
 Do
- For IMAGE=1 To Length(1) : Rem Create simple animation
+ For IMAGE=1 To Length(1) : <comment>Rem Create simple animation</comment>
   Rem Move Bob 1 with the mouse
   Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
   For W=0 To 3 : Wait Vbl : Next W
@@ -449,7 +449,7 @@ E> Double Buffer : Flash Off : Curs Off
    Do
     Add IMAGE,1
     If IMAGE>15 Then IMAGE=1
-    For W=0 To 4: Wait Vbl : Next W: Rem Slow down animation
+    For W=0 To 4: Wait Vbl : Next W: <comment>Rem Slow down animation</comment>
     Rem Assign next image in sequence to Bob 1
     Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
    Loop
@@ -597,17 +597,17 @@ E> Flash Off : Curs Off : Cis 0
 
     <p>Here is an example:</p>
 
-<code class="prefix edit">Load "AMOSPro_Tutorial:Objects/Bobs.abk" : Rem Load Bob images from disc
-Curs Off.: Cls 0 : Rem Set up screen
-Flash Off : Get Bob Palette : Rem Grab Bob colours from image bank
-Double Buffer : Rem Engage Double Buffering
-For X=360 To -60 Step -4: Rem Move Bob across screen
- Bob 1,X,100,2 : Rem Display Bob at a new position
- Wait Vbl : Rem Wait for next vertical blank period
+<code class="prefix edit">Load "AMOSPro_Tutorial:Objects/Bobs.abk" : <comment>Rem Load Bob images from disc</comment>
+Curs Off.: Cls 0 : <comment>Rem Set up screen</comment>
+Flash Off : Get Bob Palette : <comment>Rem Grab Bob colours from image bank</comment>
+Double Buffer : <comment>Rem Engage Double Buffering</comment>
+For X=360 To -60 Step -4: <comment>Rem Move Bob across screen</comment>
+ Bob 1,X,100,2 : <comment>Rem Display Bob at a new position</comment>
+ Wait Vbl : <comment>Rem Wait for next vertical blank period</comment>
 Next X
-For X=-60 To 400 Step 4: Rem Flip image and move from left to right
- Bob 1,X,100,Hrev(2) : Rem Display Bob at new position
- Wait Vbl : Rem Wait 50th of second for Vbl
+For X=-60 To 400 Step 4: <comment>Rem Flip image and move from left to right</comment>
+ Bob 1,X,100,Hrev(2) : <comment>Rem Display Bob at new position</comment>
+ Wait Vbl : <comment>Rem Wait 50th of second for Vbl</comment>
 Next X
 </code>
 
@@ -747,7 +747,7 @@ Wait Vbl
 
 <footer>
 <a href="07-01-hardware-sprites.html" rel="prev">Hardware Sprites</a>
-<a href="contents.html">Contents</a>
+<a href="index.html">Contents</a>
 <a href="14-appendix-g-command-index.html">Index</a>
 <a href="07-03-updating-objects.html" rel="next">Updating Objects</a>
 </footer>
