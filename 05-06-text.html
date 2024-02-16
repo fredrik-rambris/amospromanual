@@ -140,9 +140,8 @@ Print B$
 <section id="03-changing-text-options">
     <h2>Changing text options</h2>
 
-    <p>
-        <b>INVERSE ON/OFF</b><br>
-        <i>instructions: toggle inverse mode of subsequent text</i><br>
+    <h3 class="command" id="i-inverse-on-off">INVERSE ON/OFF</h3>
+    <p><i>instructions: toggle inverse mode of subsequent text</i><br>
         <b>Inverse On</b><br>
         <b>Inverse Off</b></p>
 
@@ -154,9 +153,8 @@ Inverse On : Print "Poetry inverse"
 Inverse Off : Print "Don't be so negative"
 </code>
 
-    <p>
-        <b>SHADE ON/OFF</b><br>
-        <i>instructions: toggle shading of subsequent text</i><br>
+    <h3 class="command" id="i-shade-on-off">SHADE ON/OFF</h3>
+    <p><i>instructions: toggle shading of subsequent text</i><br>
         <b>Shade On</b><br>
         <b>Shade Off</b></p>
 
@@ -175,9 +173,8 @@ Shade Off:Print "Norman Normal"
     <p>As well as customising the appearance of your text by changing the text options, you can also
         use the standard type-face techniques available to printers and word processors.</p>
 
-    <p>
-        <b>UNDER ON/OFF</b><br>
-        <i>instructions: toggle underline mode of subsequent text</i><br>
+    <h3 class="command" id="i-under-on-off">UNDER ON/OFF</h3>
+    <p><i>instructions: toggle underline mode of subsequent text</i><br>
         <b>Under On</b><br>
         <b>Under Off</b></p>
 
@@ -479,24 +476,21 @@ Cline
 
     <p>To track down the exact position of the text cursor, the following pair of functions may be used</p>
 
-    <p>
-        <b>XCURS</b><br>
-        <i>function: return the x-coordinate of the text cursor</i><br>
-        x=<b>Xcurs</b></p>
+    <h3 class="command" id="fn-x-curs">X CURS</h3>
+    <p><i>function: return the x-coordinate of the text cursor</i><br>
+        x=<b>X curs</b></p>
 
-    <p>
-        <b>YCURS</b><br>
-        <i>function: return the y-coordinate of the text cursor</i><br>
-        y=<b>Ycurs</b></p>
+    <h3 class="command" id="fn-y-curs">X CURS</h3>
+    <p><i>function: return the y-coordinate of the text cursor</i><br>
+        y=<b>Y curs</b></p>
 
     <p>In this way, a variable is created that holds the relevant coordinate of the cursor, in text format,
         and these two functions may be used independently or together. For example:</p>
 
-<code class="prefix edit">Locate 5,10: Print Xcurs; : Print Ycurs</code>
+<code class="prefix edit">Locate 5,10: Print X curs; : Print Y curs</code>
 
-    <p>
-        <b>MEMORIZE X/Y</b><br>
-        <i>instructions: save the x or y text cursor coordinates</i><br>
+    <h3 class="command" id="i-memorize-x-y">MEMORIZE X/Y</h3>
+    <p><i>instructions: save the x or y text cursor coordinates</i><br>
         <b>Memorize X</b><br>
         <b>Memorize Y</b></p>
 
@@ -504,9 +498,8 @@ Cline
         print any text on the screen without destroying the original cursor coordinates. These may be
         reloaded using the REMEMBER commands, as follows:</p>
 
-    <p>
-        <b>REMEMBER X/Y</b><br>
-        <i>instructions: restore the x or y text cursor coordinates</i><br>
+    <h3 class="command" id="i-remember-x-y">REMEMBER X/Y</h3>
+    <p><i>instructions: restore the x or y text cursor coordinates</i><br>
         <b>Remember X</b><br>
         <b>Remember Y</b></p>
 
@@ -562,9 +555,8 @@ Set Curs L1 L2 , L3 L4 L5, L6 , L7, L8
     <p>Your routine will appear slightly different from that, because the system automatically strips
         away any leading zeros in binary listings.</p>
 
-    <p>
-        <b>CURS ON/OFF</b><br>
-        <i>instructions: toggle text cursor</i><br>
+    <h3 class="command" id="i-curs-on-off">CURS ON/OFF</h3>
+    <p><i>instructions: toggle text cursor</i><br>
         <b>Curs On</b><br>
         <b>Curs Off</b></p>
 

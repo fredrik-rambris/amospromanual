@@ -45,7 +45,7 @@
         <a href="05-01-the-bare-bones.html">Chapter 5.1</a>.</P>
 
     <P>
-        <b>label</b> markers can consist of names that use any string of letters or numbers, as -well
+        <b>label</b> markers can consist of names that use any string of letters or numbers, as well
         as the underscore character "_", and they must be ended with the colon character ":" as follows:</P>
 
 <code class="prefix edit">Print "Jump in two seconds" : Wait 100
@@ -380,18 +380,17 @@ Loop
 
     <P>For example:</P>
 
-    <pre>
-E&gt; Do
-    Do
-     Input "Type in a number";X
-     Print "I am the inner loop"
-     If X=1 Then Exit
-     If X=2 Then Exit 2
-    Loop
-    Print "I am the outer loop"
-   Loop
-   Print "And I am outside both loops!"
-</pre>
+<code class="prefix edit">Do
+ Do
+  Input "Type in a number";X
+  Print "I am the inner loop"
+  If X=1 Then Exit
+  If X=2 Then Exit 2
+ Loop
+ Print "I am the outer loop"
+Loop
+Print "And I am outside both loops!"
+</code>
 
     <h3 class="command" id="str-exit-if">EXIT IF</h3>
     <p><i>structure: exit from a loop depending on a test</i><BR>
@@ -567,17 +566,16 @@ If X=2 Then PROCEDURE2
     <P><b>Goto</b> is used to jump to one of a list of numbered lines, or a label, depending on the
         result of an expression. For example:</P>
 
-    <pre>
-E&gt; Print "Type in a value from 1 to 3"
-   Input X
-   On X Goto LABEL1,LABEL2,LABEL3
-   LABEL1:
-   Print "Ready"
-   LABEL2:
-   Print "Steady"
-   LABEL3:
-   Print "Go!"
-</pre>
+<code class="prefix edit">Print "Type in a value from 1 to 3"
+Input X
+On X Goto LABEL1,LABEL2,LABEL3
+LABEL1:
+Print "Ready"
+LABEL2:
+Print "Steady"
+LABEL3:
+Print "Go!"
+</code>
 
     <p>
         For that to work properly, X must have a value from 1 up to the number of the highest
