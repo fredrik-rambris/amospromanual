@@ -93,7 +93,13 @@ code {
     white-space: pre;
     background-color: rgb(0,119,119);
     color: white;
-    padding: .2rem;
+    padding: .3rem;
+}
+
+code.cli {
+    background-color: #ddd;
+    color: black;
+    margin-left: 2.75rem !important;
 }
 
 code > comment {
@@ -133,6 +139,11 @@ code.direct::before {
 
 code.ex::before {
     content: "X>";
+}
+
+code.cli::before {
+    content: "CLI>";
+    left: -2.75rem;
 }
 
 section h2 {
