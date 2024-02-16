@@ -166,3 +166,15 @@ footer a[rel=next] {
 footer a {
     margin: 0 .5rem;
 }
+
+th,td {
+    padding: .2rem;
+}
+
+thead th {
+    text-align: left;
+}
+
+tbody td {
+    padding-right: 2rem;
+}

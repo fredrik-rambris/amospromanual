@@ -83,22 +83,26 @@
         Here is a list of the most common types of memory bank that will be used with AMOS
         Professional programs:</p>
 
-    <pre>
-<b>Bank Name         Items Stored                    Bank Type        Memory          Notes</b>
-Sprites           Sprite or Bob images            Permanent         Chip           Bank 1 only
-Icons             Icon images                     Permanent         Chip           Bank 2 only
-Music             Melodies                        Permanent         Chip           Bank 3 only
-AMAL              AMAL progs. and PL table        Permanent         Fast           Bank 4 only
-Samples           audio samples                   Permanent         Chip           Bank 5 default
-Menu              menu definitions                Permanent         Fast           any bank
-Pic.Pac           compressed pictures             Permanent         Fast           any bank
-Resource          buttons and dialogues           Permanent         Fast           any bank
-Tracker           Noisetracker music              Permanent         Chip           any bank
-Chip Work         temporary chip workspace        Temporary         Chip           any bank
-Fast Work         temporary fast workspace        Temporary         Fast           any bank
-Chip Data         long-term chip data             Permanent         Chip           any bank
-Fast Data         constant fast data              Permanent         Fast           any bank
-</pre>
+<table>
+<thead>
+<tr><th>Bank Name</th><th>Items Stored            </th><th>Bank Type</th><th>Memory</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td>Sprites  </td><td>Sprite or Bob images    </td><td>Permanent</td><td>Chip</td><td>Bank 1 only</td></tr>
+<tr><td>Icons    </td><td>Icon images             </td><td>Permanent</td><td>Chip</td><td>Bank 2 only</td></tr>
+<tr><td>Music    </td><td>Melodies                </td><td>Permanent</td><td>Chip</td><td>Bank 3 only</td></tr>
+<tr><td>AMAL     </td><td>AMAL progs. and PL table</td><td>Permanent</td><td>Fast</td><td>Bank 4 only</td></tr>
+<tr><td>Samples  </td><td>audio samples           </td><td>Permanent</td><td>Chip</td><td>Bank 5 default</td></tr>
+<tr><td>Menu     </td><td>menu definitions        </td><td>Permanent</td><td>Fast</td><td>any bank</td></tr>
+<tr><td>Pic.Pac  </td><td>compressed pictures     </td><td>Permanent</td><td>Fast</td><td>any bank</td></tr>
+<tr><td>Resource </td><td>buttons and dialogues   </td><td>Permanent</td><td>Fast</td><td>any bank</td></tr>
+<tr><td>Tracker  </td><td>Noisetracker music      </td><td>Permanent</td><td>Chip</td><td>any bank</td></tr>
+<tr><td>Chip Work</td><td>temporary chip workspace</td><td>Temporary</td><td>Chip</td><td>any bank</td></tr>
+<tr><td>Fast Work</td><td>temporary fast workspace</td><td>Temporary</td><td>Fast</td><td>any bank</td></tr>
+<tr><td>Chip Data</td><td>long-term chip data     </td><td>Permanent</td><td>Chip</td><td>any bank</td></tr>
+<tr><td>Fast Data</td><td>constant fast data      </td><td>Permanent</td><td>Fast</td><td>any bank</td></tr>
+</tbody>
+</table>
 </section>
 
 <section id="02-reserving-a-bank">
@@ -206,28 +210,27 @@ Reserve as Data 13,1000 : <comment>Rem 1000 bytes of fast data to bank 13</comme
 
     <p>Here is an example of an instant image-bank generator:</p>
 
-    <pre>
-E> N=1 : <comment>Rem Set number of first new image to create</comment>
-   S=1 : <comment>Rem Set size of image*16</comment>
-   <comment>Rem Create images in bank one</comment>
-   For G=0 To 4
-    <comment>Rem Draw the images</comment>
-    Ink G+1 : Circle S*7,S*7,S*7 : Paint S*8,S*8
-    Ink 0: Ellipse S*4,S*5,S*1,5*2 : Paint S*4,S*5
-    Ellipse S*1 0,S*5,S,S*2 : Paint S*10,S*5
-    Ellipse S*7,S*10,S*5,S*3 : Ellipse S*7,S*9,S*4,S : Paint S*1 1,S*1
-    Ink G+1 : Bar S*3,S*7 To S*13,S*9
-    <comment>Rem Now grab them as Objects</comment>
-    Get Bob G+N,0,0 To S*16-1 ,S*16-1
-    <comment>Rem Clear them from the screen</comment>
-    Cls 0,0,0 To S*16,S*16
-  Next G
-  F$=Fsel$("*.Abk"," ","Save your images")
-  <comment>Rem Save Objects in bank 1</comment>
-  If F$<>0
-   Save F$,1
-  End If
-</pre>
+<code class="prefix edit">N=1 : <comment>Rem Set number of first new image to create</comment>
+ S=1 : <comment>Rem Set size of image*16</comment>
+ <comment>Rem Create images in bank one</comment>
+ For G=0 To 4
+  <comment>Rem Draw the images</comment>
+  Ink G+1 : Circle S*7,S*7,S*7 : Paint S*8,S*8
+  Ink 0: Ellipse S*4,S*5,S*1,5*2 : Paint S*4,S*5
+  Ellipse S*1 0,S*5,S,S*2 : Paint S*10,S*5
+  Ellipse S*7,S*10,S*5,S*3 : Ellipse S*7,S*9,S*4,S : Paint S*1 1,S*1
+  Ink G+1 : Bar S*3,S*7 To S*13,S*9
+  <comment>Rem Now grab them as Objects</comment>
+  Get Bob G+N,0,0 To S*16-1 ,S*16-1
+  <comment>Rem Clear them from the screen</comment>
+  Cls 0,0,0 To S*16,S*16
+Next G
+F$=Fsel$("*.Abk"," ","Save your images")
+<comment>Rem Save Objects in bank 1</comment>
+If F$<>0
+ Save F$,1
+End If
+</code>
 </section>
 
 <section id="04-loading-memory-banks">
