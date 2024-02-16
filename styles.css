@@ -25,6 +25,10 @@ body {
     margin: 0 0 0 1rem;
 }
 
+.chapter li {
+    margin-top: .2rem;
+}
+
 h2.menu-line {
     background-color: black;
     color: white;
@@ -141,5 +145,24 @@ a:visited {
 
 a:hover {
     color: #0000ff;
-    text-shadow: .1rem .1rem .2rem #ccc;
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+footer a[rel=prev] {
+    float: left;
+    margin-left: 0;
+}
+
+footer a[rel=next] {
+    float: right;
+    margin-right: 0;
+}
+
+footer a {
+    margin: 0 .5rem;
 }
