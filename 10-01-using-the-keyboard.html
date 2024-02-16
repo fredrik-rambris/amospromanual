@@ -66,7 +66,7 @@ Loop
         explained in <a href="05-02-string-functions.html">Chapter 5.2</a>.</p>
 
     <p>
-        It has also been explained that certain keys like [Help] and the function keys [F1] to [F10] do not
+        It has also been explained that certain keys like <kbd>Help</kbd> and the function keys <kbd>F1</kbd> to <kbd>F10</kbd> do not
         carry as Ascii code at all, and if INKEY$ detects that this type of key has been pressed, a
         character with a value of zero will be returned. When this happens, the internal "scan codes" of
         these keys can be found.</p>
@@ -77,7 +77,7 @@ Loop
 
     SCANCODE returns the internal scan code of a key that has already been entered using the
     INKEY$ function. The next example may be tested by pressing the function keys, [Del] and
-    [Help]. To interrupt the example, press [Ctrl]+[C].
+    <kbd>Help</kbd>. To interrupt the example, press <kbd>Ctrl</kbd> + <kbd>C</kbd>.
 
 
 <code class="prefix edit">Do
@@ -95,18 +95,18 @@ Loop
         s=<b>Scanshift</b></p>
 
     <p>
-        To determine if keys are pressed at the same time as either or both of the [Shift] keys, the
+        To determine if keys are pressed at the same time as either or both of the <kbd>Shift</kbd> keys, the
         Scanshift function returns the following values:</p>
 
     <pre>
 <b>Value   Meaning</b>
-0       no [Shift] key pressed
+0       no <kbd>Shift</kbd> key pressed
 1       [Left Shift] pressed
 2       [Right Shift] pressed
-3       both [Shift] keys pressed
+3       both <kbd>Shift</kbd> keys pressed
 </pre>
 
-    <p>Try out the following example by pressing various keys, in combination with the [Shift] keys:</p>
+    <p>Try out the following example by pressing various keys, in combination with the <kbd>Shift</kbd> keys:</p>
 
 <code class="prefix edit">Do
  A$=Inkey$
@@ -146,14 +146,14 @@ Loop
 
     <pre>
 <b>Bit    Key Tested       Notes</b>
-0      left [Shift]     Only one [Shift] key can be tested at a time
-1      right [Shift]    Only one [Shift] key can be tested at a time
+0      left <kbd>Shift</kbd>     Only one <kbd>Shift</kbd> key can be tested at a time
+1      right <kbd>Shift</kbd>    Only one <kbd>Shift</kbd> key can be tested at a time
 2      [Caps Lock]      Either ON or OFF
-3      [Ctrl]
-4      left [Alt]
-5      right [Alt]
-6      left [Amiga]     This is the [Commodore] key on some keyboards
-7      right [Amiga]
+3      <kbd>Ctrl</kbd>
+4      left <kbd>Alt</kbd>
+5      right <kbd>Alt</kbd>
+6      left <kbd>Amiga</kbd>     This is the [Commodore] key on some keyboards
+7      right <kbd>Amiga</kbd>
 </pre>
 
     <p>
@@ -255,12 +255,12 @@ Locate 23, : Print "Hello ";Name$
 </code>
 
     <h3 class="command" id="i-line-input">LINE INPUT</h3>
-    <p><i>instruction: input a list of variables separated by [Return]</i><br>
+    <p><i>instruction: input a list of variables separated by <kbd>Return</kbd></i><br>
         <b>Line Input</b> variables;<br>
         <b>Line Input</b> "Prompt string";variables;</p>
 
     <p>
-        LINE INPUT is identical in usage to INPUT, except that is uses a press of the [Return] key to
+        LINE INPUT is identical in usage to INPUT, except that is uses a press of the <kbd>Return</kbd> key to
         separate each value you enter via the keyboard instead of a comma. Try this:</p>
 
 <code class="prefix edit">Line Input "Type in three numbers";A,B,C
@@ -292,7 +292,7 @@ Loop
         AMOS Professional allows the creation of keyboard macros from the [Macros] option of the
         main [Editor] Menu, as detailed in <a href="04-01-the-editor.html">Chapter 4.1</a>. A macro is simply a command string assigned to
         one of the function keys, which is called up by pressing the appropriate function key and one of
-        the [Amiga] keys together. Once a macro has been defined, it can be used anywhere within the
+        the <kbd>Amiga</kbd> keys together. Once a macro has been defined, it can be used anywhere within the
         AMOS Professional system, and will have exactly the same effect as if the assigned commands
         had been entered from the keyboard. The same macro can be called from the Editor window,
         from Direct mode, or from inside an AMOS Professional program.</p>
@@ -311,7 +311,7 @@ Loop
     <p>
         KEY$ assigns the contents of the specified command$ to a function key number from 1 to 20.
         Keys 1 to 10 are accessed by pressing the appropriate function key at the same time as the [left
-        Amiga] key. Similarly, numbers 11 to 20 are accessed in conjunction with the [right Amiga] key.
+        Amiga] key. Similarly, numbers 11 to 20 are accessed in conjunction with the <kbd>right Amiga</kbd> key.
         If these keys are not pressed simultaneously, they will be misinterpreted as two separate key
         presses!</p>
 
@@ -321,7 +321,7 @@ Loop
 
 <code class="prefix ex">Key$(3)="'Comment<comment>' Print"</comment></code>
 
-    <p>Also note that by pressing [Alt]+[Quote] together, a special return code is generated.</p>
+    <p>Also note that by pressing <kbd>Alt</kbd> + <kbd>Quote</kbd> together, a special return code is generated.</p>
 
     <p>
         If you need to generate a key press that has no Ascii equivalent, such as an [up arrow], the
@@ -335,8 +335,8 @@ Loop
 
     <p>
         The scan-code parameter refers to the scan-code of a key that is to be used in one of your macro
-        definitions. There is also an optional mask parameter, which sets special keys such as [Ctrl] and
-        [Alt], and the format is the same as for KEY SHIFT, explained earlier.</p>
+        definitions. There is also an optional mask parameter, which sets special keys such as <kbd>Ctrl</kbd> and
+        <kbd>Alt</kbd>, and the format is the same as for KEY SHIFT, explained earlier.</p>
 </section>
 
 <section id="04-improving-your-typing-skills">
