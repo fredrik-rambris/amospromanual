@@ -128,3 +128,18 @@ blockquote cite {
     text-align: right;
     display: block;
 }
+
+a:link {
+
+    color: #0000bb;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #330088;
+}
+
+a:hover {
+    color: #0000ff;
+    text-shadow: .1rem .1rem .2rem #ccc;
+}
