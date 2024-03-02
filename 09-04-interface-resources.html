@@ -51,8 +51,9 @@
         There are two types of resources: messages, which hold a series of button definitions and titles,
         and packed pictures, which can be anything at all.</p>
 
-    <p>
-        <b>ME</b>ssage
+
+    <h3 class="command" id="intf-me">ME<span>ssage</span></h3>
+    <p><i>Interface function: return a message from the Resource Bank</i><br>
         message=number <b>ME</b></p>
 
     <p>
@@ -69,9 +70,9 @@ D=Dialog Box(A$)
         A message can also be displayed directly from the main AMOS Professional program, using the
         RESOURCES function, which is explained later.</p>
 
-    <p>
-        <b>UN</b>pack<br>
-        <i>Interface instruction: unpack an image from Resource Bank</i><br>
+
+    <h3 class="command" id="inti-un">UN<span>pack</span></h3>
+    <p><i>Interface instruction: unpack an image from Resource Bank</i><br>
         <b>UN</b> x,y,image number;</p>
 
     <p>
@@ -91,9 +92,9 @@ D=Dialog Box(A$)
         group of individual component images, and the following commands are available to exploit
         this facility.</p>
 
-    <p>
-        <b>LI</b>ne<br>
-        <i>Interface instruction: draw a line from Resource Bank image components</i><br>
+
+    <h3 class="command" id="inti-li">LI<span>ne</span></h3>
+    <p><i>Interface instruction: draw a line from Resource Bank image components</i><br>
         <b>LI</b> x,y,first image,width;</p>
 
     <p>
@@ -119,9 +120,9 @@ D=Dialog Box(A$)
 </pre>
 
 
-    <p>
-        <b>VL</b>ine<br>
-        <i>Interface instruction: draw a vertical line from Resource Bank components</i><br>
+
+    <h3 class="command" id="inti-vl">V<span>ertical</span>L<span>ine</span></h3>
+    <p><i>Interface instruction: draw a vertical line from Resource Bank components</i><br>
         <b>VL</b> x,y,first image,height</p>
 
     <p>
@@ -131,9 +132,9 @@ D=Dialog Box(A$)
         the display. Finally, the height of the line is specified, and it will be rounded up to the nearest
         multiple of three automatically.</p>
 
-    <p>
-        <b>BO</b>x<br>
-        <i>Interface instruction: draw a box from Resource Bank image components</i><br>
+
+    <h3 class="command" id="inti-bo">BO<span>x</span></h3>
+    <p><i>Interface instruction: draw a box from Resource Bank image components</i><br>
         <b>BO</b> x,y,first image,width,height;</p>
 
     <p>
@@ -161,9 +162,9 @@ D=Dialog Box(A$)
 </pre>
 
 
-    <p>
-        <b>PU</b>sh<br>
-        <i>Interface instruction: push image to an offset position in the Resource Bank</i><br>
+
+    <h3 class="command" id="inti-pu">PU<span>sh</span></h3>
+    <p><i>Interface instruction: push image to an offset position in the Resource Bank</i><br>
         <b>PU</b> offset;</p>
 
     <p>
