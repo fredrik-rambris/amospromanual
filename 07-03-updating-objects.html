@@ -56,33 +56,33 @@
         using the relevant command, SPRITE UPDATE OFF, BOB UPDATE OFF or UPDATE OFF, as
         appropriate. Here are two working examples to type in yourself:</p>
 
-    <pre>
-E> Load "AMOSPro_Tutorial:Objects/Sprites.Abk"
-   Curs Off : Flash Off : Cls 0
-   Set Sprite Buffer 256
-   Hide On
-   Get Sprite Palette
-   Sprite Update Off
-   For X=X Hard(0) To X Hard(330)
-    For S=0 To 8
-     Sprite S+8,X,S*25+50,2
-    Next S
-    Sprite Update : Wait Vbl
-   Next X
-
-E> Load "AMOSPro Tutorial:Objects/Bobs.Abk"
-   Curs Off : Flash Off : Cls 0
-   Double Buffer
-   Get Bob Palette
-   Bob Update Off
-   For X=0 To 330
-    For B=0 To 1
-     Bob B,X,B*90,2
-    Next B
-    Bob Update
-    Wait Vbl
-   Next X
-</pre>
+<code class="prefix edit">Load "AMOSPro_Tutorial:Objects/Sprites.Abk"
+Curs Off : Flash Off : Cls 0
+Set Sprite Buffer 256
+Hide On
+Get Sprite Palette
+Sprite Update Off
+For X=X Hard(0) To X Hard(330)
+ For S=0 To 8
+  Sprite S+8,X,S*25+50,2
+ Next S
+ Sprite Update : Wait Vbl
+Next X
+</code>
+<br>
+<code class="prefix edit">Load "AMOSPro Tutorial:Objects/Bobs.Abk"
+Curs Off : Flash Off : Cls 0
+Double Buffer
+Get Bob Palette
+Bob Update Off
+For X=0 To 330
+ For B=0 To 1
+  Bob B,X,B*90,2
+ Next B
+ Bob Update
+ Wait Vbl
+Next X
+</code>
 
 </section>
 
@@ -197,6 +197,7 @@ Loop
         This phenomenon generates unpleasant jerky movements. Thankfully, AMOS Professional
         provides a simple solution to this problem.</p>
 
+    <h3 class="command" id="i-bob-update-onoff">BOB UPDATE</h3>
     <i>instruction: move many Bobs simultaneously</i><br>
     <b>Bob Update</b><br>
     <b>Bob Update</b> Off<br>
@@ -231,21 +232,21 @@ Loop
         remedy for any problems this may cause is to use BOB CLEAR and BOB DRAW instead. These
         are explained later.</p>
 
-    <p><b>SPRITE UPDATE</b><br>
+    <h3 class="command" id="i-sprite-update">SPRITE UPDATE</h3>
         <i>instruction: move all Sprites at once</i><br>
         <b>Sprite Update</b><br>
         <b>Sprite Update</b> Off<br>
         <b>Sprite Update</b> On</p>
 
     <p>
-        You may want to remind yourself of this family of commands, which are explained in <a href="07-01-hardware-sprites.html">Chapter
+        You may want to remind yourself of this family of commands, which are explained in <a href="07-01-hardware-sprites.html#i-sprite-update-onoff">Chapter
         7.1</a>. They parallel the BOB UPDATE commands, and are used in the same way.</p>
 
     <p>
         You are recommended to add a WAIT VBL instruction after each SPRITE UPDATE, to make sure
         that Sprite movements are perfectly synchronised with the existing screen display.</p>
 
-    <h3 class="command" id="i-update">UPDATE</h3>
+    <h3 class="command" id="i-update-onoff">UPDATE</h3>
     <p><i>instruction: move all objects at once</i><br>
         <b>Update</b><br>
         <b>Update</b> Off<br>
@@ -437,20 +438,17 @@ Loop
         and each plane represents one bit of the final colour to be displayed on screen. The numbering
         system works like this:</p>
 
-    <pre>
-Plane: 543210
+<code>Plane: 543210
 Digit: %111111
-</pre>
-
+</code>
 
     <p>
         By changing these planes, selected colours can be omitted from the Bob when it is drawn on
         screen. For example:</p>
 
-    <pre>
-X Set Bob 1,0,$000111 : <comment>Rem Display bits drawn in colours 0 to 7</comment>
-  Set Bob 1,0,$111111 : <comment>Rem Display all bit-planes</comment>
-</pre>
+<code class="prefix ex">Set Bob 1,0,$000111 : <comment>Rem Display bits drawn in colours 0 to 7</comment>
+Set Bob 1,0,$111111 : <comment>Rem Display all bit-planes</comment>
+</code>
 
     <p>
         The last SET BOB parameter is another bit pattern, that selects one of 255 possible Miler modes
@@ -469,13 +467,16 @@ X Set Bob 1,0,$000111 : <comment>Rem Display bits drawn in colours 0 to 7</comme
 
     <p>Advanced users may find the following information useful:</p>
 
-    <pre>
-<b>Blitter Source     Purpose</b>
-A                  Blitter Mask
-B                  Blitter Object
-C                  Destination Screen
-</pre>
-
+    <table>
+        <thead>
+            <tr><th>Blitter Source</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>A</td><td>Blitter Mask</td></tr>
+            <tr><td>B</td><td>Blitter Object</td></tr>
+            <tr><td>C</td><td>Destination Screen</td></tr>
+        </tbody>
+    </table>
 
 </section>
 

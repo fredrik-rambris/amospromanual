@@ -46,8 +46,9 @@
         As usual, these functions read their values directly from the number stack, so the numbers go
         before the operations.</p>
 
-    <b>B</b>ase<b>Y</b><br>
-    <i>Interface functions: get the coordinate base location</i><br>
+    <h3 class="command" id="intf-bx">B<span>ase</span>X</h3>
+    <h3 class="command" id="intf-by">B<span>ase</span>Y</h3>
+    <p><i>Interface functions: get the coordinate base location</i><br>
     x=<b>BX</b><br>
     y=<b>BY</b></p>
 
@@ -57,9 +58,9 @@
         BAse instruction.</p>
 
     <p>
-        <b>S</b>ize<b>X</b><br>
-        <b>S</b>ize<b>Y</b><br>
-        <i>Interface functions: get the size of the dialogue box</i><br>
+        <h3 class="command" id="intf-sx">S<span>ize</span>X</h3>
+        <h3 class="command" id="intf-sy">S<span>ize</span>Y</h3>
+        <p><i>Interface functions: get the size of the dialogue box</i><br>
         width=<b>SX</b><br>
         height=<b>SY</b></p>
 
@@ -67,10 +68,10 @@
         Use these functions to provide the precise dimensions of the current dialogue box, as set with
         the SIze command.</p>
 
-    <p>
-        <b>S</b>creen <b>W</b>idth<br>
-        <b>S</b>creen <b>H</b>eight<br>
-        <i>Interface functions: read dimensions of the current screen</i><br>
+
+    <h3 class="command" id="intf-sw">S<span>creen</span>W<span>idth</span></h3>
+    <h3 class="command" id="intf-sh">S<span>creen</span>H<span>eight</span></h3>
+    <p><i>Interface functions: read dimensions of the current screen</i><br>
         width=<b>SW</b><br>
         height=<b>SH</b></p>
 
@@ -88,10 +89,10 @@ BAse SW SX 2/-,SH SY 2/-;
         The next pair of functions keep track of the graphics cursor. This is automatically positioned at
         the location of the last drawing operation on the screen.</p>
 
-    <p>
-        <b>XA</b><br>
-        <b>YA</b><br>
-        <i>Interface functions: get previous coordinates of graphics cursor</i><br>
+
+    <h3 class="command" id="intf-xa">XA</h3>
+    <h3 class="command" id="intf-ya">YA</h3>
+    <p><i>Interface functions: get previous coordinates of graphics cursor</i><br>
         x=<b>XA</b><br>
         y=<b>YA</b></p>
 
@@ -105,10 +106,10 @@ BAse SW SX 2/-,SH SY 2/-;
 GraphicSquare XA,40,XA 20+,30; draw a box immediately below at 10,40
 </code>
 
-    <p>
-        <b>XB</b><br>
-        <b>YB</b><br>
-        <i>Interface functions: get current coordinates of graphics cursor</i><br>
+
+    <h3 class="command" id="intf-xb">XB</h3>
+    <h3 class="command" id="intf-yb">YB</h3>
+    <p><i>Interface functions: get current coordinates of graphics cursor</i><br>
         x=<b>XB</b><br>
         y=<b>YB</b></p>
 
@@ -118,8 +119,8 @@ GraphicSquare XA,40,XA 20+,30; draw a box immediately below at 10,40
 
 <code class="prefix ex">BUtton 1,160,100,...;[][]
 BUtton 2,XB,YA,...;[][]
-
-X> PRint 0,8,"Hello, first line",2;
+</code>
+    <code class="prefix ex">PRint 0,8,"Hello, first line",2;
 PRint XA,YB,"This line will be directly under!",2;
 </code>
 </section>
@@ -135,9 +136,9 @@ PRint XA,YB,"This line will be directly under!",2;
 <section id="03-boxes-and-bars">
     <h2>Boxes and Bars</h2>
 
-    <p>
-        <b>G</b>raphic<b>B</b>ox<br>
-        <i>Interface instruction: draw a filled box</i><br>
+
+    <h3 class="command" id="inti-gb">G<span>raphic</span>B<span>ox</span></h3>
+    <p><i>Interface instruction: draw a filled box</i><br>
         <b>GB</b> x1,y1,x2,y2;</p>
 
     <p>
@@ -151,9 +152,9 @@ PRint XA,YB,"This line will be directly under!",2;
         Interface instruction BAse, or the AMOS Professional command DIALOG BOX. The default
         position is the top left-hand corner of the screen.</p>
 
-    <p>
-        <b>IN</b>k<br>
-        <i>Interface instruction: set current drawing colours</i><br>
+
+    <h3 class="command" id="inti-in">IN<span>k</span></h3>
+    <p><i>Interface instruction: set current drawing colours</i><br>
         <b>IN</b> pen,background,outline;</p>
 
     <p>
@@ -175,9 +176,9 @@ PRint XA,YB,"This line will be directly under!",2;
         If one of these settings is to be left unchanged, simply enter a negative value for the relevant
         colour number. As you may expect, a wide range of fill patterns can also be used.</p>
 
-    <p>
-        <b>S</b>et<b>P</b>attern<br>
-        <i>Interface instruction: set the fill pattern for dialogue box</i><br>
+
+    <h3 class="command" id="inti-sp">S<span>et</span>P<span>attern</span></h3>
+    <p><i>Interface instruction: set the fill pattern for dialogue box</i><br>
         <b>SP</b> pattern number,outline mode;</p>
 
     <p>
@@ -192,9 +193,9 @@ PRint XA,YB,"This line will be directly under!",2;
 
     <p>To generate a hollow box in its own right, the next command is used.</p>
 
-    <p>
-        <b>G</b>raphic<b>S</b>quare<br>
-        <i>Interface instruction: draw a hollow rectangle</i><br>
+
+    <h3 class="command" id="inti-gs">G<span>raphic</span>S<span>quare</span></h3>
+    <p><i>Interface instruction: draw a hollow rectangle</i><br>
         <b>GS</b> x1 ,y1 ,x2,y2;</p>
 
     <p>
@@ -206,9 +207,9 @@ PRint XA,YB,"This line will be directly under!",2;
 <section id="04-lines-and-outlines">
     <h2>Lines and Outlines</h2>
 
-    <p>
-        <b>S</b>et<b>L</b>ine<br>
-        <i>Interface instruction: set the style of a line</i><br>
+
+    <h3 class="command" id="inti-sl">S<span>et</span>L<span>ine</span></h3>
+    <p><i>Interface instruction: set the style of a line</i><br>
         <b>SL</b> pattern;</p>
 
     <p>
@@ -230,9 +231,9 @@ PRint XA,YB,"This line will be directly under!",2;
 
 <code class="prefix ex">GLine 0,0,100,100</code>
 
-    <p>
-        <b>G</b>raphic<b>E</b>llipse<br>
-        <i>Interface instruction: draw an ellipse or circle</i><br>
+
+    <h3 class="command" id="inti-ge">G<span>raphic</span>E<span>llipse</span></h3>
+    <p><i>Interface instruction: draw an ellipse or circle</i><br>
         <b>GE</b> x,y,radius1,radius2;</p>
 
     <p>
@@ -249,9 +250,9 @@ PRint XA,YB,"This line will be directly under!",2;
         needed to display text in these dialogue boxes. The PRint command is examined in <a href="09-01-amos-interface.html">Chapter 9.1</a>,
         here are some more instructions to affect the way text is displayed.</p>
 
-    <p>
-        <b>P</b>rint<b>O</b>utline<br>
-        <i>Interface instruction: print hollow text with outline</i><br>
+
+    <h3 class="command" id="inti-po">P<span>rint</span>O<span>utline</span></h3>
+    <p><i>Interface instruction: print hollow text with outline</i><br>
         <b>PO</b> x,y,'text',outline colour,text colour;</p>
 
     <p>
@@ -266,9 +267,9 @@ PRint XA,YB,"This line will be directly under!",2;
         One side effect of the PrintOutline command is that the drawing mode is automatically re-set to
         transparent, and so a previous opaque setting may need to be changed. This is explained next.</p>
 
-    <p>
-        <b>S</b>et<b>W</b>riting<br>
-        <i>Interface instruction: set the writing mode for text and graphics</i><br>
+
+    <h3 class="command" id="inti-sw">S<span>et</span>W<span>riting</span></h3>
+    <p><i>Interface instruction: set the writing mode for text and graphics</i><br>
         <b>SW</b> mode;</p>
 
     <p>
@@ -279,9 +280,9 @@ PRint XA,YB,"This line will be directly under!",2;
         in <a href="06-04-graphics.html">Chapter 6.4</a>. A parameter value of zero will set an opaque mode, and a value of 1 re-sets it to
         transparent. Use of the PrintOutline command automatically re-sets the mode to transparent.</p>
 
-    <p>
-        <b>S</b>et<b>F</b>ont<br>
-        <i>Interface instruction: select font to be assigned to text</i><br>
+
+    <h3 class="command" id="inti-sf">S<span>et</span>F<span>ont</span></h3>
+    <p><i>Interface instruction: select font to be assigned to text</i><br>
         <b>SF</b> number,style;</p>
 
     <p>
@@ -296,41 +297,40 @@ PRint XA,YB,"This line will be directly under!",2;
 
     <p>
         There are four more simple Interface functions that can be used to manipulate text, which are
-        self explanatory.</p>
+        self-explanatory.</p>
 
-    <p>
-        <b>T</b>ext<b>W</b>idth<br>
-        <i>Interface function: return the width of current font text in pixels</i><br>
+
+    <h3 class="command" id="intf-tw">T<span>ext</span>W<span>idth</span></h3>
+    <p><i>Interface function: return the width of current font text in pixels</i><br>
         width="text" <b>TW</b></p>
 
-    <p>
-        <b>T</b>ext<b>H</b>eight<br>
-        <i>Interface function: return the height of current font in pixels</i><br>
+
+    <h3 class="command" id="intf-th">T<span>ext</span>H<span>eight</span></h3>
+    <p><i>Interface function: return the height of current font in pixels</i><br>
         height=<b>TH</b></p>
 
-    <p>
-        <b>T</b>ext<b>L</b>ength<br>
-        <i>Interface function: return the number of characters in a string of text</i><br>
+
+    <h3 class="command" id="intf-tl">T<span>ext</span>L<span>ength</span></h3>
+    <p><i>Interface function: return the number of characters in a string of text</i><br>
         number="text" <b>TL</b></p>
 
-    <p>
-        <b>C</b>entre<b>X</b><br>
-        <i>Interface function: centre text in the display</i><br>
+
+    <h3 class="command" id="intf-cx">C<span>entre</span>X</h3>
+    <p><i>Interface function: centre text in the display</i><br>
         position="text" <b>CX</b></p>
 
     <p>
         The CentreX function is used to find the correct centring location by comparing the width of the
         given text with the value returned by an SX function, like this:</p>
 
-    <pre>
-SetVar 0,"Hello, this is the text"
+<code>SetVar 0,"Hello, this is the text"
 PRint 0VA CentreX,0,0 VA,2;
-</pre>
+</code>
 
 
-    <p>
-        <b>V</b>ert<b>T</b>ext<br>
-        <i>Interface instruction: display vertical text</i><br>
+
+    <h3 class="command" id="inti-vt">V<span>ert</span>T<span>ext</span></h3>
+    <p><i>Interface instruction: display vertical text</i><br>
         <b>VT</b> x,y,'text',colour</p>
 
     <p>
@@ -345,9 +345,9 @@ PRint 0VA CentreX,0,0 VA,2;
         allowing simple tests to be performed and jumps to be made to various routines. These controls
         make it easy to create complex multi-level user interfaces.</p>
 
-    <p>
-        <b>LA</b>bel<br>
-        <i>Interface instruction: create a simple label</i><br>
+
+    <h3 class="command" id="inti-la">LA<span>bel</span></h3>
+    <p><i>Interface instruction: create a simple label</i><br>
         <b>LA</b> label;</p>
 
     <p>
@@ -364,11 +364,11 @@ PRint 0VA CentreX,0,0 VA,2;
         defined label already exists, an error message will be generated. Interface labels are defined in
         the following manner:</p>
 
-<code class="prefix ex">LA 10; set up label number 10</code>
+<code class="prefix ex">LA 10; <comment>set up label number 10</comment></code>
 
-    <p>
-        <b>J</b>m<b>P</b><br>
-        <i>Interface instruction: jump to an Interface program label</i><br>
+
+    <h3 class="command" id="inti-jp">J<span>m</span>P</h3>
+    <p><i>Interface instruction: jump to an Interface program label</i><br>
         <b>JP</b> label;</p>
 
     <p>
@@ -384,9 +384,9 @@ PRint 0VA CentreX,0,0 VA,2;
         as explained next.</p>
 
 
-    <p>
-        <b>J</b>ump<b>S</b>ubroutine<br>
-        <i>Interface instruction: call an Interface sub-routine</i><br>
+
+    <h3 class="command" id="inti-js">J<span>ump</span>S<span>ubroutine</span></h3>
+    <p><i>Interface instruction: call an Interface sub-routine</i><br>
         <b>JS</b> label;</p>
 
     <p>
@@ -394,9 +394,9 @@ PRint 0VA CentreX,0,0 VA,2;
         specified label number from zero to 65535. Sub-routines may be nested inside one another, with
         a maximum of 128 calls that can be made from each routine.</p>
 
-    <p>
-        <b>R</b>e<b>T</b>urn<br>
-        <i>Interface instruction: return from an Interface sub-routine</i><br>
+
+    <h3 class="command" id="inti-rt">R<span>e</span>T<span>urn</span></h3>
+    <p><i>Interface instruction: return from an Interface sub-routine</i><br>
         <b>RT</b>;</p>
 
     <p>
@@ -431,21 +431,25 @@ PRint 0VA CentreX,0,0 VA,2;
         providing the number of opening brackets equals the number of closing brackets, all should be
         well. Here is a very simple example of a conditional test:</p>
 
-<code class="prefix ex">IF 0VA 1=; if the contents of variable zero is equal to one
-[PRint 0,0,'Variable 0 equals 1',5; then print a message]
+<code class="prefix ex">IF 0VA 1=; <comment>if the contents of variable zero is equal to one</comment>
+[PRint 0,0,'Variable 0 equals 1',5; <comment>then print a message</comment>]
 </code>
 
     <p>Here is a table of the available testing operators that can be used for Interface conditional tests:</p>
 
-    <pre>
-<b>Operator    Meaning       Notes</b>
-=           equals        Gives -1 if two values are equal, otherwise gives zero
-\           not equals    Gives -1 if two values are unequal. Do not confuse with /
-<           less than     Gives -1 if the first value is less than the second value
->           greater than  Gives -1 if the first value is greater than the second value
-&           logical AND
-|           logical OR
-</pre>
+    <table>
+        <thead>
+            <tr><th>Operator</th><th>Meaning</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>=</td><td>equals</td><td>Gives -1 if two values are equal, otherwise gives zero</td></tr>
+            <tr><td>\</td><td>not equals</td><td>Gives -1 if two values are unequal. Do not confuse with /</td></tr>
+            <tr><td>&lt;</td><td>less than</td><td>Gives -1 if the first value is less than the second value</td></tr>
+            <tr><td>&gt;</td><td>greater than</td><td>Gives -1 if the first value is greater than the second value</td></tr>
+            <tr><td>&amp;</td><td>logical AND</td><td></td></tr>
+            <tr><td>|</td><td>logical OR</td><td></td></tr>
+        </tbody>
+    </table>
 
 </section>
 
@@ -455,9 +459,9 @@ PRint 0VA CentreX,0,0 VA,2;
         instructions, and they can be used to create whole libraries of box definitions, button types and
         selectors.</p>
 
-    <p>
-        <b>U</b>ser<b>I</b>nstruction<br>
-        <i>Interface instruction: create a user-defined Interface command</i><br>
+
+    <h3 class="command" id="inti-ui">U<span>ser</span>I<span>nstruction</span></h3>
+    <p><i>Interface instruction: create a user-defined Interface command</i><br>
         <b>UI</b> XX,number of parameters;[instruction definition]</p>
 
     <p>
@@ -488,9 +492,9 @@ AS=A$+"PO 10,10,'AMOS Professional',2,4; PR 48,20,'Basic',4;"
 A$=A$+"BU 1,90,38,50,10,0,0,6;"
 A$=A$+"[ShadowBox 0,0,50,10,1,0,4 BPos+; PR 1,2,'Button',6;][]"
 A$=A$+"RU 0,7;EXit;"
-A$=A$+"UserInstruction ShadowBox,7; create shadowed box with seven parameters"
-A$=A$+"[IN P6,0,0; GB P1 P5+,P2 P5+,P3 P5+,P4 P5+; draw the shadow effect"
-A$=A$+"1N P7,0,0; GB P1,P2,P3,P4, draw the box at the top]"
+A$=A$+"UserInstruction ShadowBox,7; <comment>create shadowed box with seven parameters</comment>"
+A$=A$+"[IN P6,0,0; GB P1 P5+,P2 P5+,P3 P5+,P4 P5+; <comment>draw the shadow effect</comment>"
+A$=A$+"1N P7,0,0; GB P1,P2,P3,P4, <comment>draw the box at the top</comment>]"
 D=Dialog Box(A$)
 </code>
 
@@ -534,9 +538,9 @@ Userinstruction TextBox,5;
         problem only occurs if you are defining a zone <b>inside</b> a UserInstruction, and the problem can be
         solved by the following instruction.</p>
 
-    <p>
-        <b>S</b>et<b>Z</b>onevariable<br>
-        <i>Interface instruction: save a parameter for the next zone definition</i><br>
+
+    <h3 class="command" id="inti-sz">S<span>et</span>Z<span>onevariable</span></h3>
+    <p><i>Interface instruction: save a parameter for the next zone definition</i><br>
         <b>SZ</b> value;</p>
 
     <p>
@@ -546,9 +550,9 @@ Userinstruction TextBox,5;
         to poke this value directly into the new zone, so that a "change" routine, held inside the second
         pair of square brackets, will work as normal. This function is explained lastly..</p>
 
-    <p>
-        <b>Z</b>one<b>V</b>ariable
-        <i>Interface function: read a zone variable from the internal buffer area</i><br>
+
+    <h3 class="command" id="intf-zv">Z<span>one</span>V<span>ariable</span></h3>
+    <p><i>Interface function: read a zone variable from the internal buffer area</i><br>
         value=<b>ZV</b></p>
 
     <p>
@@ -556,12 +560,12 @@ Userinstruction TextBox,5;
         returns the contents of the internal zone variable, and pokes it into your definition for safe-
         keeping. For example:</p>
 
-<code class="prefix ex">'This user instruction defines a button made of text only
-'MyButton zone,x,y,text
+<code class="prefix ex"><comment>'This user instruction defines a button made of text only
+'MyButton zone,x,y,text</comment>
 Userinstruction MyButton,4;
-[SetZone P4; save parameter four in the internal buffer zone
+[SetZone P4; <comment>save parameter four in the internal buffer zone</comment>
 BUtton P1,P2,P3,P4 TextWidth 16+,TextHeight 4+,0,0,1;
-[PRint 0,0,ZoneVariable,1][] zvar permanently installs text into the new button
+[PRint 0,0,ZoneVariable,1][] <comment>zvar permanently installs text into the new button</comment>
 </code>
 
 </section>
@@ -572,9 +576,9 @@ BUtton P1,P2,P3,P4 TextWidth 16+,TextHeight 4+,0,0,1;
         The final part of this Chapter explains how to add your own machine code extensions directly
         into the AMOS Professional Interface.</p>
 
-    <p>
-        <b>CA</b>ll<br>
-        <i>Interface instruction: call a machine code extension</i><br>
+
+    <h3 class="command" id="inti-ca">CA<span>ll</span></h3>
+    <p><i>Interface instruction: call a machine code extension</i><br>
         <b>CA</b> address;</p>
 
     <p>

@@ -76,9 +76,7 @@
         And if that hasn't whetted your appetite, see all of this theory in practice now, by running the
         following ready-made example program:</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorial:Tutorials/Interface/Full_Example.AMOS"
-</pre>
+    <code class="prefix disc">Load "AMOSPro_Tutorial:Tutorials/Interface/Full_Example.AMOS"</code>
 </section>
 
 <section id="02-the-need-for-the-amos-professional-interface">
@@ -150,7 +148,7 @@ LD> Load "AMOSPro_Tutorial:Tutorials/Interface/Full_Example.AMOS"
 
 <code class="prefix ex">EXit;</code>
 
-
+    <h3 class="command" id="inti-ex">EX<span>it</span></h3>
     <i>Interface instruction: leave Interface and return to AMOS Professional Basic</i><br>
     <b>EX</b>;</p>
 
@@ -181,8 +179,8 @@ LD> Load "AMOSPro_Tutorial:Tutorials/Interface/Full_Example.AMOS"
 
 <code class="prefix ex">index number VARIABLE</code>
 
-    <p><b>VA</b>riable<br>
-        <i>Interface function: return value held by an index</i><br>
+    <h3 class="command" id="intf-va">VA<span>riable</span></h3>
+    <p><i>Interface function: return value held by an index</i><br>
         value=index number <b>VA</b>;</p>
 
     <p>
@@ -194,8 +192,8 @@ LD> Load "AMOSPro_Tutorial:Tutorials/Interface/Full_Example.AMOS"
 <section id="05-setting-a-variable">
     <h2>Setting a variable</h2>
 
-    <p><b>S</b>et <b>V</b>ariable<br>
-        <i>Interface instruction: set an Interface variable</i><br>
+    <h3 class="command" id="inti-sv">S<span>et </span>V<span>ariable</span></h3>
+    <p><i>Interface instruction: set an Interface variable</i><br>
         <b>SV</b> index number,value;</p>
 
     <p>
@@ -205,8 +203,8 @@ LD> Load "AMOSPro_Tutorial:Tutorials/Interface/Full_Example.AMOS"
         necessary. For example:</p>
 
 
-<code class="prefix ex">SetVar 0,42:                   this loads the value forty two into item number zero.
-SetVar 1,'The answer is';      this loads a string into item number one.
+<code class="prefix ex">SetVar 0,42:                   <comment>this loads the value forty two into item number zero.</comment>
+SetVar 1,'The answer is';      <comment>this loads a string into item number one.</comment>
 </code>
 
 
@@ -221,8 +219,8 @@ SetVar 1,'The answer is';      this loads a string into item number one.
 SetVar 3,%101010;
 </code>
 
-    <p><b>PR</b>int<br>
-        <i>Interface instruction: print contents of a variable to screen</i><br>
+    <h3 class="command" id="inti-pr">PR<span>int</span></h3>
+    <p><i>Interface instruction: print contents of a variable to screen</i><br>
         <b>PR</b> x,y,number,ink;<br>
         <b>PR</b> x,y,'text',ink;</p>
 
@@ -304,18 +302,24 @@ SetVar 3,%101010;
 
     <p>Here is a table of the available arithmetic operators:</p>
 
-    Operator Example Result Explanation
-    + 12+ 3 add two values together
-    - 23- -1 subtract second value from value beneath in the stack
-    * 23* 6 multiply two values from the top of the stack
-    / 62/ 3 divide a value by the value above it in the stack
-    NEg 2NEg -2 toggle value from positive to negative
-    ! "H" "ello"! "Hello" Add two strings together
-    # 42# "42" convert a number into a string
-    MIn 6 49 MIn 6 give minimum of two values
-    MAx 6 9 MAx 9 give maximum of two values
+    <table>
+        <thead>
+        <tr><th>Operator</th><th>Example</th><th>Result</th><th>Explanation</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>+</td><td>12+</td><td>3</td><td>add two values together</td></tr>
+       <tr><td>-</td><td>23-</td><td>-1</td><td>subtract second value from value beneath in the stack</td></tr>
+       <tr><td>*</td><td>23*</td><td>6</td><td>multiply two values from the top of the stack</td></tr>
+       <tr><td>/</td><td>62/</td><td>3</td><td>divide a value by the value above it in the stack</td></tr>
+       <tr><td>NEg</td><td>2NEg</td><td>-2</td><td>toggle value from positive to negative</td></tr>
+       <tr><td>!</td><td>"H" "ello"!</td><td>"Hello"</td><td>Add two strings together</td></tr>
+       <tr><td>#</td><td>42#</td><td>"42"</td><td>convert a number into a string</td></tr>
+       <tr><td>MIn</td><td>6 49 MIn</td><td>6</td><td>give minimum of two values</td></tr>
+       <tr><td>MAx</td><td>6 9 MAx</td><td>9</td><td>give maximum of two values</td></tr>
+       </tbody>
+   </table>
 
-    <p>
+   <p>
         A separate set of logical operators that can be used to perform tests
         is explained in <a href="09-02-interface-language.html">Chapter 9.2</a>.</p>
 
@@ -366,17 +370,15 @@ SetVar 3,%101010;
         explained later. Here are some examples:</p>
 
 <code class="prefix edit">A$=A$+"SetVar 1,'The answer is', set variable one to a message"
-A$=A$+"SetVar0,42; variable zero is loaded with forty two"
-A$,A$+"PRint 0,100,1 VA,2; print the message"
-A$=A$+"PRint 0,110,0 VA #,2; print the answer"
-A$=A$+"EXit; leave the interface program"
+A$=A$+"SetVar0,42; <comment>variable zero is loaded with forty two</comment>"
+A$,A$+"PRint 0,100,1 VA,2; <comment>print the message</comment>"
+A$=A$+"PRint 0,110,0 VA #,2; <comment>print the answer</comment>"
+A$=A$+"EXit; <comment>leave the interface program</comment>"
 Print Dialog Box(A$)
 B$=B$+"PRint 0,0,1 VA,2; PRint 0,10,0 VA #,2; EXit;"
 D=Dialog Box(B$,42,"The Answer")
 D=Dialog Box(B$,42,"The Answer",100,100)
 </code>
-
-
     <p>
         Please note that if the Interface program is to wait for user input, a RunUntil command must be
         included before the final EXit, otherwise the dialogue box will jump directly to the main AMOS
@@ -394,11 +396,11 @@ D=Dialog Box(B$,42,"The Answer",100,100)
     <h2>Creating a simple requester</h2>
     <p>
         If a large requester with a lot of graphics is to be generated, it can be very difficult to keep track
-        of all of the coordinates. You can simplify things enormously by entering all of the coordinates
+        of all the coordinates. You can simplify things enormously by entering all the coordinates
         relative to the top left-hand corner of the requester box.</p>
 
-    <p><b>BA</b>se<br>
-        <i>Interface instruction: set coordinate base for dialogue box</i><br>
+    <h3 class="command" id="inti-ba">BA<span>se</span></h3>
+    <p><i>Interface instruction: set coordinate base for dialogue box</i><br>
         <b>BA</b> x,y;</p>
 
     <p>
@@ -410,11 +412,11 @@ D=Dialog Box(B$,42,"The Answer",100,100)
         This coordinate reference point can also be set using the x,y parameters with the DIALOG BOX
         command, as explained earlier. Here is a working example:</p>
 
-<code class="prefix edit">A$=A$+"BAse 50,50; set the coordinate base"
-A$=A$+"INk 5,0,0; Graphic Box 0,0,150,50; draw a filled bar in ink five"
-A$=A$+"PrintOutline 5,10,'AMOS Professional',2,4; print message in outline text"
-A$=A$+"PRint 45,20,'Basic',4; display message in normal text"
-A$=A$+"EXit; leave the interface program"
+<code class="prefix edit">A$=A$+"BAse 50,50; <comment>set the coordinate base</comment>"
+A$=A$+"INk 5,0,0; Graphic Box 0,0,150,50; <comment>draw a filled bar in ink five</comment>"
+A$=A$+"PrintOutline 5,10,'AMOS Professional',2,4; <comment>print message in outline text</comment>"
+A$=A$+"PRint 45,20,'Basic',4; <comment>display message in normal text</comment>"
+A$=A$+"EXit; <comment>leave the interface program</comment>"
 D=Dialog Box(A$) : Wait Key
 </code>
 </section>
@@ -427,8 +429,8 @@ D=Dialog Box(A$) : Wait Key
         display, and then return the screen to its original state after use. The Interface includes
         commands that do exactly that!</p>
 
-    <p><b>SI</b>ze<br>
-        <i>Interface instruction: define the size of graphics to be saved</i><br>
+    <h3 class="command" id="inti-si">SI<span>ze</span></h3>
+    <p><i>Interface instruction: define the size of graphics to be saved</i><br>
         <b>SI</b> width,height;</p>
 
     <p>
@@ -438,8 +440,8 @@ D=Dialog Box(A$) : Wait Key
         measured relative to the reference point already set by the BAse command.</p>
 
 
-    <p><b>SA</b>ve<br>
-        <i>Interface instruction: save background under the dialogue box</i><br>
+    <h3 class="command" id="inti-sa">SA<span>ve</span></h3>
+    <p><i>Interface instruction: save background under the dialogue box</i><br>
         <b>SA</b> block number;</p>
 
     <p>
@@ -457,11 +459,11 @@ D=Dialog Box(A$) : Wait Key
         Supposing a dialogue box is to be positioned from coordinates 50,50 to 210,110. The following
         sequence of instructions could be used:</p>
 
-<code class="prefix edit">A$=A$+"BA 50,50; set the coordinate base"
-A$=A$+"SI 160,60; SA 1; save area under dialogue box"
-A$=A$+"IN 0,0,0; GB 5,5,155,56; IN 5,0,0; GB 0,0,150,50; draw a fancy box"
-A$=A$+"PO 5,10,'AMOS Professional',2,4; PR 45,20,'Basic',4; print messages"
-A$=A$+"EXit; quit interface program"
+<code class="prefix edit">A$=A$+"BA 50,50; <comment>set the coordinate base</comment>"
+A$=A$+"SI 160,60; SA 1; <comment>save area under dialogue box</comment>"
+A$=A$+"IN 0,0,0; GB 5,5,155,56; IN 5,0,0; GB 0,0,150,50; <comment>draw a fancy box</comment>"
+A$=A$+"PO 5,10,'AMOS Professional',2,4; PR 45,20,'Basic',4; <comment>print messages</comment>"
+A$=A$+"EXit; <comment>quit interface program</comment>"
 D=Dialog Box(A$) : Wait key
 </code>
 
@@ -476,8 +478,8 @@ D=Dialog Box(A$) : Wait key
 <section id="11-waiting-for-an-event">
     <h2>Waiting for an event</h2>
 
-    <p><b>R</b>un<b>U</b>ntil<br>
-        <i>Interface instruction: run until conditions are satisfied</i><br>
+    <h3 class="command" id="inti-ru">R<span>un</span>U<span>ntil</span></h3>
+    <p><i>Interface instruction: run until conditions are satisfied</i><br>
         <b>RU</b> delay,flags;</p>
 
     <p>
@@ -515,11 +517,11 @@ RUn 0,0; wait for quit button explained later
         You can now display a crude requester on the screen, by changing the last working example as
         follows:</p>
 
-<code class="prefix edit">A$=A$+"BA 50,50; set the coordinate base"
-A$=A$+"SI 160,60; SA 1; save area under dialogue box"
-A$=A$+"IN 0,0,0; GB 5,5,155,56; IN 5,0,0; GB 0,0,150,50; draw a fancy box"
-A$=A$+"PO 5,10,'AMOS Professional',2,4; PR 45,20,'Basic',4; print messages"
-A$=A$+"RU 0,%0110; wait for either a mouse click or a key press"
+<code class="prefix edit">A$=A$+"BA 50,50; <comment>set the coordinate base</comment>"
+A$=A$+"SI 160,60; SA 1; <comment>save area under dialogue box</comment>"
+A$=A$+"IN 0,0,0; GB 5,5,155,56; IN 5,0,0; GB 0,0,150,50; <comment>draw a fancy box</comment>"
+A$=A$+"PO 5,10,'AMOS Professional',2,4; PR 45,20,'Basic',4; <comment>print messages</comment>"
+A$=A$+"RU 0,%0110; <comment>wait for either a mouse click or a key press</comment>"
 A$=A$+"EXit;"
 D=Dialog Box(A$)
 </code>
@@ -538,9 +540,9 @@ D=Dialog Box(A$)
 <section id="12-interface-buttons">
     <h2>Interface buttons</h2>
 
-    <p><b>BU</b>tton<br>
-        <i>Interface instruction: define an Interface button</i><br>
-        <b>BU</b> number,x,y,width,height,setting,minimum,maximum;[][]</p>
+    <h3 class="command" id="inti-bu">BU<span>tton</span></h3>
+    <p><i>Interface instruction: define an Interface button</i><br>
+        <b>BU</b> number,x,y,width,height,setting,minimum,maximum;[ ][ ]</p>
 
     <p>
         The BUtton command defines a simple Interface button, which can then be selected directly
@@ -629,14 +631,14 @@ D=Dialog Box(A$)
 
     <p>Here are some examples of button definitions:</p>
 
-<code class="prefix ex">BU 1,80,38,50,10,0,0,1; set position and size of button number one
-[PR 1,2,'Button 1',6;][] draw button using a simple print command
+<code class="prefix ex">BU 1,80,38,50,10,0,0,1; <comment>set position and size of button number one</comment>
+[PR 1,2,'Button 1',6;][] <comment>draw button using a simple print command</comment>
 
 BU 2,10,38,50,10,0,0,1;[PR 1,2,'Button 2',7;][]
 </code>
 
-    <p><b>B</b>utton<b>Q</b>uit<br>
-        <i>Interface instruction: trigger an exit button</i><br>
+    <h3 class="command" id="inti-bq">B<span>utton</span>Q<span>uit</span></h3>
+    <p><i>Interface instruction: trigger an exit button</i><br>
         <b>BQ</b>;</p>
 
     <p>
@@ -684,9 +686,7 @@ VText 0,0,'Hello!',2;][]
         generated from a whole line of images, using the powerful LIne command. Here is a ready-
         made example to examine:</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Simple_Requester.AMOS"
-</pre>
+<code class="prefix disc">Load "AMOSPro_Tutorials:Tutorial/Interface/Simple_Requester.AMOS"</code>
 </section>
 
 <section id="14-changing-a-button">
@@ -696,8 +696,8 @@ LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Simple_Requester.AMOS"
         of useful effects to be generated. The key to these effects is held by three Interface button
         functions, BPosition, BReturn and BChange.</p>
 
-    <p><b>BP</b>osition<br>
-        <i>Interface function: return the setting inside a button definition</i><br>
+    <h3 class="command" id="intf-bp">BP<span>osition</span></h3>
+    <p><i>Interface function: return the setting inside a button definition</i><br>
         setting=<b>BP</b></p>
 
     <p>
@@ -714,9 +714,10 @@ LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Simple_Requester.AMOS"
 
 <code class="prefix ex">BUtton 1,50,38,50,10,0,0,1;
 [INk 0,0,0; GraphicSquare 0,0,50,10; PRint 1,2,'Button',BPosition+5;][]
-display highlighted text in a new ink colour
+<comment>display highlighted text in a new ink colour</comment>
+</code>
 
-X> BUtton 2,90,38,50,10,0,0,1;
+<code class="prefix ex">X> BUtton 2,90,38,50,10,0,0,1;
 [INk BPosition 1+,0,0; change the background of the button when selected
 GraphicBox 0,0,33,10; PRint 1,2,'Quit',4;][ButtonQuit;]
 </code>
@@ -739,12 +740,11 @@ GraphicBox 0,0,33,10; PRint 1,2,'Quit',4;][ButtonQuit;]
         parameters in your button definitions, then test BPosition as part of the main drawing routine.
         Here is a ready-made example using this system:</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Button_Types.AMOS"
-</pre>
 
-    <p><b>BR</b>eturn<br>
-        <i>Interface instruction: change the setting of a button</i><br>
+<code class="prefix disc">Load "AMOSPro_Tutorials:Tutorial/Interface/Button_Types.AMOS"</code>
+
+    <h3 class="command" id="inti-br">BR<span>eturn</span></h3>
+    <p><i>Interface instruction: change the setting of a button</i><br>
         <b>BR</b> new setting;</p>
 
     <p>
@@ -760,8 +760,8 @@ LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Button_Types.AMOS"
 
 <code class="prefix ex">BUtton 1,160,100,64,16,0,0,1;[drawing routine...][BReturn 0;]</code>
 
-    <p><b>BC</b>hange<br>
-        <i>Interface instruction: change the setting of any active button</i><br>
+    <h3 class="command" id="inti-bc">BC<span>hange</span></h3>
+    <p><i>Interface instruction: change the setting of any active button</i><br>
         <b>BC</b> number,new setting</p>
 
     <p>
@@ -782,9 +782,7 @@ LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Button_Types.AMOS"
 
     <p>Here is an instant working example of every button type:</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Working Buttons.AMOS"
-</pre>
+    <code class="prefix disc">Load "AMOSPro_Tutorials:Tutorial/Interface/Working Buttons.AMOS"</code>
 
 </section>
 
@@ -809,12 +807,12 @@ LD> Load "AMOSPro_Tutorials:Tutorial/Interface/Working Buttons.AMOS"
         appropriate key. This will click the button on screen and release it immediately. Here are some
         example settings:</p>
 
-<code class="prefix ex">KY 13,0      this is the return key
-KY 128 76+,0 this tests the up arrow key which has scan code 76
+<code class="prefix ex">KY 13,0      <comment>this is the return key</comment>
+KY 128 76+,0 <comment>this tests the up arrow key which has scan code 76</comment>
 </code>
 
-    <p><b>N</b>o<b>W</b>ait<br>
-        <i>Interface instruction: specify a quick release button</i><br>
+    <h3 class="command" id="inti-nw">N<span>o</span>W<span>ait</span></h3>
+    <p><i>Interface instruction: specify a quick release button</i><br>
         <b>NW</b>;</p>
 
     <p>

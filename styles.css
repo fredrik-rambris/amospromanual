@@ -69,6 +69,10 @@ h3.command + h3.command {
     margin-top: .1rem;
 }
 
+h3.command span {
+    font-weight: normal;
+}
+
 a > h3 {
     display: inline-block;
     margin-bottom: 0;
@@ -130,6 +134,7 @@ code.edit::before {
 
 code.disc::before {
     content: "DP>";
+    left: -2.5rem;
 }
 
 
@@ -146,6 +151,10 @@ code.cli::before {
     left: -2.75rem;
 }
 
+code + code {
+    margin-top: 1rem;
+}
+
 section h2 {
     margin-top: 4rem;
 }
@@ -160,7 +169,6 @@ blockquote cite {
 }
 
 a:link {
-
     color: #0000bb;
     text-decoration: none;
 }
@@ -213,4 +221,21 @@ kbd {
     margin: 0 0.2em;
     box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
     background-color: #f7f7f7;
+}
+
+section.letternav a {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0 .5rem;
+}
+
+section.letternav {
+    margin: 2rem auto;
+}
+
+section h1 {
+    color: #888;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: xxx-large;
+    font-stretch: condensed;
 }

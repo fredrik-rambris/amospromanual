@@ -89,18 +89,18 @@ Menu$(2)," Mouse"
         of any text you choose. The following lines could be added to the last example above:</p>
 
 <code class="prefix edit"><comment>Rem Action menu has one option</comment>
-Menu$(1,1)=" Quit " : <comment>Rem Ensure three spaces after Quit</comment>
+Menu$(1,1)=" Quit     " : <comment>Rem Ensure three spaces after Quit</comment>
 <comment>Rem Mouse menu has three options</comment>
-Menu$(2,1)="Arrow " : <comment>Rem Ensure five spaces after Arrow</comment>
+Menu$(2,1)="Arrow     " : <comment>Rem Ensure five spaces after Arrow</comment>
 Menu$(2,2)="Cross-hair"
-Menu$(2,3)="Clock " : <comment>Rem Ensure five spaces after Clock</comment>
+Menu$(2,3)="Clock     " : <comment>Rem Ensure five spaces after Clock</comment>
 </code>
 
     <p>
         That specifies your list of alternatives for the "Action" and "Mouse" menus. Before this program
         can be run, it must first be activated.</p>
 
-    <h3 class="command" id="i-menu-on">MENU ON</h3>
+    <h3 class="command">MENU ON</h3>
     <p><i>instruction: activate a menu</i><br>
         <b>Menu On</b></p>
 
@@ -257,7 +257,7 @@ Loop
         MENU PROC and ON MENU GOSUB instructions. It is retained to provide compatibility with
         programs written in STOS Basic.</p>
 
-    <p><b>ON MENU ON/OFF</b><br>
+    <h3 class="command" id="i-on-menu-onoff">ON MENU ON/OFF</h3>
         <i>instruction: toggle automatic menu selection</i><br>
         <b>On Menu On</b><br>
         <b>On Menu Off</b></p>
@@ -422,25 +422,24 @@ Menu Del(2,3,4) : <comment>Rem Delete sub-option 4 of option 3 of title 2</comme
         style of your menus once they have been installed. Here is an example of a customised menu
         layout:</p>
 
-    <pre>
-E> FLAG=0
-   SET_MEN
-   Do
-    If Choice and Choice(1)=2 and Choice(2)=1 Then CHANGE
-   Loop
-   Procedure SET_MEN
-    Menu$(1)="Try me first " : Menu$(2)="Select me " : <comment>Rem Four spaces</comment>
-    Menu$(1,1)="1 am useless " : <comment>Rem Five spaces</comment>
-    Menu$(2,1)="Please select me!"
-    Menu On
-   End Proc
-   Procedure CHANGE
-    Shared FLAG
-    Menu Del
-    If FLAG=0 Then Menu Bar 1: FLAG=1 Else Menu Tline 1: Flag=0
-    SET_MEN
-   End Proc
-</pre>
+<code class="prefix edit">FLAG=0
+SET_MEN
+Do
+ If Choice and Choice(1)=2 and Choice(2)=1 Then CHANGE
+Loop
+Procedure SET_MEN
+ Menu$(1)="Try me first " : Menu$(2)="Select me " : <comment>Rem Four spaces</comment>
+ Menu$(1,1)="1 am useless " : <comment>Rem Five spaces</comment>
+ Menu$(2,1)="Please select me!"
+ Menu On
+End Proc
+Procedure CHANGE
+ Shared FLAG
+ Menu Del
+ If FLAG=0 Then Menu Bar 1: FLAG=1 Else Menu Tline 1: Flag=0
+ SET_MEN
+End Proc
+</code>
 
     <h3 class="command" id="i-menu-inactive">MENU INACTIVE</h3>
     <p><i>instruction: turn off a menu item</i><br>
@@ -660,29 +659,36 @@ Loop
         The following scancodes can also be used with the MENU KEY command, instead of a character
         string:</p>
 
-    <pre>
-<b>Scancode    Keys</b>
-80 to 89    Function keys <kbd>F1</kbd> to <kbd>F10</kbd>
-95          <kbd>Help</kbd>
-69          <kbd>Esc</kbd>
-</pre>
+    <table>
+        <thead>
+            <tr><th>Scancode</th><th>Keys</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>80 to 89</td><td>Function keys <kbd>F1</kbd> to <kbd>F10</kbd></td></tr>
+            <tr><td>95</td><td><kbd>Help</kbd></td></tr>
+            <tr><td>69</td><td><kbd>Esc</kbd></td></tr>
+        </tbody>
+    </table>
 
     <p>
         An optional bitmap can also be added, to check for control key combinations such as <kbd>Ctrl</kbd> + <kbd>A</kbd>.
         Here are the alternatives:</p>
 
-    <pre>
-<b>Bit  Key Tested        Notes</b>
-0    left <kbd>Shift</kbd>)     only one <kbd>Shift</kbd> key can be tested at a time
-1    right <kbd>Shift</kbd>     only one <kbd>Shift</kbd> key can be tested at a time
-2    [Caps Lock]       either ON or OFF
-3    <kbd>Ctrl</kbd>
-4    left <kbd>Alt</kbd>
-5    right <kbd>Alt</kbd>       this is the [Commodore] key on some keyboards
-6    left <kbd>Amiga</kbd>
-7    right <kbd>Amiga</kbd>
-</pre>
-
+    <table>
+        <thead>
+            <tr><th>Bit</th><th>Key Tested</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>0</td><td>left <kbd>Shift</kbd></td><td>only one <kbd>Shift</kbd> key can be tested at a time</td></tr>
+            <tr><td>1</td><td>right <kbd>Shift</kbd></td><td>only one <kbd>Shift</kbd> key can be tested at a time</td></tr>
+            <tr><td>2</td><td><kbd>Caps Lock</kbd></td><td>either ON or OFF</td></tr>
+            <tr><td>3</td><td><kbd>Ctrl</kbd></td></tr>
+            <tr><td>4</td><td>left <kbd>Alt</kbd></td></tr>
+            <tr><td>5</td><td>right <kbd>Alt</kbd></td><td>this is the <kbd>C=</kbd> key on some keyboards</td></tr>
+            <tr><td>6</td><td>left <kbd>Amiga</kbd></td></tr>
+            <tr><td>7</td><td>right <kbd>Amiga</kbd></td></tr>
+        </tbody>
+    </table>
 
     <p>
         If more than a single bit is set in this pattern, several keys must be pressed at the same time in
@@ -849,7 +855,7 @@ Menu On : Wait Key
         bars. A value of 1 activates the border and a value of 0 removes it.</p>
 
 
-    <p><b>ELLIPSE</b><br>
+    <h3 class="command" id="emcmd-elipse">ELLIPSE</h3>
         <i>embedded command: draw an ellipse</i><br>
         <b>EL</b>lipse radius1 ,radius2</p>
 

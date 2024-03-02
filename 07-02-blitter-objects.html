@@ -75,6 +75,7 @@
         or Sprites with great ease. To create a Bob, the image of an object is taken from the bank, and
         allocated for display as follows.</p>
 
+    <h3 class="command" id="i-bob">BOB</h3>
     <i>instruction: display a Bob on screen</i><br>
     <b>Bob</b> number,image<br>
     <b>Bob</b> number,x,y,image</p>
@@ -225,10 +226,10 @@ Flash Off : Get Bob Palette : Double Buffer : Autoback 0
 Bob 1,160,100,1: <comment>Rem Display Bob 1 at centre of screen</comment>
 Do
  For IMAGE=1 To Length(1) : <comment>Rem Create simple animation</comment>
-  Rem Move Bob 1 with the mouse
+  <comment>Rem Move Bob 1 with the mouse</comment>
   Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
   For W=0 To 3 : Wait Vbl : Next W
-  Rem Display image number on screen
+  <comment>Rem Display image number on screen</comment>
   Locate 0,0 : Print "Image ";I Bob(1);" ";
  Next IMAGE
 Loop
@@ -437,23 +438,22 @@ Next B
         Basic. This allows, you to produce stand-alone program listings that will run without the need
         for external image files. Try the next example:</p>
 
-    <pre>
-E> Double Buffer : Flash Off : Curs Off
-   Rem Draw an expanding circle and grab it as a Bob
-   For C=1 To 15
-    Ink 5 :Circle 16,16,C: Paint 16,16
-    Get Bob C,0,0 To 32,32
-    Cls 0,0,0 To 32,32
-   Next C
-   Rem Animate new Bob image
-   Do
-    Add IMAGE,1
-    If IMAGE>15 Then IMAGE=1
-    For W=0 To 4: Wait Vbl : Next W: <comment>Rem Slow down animation</comment>
-    Rem Assign next image in sequence to Bob 1
-    Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
-   Loop
-</pre>
+<code class="prefix edit">Double Buffer : Flash Off : Curs Off
+<comment>Rem Draw an expanding circle and grab it as a Bob</comment>
+For C=1 To 15
+ Ink 5 :Circle 16,16,C: Paint 16,16
+ Get Bob C,0,0 To 32,32
+ Cls 0,0,0 To 32,32
+Next C
+<comment>Rem Animate new Bob image</comment>
+Do
+ Add IMAGE,1
+ If IMAGE>15 Then IMAGE=1
+ For W=0 To 4: Wait Vbl : Next W: <comment>Rem Slow down animation</comment>
+ <comment>Rem Assign next image in sequence to Bob 1</comment>
+ Bob 1,X Screen(X Mouse),Y Screen(Y Mouse),IMAGE
+Loop
+</code>
 
     <h3 class="command" id="i-put-bob">PUT BOB</h3>
     <p><i>instruction: put a fixed copy of a Bob on screen</i><br>
@@ -490,23 +490,22 @@ E> Double Buffer : Flash Off : Curs Off
         screen. It can be used to generate a range of extremely fast graphical operations, and it is also
         useful for mapping complex displays in scrolling arcade games. Here is an example:</p>
 
-    <pre>
-E> Flash Off : Curs Off : Cis 0
-   Rem The following Palette values go on one line
-   Palette 0,$100,$200,$300,$400,$500.$600,$700,$800,
-   $900,$A00,$B00,$000,$D00,$E00,$F00
-   Rem Create some coloured circles for images
-   For C=1 To 15
-    Ink C : Circle 16,16,15 : Paint 16,16
-    Get Bob C,0,0 To 32,32
-   Next C
-   Do
-    Rem Choose a random circle and choose its position
-    N=Rnd(14)+1 : X=Rnd(320) : Y=Rnd(200)
-    Rem Paste image on screen at new coordinates
-    Paste Bob X,Y,N
-   Loop
-</pre>
+<code class="prefix edit">Flash Off : Curs Off : Cis 0
+<comment>Rem The following Palette values go on one line</comment>
+Palette 0,$100,$200,$300,$400,$500.$600,$700,$800,
+$900,$A00,$B00,$000,$D00,$E00,$F00
+<comment>Rem Create some coloured circles for images</comment>
+For C=1 To 15
+ Ink C : Circle 16,16,15 : Paint 16,16
+ Get Bob C,0,0 To 32,32
+Next C
+Do
+ <comment>Rem Choose a random circle and choose its position</comment>
+ N=Rnd(14)+1 : X=Rnd(320) : Y=Rnd(200)
+ <comment>Rem Paste image on screen at new coordinates</comment>
+ Paste Bob X,Y,N
+Loop
+</code>
 </section>
 
 <section id="06-bob-bank-commands">

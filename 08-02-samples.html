@@ -367,34 +367,32 @@ Sam Swap %0011,Start(6),20000 : <comment>Rem 20000 is the length of logical samp
 
     <p>Here is a typical listing, that demonstrates how these commands should be used:</p>
 
-    <pre>
-X> Reserve As Chip Work 10,10000
-   Reserve As Chip Work 11,10000
-   Open In 1, "Dh0:Name_of a_big_sample"
-   L=Lof(1) : C=0 : A=Start(10)
-   Sload 1 To Start(10),10000 : C=C+10000
-   Sload 1 To Start(11),10000 : C=C+10000
-   Sam Raw %1111,Start(10),10000,10000
-   Do
-    Gosub CHECK_SAM
-    If C>L Then Goto FINI
-    Sam Swap %1111 To Start(11),10000
-    Sload 1 To Start(10),10000 : C=C+10000
-    Gosub CHECK SAM
-    If C>L Then Goto FINI
-    Sam Swap %1111 To Start(10),10000 : C=C+10000
-    Sload 1 To Start(11),10000
-   Loop
-   CHECK_SAM:
-   Repeat
-    A=Sam Swapped(1)
-    Locate 0,0: Print A;" "
-   Until A=-1
-   Return
-   FINI:
-   Close 1: End
-</pre>
-
+<code class="prefix ex">Reserve As Chip Work 10,10000
+Reserve As Chip Work 11,10000
+Open In 1, "Dh0:Name_of a_big_sample"
+L=Lof(1) : C=0 : A=Start(10)
+Sload 1 To Start(10),10000 : C=C+10000
+Sload 1 To Start(11),10000 : C=C+10000
+Sam Raw %1111,Start(10),10000,10000
+Do
+ Gosub CHECK_SAM
+ If C>L Then Goto FINI
+ Sam Swap %1111 To Start(11),10000
+ Sload 1 To Start(10),10000 : C=C+10000
+ Gosub CHECK SAM
+ If C>L Then Goto FINI
+ Sam Swap %1111 To Start(10),10000 : C=C+10000
+ Sload 1 To Start(11),10000
+Loop
+CHECK_SAM:
+Repeat
+ A=Sam Swapped(1)
+ Locate 0,0: Print A;" "
+Until A=-1
+Return
+FINI:
+Close 1: End
+</code>
 
 </section>
 

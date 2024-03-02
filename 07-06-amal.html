@@ -121,6 +121,7 @@ Anything
 <section id="04-moving-an-object">
     <h2>Moving an Object</h2>
 
+    <h3 class="command" id="amali-move">Move</h3>
     <i>AMAL instruction: move an Object</i><br>
     <b>Move</b> horizontal number,vertical number,step</p>
 
@@ -189,9 +190,7 @@ Direct
 
     <p>For an instant demonstration of an animated Object, please examine this tutorial program:</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_1.AMOS"
-</pre>
+<code class="prefix disc">Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_1.AMOS"</code>
 </section>
 
 <section id="06-moving-within-amal-programs">
@@ -273,9 +272,7 @@ Zippadeedoodah:
         By changing the values in these registers, the Object can be moved around the screen and
         animated. Here is an instant example:</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_2.AMOS"
-</pre>
+<code class="prefix disc">Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_2.AMOS"</code>
 </section>
 
 <section id="08-logical-decisions">
@@ -299,7 +296,7 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_2.AMOS"
         program appear more familiar, but will be ignored by AMAL. If you do add spurious words like
         "then" or "else" you must remember not to use capital letters. For example:</p>
 
-<code class="prefix ex">If X>10 then Jump Label else Let X=Y"</code>
+<code class="prefix ex">"If X>10 then Jump Label else Let X=Y"</code>
 
     <p>Tests can be any logical expression, and may include the following characters:</p>
 
@@ -318,10 +315,10 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_2.AMOS"
         Do not try to combine several tests into a single AMAL expression using the ampersand (&) or
         upright (|) characters.</p>
 
-    <p><b>FOR</b><br>
-        <b>TO</b><br>
-        <b>NEXT</b><br>
-        <i>AMAL structure: loop within AMAL program</i><br>
+    <h3 class="command" id="amals-for">FOR</h3>
+    <h3 class="command" id="amals-to">TO</h3>
+    <h3 class="command" id="amals-next">NEXT</h3>
+        <p><i>AMAL structure: loop within AMAL program</i><br>
         <b>F</b>or register=start <b>T</b>o end ... <b>N</b>ext register</p>
 
     <p>
@@ -338,8 +335,8 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_2.AMOS"
         visible effect. AMAL automatically synchronises your For ... Next loops with the screen updates,
         producing the smoothest possible results. The use of a Pause command is not needed.</p>
 
-    <p><b>AUTOTEST</b><br>
-        <b>AU</b>totest (list of tests)</p>
+    <h3 class="command" id="amali-autotest">AUTOTEST</h3>
+        <p><b>AU</b>totest (list of tests)</p>
 
     <p>
         The AUtotest feature provides rapid interaction between AMAL and the user. It adds a special
@@ -347,29 +344,29 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_2.AMOS"
         rest of the AMAL program is executed. AUtotest is fully explained in its own section of this
         Chapter.</p>
 
-    <p><b>DIRECT</b><br>
-        <b>D</b>irect</p>
+    <h3 class="command" id="amali-direct">DIRECT</h3>
+        <p><b>D</b>irect</p>
 
     <p>This sets the part of the main program which is to be executed after an Autotest.</p>
 
-    <p><b>END</b><br>
-        <b>E</b>nd</p>
+    <h3 class="command" id="amali-end">END</h3>
+        <p><b>E</b>nd</p>
 
     <p>The End command terminates the entire AMAL program and turns off the Autotest feature if it
         has been defined.</p>
 
-    <p><b>EXIT</b><br>
-        e<b>X</b>it</p>
+    <h3 class="command" id="amali-exit">EXIT</h3>
+        <p></p>e<b>X</b>it</p>
 
     <p>This command exits from an Autotest and re-enters the current AMAL program.</p>
 
-    <p><b>ON</b><br>
-        <b>O</b>n</p>
+    <h3 class="command" id="i-on-amal">ON</h3>
+        <p><b>O</b>n</p>
 
     <p>The On instruction activates the main program after a Wait command.</p>
 
-    <p><b>PAUSE</b><br>
-        <b>P</b>ause</p>
+    <h3 class="command" id="amali-pause">PAUSE</h3>
+    <p><b>P</b>ause</p>
 
     <p>
         Use Pause to temporarily halt the execution of an AMAL program, and wait for the next vertical
@@ -381,8 +378,8 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_2.AMOS"
         a superb effect on the overall speed of your Basic program.</p>
 
 
-    <p><b>WAIT</b><br>
-        <b>W</b>ait</p>
+    <h3 class="command" id="i-wait-amal">WAIT</h3>
+    <p><b>W</b>ait</p>
 
     <p>The Wait command freezes your AMAL program and executes an Autotest only.</p>
 </section>
@@ -476,9 +473,7 @@ R1 Value Effect
         For a spectacular demonstration of pre-recorded movement patterns, please load this ready-
         made program:</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_5.AMOS"
-</pre>
+<code class="prefix disc">Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_5.AMOS"</code>
 </section>
 
 <section id="11-amal-function-list">
@@ -486,8 +481,8 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_5.AMOS"
     <p>
         Here is a full alphabetical list of all the available AMAL functions:</p>
 
-    <p><b>BC</b><br>
-        value=<b>B</b>ob <b>C</b>ol(number,first,last)</p>
+    <h3 class="command" id="amalf-bc">BC</h3>
+    <p>value=<b>B</b>ob <b>C</b>ol(number,first,last)</p>
 
     <p>
         BC is identical to the BOB COL Basic instruction. It checks the single Bob whose number is
@@ -500,44 +495,44 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_5.AMOS"
         routines are directly executed from Basic using the SYNCHRO command.</p>
 
 
-    <p><b>C</b><br>
-        value=<b>C</b>ol(number)</p>
+    <h3 class="command" id="amalf-c">C</h3>
+    <p>value=<b>C</b>ol(number)</p>
 
     <p>
         This function returns the status of the object whose number is specified, after a BC or SC
         function. If the object has collided with another object, a value of -1 (true) is returned, otherwise
         0 (false) is given.</p>
 
-    <p><b>J0</b><br>
-        bit-map=<b>J0</b></p>
+    <h3 class="command" id="amalf-j0">J0</h3>
+    <p>bit-map=<b>J0</b></p>
 
     <p>
         The J0 function tests the status of the right joystick, and returns a bit-map containing its report.
         Please see JOY for a full explanation.</p>
 
-    <p><b>J1</b><br>
-        bit-map=<b>J1</b></p>
+    <h3 class="command" id="amalf-j1">J1</h3>
+        <p>bit-map=<b>J1</b></p>
 
     <p>
         The J1 function tests the left joystick and returns a bit-map containing its current status. Please
         see JOY for a full explanation.</p>
 
-    <p><b>K1</b><br>
-        value=<b>K1</b></p>
+    <h3 class="command" id="amalf-k1">K1</h3>
+    <p>value=<b>K1</b></p>
 
     <p>
         The K1 function checks if the left mouse key has been pressed, and returns a value of -1 (true) or
         0 (false).</p>
 
-    <p><b>K2</b><br>
-        value=<b>K2</b></p>
+    <h3 class="command" id="amalf-k2">K2</h3>
+    <p>value=<b>K2</b></p>
 
     <p>
         The K2 function checks the right mouse key. If it has been pressed a value of -1 (true) is
         returned, otherwise 0 (false) is given.</p>
 
-    <p><b>Sc</b><br>
-        value=<b>S</b>prite <b>C</b>ol(number,first,last)</p>
+    <h3 class="command" id="amalf-sc">SC</h3>
+    <p>value=<b>S</b>prite <b>C</b>ol(number,first,last)</p>
 
     <p>
         SC is identical to the SPRITE COL Basic instruction. It checks the single Sprite whose number is
@@ -549,8 +544,8 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_5.AMOS"
         This instruction may not be performed within an interrupt, so it is only available when AMAL
         routines are directly executed from Basic using the SYNCHRO command.</p>
 
-    <p><b>VU</b><br>
-        intensity=<b>VU</b>(voice)</p>
+    <h3 class="command" id="fn-vu-amal">VU</h3>
+    <p>intensity=<b>VU</b>(voice)</p>
 
     <p>
         The VU function samples one of the sound channels and returns the intensity of the current
@@ -562,50 +557,50 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_5.AMOS"
         number from 0 (silence) to 63 (maximum). Please see VUMETER in <a href="08-01-music.html">Chapter 8.1</a> for a working
         example.</p>
 
-    <p><b>XH</b><br>
-        hardx-coordinate=<b>XH</b>ard(screen ,x-coordinate)</p>
+    <h3 class="command" id="amalf-xh">XH</h3>
+    <p>hardx-coordinate=<b>XH</b>ard(screen ,x-coordinate)</p>
 
     <p>
         The XH function converts a screen x-coordinate into its equivalent hardware coordinate, relative
         to the specified screen number.</p>
 
-    <p><b>XM</b><br>
-        x-coordinate=<b>XM</b>ouse</p>
+    <h3 class="command" id="amalf-xm">XM</h3>
+    <p>x-coordinate=<b>XM</b>ouse</p>
 
     <p>
         XM is identical to the X MOUSE function in Basic, and returns the x-coordinate of the mouse
         cursor in hardware coordinates.</p>
 
-    <p><b>XS</b><br>
-        hardx-coordinate=<b>XS</b>(screen,x-coordinate)</p>
+    <h3 class="command" id="amalf-xs">XS</h3>
+    <p>hardx-coordinate=<b>XS</b>(screen,x-coordinate)</p>
 
     <p>
         This converts a hardware coordinate to a screen coordinate, relative to the specified screen
         number.</p>
 
-    <p><b>YH</b><br>
-        hardy-coordinate=<b>YH</b>ard(screen,y-coordinate)</p>
+    <h3 class="command" id="amalf-yh">YH</h3>
+    <p>hardy-coordinate=<b>YH</b>ard(screen,y-coordinate)</p>
 
     <p>
         The YH function converts a screen y-coordinate into its equivalent hardware coordinate, relative
         to the specified screen number)</p>
 
-    <p><b>YM</b><br>
-        y-coordinate=<b>YM</b>ouse</p>
+    <h3 class="command" id="amalf-ym">YM</h3>
+    <p>y-coordinate=<b>YM</b>ouse</p>
 
     <p>
         YM is identical to the Y MOUSE function in Basic, and returns the y-coordinate of the mouse
         cursor in hardware coordinates.</p>
 
-    <p><b>YS</b><br>
-        hardy-coordinate=<b>YS</b>(screen,y-coordinate)</p>
+    <h3 class="command" id="amalf-ys">YS</h3>
+    <p>hardy-coordinate=<b>YS</b>(screen,y-coordinate)</p>
 
     <p>
         This converts a hardware coordinate to a screen coordinate, relative to the specified screen
         number.</p>
 
-    <p><b>Z</b><br>
-        random=<b>Z</b>(bit-mask)</p>
+    <h3 class="command" id="amalf-z">Z</h3>
+    <p>random=<b>Z</b>(bit-mask)</p>
 
     <p>The Z function returns a random number from -32767 to 32768.</p>
 
@@ -624,9 +619,7 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_5.AMOS"
 
     <p>There is a tutorial available on the AMAL functions in the following file:</p>
 
-    <pre>
-LD> Load "AMOSPro Tutorial:Tutorials/AMAL/AMAL_3.AMOS"
-</pre>
+<code class="prefix disc">Load "AMOSPro Tutorial:Tutorials/AMAL/AMAL_3.AMOS"</code>
 </section>
 
 <section id="12-calling-an-amal-program-from-amos-professional">
@@ -752,9 +745,7 @@ Address+6  Stores the value of A
 
     <p>Please loads the following program for a demonstration of assigning channels:</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_4.AMOS"
-</pre>
+    <code class="prefix disc">Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_4.AMOS"</code>
 </section>
 
 <section id="15-animating-more-than-16-objects">
@@ -785,9 +776,7 @@ LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_4.AMOS"
         incredibly smooth, even when the limit of 16 Objects is broken. For a ready-made example
         please load the following program:</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_6.AMOS"
-</pre>
+    <code class="prefix disc">Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_6.AMOS"</code>
 </section>
 
 <section id="16-manipulating-screens">
@@ -876,9 +865,7 @@ Amal 0,A$ : Amal On: Direct
         coordinates. Finally, register A stores the height of the rainbow on screen. Remind yourself of
         the scrolling rainbow effect in this instant example:</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_4.AMOS"
-</pre>
+    <code class="prefix disc">Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_4.AMOS"</code>
 </section>
 
 <section id="17-the-autotest-system">
@@ -1003,9 +990,7 @@ Amal 8,A$ : Amal On : Direct
         For a tutorial session involving the Autotest feature, as well as a fully playable arcade game,
         please load the following program and remember to watch the birdie!</p>
 
-    <pre>
-LD> Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_7.AMOS"
-</pre>
+<code class="prefix disc">Load "AMOSPro_Tutorial:Tutorials/AMAL/AMAL_7.AMOS"</code>
 </section>
 
 <section id="18-amal-program-control-from-amos-professional">
@@ -1265,9 +1250,7 @@ Channel 2 To Bob 2
 
     <p>STOS compatibility is featured in the following ready-made demonstration program:</p>
 
-    <pre>
-LD> Load "AMOSPro Tutorial:Tutorials/AMAL/AMAL_5.AMOS"
-</pre>
+<code class="prefix disc">Load "AMOSPro Tutorial:Tutorials/AMAL/AMAL_5.AMOS"</code>
 
     <p>Here is the entire STOS-compatible range of commands.</p>
 
