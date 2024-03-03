@@ -69,8 +69,8 @@
         in the current list of available fonts, it will be loaded, but the next time it is called by SET FONT
         there will be no need to load it again.</p>
 
-    <p>
-        <i>instruction: create a list of available fonts from System disc</i><br>
+    <h3 class="command" id="i-get-fonts">GET FONTS</h3>
+    <p><i>instruction: create a list of available fonts from System disc</i><br>
         <b>Get Fonts</b></p>
 
     <p>
@@ -140,11 +140,9 @@ Print Font$(2)
         This simple command is used to select the character set to be employed by a TEXT instruction,
         like this:</p>
 
-    <p>
-        E> Get Fonts
-        Set Font 2 : Text 100,100,"AMOS" : Set Font 1: Text 100,120,"Professional"
-    </p>
-
+<code class="prefix edit">Get Fonts
+Set Font 2 : Text 100,100,"AMOS" : Set Font 1: Text 100,120,"Professional"
+</code>
 
     <h3 class="command" id="i-text">TEXT</h3>
     <p><i>instruction: print graphical text</i><br>
@@ -210,9 +208,8 @@ Text 160-L/2,100,T$
         every time that the current font directory needed changing. With AMOS Professional, ill('
         ASSIGN instruction solves this problem.</p>
 
-    <p>
-        <b>ASSIGN</b><br>
-        <i>instruction: assign a name to a file or device</i><br>
+    <h3 class="command" id="i-assign">ASSIGN</h3>
+    <p><i>instruction: assign a name to a file or device</i><br>
         <b>Assign</b> "Name:" <b>To</b> "New_Pathname"<br>
         <b>Assign</b> "Name:" <b>To</b> "Device"</p>
 
@@ -235,12 +232,12 @@ Text 160-L/2,100,T$
         Obviously, with graphic fonts using coordinates measured in pixels, and text fonts positioned by
         character coordinates, a set of conversion functions between the two systems is vital.</p>
 
-    <p>
-        <b>XTEXT</b><br>
-        <b>YTEXT</b><br>
-        <i>functions: convert graphic coordinates to text coordinates</i><br>
-        text x-coordinate=<b>Xtext</b>(graphic x-coordinate)<br>
-        text y-coordinate=<b>Ytext</b>(graphic y-coordinate)</p>
+
+    <h3 class="command" id="fn-x-text">X TEXT</h3>
+    <h3 class="command" id="fn-y-text">Y TEXT</h3>
+    <p><i>functions: convert graphic coordinates to text coordinates</i><br>
+        text x-coordinate=<b>X Text</b>(graphic x-coordinate)<br>
+        text y-coordinate=<b>Y Text</b>(graphic y-coordinate)</p>
 
     <p>
         These self-explanatory functions convert coordinates from the standard graphical screen
@@ -248,12 +245,13 @@ Text 160-L/2,100,T$
         spacings. The resulting text coordinates are relative to the current window, and if the screen
         coordinate lies outside of this window, a negative value will be returned.</p>
 
-    <p>
-        <b>XGRAPHIC</b><br>
-        <b>YGRAPHIC</b><br>
-        <i>functions: convert text coordinates to graphic coordinates</i><br>
-        graphic x-coordinate=<b>Xtext</b>(text x-coordinate)<br>
-        graphic y-coordinate=<b>Ytext</b>(text y-coordinate)</p>
+
+    <h3 class="command" id="fn-x-graphic">X GRAPHIC</h3>
+    <h3 class="command" id="fn-y-graphic">Y GRAPHIC</h3>
+
+    <p><i>functions: convert text coordinates to graphic coordinates</i><br>
+        graphic x-coordinate=<b>X Graphic</b>(text x-coordinate)<br>
+        graphic y-coordinate=<b>Y Graphic</b>(text y-coordinate)</p>
 
     <p>
         This pair of functions performs the conversion of text format coordinates to graphic format

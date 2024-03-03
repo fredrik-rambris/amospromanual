@@ -154,16 +154,16 @@
         the SPRITE commands. If you need to generate such effects, you will have to program them for
         yourself! For those of you who wish to give up now, the following command may be useful.</p>
 
-    <p><b>COPPER ON</b><br>
-        <i>instruction: re-start automatic copper generation</i><br>
+    <h3 class="command" id="i-copper-on">COPPER ON</h3>
+    <p><i>instruction: re-start automatic copper generation</i><br>
         <b>Copper On</b></p>
 
     <p>
         The COPPER ON command re-starts all standard copper calculations, and returns AMOS
         Professional back to normal. The experts (and foolhardy) may now continue.</p>
 
-    <p><b>COP MOVE</b><br>
-        <i>instruction: write a MOVE instruction to current copper list</i><br>
+    <h3 class="command" id="i-cop-move">COP MOVE</h3>
+    <p><i>instruction: write a MOVE instruction to current copper list</i><br>
         <b>Cop Move</b> address,value</p>
 
     <p>
@@ -172,8 +172,8 @@
         by copying a value from 0 to 65535 into the selected register address. The address refers to a
         copper register from $7F to $1BE.</p>
 
-    <p><b>COP MOVEL</b><br>
-        <i>instruction: write a long MOVE instruction to copper list</i><br>
+    <h3 class="command" id="i-cop-movel">COP MOVEL</h3>
+    <p><i>instruction: write a long MOVE instruction to copper list</i><br>
         <b>Cop Movel</b> address,value</p>
 
     <p>
@@ -181,8 +181,8 @@
         MOVE commands in the new copper list. These load a 32-bit (long word) value into the selected
         address, exactly like a normal LOKE instruction.</p>
 
-    <p><b>COP WAIT</b><br>
-        <i>instruction: insert a WAIT instruction into copper list</i><br>
+    <h3 class="command" id="i-cop-wait">COP WAIT</h3>
+    <p><i>instruction: insert a WAIT instruction into copper list</i><br>
         <b>Cop Wait</b> x,y<br>
         <b>Cop Wait</b> x,y,xmask,ymask<br>
 
@@ -224,16 +224,16 @@ Cop Wait 12,10: <comment>Rem Wait for coordinates 12,10 to arrive</comment>
 
 <code class="prefix ex">Cop Wait 0,2,$1FF,%11 : <comment>Rem Await next EVEN scan line</comment></code>
 
-    <p><b>COP RESET</b><br>
-        <i>instruction: re-set copper list pointer</i><br>
+    <h3 class="command" id="i-cop-reset">COP RESET</h3>
+    <p><i>instruction: re-set copper list pointer</i><br>
         <b>Cop Reset</b></p>
 
     <p>
         This command is used to add a pair of MOVE commands, forcing the copper list to re-start from
         the very first instruction. This may be used to generate simple loops.</p>
 
-    <p><b>COP SWAP</b><br>
-        <i>instruction: swap logical and physical copper lists</i><br>
+    <h3 class="command" id="i-cop-swap">COP SWAP</h3>
+    <p><i>instruction: swap logical and physical copper lists</i><br>
         <b>Cop Swap</b></p>
 
     <p>
@@ -243,8 +243,8 @@ Cop Wait 12,10: <comment>Rem Wait for coordinates 12,10 to arrive</comment>
 
 <code class="prefix ex">Cop Swap : Wait Vbl</code>
 
-    <p><b>COP LOGIC</b><br>
-        <i>instruction: give address of logical copper list</i><br>
+    <h3 class="command" id="fn-cop-logic">COP LOGIC</h3>
+    <p><i>function: give address of logical copper list</i><br>
         address=<b>Cop Logic</b></p>
 
     <p>

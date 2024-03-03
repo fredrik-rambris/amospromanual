@@ -50,8 +50,8 @@
         A serial device refers to any machine that can communicate with the Amiga via its Serial Port.
         These devices include modems, MIDI systems and of course, other Amigas.</p>
 
-    <p>
-        <i>instruction: open a channel for Serial Input/Output</i><br>
+    <h3 class="command" id="i-serial-open">SERIAL OPEN</h3>
+    <p><i>instruction: open a channel for Serial Input/Output</i><br>
         <b>Serial Open</b> Channel number,Port number<br>
         <b>Serial Open</b> Channel number, Port number,Shared,Xmode,7wires</p>
 
@@ -155,14 +155,15 @@ Even parity.
 
     <p>Here is a list of the available settings for the Parity parameter:</p>
 
-    <pre>
--1 No parity
-0  Even parity
-1  Odd parity
-2  Space parity
-3  Mark parity
-</pre>
-
+    <table>
+        <tbody>
+            <tr><td>-1 </td><td>No parity</td></tr>
+            <tr><td>0  </td><td>Even parity</td></tr>
+            <tr><td>1  </td><td>Odd parity</td></tr>
+            <tr><td>2  </td><td>Space parity</td></tr>
+            <tr><td>3  </td><td>Mark parity</td></tr>
+        </tbody>
+    </table>
 
     <p>This Parity bit may be set using the BSET or BCLR instructions, as follows:</p>
 
@@ -300,26 +301,31 @@ Serial Parity 1,P : <comment>Rem Set parity using the value in P</comment>
         associated status has been successfully detected. Any other value indicates that the option is
         currently idle.</p>
 
-    <pre>
-<b>Bit   Active    Status</b>
-0       -       Reserved
-1       -       reserved
-2       1       Parallel "select" for A1000 machines. For the A500 and A2000,"select" is
-                also connected to the serial port "Ring Indicator".
-3       0       DSR (Data Set Ready)
-4       0       CTS (Clear To Send)
-5       0       Carrier Detect
-6       0       RTS (Ready To Send)
-7       0       DTR (Data terminal Ready)
-8       1       Hardware overru
-9       1       Break sent (most recent output)
-10      1       Break received (as latest input)
-11      1       Transmit x-OFF
-12      1       Receive x-Off
-13      -       Reserved
-14      -       Reserved
-15      -       Reserved
-</pre>
+    <table>
+        <thead>
+        <tr><th>Bit</th><th>Active</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>0</td><td>-</td><td>Reserved</td></tr>
+        <tr><td>1</td><td>-</td><td>reserved</td></tr>
+        <tr><td>2</td><td>1</td><td>Parallel "select" for A1000 machines. For the A500 and A2000, "select" is also connected to the serial port "Ring Indicator".</td></tr>
+        <tr><td>3</td><td>0</td><td>DSR (Data Set Ready)</td></tr>
+        <tr><td>4</td><td>0</td><td>CTS (Clear To Send)</td></tr>
+        <tr><td>5</td><td>0</td><td>Carrier Detect</td></tr>
+        <tr><td>6</td><td>0</td><td>RTS (Ready To Send)</td></tr>
+        <tr><td>7</td><td>0</td><td>DTR (Data terminal Ready)</td></tr>
+        <tr><td>8</td><td>1</td><td>Hardware overru</td></tr>
+        <tr><td>9</td><td>1</td><td>Break sent (most recent output)</td></tr>
+        <tr><td>10</td><td>1</td><td>Break received (as latest input)</td></tr>
+        <tr><td>11</td><td>1</td><td>Transmit x-OFF</td></tr>
+        <tr><td>12</td><td>1</td><td>Receive x-Off</td></tr>
+        <tr><td>13</td><td>-</td><td>Reserved</td></tr>
+        <tr><td>14</td><td>-</td><td>Reserved</td></tr>
+        <tr><td>15</td><td>-</td><td>Reserved</td></tr>
+        </tbody>
+    </table>
+
+
 
     <h3 class="command" id="fn-serial-error">SERIAL ERROR</h3>
     <p><i>function: report success of the last data transfer</i><br>

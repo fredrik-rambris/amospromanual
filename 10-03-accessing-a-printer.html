@@ -62,8 +62,8 @@
 If ERRTRAP : Print "Cannot open Printer Device!" : Endif
 </code>
 
-    <p>
-        <i>instruction: open the standard printer device for use</i><br>
+   <h3 class="command" id="i-printer-open">PRINTER OPEN</h3>
+    <p><i>instruction: open the standard printer device for use</i><br>
         <b>Printer Open</b></p>
 
     <p>This command opens the printer device using your current preferences.</p>
@@ -139,41 +139,41 @@ Printer Send "Greetings" +LF$
         for the CHR$(27) character.</p>
 
 
-    <pre>
-<b>Name    Code      Effect</b>
-aRIS    ESCc      hard re-set
-aRIN    ESC#1     initialise to defaults
-aIND    ESCD      true line-feed
-aNEL    ESCE      line-feed. This is to be added after every line!
-aRI     ESCM      reverse line-feed
-aSGRO   ESC[Om    normal character set
-aSGR3   ESC[3m    Italics on
-aSGR23  ESC[23m   Italics off
-aSGR4   ESC[4m    underline on
-aSGR24  ESC[24m   underline off
-aSGR1   ESC[1m    boldface on
-</pre>
-
-
-    <pre>
-aSGR22     ESC[22m   normal pitch
-aSHORP2    ESC[2w    Elite on
-aSHORP1    ESC[1w    Elite off
-aSHORP4    ESC[4w    condensed on
-aSHORP3    ESC[3w    condensed off
-aSHORP6    ESC[6w    enlarged on
-aSHORP5    ESC[5w    enlarged off
-aDEN6      ESC[6"z   shadow print on
-aDEN5      ESC[5"z   shadow print off
-aDEN4      ESC[4"z   double-strike on
-aDEN3      ESC[3"z   double-strike off
-aDEN2      ESC[2"z   near-letter-quality on
-aDEN1      ESC[1"z   near-letter-quality off
-aSUS2      ESC[2v    superscript on
-aSUS1      ESC[1v    superscript off
-aSUS       ESC[4v    subscript on
-aSUS3      ESC3v     subscript off
-</pre>
+    <table>
+        <thead>
+            <tr><th>Name</th><th>Code</th><th>Effect</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>aRIS</td>       <td>ESCc      </td><td>hard re-set</td></tr>
+            <tr><td>aRIN</td>       <td>ESC#1     </td><td>initialise to defaults</td></tr>
+            <tr><td>aIND</td>       <td>ESCD      </td><td>true line-feed</td></tr>
+            <tr><td>aNEL</td>       <td>ESCE      </td><td>line-feed. This is to be added after every line!</td></tr>
+            <tr><td>aRI</td>        <td>ESCM      </td><td>reverse line-feed</td></tr>
+            <tr><td>aSGRO</td>      <td>ESC[Om    </td><td>normal character set</td></tr>
+            <tr><td>aSGR3</td>      <td>ESC[3m    </td><td>Italics on</td></tr>
+            <tr><td>aSGR23</td>     <td>ESC[23m   </td><td>Italics off</td></tr>
+            <tr><td>aSGR4</td>      <td>ESC[4m    </td><td>underline on</td></tr>
+            <tr><td>aSGR24</td>     <td>ESC[24m   </td><td>underline off</td></tr>
+            <tr><td>aSGR1</td>      <td>ESC[1m    </td><td>boldface on</td></tr>
+            <tr><td>aSGR22</td>     <td>ESC[22m   </td><td>normal pitch</td></tr>
+            <tr><td>aSHORP2</td>    <td>ESC[2w    </td><td>Elite on</td></tr>
+            <tr><td>aSHORP1</td>    <td>ESC[1w    </td><td>Elite off</td></tr>
+            <tr><td>aSHORP4</td>    <td>ESC[4w    </td><td>condensed on</td></tr>
+            <tr><td>aSHORP3</td>    <td>ESC[3w    </td><td>condensed off</td></tr>
+            <tr><td>aSHORP6</td>    <td>ESC[6w    </td><td>enlarged on</td></tr>
+            <tr><td>aSHORP5</td>    <td>ESC[5w    </td><td>enlarged off</td></tr>
+            <tr><td>aDEN6</td>      <td>ESC[6"z   </td><td>shadow print on</td></tr>
+            <tr><td>aDEN5</td>      <td>ESC[5"z   </td><td>shadow print off</td></tr>
+            <tr><td>aDEN4</td>      <td>ESC[4"z   </td><td>double-strike on</td></tr>
+            <tr><td>aDEN3</td>      <td>ESC[3"z   </td><td>double-strike off</td></tr>
+            <tr><td>aDEN2</td>      <td>ESC[2"z   </td><td>near-letter-quality on</td></tr>
+            <tr><td>aDEN1</td>      <td>ESC[1"z   </td><td>near-letter-quality off</td></tr>
+            <tr><td>aSUS2</td>      <td>ESC[2v    </td><td>superscript on</td></tr>
+            <tr><td>aSUS1</td>      <td>ESC[1v    </td><td>superscript off</td></tr>
+            <tr><td>aSUS</td>       <td>ESC[4v    </td><td>subscript on</td></tr>
+            <tr><td>aSUS3</td>      <td>ESC3v     </td><td>subscript off</td></tr>
+        </tbody>
+    </table>
 
     <p>
         In order to print a text string in Italics and underlined, for example, the following routine could
@@ -233,27 +233,31 @@ Printer Close
         draw the current screen image on paper. Here is a list of these settings, which can be combined
         using AND as well as OR operations from AMOS Professional.</p>
 
-    <pre>
-<b>Value    Name          Description</b>
-$0001    MILCOLS       px is in 1/1000" (see Note 1)
-$0002    MILROWS       py is in 1/1000"
-$0004    FULLCOLS      use maximum print width (see Note 2)
-$0008    FULLROWS      use maximum print height
-$0010    FRACCOLS      px is a fraction of FULLCOLS (see Note 3)
-$0020    FRACROWS      py is a fraction of FULLROWS
-$0040    CENTRE        centre the image on the page
-$0080    ASPECT        retain the original aspect ratio
-$0100    DENSITY1      set resolution (dots per inch)
-$0200    DENSITY2      next resolution
-$0300    DENSITY3      next resolution
-$0400    DENSITY4      next resolution
-$0500    DENSITY5      next resolution
-$0600    DENSITY6      next resolution
-$0700    DENSITY7      set resolution
-$0800    NOFORM FEED   do not eject paper
-$1000    TRUSTME       do not re-set
-$2000    NOPRINT       do not print
-</pre>
+    <table>
+        <thead>
+            <tr><th>Value</th><th>Name</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>$0001</td><td>MILCOLS</td><td>px is in 1/1000" (see Note 1)</td></tr>
+            <tr><td>$0002</td><td>MILROWS</td><td>py is in 1/1000"</td></tr>
+            <tr><td>$0004</td><td>FULLCOLS</td><td>use maximum print width (see Note 2)</td></tr>
+            <tr><td>$0008</td><td>FULLROWS</td><td>use maximum print height</td></tr>
+            <tr><td>$0010</td><td>FRACCOLS</td><td>px is a fraction of FULLCOLS (see Note 3)</td></tr>
+            <tr><td>$0020</td><td>FRACROWS</td><td>py is a fraction of FULLROWS</td></tr>
+            <tr><td>$0040</td><td>CENTRE</td><td>centre the image on the page</td></tr>
+            <tr><td>$0080</td><td>ASPECT</td><td>retain the original aspect ratio</td></tr>
+            <tr><td>$0100</td><td>DENSITY1</td><td>set resolution (dots per inch)</td></tr>
+            <tr><td>$0200</td><td>DENSITY2</td><td>next resolution</td></tr>
+            <tr><td>$0300</td><td>DENSITY3</td><td>next resolution</td></tr>
+            <tr><td>$0400</td><td>DENSITY4</td><td>next resolution</td></tr>
+            <tr><td>$0500</td><td>DENSITY5</td><td>next resolution</td></tr>
+            <tr><td>$0600</td><td>DENSITY6</td><td>next resolution</td></tr>
+            <tr><td>$0700</td><td>DENSITY7</td><td>set resolution</td></tr>
+            <tr><td>$0800</td><td>NOFORM FEED</td><td>do not eject paper</td></tr>
+            <tr><td>$1000</td><td>TRUSTME</td><td>do not re-set</td></tr>
+            <tr><td>$2000</td><td>NOPRINT</td><td>do not print</td></tr>
+        </tbody>
+    </table>
 
     <p>
         Note 1. MILCOLS and MILROWS measure the px and py parameters in units of 1/1000th of an
@@ -313,10 +317,7 @@ $2000    NOPRINT       do not print
     <p>
         The address parameter refers to the first character which is to be output, and length specifies the
         number of characters to be printed. To send a string, the following type of line would be used:</p>
-
-    <pre>
-Printer Out Varptr(A$),Len(A$)
-</pre>
+<code>Printer Out Varptr(A$),Len(A$)</code>
 
     <p>
         Similarly to PRINTER SEND, it must be ensured that data remains unchanged during the

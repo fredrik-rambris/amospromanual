@@ -240,3 +240,22 @@ section h1 {
     font-size: xxx-large;
     font-stretch: condensed;
 }
+
+dl dt {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+dl dd {
+    margin-left: 0;
+}
+
+dl dd > p {
+    margin-top: 0;
+}
+
+div.center {
+    text-align: center;
+    margin: 0 auto;
+}

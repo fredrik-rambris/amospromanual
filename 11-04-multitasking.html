@@ -9,7 +9,7 @@
 
        It has been updated by Fredrik Rambris.
    -->
-    <title>Multi-Tasking - AMOS Professional Manual</title>
+    <title>Multitasking - AMOS Professional Manual</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -24,7 +24,7 @@
 
 
 <section>
-    <h1>Multi-Tasking</h1>
+    <h1>Multitasking</h1>
 
 
     <p>
@@ -33,30 +33,30 @@
         drawing on the resources of your favourite audio, graphical and utility items.</p>
 
     <p>
-        Provided that your system has at least one megabyte, multi-tasking is activated by pressing
+        Provided that your system has at least one megabyte, multitasking is activated by pressing
         <kbd>Amiga</kbd> + <kbd>A</kbd> to flick between AMOS Professional and the CLI or Workbench environments.</p>
 
     <p>
-        To make effective multi-tasking programs, most of the processing time should not be grabbed,
+        To make effective multitasking programs, most of the processing time should not be grabbed,
         leaving only a limited amount of processing power for other tasks, and the following command
         is provided to solve this problem.</p>
 
-    <p>
-        <i>instruction: force a multi-task wait vbl</i><br>
+    <h3 class="command" id="i-multi-wait">MULTI WAIT</h3>
+    <p><i>instruction: force a multitask wait vbl</i><br>
         <b>Multi Wait</b></p>
 
     <p>
         The MULTI WAIT instruction should be used in the main loop of an AMOS Professional
-        program. It forces a multi-task WAIT VBL for situations such as waiting for a menu item to be
+        program. It forces a multitask WAIT VBL for situations such as waiting for a menu item to be
         selected.</p>
 
     <p>
         This command should not be used to achieve accurate screen synchronisation, as it has been
-        specifically provided for multi-tasking and may skip several vertical blank periods, depending
+        specifically provided for multitasking and may skip several vertical blank periods, depending
         on the number of tasks being run simultaneously.</p>
 
     <p>
-        The following simple commands are provided to allow complete control over multi-tasking
+        The following simple commands are provided to allow complete control over multitasking
         facilities.</p>
 
     <h3 class="command" id="i-amos-to-back">AMOS TO BACK</h3>
@@ -106,7 +106,7 @@
 <section id="01-communication-between-programs">
     <h2>Communication between programs</h2>
     <p>
-        As well as multi-tasking between AMOS Professional and other programs, communication is
+        As well as multitasking between AMOS Professional and other programs, communication is
         allowed between different AMOS Professional programs previously installed in memory.</p>
 
     <h3 class="command" id="i-prun">PRUN</h3>
@@ -155,13 +155,13 @@
 <code class="prefix edit">Do
  Screen Open 0,640,200,4,Hires
  Repeat
- Input "Please enter a program name to run: ";P$
- Exit If P$="",2
- Trap Prun P$
- If Errtrap : Print "Program not found!" : End If
-Until Errtrap=0
-Wait 50
-  Loop
+  Input "Please enter a program name to run: ";P$
+  Exit If P$="",2
+  Trap Prun P$
+  If Errtrap : Print "Program not found!" : End If
+ Until Errtrap=0
+ Wait 50
+Loop
 </code>
 
     <ul>

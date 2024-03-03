@@ -101,8 +101,8 @@ AMOS_PROFESSIONAL:
 
 <code class="prefix direct">Dir "Libs:"</code>
 
-    <p>
-        <i>instruction: print directory of the current disc</i><br>
+    <h3 class="command" id="i-dir">DIR</h3>
+    <p><i>instruction: print directory of the current disc</i><br>
         <b>Dir</b><br>
         <b>Dir</b> path$</p>
 
@@ -215,10 +215,10 @@ EURIPIDES
         directory commands.</p>
 
 
-    <p>
-        <b>LDIR</b><br>
-        <b>LDIRAN</b><br>
-        <i>instructions: output directory of current disc to printer</i><br>
+
+    <h3 class="command" id="i-ldir">LDIR</h3>
+    <h3 class="command" id="i-ldir-w">LDIR/W</h3>
+    <p><i>instructions: output directory of current disc to printer</i><br>
         <b>Ldir</b><br>
         <b>Ldir</b> path$<br>
         <b>Ldir/W</b><br>
@@ -334,7 +334,7 @@ Dir
         In the original AMOS system, you were obliged to go back to AmigaDOS every time that
         particular directories needed changing, for example, when changing the font directories.
         The ASSIGN command has been provided to solve this problem, and is fully explained in
-        <a href="11-01-fonts.html">Chapter 11.1</a>.</p>
+        <a href="11-01-fonts.html#i-assign">Chapter 11.1</a>.</p>
 </section>
 
 <section id="04-checking-for-the-existence-of-a-file">
@@ -674,9 +674,9 @@ Close 1
         You must remember to always CLOSE a file after you have finished with it. If you forget to do
         this, any changes that have been made to the file will be lost.</p>
 
-    <p>
-        <b>PRINT #</b><br>
-        <i>structure: print variables to a file or device</i><br>
+
+    <h3 class="command" id="str-print-pound">PRINT #</h3>
+    <p><i>structure: print variables to a file or device</i><br>
         <b>Print #</b>channel,variable list</p>
 
     <p>
@@ -692,9 +692,9 @@ Close 2
 
     <p>As with PRINT, the PRINT # command can be abbreviated to ? #.</p>
 
-    <p>
-        <b>INPUT #</b><br>
-        <i>structure: input variables from a file or device</i><br>
+
+    <h3 class="command" id="str-input-pound">INPUT #</h3>
+    <p><i>structure: input variables from a file or device</i><br>
         <b>Input #</b>channel,variable list</p>
 
     <p>
@@ -710,9 +710,9 @@ Print A$
 Close 2
 </code>
 
-    <p>
-        <b>LINE INPUT #</b><br>
-        <i>structure: input variables not separated by a comma</i><br>
+
+    <h3 class="command" id="str-line-input-pound">LINE INPUT #</h3>
+    <p><i>structure: input variables not separated by a comma</i><br>
         <b>Line Input #</b>channel,variable list</p>
 
     <p>
@@ -743,9 +743,9 @@ Close 2
 Set Input 13,10: <comment>Rem ST compatible format</comment>
 </code>
 
-    <p>
-        <b>INPUT$</b><br>
-        <i>function: input a fixed number of characters from a device</i><br>
+
+    <h3 class="command" id="fn-input-dollar">INPUT$</h3>
+    <p><i>function: input a fixed number of characters from a device</i><br>
         i$=<b>Input$</b>(file,count)</p>
 
     <p>
@@ -803,12 +803,16 @@ Set Input 13,10: <comment>Rem ST compatible format</comment>
         quotation. Supposing you want to create an electronic phone book. You could choose the
         following fields, with the following maximum number of characters in each:</p>
 
-    <pre>
-<b>Field               Max. length</b>
-SURNAME$            20
-F1RSTNAME$          15
-TEL$                10
-</pre>
+    <table>
+        <thead>
+            <tr><th>Field</th><th>Max. length</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>SURNAME$</td><td>20</td></tr>
+            <tr><td>F1RSTNAME$</td><td>15</td></tr>
+            <tr><td>TEL$</td><td>10</td></tr>
+        </tbody>
+    </table>
 
     <p>
         Once the fields have been planned, the structure for your electronic database can be set up
@@ -823,9 +827,9 @@ TEL$                10
 
 <code class="prefix ex">Open Random 1,"ADDRESS"</code>
 
-    <p>
-        FIELD
-        <i>instruction: define a record structure</i><br>
+
+    <h3 class="command" id="i-field">FIELD</h3>
+    <p><i>instruction: define a record structure</i><br>
         <b>Field</b> channel,length1 <b>As</b> field1$,length2 <b>As</b> field2$</p>
 
     FIELD$ should be used immediately after OPEN RANDOM to define a record that will be used
