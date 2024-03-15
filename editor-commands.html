@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!--
+    This Amos Professional Manual is written by asymetrix for the Amiga community and should stay completely FREE FOREVER.
+    Created 2008. :)
+
+    It was created from the original AMOS Professional Manual by Europress Software Ltd.
+
+    It has been updated by Fredrik Rambris.
+    -->
+    <title>Interface Resources - AMOS Professional Manual</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="asymetrix,Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <meta property="og:site_name" content="AMOS Professional Manual">
+    <meta property="og:image" content="https://amospromanual.dev/images/cover.jpg">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+
+<section>
+
+    <h1>AMOS Professional Editor Commands</h1>
+
+    <p>Documentation by F.Lionet</p>
+
+    <p>Copyright &copy; 1993 Europress Software 1993</p>
+</section>
+<section id="introduction">
+
+
+    <h2>Introduction</h2>
+
+    <p>The AMOSPro editor contains many advanced features. One of them is the
+        ability to launch AMOS programs as accessories.</p>
+
+    <p>To be an accessory a program has to respect a few rules:</p>
+
+    <ul>
+        <li>The SET ACCESSORY command must be used within the sourcecode</li>
+        <li>The program must be launched from the AMOS menu, or assigned to a key
+            shortcut.
+        </li>
+        <li>It must not be the currently edited program.</li>
+    </ul>
+
+    <p>If the above conditions are respected the program will have full access to
+        the source code of the current program. This means it can edit the file,
+        save it or do whatever necessary with it. It even has full access to the
+        editor screen, and can even display into it!</p>
+
+    <p>This system is incredibly powerful. Almost anything is possible.</p>
+
+    A few example ideas:
+    <ul>
+        <li>A palette generator: instead of typing in the colours by hand, call a
+            palette accessory then select the colours with the mouse. Upon quitting the
+            accessory, the 'Palette' instruction with the correct colours is created
+            into the source!
+        </li>
+
+        <li>Source analyser, list out all procedure names, cross reference variable
+            list etc.
+        </li>
+
+        <li>An interface between the AMOSPro editor and AREXX: The accessory gets
+            AREXX messages and transforms them into editor commands.
+        </li>
+
+        <li>An adventure generator</li>
+
+        <li>The retokeniser is a good example: have a look at it.</li>
+
+        <li>etc, etc.</li>
+    </ul>
+
+</section>
+<section id="how-does-it-work">
+
+    <h2>How does it work?</h2>
+
+    <p>Once your program is called as an accessory, it can use two AMOSPro
+        instructions: Ask Editor and Call Editor.</p>
+
+    <p>Optional parameters returned by the editor will be found in =Param and
+        =Param$.</p>
+
+    <p>All the editor calls are defined in AMOSPro_System_Equate file. You'll need
+        to use the =Equ("") instruction to get the correct value.</p>
+
+    <h3 class="command" id="i-call-editor">Call Editor FUNCTION [,PAR][,PAR$]</h3>
+
+    <p>This instruction is used to send commands to the editor. It acts just like
+        a TV remote controler: making the editor cursor move, opening a window
+        etc.</p>
+
+    <p><b>FUNCTION:</b> the number of the function to be called, must begin with "AEd_"</p>
+    <p><b>PAR:</b> an optional integer parameter, usually for requester simulated input
+        (stated for each function).</p>
+    <p><b>PAR$:</b> an optional string parameter, for example a file name.</p>
+
+
+    <h3 class="command" id="f-ask-editor">Ask Editor FUNCTION [,PAR][,PAR$]</h3>
+
+
+    <p>As the name implies, this instruction is used to get information from the
+        editor.</p>
+
+    <p><b>FUNCTION:</b> the number of the function to be called. Must begin with "AEdAsk_"</p>
+    <p><b>PAR:</b> the optional integer parameter</p>
+    <p><b>PAR$:</b> the optional string parameter.</p>
+
+
+</section>
+<section id="the-ask-editor-commands">
+    <h2>The "Ask Editor" Commands</h2>
+
+    <p>Any integer parameter is returned in <b>=Param</b><br>
+        Any string is returned in <b>=Param$</b></p>
+
+    <dl>
+        <dt>AEdAsk_CurrentLine (1)</dt>
+        <dd>
+            Returns the current line (under the cursor)<br>
+            No parameter
+        </dd>
+
+        <dt>AEdAsk_ProgramName (2)</dt>
+        <dd>Returns the name of the current program<br>
+            No parameter
+        </dd>
+
+        <dt>AEdAsk_X (3)</dt>
+        <dd>Returns the current cursor's X position<br>
+            No parameter
+        </dd>
+
+        <dt>AEdAsk_Y (4)</dt>
+        <dd>Returns the current cursor's Y position<br>
+            No parameter
+        </dd>
+
+        <dt>AEdAsk_NumberOfLines (5)</dt>
+        <dd>Returns the number of lines of the current program<br>
+            No parameter
+        </dd>
+
+        <dt>AEdAsk_BlocX1 (6)</dt>
+        <dd>Returns the X position of the start of the highlighted block (if defined)<br>
+            No parameter
+        </dd>
+
+        <dt>AEdAsk_BlocY1 (7)</dt>
+        <dd>Returns the Y position of the start of the highlighted block (if defined)<br>
+            No parameter
+        </dd>
+
+        <dt>AEdAsk_BlocY2 (8)</dt>
+        <dd>Returns the X position of the end of the highlighted block (if defined)</br>
+            No parameter
+        </dd>
+
+        <dt>AEdAsk_BlocY2 (9)</dt>
+        <dd>Returns the Y position of the end of the highlighted block (if defined)<br>
+            No parameter
+        </dd>
+
+        <dt>AEdAsk_Free (10)</dt>
+        <dd>Returns the amount of free buffer space.<br>
+            No parameter
+        </dd>
+
+        <dt>AEdAsk_Struc (11)</dt>
+        <dd>Internal use only</dd>
+
+        <dt>AEdAsk_Token (12)</dt>
+        <dd>Tokenise the given ASCII String into AMOS source code, and returns a
+            pointer to a buffer containing the tokenised code.<br>
+            <b>PAR$=</b> string to tokenise.
+    </dl>
+
+</section>
+<section id="the-editor-commands">
+
+    <h2>The editor commands</h2>
+
+    <p>After the command has been called:</p>
+
+    <p><b>=Param</b> contains the error state: 0 if no error, &lt;&gt;0 if an error occured.</P>
+
+    <p><b>=Param$</b> is empty if no errors occured, and contains the error message if an
+        error occured.</p>
+    <dl>
+        <dt>AEd_Up (1)</dt>
+        <dd>Moves the cursor up one line</dd>
+
+        <dt>AEd_Down (2)</dt>
+        <dd>Moves the cursor down one line.</dd>
+
+        <dt>AEd_Left (3)</dt>
+        <dd>Moves the cursor left one character.</dd>
+
+        <dt>AEd_Right (4)</dt>
+        <dd>Moves the cursor right one character.</dd>
+
+        <dt>AEd_TopPage (5)</dt>
+        <dd>Moves the cursor to the top of the current window.</dd>
+
+        <dt>AEd_BottomPage (6)</dt>
+        <dd>Move the cursor to the bottom of the current window.</dd>
+
+        <dt>AEd_WordLeft (7)</dt>
+        <dd>Move the cursor to the beginning of the previous word.</dd>
+
+        <dt>AEd_WordRight (8)</dt>
+        <dd>Move the cursor to the beginning of the next word.</dd>
+
+        <dt>AEd_PageUp (9)</dt>
+        <dd>Move the cursor up one page in the text.</dd>
+
+        <dt>AEd_PageDown (10)</dt>
+        <dd>Move the cursor down one page in the text.</dd>
+
+        <dt>AEd_StartLine (11)</dt>
+        <dd>Move the cursor to the start of the current line.</dd>
+
+        <dt>AEd_EndLine (12)</dt>
+        <dd>Move the cursor to the end of the current line.</dd>
+
+        <dt>AEd_WindowUp (13)</dt>
+        <dd>Moves the current window up.</dd>
+
+        <dt>AEd_WindowDown (14)</dt>
+        <dd>Moves the current window down.</dd>
+
+        <dt>AEd_WindowSmaller (15)</dt>
+        <dd>Reduce the size of the current window.</dd>
+
+        <dt>AEd_WindowBigger (16)</dt>
+        <dd>Increase the size of the current window.</dd>
+
+        <dt>AEd_TopOfText (17)</dt>
+        <dd>Move the cursor to the top of the text.</dd>
+
+        <dt>AEd_BottomOfText (18)</dt>
+        <dd>Move the cursor to the end of the text.</dd>
+
+        <dt>AEd_Return (19)</dt>
+        <dd>Performs a <kbd>RETURN</kbd></dd>
+
+        <dt>AEd_BackSpace (20)</dt>
+        <dd>Performs a <kbd>BACKSPACE</kbd>: delete one character to the left of the cursor.</dd>
+
+        <dt>AEd_Delete (21)</dt>
+        <dd>Performs a <kbd>DELETE</kbd>: delete one character to the right of the cursor.</dd>
+
+        <dt>AEd_ClrLine (22)</dt>
+        <dd>Clears the entire current line.</dd>
+
+        <dt>AEd_DelLine (23)</dt>
+        <dd>Delete the current line, and scroll up the rest of the text <kbd>Ctrl</kbd>-<kbd>Y</kbd></dd>
+
+        <dt>AEd_Tab (24)</dt>
+        <dd>Insert one tab <kbd>TAB</kbd></dd>
+
+        <dt>AEd_SetTab (25)</dt>
+        <dd>Set the current tab value.<br>
+            <b>PAR=</b> new tab value.
+        </dd>
+
+        <dt>AEd_InsertLine (29)</dt>
+        <dd>Insert one empty line at the current cursor position <kbd>F10</kbd></dd>
+
+        <dt>AEd_DelToEndOfLine (30)</dt>
+        <dd>Delete to the end of the current line <kbd>Ctrl</kbd>-<kbd>Del</kbd></dd>
+
+        <dt>AEd_PreviousLabel (31)</dt>
+        <dd>Go to previous label.</dd>
+
+        <dt>AEd_NextLabel (32)</dt>
+        <dd>Go to next label.</dd>
+
+        <dt>AEd_Load (33)</dt>
+        <dd>Load a new program in the current window.<br>
+            <b>PAR$=</b> filename of the program to load.
+        </dd>
+        <b>PAR=</b> answer to the requester "Program not saved, save it?"</dd>
+        0= CANCEL / 1=YES / 2=NO
+        </dd>
+
+        <dt>AEd_SaveAs (34)</dt>
+        <dd>Save the current program with a new name.<br>
+            <b>PAR$=</b> new filename.
+        </dd>
+
+        <dt>AEd_Save (35)</dt>
+        <dd>Save the current program.<br>
+            <b>PAR$=</b> optional name if program is not named.
+        </dd>
+
+        <dt>AEd_DelWordRight (36)</dt>
+        <dd>Delete the word to the right of the cursor.</dd>
+
+        <dt>AEd_DelWordLeft (37)</dt>
+        <dd>Delete the word to the left of the cursor.</dd>
+
+        <dt>AEd_Hide (38)</dt>
+        <dd>Hide the current program.</dd>
+
+        <dt>AEd_SetSystemMark1 (39)</dt>
+        <dd>Set system mark number 1</dd>
+
+        <dt>AEd_SetSystemMark2 (40)</dt>
+        <dd>Set system mark number 2.</dd>
+
+        <dt>AEd_SetSystemMark3 (41)</dt>
+        <dd>Set system mark number 3.</dd>
+
+        <dt>AEd_SetMark1 (42)</dt>
+        <dd>Set mark number 1.</dd>
+
+        <dt>AEd_SetMark2 (43)</dt>
+        <dd>Set mark number 2.</dd>
+
+        <dt>AEd_SetMark3 (44)</dt>
+        <dd>Set mark number 3.</dd>
+
+        <dt>AEd_SetMark4 (45)</dt>
+        <dd>Set mark number 4.</dd>
+
+        <dt>AEd_SetMark5 (46)</dt>
+        <dd>Set mark number 5.</dd>
+
+        <dt>AEd_SetMark6 (47)</dt>
+        <dd>Set mark number 6.</dd>
+
+        <dt>AEd_GotoSystemMark1 (49)</dt>
+        <dd>Move the cursor to the system mark number 1.</dd>
+
+        <dt>AEd_GotoSystemMark2 (50)</dt>
+        <dd>Move the cursor to the system mark number 2.</dd>
+
+        <dt>AEd_GotoSystemMark3 (51)</dt>
+        <dd>Move the cursor to the system mark number 3.</dd>
+
+        <dt>AEd_GotoMark1 (52)</dt>
+        <dd>Move the cursor to the mark number 1.</dd>
+
+        <dt>AEd_GotoMark2 (53)</dt>
+        <dd>Move the cursor to the mark number 2.</dd>
+
+        <dt>AEd_GotoMark3 (54)</dt>
+        <dd>Move the cursor to the mark number 3.</dd>
+
+        <dt>AEd_GotoMark4 (55)</dt>
+        <dd>Move the cursor to the mark number 4.</dd>
+
+        <dt>AEd_GotoMark5 (56)</dt>
+        <dd>Move the cursor to the mark number 5.</dd>
+
+        <dt>AEd_GotoMark6 (57)</dt>
+        <dd>Move the cursor to the mark number 6.</dd>
+
+        <dt>AEd_BlocOnOff (59)</dt>
+        <dd>Toggle the block mode on/off.</dd>
+
+        <dt>AEd_Forget (60)</dt>
+        <dd>Forget the currently stored block.</dd>
+
+        <dt>AEd_OpenLoad (61)</dt>
+        <dd>Opens a new window, and loads the specified program into it. <br>
+            <b>PAR$=</b> file name to load<br>
+            <b>PAR=</b> answer to "Buffer to small" requester. 0=NO / 1=YES
+        </dd>
+
+        <dt>AEd_BlocCut (62)</dt>
+        <dd>Cut the currently highlighted block.<br>
+
+        <dt>AEd_BlocPaste (63)</dt>
+        <dd>Paste the currently stored block.<br>
+
+        <dt>AEd_DelToStartOfLine (64)</dt>
+        <dd>Delete to the start of the current line.<br>
+
+        <dt>AEd_Undo (65)</dt>
+        <dd>Performs one step of UNDO.<br>
+
+        <dt>AEd_Search (66)</dt>
+        <dd>Initialise the search process. Search does NOT begin after this
+            instruction, you should call AEd_SearchNext or AEd_SearchPrevious.<br>
+            <b>PAR$=</b> string to look for (31 char maximum).<br>
+            <b>PAR=0:</b> lower&lt;&gt;upper<br>
+            <b>PAR=1</b> lower=upper.
+        </dd>
+
+        <dt>AEd_SearchNext (67)</dt>
+        <dd>Search for the next occurence of the string.</dd>
+
+        <dt>AEd_SearchPrevious (68)</dt>
+        <dd>Search for the previous occurence of the string.</dd>
+
+        <dt>AEd_ChangeLine (69)</dt>
+        <dd>Replace the current line with the specified one. Does NOT tokenise
+            the line or store it into the text buffer. This line will be
+            tonkenised automatically if the cursor is moved.<br>
+            <b>PAR$=</b> new string to force into the screen.
+        </dd>
+
+        <dt>AEd_NewLine (71)</dt>
+        <dd>Replace the current line on the screen and tokenise it. Then redisplays
+            the tokenised line (which may differ).<br>
+            <b>PAR$=</b>new string to force into the text.
+        </dd>
+
+        <dt>AEd_BlocStore (72)</dt>
+        <dd>Stores the highlighted block into memory.</dd>
+
+        <dt>AEd_Clear (80)</dt>
+        <dd>New the current program.<br>
+            <b>PAR=</b> answer to "Program not saved, save?" requester. 0=CANCEL / 1=YES / 2=NO
+        </dd>
+
+        <dt>AEd_Close (81)</dt>
+        <dd>Close the current window.<br>
+            <b>PAR=</b> answer to "Program not saved, save?" requester. 0=CANCEL / 1=YES / 2=NO
+        </dd>
+
+        <dt>AEd_Merge (84)</dt>
+        <dd>Merge a program from disc with the current one, at the cursor's position.<br>
+            <b>PAR$=</b> name of the program to merge.
+        </dd>
+
+        <dt>AEd_MergeAscii (85)</dt>
+        <dd>Merge an ascii text at the cursor's position.<br>
+            <b>PAR$=</b> name of the file to merge.
+        </dd>
+
+        <dt>AEd_BlocPrint (86)</dt>
+        <dd>Print the currently stored block.<br>
+
+        <dt>AEd_UnfoldAll (89)</dt>
+        <dd>Open all closed procedures.<br>
+
+        <dt>AEd_WindowPrev (91)</dt>
+        <dd>Activate previous window.<br>
+
+        <dt>AEd_WindowNext (92)</dt>
+        <dd>Activate next window.<br>
+
+        <dt>AEd_WindowToggle (93)</dt>
+        <dd>Toggle the size of the window (large or small).<br>
+
+        <dt>AEd_Redo (94)</dt>
+        <dd>Performs one REDO step.<br>
+
+        <dt>AEd_BlocSaveAscii (97)</dt>
+        <dd>Save the currently stored block as an ascii file<br>
+            <b>PAR$=</b> name of the file to create
+        </dd>
+
+        <dt>AEd_BlocSave (98)</dt>
+        <dd>Saves the currently stored block.<br>
+            <b>PAR$=</b> name of the file to create.
+        </dd>
+
+        <dt>AEd_Replace (99)</dt>
+        <dd>Initialise the replace string and replace modes. You should first
+            call AEd_Search to set the searched string, and the search mode.
+            Replace process only begins if TURBO mode is selected, otherwise you
+            must call AEd_ReplaceNext or AEd_ReplacePrevious.<br>
+            <b>PAR$=</b> string to replace with, 31 characters maximum.<br>
+            <b>PAR=0:</b> normal replace, PAR=%0100: turbo within the block, <br>
+            <b>PAR=%1000:</b> turbo for whole text.
+        </dd>
+
+        <dt>AEd_ReplaceNext (100)</dt>
+        <dd>Replace next occurence of searched string.<br>
+
+        <dt>AEd_ReplacePrevious (101)</dt>
+        <dd>Replace previous occurence of searched string.<br>
+
+        <dt>AEd_Open (103)</dt>
+        <dd>Opens a new AMOS window.<br>
+
+        <dt>AEd_PrintProgram (146)</dt>
+        <dd>Send the current program to the printer.<br>
+
+        <dt>AEd_HighlightAll (181)</dt>
+        <dd>Highlight all the current text.<br>
+
+        <dt>AEd_ChangeConfig (182)</dt>
+        <dd>Changes one of the editor's internal configuration strings. Used in
+            AMOSPro_Editor_Config.AMOS<br>
+            <b>PAR$=</b> new string<br>
+            <b>PAR=</b> number of the string to change
+        </dd>
+    </dl>
+</section>
+
+<footer>
+    <a href="13-01-configuration.html" rel="prev">Configuration</a>
+    <a href="index.html">Contents</a>
+    <a href="14-appendix-g-command-index.html">Index</a>
+    <a href="13-02-object-editor.html" rel="next">The Object Editor</a>
+</footer>
+
+</body>
+</html>
