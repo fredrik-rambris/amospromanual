@@ -2,79 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://amospromanual.dev/01-01-welcome.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/02-01-installing-amos-professional.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/03-01-getting-started.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/04-01-the-editor.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/04-02-help.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/05-01-the-bare-bones.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/05-02-string-functions.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/05-03-maths.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/05-04-control-structures.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/05-05-procedures.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/05-06-text.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/05-07-windows.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/05-08-the-joystick-and-mouse.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
@@ -86,79 +86,79 @@
   </url>
   <url>
     <loc>https://amospromanual.dev/06-01-setting-up-screens.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/06-02-using-screens.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/06-03-screen-effects.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/06-04-graphics.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/06-05-menus.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/07-01-hardware-sprites.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/07-02-blitter-objects.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/07-03-updating-objects.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/07-04-detecting-collisions.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/07-05-iff-animation.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/07-06-amal.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/07-07-icons-and-blocks.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/08-01-music.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
@@ -170,25 +170,25 @@
   </url>
   <url>
     <loc>https://amospromanual.dev/08-03-playing-music-modules.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/09-01-amos-interface.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/09-02-interface-language.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/09-03-advanced-control-panels.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
@@ -266,7 +266,7 @@
   </url>
   <url>
     <loc>https://amospromanual.dev/12-01-monitor.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
@@ -296,7 +296,7 @@
   </url>
   <url>
     <loc>https://amospromanual.dev/13-03-menu-editor.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
@@ -308,7 +308,7 @@
   </url>
   <url>
     <loc>https://amospromanual.dev/13-05-amal-editor.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
@@ -332,7 +332,7 @@
   </url>
   <url>
     <loc>https://amospromanual.dev/14-appendix-b-amos-professional-run-time.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
@@ -344,13 +344,13 @@
   </url>
   <url>
     <loc>https://amospromanual.dev/14-appendix-d-extensions.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://amospromanual.dev/14-appendix-e-memory-bank-structures.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
@@ -368,7 +368,7 @@
   </url>
   <url>
     <loc>https://amospromanual.dev/about.html</loc>
-    <lastmod>2024-03-02</lastmod>
+    <lastmod>2024-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
@@ -379,7 +379,7 @@
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://amospromanual.dev/</loc>
+    <loc>https://amospromanual.dev/index.html</loc>
     <lastmod>2024-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
