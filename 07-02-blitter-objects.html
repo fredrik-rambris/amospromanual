@@ -329,14 +329,17 @@ Loop
     <p>AMOS Professional offers a full range of commands to allow Bobs and screens to interact.</p>
 
     <h3 class="command" id="i-limit-bob">LIMIT BOB</h3>
-    <p><i>instruction: limit Bob to part of screen</i><br>
+    <p><i>instruction: limit bobs' visibility to part of screen</i><br>
         <b>Limit Bob</b> x1 ,y1 <b>To</b> x2,y2<br>
         <b>Limit Bob</b> number,x1,y1 <b>To</b> x2,y2<br>
         <b>Limit Bob</b></p>
 
     <p>
-        This command keeps all Bobs restricted to moving inside an invisible rectangular area of the
-        screen, whose coordinates are set by the usual top left to bottom right-hand corner coordinates.
+        Restricts the visibility of a numbered Blitter OBject to the LIMITs of a
+        rectangle on screen. You set up the size of this rectangle by simply
+        entering its coordinates.</p>
+
+    <p>
         If LIMIT BOB is followed with a Bob number, then only that Bob becomes restricted by the
         boundaries of the rectangle.</p>
 
@@ -349,8 +352,8 @@ Loop
 
     <p>
         Remember that a Bob must be called up with the BOB command before LIMIT BOB is used,
-        otherwise the limitation will have no effect. To restore a Bob's freedom to move around the
-        whole screen, use the command without any coordinates, like this:</p>
+        otherwise the limitation will have no effect. To remove a Bob's visibility limit,
+        use the command without any coordinates, like this:</p>
 
 <code class="prefix ex">Limit Bob</code>
 
