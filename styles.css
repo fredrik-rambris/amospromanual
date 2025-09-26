@@ -259,3 +259,8 @@ div.center {
     text-align: center;
     margin: 0 auto;
 }
+
+table.table th {
+    text-align: left;
+    font-weight: bold;
+}
