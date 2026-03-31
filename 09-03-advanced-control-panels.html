@@ -212,6 +212,22 @@ TRAP: Print Mid$(DB$,Edialog,80) : Wait Key : End : <comment>Rem Error handler</
 Loop
 </code>
 
+    <h3 class="command updated" id="fn-zdialog">ZDIALOG</h3>
+    <p><i>function: return the zone number under screen coordinates</i><br>
+        zone=<b>Zdialog</b>(channel number,x,y)</p>
+
+    <p>
+        ZDIALOG checks which dialogue zone lies under the given screen coordinates, without waiting
+        for user input. The first parameter is the number of an open dialogue channel, followed by x
+        and y screen coordinates to test.</p>
+
+    <p>
+        The result is -1 if the tested position is not over a zone, otherwise the zone number is returned.</p>
+
+<code class="prefix ex">Z=Zdialog(1,Mouse X,Mouse Y)
+If Z>-1 Then Print "Zone";Z;"is under the mouse"
+</code>
+
     <h3 class="command" id="fn-rdialog">RDIALOG</h3>
     <p><i>function: read the status of a zone or button</i><br>
         button=<b>RDIALOG</b>(channel number,button number)<br>

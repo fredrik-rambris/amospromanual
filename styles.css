@@ -264,3 +264,10 @@ table.table th {
     text-align: left;
     font-weight: bold;
 }
+
+.updated:before {
+    content: "🆕";
+    margin-right: 0.3em;
+    font-size: 1em;
+    vertical-align: middle;
+}

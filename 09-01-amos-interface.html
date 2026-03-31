@@ -152,8 +152,8 @@
 <code class="prefix ex">EXit;</code>
 
     <h3 class="command" id="inti-ex">EX<span>it</span></h3>
-    <i>Interface instruction: leave Interface and return to AMOS Professional Basic</i><br>
-    <b>EX</b>;</p>
+    <p><i>Interface instruction: leave Interface and return to AMOS Professional Basic</i></p>
+    <p><b>EX</b>;</p>
 
     <p>
         The EXit command must always be the last instruction in an Interface program. It is used to
@@ -524,7 +524,7 @@ RUn 0,0; wait for quit button explained later
 A$=A$+"SI 160,60; SA 1; <comment>save area under dialogue box</comment>"
 A$=A$+"IN 0,0,0; GB 5,5,155,56; IN 5,0,0; GB 0,0,150,50; <comment>draw a fancy box</comment>"
 A$=A$+"PO 5,10,'AMOS Professional',2,4; PR 45,20,'Basic',4; <comment>print messages</comment>"
-A$=A$+"RU 0,%0110; <comment>wait for either a mouse click or a key press</comment>"
+A$=A$+"RU 0,%1100; <comment>wait for either a mouse click or a key press</comment>"
 A$=A$+"EXit;"
 D=Dialog Box(A$)
 </code>

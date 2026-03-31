@@ -315,16 +315,17 @@ Vslider 250,0 To 319,199,10,2,6
         may be scrolled through at will, the display window can be dragged around the screen and
         there is even a facility to include a title line.</p>
 
-    <h3 class="command" id="i-read-text-dollar">READ TEXT$</h3>
+    <a id="i-read-text-dollar"></a>
+    <h3 class="command updated" id="i-read-text">READ TEXT</h3>
     <p><i>instruction: display a text window on screen</i><br>
-        <b>Read Text$</b> name$<br>
-        <b>Read Text$</b> name$,address, length</p>
+        <b>Read Text</b> name$<br>
+        <b>Read Text</b> name$,address,length</p>
 
     <p>
-        In its simplest form, the READ TEXT$ command reads the text held in a specified filename on
+        In its simplest form, the READ TEXT command reads the text held in a specified filename on
         disc, for example:</p>
 
-<code class="prefix ex">Read Text$ Fsel$("**")</code>
+<code class="prefix ex">Read Text Fsel$("**")</code>
 
     <p>
         You can move through the displayed text using scroll bars, the arrow icons or via the following
@@ -339,7 +340,7 @@ Vslider 250,0 To 319,199,10,2,6
 </pre>
 
     <p>To read some text from an address in memory, there is an alternative version of the READ
-        TEXT$ command. In this case the name$ parameter refers to a <b>title</b> line that will be printed at
+        TEXT command. In this case the name$ parameter refers to a <b>title</b> line that will be printed at
         the top of the viewing window. Address holds the address of the first line of the text to be read.
         Length specifies the length of the text to be read, in bytes.</p>
 </section>
