@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>The APCmp Utility - AMOS Professional Manual</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords"
+        content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="Fredrik Rambris">
+  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+  <meta property="og:site_name" content="AMOS Professional Manual">
+  <meta property="og:image" content="https://amospromanual.dev/images/cover.jpg">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="canonical" href="https://amospromanual.dev/14-05-the-apcmp-utility.html">
+</head>
+<body>
+
+<section>
+  <h1>The APCmp Utility</h1>
+</section>
+
+<section id="01-what-is-apcmp">
+  <h2>What is APCmp?</h2>
+
+  <p>
+    Well, the AMOS Pro Compiler is really two separate programs:
+  </p>
+
+  <ol>
+    <li><p>The Compiler Shell provides a fancy control panel which can be accessed from
+      either the AMOS Editor or the Workbench. Amazingly, it was written entirely in
+      AMOS Pro! All those attractive icons and powerful menu options were generated
+      using the built-in AMOS Interface commands! So if you've yet to upgrade to AMOS
+      Professional, it's another compelling reason to take the plunge.</p></li>
+    <li><p>The actual Compiler's core code is held in a small module called APCmp (<strong>A</strong>mos
+      <strong>P</strong>rofessional <strong>C</strong>o<strong>mp</strong>iler). It's a 68000 program which converts
+      your AMOS or ASCII
+      files into ultra-fast machine code. APCmp is normally loaded invisibly by the Shell,
+      but it can also be called directly from the CLI.</p></li>
+  </ol>
+
+  <p>
+    APCmp is an extremely clever program which automatically configures itself to your
+    available memory. It doesn't matter a jot if you've got a simple A500 or the latest A4000
+    dream machine, you'll still get terrific results from this package!
+  </p>
+</section>
+
+<section id="02-tokenising">
+  <h2>Tokenising</h2>
+
+  <p>
+    This is a technical term for the process of converting a list of Basic instructions into a form
+    which can be executed directly by an AMOS Editor.
+  </p>
+
+  <p>
+    Generally the AMOS Editor tokenises your programs as you are typing them. You
+    can see the effect whenever you move to a new line. As AMOS reads through your text, any
+    variables and instructions are picked out and displayed in their own distinctive style.
+  </p>
+
+  <p>
+    So:
+  </p>
+
+  <code class="prefix edit">print "This is a test":a=b+5:gosub code</code>
+
+  <p>becomes:</p>
+
+  <code class="prefix edit">Print "This is a test" : A=B+5 : Gosub CODE</code>
+
+  <p>
+    The AMOS Pro Compiler can handle either tokenised AMOS programs or raw ASCII text. It
+    works by checking the first few characters of your intended source programs and seeing if
+    they make sense. If it recognises an AMOS program it can compile it immediately. But if it
+    encounters an ASCII program it will load up a tokeniser from "Compiler.Lib" and
+    automatically generate an appropriate ".AMOS" file for use with the Compiler.
+  </p>
+
+  <p>
+    The tokenisation is usually performed directly onto the disk. So the resulting
+    ".AMOS" program file will be saved in the same folder as the original ASCII source file. If
+    you want to speed things up though, you can store all temporary files into a ram disk. This
+    can be selected using either the TEMP directive from the command line or by changing the
+    default Compiler options from the Shell. The line you'll need is:
+  </p>
+
+  <code class="prefix cli">APCmp File.Asc TEMP="Ram:"</code>
+
+  <p>
+    The destination file is generated directly from the source name. The Compiler removes any
+    characters after the dot and just adds ".AMOS" to the result. So "File.Asc" would be saved
+    as "File.AMOS"
+  </p>
+
+  <p>
+    Once the file has been successfully tokenised the new ".AMOS" file is tested and
+    entered into the Compiler. The temporary ".AMOS" file is then deleted from disk
+    automatically.
+  </p>
+
+  <p>
+    If an error occurs during the tokenisation you'll get an appropriate message on the
+    screen:
+  </p>
+
+  <code class="prefix cli">Line too long at line XXX</code>
+</section>
+
+<section id="03-tokenising-files-only">
+  <h2>Tokenising files only</h2>
+
+
+  <p>
+    The AMOS Pro Compiler can also be used as a simple tokeniser.
+  </p>
+
+  <code class="prefix cli">APCmp Myprog.Asc TOKEN</code>
+
+  <p>
+    The TOKEN option generates a new ".AMOS" file called "Myprog.AMOS" which can be
+    subsequently loaded directly into your AMOS Editor. The Compiler then stops in its tracks.
+    This type of tokenisation is much faster than the MERGE ASCII command from the Editor.
+    It's therefore ideal for converting large numbers of source files into ".AMOS" format.
+  </p>
+</section>
+
+<section id="04-testing">
+  <h2>Testing</h2>
+
+  <p>
+    The AMOS Pro Compiler only works with tested programs. So if it encounters a file which
+    hasn't been checked, it will need to test it first. This applies to both native ".AMOS"
+    programs and ASCII files which have been tokenised by the Compiler.
+  </p>
+
+  <p>
+    If it does require testing then APcmp will load a series of routines from
+    "Compiler.Lib" and check the program automatically. The program will then be entered
+    straight into memory and tested just as if you'd tested it from the Editor.
+  </p>
+
+  <p>
+    If an error occurs it will be reported as normal using the error messages from the
+    "S:AMOSPro_Interpreter_Config" file. The Compiler will then abort the compilation.
+  </p>
+</section>
+
+<section id="05-the-amos-library">
+  <h2>The AMOS.Library</h2>
+
+  <p>
+    AMOS Pro users must have a copy of this library installed in the "LIBS:" folder of their
+    current start up disk. It contains all those vital screen display routines which make AMOS
+    programs so special.
+  </p>
+
+  <p>
+    The original AMOS Compiler saved a separate copy of these routines with each compiled
+    program, This resulted in a 45K increase in the final program size of compiled programs.
+  </p>
+
+  <p>
+    APCmp avoids this overhead by sharing a single library file between all your
+    compiled programs. The only snag is that you'll need to keep a permanent copy of the
+    "AMOS.Library" on your boot disk.
+  </p>
+
+  <p>
+    However, if you want to create truly independent programs, you can force the
+    Compiler to revert to the original scheme. Just add the INCLIB directive to the end of your
+    command line like so:
+  </p>
+
+  <code class="prefix cli">APCmp MyProg.AMOS INCLIB</code>
+
+  <p>
+    If you're using the Compiler Shell, you can achieve the same effect by selecting the "Include
+    AMOS.library in compiled program?" option from the "Compiled Program Setup" menu.
+    Each program will now include its own individual copy of the AMOS,library.
+  </p>
+</section>
+
+<section id="06-the-compiler-configuration">
+  <h2>The Compiler Configuration</h2>
+
+  <p>
+    The Compiler stores its various configuration settings in the "S:" folder of your current boot
+    disk. Unlike the old AMOS system, these files are not in text format and can't be modified
+    with a standard text editor. They should only be changed using the dedicated "Setup"
+    option from the Compiler Shell.
+  </p>
+</section>
+
+<section id="07-internal-buffers">
+  <h2>Internal buffers</h2>
+
+  <p>
+    In the original AMOS Compile, it was occasionally necessary to increase the Compiler
+    buffers in order to compile very large AMOS programs. This process is now completely
+    automatic.
+  </p>
+</section>
+
+<footer>
+  <a href="14-04-compiler-tutorial.html" rel="prev">Compiler Tutorial</a>
+  <a href="./">Contents</a>
+  <a href="99-appendix-g-command-index.html">Index</a>
+  <a href="14-06-the-compiler-shell.html" rel="next">The Compiler Shell</a>
+</footer>
+
+</body>
+</html>
+

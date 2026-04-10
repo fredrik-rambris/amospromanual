@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compiling from within AMOS Professional 2.x - AMOS Professional Manual</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords"
+        content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="Fredrik Rambris">
+  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+  <meta property="og:site_name" content="AMOS Professional Manual">
+  <meta property="og:image" content="https://amospromanual.dev/images/cover.jpg">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="canonical" href="https://amospromanual.dev/14-07-compiling-from-within-amos-professional.html">
+</head>
+<body>
+
+<section>
+  <h1>Compiling from within AMOS Professional 2.x</h1>
+
+  <p>
+    Although the AMOS Pro Compiler works well with AMOS or EASY AMOS, it's sensational
+    from AMOS Professional. So if you're an AMOS Professional user, you're in for a real treat.
+    Compiling is a cinch, You simply select the "Compile" option from the "User"
+  </p>
+  <p>
+    menu and watch your program compile in front of your eyes. Development is effortless,
+    even on the smallest system. And if you've a hard disk, you'll be amazed at the sheer speed
+    of this package. Most programs will compile in a matter of seconds!
+  </p>
+</section>
+
+<section id="01-calling-the-compiler-shell-from-the-user-menu">
+  <h2>Calling the Compiler Shell from the User menu</h2>
+
+  <p>
+    Here's a list of the available menu options:
+  </p>
+
+  <p><b>Compiler Shell</b><br>
+    Runs the Compiler Shell and lets you compile your programs using
+    a range of powerful options.</p>
+
+  <p><b>Compile</b><br>
+    Compiles and tests the program in the currently selected window.
+    It then places the compiled program into its very own window
+    ready for running.</p>
+
+  <p><b>Set Compiler</b><br>
+    Calls the Compiler Shell and enters the main setup menu. When
+    you leave you'll be returned straight back to the AMOS Pro Editor.</p>
+</section>
+
+<section id="02-compiling-from-the-current-amos-pro-window-to-another">
+  <h2>Compiling from the current AMOS Pro window to another</h2>
+
+
+  <p>
+    If you've enough memory you'll be able to compile the current program directly from the
+    "User" menu. AMOS Pro will automatically place the resulting compiled program in Its
+    own editor window. You'll now be able to run it straight from the editor, just like any other
+    program!
+  </p>
+
+  <p>
+    Unfortunately, this feature makes heavy demands on your system resources, So if
+    you've less than a couple of megabytes you could well run out of memory. However, there's
+    no need to despair. You'll still be able to quickly compile even the largest programs from
+    either the Shell or from AMOS Pro's Direct mode.
+  </p>
+
+  <p>
+    Here's how to compile from window to window:
+  </p>
+
+  <ol>
+    <li><p>Select the window containing the source program to be compiled by clicking on it
+      and making it active.</p></li>
+    <li><p>Choose the "Compile" option from the user menu.</p></li>
+    <li><p>The Compiler will now test your program. If there's an error a requester will be
+      displayed with the following options:</p>
+      <p><b>Return to AMOS Professional Editor:</b>This will return you to the current program.
+        The cursor will be helpfully positioned over the offending line.</p>
+      <p><b>Continue:</b>Will return you to the Shell program, If you wish, you can now select a
+        new program to compile. </p></li>
+    <li><p>After your program has been tested, it will be compiled into a temporary file on the
+      disk, As a default, all temporary files are stored on the Ram disk, but this can be
+      easily changed if you're short of memory, </p></li>
+    <li><p>Once it's been successfully compiled a new editor window will be opened up for
+      the resulting program. If you've compiled this program before, any previous
+      version will be automatically replaced.</p></li>
+    <li><p>The temporary file will now be erased and the compiled program will be renamed
+      so that its pathname matches that of the original source program.</p></li>
+    <li><p>Finally, you'll be returned to the editor with your compiled program active and
+      ready to run.</p></li>
+  </ol>
+</section>
+
+<section id="03-compiling-from-direct-mode">
+  <h2>Compiling from direct mode</h2>
+
+  <p>
+    The COMPILE command lets you call up all the features of the Compiler straight from
+    Direct mode using a fraction of the normal memory.
+  </p>
+
+  <h3 class="command" id="i-compile">COMPILE</h3>
+  <p><i>Compile a program from AMOS Professional</i><br>
+    <b>Compile</b> command_string$
+  </p>
+
+  <p>
+    If the Compiler has not been previously installed, it will be immediately loaded from the
+    "APSystem" directory. You will be asked to insert an appropriate disk if it's not available.
+  </p>
+
+  <p>
+    <em>command_string$</em> contains the name of the program to be compiled along with an
+    optional list of Compiler directives.
+  </p>
+
+  <p>
+    If it's set to "", AMOS Pro will automatically compile the current program from the
+    editor, using the default Compiler options. The results will be saved straight onto the disk
+    using a variation of the original filename.
+  </p>
+  <p>
+    Example:<br>
+    Suppose you are presently editing the file "Df1:My_Program.AMOS", You could
+    compile this file by simply entering direct mode and typing:
+  </p>
+
+  <code class="prefix direct">Compile ""</code>
+
+  <p>
+    The Compiler would now save the results in the file "Df1:My_Program"
+    command_string$ uses the same directives as the APCmp utility discussed in <a
+      href="14-08-compiling-from-the-cli.html">Chapter 14-8</a>.
+  </p>
+
+  <p>
+    Here's a quick run-down of the more Important options:
+
+  </p>
+  <pre>Compile "Program.AMOS [TO destination] [TYPE=0/1/2/3] [NODEF] [NOLIB/INCLIB]"</pre>
+
+  <p>
+    As you can see, the options have changed dramatically since the original AMOS Compiler.
+    We've updated them to conform to the standard format used by AmigaDos 2.0. Another
+    point to keep in mind is that the old "-D" options have been completely removed They're
+    no longer needed because the Compiler automatically makes the best use of your available
+    memory.
+  </p>
+
+  <p>
+    <em>Program.AMOS</em> is the name of an AMOS program you wish to compile.
+  </p>
+  <p>
+    <em>TO</em> enters the name of an optional destination file. The default is simply the original
+    name of your program without the ".AMOS" extension.
+  </p>
+  <p>
+    If your filename Includes spaces you'll need to surround it with a pair of single
+    quotes.
+  </p>
+  <p>
+    For example:
+  </p>
+
+  <code class="prefix direct">Compile "'test me.amos'"</code>
+
+
+  <p>
+    <em>TYPE</em> chooses the type of your complied program.
+  </p>
+  <dl>
+
+    <dt>TYPE=0</dt>
+    <dd>Creates a Workbench program with its own Icon (default).</dd>
+    <dt>TYPE=1</dt>
+    <dd>Produces a normal CLI program.</dd>
+    <dt>TYPE=2</dt>
+    <dd>Generates a CLI program which runs as a detached task.</dd>
+    <dt>TYPE=3</dt>
+    <dd>Defines a “.AMOS” program, These can only be run from AMOS Pro.</dd>
+  </dl>
+
+  <p>
+    <em>NODEF</em> stops the compiled program from creating a default screen for your graphics. If it's
+    Included, your program will start off with a totally clean display, so that you can set up
+    your screens invisibly in the background. You will however, need to define a new screen
+    before using any of the text, graphics, or bob commands.
+  </p>
+
+  <p>
+    NOLIB saves the compiled program using the new shared library system. Instead of
+    Including its own copy of all the AMOS system libraries each program now loads a single
+    "AMOS.Library" file from the LIBS: directory.
+  </p>
+  <p>
+    But since your programs are reliant on the "AMOS.Library", they're not really
+    independent of the AMOS System. If this is a problem, you can call up the INCLIB directive
+    to store the libraries as part of the compiled program. This generates fully stand-alone
+    programs, just like the original AMOS Compiler.
+  </p>
+  <p>
+    Examples:
+  </p>
+
+  <code class="prefix direct">Compile "Prog.AMOS"</code>
+
+  <p>
+    Compiles "Prog.AMOS" and stores the new version in a file called "Prog". This file can
+    now be executed from either the CLI or Workbench as required.
+  </p>
+
+  <code class="prefix direct">Compile "Prog.AMOS TYPE=3"</code>
+
+  <p>
+    Compiles your program in ".AMOS" format, This file can be loaded straight into any
+    AMOSPro editor window and run just like a normal program.
+  </p>
+
+  <code class="prefix direct">Compile "Prog.AMOS TO Prog"</code>
+
+  <p>
+    Creates a compiled program called "Prog" along with an appropriate Workbench icon.
+  </p>
+
+  <p>
+    See <a href="14-08-compiling-from-the-cli.html">Chapter 14-8</a> for full details of the available Compiler options.
+  </p>
+</section>
+
+<section id="04-the-compiler-extension-commands">
+  <h2>The Compiler extension commands</h2>
+
+  <h3 class="command i-run">RUN</h3>
+  <p><i>Run a compiled program</i><br>
+    <b>Run</b> "program name"
+  </p>
+
+  <p>
+    Actually, this isn't a new instruction at all! It's just an extended version of the original
+    AMOS RUN command.
+  </p>
+
+  <p>
+    You can use this feature to split your program into several parts which can be
+    loaded from the disk when they are required This technique is widely used in commercial
+    games. Each level in the game is now assigned to a separate program on the disk and
+    loaded separately, allowing the full game to run in low memory configurations.
+    RUN can be freely used in any of your compiled programs. There are only a couple
+    of restrictions.
+  </p>
+
+  <ol>
+    <li><p>RUN can only be called from a CLI or Workbench program. So you can't chain a
+      group of ".AMOS" files in this way.</p></li>
+    <li><p>If you have a limited amount of RAM, you might encounter problems due to
+      memory fragmentation. If so, you'll be delighted to discover that we've included a
+      powerful new memory saving feature along with the AMOS Pro Compiler:</p></li>
+  </ol>
+
+  <p>
+    If you get an "Out of memory" error, just place the "-Mem" statement at the start of the
+    COMMAND_LINE$, before the final RUN. This will save the maximum amount of space
+    for your compiled program. Example:
+  </p>
+
+  <code class="prefix edit">Command Line$="-Mem" : Run "Myprog"</code>
+
+  <p>
+    Whenever the RUN command encounters the keyword "-Mem" in COMMAND LINES it
+    will automatically close all your screens, clear the internal memory buffers and close the
+    "AMOS.library", the only thing remaining will be a small loader program which consume
+    Just 2K. So you'll have the maximum possible space tor your compiled program. Note: As
+    your program loads, the Workbench will be temporarily displayed on the screen, if you
+    need to transfer additional information in the command line, you can simply add it after
+    the
+    <nobr>"-Mem"</nobr>
+    .
+  </p>
+  <p>
+    Example:
+  </p>
+
+  <code class="prefix edit">Command Line$="-Mem Hello World" : Run "MyProg"</code>
+
+  <p>
+    When "MyProg" is executed the command line will only contain "Hello World"
+  </p>
+
+  <h3 class="command f-command-linedollar">=COMMAND LINE$</h3>
+  <p><i>Read/Set command line parameters</i><br>
+    <b>C$=Command Line$</b><br>
+  </p>
+
+  <p>
+    <b>COMMAND LINE$</b> grabs the contents of the CLI command line and saves It for your
+    compiled program. It can also be used with the AMOS RUN instruction to transfer
+    information between several connected programs (as shown above).
+  </p>
+
+  <p>
+    =<b>COMMAND LINE$</b> returns a string containing ail the parameters which have
+    been entered from the command line. If they've not been defined, you'll get an empty string
+    ("") instead.
+  </p>
+
+  <p>
+    Note: You are recommended to check the command line as soon as possible after your
+    program initialises, as it's held in a small buffer used by the AMOS graphic instructions,
+  </p>
+  <p>
+    Examples:
+  </p>
+
+  <code class="prefix cli">1&gt; Test one two three</code>
+
+  <p>
+    Runs a program called "Test" and loads the string "one two three" into
+    <nobr><b>COMMAND LINE$</b></nobr>
+    ,
+  </p>
+
+  <code class="prefix edit">Command Line$="string"</code>
+
+  <p>
+    This sets the command line to “string”, The string can include anything you like, and can be
+    up to 256 characters long, It's often used Just before the RUN command to preserve vital
+    information between two chained programs. (compiled or interpreted). Example:
+  </p>
+
+  <code class="prefix edit">Command Line$=Str$(SCORE)
+    Run "Level2.AMOS"</code>
+
+  <p>
+    Saves the score into the command line and then executes a new program called
+    “Level2.AMOS” straight from the disk.
+  </p>
+  <p>
+    You could now read the score at the start of the “Level2.AMOS” program using a
+    line like:
+  </p>
+
+  <code class="prefix edit">SCORE=Val(Command Line$)</code>
+
+  <h3 class="command i-comp-test">COMP TEST</h3>
+  <p><i>Carry out compiler tests</i><br>
+    <b>Comp Test</b><br>
+    <b>Comp Test On</b><br>
+    <b>Comp Test Off</b></p>
+
+  <p>
+    AMOS Professional regularly carries out the following activities.
+  </p>
+
+  <ul>
+    <li><p>Sprites and Bobs are redrawn at their new positions.</p></li>
+    <li><p>Menus are checked for the presence of the mouse.</p></li>
+    <li><p>The Control-C keys are tested.</p></li>
+  </ul>
+
+  <p>
+    If the timing in your program is really critical, these activities might cause an unwelcome
+    interruption. So you may find it helpful to take control over the entire testing process
+    yourself. That's the job of the <b>Comp Test</b> commands.
+  </p>
+
+  <p><b>Comp Test On</b><br>
+    If Comp Test is set to On, checks will only be carried out before Jump instructions such as
+    GOTO or WHILE, and time-consuming commands like PRINT or WAIT. This is the
+    standard system used by the AMOS Pro interpreter.
+  </p>
+
+  <p><b>Comp Test Off</b><br>
+    The Comp Test Off command stops the testing completely and speeds your programs
+    up to ten percent. You can use it to optimise time critical sections of your routines so that
+    they run at the maximum possible rate. This technique can be invaluable for programs such
+    as fractal generators or 3D routines, which need to perform vast numbers of calculations
+    every second.
+  </p>
+
+  <p>
+    <b>Warning!</b> Comp Test Off completely disables the Control-C feature! So if a problem
+    occurs you'll be unable to get back to the AMOS Pro editor without rebooting. It's therefore
+    vital to SAVE your program onto the disk before using this feature, as otherwise you could
+    lose hours of valuable work!
+  </p>
+
+  <p><b>Comp Test</b><br>
+    Comp Test performs a single test in your program. It's called after a Comp Test Off to
+    provide you with manual control over the entire testing process.</p>
+
+  <h3 class="command" id="i-comp-load">COMP LOAD</h3>
+  <p><i>Load the main compiler software</i><br>
+    <b>Comp Load</b> ["path"]</p>
+
+  <p>
+    Comp Load loads the full Compiler utility into memory. As a default, the Compiler will
+    be taken from the APCmp file in "APSystem" folder of your current boot disk. A "file not
+    found" message will be returned if it's not available.
+  </p>
+  <p>
+    The optional pathname allows you to load the Compiler from anywhere on your
+    present system. This feature is mainly intended for owners of hard disks who wish to keep
+    the Compiler in a separate folder such as "C:". It's also been created so that the Shell
+    Compiler can load in the Compiler code!
+  </p>
+
+  <code class="prefix direct">Comp Load</code>
+
+  <p>Loads the Compiler into memory from the APSystem folder.</p>
+
+  <code class="prefix direct">Comp Load "C:APCmp"</code>
+
+  <p>
+    Reads the Compiler from the "C" directory of your startup disk.
+  </p>
+  <p>
+    Once it's been installed, the Compiler will remain in memory until you either leave AMOS
+    Pro or remove it yourself with the COMP DEL instruction.
+  </p>
+
+  <h3 class="command" id="i-comp-del">COMP DEL</h3>
+  <p><i>Restore the memory used by Compiler</i><br>
+    <b>Comp Del</b></p>
+
+  <p>
+    Comp Del removes the Compiler from memory.
+  </p>
+
+  <h3 class="command" id="fn-comp-here">=COMP HERE</h3>
+  <p><i>Return Compiler status</i><br>
+    <b>f=Comp Here</b></p>
+
+  <p>
+    COMP HERE returns a value of TRUE(-1) if the Compiler is available from memory or
+    FALSE (0) if it is not installed.
+  </p>
+
+  <h3 class="command" id="fn-comp-errdollar">=COMP ERR$</h3>
+  <p><i>Return last error message</i><br>
+    <b>M$=Comp Err$</b></p>
+
+  <p>
+    Returns the most recent error message generated by the Compiler. If there's been no error
+    since the last compilation you'll receive an empty string "" instead.
+  </p>
+
+  <h3 class="command" id="fn-comp-size">=COMP SIZE</h3>
+  <p><i>Return compiled program size</i><br>
+    <b>s=Comp Size</b></p>
+
+  <p>
+    The effect of COMP SIZE varies depending on when it is called, but it normally holds the
+    size of the last successfully compiled program.
+  </p>
+  <p>
+    If you call it immediately after a compilation, you'll get the length of the program in
+    bytes. Next time, you'll be presented with the number of instructions in your program. Any
+    further attempts will return a value of zero.
+  </p>
+</section>
+
+<section id="05-squash-and-unsquash">
+  <h2>Squash and Unsquash</h2>
+
+
+  <h3 class="command" id="fn-squash">=SQUASH</h3>
+  <p><i>Compact an area of memory</i><br>
+    <b>L=Squash(Address,Length,Flag,Ahead,Colour)</b></p>
+
+  <p>
+    SQUASH compresses an area of memory into a fraction of its normal size. The squashing
+    process can be stopped at any time by pressing Control-C.
+  </p>
+
+  <p>
+    <em>Address</em> holds the address in memory of your selected memory block. Usually, this
+    will be the start of an AMOS memory bank but you can also compress other memory areas
+    with this system as well.
+  </p>
+
+  <p>
+    Never attempt to squash a sprite or icon bank. These are not stored in one
+    continuous memory block, so they can't be compressed using a simple SQUASH operation.
+    You can however, freely squash all other banks including those containing samples or
+    menus.
+  </p>
+
+  <p>
+    <em>Length</em> specifies the number of bytes of data to be compacted.
+  </p>
+
+  <p>
+    <b>Warning!</b> The squasher will automatically overwrite your existing data with the new
+    packed version.
+  </p>
+
+  <dl>
+    <dt>Flag=0: SLOW MODE</dt>
+    <dd>Sets SLOW MODE. This reserves the absolute minimum space for the
+      compression process. As the name suggests, the squashing may take some
+      time to complete.
+    </dd>
+
+    <dt>Flag&lt;&gt;0: FAST MODE</dt>
+    <dd>Activates FAST MODE and compacts the data in a separate memory area
+      for the maximum possible speed. In order to use this feature, you'll need
+      enough RAM to hold a memory block at least twice the size as the original
+      data. If you run out of space AMOS will automatically flip back to SLOW
+      mode.
+    </dd>
+
+  </dl>
+  <p>
+    If SLOW mode has been set, <em>ahead</em> specifies how far (in bytes) the squasher will search
+    ahead during the compaction process. The higher the figure the greater the compaction
+    ratio and the slower the execution speed. The minimum is 256 (fast but inefficient) and the
+    maximum is 4096 (very slow). A reasonable value to use is about 1024.
+  </p>
+
+  <p>
+    Colour is the number of a colour (0-31) to be flashed on the screen while the data is
+    being squashed. After your data has been compacted the squasher will return one of the
+    following values:
+  </p>
+
+  <dl>
+    <dt>L=0:</dt>
+    <dd>This indicates the squash was successful and returns the new length of the
+      compressed data.
+    </dd>
+
+    <dt>L&lt;0:</dt>
+    <dd>The squash was halted with Control-C.</dd>
+
+    <dt>L&gt;0:</dt>
+    <dd>The compression has been aborted because the squashed length turns out to be
+      longer than the original. This is very rare but it can occasionally happen. Tile worst
+      offenders are sound samples or banks containing compacted IFF screens.
+    </dd>
+  </dl>
+
+
+  <h3 class="command" id="fn-unsquash">=UNSQUASH</h3>
+  <p><i>Unpack a squashed memory area</i><br>
+    <b>L=Unsquash(Address,Length)</b></p>
+
+  <p>
+    UNSQUASH restores a block of data to its original state. It's used after a SQUASH
+    instruction to unpack the selected memory area.
+  </p>
+  <p>
+    <em>Address</em> holds the address of the first byte to be unpacked.
+  </p>
+  <p>
+    <em>Length</em> specifies the number of bytes to be de-compressed This should be the
+    length of the packed data returned by the SQUASH command.
+  </p>
+
+  <p>
+    <b>Beware!</b> UNSQUASH completely overwrites the current contents in your chosen memory
+    block. So you'll need to reserve a bank of the original (unsquashed) length to hold the new
+    data. You can then BLOAD the packed data at the beginning of this bank and call the
+    UNSQUASH function. Example:
+  </p>
+
+  <code class="prefix edit">
+    <comment>Rem
+    Rem Squasher demo
+    Rem This kind of picture is very difficult for squashers!
+    Rem</comment>
+    Screen Open 0,640,200,2,Hires
+    Colour 1,$FFF
+
+    For N=0 To 80
+      Circle Rnd(639),Rnd(199),Rnd(50)+1
+    Next N
+
+    Screen Open 1,640,3*8,4,Hires
+    Curs Off
+    Screen Display 1,,220,, : Wait Vbl
+
+    Do
+      Bell : Centre At(,1)+"Press any key to Squash"
+      Wait Key
+
+      Screen 0 : Screen To Front 0 : Wait Vbl
+      Timer=0
+      S=Squash(Logbase(0),16000,-1,1024,17)
+
+      Screen 1 : Screen To Front 1 : Wait Vbl
+      Cls
+      Centre At(,0)+"Picture squashed in "+Str$(Timer/50)+ " seconds"
+      Centre At(,1)+"Original size: 16000 bytes, squashed size:"+Str$(S)
+      Centre At(,2)+"Press any key to unsquash the picture": Wait Key
+
+      Screen 0 : Screen to Front 1 : Wait Vbl
+      L=Unsquash(Logbase(0),S)
+
+      Screen 1 : Screen to Front 1 : Wait Vbl
+      Cls
+      Centre At(,0)+" Picture restored!"
+    Loop
+  </code>
+
+</section>
+
+<section id="06-squashing-using-the-power-packer-library">
+  <h2>Squashing using the Power Packer Library</h2>
+
+
+  <p>
+    The well known Power Packer Library can be called directly from AMOS Pro using the
+    commands below. When you use these commands the library will be reacJ from the Libs:
+    directory. So you must ensure it's available.
+  </p>
+
+  <h3 class="command" id="i-ppload">PPLOAD</h3>
+  <p><i>Loads and unpacks a file crunched with the PPSAVE command</i><br>
+    <b>Ppload "Filename",[b]</b></p>
+
+  <p>
+    A compacted file can be accessed from disk and unpacked Into bank b. The file must have
+    been previously saved using the PPSAVE command.
+    </p>
+  <p>
+    If the bank number is absent, the file will be unpacked into the bank from where h
+    was originally saved.</p>
+
+  <h3 class="command" id="i-ppsave">PPSAVE</h3>
+  <p><i>Compacts a bank using the Power Packer Library and saves it as a file</i><br>
+    <b>Ppsave "Filename",b[,efficiency]</b></p>
+
+  <p>
+    This command allows you to save out any type of bank into a crunched file, The file can
+    then be read in again using PPLOAD. Saving in this way will allow you to save valuable disk
+    space, The optional <em>efficiency</em> parameter allows you to state how well the bank will be
+    crunched:
+  </p>
+
+  <ul style="list-style: none">
+    <li>0 = Fast</li>
+    <li>1 = Mediocre</li>
+    <li>2 = Good</li>
+    <li>3 = Very good</li>
+    <li>4 = Best</li>
+  </ul>
+
+  <p>
+    If efficiency is not present the command will use a value of 2 (Good) to crunch the file.</p>
+
+  <h3>Power packer errors</h3>
+
+  <dl>
+    <dt>Cannot open powerpacker.library (v35)</dt>
+    <dd>If the library cannot be accessed from the Libs: directory you'll receive this error. It's also
+      important to be using Version 35. We found this to be the only reliable library. Some
+      versions of power packer do not report the "Cannot pack bank" error, in which case the
+      data is not packed as it should be. If this happens or you just want to be sure packing will
+      happen correctly, then ensure your Libs: directory contains the library from the
+      "AMOSPro_Compiler" disk.</dd>
+
+    <dt>Cannot pack bank</dt>
+    <dd>This occurs when the size of the packed bank exceeds the size of the unpacked bank. This
+      usually happens with samples.</dd>
+
+    <dt>Not a powerpacked bank</dt>
+    <dd>The data file you're attempting to load is not a powerpacked file.</dd>
+
+  </dl>
+
+  <p>Please also note</p>
+
+  <ul>
+    <li><p>PPLOAD will refuse to load a file that has been saved using the normal AMOS Pro
+      SAVE command and then packed outside of AMOS by powerpacker itself. PPSAVE
+      actually adds information to the packed file so that PPLOAD knows which bank the
+      data has to be unpacked into.</p></li>
+    <li><p>PPSAVE has to reserve a buffer the size of the bank to be packed so that it can
+      prepare the squashed data for saving. So it's Important to check your memory
+      requirements when using PPSAVE.</p></li>
+    <li><p>PPLOAD will only need to reserve a buffer like PPSAVE does when it's been
+      instructed to load an object or icon bank. All other banks are unsquasheel directly
+      into the actual bank.</p></li>
+    <li><p>The new powerpacker commands work amazingly well with the AMOS Pro packed
+      picture banks. For example, we PPSAVE a packed picture bank of 32K and created a
+      new file of 8.5K in size. The actual IFF picture, which was 100K in size, came out at
+      23K when only compacted by powerpacker.</p></li>
+  </ul>
+</section>
+
+<footer>
+  <a href="14-06-the-compiler-shell.html" rel="prev">The Compiler Shell</a>
+  <a href="./">Contents</a>
+  <a href="99-appendix-g-command-index.html">Index</a>
+  <a href="14-08-compiling-from-the-cli.html" rel="next">Compiling from the CLI</a>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compiler Tutorial - AMOS Professional Manual</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords"
+        content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="Fredrik Rambris">
+  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+  <meta property="og:site_name" content="AMOS Professional Manual">
+  <meta property="og:image" content="https://amospromanual.dev/images/cover.jpg">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="canonical" href="https://amospromanual.dev/14-04-compiler-tutorial.html">
+</head>
+<body>
+
+<section>
+  <h1>Compiler Tutorial</h1>
+
+  <p>
+    The AMOS Pro compiler provides you with everything you need to create professional
+    programs on the Amiga, We'll show you how it works with a simple tutorial. Our mission,
+    will be to load up the Compiler Shell and compile one of the demos from the AMOS Pro
+    Extras disk. For an encore, we'll take our compiled program and install it onto its very own
+    boot disk.
+  </p>
+
+  <p>
+    The AMOS Pro Compiler has been carefully designed to give excellent results on
+    anything from a humble A500+ to the very latest A4000 systems. There's obviously no way
+    we can cater for every possible configuration in the space of a few pages, so we'll keep this
+    tutorial fairy general. When we refer to the AMOS Editor we mean the AMOS Editor you
+    are using - the Easy AMOS one, the AMOS Editor or AMOS Professional Editor.
+  </p>
+
+  <p>
+    If you've extra memory or a hard disk you'll often be able to perform many of these
+    activities using a faster, more efficient approach. However, once you've familiarised
+    yourself with the basic techniques, you'll be in the perfect position to read up on these
+    additional features.
+  </p>
+</section>
+
+<section id="01-preparing-for-the-tutorial">
+  <h2>Preparing for the tutorial</h2>
+
+
+  <p>
+    Before you proceed any further, you'll need to do a little preparation. The AMOS Pro
+    Compiler can't be run straight out of the box. It needs to be installed carefully on your
+    current system.
+  </p>
+
+  <ul>
+    <li><p>If you're an AMOS Pro user, you'll need to immediately update your copy of AMOS
+      Pro to the latest version 2.x system. This applies even if you've already upgraded to
+      AMOS Pro 1.121 As always, you're recommended to perform all upgrades on a
+      copy of your master disks. It's a vital safeguard against mistakes.</p></li>
+    <li><p>You should now install the compiler onto your Amiga. Detailed instructions can be
+      found in Chapter 3. This procedure should be performed by all users, as it sets up
+      the compiler for your particular system.</p></li>
+    <li><p>After you've successfully installed the compiler, you should prepare a couple of
+      fresh 3.5" disks for the tutorial.</p>
+      <p>
+        The first disk should be formatted and labelled as "WORK_DISK". It will be used
+        to hold a working copy of your compiled program$.</p>
+      <p>
+        The second disk will be required by the "BOOT_DISK_MAKER" utility to generate
+        a bootable copy of the compiled example program. See later.</p></li>
+  </ul>
+
+  <p>
+    Now we've created our disks, let's get stuck into our tutorial.
+  </p>
+</section>
+
+<section id="02-selecting-a-program-to-compile">
+  <h2>Selecting a program to Compile</h2>
+
+
+  <p>
+    In order to keep things simple, we'll perform all operations from the Workbench. Start off
+    by inserting your normal "Workbench" disk into the internal drive and rebooting your
+    Amiga.
+  </p>
+
+  <ul>
+    <li><p>When the Workbench screen appears, place your copy of AMOS, EASY AMOS or
+      AMOS Pro into an available drive, and select the disk icon to display its contents on
+      the screen. You should then load your AMOS editor by double clicking on the
+      appropriate icon.</p></li>
+    <li><p>Insert a copy of the AMOS Pro Extras disk and call up the Load option from your
+      editor's main menu. From the file list in the file selector click on the
+      "Compiler_Examples" folder to list the available demo programs. The example we
+      are currently interested in is called "FRACTAL3_EZ.AMOS", So select it with the
+      mouse and load it into the editor.</p></li>
+    <li><p>We'll now run this program on the screen. It's an ingenious fractal generator,
+      created by Jean-Baptiste Bolcato. Just hit F1, and watch it go! While you're at it.
+      don't forget to jot down the timings on a scrap of paper. This will come in handy
+      later, as you'll be able to compare the speed of the interpreted version to the
+      compiled version.</p>
+      <p>
+        Once you've had a play, insert your "WORK DISK" and save the Fractal program as
+        a new file to this disk. Use the SAVE As option from the menu.</p></li>
+    <li><p>You should now leave AMOS and return to the Workbench. It's time to run the
+      compiler!</p></li>
+  </ul>
+</section>
+
+<section id="03-running-the-compiler">
+  <h2>Running the Compiler</h2>
+
+  <ul>
+    <li>
+      <!-- PASTE: "Place the newly installed compiler disk..." step -->
+      <p>
+        Place the newly installed compiler disk into any drive and open up the dir8ctory
+        window CIS before. A large icon labelled Compiler_Shell will be displayed on the
+        screen. This forms the gateway to a simple control panel which handles all aspects
+        of the compilation process. It can be loaded by clicking twice on its icon. Here's a
+        quick run through of the various buttons:
+      </p>
+      <p>
+        <strong>Source</strong> chooses the files you wish to compile.
+      </p>
+      <p>
+        <strong>Destination</strong> enters where the compiled program will be saved once compiled. It's
+        currently set permanently to DISK, but AMOS Pro users will also be able to compile
+        a program directly into a new Editor Window.
+      </p>
+      <p>
+        <strong>Type</strong> chooses the type of the final program. Depending on your selection the
+        compiled program can be run from either the CLI, the Workbench or the AMOS Pro
+        editor.
+      </p>
+      <p>
+        <strong>Compile</strong> begins the compilation process and prompts you for the source and
+        destination files.
+      </p>
+      <p>
+        <strong>Help</strong> activates a powerful on-line help system. When it's clicked on you can view
+        information on any item by simply clicking on a help active zone with the mouse.
+        You can turn the help off by just reselecting the Help icon again.
+        And finally, there's the Flag icon which allows you to quit the Compiler Shell.
+      </p>
+    </li>
+    <li>For the moment, the SOURCE and DESTINATION should be set to "Disk" and the
+      TYPE should be "W.B Exec". If the buttons are currently displaying something
+      else, you may need to click on them a few times to set them correctly. Well, that's
+      the control panel. Let's put it through its paces.
+    </li>
+  </ul>
+</section>
+
+<section id="04-compiling-the-program">
+  <h2>Compiling the program</h2>
+
+  <ul>
+    <li><p>First, click on Compile to begin the compilation. You'll immediately be presented
+      with a standard file selector. This should be used to choose your AMOS source
+      program. Insert the new "WORK_DISK" disk, click on Get Dir and select
+      Fractal3_EZ.AMOS when the directory is displayed.</p></li>
+    <li><p>You'll now be asked to enter a destination file for your compiled program. The
+      name can he typed in either from the selector or generated automatically by the
+      system. Choose "OK" to use the default system which will create a file called
+      Fractal3_EZ.</p></li>
+    <li><p>Your program will now be compiled in front of your eyes. As the compilation
+      progresses. A horizontal bar will expand across the screen. If there are no problems
+      you'll then be presented with a small dialogue box containing a few statistics. Click
+      on "Continue" to return to the main compiler screen.</p></li>
+  </ul>
+</section>
+
+<section id="05-running-the-compiled-program-from-the-workbench">
+  <h2>Running the compiled program from the Workbench</h2>
+
+  <ul>
+    <li><p>Now that we've compiled our example we'll test it from the Workbench. So we'll
+      wave a fond farewell to the control panel and exit by selecting the Flag icon to the
+      left of the screen.</p></li>
+    <li><p>After a few seconds the Workbench will reappear. Open the "WORK_DISK" disk
+      on the screen and click on the newly created "FRACTAL3_EZ" icon. The compiled
+      program will be executed straight-away. As you can see, it's much faster than the
+      interpreted version!</p></li>
+    <li><p>If you're a CLI enthusiast, you can also run the same program from the command line. Replace your Workbench
+      disk and display its contents on the screen. Now
+      click on the "Shell" icon to bring up the CLI Shell.</p></li>
+    <li><p>Insert "WORK DISK" and select it as the current drive. If you've only a single drive
+      use:</p></li>
+  </ul>
+
+  <code class="prefix cli">1.SYS&gt;cd DF0:</code>
+
+  <code class="prefix cli">1.SYS&gt;cd Df1:</code>
+
+  <code class="prefix cli">1.Empty&gt;Fractal3_EZ</code>
+
+  <ul>
+    <li>Finally, we'll round off this section by installing the fractal program onto Its own
+      Individual boot disk.
+    </li>
+  </ul>
+</section>
+
+<section id="06-creating-a-boot-disk">
+  <h2>Creating a boot-disk</h2>
+
+
+  <p>
+    In the original AMOS Compiler creating a boot-disk was a real chore, as you had to copy all
+    the library files by hand. So you’ll be pleased to hear that we've automated the procedure
+    completely. Here's the procedure:
+  </p>
+
+  <ul>
+    <li><p>Insert a copy of the AMOS Professional Extras disk into any drive and select its icon
+      will, the mouse. When the file window appears click twice on the
+      "BOOT_DISK_MAKER" Icon.</p></li>
+    <li><p>You'll now be asked to enter the name of the compiled program to be installed on
+      the disk. If you've been reading the previous tutorial, you should already have this
+      ready. Place the "WORK DISK" in an available drive, and choose "FRACTAL3_EZ"
+      at the file selector. This file will now be loaded straight into memory ready for the
+      installation.</p></li>
+    <li><p>You'll then be prompted for a blank disk for use as your boot disk. So insert it into
+      any drive and click on "OK". Make sure it doesn't contain anything useful, as it's
+      destined for immediate formatting.</p>
+      <p>
+        After the boot disk has been prepared you'll be asked for the
+        "AMOSPro_Compiler:" disk. The program will now copy the various system files
+        onto your new disk, and setup the required start-up sequence in the "S:" directory.
+        If you have two drives, you'll be able to keep both the boot disk and the compiler
+        disk in separate drives. If not, you may have to do a bit of disk swapping.
+        Once the process is complete, you'll be returned directly to the Workbench.</p></li>
+  </ul>
+
+  <p>
+    The new disk can now be booted straight from the internal drive.
+  </p>
+
+  <p>
+    Note: If you want to generate really professional results, it's best to start off your compiled
+    program with a totally clean display. This can be accomplished by selecting the "NODEFAULT"
+    and "WB" options before compilation. Check out the "Compiled Program Setup" menu from Chapter 6.
+  </p>
+
+  <p>
+    And that's it! You've just compiled your first program. The next step is to have a bash at
+    compiling your own AMOS programs.</p>
+  <p>
+    Expect to be amazed!
+  </p>
+</section>
+
+<footer>
+  <a href="14-03-installing-the-compiler.html" rel="prev">Installing the Compiler</a>
+  <a href="./">Contents</a>
+  <a href="99-appendix-g-command-index.html">Index</a>
+  <a href="14-05-the-apcmp-utility.html" rel="next">The APCmp Utility</a>
+</footer>
+
+</body>
+</html>
+

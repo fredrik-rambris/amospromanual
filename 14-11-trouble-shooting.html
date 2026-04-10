@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Trouble Shooting - AMOS Professional Manual</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <meta property="og:site_name" content="AMOS Professional Manual">
+    <meta property="og:image" content="https://amospromanual.dev/images/cover.jpg">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="canonical" href="https://amospromanual.dev/14-11-trouble-shooting.html">
+</head>
+<body>
+
+<section>
+    <h1>Trouble Shooting</h1>
+
+    <!-- PDF Page 51: Chapter 11 opening. Most problems easily sorted
+         by knowing how the Compiler works. -->
+
+    <p>
+        <!-- PASTE: "Most problems that occur with the Compiler..." opening paragraph -->
+    </p>
+</section>
+
+<section id="01-points-of-confusion">
+    <h2>Points of confusion</h2>
+
+<p>
+    Most problems that occur with the Compiler can be easily sorted by knowing more about
+    the way it works. So read this chapter to familiarise yourself with the Compiler's few
+    idiosyncrasies.
+</p>
+    <ul>
+        <li>
+            <p>You receive an error when you try to load compiled ".AMOS" programs into
+                AMOS Basic.</p>
+            <p>Compiled ".AMOS" programs can only be loaded into the latest AMOS
+                Professional editor. You can't use them with either Easy AMOS or AMOS Basic.</p>
+        </li>
+        <li>
+            <p>You receive a "Not an AMOS program error" when compiling an ASCII file.
+                The AMOS Pro Compiler automatically detects if your source file is in text format
+                and adjusts itself accordingly. But it's only able to handle raw ASCII, so if you try to
+                compile documents directly from a word processor you'll have real problems. </p>
+            <p>You'll need to check out the "SAVE ASCII" or "TEXT EXPORT" options from your
+                word processor, and resave your file in the correct format.</p>
+        </li>
+        <li>
+            <p>You are unable to use the Help system.</p>
+            <p>In order to use the help system, you'll need at least 150K of free RAM. Although
+                you're unlikely to have problems if you're running the Shell from the Workbench,
+                AMOS Pro users can occasionally encounter memory problems from the Editor.
+                If you run out of memory, save your current program and try loading the Compiler
+                Shell directly into the editor window. This may make all the difference.</p>
+        </li>
+    </ul>
+</section>
+
+<section id="02-memory-problems">
+    <h2>Memory problems</h2>
+
+
+    <ul>
+        <li>
+            <p>The Compiler Shell gives an “Out of Memory” error</p>
+            <p>If you are using the Shell program from within AMOS Pro, you can occasionally
+                run out of memory. There are several strategies you can adopt:</p>
+            <ol>
+                <li><p>Remove the Shell from memory and compile your program from Direct mode
+                    using a line such as:</p>
+                    <code class="prefix direct">Compile "Source.AMOS"</code>
+                    <p>This will save around 100k of space for compiling work.</p>
+                </li>
+                <li><p>If the Shell has copied the Compiler libraries into a ram disk, call the setup
+                    dialogue and turn this feature off. Then select the “Save Config” button from
+                    the Main setup box and reboot your Amiga with the new settings. The
+                    Compiler may run noticeably slower but you'll have masses of extra memory.</p></li>
+                <li><p>Run the stand alone Compiler Shell from the Workbench.</p></li>
+            </ol>
+            <p>Note: The Compiler Shell will also cut down it's memory use automatically when things get
+                a bit tight. If any animation or music is loaded they'll be the first items to be deleted. If the
+                Shell needs more memory it will erase the animated buttons if they're selected. The final
+                things it can delete are the libraries from the Ram disk.</p>
+        </li>
+
+        <li>
+            <p>You get an “Out of memory error” from Direct mode or the CLI.</p>
+            <p>The AMOS Pro Compiler automatically makes the most out of any available
+                memory. So you should be able to compile some sizeable programs on even the
+                smallest Amiga.
+                </p>
+            <p>
+                If the Compiler runs short of space, it will normally read your program into
+                memory a chunk at a time, as long as it is a tested program. But this is only possible
+                if the program has been saved from AMOS. In order to test and interpret an ASCII
+                program, the Compiler has to load the entire file into memory, and there's no
+                guarantee it will fit.</p>
+        </li>
+
+        <li>
+            <p>You get an “Out of memory error” when you try to use a “.AMOS” compiled
+                program from AMOS Professional.</p>
+            <p>One simple way of minimising the memory consumption is to remove all the
+                memory banks used to hold your sprite, music or screen data from the main
+                program. These banks can then be loaded separately from the disk at the start of
+                your routine. Once the routine's finished with the bank it can then erase it. This will
+                then reduce the final size of the compiled program.
+                </p>
+            <p>
+                If you still run out of space you may need to run your program outside of AMOS
+                Pro. Do this by compiling your program to CLI or Workbench format, you'll then
+                be able to use the maximum available memory on your machine.</p>
+        </li>
+
+        <li>
+            <p>The AMOS RUN command fails from within a compiled program</p>
+            <p>The AMOS RUN command can be used to link together your compiled programs.
+                However, it only works with CLI or Workbench programs. You can't run a
+                “.AMOS” program in this way.
+                </p>
+            <p>
+                On small machines you may find it hard to run a second program due to memory
+                restrictions. If so. you can optimise the memory in two ways:</p>
+            <ol>
+                <li><p>Close all screens, erase all memory banks and clear all AMAL command strings before running the program.</p></li>
+                <li><p>Place the "-Mem" option in COMMAND LINE$. This forces RUN to free as
+                    much memory as possible on start-up. Example:</p>
+                    <code class="prefix edit">Command Line$="-Mem" : Run "Myprog"</code>
+                </li>
+            </ol>
+
+
+        </li>
+    </ul>
+</section>
+
+<section id="03-compiler-refuses-to-compile">
+    <h2>Compiler refuses to compile your AMOS program</h2>
+
+    <ul>
+        <li>
+            <p>Program structure too long, compile with LONG option</p>
+            <p>This error occurs when an IF...ELSE...ENDIF or a WHILE...WEND needs to jump
+                more than 32k in the compiled program. So the Compiler will need to replace the
+                Branch Instructions in the program with the equivalent Jump commands.</p>
+            <p>Don't worry if all this seems like total gobbledygook. All you have to do is set the
+                LONG option from the setup menu and recompile. The final program may be a
+                little longer and run marginally slower but otherwise all will be well.</p>
+        </li>
+    </ul>
+</section>
+
+<section id="04-configuration-problems">
+    <h2>Configuration Problems</h2>
+
+    <p>
+        The AMOS Pro Compiler relies on information held in two configuration files. If these files
+        are accidentally corrupted the system may break down.
+    </p>
+
+    <ul>
+        <li>
+            <p>If both the Compiler and AMOS Pro fail to work. You may get one of the following
+                messages:</p>
+            <p>"Bad Interpreter configuration file"</p>
+            <p>"Cannot load Interpreter configuration"</p>
+            <p>The solution:</p>
+            <ol>
+                <li><p>Copy the following files from your AMOS Pro masters onto your start-up disk:
+                    S:AMOSPro_Interpreter_Config
+                    S:AMOSPro_Cornpiler_Config</p></li>
+                <li><p>Check that you don't have a second AMOSPro_Interpreter_Config file In the
+                    same directory as "AMOSPro". If so delete the erroneous file.</p></li>
+                <li><p>Check that the "AMOS.Library" is inside the LIBS: directory of your current
+                    start-up disk.</p></li>
+            </ol>
+        </li>
+
+        <li>
+            <p>If AMOS Pro works but the Compiler fails, you may get a message such as:</p>
+            <p>"Bad Compiler configuration file"</p>
+            <p>"Cannot load Compiler configuration"</p>
+            <p>In this case your Compiler settings may have been corrupted. So you'll need to
+                replace the imaged "S:AMOSPro_Compiler_Config" file with the original version
+                on the master disks.
+                </p>
+            <p>
+                Also, check that you don't have a second AMOSPro_Interpreter_Config or
+                AMOSPro_Compiler_Config file in the same directory as the file "AMOSPro". If so
+                delete It.</p>
+        </li>
+
+        <li>
+            <p>A program which normally works in AMOS Pro reports an "Extension not Loaded"
+                error while compiling.</p>
+            <p>This error will be very rare. You've probably got a second configuration file which
+                is being loaded by mistake. Either:</p>
+            <ol>
+                <li><p>Delete the "AMOSPro_Interpreter_Config" file from the APSystem folder.</p></li>
+                <li><p>Edit the con Figuration so that it uses the same extension list as the Compiler
+                    version.</p></li>
+                <li><p>Change the path name of the "Interpreter_Config" to point to the alternative
+                    configuration file.</p></li>
+            </ol>
+        </li>
+
+        <li>
+            <p>You get a "Cannot find APSystem folder" error</p>
+            <p>There's a mistake In the "S:Interpreter_Config" file. You may need to copy the
+                default configuration from your AMOS Pro masters.</p>
+        </li>
+
+    </ul>
+
+<h3>When you use APCmp or Shell, certain options seem forced</h3>
+    <ul>
+        <li>
+            <p>
+                You can receive an "Error in the Compiler configuration's command line"
+        </p>
+            <p>
+                Load the Compiler Shell and use the setup option to check the default command
+                line. You may have inadvertently changed a couple of options to silly values.
+            </p>
+        </li>
+    </ul>
+
+</section>
+
+<section id="05-other-errors">
+    <h2>Other errors</h2>
+
+    <dl>
+        <dt>Cannot Open Math Libraries</dt>
+        <dd>The Compiler has attempted to open the mathematics libraries in the "LIBS:" folder
+            of your current boot disk. If you don't have a hard drive make sure that you have a
+            copy of your AMOS Pro start-up disk in any drive.</dd>
+
+        <dt>Cannot locate icon information</dt>
+        <dd>The Compiler can't find either the "Icon.Library" or load in the
+            "def_compiled.info" file from the APSystem folder.</dd>
+
+        <dt>Division by zero</dt>
+        <dd>The Compiler has attempted to optimise your program by calculating all constants
+            in advance. If there's a division by zero on one of your lines you'll get a "Division
+            by zero" error, e.g. A=2/0</dd>
+
+        <dt>Cannot load Editor configuration or Bad editor configuration</dt>
+        <dd>An error has occurred and the Compiler can't find the messages. Check your
+            startup disk to see if they are present in the APSystem folder. </dd>
+
+    </dl>
+</section>
+
+<footer>
+<a href="14-10-technical-details.html" rel="prev">Technical Details</a>
+<a href="./">Contents</a>
+<a href="99-appendix-g-command-index.html">Index</a>
+<a href="99-appendix-a-machine-code.html" rel="next">App. A: Machine Code</a>
+</footer>
+
+</body>
+</html>
+

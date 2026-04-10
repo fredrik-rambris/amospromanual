@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Technical Details - AMOS Professional Manual</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <meta property="og:site_name" content="AMOS Professional Manual">
+    <meta property="og:image" content="https://amospromanual.dev/images/cover.jpg">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="canonical" href="https://amospromanual.dev/14-10-technical-details.html">
+</head>
+<body>
+
+<section>
+    <h1>Technical Details</h1>
+
+    <p>
+        To most people the technical details of the Compiler will be completely irrelevant, as they're
+        not needed to use the package in any way.
+    </p>
+
+    <p>
+        However, if you're an expert, you may be interested in a quick glimpse into the
+        inner Workings of the Compiler.
+    </p>
+
+    <p>
+        The AMOS Pro Compiler has been given a complete overhaul since its previous
+        incarnation. We've taken the original system and made the following improvements:
+    </p>
+</section>
+
+<section id="01-the-new-memory-system">
+    <h2>The new memory system</h2>
+
+    <p>
+        The Compiler now configures itself automatically to the available memory. Any buffers are
+        allocated intelligently by the system. So there's no need to muck around with the original
+        memory options.
+    </p>
+
+    <p>
+        Compiled programs used to be stored in a single memory chunk. Whole source
+        codes would occupy a contiguous 200k block of memory. This was hard to load on small
+        machines, especially when memory was running tight. It also generated lots of annoying
+        "Out of Memory" errors when you tried to launch a new program with the RUN command.
+    </p>
+
+    <p>
+        The AMOS Pro Compiler now splits the code into three separate hunks. There's one
+        link for the compiled program, another for the AMOS Libraries and a third for the support
+        routines such as file-selectors. As a result, compiled programs are much less vulnerable to
+        memory fragmentation and make fewer demands on your Amiga's ram.
+    </p>
+</section>
+
+<section id="02-smaller-compiled-programs">
+    <h2>Smaller compiled programs</h2>
+
+    <p>
+        The AMOS Pro Compiler now stores all Basic instructions in the "AMOS.Library" in the
+        "LIBS:" folder. This library can be shared between any number of programs. So it doesn't
+        need to be saved directly as part of the compiled file. This frees 45K from each program and
+        allows you to create small CLI routines in just a few kilobytes.
+    </p>
+
+    <p>
+        If you're running a ".AMOS" type program from AMOS Pro, it will now be able to
+        call all these functions directly, as the "AMOS.Library" has already been loaded by the
+        interpreter.
+    </p>
+</section>
+
+<section id="03-faster-calculations">
+    <h2>Faster calculations</h2>
+
+    <p>
+        AII calculations are now performed using processor registers, rather than the stack. So
+        they're much faster than the original AMOS versions. We've also heavily optimised many
+        operations. Where possible, ADDQ and SUBQ are substituted for ADD and SUB. And if
+        one of the parameters is an exact power of two, LSR.L and LSL.L instructions are used to
+        replace slow MUL or DIV operations.
+    </p>
+
+    <p>
+        The base address of the variables are now kept permanently in an address register
+        for extra speed. Here's an example of a typical calculation:
+    </p>
+
+    <p>
+        A=B*16 will be compiled as:
+    </p>
+
+<code>Move.l          B(a6),d3
+Moveq           #4,d0
+Lsl.l           d0,d3
+Move.l          d3,A(a6)
+</code>
+
+    <p>
+        What's more, the Compiler now handles double precision. We've even beefed up the VAL
+        instruction so that it works under any situation.
+    </p>
+</section>
+
+<section id="04-faster-library-calls">
+    <h2>Faster library calls</h2>
+
+
+    <p>
+        Library calls are now performed using relative jumps to an address register, making them
+        faster and smaller. We've also improved the error traps. The old version of the Compiler
+        had to insert a "Lea 2(pc),a4" instruction before every function call. This is no longer
+        needed in AMOS Pro. Finally, here's an example of some compiled code for you to examine.
+    </p>
+
+    <p>
+        We'll take the line: "Screen Display 1,X+128,Y Mouse*2-50,,200" and see how
+        it's converted into machine code:
+    </p>
+
+<code>Moveq #1,d3                     "1"
+Move.l d3,-(a3)
+Move.l X(a6),d3                 "X"
+Add.l #128,d3                   "X+128"
+Move.l d3,-(a3)
+Jsr Y_Mouse(a4)                 "Y Mouse"
+Lsl.l #1,d3                     "Y Mouse*2"
+Sub.l (#50,d3)                  "Y Mouse*2-50"
+Move.l d3,-(a3)
+Move.l #Null,-(a3)              "handle the,,"
+Move.l #200,d3                  "200"
+Jsr Screen Display(a4)          "call Screen Display"
+</code>
+
+    <p>
+        As you can see, this code is very efficient. The last parameter is left in d3 to save some
+        processor time.
+    </p>
+</section>
+
+<footer>
+<a href="14-09-running-a-compiled-program.html" rel="prev">Running a Compiled Program</a>
+<a href="./">Contents</a>
+<a href="99-appendix-g-command-index.html">Index</a>
+<a href="14-11-trouble-shooting.html" rel="next">Trouble Shooting</a>
+</footer>
+
+</body>
+</html>
+

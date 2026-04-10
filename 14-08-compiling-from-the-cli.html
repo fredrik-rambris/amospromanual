@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compiling from the CLI - AMOS Professional Manual</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords"
+        content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="Fredrik Rambris">
+  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+  <meta property="og:site_name" content="AMOS Professional Manual">
+  <meta property="og:image" content="https://amospromanual.dev/images/cover.jpg">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="canonical" href="https://amospromanual.dev/14-08-compiling-from-the-cli.html">
+</head>
+<body>
+
+<section>
+  <h1>Compiling from the CLI</h1>
+</section>
+
+<section id="01-introduction">
+  <h2>Introduction</h2>
+
+  <p>
+    If you're a CLI enthusiast, you'll naturally wish to access the AMOS Pro Compiler directly
+    from the command line. This can be accomplished using the all new APCmp command. As
+    you'd expect from the rest of the package it's a great improvement from the original
+    Compiler and includes lots of additional features.
+  </p>
+
+  <p>
+    The new system can effortlessly compile programs from AMOS, EASY AMOS or
+    AMOS Professional. It's also able to read ASCII files directly from a text editor such as CED.
+    What's more, the memory management routines have been completely automated, so that
+    the package makes the maximum use of any extra memory on your machine.
+  </p>
+
+  <p>
+    We've taken the opportunity to replace the original command line options with
+    longer, more readable versions. These follow the standard conventions used by Amiga Dos
+    2.0. So all the previous ACMP commands (from the original Compiler) are now obsolete.
+  </p>
+
+  <p>
+    In all, the AMOS Pro Compiler has been given a complete face-lift and there's
+    plenty of flew stuff to catch up on. But once you've got over the culture shock, we think
+    you'll like the changes.
+  </p>
+</section>
+
+<section id="02-compiler-overview">
+  <h2>Compiler overview</h2>
+
+  <p>
+    The syntax of the APCmp command is:
+  </p>
+
+  <code class="prefix cli">APCmp [FROM] "Source.AMOS"</code>
+
+  <p>
+    Compiles an AMOS program into machine code.
+  </p>
+
+  <p>
+    After you've selected the source file, you can include a number of additional options:
+  </p>
+
+  <!-- Options table -->
+  <table>
+    <tr><th>Option</th><th>Effect</th>
+      <th>Replaces</th>
+    </tr>
+    <tr><td>TO "Destination_Name"</td><td>Chooses a destination file for your program.</td>
+      <td>(-o)</td>
+    </tr>
+    <tr><td>TYPE=0/1/2/3</td><td>Selects the Type of the compiled program.</td>
+      <td>(-t)</td>
+    </tr>
+    <tr><td>DEF/DEFAULT</td><td>Automatically creates a screen when the compiled program starts.</td>
+      <td>(-s1)</td>
+    </tr>
+    <tr><td>NODEF/NODEFAULT</td><td>Starts the compiled program cleanly with a
+        blank display.
+      </td>
+      <td>(-s0)</td>
+    </tr>
+    <tr><td>ERR/ERRORS</td><td>Includes the normal AMOS error messages in
+        the compiled program.
+      </td>
+      <td>(-e1)</td>
+    </tr>
+    <tr><td>NOERR/NOERRORS</td><td>Doesn't included any error messages in the
+        compiled program.
+      </td>
+      <td>(-e0)</td>
+    </tr>
+    <tr><td>WB</td><td>Starts the program in the background.</td>
+      <td>(-w1)</td>
+    </tr>
+    <tr><td>NOWB</td><td>Sets up a new display the moment the compiled
+        program is run.
+      </td>
+      <td>(-w0)</td>
+    </tr>
+    <tr><td>QUIET</td><td>Suppresses Compiler messages.</td>
+      <td>(-q)</td>
+    </tr>
+    <tr><td>LIBS="Libs_folder"</td><td>Tells the Compiler where the APSystem files are
+        located.
+      </td>
+      <td>(-f)</td>
+    </tr>
+    <tr><td>CONFIG="Config_file"</td><td>Loads the default Compiler settings from a
+        selected file.
+      </td>
+      <td>(-c)</td>
+    </tr>
+    <tr><td>LONG</td><td>Uses a 68000 JMP command for all branches in
+        the compiled program.
+      </td>
+      <td>(-l)</td>
+    </tr>
+    <tr><td>NOLONG</td><td>Uses short BRA.S instructions in the program.</td>
+      <td></td>
+    </tr>
+    <tr><td>TEMP="Temp_folder"</td><td>Specifies the directory where any temporary
+        Compiler files will be stored.
+      </td>
+      <td></td>
+    </tr>
+    <tr><td>TOKEN</td><td>Tests an ASCII file and converts it into “.AMOS”
+        format.
+      </td>
+      <td></td>
+    </tr>
+    <tr><td>INCLIB</td><td>Includes the entire AMOS Library as part of
+        your compiled program.
+      </td>
+      <td></td>
+    </tr>
+    <tr><td>NOLIB</td><td>Uses a shared AMOS.Library from the LIBS:
+        folder.
+      </td>
+      <td></td>
+    </tr>
+  </table>
+
+  <p>
+    Note that there's no equivalent to the "-d" options from the original Compiler, as they've
+    been totally superseded by the new optimisation features.
+    Let's have a look at some typical
+    command lines from the CLI:
+  </p>
+
+  <code class="prefix cli">APCmp MyProg.AMOS</code>
+
+  <p>Compiles "MyProg.AMOS" and places the resulting program in a file called "MyProg".</p>
+
+  <code class="prefix cli">APCmp FROM MyProg.AMOS TO Compiled_Version</code>
+
+  <p>Compiles "MyProg.AMOS" and saves the code in a new file called "Compiled_Version"</p>
+
+  <code class="prefix cli">APCmp FROM MyProg.Asc TOKEN</code>
+
+  <p>Reads an ASCII version of your program from "MyProg.Asc" and converts it into a normal
+    AMOS program called "MyProg.AMOS".</p>
+
+  <code class="prefix cli">APCmp FROM MyProg.Asc TO Compiled_Version WB ERRORS NODEFAULT</code>
+
+  <p>Compiles an ASCII the with the WB, ERRORS and NODEFAULT options. The new
+    program will start off in the background and will only be displayed after its initialisation
+    process has been completed.</p>
+
+  <code class="prefix cli">APCmp FROM MyProg.AMOS TEMP="Ram:" LIBS="Ram:APSystem"</code>
+
+  <p>Compiles "MyProg.AMOS". A Ram disk will be used to hold both the temporary tiles and
+    AMOS system libraries. So compilation will be very fast.</p>
+</section>
+
+<section id="03-the-compiler-options-in-depth">
+  <h2>The Compiler options in depth</h2>
+
+  <h3 class="command">FROM</h3>
+  <p><i>Chooses a source program to compile</i><br>
+    <b>FROM file_name.AMOS</b><br>
+    <b>FROM file_name.ASC</b></p>
+
+  <p>
+    This selects a source program to be compiled from the disk. The filename can be anything
+    you like but if it includes spaces you'll need to enclose it in quotation marks like so:
+  </p>
+
+  <code class="prefix cli">APCmp FROM "file name with spaces.AMOS"</code>
+
+  <p>
+    "FROM" is completely optional and can be omitted completely:
+  </p>
+
+  <code class="prefix cli">APCmp File.AMOS</code>
+
+  <p>
+    APCmp allows you to compile programs in either ".AMOS" format or in raw ASCII. Your
+    ".AMOS" files can be created using AMOS. EASY AMOS or AMOS PRO. All source
+    programs should be carefully tested from the editor before they're saved onto the disk. The
+    AMOS Pro Compiler works a lot faster with tested programs.
+  </p>
+
+  <p>
+    ASCII files can be generated by any standard text editor or word processor. But
+    you'll need to ensure that they don't contain any embedded control codes. This is especially
+    important if you're using a word processor, as you'll probably have to save your files using
+    a special menu option. Check out your word processor manual for more information.
+  </p>
+
+  <p>
+    Here are a few further tips to using ASCII files.
+  </p>
+
+  <ol>
+    <li><p>Don't forget to load in any memory banks explicitly as part of your program.</p></li>
+    <li><p>If you're running short of memory, convert your files into ".AMOS" format before
+      compilation. Use a line like:
+      <code class="prefix cli">APCmp File.ASC TOKEN</code>
+      If there are no mistakes, you can now compile this file with:
+      <code class="prefix cli">APCmp File.AMOS</code>
+    </p></li>
+    <li><p>If your word processor has a spell checker, feel free to use it! Since AMOS
+      commands resemble standard English, most spell checkers will treat them as normal text. So you can easily check the spelling of any Rems or screen messages In
+      your programs.</p></li>
+  </ol>
+
+  <h3 class="command">TO</h3>
+  <p><i>Chooses a destination file for your program. Replaces -0</i><br>
+    <b>TO "Destination Name"</b></p>
+
+  <p>
+    Tells the Compiler where you want to place the compiled program. If the destination is
+    omitted the program will be stored in the current directory using an amended version of
+    the original source name.
+  </p>
+
+  <code class="prefix cli">APCmp File.AMOS TO "Df1:File"</code>
+
+  <p>Compiles "File.AMOS" and saves the result In "File" on drive 1.</p>
+
+  <h3 class="command">TYPE</h3>
+  <p><i>Sets the "type" of the compiled program. Replaces -t</i>
+    </p><p>
+    The TYPE option allows you to choose the type of the compiled program. There are four
+    possibilities:
+  </p>
+
+  <dl>
+  <dt>TYPE=0 (Workbench)</dt>
+  <dd>Generates a Workbench program. This can be run from the Workbench by simply clicking
+    on its icon. An appropriate icon will be generated automatically by the Compiler.</dd>
+
+  <dt>TYPE=1 (CLI)</dt>
+  <dd><p>Produces a program in standard CLI format. The compiled program can now be called
+    straight from the command line. Ii the line includes parameters, they can be read directly
+    from your compiled program using the COMMAND LINES function.</p>
+    <p>
+    Apart from the icon, there's absolutely no difference between the CLI or the
+    Workbench versions of your program. So you can happily execute your Workbench
+    programs from the CLI if required.</p></dd>
+
+  <dt>TYPE=2 (Multitasking)</dt>
+  <dd>
+    <p>Creates a CLI program that will automatically run in the background and detaches itself
+      from the CLI from which it was run. It's equivalent to executing your programs with the
+      Amiga Dos RUN command.
+      </p>
+    <p>
+      <b>Warning!</b> This option automatically changes the current directory to "SYS:" at the start of
+      your program. So if your routine accesses the disk, you'll need to include the full pathname
+      as part of your commands. You can also reset it directly using the DIR$ function like so:</p>
+    <code class="prefix edit">DIR$="Work:AMOS_Games/"</code>
+
+  </dd>
+
+  <dt>TYPE=3 (AMOS Professional format)</dt>
+  <dd>Compiles a program In ".AMOS" format. This can only be run from the AMOS Pro Editor.
+    Any attempt to call it from the Workbench or CLI will fail. You'll also get an appropriate
+    error message if you try to load these files into AMOS 1.3x or Easy AMOS.</dd>
+  </dl>
+
+  <h3 class="command">NODEF/NODEFAULT</h3>
+  <p><i>Starts a compiled program with a blank screen. Replaces -s0</i></p>
+  <p>
+    As a rule, your compiled programs will automatically create a default screen for your
+    graphics. This screen is very useful during development but it produces an annoying start
+    to your programs when you'd rather have a nice fade in to your own title screen.</p>
+  <p>
+    If you want to generate smooth transition effects, it's better to define all the screens
+    directly in your program. This can be achieved using the NODEFAULT option which stops
+    the Compiler from creating screen zero. You've now got total control over the Amiga's
+    display. But you'll have to open a new screen before using any of the text or graphic
+    commands. Otherwise your program will immediately stop with a "Screen not opened"
+    error.
+  </p>
+
+  <h3 class="command">DEF/DEFAULT</h3>
+  <p><i>Automatically creates a default screen. Replaces -s1</i></p>
+  <p>
+    This forces your compiled program to create a standard screen for your text and graphics.
+    As you'd expect from its name, it's set up as the default.
+  </p>
+
+  <h3 class="command">ERR/ERRORS</h3>
+  <p><i>Includes AMOS error messages in the compiled program. Replaces -e1</i></p>
+  <p>
+    Normally, the standard AMOS error messages are not included with your compiled
+    program at all. So if a problem occurs or you press Control-C, you'll be returned straight
+    back to where the program was run from.
+  </p>
+  <p>
+    During development, you may find it useful to save the error messages as part of
+    your compiled program. If you get a problem. your program will now display an
+    appropriate error message on the screen.
+  </p>
+  <p>
+    Note: Since a compiled program is in machine code, there's no way of reporting the precise
+    line number at which the problem occurred. However, you'll still have a good idea about
+    the nature of the error. You can now track it down by loading AMOS or AMOS Pro and
+    running the source program through the editor.
+  </p>
+
+  <h3 class="command">NOERR/NOERRORS</h3>
+  <p><i>Doesn't include error messages in the program. Replaces -e0</i></p>
+  <p>
+    Omits the standard AMOS error messages from the compiled program. So if there's a
+    problem, your program will abort immediately without reporting an error.
+  </p>
+
+  <h3 class="command">WB</h3>
+  <p><i>Starts the program in the background. Replaces -w1</i></p>
+  <p>
+    WB suppresses the compiled program display and leaves the old CLI or Workbench screens
+    intact. The effect is Similar to calling the AMOS TO BACK command.
+  </p>
+  <p>
+    You can use It to construct your game screens invisibly In the background, without
+    affecting the existing display. Once your screens have been safely initialised, you can then
+    switch them neatly into place with an AMOS TO FRONT command.
+  </p>
+
+  <p>
+    Here's an example:
+  </p>
+
+  <code class="prefix edit">
+    <comment>Rem Compile with NODEF and WB options set
+    Rem e.g. APCmp View.AMOS NODEF WB
+    Rem Turn off screen updates
+    Rem Open a new screen</comment>
+    Screen Open 0.320,200.64.Lowres
+    <comment>Rem Draw a simple screen</comment>
+    For C=0 To 100
+      RAND:
+      Ink Rnd(64):X1=Rnd(320) : X2=Rnd(320) : Y1=Rnd(200) : Y2=Rnd(200)
+      If X1=X2 Then Goto RAND
+      If Y1=Y2 Then Goto RAND
+      Bar Min(X1.X2),Min(Y1. Y2) To Max(X1,X2),Max(Y1,Y2)
+    Next C
+    <comment>Rem Flick display into place</comment>
+    Amos To Front
+    Wait Key
+  </code>
+
+  <p>
+    This feature can be easily exploited to create standard CLI utility programs. However, if
+    you want to output text to a CLI window, you'll have to call the Amiga Dos libraries
+    directly
+  </p>
+
+  <p>
+    Note: Easy AMOS users will not be able to take advantage of this feature directly. This is
+    because the AMOS TO FRONT command is not In their instruction set. To work around
+    this you'll have to save your program out as ASCII, edit the file in a word processor to add
+    the AMOS TO FRONT command, and then compile the program as ASCII.
+  </p>
+
+  <h3 class="command">NOWB</h3>
+  <p><i>Sets up a new display the moment the compiled program is run -w0</i></p>
+  <p>
+    NOWB (the default) turns off the existing display before your program is run. When you
+    return to the Workbench or CLI the contents of the screen windows will be completely
+    redrawn.
+  </p>
+
+  <h3 class="command">QUIET</h3>
+  <p><i>Suppresses Compiler messages. Replaces -q</i></p>
+  <p>
+    QUIET prevents all messages during the compilation process. The only exceptions are error
+    reports which are displayed normally
+  </p>
+
+  <h3 class="command">LIBS</h3>
+  <p><i>Specifies position of APSystem files. Replaces -f</i><br>
+  <b>LIBS="pathname"</b></p>
+
+  <p>
+    LIBS Instructs the Complier to load its library files from the chosen directory. The default
+    pathname is normally taken from the configuration settings on your start-up disk:
+    </p>
+
+    <pre>S:AMOSPro_Interpreter_Config</pre>
+  <p>
+    <em>pathname</em> is a standard Amiga Dos file spec ending with a “:” or “/” character. The
+    Compiler will read all filenames from the configuration file and substitute their path names
+    with the new directory.
+  </p>
+
+  <p>
+    You can harness this feature to access the Compiler libraries from a RAM disk. This
+    consumes a lot of memory but results in blindingly fast compilation. Here's the procedure:
+  </p>
+
+  <p>
+    First copy the folder to the RAM disk with:
+  </p>
+
+  <code class="prefix cli">cd Ram:
+    makedir APSystem
+    cd AMOSPro_Compiler:
+    copy APSystem To Ram:APSystem</code>
+
+  <p>45
+    You can harness this feature to access the Compiler libraries from a RAM disk. This
+    consumes a lot of memory but results in blindingly fast compilation. Here's the procedure:
+    First copy the folder to the RAM disk with:
+    1> cd Ram:
+    1> makedir APSystem
+    1> cd AMOSPro_Compiler:
+    1> copy APSystem To Ram:APSystem
+    You can now compile your program with the LIBS option like so:</p>
+
+  <code class="prefix cli">APCmp FROM Example.AMOS LIBS="Ram:APSystem"</code>
+
+  <h3 class="command">CONFIG</h3>
+  <p><i>Changes the configuration file. Replaces -c</i><br>
+  <b>CONFIG="Config_file"</b></p>
+
+  <p>
+    CONFIG reads the Compiler settings from the selected file. If the new configuration file is
+    unavailable the compilation will be aborted. The default pathname is:
+    </p>
+
+  <pre>S:AMOSPro_Compiler_Config</pre>
+
+  <h3 class="command">LONG</h3>
+  <p><i>Long jumps rather than short Branches. Replaces -I</i></p>
+  <p>
+    As a default, APCmp uses a 68000 BRA instruction for all jumps within the compiled
+    program. This leads to the fastest possible execution, but it's incapable of handling really
+    large program structures.
+  </p>
+  <p>
+    If the length of WHILE..WEND or IF..ELSE..ENDIF structures exceeds 32k, the
+    Compiler will be unable to use the standard BRA instruction. So you'll end up with a
+    "Program Structure too long" error.</p>
+  <p>
+    The solution is to force APCmp to use a JMP command instead of a relative branch.
+    This can be achieved by simply adding in a LONG directive at the end of the command line
+    and recompiling your program as before. For example:
+  </p>
+
+  <code class="prefix cli">APCmp Large_Program.AMOS LONG</code>
+
+  <p>
+    The program will now compile and can be run without problems.
+    If you're regularly compiling large programs, you can set up this system as a
+    default using a special option from the Compiler Shell. See <a href="14-06-the-compiler-shell.html">Chapter 14-6</a> for more details.
+  </p>
+
+  <h3 class="command">NOLONG</h3>
+  <p><i>Compiles a program using the BRA instruction for any jumps</i></p>
+  <p>
+    Reverts to the most efficient way of handling jumps in your program. Use it if you've
+    selected the "Long Jump" option as part of the Compiler configuration and want to squeeze
+    the maximum space saving performance out of your compiled program.
+  </p>
+
+  <h3 class="command">TEMP</h3>
+  <p><i>Specifies where the temporary files are to be stored</i><br>
+    <b>TEMP="Temp_folder"</b></p>
+
+  <p>
+    APCmp generates a number of internal files during compilation. These are used to hold
+    temporary information and are deleted automatically when you return to the CLI. You can
+    select the directory where these files are to be stored using the TEMP option.
+    If you've plenty of memory you can speed up the compilation dramatically by
+    insisting that all temporary files are saved onto the Ram disk. The line you'll need is:
+  </p>
+
+  <code class="prefix cli">APCmp FROM Program.AMOS TEMP="Ram:"</code>
+
+  <h3 class="command">TOKEN</h3>
+  <p><i>Tokenises and tests an ASCII file</i></p>
+  <p>
+    This option converts the Compiler into a simple tokeniser. It takes an ASCII file, tokenises
+    the commands, tests for errors, and saves the results in a normal ".AMOS" program file.
+    The new file can then be loaded straight into AMOS Pro or compiled using APCmp,
+    just as if it had been created from the editor. Example:
+  </p>
+
+  <code class="prefix cli">APCmp "Test.Asc" TOKEN</code>
+
+  <h3 class="command">NOLIB</h3>
+  <p><i>Use shared AMOS.Library</i></p>
+  <p>
+    The original AMOS Compiler copied the entire AMOS library into each and every program.
+    In practice, this was pretty wasteful, as it led to massive programs. Even a simple "Hello
+    World" routine could take over 50K on the disk.
+  </p>
+  <p>
+    Fortunately, we've improved things dramatically with the AMOS Pro Compiler. The
+    new system stores a single copy of the appropriate library routines into the LIBS: folder,
+    just like any other Amiga application.</p>
+  <p>
+    The AMOS.Library can now be shared between all your compiled programs. So
+    your files will only contain the code which is actually required for your listings. As a result,
+    the compiled programs will be around 45K smaller.
+  </p>
+
+  <h3 class="command">INCLIB</h3>
+  <p><i>Create a stand-alone program</i></p>
+  <p>
+    If you want to create a program which is completely independent of the AMOS system, you
+    can optionally include all the library routines into your compiled code. This will make
+    all your programs around 45K longer than the standard versions, but you won't have to
+    worry bout the contents of the LIBS: folder on the start-up disk. You'll also be sure you're
+    accessing the latest AMOS libraries in your program.
+  </p>
+</section>
+
+<section id="04-amiga-dos-command-template">
+  <h2>Amiga DOS command template</h2>
+
+  <p>
+    Finally, we'll present you with a complete Amiga Dos command template for the AMOS Pro
+    compiler.
+  </p>
+
+  <pre>
+APCMP FROM/A, TO/K, TYPE/K/N, ERR/K, NOERR/K, LONG/K, NOLONG/K,
+     DEF=DEFAULT/K, NODEF=NODEFAULT/K, WB/K, NOWB/K, QUIET/K,
+     TEMP/K/A, LIBS/K/A, CONFIG/K/A, INCLIB/K, NOLIB/K
+</pre>
+</section>
+
+<footer>
+  <a href="14-07-compiling-from-within-amos-professional.html" rel="prev">Compiling from within AMOS Professional
+    2.x</a>
+  <a href="./">Contents</a>
+  <a href="99-appendix-g-command-index.html">Index</a>
+  <a href="14-09-running-a-compiled-program.html" rel="next">Running a Compiled Program</a>
+</footer>
+
+</body>
+</html>
+

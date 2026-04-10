@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Installing the Compiler - AMOS Professional Manual</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords"
+        content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+  <meta name="author" content="Fredrik Rambris">
+  <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+  <meta property="og:site_name" content="AMOS Professional Manual">
+  <meta property="og:image" content="https://amospromanual.dev/images/cover.jpg">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="canonical" href="https://amospromanual.dev/14-03-installing-the-compiler.html">
+</head>
+<body>
+
+<section>
+  <h1>Installing the Compiler</h1>
+
+  <!-- PDF Page 5: Chapter 3 opening. The Compiler automatically configures itself.
+       Installation is easy, makes permanent changes to system files,
+       always install on a copy of the supplied disks.
+       Brief intro about how Compiler is set up for various types of users. -->
+
+  <p>
+    The AMOS Pro Compiler automatically configures itself to make the best possible use of the
+    available system resources.
+  </p>
+
+  <p>
+    The installation process is really easy, and providing you follow the instructions,
+    you should be up and running in a matter of minutes. However, since this procedure makes
+    permanent changes to the original system files, you should always install the Compiler on a
+    <strong>copy</strong> of the supplied disks.
+  </p>
+
+  <p>
+    Before we get stuck into the main installation section, we'll say a few words about
+    the way the Compiler will be setup for the various types of users.
+  </p>
+</section>
+
+<section id="01-easy-amos-and-amos-users">
+  <h2>Easy AMOS and AMOS Users</h2>
+
+  <p>
+    The AMOS Pro Compiler disk will give excellent results on your system. The only snag
+    being the inability to compile or run your programs from your AMOS Editor.
+  </p>
+
+  <p>
+    The installer sets up the Shell permanently on the "AMOSPro_Compiler" disk.
+  </p>
+
+  <p>
+    You can call up the Compiler in three ways:
+  </p>
+
+  <ol>
+    <li>Boot the newly installed "AMOSPro_Compiler:" disk from the internal drive. This
+      makes the maximum use of the available memory and is recommended if you don't
+      have a hard disk.
+    </li>
+    <li>Click on the "COMPILER SHELL" icon from the Workbench.</li>
+    <li>Call the APCmp command from the CLI. Strictly for CLI enthusiasts!</li>
+  </ol>
+</section>
+
+<section id="02-amos-pro-users">
+  <h2>AMOS Pro Users</h2>
+
+
+  <p>
+    AMOS Pro users will be able to access all the compilation features straight from the Editor.
+    The installation program will take your updated AMOS Pro system disk and add three new
+    menu items to the "User" menu: "Compiler Shell", "Compile" and "Set Compiler".
+  </p>
+
+  <p>
+    You can also run the Compiler from AMOS Pro's Direct mode, using the new,
+    improved COMPILE instruction.
+  </p>
+
+  <p>
+    AMOS Pro can compile your programs into CLI, Workbench or ".AMOS" formats,
+    ".AMOS" programs are special, as they can be loaded into a window and run directly from
+    the editor. You can even compile your favourite AMOS Pro accessories in this way! Fancy a
+    faster Object Editor or an instant help system? It's easy with the AMOS Pro Compiler.
+  </p>
+
+  <p>
+    If you'd prefer to run the Compiler from outside AMOS Professional you can also
+    use the same options as AMOS or EASY AMOS users. So you can either:
+  </p>
+
+  <ol>
+    <li>Boot the newly installed "AMOSPro_Compiler:" disk from the internal drive. This
+      consumes the minimum amount of memory and could be quite useful if you're
+      compiling very large programs.
+    </li>
+    <li>Click on the "COMPILER_.SHELL" icon from the Workbench.</li>
+    <li>Enter the APCmp command from the CLI, Perfect if you're compiling ASCII
+      programs from a text editor.
+    </li>
+  </ol>
+</section>
+
+<section id="03-using-a-work-disk">
+  <h2>Using a Work disk</h2>
+
+  <p>
+    The "AMOSPro_Compiler:" disk is crammed full of exciting features and requires an entire
+    3.5 inch disk to itself. So if you don't have a hard drive, you'll need to store all your
+    compiled programs on a separate work disk.
+  </p>
+
+  <p>
+    In practice, it's a good idea to use several disks for this purpose, and switch
+    between them al regular intervals. This avoids the risk of losing vital programs due to a
+    single, unexpected disk error. After all, blank disks are cheap, but your own work is
+    priceless!
+  </p>
+</section>
+
+<section id="04-different-systems">
+  <h2>Different systems</h2>
+
+  <p>
+    When you install the Compiler the system will ask you a few simple questions about your
+    configuration. The installation program takes the following factors into consideration:
+  </p>
+
+  <ul>
+    <li><strong>Your type of AMOS:</strong> If you're an AMOS Pro user, a copy of the Compiler Shell will
+      be saved onto your AMOS Pro boot disk. You'll now be able to call it straight from
+      the Editor without having to swap disks.
+    </li>
+    <li><strong>Are you installing onto a hard disk?:</strong> AMOS Pro works quite differently on floppy
+      and hard disk based systems.
+    </li>
+  </ul>
+
+  <p>
+    Once the installer has this information, it can configure the Compiler to make the best use
+    out of your resources. The precise results will depend on your actual system. Here's a quick
+    run down of the various possibilities:
+  </p>
+</section>
+
+<section id="05-single-floppy-systems">
+  <h2>Single floppy systems (no hard disk)</h2>
+
+  <p>
+    If you've just a single floppy, the Shell will automatically read in the various Compiler
+    libraries and copy them into a super fast ram disk.
+  </p>
+  <p>
+    You'll now be able to remove the Compiler disk from the internal drive and compile
+    your AMOS programs directly from your Work disk. Since the AMOS Pro Compiler
+    generates much smaller files than the original, your disk space will naturally stretch a lot
+    further.
+  </p>
+</section>
+
+<section id="06-twin-drive-floppy-systems">
+  <h2>Twin drive floppy systems (no hard disk)</h2>
+
+  <p>
+    The stand-alone Compiler will work as with a single floppy. It will automatically copy all
+    the necessary library files into the ram disk before use. You'll now be able to place your
+    work disk into any drive and Compile away.
+  </p>
+
+  <p>
+    If you're running the Compiler from the AMOS Pro Editor, things will be slightly
+    different. The Shell will only copy the libraries into the Ram disk if you've more than 1 Meg
+    of memory. If not, the Shell will read the library files directly from the Compiler disk during
+    compilation. So you'll need to keep the Compiler disk in one drive and the work disk in
+    another. This will free up the maximum space for your AMOS programs, but it will also
+    significantly slow down the compilation process. If you're compiling a batch of programs,
+    you may find it quicker to leave AMOS Professional and call the Compiler from the
+    Workbench instead.
+  </p>
+</section>
+
+<section id="07-hard-disk-users">
+  <h2>Hard disk users</h2>
+
+  <p>
+    If you have a hard disk, the AMOS Pro Compiler will perform exceptionally well. You'll get
+    superb results with either AMOS, EASY AMOS or AMOS Pro. All the various Compiler
+    files will be safely installed in their own "Compiler" folder, and you'll be able to access the
+    Shell at any time from the Workbench.
+  </p>
+  <p>
+    The Compiler libraries can be kept on the hard disk or loaded into ram disk as
+    required. Because of the speed of your hard disk, there's not a great deal of difference! Most
+    operations will be practically instant!
+  </p>
+</section>
+
+<section id="08-how-to-install">
+  <h2>How to install</h2>
+
+
+  <p>
+    AMOS Pro users should immediately check that they've upgraded to AMOS Pro 2. This is
+    an essential first step, as the Compiler won't work with anything else.
+  </p>
+
+  <p>
+    If you don't have a hard disk, you can now simply boot up a copy of your original
+    Compiler disk and follow the simple on screen instructions. A few minutes later, the
+    Compiler will be installed!
+  </p>
+
+  <p>
+    Hard disk users should run the separate "COMPILER_INSTALLER" program from
+    the "AMOSPro_Compiler:" disk. After you've provided your configuration details the
+    entire package will be copied into a new "Compiler" folder alongside your other AMOSPro
+    folders, ready for immediate use.
+  </p>
+</section>
+
+<footer>
+  <a href="14-02-updating-amos-pro.html" rel="prev">Updating AMOS Pro to Version 2.x</a>
+  <a href="./">Contents</a>
+  <a href="99-appendix-g-command-index.html">Index</a>
+  <a href="14-04-compiler-tutorial.html" rel="next">Compiler Tutorial</a>
+</footer>
+
+</body>
+</html>
+

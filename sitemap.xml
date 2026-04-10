@@ -325,6 +325,78 @@
     <priority>1</priority>
   </url>
   <url>
+    <loc>https://amospromanual.dev/14-00-foreword.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-01-quick-start.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-02-updating-amos-pro.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-03-installing-the-compiler.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-04-compiler-tutorial.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-05-the-apcmp-utility.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-06-the-compiler-shell.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-07-compiling-from-within-amos-professional.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-08-compiling-from-the-cli.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-09-running-a-compiled-program.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-10-technical-details.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://amospromanual.dev/14-11-trouble-shooting.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
     <loc>https://amospromanual.dev/99-appendix-a-machine-code.html</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -361,7 +433,7 @@
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://amospromanual.dev/99-appendix-g-command-</loc>
+    <loc>https://amospromanual.dev/99-appendix-g-command-index.html</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>

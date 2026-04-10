@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Running a Compiled Program - AMOS Professional Manual</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Amos Professional, Amiga, Programming, Basic, Francois Lionet, Europress Software Ltd, Amos, computing, code, AmigaDOS">
+    <meta name="author" content="Fredrik Rambris">
+    <link rel="GitHub" href="https://github.com/fredrik-rambris/amospromanual">
+    <meta property="og:site_name" content="AMOS Professional Manual">
+    <meta property="og:image" content="https://amospromanual.dev/images/cover.jpg">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="canonical" href="https://amospromanual.dev/14-09-running-a-compiled-program.html">
+</head>
+<body>
+
+<section>
+    <h1>Running a Compiled Program</h1>
+
+    <p>
+        There are several possibilities:
+    </p>
+</section>
+
+<section id="01-stand-alone-programs">
+    <h2>Stand-alone programs</h2>
+
+    <p>
+        These are independent of the AMOS Professional package and can be run on any Amiga,
+        even if you don't have a copy of AMOS Pro.
+    </p>
+
+    <p>
+        Note: If your compiled program used the INCLIB option, your program will expect
+        to find he "AMOS.library" in the LIBS: directory of the start-up disk. If this is a problem,
+        you can easily include the necessary system routines in your compiled program. Just
+        choose the appropriate set up option from the Compiler Shell or add in the INCLIB
+        directive to your command line.
+    </p>
+</section>
+
+<section id="02-workbench-programs">
+    <h2>Workbench programs</h2>
+
+
+    <p>
+        If you've compiled your program using the "WB exec" option, you'll be able to execute it
+        straight from the Workbench by simply clicking on its icon with the mouse.
+    </p>
+</section>
+
+<section id="03-cli-programs">
+    <h2>CLI programs</h2>
+
+
+    <p>
+        These programs can be called up directly from the command line by typing their name.
+        They are created when you select the "CLI exec" option from the compiler shell or with the
+        TYPE=1 directive. For example:
+    </p>
+
+<code class="prefix cli">Demo</code>
+
+    <p>
+        This runs a program called "Demo" from the current disk.
+        The Amiga treats these CLI programs exactly like any other machine code
+        command, so they can be run from within batch files or executed automatically during your
+        start-up sequence.
+    </p>
+
+    <p>
+        You can also include parameters in the command line as well. These will be copied
+        into the reserved variable COMMAND LINE$ when your program is initialised.
+        For example:
+    </p>
+
+<code class="prefix cli">Demo these are parameters</code>
+
+    <p>
+        Executes the compiled program called "Demo" and loads the line "these are parameters"
+        into COMMAND LINE$.
+    </p>
+</section>
+
+<section id="04-amos-pro-compatible-programs">
+    <h2>AMOS Pro compatible programs</h2>
+
+    <p>
+        These programs can only be run from an AMOS Pro window. They are not compatible with
+        either the AMOS or EASY AMOS editors. So if you've yet to upgrade, you'll need to avoid
+        this format completely and run your compiled programs from the CLI or Workbench
+        instead.
+    </p>
+
+    <p>
+        Since these programs are executed directly from AMOS Professional they can make
+        use of the existing AMOS system libraries in memory. As a result, they are considerably
+        smaller than the equivalent CLI or Workbench versions.
+    </p>
+    <p>
+        AMOS Pro programs use their own special format, which should be selected before
+        compilation. Set the TYPE option to "AMOS Compiled" from the Compiler Shell or use the
+        "TYPE" directive from the CLI:
+    </p>
+
+<code class="prefix cli">APCmp Program.AMOS TYPE=3</code>
+
+    <p>
+        Once you've compiled a ".AMOS" program, you can load it straight into AMOS
+        Professional and run it from its very own program window.
+    </p>
+    <p>
+        The compiled program is stored in its own editor window and is treated just like
+        any normal AMOS Professional program. All memory banks are in standard format and
+        can be loaded, saved or grabbed as required. You can even execute a compiled program
+        from the AMOS Pro menu!
+    </p>
+</section>
+
+<section id="05-leaving-a-compiled-program">
+    <h2>Leaving a compiled program</h2>
+
+    <p>
+        When your compiled programs are through, they'll automatically return you to the original
+        calling environment. You can also abort at any time by holding down the Control and C
+        keys. (as long as BREAK OFF hasn't been set by the compiled program).
+    </p>
+</section>
+
+<section id="06-error-messages">
+    <h2>Error messages</h2>
+
+    <p>
+        If you've compiled your program with the "Include error messages" or ERR option from
+        the command line, a standard AMOS error report will be displayed when something goes
+        wrong. Alternatively, if you've omitted these messages, your program will exit immediately
+        in the event of an error. The error messages are displayed differently depending on the
+        environment you are using:
+    </p>
+
+    <p><b>Workbench:</b>
+        The message will be displayed in a small alert box.</p>
+
+    <p><b>CLI:</b>
+        The error will be reported to the current CLI window.</p>
+
+    <p><b>.AMOS programs:</b>
+        You'll see the error message on the INFO line of the active
+        editor window.</p>
+
+    <p>
+        The compiler uses the same error messages as the interpreter, but there are no line
+        numbers. So if you want to find the exact position at which the error occurred, you'll need
+        to check out the original source program from within your AMOS editor.
+    </p>
+</section>
+
+<footer>
+<a href="14-08-compiling-from-the-cli.html" rel="prev">Compiling from the CLI</a>
+<a href="./">Contents</a>
+<a href="99-appendix-g-command-index.html">Index</a>
+<a href="14-10-technical-details.html" rel="next">Technical Details</a>
+</footer>
+
+</body>
+</html>
+
