@@ -145,6 +145,10 @@
         discarded when the listing is saved onto disc. A quick check can be made to see if the data area
         has been successfully assigned to fast memory, using the FAST FREE function, like this:</p>
 
+    <h3 class="command" id="fn-fast-free">FAST FREE</h3>
+    <p><i>function: return the amount of free fast memory</i><br>
+        memory=<b>Fast Free</b></p>
+
 <code class="prefix edit">M=Fast Free : <comment>Rem Give the amount of available FAST memory</comment>
 Reserve As Work 10,1000
 If M<>Fast Free
@@ -163,6 +167,10 @@ End If
         Chip Ram. If there is none available, an "Out of Memory" error will be reported. You can obtain
         an instant read-out of the remaining chip memory by calling the CHIP FREE function, as
         follows:</p>
+
+    <h3 class="command" id="fn-chip-free">CHIP FREE</h3>
+    <p><i>function: return the amount of free chip memory</i><br>
+        memory=<b>Chip Free</b></p>
 
 <code class="prefix edit">CF=Chip Free
 Print "Remaining Chip memory = ";CF;" bytes."
